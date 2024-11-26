@@ -1,0 +1,1901 @@
+vsim -gui work.median_no_image_tb
+# vsim -gui work.median_no_image_tb 
+# Start time: 22:20:05 on Nov 26,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Line_buffer
+add wave *
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  12
+# 
+#  24
+# 
+#  35
+# 
+#  47
+# 
+#  61
+# 
+#  72
+# 
+#  83
+# 
+#  94
+# 
+# 106
+# 
+# 117
+# 
+# 128
+# 
+# 139
+# 
+# 151
+# 
+# 162
+# 
+# 173
+# 
+# 184
+# 
+#   0
+# 
+# 240
+# 
+#   0
+# 
+# 240
+# 
+#   0
+# 
+# 240
+# 
+#   0
+# 
+# 240
+# 
+# Final median value: 240
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(93)
+#    Time: 1280 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 93
+vsim -gui work.median_no_image_tb
+# End time: 22:21:15 on Nov 26,2024, Elapsed time: 0:01:10
+# Errors: 0, Warnings: 1
+# vsim -gui work.median_no_image_tb 
+# Start time: 22:21:15 on Nov 26,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Line_buffer
+add wave *
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  12
+# 
+#  24
+# 
+#  35
+# 
+#  47
+# 
+#  61
+# 
+#  72
+# 
+#  83
+# 
+#  94
+# 
+# 106
+# 
+# 117
+# 
+# 128
+# 
+# 139
+# 
+# 151
+# 
+# 162
+# 
+# 173
+# 
+# 184
+# 
+#   0
+# 
+# 240
+# 
+#   0
+# 
+# 240
+# 
+#   0
+# 
+# 240
+# 
+#   0
+# 
+# 240
+# 
+# Final median value: 240
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(93)
+#    Time: 1280 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 93
+# Compile of Line_buffer_controller.v was successful.
+# Compile of Line_buffer_datapath.v was successful.
+# Compile of Line_buffer.v was successful.
+# Compile of Line_buffer_tb.v was successful.
+# Compile of Median_preparation.v was successful with warnings.
+# Compile of Median_preparation_tb.v was successful.
+# Compile of Node.v was successful.
+# Compile of Sorting_network.v was successful.
+# Compile of Sorting_network_tb.v was successful.
+# Compile of Node_tb.v was successful.
+# Compile of Median_filter_3x3_calc.v was successful.
+# Compile of Median_filter_3x3_calc_tb.v was successful.
+# Compile of median.v was successful.
+# Compile of median_tb.v was successful.
+# Compile of Gray2RGB.v was successful.
+# Compile of RGB2Gray.v was successful.
+# Compile of Median_filter_3x3.v was successful.
+# Compile of Median_filter_3x3_data_modulate.v was successful.
+# Compile of median_no_image.v was successful.
+# Compile of median_no_image_tb.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim -gui work.median_no_image_tb
+# End time: 22:57:48 on Nov 26,2024, Elapsed time: 0:36:33
+# Errors: 0, Warnings: 2
+# vsim -gui work.median_no_image_tb 
+# Start time: 22:57:48 on Nov 26,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (1) for port 'med'. The port definition is at: D:/Thesis/Src/modules/MedianFilterModule/Sorting_network.v(6).
+#    Time: 0 ps  Iteration: 0  Instance: /median_no_image_tb/uut/MEDIAN_FILTER_3X3/MEDIAN_3X3_CALC/SN4 File: D:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3_calc.v Line: 97
+add wave *
+add wave *
+run
+#   x
+# 
+#   0
+# 
+# Final median value:   0
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(93)
+#    Time: 380 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 93
+# Compile of Line_buffer_controller.v was successful.
+# Compile of Line_buffer_datapath.v was successful.
+# Compile of Line_buffer.v was successful.
+# Compile of Line_buffer_tb.v was successful.
+# Compile of Median_preparation.v was successful with warnings.
+# Compile of Median_preparation_tb.v was successful.
+# Compile of Node.v was successful.
+# Compile of Sorting_network.v was successful.
+# Compile of Sorting_network_tb.v was successful.
+# Compile of Node_tb.v was successful.
+# Compile of Median_filter_3x3_calc.v was successful.
+# Compile of Median_filter_3x3_calc_tb.v was successful.
+# Compile of median.v was successful.
+# Compile of median_tb.v was successful.
+# Compile of Gray2RGB.v was successful.
+# Compile of RGB2Gray.v was successful.
+# Compile of Median_filter_3x3.v was successful.
+# Compile of Median_filter_3x3_data_modulate.v was successful.
+# Compile of median_no_image.v was successful.
+# Compile of median_no_image_tb.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim -gui work.median_no_image_tb
+# End time: 22:59:49 on Nov 26,2024, Elapsed time: 0:02:01
+# Errors: 0, Warnings: 3
+# vsim -gui work.median_no_image_tb 
+# Start time: 22:59:49 on Nov 26,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+add wave 8
+# ** UI-Msg: (vish-4014) No objects found matching '8'.
+add wave *
+add wave *
+run
+#   x
+# 
+#   0
+# 
+# Final median value:   0
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(93)
+#    Time: 380 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 93
+# Compile of Line_buffer_controller.v was successful.
+# Compile of Line_buffer_datapath.v was successful.
+# Compile of Line_buffer.v was successful.
+# Compile of Line_buffer_tb.v was successful.
+# Compile of Median_preparation.v was successful with warnings.
+# Compile of Median_preparation_tb.v was successful.
+# Compile of Node.v was successful.
+# Compile of Sorting_network.v was successful.
+# Compile of Sorting_network_tb.v was successful.
+# Compile of Node_tb.v was successful.
+# Compile of Median_filter_3x3_calc.v was successful.
+# Compile of Median_filter_3x3_calc_tb.v was successful.
+# Compile of median.v was successful.
+# Compile of median_tb.v was successful.
+# Compile of Gray2RGB.v was successful.
+# Compile of RGB2Gray.v was successful.
+# Compile of Median_filter_3x3.v was successful.
+# Compile of Median_filter_3x3_data_modulate.v was successful.
+# Compile of median_no_image.v was successful.
+# Compile of median_no_image_tb.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim -gui work.median_no_image_tb
+# End time: 23:01:10 on Nov 26,2024, Elapsed time: 0:01:21
+# Errors: 0, Warnings: 2
+# vsim -gui work.median_no_image_tb 
+# Start time: 23:01:10 on Nov 26,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+add wave *
+add wave *
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  12
+# 
+#  24
+# 
+#  35
+# 
+#  47
+# 
+#  61
+# 
+#  72
+# 
+#  83
+# 
+#  94
+# 
+# 106
+# 
+# 117
+# 
+# 128
+# 
+# 139
+# 
+# Final median value: 139
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(93)
+#    Time: 380 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 93
+# Compile of Line_buffer_controller.v was successful.
+# Compile of Line_buffer_datapath.v was successful.
+# Compile of Line_buffer.v was successful.
+# Compile of Line_buffer_tb.v was successful.
+# Compile of Median_preparation.v was successful with warnings.
+# Compile of Median_preparation_tb.v was successful.
+# Compile of Node.v was successful.
+# Compile of Sorting_network.v was successful.
+# Compile of Sorting_network_tb.v was successful.
+# Compile of Node_tb.v was successful.
+# Compile of Median_filter_3x3_calc.v was successful.
+# Compile of Median_filter_3x3_calc_tb.v was successful.
+# Compile of median.v was successful.
+# Compile of median_tb.v was successful.
+# Compile of Gray2RGB.v was successful.
+# Compile of RGB2Gray.v was successful.
+# Compile of Median_filter_3x3.v was successful.
+# Compile of Median_filter_3x3_data_modulate.v was successful.
+# Compile of median_no_image.v was successful.
+# Compile of median_no_image_tb.v was successful.
+# 20 compiles, 0 failed with no errors.
+add wave *
+vsim -gui work.median_no_image_tb
+# End time: 23:12:16 on Nov 26,2024, Elapsed time: 0:11:06
+# Errors: 0, Warnings: 2
+# vsim -gui work.median_no_image_tb 
+# Start time: 23:12:16 on Nov 26,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+add wave *
+add wave *
+run
+#   0
+# 
+#  12
+# 
+#  24
+# 
+#  35
+# 
+#  47
+# 
+#  61
+# 
+#  72
+# 
+#  83
+# 
+#  94
+# 
+# 106
+# 
+# 117
+# 
+# 128
+# 
+# 139
+# 
+# 151
+# 
+# Final median value: 151
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(93)
+#    Time: 380 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 93
+# Compile of Line_buffer_controller.v was successful.
+# Compile of Line_buffer_datapath.v was successful.
+# Compile of Line_buffer.v was successful.
+# Compile of Line_buffer_tb.v was successful.
+# Compile of Median_preparation.v was successful with warnings.
+# Compile of Median_preparation_tb.v was successful.
+# Compile of Node.v was successful.
+# Compile of Sorting_network.v was successful.
+# Compile of Sorting_network_tb.v was successful.
+# Compile of Node_tb.v was successful.
+# Compile of Median_filter_3x3_calc.v was successful.
+# Compile of Median_filter_3x3_calc_tb.v was successful.
+# Compile of median.v was successful.
+# Compile of median_tb.v was successful.
+# Compile of Gray2RGB.v was successful.
+# Compile of RGB2Gray.v was successful.
+# Compile of Median_filter_3x3.v was successful.
+# Compile of Median_filter_3x3_data_modulate.v was successful.
+# Compile of median_no_image.v was successful.
+# Compile of median_no_image_tb.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim -gui work.median_no_image_tb
+# End time: 23:14:30 on Nov 26,2024, Elapsed time: 0:02:14
+# Errors: 0, Warnings: 2
+# vsim -gui work.median_no_image_tb 
+# Start time: 23:14:30 on Nov 26,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+add wave *
+run
+#   0
+# 
+#  12
+# 
+#  24
+# 
+#  35
+# 
+#  47
+# 
+#  61
+# 
+#  72
+# 
+#  83
+# 
+#  94
+# 
+# 106
+# 
+# 117
+# 
+# 128
+# 
+# 139
+# 
+# 151
+# 
+# 162
+# 
+# 173
+# 
+# 184
+# 
+# 151
+# 
+# 162
+# 
+# 173
+# 
+# 184
+# 
+# 240
+# 
+# Final median value: 240
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(93)
+#    Time: 1280 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 93
+vsim -gui work.median_tb
+# End time: 23:15:38 on Nov 26,2024, Elapsed time: 0:01:08
+# Errors: 0, Warnings: 1
+# vsim -gui work.median_tb 
+# Start time: 23:15:38 on Nov 26,2024
+# Loading work.median_tb
+# Loading work.median
+# Loading work.RGB2Gray
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Gray2RGB
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fread'.
+#    Time: 0 ps  Iteration: 0  Region: /median_tb/readBMP File: D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v Line: 81
+add wave *
+run
+# bmp_size      518456!
+# 
+# bmp_start_pos          54!
+# 
+# bmp_width          480!
+# 
+# bmp_height          360!
+# 
+# biBitCount           24!
+# 
+# read BMP done!
+# Write output ~~~
+# 
+# write BMP: D:\Thesis\Data\outputs\sample_res.bmp done!
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v(185)
+#    Time: 1728140 ns  Iteration: 0  Instance: /median_tb
+# Break in Module median_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v line 185
+# Compile of Line_buffer_controller.v was successful.
+# Compile of Line_buffer_datapath.v was successful.
+# Compile of Line_buffer.v was successful.
+# Compile of Line_buffer_tb.v was successful.
+# Compile of Median_preparation.v was successful with warnings.
+# Compile of Median_preparation_tb.v was successful.
+# Compile of Node.v was successful.
+# Compile of Sorting_network.v was successful.
+# Compile of Sorting_network_tb.v was successful.
+# Compile of Node_tb.v was successful.
+# Compile of Median_filter_3x3_calc.v was successful.
+# Compile of Median_filter_3x3_calc_tb.v was successful.
+# Compile of median.v was successful.
+# Compile of median_tb.v was successful.
+# Compile of Gray2RGB.v was successful.
+# Compile of RGB2Gray.v was successful.
+# Compile of Median_filter_3x3.v was successful.
+# Compile of Median_filter_3x3_data_modulate.v was successful.
+# Compile of median_no_image.v was successful.
+# Compile of median_no_image_tb.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim -gui work.median_tb
+# End time: 23:17:08 on Nov 26,2024, Elapsed time: 0:01:30
+# Errors: 0, Warnings: 3
+# vsim -gui work.median_tb 
+# Start time: 23:17:08 on Nov 26,2024
+# Loading work.median_tb
+# Loading work.median
+# Loading work.RGB2Gray
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Gray2RGB
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fread'.
+#    Time: 0 ps  Iteration: 0  Region: /median_tb/readBMP File: D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v Line: 81
+add wave *
+?un
+# invalid command name "?un"
+run
+# bmp_size      518456!
+# 
+# bmp_start_pos          54!
+# 
+# bmp_width          480!
+# 
+# bmp_height          360!
+# 
+# biBitCount           24!
+# 
+# read BMP done!
+# Write output ~~~
+# 
+# write BMP: D:\Thesis\Data\outputs\sample_res.bmp done!
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v(185)
+#    Time: 1728140 ns  Iteration: 0  Instance: /median_tb
+# Break in Module median_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v line 185
+# Compile of Line_buffer_controller.v was successful.
+# Compile of Line_buffer_datapath.v was successful.
+# Compile of Line_buffer.v was successful.
+# Compile of Line_buffer_tb.v was successful.
+# Compile of Median_preparation.v was successful with warnings.
+# Compile of Median_preparation_tb.v was successful.
+# Compile of Node.v was successful.
+# Compile of Sorting_network.v was successful.
+# Compile of Sorting_network_tb.v was successful.
+# Compile of Node_tb.v was successful.
+# Compile of Median_filter_3x3_calc.v was successful.
+# Compile of Median_filter_3x3_calc_tb.v was successful.
+# Compile of median.v was successful.
+# Compile of median_tb.v was successful.
+# Compile of Gray2RGB.v was successful.
+# Compile of RGB2Gray.v was successful.
+# Compile of Median_filter_3x3.v was successful.
+# Compile of Median_filter_3x3_data_modulate.v was successful.
+# Compile of median_no_image.v was successful.
+# Compile of median_no_image_tb.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim -gui work.median_no_image_tb
+# End time: 23:17:53 on Nov 26,2024, Elapsed time: 0:00:45
+# Errors: 0, Warnings: 3
+# vsim -gui work.median_no_image_tb 
+# Start time: 23:17:53 on Nov 26,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  12
+# 
+#  24
+# 
+#  35
+# 
+#  47
+# 
+#  61
+# 
+#  72
+# 
+#  83
+# 
+#  94
+# 
+# 106
+# 
+# 117
+# 
+# 128
+# 
+# 139
+# 
+# 151
+# 
+# 162
+# 
+# 173
+# 
+# 184
+# 
+# 151
+# 
+# 162
+# 
+# 173
+# 
+# 184
+# 
+# 240
+# 
+# Final median value: 240
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(93)
+#    Time: 1280 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 93
+# Compile of Line_buffer_controller.v was successful.
+# Compile of Line_buffer_datapath.v was successful.
+# Compile of Line_buffer.v was successful.
+# Compile of Line_buffer_tb.v was successful.
+# Compile of Median_preparation.v was successful with warnings.
+# Compile of Median_preparation_tb.v was successful.
+# Compile of Node.v was successful.
+# Compile of Sorting_network.v was successful.
+# Compile of Sorting_network_tb.v was successful.
+# Compile of Node_tb.v was successful.
+# Compile of Median_filter_3x3_calc.v was successful.
+# Compile of Median_filter_3x3_calc_tb.v was successful.
+# Compile of median_tb.v was successful.
+# Compile of Gray2RGB.v was successful.
+# Compile of RGB2Gray.v was successful.
+# Compile of Median_filter_3x3.v was successful.
+# Compile of Median_filter_3x3_data_modulate.v was successful.
+# Compile of median_no_image.v was successful.
+# Compile of median_no_image_tb.v was successful.
+# 19 compiles, 1 failed with no errors.
+vsim -gui work.median_no_image_tb
+# End time: 23:24:14 on Nov 26,2024, Elapsed time: 0:06:21
+# Errors: 0, Warnings: 2
+# vsim -gui work.median_no_image_tb 
+# Start time: 23:24:14 on Nov 26,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+add wave (
+# ** UI-Msg: (vish-4014) No objects found matching '('.
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  12
+# 
+#  24
+# 
+#  35
+# 
+#  47
+# 
+#  61
+# 
+#  72
+# 
+#  83
+# 
+#  94
+# 
+# 106
+# 
+# 117
+# 
+# 128
+# 
+# 139
+# 
+# 151
+# 
+# 162
+# 
+# 173
+# 
+# 184
+# 
+# 151
+# 
+# 162
+# 
+# 173
+# 
+# 184
+# 
+# 240
+# 
+# Final median value: 240
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(93)
+#    Time: 1280 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 93
+vsim -gui work.median_no_image_tb
+# End time: 23:29:21 on Nov 26,2024, Elapsed time: 0:05:07
+# Errors: 0, Warnings: 1
+# vsim -gui work.median_no_image_tb 
+# Start time: 23:29:21 on Nov 26,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+add wave *
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  12
+# 
+#  24
+# 
+#  35
+# 
+#  47
+# 
+#  61
+# 
+#  72
+# 
+#  83
+# 
+#  94
+# 
+# 106
+# 
+# 117
+# 
+# 128
+# 
+# 139
+# 
+# 151
+# 
+# 162
+# 
+# 173
+# 
+# 184
+# 
+# 151
+# 
+# 162
+# 
+# 173
+# 
+# 184
+# 
+# 240
+# 
+# Final median value: 240
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(93)
+#    Time: 1280 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 93
+# Can't move the Now cursor.
+add wave *
+vsim -gui work.Median_filter_3x3_calc_tb
+# End time: 23:30:53 on Nov 26,2024, Elapsed time: 0:01:32
+# Errors: 0, Warnings: 1
+# vsim -gui work.Median_filter_3x3_calc_tb 
+# Start time: 23:30:53 on Nov 26,2024
+# Loading work.Median_filter_3x3_calc_tb
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+add wave *
+run
+# Time:                    0 | Median Output:   x | Done Output: x
+# Time:                 5000 | Median Output:   0 | Done Output: 0
+# Time:                25000 | Median Output:   0 | Done Output: 1
+# Time:                35000 | Median Output:  65 | Done Output: 1
+# Time:                55000 | Median Output:  50 | Done Output: 0
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/Median_filter_3x3_calc_tb.v(98)
+#    Time: 145 ns  Iteration: 0  Instance: /Median_filter_3x3_calc_tb
+# Break in Module Median_filter_3x3_calc_tb at D:/Thesis/Src/test_benches/MedianFilterModule/Median_filter_3x3_calc_tb.v line 98
+# Compile of Line_buffer_controller.v was successful.
+# Compile of Line_buffer_datapath.v was successful.
+# Compile of Line_buffer.v was successful.
+# Compile of Line_buffer_tb.v was successful.
+# Compile of Median_preparation.v was successful with warnings.
+# Compile of Median_preparation_tb.v was successful.
+# Compile of Node.v was successful.
+# Compile of Sorting_network.v was successful.
+vsim -gui work.Median_filter_3x3_calc
+# End time: 23:31:40 on Nov 26,2024, Elapsed time: 0:00:47
+# Errors: 0, Warnings: 1
+# vsim -gui work.Median_filter_3x3_calc 
+# Start time: 23:31:40 on Nov 26,2024
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Compile of Sorting_network_tb.v was successful.
+# Compile of Node_tb.v was successful.
+# Compile of Median_filter_3x3_calc.v was successful.
+# Compile of Median_filter_3x3_calc_tb.v was successful.
+# Compile of median_tb.v was successful.
+# Compile of Gray2RGB.v was successful.
+# Compile of RGB2Gray.v was successful.
+# Compile of Median_filter_3x3.v was successful.
+# Compile of Median_filter_3x3_data_modulate.v was successful.
+# Compile of median_no_image.v was successful.
+# Compile of median_no_image_tb.v was successful.
+# 19 compiles, 1 failed with no errors.
+add wave *
+run
+vsim -gui work.Median_filter_3x3_calc_tb
+# End time: 23:32:02 on Nov 26,2024, Elapsed time: 0:00:22
+# Errors: 0, Warnings: 2
+# vsim -gui work.Median_filter_3x3_calc_tb 
+# Start time: 23:32:02 on Nov 26,2024
+# Loading work.Median_filter_3x3_calc_tb
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+add wave *
+run
+# Time:                    0 | Median Output:   x | Done Output: x
+# Time:                 5000 | Median Output:   0 | Done Output: 0
+# Time:                25000 | Median Output:   0 | Done Output: 1
+# Time:                35000 | Median Output:  12 | Done Output: 1
+# Time:                55000 | Median Output:  50 | Done Output: 0
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/Median_filter_3x3_calc_tb.v(98)
+#    Time: 145 ns  Iteration: 0  Instance: /Median_filter_3x3_calc_tb
+# Break in Module Median_filter_3x3_calc_tb at D:/Thesis/Src/test_benches/MedianFilterModule/Median_filter_3x3_calc_tb.v line 98
+# Compile of Line_buffer_controller.v was successful.
+# Compile of Line_buffer_datapath.v was successful.
+# Compile of Line_buffer.v was successful.
+# Compile of Line_buffer_tb.v was successful.
+# Compile of Median_preparation.v was successful with warnings.
+# Compile of Median_preparation_tb.v was successful.
+# Compile of Node.v was successful.
+# Compile of Sorting_network.v was successful.
+# Compile of Sorting_network_tb.v was successful.
+# Compile of Node_tb.v was successful.
+# Compile of Median_filter_3x3_calc.v was successful.
+# Compile of Median_filter_3x3_calc_tb.v was successful.
+# Compile of median_tb.v was successful.
+# Compile of Gray2RGB.v was successful.
+# Compile of RGB2Gray.v was successful.
+# Compile of Median_filter_3x3.v was successful.
+# Compile of Median_filter_3x3_data_modulate.v was successful.
+# Compile of median_no_image.v was successful.
+# Compile of median_no_image_tb.v was successful.
+# 19 compiles, 1 failed with no errors.
+
+vsim -gui work.Median_filter_3x3_calc_tb
+# End time: 23:33:40 on Nov 26,2024, Elapsed time: 0:01:38
+# Errors: 0, Warnings: 2
+# vsim -gui work.Median_filter_3x3_calc_tb 
+# Start time: 23:33:40 on Nov 26,2024
+# Loading work.Median_filter_3x3_calc_tb
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+add wave *
+run
+# Time:                    0 | Median Output:   x | Done Output: x
+# Time:                 5000 | Median Output:   0 | Done Output: 0
+# Time:                25000 | Median Output:   0 | Done Output: 1
+# Time:                35000 | Median Output:   x | Done Output: 1
+# Time:                55000 | Median Output:  50 | Done Output: 0
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/Median_filter_3x3_calc_tb.v(98)
+#    Time: 145 ns  Iteration: 0  Instance: /Median_filter_3x3_calc_tb
+# Break in Module Median_filter_3x3_calc_tb at D:/Thesis/Src/test_benches/MedianFilterModule/Median_filter_3x3_calc_tb.v line 98
+# Compile of Line_buffer_controller.v was successful.
+# Compile of Line_buffer_datapath.v was successful.
+# Compile of Line_buffer.v was successful.
+# Compile of Line_buffer_tb.v was successful.
+# Compile of Median_preparation.v was successful with warnings.
+# Compile of Median_preparation_tb.v was successful.
+# Compile of Node.v was successful.
+# Compile of Sorting_network.v was successful.
+# Compile of Sorting_network_tb.v was successful.
+# Compile of Node_tb.v was successful.
+# Compile of Median_filter_3x3_calc.v was successful.
+# Compile of Median_filter_3x3_calc_tb.v was successful.
+# Compile of median_tb.v was successful.
+# Compile of Gray2RGB.v was successful.
+# Compile of RGB2Gray.v was successful.
+# Compile of Median_filter_3x3.v was successful.
+# Compile of Median_filter_3x3_data_modulate.v was successful.
+# Compile of median_no_image.v was successful.
+# Compile of median_no_image_tb.v was successful.
+# 19 compiles, 1 failed with no errors.
+vsim -gui work.Median_filter_3x3_calc_tb
+# End time: 23:36:56 on Nov 26,2024, Elapsed time: 0:03:16
+# Errors: 0, Warnings: 2
+# vsim -gui work.Median_filter_3x3_calc_tb 
+# Start time: 23:36:56 on Nov 26,2024
+# Loading work.Median_filter_3x3_calc_tb
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Compile of Line_buffer_controller.v was successful.
+# Compile of Line_buffer_datapath.v was successful.
+# Compile of Line_buffer.v was successful.
+# Compile of Line_buffer_tb.v was successful.
+# Compile of Median_preparation.v was successful with warnings.
+# Compile of Median_preparation_tb.v was successful.
+# Compile of Node.v was successful.
+# Compile of Sorting_network.v was successful.
+# Compile of Sorting_network_tb.v was successful.
+# Compile of Node_tb.v was successful.
+# Compile of Median_filter_3x3_calc.v was successful.
+# Compile of Median_filter_3x3_calc_tb.v was successful.
+# Compile of median_tb.v was successful.
+# Compile of Gray2RGB.v was successful.
+# Compile of RGB2Gray.v was successful.
+# Compile of Median_filter_3x3.v was successful.
+# Compile of Median_filter_3x3_data_modulate.v was successful.
+# Compile of median_no_image.v was successful.
+# Compile of median_no_image_tb.v was successful.
+# 19 compiles, 1 failed with no errors.
+vsim -gui work.Median_filter_3x3_calc_tb
+# End time: 23:37:32 on Nov 26,2024, Elapsed time: 0:00:36
+# Errors: 0, Warnings: 3
+# vsim -gui work.Median_filter_3x3_calc_tb 
+# Start time: 23:37:32 on Nov 26,2024
+# Loading work.Median_filter_3x3_calc_tb
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+add wave *
+run
+# Time:                    0 | Median Output:   x | Done Output: x
+# Time:                 5000 | Median Output:   0 | Done Output: 0
+# Time:                25000 | Median Output:   0 | Done Output: 1
+# Time:                35000 | Median Output:  12 | Done Output: 1
+# Time:                55000 | Median Output:  50 | Done Output: 0
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/Median_filter_3x3_calc_tb.v(98)
+#    Time: 145 ns  Iteration: 0  Instance: /Median_filter_3x3_calc_tb
+# Break in Module Median_filter_3x3_calc_tb at D:/Thesis/Src/test_benches/MedianFilterModule/Median_filter_3x3_calc_tb.v line 98
+vsim -gui work.median_no_image_tb
+# End time: 23:39:50 on Nov 26,2024, Elapsed time: 0:02:18
+# Errors: 0, Warnings: 1
+# vsim -gui work.median_no_image_tb 
+# Start time: 23:39:51 on Nov 26,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+add wave *
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  12
+# 
+#  24
+# 
+#  35
+# 
+#  47
+# 
+#  61
+# 
+#  72
+# 
+#  83
+# 
+#  94
+# 
+# 106
+# 
+# 117
+# 
+# 128
+# 
+# 139
+# 
+# 151
+# 
+# 162
+# 
+# 173
+# 
+# 184
+# 
+# 151
+# 
+# 162
+# 
+# 173
+# 
+# 184
+# 
+# 240
+# 
+# Final median value: 240
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(93)
+#    Time: 1280 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 93
+# Can't move the Now cursor.
+vsim -gui work.median_no_image_tb
+# End time: 23:42:46 on Nov 26,2024, Elapsed time: 0:02:55
+# Errors: 0, Warnings: 1
+# vsim -gui work.median_no_image_tb 
+# Start time: 23:42:46 on Nov 26,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  12
+# 
+#  24
+# 
+#  35
+# 
+#  47
+# 
+#  61
+# 
+#  72
+# 
+#  83
+# 
+#  94
+# 
+# 106
+# 
+# 117
+# 
+# 128
+# 
+# 139
+# 
+# 151
+# 
+# 162
+# 
+# 173
+# 
+# 184
+# 
+# 151
+# 
+# 162
+# 
+# 173
+# 
+# 184
+# 
+# 240
+# 
+# Final median value: 240
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(93)
+#    Time: 1280 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 93
+# Compile of Line_buffer_controller.v was successful.
+# Compile of Line_buffer_datapath.v was successful.
+# Compile of Line_buffer.v was successful.
+# Compile of Line_buffer_tb.v was successful.
+# Compile of Median_preparation.v was successful with warnings.
+# Compile of Median_preparation_tb.v was successful.
+# Compile of Node.v was successful.
+# Compile of Sorting_network.v was successful.
+# Compile of Sorting_network_tb.v was successful.
+# Compile of Node_tb.v was successful.
+# Compile of Median_filter_3x3_calc.v was successful.
+# Compile of Median_filter_3x3_calc_tb.v was successful.
+# Compile of median_tb.v was successful.
+# Compile of Gray2RGB.v was successful.
+# Compile of RGB2Gray.v was successful.
+# Compile of Median_filter_3x3.v was successful.
+# Compile of Median_filter_3x3_data_modulate.v was successful.
+# Compile of median_no_image.v was successful.
+# Compile of median_no_image_tb.v was successful.
+# Compile of median.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim -gui work.median_tb
+# End time: 23:49:04 on Nov 26,2024, Elapsed time: 0:06:18
+# Errors: 0, Warnings: 3
+# vsim -gui work.median_tb 
+# Start time: 23:49:04 on Nov 26,2024
+# Loading work.median_tb
+# Loading work.median
+# Loading work.RGB2Gray
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Gray2RGB
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fread'.
+#    Time: 0 ps  Iteration: 0  Region: /median_tb/readBMP File: D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v Line: 81
+add wave *
+run
+# bmp_size      518456!
+# 
+# bmp_start_pos          54!
+# 
+# bmp_width          480!
+# 
+# bmp_height          360!
+# 
+# biBitCount           24!
+# 
+# read BMP done!
+# Write output ~~~
+# 
+# write BMP: D:\Thesis\Data\outputs\sample_res.bmp done!
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v(185)
+#    Time: 1728140 ns  Iteration: 0  Instance: /median_tb
+# Break in Module median_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v line 185
+# Compile of Line_buffer_controller.v was successful.
+# Compile of Line_buffer_datapath.v was successful.
+# Compile of Line_buffer.v was successful.
+# Compile of Line_buffer_tb.v was successful.
+# Compile of Median_preparation.v was successful with warnings.
+# Compile of Median_preparation_tb.v was successful.
+# Compile of Node.v was successful.
+# Compile of Sorting_network.v was successful.
+# Compile of Sorting_network_tb.v was successful.
+# Compile of Node_tb.v was successful.
+# Compile of Median_filter_3x3_calc.v was successful.
+# Compile of Median_filter_3x3_calc_tb.v was successful.
+# Compile of median_tb.v was successful.
+# Compile of Gray2RGB.v was successful.
+# Compile of RGB2Gray.v was successful.
+# Compile of Median_filter_3x3.v was successful.
+# Compile of Median_filter_3x3_data_modulate.v was successful.
+# Compile of median_no_image.v was successful.
+# Compile of median_no_image_tb.v was successful.
+# Compile of median.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim -gui work.median_tb
+# End time: 23:58:07 on Nov 26,2024, Elapsed time: 0:09:03
+# Errors: 0, Warnings: 3
+# vsim -gui work.median_tb 
+# Start time: 23:58:07 on Nov 26,2024
+# Loading work.median_tb
+# Loading work.median
+# Loading work.RGB2Gray
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Gray2RGB
+# Loading work.Line_buffer
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fread'.
+#    Time: 0 ps  Iteration: 0  Region: /median_tb/readBMP File: D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v Line: 81
+add wave *
+run
+# bmp_size      518456!
+# 
+# bmp_start_pos          54!
+# 
+# bmp_width          480!
+# 
+# bmp_height          360!
+# 
+# biBitCount           24!
+# 
+# read BMP done!
+# Write output ~~~
+# 
+# write BMP: D:\Thesis\Data\outputs\sample_res.bmp done!
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v(185)
+#    Time: 1728140 ns  Iteration: 0  Instance: /median_tb
+# Break in Module median_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v line 185
+# Compile of Line_buffer_controller.v was successful.
+# Compile of Line_buffer_datapath.v was successful.
+# Compile of Line_buffer.v was successful.
+# Compile of Line_buffer_tb.v was successful.
+# Compile of Median_preparation.v was successful with warnings.
+# Compile of Median_preparation_tb.v was successful.
+# Compile of Node.v was successful.
+# Compile of Sorting_network.v was successful.
+# Compile of Sorting_network_tb.v was successful.
+# Compile of Node_tb.v was successful.
+# Compile of Median_filter_3x3_calc.v was successful.
+# Compile of Median_filter_3x3_calc_tb.v was successful.
+# Compile of median_tb.v was successful.
+# Compile of Gray2RGB.v was successful.
+# Compile of RGB2Gray.v was successful.
+# Compile of Median_filter_3x3.v was successful.
+# Compile of Median_filter_3x3_data_modulate.v was successful.
+# Compile of median_no_image.v was successful.
+# Compile of median_no_image_tb.v was successful.
+# Compile of median.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim -gui work.median_tb
+# End time: 23:59:32 on Nov 26,2024, Elapsed time: 0:01:25
+# Errors: 0, Warnings: 3
+# vsim -gui work.median_tb 
+# Start time: 23:59:32 on Nov 26,2024
+# Loading work.median_tb
+# Loading work.median
+# Loading work.RGB2Gray
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Gray2RGB
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fread'.
+#    Time: 0 ps  Iteration: 0  Region: /median_tb/readBMP File: D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v Line: 81
+add wave *
+run
+# bmp_size      518456!
+# 
+# bmp_start_pos          54!
+# 
+# bmp_width          480!
+# 
+# bmp_height          360!
+# 
+# biBitCount           24!
+# 
+# read BMP done!
+# Write output ~~~
+# 
+# write BMP: D:\Thesis\Data\outputs\sample_res.bmp done!
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v(185)
+#    Time: 1728140 ns  Iteration: 0  Instance: /median_tb
+# Break in Module median_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v line 185
+# Compile of Line_buffer_controller.v was successful.
+# Compile of Line_buffer_datapath.v was successful.
+# Compile of Line_buffer.v was successful.
+# Compile of Line_buffer_tb.v was successful.
+# Compile of Median_preparation.v was successful with warnings.
+# Compile of Median_preparation_tb.v was successful.
+# Compile of Node.v was successful.
+# Compile of Sorting_network.v was successful.
+# Compile of Sorting_network_tb.v was successful.
+# Compile of Node_tb.v was successful.
+# Compile of Median_filter_3x3_calc.v was successful.
+# Compile of Median_filter_3x3_calc_tb.v was successful.
+# Compile of median_tb.v was successful.
+# Compile of Gray2RGB.v was successful.
+# Compile of RGB2Gray.v was successful.
+# Compile of Median_filter_3x3.v was successful.
+# Compile of Median_filter_3x3_data_modulate.v was successful.
+# Compile of median_no_image.v was successful.
+# Compile of median_no_image_tb.v was successful.
+# Compile of median.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim -gui work.median_tb
+# End time: 00:00:33 on Nov 27,2024, Elapsed time: 0:01:01
+# Errors: 0, Warnings: 3
+# vsim -gui work.median_tb 
+# Start time: 00:00:33 on Nov 27,2024
+# Loading work.median_tb
+# Loading work.median
+# Loading work.RGB2Gray
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Gray2RGB
+# Loading work.Line_buffer
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fread'.
+#    Time: 0 ps  Iteration: 0  Region: /median_tb/readBMP File: D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v Line: 81
+add wave *
+run
+# bmp_size      518456!
+# 
+# bmp_start_pos          54!
+# 
+# bmp_width          480!
+# 
+# bmp_height          360!
+# 
+# biBitCount           24!
+# 
+# read BMP done!
+# Write output ~~~
+# 
+# write BMP: D:\Thesis\Data\outputs\sample_res.bmp done!
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v(185)
+#    Time: 1728140 ns  Iteration: 0  Instance: /median_tb
+# Break in Module median_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v line 185
+# Compile of Line_buffer_controller.v was successful.
+# Compile of Line_buffer_datapath.v was successful.
+# Compile of Line_buffer.v was successful.
+# Compile of Line_buffer_tb.v was successful.
+# Compile of Median_preparation.v was successful with warnings.
+# Compile of Median_preparation_tb.v was successful.
+# Compile of Node.v was successful.
+# Compile of Sorting_network.v was successful.
+# Compile of Sorting_network_tb.v was successful.
+# Compile of Node_tb.v was successful.
+# Compile of Median_filter_3x3_calc.v was successful.
+# Compile of Median_filter_3x3_calc_tb.v was successful.
+# Compile of median_tb.v was successful.
+# Compile of Gray2RGB.v was successful.
+# Compile of RGB2Gray.v was successful.
+# Compile of Median_filter_3x3.v was successful.
+# Compile of Median_filter_3x3_data_modulate.v was successful.
+# Compile of median_no_image.v was successful.
+# Compile of median_no_image_tb.v was successful.
+# Compile of median.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim -gui work.median_tb
+# End time: 00:02:34 on Nov 27,2024, Elapsed time: 0:02:01
+# Errors: 0, Warnings: 3
+# vsim -gui work.median_tb 
+# Start time: 00:02:35 on Nov 27,2024
+# Loading work.median_tb
+# Loading work.median
+# Loading work.RGB2Gray
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Gray2RGB
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fread'.
+#    Time: 0 ps  Iteration: 0  Region: /median_tb/readBMP File: D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v Line: 81
+add wave *
+run
+# bmp_size      518456!
+# 
+# bmp_start_pos          54!
+# 
+# bmp_width          480!
+# 
+# bmp_height          360!
+# 
+# biBitCount           24!
+# 
+# read BMP done!
+# Write output ~~~
+# 
+# write BMP: D:\Thesis\Data\outputs\sample_res.bmp done!
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v(185)
+#    Time: 1728140 ns  Iteration: 0  Instance: /median_tb
+# Break in Module median_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v line 185
+# Compile of Line_buffer_controller.v was successful.
+# Compile of Line_buffer_datapath.v was successful.
+# Compile of Line_buffer.v was successful.
+# Compile of Line_buffer_tb.v was successful.
+# Compile of Median_preparation.v was successful with warnings.
+# Compile of Median_preparation_tb.v was successful.
+# Compile of Node.v was successful.
+# Compile of Sorting_network.v was successful.
+# Compile of Sorting_network_tb.v was successful.
+# Compile of Node_tb.v was successful.
+# Compile of Median_filter_3x3_calc.v was successful.
+# Compile of Median_filter_3x3_calc_tb.v was successful.
+# Compile of median_tb.v was successful.
+# Compile of Gray2RGB.v was successful.
+# Compile of RGB2Gray.v was successful.
+# Compile of Median_filter_3x3.v was successful.
+# Compile of Median_filter_3x3_data_modulate.v was successful.
+# Compile of median_no_image.v was successful.
+# Compile of median_no_image_tb.v was successful.
+# Compile of median.v was successful.
+# 20 compiles, 0 failed with no errors.
+add wave *
+vsim -gui work.median_tb
+# End time: 00:04:24 on Nov 27,2024, Elapsed time: 0:01:49
+# Errors: 0, Warnings: 3
+# vsim -gui work.median_tb 
+# Start time: 00:04:24 on Nov 27,2024
+# Loading work.median_tb
+# Loading work.median
+# Loading work.RGB2Gray
+# Loading work.Gray2RGB
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fread'.
+#    Time: 0 ps  Iteration: 0  Region: /median_tb/readBMP File: D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v Line: 81
+add wave *
+run
+# bmp_size      518456!
+# 
+# bmp_start_pos          54!
+# 
+# bmp_width          480!
+# 
+# bmp_height          360!
+# 
+# biBitCount           24!
+# 
+# read BMP done!
+# Write output ~~~
+# 
+# write BMP: D:\Thesis\Data\outputs\sample_res.bmp done!
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v(185)
+#    Time: 1728140 ns  Iteration: 0  Instance: /median_tb
+# Break in Module median_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v line 185
+# Compile of Line_buffer_controller.v was successful.
+# Compile of Line_buffer_datapath.v was successful.
+# Compile of Line_buffer.v was successful.
+# Compile of Line_buffer_tb.v was successful.
+# Compile of Median_preparation.v was successful with warnings.
+# Compile of Median_preparation_tb.v was successful.
+# Compile of Node.v was successful.
+# Compile of Sorting_network.v was successful.
+# Compile of Sorting_network_tb.v was successful.
+# Compile of Node_tb.v was successful.
+# Compile of Median_filter_3x3_calc.v was successful.
+# Compile of Median_filter_3x3_calc_tb.v was successful.
+# Compile of median_tb.v was successful.
+# Compile of Gray2RGB.v was successful.
+# Compile of RGB2Gray.v was successful.
+# Compile of Median_filter_3x3.v was successful.
+# Compile of Median_filter_3x3_data_modulate.v was successful.
+# Compile of median_no_image.v was successful.
+# Compile of median_no_image_tb.v was successful.
+# Compile of median.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim -gui work.median_tb
+# End time: 00:06:10 on Nov 27,2024, Elapsed time: 0:01:46
+# Errors: 0, Warnings: 3
+# vsim -gui work.median_tb 
+# Start time: 00:06:10 on Nov 27,2024
+# Loading work.median_tb
+# Loading work.median
+# Loading work.RGB2Gray
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Gray2RGB
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fread'.
+#    Time: 0 ps  Iteration: 0  Region: /median_tb/readBMP File: D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v Line: 81
+# Compile of Line_buffer_controller.v was successful.
+# Compile of Line_buffer_datapath.v was successful.
+# Compile of Line_buffer.v was successful.
+# Compile of Line_buffer_tb.v was successful.
+# Compile of Median_preparation.v was successful with warnings.
+# Compile of Median_preparation_tb.v was successful.
+# Compile of Node.v was successful.
+# Compile of Sorting_network.v was successful.
+# Compile of Sorting_network_tb.v was successful.
+# Compile of Node_tb.v was successful.
+# Compile of Median_filter_3x3_calc.v was successful.
+# Compile of Median_filter_3x3_calc_tb.v was successful.
+# Compile of median_tb.v was successful.
+# Compile of Gray2RGB.v was successful.
+# Compile of RGB2Gray.v was successful.
+# Compile of Median_filter_3x3.v was successful.
+# Compile of Median_filter_3x3_data_modulate.v was successful.
+# Compile of median_no_image.v was successful.
+# Compile of median_no_image_tb.v was successful.
+# Compile of median.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim -gui work.median_tb
+# End time: 00:06:28 on Nov 27,2024, Elapsed time: 0:00:18
+# Errors: 0, Warnings: 3
+# vsim -gui work.median_tb 
+# Start time: 00:06:28 on Nov 27,2024
+# Loading work.median_tb
+# Loading work.median
+# Loading work.RGB2Gray
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Gray2RGB
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fread'.
+#    Time: 0 ps  Iteration: 0  Region: /median_tb/readBMP File: D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v Line: 81
+add wave *
+run
+# bmp_size      518456!
+# 
+# bmp_start_pos          54!
+# 
+# bmp_width          480!
+# 
+# bmp_height          360!
+# 
+# biBitCount           24!
+# 
+# read BMP done!
+# Write output ~~~
+# 
+# write BMP: D:\Thesis\Data\outputs\sample_res.bmp done!
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v(185)
+#    Time: 1728140 ns  Iteration: 0  Instance: /median_tb
+# Break in Module median_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v line 185
+vsim -gui work.median_no_image_tb
+# End time: 00:07:43 on Nov 27,2024, Elapsed time: 0:01:15
+# Errors: 0, Warnings: 2
+# vsim -gui work.median_no_image_tb 
+# Start time: 00:07:43 on Nov 27,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  12
+# 
+#  24
+# 
+#  35
+# 
+#  47
+# 
+#  58
+# 
+#  61
+# 
+#  72
+# 
+#  83
+# 
+#  94
+# 
+# 105
+# 
+# 106
+# 
+# 117
+# 
+# 128
+# 
+# 139
+# 
+# 150
+# 
+# 151
+# 
+# 162
+# 
+# 173
+# 
+# 184
+# 
+# 195
+# 
+# 196
+# 
+# 207
+# 
+# 218
+# 
+# 229
+# 
+# 240
+# 
+# Final median value: 240
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(93)
+#    Time: 1280 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 93
+run
+vsim -gui work.median_no_image_tb
+# End time: 00:09:02 on Nov 27,2024, Elapsed time: 0:01:19
+# Errors: 0, Warnings: 1
+# vsim -gui work.median_no_image_tb 
+# Start time: 00:09:02 on Nov 27,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  12
+# 
+#  24
+# 
+#  35
+# 
+#  47
+# 
+#  58
+# 
+#  61
+# 
+#  72
+# 
+#  83
+# 
+#  94
+# 
+# 105
+# 
+# 106
+# 
+# 117
+# 
+# 128
+# 
+# 139
+# 
+# 150
+# 
+# 151
+# 
+# 162
+# 
+# 173
+# 
+# 184
+# 
+# 195
+# 
+# 196
+# 
+# 207
+# 
+# 218
+# 
+# 229
+# 
+# 240
+# 
+# Final median value: 240
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(93)
+#    Time: 1280 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 93
+vsim -gui work.median_no_image_tb
+# End time: 00:09:59 on Nov 27,2024, Elapsed time: 0:00:57
+# Errors: 0, Warnings: 1
+# vsim -gui work.median_no_image_tb 
+# Start time: 00:09:59 on Nov 27,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  12
+# 
+#  24
+# 
+#  35
+# 
+#  47
+# 
+#  58
+# 
+#  61
+# 
+#  72
+# 
+#  83
+# 
+#  94
+# 
+# 105
+# 
+# 106
+# 
+# 117
+# 
+# 128
+# 
+# 139
+# 
+# 150
+# 
+# 151
+# 
+# 162
+# 
+# 173
+# 
+# 184
+# 
+# 195
+# 
+# 196
+# 
+# 207
+# 
+# 218
+# 
+# 229
+# 
+# 240
+# 
+# Final median value: 240
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(93)
+#    Time: 1280 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 93
+# Compile of Line_buffer_controller.v was successful.
+# Compile of Line_buffer_datapath.v was successful.
+# Compile of Line_buffer.v was successful.
+# Compile of Line_buffer_tb.v was successful.
+# Compile of Median_preparation.v was successful with warnings.
+# Compile of Median_preparation_tb.v was successful.
+# Compile of Node.v was successful.
+# Compile of Sorting_network.v was successful.
+# Compile of Sorting_network_tb.v was successful.
+# Compile of Node_tb.v was successful.
+# Compile of Median_filter_3x3_calc.v was successful.
+# Compile of Median_filter_3x3_calc_tb.v was successful.
+# Compile of median_tb.v was successful.
+# Compile of Gray2RGB.v was successful.
+# Compile of RGB2Gray.v was successful.
+# Compile of Median_filter_3x3.v was successful.
+# Compile of Median_filter_3x3_data_modulate.v was successful.
+# Compile of median_no_image.v was successful.
+# Compile of median_no_image_tb.v was successful.
+# Compile of median.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim -gui work.median_TB
+# End time: 00:13:48 on Nov 27,2024, Elapsed time: 0:03:49
+# Errors: 0, Warnings: 2
+# vsim -gui work.median_TB 
+# Start time: 00:13:48 on Nov 27,2024
+# ** Error: (vsim-3170) Could not find 'median_TB'.
+#         Searched libraries:
+#             D:/Thesis/Src/simulation/work
+# Error loading design
+# End time: 00:13:48 on Nov 27,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 1
+vsim -gui work.median_tb
+# vsim -gui work.median_tb 
+# Start time: 00:13:50 on Nov 27,2024
+# Loading work.median_tb
+# Loading work.median
+# Loading work.RGB2Gray
+# Loading work.Median_preparation
+# Loading work.Median_filter_3x3
+# Loading work.Median_filter_3x3_data_modulate
+# Loading work.Median_filter_3x3_calc
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Gray2RGB
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fread'.
+#    Time: 0 ps  Iteration: 0  Region: /median_tb/readBMP File: D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v Line: 81
+add wave *
+run
+# bmp_size      518456!
+# 
+# bmp_start_pos          54!
+# 
+# bmp_width          480!
+# 
+# bmp_height          360!
+# 
+# biBitCount           24!
+# 
+# read BMP done!
+# Write output ~~~
+# 
+# write BMP: D:\Thesis\Data\outputs\sample_res.bmp done!
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v(185)
+#    Time: 1728140 ns  Iteration: 0  Instance: /median_tb
+# Break in Module median_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v line 185
+# End time: 00:15:41 on Nov 27,2024, Elapsed time: 0:01:51
+# Errors: 0, Warnings: 2

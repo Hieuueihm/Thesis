@@ -1,0 +1,69 @@
+module Sorting_network (
+    input            clk,
+    input            rst,
+    input            start_i,  // start_i signal indicating new inputs
+    input      [7:0] S1,         // Input 1
+    input      [7:0] S2,         // Input 2
+    input      [7:0] S3,         // Input 3
+    output reg       done_o_o,   // Output done_o signal
+    output     [7:0] max,        // Maximum value
+    output     [7:0] med,        // Median value
+    output     [7:0] min         // Minimum value
+);
+
+  wire [7:0] max1, min1;
+  wire [7:0] max2, min2;
+  wire [7:0] max3, min3;
+
+  reg [1:0] cycle_count;  // To track 3 clock cycles
+
+  // Nodes
+  Node stage1 (
+      .clk(clk),
+      .rst(rst),
+      .A(S1),
+      .B(S2),
+      .min_o(min1),
+      .max_o(max1)
+  );
+
+  Node stage2 (
+      .clk(clk),
+      .rst(rst),
+      .A(min1),
+      .B(S3),
+      .min_o(min2),
+      .max_o(max2)
+  );
+
+  Node stage3 (
+      .clk(clk),
+      .rst(rst),
+      .A(max1),
+      .B(max2),
+      .min_o(med),
+      .max_o(max3)
+  );
+
+  assign max = max3;  // Final maximum
+  assign min = min2;  // Final minimum
+
+  // done_o Signal Logic
+  always @(posedge clk or posedge rst) begin
+    if (rst) begin
+      cycle_count <= 2'b0;
+      done_o <= 1'b0;
+    end else if (start_i) begin
+      if (cycle_count == 2'b10) begin
+        done_o <= 1'b1;
+        cycle_count <= 2'b0;
+      end else begin
+        done_o <= 1'b0;
+        cycle_count <= cycle_count + 1;
+      end
+    end else begin
+      done_o <= 1'b0;
+    end
+  end
+
+endmodule

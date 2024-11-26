@@ -1,0 +1,652 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dD:/Code/FPGADesign/Sobel_Edge_Detection
+vfifo_single_line_buffer
+!s110 1732582536
+!i10b 1
+!s100 gnXK7M]CVZFIn7TST@[903
+Z0 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I;NX2i2ZFlW5[@VQ><l=R52
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dD:/Thesis/Src/simulation
+w1732582480
+Z3 8D:/Thesis/Src/modules/MedianPreparationModule/Line_buffer.v
+Z4 FD:/Thesis/Src/modules/MedianPreparationModule/Line_buffer.v
+!i122 399
+L0 1 65
+Z5 OV;L;2020.1;71
+r1
+!s85 0
+31
+!s108 1732582536.000000
+Z6 !s107 D:/Thesis/Src/modules/MedianPreparationModule/Line_buffer.v|
+Z7 !s90 -reportprogress|300|-work|work|-vlog01compat|-stats=none|D:/Thesis/Src/modules/MedianPreparationModule/Line_buffer.v|
+!i113 1
+Z8 o-work work -vlog01compat
+Z9 tCvgOpt 0
+vGray2RGB
+Z10 !s110 1732641220
+!i10b 1
+!s100 ]6Kn?EfamNhe74=<1^IaC3
+R0
+I^bGz>`Sz9j^eH;:SjhW:93
+R1
+R2
+w1732611524
+8D:/Thesis/Src/modules/OutputModule/Gray2RGB.v
+FD:/Thesis/Src/modules/OutputModule/Gray2RGB.v
+!i122 2367
+L0 1 34
+R5
+r1
+!s85 0
+31
+Z11 !s108 1732641220.000000
+!s107 D:/Thesis/Src/modules/OutputModule/Gray2RGB.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/OutputModule/Gray2RGB.v|
+!i113 1
+Z12 o-work work
+R9
+n@gray2@r@g@b
+vLine_buffer
+Z13 !s110 1732641218
+!i10b 1
+!s100 Pb^]OC[ek@nTMnn`0NT3C0
+R0
+IVDTQ;O[Z>6RmIV[Mk`=PH2
+R1
+R2
+w1732640468
+R3
+R4
+!i122 2356
+L0 1 43
+R5
+r1
+!s85 0
+31
+Z14 !s108 1732641217.000000
+R6
+R7
+!i113 1
+R8
+R9
+n@line_buffer
+vLine_buffer_controller
+Z15 !s110 1732641217
+!i10b 1
+!s100 =mDfi?cMN5DK@D[6_l__>2
+R0
+I@LV_2<kgEPeG@GBm2Y<l=3
+R1
+R2
+w1732585699
+8D:/Thesis/Src/modules/MedianPreparationModule/LineBuffer/Line_buffer_controller.v
+FD:/Thesis/Src/modules/MedianPreparationModule/LineBuffer/Line_buffer_controller.v
+!i122 2354
+L0 1 55
+R5
+r1
+!s85 0
+31
+R14
+!s107 D:/Thesis/Src/modules/MedianPreparationModule/LineBuffer/Line_buffer_controller.v|
+!s90 -reportprogress|300|-work|work|-vlog01compat|-stats=none|D:/Thesis/Src/modules/MedianPreparationModule/LineBuffer/Line_buffer_controller.v|
+!i113 1
+R8
+R9
+n@line_buffer_controller
+vLine_buffer_datapath
+R15
+!i10b 1
+!s100 F[zR=66T>TQTh16[M@^Pc1
+R0
+IY5AojV7GOQblXd06EBCMl3
+R1
+R2
+w1732585484
+8D:/Thesis/Src/modules/MedianPreparationModule/LineBuffer/Line_buffer_datapath.v
+FD:/Thesis/Src/modules/MedianPreparationModule/LineBuffer/Line_buffer_datapath.v
+!i122 2355
+L0 3 51
+R5
+r1
+!s85 0
+31
+R14
+!s107 D:/Thesis/Src/modules/MedianPreparationModule/LineBuffer/Line_buffer_datapath.v|
+!s90 -reportprogress|300|-work|work|-vlog01compat|-stats=none|D:/Thesis/Src/modules/MedianPreparationModule/LineBuffer/Line_buffer_datapath.v|
+!i113 1
+R8
+R9
+n@line_buffer_datapath
+vLine_buffer_tb
+R13
+!i10b 1
+!s100 >dfnQkJ3Fa4U1cD9XPkYK1
+R0
+IUkVd6d78QJ<:d>kJU:eWE1
+R1
+R2
+w1732584232
+8D:/Thesis/Src/test_benches/MedianPrepartionModule/Line_buffer_tb.v
+FD:/Thesis/Src/test_benches/MedianPrepartionModule/Line_buffer_tb.v
+!i122 2357
+L0 8 59
+R5
+r1
+!s85 0
+31
+Z16 !s108 1732641218.000000
+!s107 D:/Thesis/Src/test_benches/MedianPrepartionModule/Line_buffer_tb.v|
+!s90 -reportprogress|300|-work|work|-vlog01compat|-stats=none|D:/Thesis/Src/test_benches/MedianPrepartionModule/Line_buffer_tb.v|
+!i113 1
+R8
+R9
+n@line_buffer_tb
+vmedian
+Z17 !s110 1732641221
+!i10b 1
+!s100 O4@e<IcAD7YXAE3<1mbK60
+R0
+I955@@J6`o4cb<`>B60U0?3
+R1
+R2
+w1732641204
+8D:/Thesis/Src/modules/MedianFilterModule/median.v
+FD:/Thesis/Src/modules/MedianFilterModule/median.v
+!i122 2373
+L0 1 86
+R5
+r1
+!s85 0
+31
+Z18 !s108 1732641221.000000
+!s107 D:/Thesis/Src/modules/MedianFilterModule/median.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/MedianFilterModule/median.v|
+!i113 1
+R12
+R9
+vMedian_filter_3x3
+R10
+!i10b 1
+!s100 CDI^>A9k_99n6CDbaZ:Gn2
+R0
+Ihag7z2W@?D4VKT7HaTO:j1
+R1
+R2
+w1732641154
+8D:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3.v
+FD:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3.v
+!i122 2369
+L0 1 72
+R5
+r1
+!s85 0
+31
+R11
+!s107 D:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3.v|
+!i113 1
+R12
+R9
+n@median_filter_3x3
+vMedian_filter_3x3_calc
+Z19 !s110 1732641219
+!i10b 1
+!s100 LEdTSKKMJhcgE2e`LbCe`3
+R0
+IL:N0ZCJ]i]HLh83BGC0K51
+R1
+R2
+w1732641083
+8D:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3_calc.v
+FD:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3_calc.v
+!i122 2364
+L0 1 153
+R5
+r1
+!s85 0
+31
+Z20 !s108 1732641219.000000
+!s107 D:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3_calc.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3_calc.v|
+!i113 1
+R12
+R9
+n@median_filter_3x3_calc
+vMedian_filter_3x3_calc_tb
+R19
+!i10b 1
+!s100 7L@Aaoe5GaOWTggjB:l4k3
+R0
+IX1<UH4?0JX9^Mc?Qk3kSM0
+R1
+R2
+w1732638870
+8D:/Thesis/Src/test_benches/MedianFilterModule/Median_filter_3x3_calc_tb.v
+FD:/Thesis/Src/test_benches/MedianFilterModule/Median_filter_3x3_calc_tb.v
+!i122 2365
+L0 3 104
+R5
+r1
+!s85 0
+31
+R20
+!s107 D:/Thesis/Src/test_benches/MedianFilterModule/Median_filter_3x3_calc_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/test_benches/MedianFilterModule/Median_filter_3x3_calc_tb.v|
+!i113 1
+R12
+R9
+n@median_filter_3x3_calc_tb
+vMedian_filter_3x3_data_modulate
+R10
+!i10b 1
+!s100 WVAbzI;eHGAQ1?<2oiMWa3
+R0
+I2bzDTE5FPLKh=L5cgmEKi2
+R1
+R2
+w1732470348
+8D:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3_data_modulate.v
+FD:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3_data_modulate.v
+!i122 2370
+L0 1 236
+R5
+r1
+!s85 0
+31
+R11
+!s107 D:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3_data_modulate.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3_data_modulate.v|
+!i113 1
+R12
+R9
+n@median_filter_3x3_data_modulate
+vMedian_filter_3x3_tb
+!s110 1732471068
+!i10b 1
+!s100 6l1[<c;d6iEN7>9gXoO`42
+R0
+IY;ANH=TCGMbaWd7QRVl]Q3
+R1
+R2
+w1732471062
+8D:/Thesis/Src/test_benches/Median_filter_3x3_tb.v
+FD:/Thesis/Src/test_benches/Median_filter_3x3_tb.v
+!i122 140
+L0 3 74
+R5
+r1
+!s85 0
+31
+!s108 1732471068.000000
+!s107 D:/Thesis/Src/test_benches/Median_filter_3x3_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/test_benches/Median_filter_3x3_tb.v|
+!i113 1
+R12
+R9
+n@median_filter_3x3_tb
+vmedian_no_image
+R17
+!i10b 1
+!s100 QFWj6Zd2JBdh>Rn:?7`Yi3
+R0
+IbRG?iOQ@JSLmVNd3QQLFO2
+R1
+R2
+w1732641192
+8D:/Thesis/Src/modules/MedianFilterModule/median_no_image.v
+FD:/Thesis/Src/modules/MedianFilterModule/median_no_image.v
+!i122 2371
+L0 1 62
+R5
+r1
+!s85 0
+31
+R11
+!s107 D:/Thesis/Src/modules/MedianFilterModule/median_no_image.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/MedianFilterModule/median_no_image.v|
+!i113 1
+R12
+R9
+vmedian_no_image_tb
+R17
+!i10b 1
+!s100 BZ0M;]jiUGCfbkg71d:Cg2
+R0
+I38@Lg?FaO:UlJ?EQ2:D3Q0
+R1
+R2
+w1732637654
+8D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v
+FD:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v
+!i122 2372
+L0 1 100
+R5
+r1
+!s85 0
+31
+R18
+!s107 D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v|
+!i113 1
+R12
+R9
+vmedian_node
+!s110 1732468736
+!i10b 1
+!s100 PSiTCc46e>j@RIc3U30dd3
+R0
+IIS;km]LeA4?A]9zJiCPSc3
+R1
+R2
+w1732468324
+Z21 8D:/Thesis/Src/modules/Median_node.v
+Z22 FD:/Thesis/Src/modules/Median_node.v
+!i122 75
+L0 1 9
+R5
+r1
+!s85 0
+31
+!s108 1732468736.000000
+Z23 !s107 D:/Thesis/Src/modules/Median_node.v|
+Z24 !s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/Median_node.v|
+!i113 1
+R12
+R9
+vMedian_node
+Z25 !s110 1732571081
+!i10b 1
+!s100 >SLiJl0DO___AMgAKWad13
+R0
+ITa@e9?cl1<EN5`@>e?7>^1
+R1
+R2
+w1732571055
+R21
+R22
+!i122 178
+L0 1 14
+R5
+r1
+!s85 0
+31
+Z26 !s108 1732571081.000000
+R23
+R24
+!i113 1
+R12
+R9
+n@median_node
+vMedian_node_tb
+R25
+!i10b 1
+!s100 _ij212QEELdaK51CLhk=F0
+R0
+I0>?;>a7VKoOoFe:gFZZIO3
+R1
+R2
+w1732571068
+8D:/Thesis/Src/test_benches/Median_node_tb.v
+FD:/Thesis/Src/test_benches/Median_node_tb.v
+!i122 179
+L0 3 64
+R5
+r1
+!s85 0
+31
+R26
+!s107 D:/Thesis/Src/test_benches/Median_node_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/test_benches/Median_node_tb.v|
+!i113 1
+R12
+R9
+n@median_node_tb
+vMedian_preparation
+R13
+!i10b 1
+!s100 hLCB27MmQ;a@f_Ka60Kia3
+R0
+I8nM<CiHiPN<8:i_W3Lhea1
+R1
+R2
+w1732585676
+8D:/Thesis/Src/modules/MedianPreparationModule/Median_preparation.v
+FD:/Thesis/Src/modules/MedianPreparationModule/Median_preparation.v
+!i122 2358
+L0 1 51
+R5
+r1
+!s85 0
+31
+R16
+!s107 D:/Thesis/Src/modules/MedianPreparationModule/Median_preparation.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/MedianPreparationModule/Median_preparation.v|
+!i113 1
+R12
+R9
+n@median_preparation
+vMedian_preparation_tb
+R13
+!i10b 1
+!s100 SGGSBlR>kQFa<l];5_IOP2
+R0
+Ia0B>:IYZ9>IodmzkY=lE31
+R1
+R2
+w1732582549
+8D:/Thesis/Src/test_benches/MedianPrepartionModule/Median_preparation_tb.v
+FD:/Thesis/Src/test_benches/MedianPrepartionModule/Median_preparation_tb.v
+!i122 2359
+L0 3 97
+R5
+r1
+!s85 0
+31
+R16
+!s107 D:/Thesis/Src/test_benches/MedianPrepartionModule/Median_preparation_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/test_benches/MedianPrepartionModule/Median_preparation_tb.v|
+!i113 1
+R12
+R9
+n@median_preparation_tb
+vmedian_preparation_tb
+!s110 1732397343
+!i10b 1
+!s100 YD<F[[>h4?YT80VH2GECi0
+R0
+I9IiB_c8M_cM0OV36IXn8V2
+R1
+R2
+w1732397209
+Z27 8D:/Thesis/Src/test_benches/Median_preparation_tb.v
+Z28 FD:/Thesis/Src/test_benches/Median_preparation_tb.v
+!i122 34
+L0 195 94
+R5
+r1
+!s85 0
+31
+!s108 1732397343.000000
+Z29 !s107 D:/Thesis/Src/test_benches/Median_preparation_tb.v|
+Z30 !s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/test_benches/Median_preparation_tb.v|
+!i113 1
+R12
+R9
+vmedian_tb
+R10
+!i10b 1
+!s100 Ifma1XIFNn4PmI1aKi6V60
+R0
+I;GDmf<2SL`5c4McPHzO]50
+R1
+R2
+w1732614241
+8D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v
+FD:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v
+!i122 2366
+L0 25 188
+R5
+r1
+!s85 0
+31
+R20
+!s107 D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v|
+!i113 1
+R12
+R9
+vNode
+R13
+!i10b 1
+!s100 OmF7Sn8iDzU=I`EO<`@aW3
+R0
+I_j9l][Lg@L8ffg:?fj7]m3
+R1
+R2
+w1732638358
+8D:/Thesis/Src/modules/MedianFilterModule/Node.v
+FD:/Thesis/Src/modules/MedianFilterModule/Node.v
+!i122 2360
+L0 2 12
+R5
+r1
+!s85 0
+31
+R16
+!s107 D:/Thesis/Src/modules/MedianFilterModule/Node.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/MedianFilterModule/Node.v|
+!i113 1
+R12
+R9
+n@node
+vNode_tb
+R19
+!i10b 1
+!s100 3ZNWNZ:PQ]4HjRb0>0kY72
+R0
+If61m:R<D2h9^bM3Z4C>h`3
+R1
+R2
+w1732625963
+8D:/Thesis/Src/test_benches/MedianFilterModule/Node_tb.v
+FD:/Thesis/Src/test_benches/MedianFilterModule/Node_tb.v
+!i122 2363
+L0 3 56
+R5
+r1
+!s85 0
+31
+R20
+!s107 D:/Thesis/Src/test_benches/MedianFilterModule/Node_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/test_benches/MedianFilterModule/Node_tb.v|
+!i113 1
+R12
+R9
+n@node_tb
+vRGB2Gray
+R10
+!i10b 1
+!s100 H0BKaoPXbkHE7PIA25dWj2
+R0
+Ia8b72A580PJ;D@:`VTnio1
+R1
+R2
+w1732308968
+8D:/Thesis/Src/modules/InputModule/RGB2Gray.v
+FD:/Thesis/Src/modules/InputModule/RGB2Gray.v
+!i122 2368
+L0 23 29
+R5
+r1
+!s85 0
+31
+R11
+!s107 D:/Thesis/Src/modules/InputModule/RGB2Gray.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/InputModule/RGB2Gray.v|
+!i113 1
+R12
+R9
+n@r@g@b2@gray
+vSorting_network
+R19
+!i10b 1
+!s100 K[dgO0?DZzb57EMV?_JKS2
+R0
+I75ikDCF6ZWnS>>ZgD1B2c2
+R1
+R2
+w1732639045
+8D:/Thesis/Src/modules/MedianFilterModule/Sorting_network.v
+FD:/Thesis/Src/modules/MedianFilterModule/Sorting_network.v
+!i122 2361
+L0 1 41
+R5
+r1
+!s85 0
+31
+R16
+!s107 D:/Thesis/Src/modules/MedianFilterModule/Sorting_network.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/MedianFilterModule/Sorting_network.v|
+!i113 1
+R12
+R9
+n@sorting_network
+vSorting_network_tb
+R19
+!i10b 1
+!s100 fZh5oz`CW>3`N^RNhAU472
+R0
+IZ=40h179;H3f:AREBJnQ53
+R1
+R2
+w1732626324
+8D:/Thesis/Src/test_benches/MedianFilterModule/Sorting_network_tb.v
+FD:/Thesis/Src/test_benches/MedianFilterModule/Sorting_network_tb.v
+!i122 2362
+L0 3 63
+R5
+r1
+!s85 0
+31
+R20
+!s107 D:/Thesis/Src/test_benches/MedianFilterModule/Sorting_network_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/test_benches/MedianFilterModule/Sorting_network_tb.v|
+!i113 1
+R12
+R9
+n@sorting_network_tb
+vtb_Median_preparation
+!s110 1732396799
+!i10b 1
+!s100 =m2IRUiWzG62_COFoM8U`2
+R0
+IPKd;moZX<e0N8Tb`Ooo7Y0
+R1
+R2
+w1732396765
+R27
+R28
+!i122 6
+L0 2 93
+R5
+r1
+!s85 0
+31
+!s108 1732396799.000000
+R29
+R30
+!i113 1
+R12
+R9
+ntb_@median_preparation
