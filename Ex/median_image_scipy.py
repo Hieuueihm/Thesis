@@ -20,7 +20,7 @@ filtered_img_array = ndimage.median_filter(img_array, size=3)
 filtered_img = Image.fromarray(filtered_img_array)
 
 # Step 5: Save the result as a new BMP file
-filtered_img.save('res.bmp')
+filtered_img.save('image_scipy.bmp')
 
 # Step 6: Write raw pixel values to a text file (output.txt)
 with open('output.txt', 'w') as f:

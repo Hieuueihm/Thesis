@@ -51,7 +51,7 @@ module median (
   );
 
 
-  Median_filter_3x3 #(
+  Median_filter_5x5 #(
       .ROWS(360),
       .COLS(480)
   ) MEDIAN_FILTER_3X3 (

@@ -18,7 +18,7 @@ module median_no_image (
 
 
   Median_preparation #(
-      .DEPTH(5)
+      .DEPTH(7)
   ) MEDIAN_PREPARATION (
       .clk(clk),
       .rst(rst),
@@ -37,9 +37,9 @@ module median_no_image (
   );
 
 
-  Median_filter_3x3 #(
-      .ROWS(5),
-      .COLS(5)
+  Median_filter_5x5 #(
+      .ROWS(7),
+      .COLS(7)
   ) MEDIAN_FILTER_3X3 (
       .clk(clk),
       .rst(rst),

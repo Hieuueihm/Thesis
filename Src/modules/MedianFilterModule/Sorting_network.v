@@ -8,33 +8,30 @@ module Sorting_network (
 );
 
   wire [7:0] max1, min1;
-  wire [7:0] max2, min2;
-  wire [7:0] max3, min3;
+  wire [7:0] min2;
 
 
   // Nodes
   Node N1 (
-      .A(S2),
-      .B(S1),
+      .A(S1),
+      .B(S2),
       .min_o(min1),
       .max_o(max1)
   );
   Node N2 (
-      .A(min1),
+      .A(max1),
       .B(S3),
       .min_o(min2),
-      .max_o(max2)
+      .max_o(max)
   );
 
   Node N3 (
-      .A(max1),
-      .B(max2),
-      .min_o(med),
-      .max_o(max3)
+      .A(min1),
+      .B(min2),
+      .min_o(min),
+      .max_o(med)
   );
 
-  assign max = max3;
-  assign min = min2;
 
 
 

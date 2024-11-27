@@ -20,8 +20,8 @@ module median_no_image_tb;
       .done_o(done_o)
   );
 
-  // Test data: 5x5 matrix
-  reg [7:0] input_matrix[0:24];  // 5x5 matrix flattened into an array
+  // Test data: 7x7 matrix
+  reg [7:0] input_matrix[0:48];  // 7x7 matrix flattened into an array
 
   integer i;
   reg [3:0] row, col;  // For iterating over the matrix
@@ -38,7 +38,7 @@ module median_no_image_tb;
     rst = 0;
     done_i = 0;
 
-    // Initialize the input matrix (5x5)
+    // Initialize the input matrix (7x7)
     input_matrix[0] = 12;
     input_matrix[1] = 24;
     input_matrix[2] = 35;
@@ -64,28 +64,45 @@ module median_no_image_tb;
     input_matrix[22] = 218;
     input_matrix[23] = 229;
     input_matrix[24] = 240;
+    input_matrix[25] = 10;
+    input_matrix[26] = 20;
+    input_matrix[27] = 30;
+    input_matrix[28] = 40;
+    input_matrix[29] = 50;
+    input_matrix[30] = 60;
+    input_matrix[31] = 70;
+    input_matrix[32] = 80;
+    input_matrix[33] = 90;
+    input_matrix[34] = 100;
+    input_matrix[35] = 110;
+    input_matrix[36] = 120;
+    input_matrix[37] = 130;
+    input_matrix[38] = 140;
+    input_matrix[39] = 150;
+    input_matrix[40] = 160;
+    input_matrix[41] = 170;
+    input_matrix[42] = 180;
+    input_matrix[43] = 190;
+    input_matrix[44] = 200;
+    input_matrix[45] = 210;
+    input_matrix[46] = 220;
+    input_matrix[47] = 230;
+    input_matrix[48] = 240;
 
     // Apply reset
     rst = 1;
     #10 rst = 0;
 
     // Simulate the input feeding process
-    row = 0;
-    col = 0;
     done_i = 1;  // Indicate that input is ready
 
-    for (i = 0; i < 25; i = i + 1) begin
+    for (i = 0; i < 49; i = i + 1) begin
       grayscale_i = input_matrix[i];
-      #10;  // Wait for a clock cycle to simulate input change
-
-
+      #10;
     end
 
-    #1000 done_i = 0;
-
-
-    // Apply the done signal and check the median output
-    #10;
+    #1000;
+    done_i = 0;
 
     // Wait for the operation to complete and check the final output
     #10;

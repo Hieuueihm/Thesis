@@ -33,7 +33,7 @@ Z7 !s90 -reportprogress|300|-work|work|-vlog01compat|-stats=none|D:/Thesis/Src/m
 Z8 o-work work -vlog01compat
 Z9 tCvgOpt 0
 vGray2RGB
-Z10 !s110 1732641220
+Z10 !s110 1732701312
 !i10b 1
 !s100 ]6Kn?EfamNhe74=<1^IaC3
 R0
@@ -43,13 +43,13 @@ R2
 w1732611524
 8D:/Thesis/Src/modules/OutputModule/Gray2RGB.v
 FD:/Thesis/Src/modules/OutputModule/Gray2RGB.v
-!i122 2367
+!i122 2585
 L0 1 34
 R5
 r1
 !s85 0
 31
-Z11 !s108 1732641220.000000
+Z11 !s108 1732701311.000000
 !s107 D:/Thesis/Src/modules/OutputModule/Gray2RGB.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/OutputModule/Gray2RGB.v|
 !i113 1
@@ -57,7 +57,7 @@ Z12 o-work work
 R9
 n@gray2@r@g@b
 vLine_buffer
-Z13 !s110 1732641218
+Z13 !s110 1732701309
 !i10b 1
 !s100 Pb^]OC[ek@nTMnn`0NT3C0
 R0
@@ -67,13 +67,13 @@ R2
 w1732640468
 R3
 R4
-!i122 2356
+!i122 2574
 L0 1 43
 R5
 r1
 !s85 0
 31
-Z14 !s108 1732641217.000000
+Z14 !s108 1732701309.000000
 R6
 R7
 !i113 1
@@ -81,7 +81,7 @@ R8
 R9
 n@line_buffer
 vLine_buffer_controller
-Z15 !s110 1732641217
+R13
 !i10b 1
 !s100 =mDfi?cMN5DK@D[6_l__>2
 R0
@@ -91,7 +91,7 @@ R2
 w1732585699
 8D:/Thesis/Src/modules/MedianPreparationModule/LineBuffer/Line_buffer_controller.v
 FD:/Thesis/Src/modules/MedianPreparationModule/LineBuffer/Line_buffer_controller.v
-!i122 2354
+!i122 2572
 L0 1 55
 R5
 r1
@@ -105,7 +105,7 @@ R8
 R9
 n@line_buffer_controller
 vLine_buffer_datapath
-R15
+R13
 !i10b 1
 !s100 F[zR=66T>TQTh16[M@^Pc1
 R0
@@ -115,7 +115,7 @@ R2
 w1732585484
 8D:/Thesis/Src/modules/MedianPreparationModule/LineBuffer/Line_buffer_datapath.v
 FD:/Thesis/Src/modules/MedianPreparationModule/LineBuffer/Line_buffer_datapath.v
-!i122 2355
+!i122 2573
 L0 3 51
 R5
 r1
@@ -139,13 +139,13 @@ R2
 w1732584232
 8D:/Thesis/Src/test_benches/MedianPrepartionModule/Line_buffer_tb.v
 FD:/Thesis/Src/test_benches/MedianPrepartionModule/Line_buffer_tb.v
-!i122 2357
+!i122 2575
 L0 8 59
 R5
 r1
 !s85 0
 31
-Z16 !s108 1732641218.000000
+R14
 !s107 D:/Thesis/Src/test_benches/MedianPrepartionModule/Line_buffer_tb.v|
 !s90 -reportprogress|300|-work|work|-vlog01compat|-stats=none|D:/Thesis/Src/test_benches/MedianPrepartionModule/Line_buffer_tb.v|
 !i113 1
@@ -153,23 +153,23 @@ R8
 R9
 n@line_buffer_tb
 vmedian
-Z17 !s110 1732641221
+Z15 !s110 1732734141
 !i10b 1
-!s100 O4@e<IcAD7YXAE3<1mbK60
+!s100 S=<ghS<EV0zKL4oSKR1J;1
 R0
-I955@@J6`o4cb<`>B60U0?3
+IYn9Hie`nCX7ik3oieWOoV0
 R1
 R2
-w1732641204
+w1732734107
 8D:/Thesis/Src/modules/MedianFilterModule/median.v
 FD:/Thesis/Src/modules/MedianFilterModule/median.v
-!i122 2373
+!i122 2671
 L0 1 86
 R5
 r1
 !s85 0
 31
-Z18 !s108 1732641221.000000
+Z16 !s108 1732734141.000000
 !s107 D:/Thesis/Src/modules/MedianFilterModule/median.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/MedianFilterModule/median.v|
 !i113 1
@@ -186,13 +186,13 @@ R2
 w1732641154
 8D:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3.v
 FD:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3.v
-!i122 2369
+!i122 2587
 L0 1 72
 R5
 r1
 !s85 0
 31
-R11
+Z17 !s108 1732701312.000000
 !s107 D:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3.v|
 !i113 1
@@ -200,23 +200,23 @@ R12
 R9
 n@median_filter_3x3
 vMedian_filter_3x3_calc
-Z19 !s110 1732641219
+Z18 !s110 1732701311
 !i10b 1
-!s100 LEdTSKKMJhcgE2e`LbCe`3
+!s100 meh@CP_<lS^T46iDeFg0Z2
 R0
-IL:N0ZCJ]i]HLh83BGC0K51
+IXMkbF3Jj85Yb^Tnh3EBd>1
 R1
 R2
-w1732641083
+w1732700771
 8D:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3_calc.v
 FD:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3_calc.v
-!i122 2364
-L0 1 153
+!i122 2582
+L0 1 178
 R5
 r1
 !s85 0
 31
-Z20 !s108 1732641219.000000
+R11
 !s107 D:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3_calc.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3_calc.v|
 !i113 1
@@ -224,7 +224,7 @@ R12
 R9
 n@median_filter_3x3_calc
 vMedian_filter_3x3_calc_tb
-R19
+R18
 !i10b 1
 !s100 7L@Aaoe5GaOWTggjB:l4k3
 R0
@@ -234,13 +234,13 @@ R2
 w1732638870
 8D:/Thesis/Src/test_benches/MedianFilterModule/Median_filter_3x3_calc_tb.v
 FD:/Thesis/Src/test_benches/MedianFilterModule/Median_filter_3x3_calc_tb.v
-!i122 2365
+!i122 2583
 L0 3 104
 R5
 r1
 !s85 0
 31
-R20
+R11
 !s107 D:/Thesis/Src/test_benches/MedianFilterModule/Median_filter_3x3_calc_tb.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/test_benches/MedianFilterModule/Median_filter_3x3_calc_tb.v|
 !i113 1
@@ -258,13 +258,13 @@ R2
 w1732470348
 8D:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3_data_modulate.v
 FD:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3_data_modulate.v
-!i122 2370
+!i122 2588
 L0 1 236
 R5
 r1
 !s85 0
 31
-R11
+R17
 !s107 D:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3_data_modulate.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/MedianFilterModule/Median_filter_3x3_data_modulate.v|
 !i113 1
@@ -295,47 +295,119 @@ r1
 R12
 R9
 n@median_filter_3x3_tb
-vmedian_no_image
-R17
+vMedian_filter_5x5
+Z19 !s110 1732734140
 !i10b 1
-!s100 QFWj6Zd2JBdh>Rn:?7`Yi3
+!s100 lTO@?ACMnHO5dIZ766T<M0
 R0
-IbRG?iOQ@JSLmVNd3QQLFO2
+IOXUjlN[MY:Oo]JkCkDCCF3
 R1
 R2
-w1732641192
+w1732732144
+8D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5.v
+FD:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5.v
+!i122 2667
+L0 1 129
+R5
+r1
+!s85 0
+31
+Z20 !s108 1732734140.000000
+!s107 D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5.v|
+!i113 1
+R12
+R9
+n@median_filter_5x5
+vMedian_filter_5x5_calc
+Z21 !s110 1732734139
+!i10b 1
+!s100 Nf2W:4BB[h>^X_]e28A:k0
+R0
+I<ONhYbN<nUHaT43cO03dj3
+R1
+R2
+w1732732259
+8D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_calc.v
+FD:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_calc.v
+!i122 2662
+L0 1 509
+R5
+r1
+!s85 0
+31
+Z22 !s108 1732734139.000000
+!s107 D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_calc.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_calc.v|
+!i113 1
+R12
+R9
+n@median_filter_5x5_calc
+vMedian_filter_5x5_data_modulate
+R19
+!i10b 1
+!s100 _h6H^^4hRX7Z=?X:W<8;L0
+R0
+I_<ibN]D;10V;b3e5KMW_W0
+R1
+R2
+w1732732650
+8D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_data_modulate.v
+FD:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_data_modulate.v
+!i122 2665
+L0 1 877
+R5
+r1
+!s85 0
+31
+R20
+!s107 D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_data_modulate.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_data_modulate.v|
+!i113 1
+R12
+R9
+n@median_filter_5x5_data_modulate
+vmedian_no_image
+R19
+!i10b 1
+!s100 hgC6<8:8DE^doicY70NUY3
+R0
+I<A03^7@J4LT5a=bzdR2K@0
+R1
+R2
+w1732732150
 8D:/Thesis/Src/modules/MedianFilterModule/median_no_image.v
 FD:/Thesis/Src/modules/MedianFilterModule/median_no_image.v
-!i122 2371
+!i122 2668
 L0 1 62
 R5
 r1
 !s85 0
 31
-R11
+R20
 !s107 D:/Thesis/Src/modules/MedianFilterModule/median_no_image.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/MedianFilterModule/median_no_image.v|
 !i113 1
 R12
 R9
 vmedian_no_image_tb
-R17
+R15
 !i10b 1
-!s100 BZ0M;]jiUGCfbkg71d:Cg2
+!s100 ;CiH^S4<;]_o=TAX?1jlo2
 R0
-I38@Lg?FaO:UlJ?EQ2:D3Q0
+IU[RgOa]C[oSbgeC:lnNhX0
 R1
 R2
-w1732637654
+w1732731801
 8D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v
 FD:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v
-!i122 2372
-L0 1 100
+!i122 2670
+L0 1 117
 R5
 r1
 !s85 0
 31
-R18
+R16
 !s107 D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v|
 !i113 1
@@ -350,8 +422,8 @@ IIS;km]LeA4?A]9zJiCPSc3
 R1
 R2
 w1732468324
-Z21 8D:/Thesis/Src/modules/Median_node.v
-Z22 FD:/Thesis/Src/modules/Median_node.v
+Z23 8D:/Thesis/Src/modules/Median_node.v
+Z24 FD:/Thesis/Src/modules/Median_node.v
 !i122 75
 L0 1 9
 R5
@@ -359,13 +431,13 @@ r1
 !s85 0
 31
 !s108 1732468736.000000
-Z23 !s107 D:/Thesis/Src/modules/Median_node.v|
-Z24 !s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/Median_node.v|
+Z25 !s107 D:/Thesis/Src/modules/Median_node.v|
+Z26 !s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/Median_node.v|
 !i113 1
 R12
 R9
 vMedian_node
-Z25 !s110 1732571081
+Z27 !s110 1732571081
 !i10b 1
 !s100 >SLiJl0DO___AMgAKWad13
 R0
@@ -373,23 +445,23 @@ ITa@e9?cl1<EN5`@>e?7>^1
 R1
 R2
 w1732571055
-R21
-R22
+R23
+R24
 !i122 178
 L0 1 14
 R5
 r1
 !s85 0
 31
-Z26 !s108 1732571081.000000
-R23
-R24
+Z28 !s108 1732571081.000000
+R25
+R26
 !i113 1
 R12
 R9
 n@median_node
 vMedian_node_tb
-R25
+R27
 !i10b 1
 !s100 _ij212QEELdaK51CLhk=F0
 R0
@@ -405,7 +477,7 @@ R5
 r1
 !s85 0
 31
-R26
+R28
 !s107 D:/Thesis/Src/test_benches/Median_node_tb.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/test_benches/Median_node_tb.v|
 !i113 1
@@ -413,7 +485,7 @@ R12
 R9
 n@median_node_tb
 vMedian_preparation
-R13
+Z29 !s110 1732701310
 !i10b 1
 !s100 hLCB27MmQ;a@f_Ka60Kia3
 R0
@@ -423,13 +495,13 @@ R2
 w1732585676
 8D:/Thesis/Src/modules/MedianPreparationModule/Median_preparation.v
 FD:/Thesis/Src/modules/MedianPreparationModule/Median_preparation.v
-!i122 2358
+!i122 2576
 L0 1 51
 R5
 r1
 !s85 0
 31
-R16
+R14
 !s107 D:/Thesis/Src/modules/MedianPreparationModule/Median_preparation.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/MedianPreparationModule/Median_preparation.v|
 !i113 1
@@ -437,7 +509,7 @@ R12
 R9
 n@median_preparation
 vMedian_preparation_tb
-R13
+R29
 !i10b 1
 !s100 SGGSBlR>kQFa<l];5_IOP2
 R0
@@ -447,13 +519,13 @@ R2
 w1732582549
 8D:/Thesis/Src/test_benches/MedianPrepartionModule/Median_preparation_tb.v
 FD:/Thesis/Src/test_benches/MedianPrepartionModule/Median_preparation_tb.v
-!i122 2359
+!i122 2577
 L0 3 97
 R5
 r1
 !s85 0
 31
-R16
+Z30 !s108 1732701310.000000
 !s107 D:/Thesis/Src/test_benches/MedianPrepartionModule/Median_preparation_tb.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/test_benches/MedianPrepartionModule/Median_preparation_tb.v|
 !i113 1
@@ -469,8 +541,8 @@ I9IiB_c8M_cM0OV36IXn8V2
 R1
 R2
 w1732397209
-Z27 8D:/Thesis/Src/test_benches/Median_preparation_tb.v
-Z28 FD:/Thesis/Src/test_benches/Median_preparation_tb.v
+Z31 8D:/Thesis/Src/test_benches/Median_preparation_tb.v
+Z32 FD:/Thesis/Src/test_benches/Median_preparation_tb.v
 !i122 34
 L0 195 94
 R5
@@ -478,23 +550,23 @@ r1
 !s85 0
 31
 !s108 1732397343.000000
-Z29 !s107 D:/Thesis/Src/test_benches/Median_preparation_tb.v|
-Z30 !s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/test_benches/Median_preparation_tb.v|
+Z33 !s107 D:/Thesis/Src/test_benches/Median_preparation_tb.v|
+Z34 !s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/test_benches/Median_preparation_tb.v|
 !i113 1
 R12
 R9
 vmedian_tb
-R10
+R15
 !i10b 1
-!s100 Ifma1XIFNn4PmI1aKi6V60
+!s100 I^9Am_jlJT>V9R]7OXo@m0
 R0
-I;GDmf<2SL`5c4McPHzO]50
+I9cYTU:S8URDSNLSKCHE7F3
 R1
 R2
-w1732614241
+w1732734118
 8D:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v
 FD:/Thesis/Src/test_benches/MedianFilterModule/median_tb.v
-!i122 2366
+!i122 2669
 L0 25 188
 R5
 r1
@@ -507,7 +579,7 @@ R20
 R12
 R9
 vNode
-R13
+R21
 !i10b 1
 !s100 OmF7Sn8iDzU=I`EO<`@aW3
 R0
@@ -517,13 +589,13 @@ R2
 w1732638358
 8D:/Thesis/Src/modules/MedianFilterModule/Node.v
 FD:/Thesis/Src/modules/MedianFilterModule/Node.v
-!i122 2360
+!i122 2663
 L0 2 12
 R5
 r1
 !s85 0
 31
-R16
+R22
 !s107 D:/Thesis/Src/modules/MedianFilterModule/Node.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/MedianFilterModule/Node.v|
 !i113 1
@@ -531,7 +603,7 @@ R12
 R9
 n@node
 vNode_tb
-R19
+R18
 !i10b 1
 !s100 3ZNWNZ:PQ]4HjRb0>0kY72
 R0
@@ -541,13 +613,13 @@ R2
 w1732625963
 8D:/Thesis/Src/test_benches/MedianFilterModule/Node_tb.v
 FD:/Thesis/Src/test_benches/MedianFilterModule/Node_tb.v
-!i122 2363
+!i122 2581
 L0 3 56
 R5
 r1
 !s85 0
 31
-R20
+R11
 !s107 D:/Thesis/Src/test_benches/MedianFilterModule/Node_tb.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/test_benches/MedianFilterModule/Node_tb.v|
 !i113 1
@@ -565,37 +637,61 @@ R2
 w1732308968
 8D:/Thesis/Src/modules/InputModule/RGB2Gray.v
 FD:/Thesis/Src/modules/InputModule/RGB2Gray.v
-!i122 2368
+!i122 2586
 L0 23 29
 R5
 r1
 !s85 0
 31
-R11
+R17
 !s107 D:/Thesis/Src/modules/InputModule/RGB2Gray.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/InputModule/RGB2Gray.v|
 !i113 1
 R12
 R9
 n@r@g@b2@gray
-vSorting_network
+vSortAscending5
 R19
 !i10b 1
-!s100 K[dgO0?DZzb57EMV?_JKS2
+!s100 0mJW`HIX9Ad?Q4o@j`D[X2
 R0
-I75ikDCF6ZWnS>>ZgD1B2c2
+Igo23C2]Oz]:I>z7oA`@D@0
 R1
 R2
-w1732639045
-8D:/Thesis/Src/modules/MedianFilterModule/Sorting_network.v
-FD:/Thesis/Src/modules/MedianFilterModule/Sorting_network.v
-!i122 2361
-L0 1 41
+w1732728854
+8D:/Thesis/Src/modules/MedianFilterModule/5x5/SortAscending5.v
+FD:/Thesis/Src/modules/MedianFilterModule/5x5/SortAscending5.v
+!i122 2666
+L0 1 52
 R5
 r1
 !s85 0
 31
-R16
+R20
+!s107 D:/Thesis/Src/modules/MedianFilterModule/5x5/SortAscending5.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/MedianFilterModule/5x5/SortAscending5.v|
+!i113 1
+R12
+R9
+n@sort@ascending5
+vSorting_network
+R21
+!i10b 1
+!s100 @OEJ_;IA^dFio0nMiGTDV1
+R0
+IP`PCJJc=3?OH4?4FMJm^E3
+R1
+R2
+w1732700496
+8D:/Thesis/Src/modules/MedianFilterModule/Sorting_network.v
+FD:/Thesis/Src/modules/MedianFilterModule/Sorting_network.v
+!i122 2664
+L0 1 38
+R5
+r1
+!s85 0
+31
+R22
 !s107 D:/Thesis/Src/modules/MedianFilterModule/Sorting_network.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/modules/MedianFilterModule/Sorting_network.v|
 !i113 1
@@ -603,7 +699,7 @@ R12
 R9
 n@sorting_network
 vSorting_network_tb
-R19
+R18
 !i10b 1
 !s100 fZh5oz`CW>3`N^RNhAU472
 R0
@@ -613,13 +709,13 @@ R2
 w1732626324
 8D:/Thesis/Src/test_benches/MedianFilterModule/Sorting_network_tb.v
 FD:/Thesis/Src/test_benches/MedianFilterModule/Sorting_network_tb.v
-!i122 2362
+!i122 2580
 L0 3 63
 R5
 r1
 !s85 0
 31
-R20
+R30
 !s107 D:/Thesis/Src/test_benches/MedianFilterModule/Sorting_network_tb.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/Thesis/Src/test_benches/MedianFilterModule/Sorting_network_tb.v|
 !i113 1
@@ -635,8 +731,8 @@ IPKd;moZX<e0N8Tb`Ooo7Y0
 R1
 R2
 w1732396765
-R27
-R28
+R31
+R32
 !i122 6
 L0 2 93
 R5
@@ -644,8 +740,8 @@ r1
 !s85 0
 31
 !s108 1732396799.000000
-R29
-R30
+R33
+R34
 !i113 1
 R12
 R9
