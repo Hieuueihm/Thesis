@@ -1,4 +1,5 @@
 import numpy as np
+from scipy.ndimage import median_filter
 
 def median_filter_verilog_logic(input_matrix):
     """
@@ -47,9 +48,10 @@ input_matrix = np.array([
 
 # Apply the Verilog logic-based median filter
 output_matrix = median_filter_verilog_logic(input_matrix)
+padded_result = median_filter(input_matrix, size=3, mode='constant', cval=0)
 
 # Save the result to output2.txt
-with open('output_3x3.txt', 'w') as f:
+with open('output_3x3.txt', 'a') as f:
     for row in output_matrix:
         f.write(' '.join(map(str, row)) + '\n')
 

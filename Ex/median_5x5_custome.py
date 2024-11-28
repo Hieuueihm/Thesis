@@ -11,9 +11,20 @@ input_matrix = np.array([
     [110, 120, 130, 140, 150, 160, 170],
     [180, 190, 200, 210, 220, 230, 240]
 ])
+# Save the result to output2.txt
+with open('output_5x5.txt', 'a') as f:
+    for row in input_matrix:
+        f.write(' '.join(map(str, row)) + '\n')
+    f.write('\n')
 
+print("Median filtered matrix saved to 'output5x5.txt'.")
 # Áp dụng median filter với cửa sổ 3x3
-median_matrix = median_filter(input_matrix, size=5)
+padded_result = median_filter(input_matrix, size=5, mode='constant', cval=0)
 
-print("Median Matrix (using scipy):\n", median_matrix)
+# Save the result to output2.txt
+with open('output_5x5.txt', 'a') as f:
+    for row in padded_result:
+        f.write(' '.join(map(str, row)) + '\n')
+
+print("Median filtered matrix saved to 'output5x5.txt'.")
 

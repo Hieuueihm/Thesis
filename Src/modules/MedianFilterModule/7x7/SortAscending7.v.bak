@@ -1,0 +1,78 @@
+module SortAscending7 (
+    input  [7:0] S1,
+    S2,
+    S3,
+    S4,
+    S5,
+    S6,
+    S7,
+    output [7:0] min,
+    out2,
+    out3,
+    mid,
+    out5,
+    out6,
+    max
+);
+  // a b c d e f g
+  // S1 S2 S3 S4 S5 S6 S7
+
+  // sort 5 first values S1 S2 S3 S4 S5
+  wire [7:0] sa1_min, sa1_out2, sa1_mid, sa1_max, sa1_out4;
+  SortAscending5 SA1 (
+      .S1  (S1),
+      .S2  (S2),
+      .S3  (S3),
+      .S4  (S4),
+      .S5  (S5),
+      .min (sa1_min),
+      .out2(sa1_out2),
+      .mid (sa1_mid),
+      .out4(sa1_out4),
+      .max (sa1_max)
+  );
+  wire [7:0] sa2_min, sa2_out2, sa2_mid, sa2_max, sa2_out4;
+  // sort 5 last values S5 S6 sa1_max, sa1_out4, sa1_mid
+
+  SortAscending5 SA2 (
+      .S1(S6),
+      .S2(S7),
+      .S3(sa1_max),
+      .S4(sa1_out4),
+      .S5(sa1_mid),
+      .min (sa2_min),
+      .out2(sa2_out2),
+      .mid (out3),
+      .out4(out2),
+      .max (max)
+  );
+  / 
+  wire [7:0] sn1_max, sn1_med, sn1_min;
+  Sorting_network SN1 (
+      .S1 (sa1_min),
+      .S2 (sa1_out2),
+      .S3 (sa2_min),
+      .max(sn1_max),
+      .med(sn1_med),
+      .min(sn1_min)
+  );
+  wire [7:0] sn2_max, sn2_med, sn2_min;
+  Sorting_network SN2 (
+      .S1 (sn1_med),
+      .S2 (sn1_max),
+      .S3 (sa2_out2),
+      .max(mid),
+      .med(sn2_med),
+      .min(sn2_min)
+  );
+  Sorting_network SN3 (
+      .S1 (sn1_min),
+      .S2 (sn2_med),
+      .S3 (sn2_min),
+      .max(out5),
+      .med(out6),
+      .min(min)
+  );
+
+
+endmodule

@@ -1,0 +1,883 @@
+module Median_filter_5x5_data_modulate #(
+    parameter ROWS,
+    parameter COLS
+) (
+    input clk,
+    input rst,
+    input [7:0] d0_i,
+    input [7:0] d1_i,
+    input [7:0] d2_i,
+    input [7:0] d3_i,
+    input [7:0] d4_i,
+    input [7:0] d5_i,
+    input [7:0] d6_i,
+    input [7:0] d7_i,
+    input [7:0] d8_i,
+    input done_i,
+    output reg [7:0] d0_o,
+    output reg [7:0] d1_o,
+    output reg [7:0] d2_o,
+    output reg [7:0] d3_o,
+    output reg [7:0] d4_o,
+    output reg [7:0] d5_o,
+    output reg [7:0] d6_o,
+    output reg [7:0] d7_o,
+    output reg [7:0] d8_o,
+    output reg [7:0] d9_o,
+    output reg [7:0] d10_o,
+    output reg [7:0] d11_o,
+    output reg [7:0] d12_o,
+    output reg [7:0] d13_o,
+    output reg [7:0] d14_o,
+    output reg [7:0] d15_o,
+    output reg [7:0] d16_o,
+    output reg [7:0] d17_o,
+    output reg [7:0] d18_o,
+    output reg [7:0] d19_o,
+    output reg [7:0] d20_o,
+    output reg [7:0] d21_o,
+    output reg [7:0] d22_o,
+    output reg [7:0] d23_o,
+    output reg [7:0] d24_o,
+    output done_o
+);
+  // ----- d0 d1 d2 d3 d4 -----
+  // ----- d5 d6 d7 d8 d9 -----
+  // ----- d10 d11 d12 d13 d13 -----;
+  // ----- d15 d16 d17 d18 d19 -----;
+  // ----- d20 d21 d22 d23 d24 -----;
+
+  reg [9:0] i_row, i_col;
+
+  reg [7:0] i_counter;
+
+  reg [7:0]
+      data0,
+      data1,
+      data2,
+      data3,
+      data4,
+      data5,
+      data6,
+      data7,
+      data8,
+      data9,
+      data10,
+      data11,
+      data12,
+      data13,
+      data14,
+      data15,
+      data16,
+      data17,
+      data18,
+      data19,
+      data20,
+      data21,
+      data22,
+      data23,
+      data24;
+
+  reg done_reg;
+  assign done_o = (i_counter == 3 && done_reg == 0) ? 1 : 0;
+
+  // handle with i rows and i cols
+
+  always @(posedge clk) begin
+    if (rst) begin
+      i_row <= 0;
+      i_col <= 0;
+      done_reg <= 0;
+    end else begin
+      if (done_o) begin
+        i_col <= (i_col == COLS - 1) ? 0 : i_col + 1;
+
+        if (i_col == COLS - 1) begin
+          if (i_row == ROWS - 1) begin
+            done_reg <= 1;
+          end
+          i_row <= (i_row == ROWS - 1) ? 0 : i_row + 1;
+
+
+        end
+      end
+    end
+  end
+
+  always @(*) begin
+    if (rst) begin
+      d0_o  <= 0;
+      d1_o  <= 0;
+      d2_o  <= 0;
+      d3_o  <= 0;
+      d4_o  <= 0;
+      d5_o  <= 0;
+      d6_o  <= 0;
+      d7_o  <= 0;
+      d8_o  <= 0;
+      d9_o  <= 0;
+      d10_o <= 0;
+      d11_o <= 0;
+      d12_o <= 0;
+      d13_o <= 0;
+      d14_o <= 0;
+      d15_o <= 0;
+      d16_o <= 0;
+      d17_o <= 0;
+      d18_o <= 0;
+      d19_o <= 0;
+      d20_o <= 0;
+      d21_o <= 0;
+      d22_o <= 0;
+      d23_o <= 0;
+      d24_o <= 0;
+    end else begin
+      // zero padding
+      if (done_o) begin
+        // (0, 0)
+        if (i_col == 0 && i_row == 0) begin
+          d0_o  <= 0;
+          d1_o  <= 0;
+          d2_o  <= 0;
+          d3_o  <= 0;
+          d4_o  <= 0;
+          d5_o  <= 0;
+          d6_o  <= 0;
+          d7_o  <= 0;
+          d8_o  <= 0;
+          d9_o  <= 0;
+          d10_o <= 0;
+          d11_o <= 0;
+          d12_o <= data12;
+          d13_o <= data13;
+          d14_o <= data14;
+          d15_o <= 0;
+          d16_o <= 0;
+          d17_o <= data17;
+          d18_o <= data18;
+          d19_o <= data19;
+          d20_o <= 0;
+          d21_o <= 0;
+          d22_o <= data22;
+          d23_o <= data23;
+          d24_o <= data24;
+          // (0, 1)
+        end else if (i_row == 0 && i_col == 1) begin
+          d0_o  <= 0;
+          d1_o  <= 0;
+          d2_o  <= 0;
+          d3_o  <= 0;
+          d4_o  <= 0;
+          d5_o  <= 0;
+          d6_o  <= 0;
+          d7_o  <= 0;
+          d8_o  <= 0;
+          d9_o  <= 0;
+          d10_o <= 0;
+          d11_o <= data11;
+          d12_o <= data12;
+          d13_o <= data13;
+          d14_o <= data14;
+          d15_o <= 0;
+          d16_o <= data16;
+          d17_o <= data17;
+          d18_o <= data18;
+          d19_o <= data19;
+          d20_o <= 0;
+          d21_o <= data21;
+          d22_o <= data22;
+          d23_o <= data23;
+          d24_o <= data24;
+        end else if (i_row == 0 && i_col > 1 && i_col < COLS - 2) begin
+          d0_o  <= 0;
+          d1_o  <= 0;
+          d2_o  <= 0;
+          d3_o  <= 0;
+          d4_o  <= 0;
+          d5_o  <= 0;
+          d6_o  <= 0;
+          d7_o  <= 0;
+          d8_o  <= 0;
+          d9_o  <= 0;
+          d10_o <= data10;
+          d11_o <= data11;
+          d12_o <= data12;
+          d13_o <= data13;
+          d14_o <= data14;
+          d15_o <= data15;
+          d16_o <= data16;
+          d17_o <= data17;
+          d18_o <= data18;
+          d19_o <= data19;
+          d20_o <= data20;
+          d21_o <= data21;
+          d22_o <= data22;
+          d23_o <= data23;
+          d24_o <= data24;
+
+        end else if (i_row == 0 && i_col == COLS - 2) begin
+          d0_o  <= 0;
+          d1_o  <= 0;
+          d2_o  <= 0;
+          d3_o  <= 0;
+          d4_o  <= 0;
+          d5_o  <= 0;
+          d6_o  <= 0;
+          d7_o  <= 0;
+          d8_o  <= 0;
+          d9_o  <= 0;
+          d10_o <= data10;
+          d11_o <= data11;
+          d12_o <= data12;
+          d13_o <= data13;
+          d14_o <= 0;
+          d15_o <= data15;
+          d16_o <= data16;
+          d17_o <= data17;
+          d18_o <= data18;
+          d19_o <= 0;
+          d20_o <= data20;
+          d21_o <= data21;
+          d22_o <= data22;
+          d23_o <= data23;
+          d24_o <= 0;
+
+        end else if (i_row == 0 && i_col == COLS - 1) begin
+          d0_o  <= 0;
+          d1_o  <= 0;
+          d2_o  <= 0;
+          d3_o  <= 0;
+          d4_o  <= 0;
+          d5_o  <= 0;
+          d6_o  <= 0;
+          d7_o  <= 0;
+          d8_o  <= 0;
+          d9_o  <= 0;
+          d10_o <= data10;
+          d11_o <= data11;
+          d12_o <= data12;
+          d13_o <= 0;
+          d14_o <= 0;
+          d15_o <= data15;
+          d16_o <= data16;
+          d17_o <= data17;
+          d18_o <= 0;
+          d19_o <= 0;
+          d20_o <= data20;
+          d21_o <= data21;
+          d22_o <= data22;
+          d23_o <= 0;
+          d24_o <= 0;
+        end else if (i_row == 1 && i_col == 0) begin
+          d0_o  <= 0;
+          d1_o  <= 0;
+          d2_o  <= 0;
+          d3_o  <= 0;
+          d4_o  <= 0;
+          d5_o  <= 0;
+          d6_o  <= 0;
+          d7_o  <= data7;
+          d8_o  <= data8;
+          d9_o  <= data9;
+          d10_o <= 0;
+          d11_o <= 0;
+          d12_o <= data12;
+          d13_o <= data13;
+          d14_o <= data14;
+          d15_o <= 0;
+          d16_o <= 0;
+          d17_o <= data17;
+          d18_o <= data18;
+          d19_o <= data19;
+          d20_o <= 0;
+          d21_o <= 0;
+          d22_o <= data22;
+          d23_o <= data23;
+          d24_o <= data24;
+
+        end else if (i_row == 1 && i_col == 1) begin
+          d0_o  <= 0;
+          d1_o  <= 0;
+          d2_o  <= 0;
+          d3_o  <= 0;
+          d4_o  <= 0;
+          d5_o  <= 0;
+          d6_o  <= data6;
+          d7_o  <= data7;
+          d8_o  <= data8;
+          d9_o  <= data9;
+          d10_o <= 0;
+          d11_o <= data11;
+          d12_o <= data12;
+          d13_o <= data13;
+          d14_o <= data14;
+          d15_o <= 0;
+          d16_o <= data16;
+          d17_o <= data17;
+          d18_o <= data18;
+          d19_o <= data19;
+          d20_o <= 0;
+          d21_o <= data21;
+          d22_o <= data22;
+          d23_o <= data23;
+          d24_o <= data24;
+
+        end else if (i_row == 1 && i_col > 1 && i_col < COLS - 2) begin
+          d0_o  <= 0;
+          d1_o  <= 0;
+          d2_o  <= 0;
+          d3_o  <= 0;
+          d4_o  <= 0;
+          d5_o  <= data5;
+          d6_o  <= data6;
+          d7_o  <= data7;
+          d8_o  <= data8;
+          d9_o  <= data9;
+          d10_o <= data10;
+          d11_o <= data11;
+          d12_o <= data12;
+          d13_o <= data13;
+          d14_o <= data14;
+          d15_o <= data15;
+          d16_o <= data16;
+          d17_o <= data17;
+          d18_o <= data18;
+          d19_o <= data19;
+          d20_o <= data20;
+          d21_o <= data21;
+          d22_o <= data22;
+          d23_o <= data23;
+          d24_o <= data24;
+
+        end else if (i_row == 1 && i_col == COLS - 2) begin
+          d0_o  <= 0;
+          d1_o  <= 0;
+          d2_o  <= 0;
+          d3_o  <= 0;
+          d4_o  <= 0;
+          d5_o  <= data5;
+          d6_o  <= data6;
+          d7_o  <= data7;
+          d8_o  <= data8;
+          d9_o  <= 0;
+          d10_o <= data10;
+          d11_o <= data11;
+          d12_o <= data12;
+          d13_o <= data13;
+          d14_o <= 0;
+          d15_o <= data15;
+          d16_o <= data16;
+          d17_o <= data17;
+          d18_o <= data18;
+          d19_o <= 0;
+          d20_o <= data20;
+          d21_o <= data21;
+          d22_o <= data22;
+          d23_o <= data23;
+          d24_o <= 0;
+        end else if (i_row == 1 && i_col == COLS - 1) begin
+          d0_o  <= 0;
+          d1_o  <= 0;
+          d2_o  <= 0;
+          d3_o  <= 0;
+          d4_o  <= 0;
+          d5_o  <= data5;
+          d6_o  <= data6;
+          d7_o  <= data7;
+          d8_o  <= 0;
+          d9_o  <= 0;
+          d10_o <= data10;
+          d11_o <= data11;
+          d12_o <= data12;
+          d13_o <= 0;
+          d14_o <= 0;
+          d15_o <= data15;
+          d16_o <= data16;
+          d17_o <= data17;
+          d18_o <= 0;
+          d19_o <= 0;
+          d20_o <= data20;
+          d21_o <= data21;
+          d22_o <= data22;
+          d23_o <= 0;
+          d24_o <= 0;
+        end else if (i_row > 1 && i_row < ROWS - 2 && i_col == 0) begin
+          d0_o  <= 0;
+          d1_o  <= 0;
+          d2_o  <= data2;
+          d3_o  <= data3;
+          d4_o  <= data4;
+          d5_o  <= 0;
+          d6_o  <= 0;
+          d7_o  <= data7;
+          d8_o  <= data8;
+          d9_o  <= data9;
+          d10_o <= 0;
+          d11_o <= 0;
+          d12_o <= data12;
+          d13_o <= data13;
+          d14_o <= data14;
+          d15_o <= 0;
+          d16_o <= 0;
+          d17_o <= data17;
+          d18_o <= data18;
+          d19_o <= data19;
+          d20_o <= 0;
+          d21_o <= 0;
+          d22_o <= data22;
+          d23_o <= data23;
+          d24_o <= data24;
+        end else if (i_row > 1 && i_row < ROWS - 2 && i_col == 1) begin
+          d0_o  <= 0;
+          d1_o  <= data1;
+          d2_o  <= data2;
+          d3_o  <= data3;
+          d4_o  <= data4;
+          d5_o  <= 0;
+          d6_o  <= data6;
+          d7_o  <= data7;
+          d8_o  <= data8;
+          d9_o  <= data9;
+          d10_o <= 0;
+          d11_o <= data11;
+          d12_o <= data12;
+          d13_o <= data13;
+          d14_o <= data14;
+          d15_o <= 0;
+          d16_o <= data16;
+          d17_o <= data17;
+          d18_o <= data18;
+          d19_o <= data19;
+          d20_o <= 0;
+          d21_o <= data21;
+          d22_o <= data22;
+          d23_o <= data23;
+          d24_o <= data24;
+
+        end else if (i_row > 1 && i_row < ROWS - 2 && i_col > 1 && i_col < COLS - 2) begin
+          d0_o  <= data0;
+          d1_o  <= data1;
+          d2_o  <= data2;
+          d3_o  <= data3;
+          d4_o  <= data4;
+          d5_o  <= data5;
+          d6_o  <= data6;
+          d7_o  <= data7;
+          d8_o  <= data8;
+          d9_o  <= data9;
+          d10_o <= data10;
+          d11_o <= data11;
+          d12_o <= data12;
+          d13_o <= data13;
+          d14_o <= data14;
+          d15_o <= data15;
+          d16_o <= data16;
+          d17_o <= data17;
+          d18_o <= data18;
+          d19_o <= data19;
+          d20_o <= data20;
+          d21_o <= data21;
+          d22_o <= data22;
+          d23_o <= data23;
+          d24_o <= data24;
+
+        end else if (i_row > 1 && i_row < ROWS - 2 && i_col == COLS - 2) begin
+          d0_o  <= data0;
+          d1_o  <= data1;
+          d2_o  <= data2;
+          d3_o  <= data3;
+          d4_o  <= 0;
+          d5_o  <= data5;
+          d6_o  <= data6;
+          d7_o  <= data7;
+          d8_o  <= data8;
+          d9_o  <= 0;
+          d10_o <= data10;
+          d11_o <= data11;
+          d12_o <= data12;
+          d13_o <= data13;
+          d14_o <= 0;
+          d15_o <= data15;
+          d16_o <= data16;
+          d17_o <= data17;
+          d18_o <= data18;
+          d19_o <= 0;
+          d20_o <= data20;
+          d21_o <= data21;
+          d22_o <= data22;
+          d23_o <= data23;
+          d24_o <= 0;
+        end else if (i_row > 1 && i_row < ROWS - 2 && i_col == COLS - 1) begin
+          d0_o  <= data0;
+          d1_o  <= data1;
+          d2_o  <= data2;
+          d3_o  <= 0;
+          d4_o  <= 0;
+          d5_o  <= data5;
+          d6_o  <= data6;
+          d7_o  <= data7;
+          d8_o  <= 0;
+          d9_o  <= 0;
+          d10_o <= data10;
+          d11_o <= data11;
+          d12_o <= data12;
+          d13_o <= 0;
+          d14_o <= 0;
+          d15_o <= data15;
+          d16_o <= data16;
+          d17_o <= data17;
+          d18_o <= 0;
+          d19_o <= 0;
+          d20_o <= data20;
+          d21_o <= data21;
+          d22_o <= data22;
+          d23_o <= 0;
+          d24_o <= 0;
+        end else if (i_row == ROWS - 2 && i_col == 0) begin
+          d0_o  <= 0;
+          d1_o  <= 0;
+          d2_o  <= data2;
+          d3_o  <= data3;
+          d4_o  <= data4;
+          d5_o  <= 0;
+          d6_o  <= 0;
+          d7_o  <= data7;
+          d8_o  <= data8;
+          d9_o  <= data9;
+          d10_o <= 0;
+          d11_o <= 0;
+          d12_o <= data12;
+          d13_o <= data13;
+          d14_o <= data14;
+          d15_o <= 0;
+          d16_o <= 0;
+          d17_o <= data17;
+          d18_o <= data18;
+          d19_o <= data19;
+          d20_o <= 0;
+          d21_o <= 0;
+          d22_o <= 0;
+          d23_o <= 0;
+          d24_o <= 0;
+        end else if (i_row == ROWS - 2 && i_col == 1) begin
+          d0_o  <= 0;
+          d1_o  <= data1;
+          d2_o  <= data2;
+          d3_o  <= data3;
+          d4_o  <= data4;
+          d5_o  <= 0;
+          d6_o  <= data6;
+          d7_o  <= data7;
+          d8_o  <= data8;
+          d9_o  <= data9;
+          d10_o <= 0;
+          d11_o <= data11;
+          d12_o <= data12;
+          d13_o <= data13;
+          d14_o <= data14;
+          d15_o <= 0;
+          d16_o <= data16;
+          d17_o <= data17;
+          d18_o <= data18;
+          d19_o <= data19;
+          d20_o <= 0;
+          d21_o <= 0;
+          d22_o <= 0;
+          d23_o <= 0;
+          d24_o <= 0;
+        end else if (i_row == ROWS - 2 && i_col > 1 && i_col < COLS - 2) begin
+          d0_o  <= data0;
+          d1_o  <= data1;
+          d2_o  <= data2;
+          d3_o  <= data3;
+          d4_o  <= data4;
+          d5_o  <= data5;
+          d6_o  <= data6;
+          d7_o  <= data7;
+          d8_o  <= data8;
+          d9_o  <= data9;
+          d10_o <= data10;
+          d11_o <= data11;
+          d12_o <= data12;
+          d13_o <= data13;
+          d14_o <= data14;
+          d15_o <= data15;
+          d16_o <= data16;
+          d17_o <= data17;
+          d18_o <= data18;
+          d19_o <= data19;
+          d20_o <= 0;
+          d21_o <= 0;
+          d22_o <= 0;
+          d23_o <= 0;
+          d24_o <= 0;
+        end else if (i_row == ROWS - 2 && i_col == COLS - 2) begin
+          d0_o  <= data0;
+          d1_o  <= data1;
+          d2_o  <= data2;
+          d3_o  <= data3;
+          d4_o  <= 0;
+          d5_o  <= data5;
+          d6_o  <= data6;
+          d7_o  <= data7;
+          d8_o  <= data8;
+          d9_o  <= 0;
+          d10_o <= data10;
+          d11_o <= data11;
+          d12_o <= data12;
+          d13_o <= data13;
+          d14_o <= 0;
+          d15_o <= data15;
+          d16_o <= data16;
+          d17_o <= data17;
+          d18_o <= data18;
+          d19_o <= 0;
+          d20_o <= 0;
+          d21_o <= 0;
+          d22_o <= 0;
+          d23_o <= 0;
+          d24_o <= 0;
+        end else if (i_row == ROWS - 2 && i_col == COLS - 1) begin
+          d0_o  <= data0;
+          d1_o  <= data1;
+          d2_o  <= data2;
+          d3_o  <= 0;
+          d4_o  <= 0;
+          d5_o  <= data5;
+          d6_o  <= data6;
+          d7_o  <= data7;
+          d8_o  <= 0;
+          d9_o  <= 0;
+          d10_o <= data10;
+          d11_o <= data11;
+          d12_o <= data12;
+          d13_o <= 0;
+          d14_o <= 0;
+          d15_o <= data15;
+          d16_o <= data16;
+          d17_o <= data17;
+          d18_o <= 0;
+          d19_o <= 0;
+          d20_o <= 0;
+          d21_o <= 0;
+          d22_o <= 0;
+          d23_o <= 0;
+          d24_o <= 0;
+        end else if (i_row == ROWS - 1 && i_col == 0) begin
+          d0_o  <= 0;
+          d1_o  <= 0;
+          d2_o  <= data2;
+          d3_o  <= data3;
+          d4_o  <= data4;
+          d5_o  <= 0;
+          d6_o  <= 0;
+          d7_o  <= data7;
+          d8_o  <= data8;
+          d9_o  <= data9;
+          d10_o <= 0;
+          d11_o <= 0;
+          d12_o <= data12;
+          d13_o <= data13;
+          d14_o <= data14;
+          d15_o <= 0;
+          d16_o <= 0;
+          d17_o <= 0;
+          d18_o <= 0;
+          d19_o <= 0;
+          d20_o <= 0;
+          d21_o <= 0;
+          d22_o <= 0;
+          d23_o <= 0;
+          d24_o <= 0;
+        end else if (i_row == ROWS - 1 && i_col == 1) begin
+          d0_o  <= 0;
+          d1_o  <= data1;
+          d2_o  <= data2;
+          d3_o  <= data3;
+          d4_o  <= data4;
+          d5_o  <= 0;
+          d6_o  <= data6;
+          d7_o  <= data7;
+          d8_o  <= data8;
+          d9_o  <= data9;
+          d10_o <= 0;
+          d11_o <= data11;
+          d12_o <= data12;
+          d13_o <= data13;
+          d14_o <= data14;
+          d15_o <= 0;
+          d16_o <= 0;
+          d17_o <= 0;
+          d18_o <= 0;
+          d19_o <= 0;
+          d20_o <= 0;
+          d21_o <= 0;
+          d22_o <= 0;
+          d23_o <= 0;
+          d24_o <= 0;
+        end else if (i_row == ROWS - 1 && i_col > 1 && i_col < COLS - 2) begin
+          d0_o  <= data0;
+          d1_o  <= data1;
+          d2_o  <= data2;
+          d3_o  <= data3;
+          d4_o  <= data4;
+          d5_o  <= data5;
+          d6_o  <= data6;
+          d7_o  <= data7;
+          d8_o  <= data8;
+          d9_o  <= data9;
+          d10_o <= data10;
+          d11_o <= data11;
+          d12_o <= data12;
+          d13_o <= data13;
+          d14_o <= data14;
+          d15_o <= 0;
+          d16_o <= 0;
+          d17_o <= 0;
+          d18_o <= 0;
+          d19_o <= 0;
+          d20_o <= 0;
+          d21_o <= 0;
+          d22_o <= 0;
+          d23_o <= 0;
+          d24_o <= 0;
+        end else if (i_row == ROWS - 1 && i_col == COLS - 2) begin
+          d0_o  <= data0;
+          d1_o  <= data1;
+          d2_o  <= data2;
+          d3_o  <= data3;
+          d4_o  <= 0;
+          d5_o  <= data5;
+          d6_o  <= data6;
+          d7_o  <= data7;
+          d8_o  <= data8;
+          d9_o  <= 0;
+          d10_o <= data10;
+          d11_o <= data11;
+          d12_o <= data12;
+          d13_o <= data13;
+          d14_o <= 0;
+          d15_o <= 0;
+          d16_o <= 0;
+          d17_o <= 0;
+          d18_o <= 0;
+          d19_o <= 0;
+          d20_o <= 0;
+          d21_o <= 0;
+          d22_o <= 0;
+          d23_o <= 0;
+          d24_o <= 0;
+        end else if (i_row == ROWS - 1 && i_col == COLS - 1) begin
+          d0_o  <= data0;
+          d1_o  <= data1;
+          d2_o  <= data2;
+          d3_o  <= 0;
+          d4_o  <= 0;
+          d5_o  <= data5;
+          d6_o  <= data6;
+          d7_o  <= data7;
+          d8_o  <= 0;
+          d9_o  <= 0;
+          d10_o <= data10;
+          d11_o <= data11;
+          d12_o <= data12;
+          d13_o <= 0;
+          d14_o <= 0;
+          d15_o <= 0;
+          d16_o <= 0;
+          d17_o <= 0;
+          d18_o <= 0;
+          d19_o <= 0;
+          d20_o <= 0;
+          d21_o <= 0;
+          d22_o <= 0;
+          d23_o <= 0;
+          d24_o <= 0;
+        end
+
+      end
+    end
+
+  end
+
+
+
+  always @(posedge clk) begin
+    if (rst) begin
+
+      i_counter <= 0;
+    end else begin
+      if (done_i) begin
+        i_counter <= (i_counter == 3) ? i_counter : i_counter + 1;
+      end
+
+
+    end
+
+  end
+
+
+  always @(posedge clk) begin
+    if (rst) begin
+      d0_o  <= 0;
+      d1_o  <= 0;
+      d2_o  <= 0;
+      d3_o  <= 0;
+      d4_o  <= 0;
+      d5_o  <= 0;
+      d6_o  <= 0;
+      d7_o  <= 0;
+      d8_o  <= 0;
+      d9_o  <= 0;
+      d10_o <= 0;
+      d11_o <= 0;
+      d12_o <= 0;
+      d13_o <= 0;
+      d14_o <= 0;
+      d15_o <= 0;
+      d16_o <= 0;
+      d17_o <= 0;
+      d18_o <= 0;
+      d19_o <= 0;
+      d20_o <= 0;
+      d21_o <= 0;
+      d22_o <= 0;
+      d23_o <= 0;
+      d24_o <= 0;
+    end else begin
+      // d6 d5 d4 d3 d2
+      if (done_i) begin
+        data0  <= data1;
+        data1  <= data2;
+        data2  <= data3;
+        data3  <= data4;
+        data4  <= d6_i;
+        data5  <= data6;
+        data6  <= data7;
+        data7  <= data8;
+        data8  <= data9;
+        data9  <= d5_i;
+        data10 <= data11;
+        data11 <= data12;
+        data12 <= data13;
+        data13 <= data14;
+        data14 <= d4_i;
+        data15 <= data16;
+        data16 <= data17;
+        data17 <= data18;
+        data18 <= data19;
+        data19 <= d3_i;
+        data20 <= data21;
+        data21 <= data22;
+        data22 <= data23;
+        data23 <= data24;
+        data24 <= d2_i;
+
+      end
+
+    end
+
+
+  end
+
+endmodule

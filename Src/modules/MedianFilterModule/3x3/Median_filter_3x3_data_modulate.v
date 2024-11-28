@@ -44,8 +44,8 @@ module Median_filter_3x3_data_modulate #(
 
   reg [7:0] data0, data1, data2, data3, data4, data5, data6, data7, data8;
 
-
-  assign done_o = (i_counter == 2) ? 1 : 0;
+  reg done_reg;
+  assign done_o = (i_counter == 2 && done_reg == 0) ? 1 : 0;
 
   // handle with i rows and i cols
 
@@ -53,11 +53,15 @@ module Median_filter_3x3_data_modulate #(
     if (rst) begin
       i_row <= 0;
       i_col <= 0;
+      done_reg <= 0;
     end else begin
       if (done_o) begin
         i_col <= (i_col == COLS - 1) ? 0 : i_col + 1;
 
         if (i_col == COLS - 1) begin
+          if (i_row == ROWS - 1) begin
+            done_reg <= 1;
+          end
           i_row <= (i_row == ROWS - 1) ? 0 : i_row + 1;
         end
       end

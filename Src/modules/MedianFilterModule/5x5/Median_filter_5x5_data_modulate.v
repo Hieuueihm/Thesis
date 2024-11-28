@@ -19,7 +19,7 @@ module Median_filter_5x5_data_modulate #(
     output reg [7:0] d2_o,
     output reg [7:0] d3_o,
     output reg [7:0] d4_o,
-    output reg [7:0] d5_o,
+    output reg [7:0] d5_o,a
     output reg [7:0] d6_o,
     output reg [7:0] d7_o,
     output reg [7:0] d8_o,
@@ -78,8 +78,8 @@ module Median_filter_5x5_data_modulate #(
       data23,
       data24;
 
-
-  assign done_o = (i_counter == 3) ? 1 : 0;
+  reg done_reg;
+  assign done_o = (i_counter == 3 && done_reg == 0) ? 1 : 0;
 
   // handle with i rows and i cols
 
@@ -87,12 +87,18 @@ module Median_filter_5x5_data_modulate #(
     if (rst) begin
       i_row <= 0;
       i_col <= 0;
+      done_reg <= 0;
     end else begin
       if (done_o) begin
         i_col <= (i_col == COLS - 1) ? 0 : i_col + 1;
 
         if (i_col == COLS - 1) begin
+          if (i_row == ROWS - 1) begin
+            done_reg <= 1;
+          end
           i_row <= (i_row == ROWS - 1) ? 0 : i_row + 1;
+
+
         end
       end
     end
@@ -286,7 +292,7 @@ module Median_filter_5x5_data_modulate #(
           d20_o <= 0;
           d21_o <= 0;
           d22_o <= data22;
-          d23_o <= data20;
+          d23_o <= data23;
           d24_o <= data24;
 
         end else if (i_row == 1 && i_col == 1) begin
@@ -313,7 +319,7 @@ module Median_filter_5x5_data_modulate #(
           d20_o <= 0;
           d21_o <= data21;
           d22_o <= data22;
-          d23_o <= data20;
+          d23_o <= data23;
           d24_o <= data24;
 
         end else if (i_row == 1 && i_col > 1 && i_col < COLS - 2) begin
@@ -340,7 +346,7 @@ module Median_filter_5x5_data_modulate #(
           d20_o <= data20;
           d21_o <= data21;
           d22_o <= data22;
-          d23_o <= data20;
+          d23_o <= data23;
           d24_o <= data24;
 
         end else if (i_row == 1 && i_col == COLS - 2) begin
@@ -367,7 +373,7 @@ module Median_filter_5x5_data_modulate #(
           d20_o <= data20;
           d21_o <= data21;
           d22_o <= data22;
-          d23_o <= data20;
+          d23_o <= data23;
           d24_o <= 0;
         end else if (i_row == 1 && i_col == COLS - 1) begin
           d0_o  <= 0;
@@ -395,7 +401,7 @@ module Median_filter_5x5_data_modulate #(
           d22_o <= data22;
           d23_o <= 0;
           d24_o <= 0;
-        end else if (i_row > 1 && i_row < ROWS - 1 && i_col == 0) begin
+        end else if (i_row > 1 && i_row < ROWS - 2 && i_col == 0) begin
           d0_o  <= 0;
           d1_o  <= 0;
           d2_o  <= data2;
@@ -419,9 +425,9 @@ module Median_filter_5x5_data_modulate #(
           d20_o <= 0;
           d21_o <= 0;
           d22_o <= data22;
-          d23_o <= data20;
+          d23_o <= data23;
           d24_o <= data24;
-        end else if (i_row > 1 && i_row < ROWS - 1 && i_col == 1) begin
+        end else if (i_row > 1 && i_row < ROWS - 2 && i_col == 1) begin
           d0_o  <= 0;
           d1_o  <= data1;
           d2_o  <= data2;
@@ -445,10 +451,10 @@ module Median_filter_5x5_data_modulate #(
           d20_o <= 0;
           d21_o <= data21;
           d22_o <= data22;
-          d23_o <= data20;
+          d23_o <= data23;
           d24_o <= data24;
 
-        end else if (i_row > 1 && i_row < ROWS - 1 && i_col > 1 && i_col < COLS - 2) begin
+        end else if (i_row > 1 && i_row < ROWS - 2 && i_col > 1 && i_col < COLS - 2) begin
           d0_o  <= data0;
           d1_o  <= data1;
           d2_o  <= data2;
@@ -472,10 +478,10 @@ module Median_filter_5x5_data_modulate #(
           d20_o <= data20;
           d21_o <= data21;
           d22_o <= data22;
-          d23_o <= data20;
+          d23_o <= data23;
           d24_o <= data24;
 
-        end else if (i_row > 1 && i_row < ROWS - 1 && i_col == COLS - 2) begin
+        end else if (i_row > 1 && i_row < ROWS - 2 && i_col == COLS - 2) begin
           d0_o  <= data0;
           d1_o  <= data1;
           d2_o  <= data2;
@@ -499,9 +505,9 @@ module Median_filter_5x5_data_modulate #(
           d20_o <= data20;
           d21_o <= data21;
           d22_o <= data22;
-          d23_o <= data20;
+          d23_o <= data23;
           d24_o <= 0;
-        end else if (i_row > 1 && i_row < ROWS - 1 && i_col == COLS - 1) begin
+        end else if (i_row > 1 && i_row < ROWS - 2 && i_col == COLS - 1) begin
           d0_o  <= data0;
           d1_o  <= data1;
           d2_o  <= data2;

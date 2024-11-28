@@ -244,11 +244,11 @@ module Median_filter_5x5_calc (
       p2_done_i <= 0;
     end else begin
       // col 1
-      p2_S1 <= sa1_max;
-      p2_S2 <= sa2_max;
-      p2_S3 <= sa3_max;
-      p2_S4 <= sa4_max;
-      p2_S5 <= sa5_max;
+      p2_S1 <= sa1_min;
+      p2_S2 <= sa2_min;
+      p2_S3 <= sa3_min;
+      p2_S4 <= sa4_min;
+      p2_S5 <= sa5_min;
       // col 2
       p2_S6 <= sa1_out2;
       p2_S7 <= sa2_out2;
@@ -268,11 +268,11 @@ module Median_filter_5x5_calc (
       p2_S19 <= sa4_out4;
       p2_S20 <= sa5_out4;
       // col4
-      p2_S21 <= sa1_min;
-      p2_S22 <= sa2_min;
-      p2_S23 <= sa3_min;
-      p2_S24 <= sa4_min;
-      p2_S25 <= sa5_min;
+      p2_S21 <= sa1_max;
+      p2_S22 <= sa2_max;
+      p2_S23 <= sa3_max;
+      p2_S24 <= sa4_max;
+      p2_S25 <= sa5_max;
       p2_done_i <= p1_done_i;
     end
   end
@@ -384,21 +384,21 @@ module Median_filter_5x5_calc (
       p3_done_i <= 0;
     end else begin
       // diag 0
-      p3_S1 <= sa9_max;
+      p3_S1 <= sa9_min;
       p3_S2 <= sa8_out2;
       p3_S3 <= sa7_mid;
       p3_S4 <= sa6_out4;
       // diag 1
-      p3_S6 <= sa10_max;
+      p3_S6 <= sa10_min;
       p3_S7 <= sa9_out2;
       p3_S8 <= sa8_mid;
       p3_S9 <= sa7_out4;
-      p3_S10 <= sa6_min;
+      p3_S10 <= sa6_max;
       // diag 2
       p3_S11 <= sa10_out2;
       p3_S12 <= sa9_mid;
       p3_S13 <= sa8_out4;
-      p3_S14 <= sa7_min;
+      p3_S14 <= sa7_max;
 
       p3_done_i <= p2_done_i;
     end

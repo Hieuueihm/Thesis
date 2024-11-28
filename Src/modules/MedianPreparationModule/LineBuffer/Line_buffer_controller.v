@@ -38,13 +38,13 @@ module Line_buffer_controller #(
       end
       ACT: begin
         if (!done_i) next_state = DONE;
-        else next_state= ACT;
+        else next_state = ACT;
       end
       DONE: begin
-          next_state = IDLE;
+        next_state = IDLE;
       end
       default: next_state = IDLE;
-    
+
     endcase
   end
 
