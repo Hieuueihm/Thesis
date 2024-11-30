@@ -21,8 +21,8 @@ module median_no_image_tb;
   );
 
   // Registers for 9x9 matrix
-  reg [7:0] S[1:81];  // Array for 81 elements of the 9x9 matrix
-  reg [7:0] matrix[0:80];  // Flattened input matrix
+  reg [7:0] S[1:121];  // Array for 81 elements of the 9x9 matrix
+  reg [7:0] matrix[0:120];  // Flattened input matrix
 
   // Clock generation
   always begin
@@ -35,12 +35,12 @@ module median_no_image_tb;
     integer file;
     reg [7:0] value;
     begin
-      file = $fopen("D:\\Thesis\\Src\\test_benches\\MedianFilterModule\\matrix_7x7.txt", "r");
+      file = $fopen("D:\\Thesis\\Src\\test_benches\\MedianFilterModule\\matrix_9x9.txt", "r");
       if (file == 0) begin
         $display("ERROR: Unable to open file: %s", "matrix_5x5.txt");
         $finish;
       end
-      for (i = 0; i < 81; i = i + 1) begin
+      for (i = 0; i < 121; i = i + 1) begin
         if (!$feof(file)) begin
           $fscanf(file, "%d\n", value);  // Read decimal value
           matrix[i] = value;
@@ -62,7 +62,7 @@ module median_no_image_tb;
     read_matrix;
 
     // Assign matrix values to S1 through S81
-    for (i = 0; i < 81; i = i + 1) begin
+    for (i = 0; i < 121; i = i + 1) begin
       S[i+1] = matrix[i];
     end
 
@@ -74,11 +74,11 @@ module median_no_image_tb;
     // Apply done signal
     #10;
     done_i = 1;
-    for (i = 0; i < 81; i = i + 1) begin
+    for (i = 0; i < 121; i = i + 1) begin
       grayscale_i = matrix[i];
       #10;
     end
-    #90;
+    #300;
     done_i = 0;
 
     // Check the outputs after some time

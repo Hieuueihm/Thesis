@@ -19,7 +19,7 @@ module Median_filter_5x5_data_modulate #(
     output reg [7:0] d2_o,
     output reg [7:0] d3_o,
     output reg [7:0] d4_o,
-    output reg [7:0] d5_o,a
+    output reg [7:0] d5_o,
     output reg [7:0] d6_o,
     output reg [7:0] d7_o,
     output reg [7:0] d8_o,
@@ -819,31 +819,31 @@ module Median_filter_5x5_data_modulate #(
 
   always @(posedge clk) begin
     if (rst) begin
-      d0_o  <= 0;
-      d1_o  <= 0;
-      d2_o  <= 0;
-      d3_o  <= 0;
-      d4_o  <= 0;
-      d5_o  <= 0;
-      d6_o  <= 0;
-      d7_o  <= 0;
-      d8_o  <= 0;
-      d9_o  <= 0;
-      d10_o <= 0;
-      d11_o <= 0;
-      d12_o <= 0;
-      d13_o <= 0;
-      d14_o <= 0;
-      d15_o <= 0;
-      d16_o <= 0;
-      d17_o <= 0;
-      d18_o <= 0;
-      d19_o <= 0;
-      d20_o <= 0;
-      d21_o <= 0;
-      d22_o <= 0;
-      d23_o <= 0;
-      d24_o <= 0;
+      data0  <= 0;
+      data1  <= 0;
+      data2  <= 0;
+      data3  <= 0;
+      data4  <= 0;
+      data5  <= 0;
+      data6  <= 0;
+      data7  <= 0;
+      data8  <= 0;
+      data9  <= 0;
+      data10 <= 0;
+      data11 <= 0;
+      data12 <= 0;
+      data13 <= 0;
+      data14 <= 0;
+      data15 <= 0;
+      data16 <= 0;
+      data17 <= 0;
+      data18 <= 0;
+      data19 <= 0;
+      data20 <= 0;
+      data21 <= 0;
+      data22 <= 0;
+      data23 <= 0;
+      data24 <= 0;
     end else begin
       // d6 d5 d4 d3 d2
       if (done_i) begin
