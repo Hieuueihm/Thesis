@@ -45,7 +45,7 @@ module Median_filter_5x5 #(
       data23,
       data24;
   wire done_o_modulate;
-  Median_filter_5x5_data_modulate #(
+  Data_modulate_5x5 #(
       .ROWS(ROWS),
       .COLS(COLS)
   ) MEDIAN_5x5_DATA_MODULATE (

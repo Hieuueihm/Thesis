@@ -69,7 +69,7 @@ module Median_filter_7x7 #(
       data47,
       data48;
   wire done_o_modulate;
-  Median_filter_7x7_data_modulate #(
+  Data_modulate_7x7 #(
       .ROWS(ROWS),
       .COLS(COLS)
   ) MEDIAN_7x7_DATA_MODULATE (

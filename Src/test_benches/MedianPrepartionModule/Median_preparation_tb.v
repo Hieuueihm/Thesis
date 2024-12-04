@@ -24,13 +24,13 @@ module Median_preparation_tb ();
   wire done_o;
 
   // Instantiate the Median_preparation module
-  Median_preparation #(
+  Preparation #(
       .DEPTH(DEPTH)
   ) uut (
       .clk(clk),
       .rst(rst),
       .done_i(done_i),
-      .grayscale_i(grayscale_i),
+      .data_i(grayscale_i),
       .data0_o(data0_o),
       .data1_o(data1_o),
       .data2_o(data2_o),

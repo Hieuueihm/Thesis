@@ -100,7 +100,7 @@ module Median_filter_9x9 #(
       data79,
       data80;
   wire done_o_modulate;
-  Median_filter_9x9_data_modulate #(
+  Data_modulate_9x9 #(
       .ROWS(ROWS),
       .COLS(COLS)
   ) MEDIAN_9X9_DATA_MODULATE (

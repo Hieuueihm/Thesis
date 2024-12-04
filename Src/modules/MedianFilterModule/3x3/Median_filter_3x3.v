@@ -20,7 +20,7 @@ module Median_filter_3x3 #(
 );
   wire [7:0] data0, data1, data2, data3, data4, data5, data6, data7, data8;
   wire done_o_modulate;
-  Median_filter_3x3_data_modulate #(
+  Data_modulate_3x3 #(
       .ROWS(ROWS),
       .COLS(COLS)
   ) MEDIAN_3X3_DATA_MODULATE (

@@ -17,13 +17,13 @@ module median_no_image (
 
 
 
-  Median_preparation #(
+  Preparation #(
       .DEPTH(11)
   ) MEDIAN_PREPARATION (
       .clk(clk),
       .rst(rst),
       .done_i(done_i),
-      .grayscale_i(grayscale_i),
+      .data_i(grayscale_i),
       .data0_o(d0_o),
       .data1_o(d1_o),
       .data2_o(d2_o),

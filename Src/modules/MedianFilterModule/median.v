@@ -31,13 +31,13 @@ module median (
       .grayscale_o(RGB2Gray_grayscale_o),
       .done_o(RGB2Gray_done_o)
   );
-  Median_preparation #(
+  Preparation #(
       .DEPTH(480)
   ) MEDIAN_PREPARATION (
       .clk(clk),
       .rst(rst),
       .done_i(RGB2Gray_done_o),
-      .grayscale_i(RGB2Gray_grayscale_o),
+      .data_i(RGB2Gray_grayscale_o),
       .data0_o(d0_o),
       .data1_o(d1_o),
       .data2_o(d2_o),
