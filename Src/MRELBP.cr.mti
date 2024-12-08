@@ -1,11 +1,32 @@
-D:/Thesis/Src/MRELBP_CI_R2_tb.v {1 {vlog -work work -stats=none D:/Thesis/Src/MRELBP_CI_R2_tb.v
+D:/Thesis/Src/modules/MRELBP_CI/MRELBP_CI_R2/MRELBP_CI_R2_datapath.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/MRELBP_CI/MRELBP_CI_R2/MRELBP_CI_R2_datapath.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module MRELBP_CI_R2_datapath
+
+Top level modules:
+	MRELBP_CI_R2_datapath
+
+} {} {}} D:/Thesis/Src/modules/MRELBP_CI/MRELBP_CI_R2/MRELBP_CI_R2_controller.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/MRELBP_CI/MRELBP_CI_R2/MRELBP_CI_R2_controller.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module MRELBP_CI_R2_controller
+
+Top level modules:
+	MRELBP_CI_R2_controller
+
+} {} {}} D:/Thesis/Src/modules/MRELBP_CI/MRELBP_CI_R2/CI_buffer_R2.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/MRELBP_CI/MRELBP_CI_R2/CI_buffer_R2.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module CI_buffer_R2
+
+Top level modules:
+	CI_buffer_R2
+
+} {} {}} D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v {1 {vlog -work work -stats=none D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module MRELBP_CI_R2_tb
 
 Top level modules:
 	MRELBP_CI_R2_tb
 
-} {} {}} D:/Thesis/Src/MRELBP_CI_R2.v {1 {vlog -work work -vlog01compat -stats=none D:/Thesis/Src/MRELBP_CI_R2.v
+} {} {}} D:/Thesis/Src/modules/MRELBP_CI/MRELBP_CI_R2/MRELBP_CI_R2.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/MRELBP_CI/MRELBP_CI_R2/MRELBP_CI_R2.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module MRELBP_CI_R2
 

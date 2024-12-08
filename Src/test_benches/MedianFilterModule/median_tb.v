@@ -61,9 +61,9 @@ module median_tb ();
       j <= 8'd0;
     end else begin
       if (done_o) begin
-        result[j] <= red_o;
+        result[j] <= blue_o;
         result[j+1] <= green_o;
-        result[j+2] <= blue_o;
+        result[j+2] <= red_o;
         j <= j + 3;
       end
     end

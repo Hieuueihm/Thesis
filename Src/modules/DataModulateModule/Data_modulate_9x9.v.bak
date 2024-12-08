@@ -1,6 +1,6 @@
 module Data_modulate_9x9 #(
-    parameter ROWS = 11,
-    parameter COLS = 11
+    parameter ROWS,
+    parameter COLS
 ) (
     input clk,
     input rst,

@@ -1,34 +1,377 @@
+# Compile of Data_modulate_13x13.v failed with 2 errors.
+# Compile of CI_buffer_R2.v failed with 1 errors.
+# Error opening D:/Thesis/Src/(vlog-13069) D:/Thesis/Src/modules/MRELBP_CI/CI_buffer_R2.v
+# Path name 'D:/Thesis/Src/(vlog-13069) D:/Thesis/Src/modules/MRELBP_CI/CI_buffer_R2.v' doesn't exist.
+# Compile of CI_buffer_R2.v failed with 8 errors.
+# Compile of CI_buffer_R2.v failed with 6 errors.
+# Compile of CI_buffer_R2.v was successful.
+# Compile of MRELBP_CI_R2.v failed with 2 errors.
+# Compile of MRELBP_CI_R2_controller.v failed with 1 errors.
+# Compile of MRELBP_CI_R2_datapath.v failed with 2 errors.
+# 3 compiles, 4 failed with 5 errors.
+# Compile of MRELBP_CI_R2.v failed with 2 errors.
+# Compile of MRELBP_CI_R2_controller.v failed with 1 errors.
+# Compile of MRELBP_CI_R2_datapath.v failed with 2 errors.
+# Compile of CI_buffer_R2.v was successful.
+# 4 compiles, 3 failed with 5 errors.
+# Error opening D:/Thesis/Src/(vlog-13069) D:/Thesis/Src/modules/MRELBP_CI/MRELBP_CI_R2/MRELBP_CI_R2.v
+# Path name 'D:/Thesis/Src/(vlog-13069) D:/Thesis/Src/modules/MRELBP_CI/MRELBP_CI_R2/MRELBP_CI_R2.v' doesn't exist.
 # Compile of MRELBP_CI_R2.v was successful.
+# Compile of MRELBP_CI_R2_controller.v failed with 1 errors.
+# Compile of MRELBP_CI_R2_datapath.v failed with 2 errors.
+# Compile of CI_buffer_R2.v was successful.
+# 4 compiles, 2 failed with 3 errors.
+# Compile of MRELBP_CI_R2.v was successful.
+# Compile of MRELBP_CI_R2_controller.v was successful.
+# Compile of MRELBP_CI_R2_datapath.v failed with 2 errors.
+# Compile of CI_buffer_R2.v was successful.
+# 4 compiles, 1 failed with 2 errors.
+# Compile of MRELBP_CI_R2.v was successful.
+# Compile of MRELBP_CI_R2_controller.v was successful.
+# Compile of MRELBP_CI_R2_datapath.v was successful.
+# Compile of CI_buffer_R2.v was successful.
+# 4 compiles, 0 failed with no errors.
+# Compile of MRELBP_CI_R2_tb.v failed with 1 errors.
+# Compile of MRELBP_CI_R2.v was successful.
+# Compile of MRELBP_CI_R2_controller.v was successful.
+# Compile of MRELBP_CI_R2_datapath.v was successful.
+# Compile of CI_buffer_R2.v was successful.
 # Compile of MRELBP_CI_R2_tb.v was successful.
-# 2 compiles, 0 failed with no errors.
+# 5 compiles, 0 failed with no errors.
 vsim -gui work.MRELBP_CI_R2_tb
 # vsim -gui work.MRELBP_CI_R2_tb 
-# Start time: 06:43:47 on Dec 04,2024
+# Start time: 18:28:20 on Dec 07,2024
 # Loading work.MRELBP_CI_R2_tb
 # Loading work.MRELBP_CI_R2
+# Loading work.CI_buffer_R2
+# Loading work.MRELBP_CI_R2_controller
+# Loading work.MRELBP_CI_R2_datapath
 add wave *
 run
-# ci_o =   0, done_o = 0
-# ** Note: $finish    : D:/Thesis/Src/MRELBP_CI_R2_tb.v(72)
-#    Time: 80 ps  Iteration: 0  Instance: /MRELBP_CI_R2_tb
-# 1
-# Break in Module MRELBP_CI_R2_tb at D:/Thesis/Src/MRELBP_CI_R2_tb.v line 72
+# At time                    0, done_o = x, ci_o = x
+# At time                    5, done_o = 0, ci_o = 0
+run
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v(117)
+#    Time: 190 ps  Iteration: 0  Instance: /MRELBP_CI_R2_tb
+# Break in Module MRELBP_CI_R2_tb at D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v line 117
+# Can't move the Now cursor.
 # Compile of MRELBP_CI_R2.v was successful.
+# Compile of MRELBP_CI_R2_controller.v was successful.
+# Compile of MRELBP_CI_R2_datapath.v was successful.
+# Compile of CI_buffer_R2.v was successful.
 # Compile of MRELBP_CI_R2_tb.v was successful.
-# 2 compiles, 0 failed with no errors.
+# 5 compiles, 0 failed with no errors.
 vsim -gui work.MRELBP_CI_R2_tb
-# End time: 06:44:37 on Dec 04,2024, Elapsed time: 0:00:50
+# End time: 18:31:14 on Dec 07,2024, Elapsed time: 0:02:54
+# Errors: 0, Warnings: 24
+# vsim -gui work.MRELBP_CI_R2_tb 
+# Start time: 18:31:14 on Dec 07,2024
+# Loading work.MRELBP_CI_R2_tb
+# Loading work.MRELBP_CI_R2
+# Loading work.CI_buffer_R2
+# Loading work.MRELBP_CI_R2_controller
+# Loading work.MRELBP_CI_R2_datapath
+# ** Error: (vsim-3043) Unresolved reference to 'stop'.
+#    Time: 0 ps  Iteration: 0  Instance: /MRELBP_CI_R2_tb File: D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v Line: 112
+# Error loading design
+# End time: 18:31:14 on Dec 07,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 1
+# Compile of MRELBP_CI_R2.v was successful.
+# Compile of MRELBP_CI_R2_controller.v was successful.
+# Compile of MRELBP_CI_R2_datapath.v was successful.
+# Compile of CI_buffer_R2.v was successful.
+# Compile of MRELBP_CI_R2_tb.v was successful.
+# 5 compiles, 0 failed with no errors.
+vsim -gui work.MRELBP_CI_R2_tb
+# vsim -gui work.MRELBP_CI_R2_tb 
+# Start time: 18:31:32 on Dec 07,2024
+# Loading work.MRELBP_CI_R2_tb
+# Loading work.MRELBP_CI_R2
+# Loading work.CI_buffer_R2
+# Loading work.MRELBP_CI_R2_controller
+# Loading work.MRELBP_CI_R2_datapath
+add wave *
+run
+# At time                    0, done_o = x, ci_o = x
+# At time                    5, done_o = 0, ci_o = 0
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v(112)
+#    Time: 190 ps  Iteration: 0  Instance: /MRELBP_CI_R2_tb
+# Break in Module MRELBP_CI_R2_tb at D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v line 112
+# Compile of MRELBP_CI_R2.v was successful.
+# Compile of MRELBP_CI_R2_controller.v was successful.
+# Compile of MRELBP_CI_R2_datapath.v was successful.
+# Compile of CI_buffer_R2.v was successful.
+# Compile of MRELBP_CI_R2_tb.v was successful.
+# 5 compiles, 0 failed with no errors.
+vsim -gui work.MRELBP_CI_R2_tb
+# End time: 18:34:03 on Dec 07,2024, Elapsed time: 0:02:31
 # Errors: 0, Warnings: 3
 # vsim -gui work.MRELBP_CI_R2_tb 
-# Start time: 06:44:37 on Dec 04,2024
+# Start time: 18:34:03 on Dec 07,2024
 # Loading work.MRELBP_CI_R2_tb
 # Loading work.MRELBP_CI_R2
+# Loading work.CI_buffer_R2
+# Loading work.MRELBP_CI_R2_controller
+# Loading work.MRELBP_CI_R2_datapath
 add wave *
 run
-# ci_o =   1, done_o = 0
-# ** Note: $finish    : D:/Thesis/Src/MRELBP_CI_R2_tb.v(73)
-#    Time: 80 ps  Iteration: 0  Instance: /MRELBP_CI_R2_tb
-# 1
-# Break in Module MRELBP_CI_R2_tb at D:/Thesis/Src/MRELBP_CI_R2_tb.v line 73
-# End time: 06:45:02 on Dec 04,2024, Elapsed time: 0:00:25
+# At time                    0, done_o = x, ci_o = x
+# At time                    5, done_o = 0, ci_o = 0
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v(112)
+#    Time: 190 ps  Iteration: 0  Instance: /MRELBP_CI_R2_tb
+# Break in Module MRELBP_CI_R2_tb at D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v line 112
+vsim -gui work.MRELBP_CI_R2_tb
+# End time: 18:35:10 on Dec 07,2024, Elapsed time: 0:01:07
+# Errors: 0, Warnings: 1
+# vsim -gui work.MRELBP_CI_R2_tb 
+# Start time: 18:35:10 on Dec 07,2024
+# Loading work.MRELBP_CI_R2_tb
+# Loading work.MRELBP_CI_R2
+# Loading work.CI_buffer_R2
+# Loading work.MRELBP_CI_R2_controller
+# Loading work.MRELBP_CI_R2_datapath
+add wave *
+run
+# At time                    0, done_o = x, ci_o = x
+# At time                    5, done_o = 0, ci_o = 0
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v(112)
+#    Time: 190 ps  Iteration: 0  Instance: /MRELBP_CI_R2_tb
+# Break in Module MRELBP_CI_R2_tb at D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v line 112
+# Compile of MRELBP_CI_R2.v was successful.
+# Compile of MRELBP_CI_R2_controller.v was successful.
+# Compile of MRELBP_CI_R2_datapath.v failed with 1 errors.
+# Compile of CI_buffer_R2.v was successful.
+# Compile of MRELBP_CI_R2_tb.v was successful.
+# 5 compiles, 1 failed with 1 error.
+# Compile of MRELBP_CI_R2.v was successful.
+# Compile of MRELBP_CI_R2_controller.v was successful.
+# Compile of MRELBP_CI_R2_datapath.v was successful.
+# Compile of CI_buffer_R2.v was successful.
+# Compile of MRELBP_CI_R2_tb.v was successful.
+# 5 compiles, 0 failed with no errors.
+vsim -gui work.MRELBP_CI_R2_tb
+# End time: 18:41:01 on Dec 07,2024, Elapsed time: 0:05:51
+# Errors: 0, Warnings: 3
+# vsim -gui work.MRELBP_CI_R2_tb 
+# Start time: 18:41:01 on Dec 07,2024
+# Loading work.MRELBP_CI_R2_tb
+# Loading work.MRELBP_CI_R2
+# Loading work.CI_buffer_R2
+# Loading work.MRELBP_CI_R2_controller
+# Loading work.MRELBP_CI_R2_datapath
+add wave  *
+run
+# At time                    0, done_o = x, ci_o = x
+# At time                    5, done_o = 0, ci_o = 0
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v(112)
+#    Time: 190 ps  Iteration: 0  Instance: /MRELBP_CI_R2_tb
+# Break in Module MRELBP_CI_R2_tb at D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v line 112
+vsim -gui work.MRELBP_CI_R2_tb
+# End time: 18:44:01 on Dec 07,2024, Elapsed time: 0:03:00
+# Errors: 0, Warnings: 1
+# vsim -gui work.MRELBP_CI_R2_tb 
+# Start time: 18:44:01 on Dec 07,2024
+# Loading work.MRELBP_CI_R2_tb
+# Loading work.MRELBP_CI_R2
+# Loading work.CI_buffer_R2
+# Loading work.MRELBP_CI_R2_controller
+# Loading work.MRELBP_CI_R2_datapath
+add wave *
+add wave *
+run
+# At time                    0, done_o = x, ci_o = x
+# At time                    5, done_o = 0, ci_o = 0
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v(112)
+#    Time: 190 ps  Iteration: 0  Instance: /MRELBP_CI_R2_tb
+# Break in Module MRELBP_CI_R2_tb at D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v line 112
+# Compile of MRELBP_CI_R2.v was successful.
+# Compile of MRELBP_CI_R2_controller.v was successful.
+# Compile of MRELBP_CI_R2_datapath.v was successful.
+# Compile of CI_buffer_R2.v was successful.
+# Compile of MRELBP_CI_R2_tb.v was successful.
+# 5 compiles, 0 failed with no errors.
+vsim -gui work.MRELBP_CI_R2_tb
+# End time: 18:46:09 on Dec 07,2024, Elapsed time: 0:02:08
+# Errors: 0, Warnings: 2
+# vsim -gui work.MRELBP_CI_R2_tb 
+# Start time: 18:46:09 on Dec 07,2024
+# Loading work.MRELBP_CI_R2_tb
+# Loading work.MRELBP_CI_R2
+# Loading work.CI_buffer_R2
+# Loading work.MRELBP_CI_R2_controller
+# Loading work.MRELBP_CI_R2_datapath
+add wave* 
+# ** Error: bad option "wave*": should be one of...
+#   add atv ?options? ?arg arg ...?
+#   add button text action ?disable? ?options? ?help?
+#   add dataflow ?options? ?arg arg ...?
+#   add lists ?options? ?arg arg ...?
+#   add log ?options? ?arg arg ...?
+#   add memory options ?arg arg ...?
+#   add message ?options? ?arg arg ...?
+#   add monitor ?options? ?arg arg ...?
+#   add schematic ?options? ?arg arg ...?
+#   add testbrowser ?options? ?arg arg ...?
+#   add virtual ?options? ?arg arg ...?
+#   add watch ?options? ?arg arg ...?
+#   add wave ?options? ?arg arg ...?
+add wave *
+add wave *
+run
+# At time                    0, done_o = x, ci_o = x
+# At time                    5, done_o = 0, ci_o = 0
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v(112)
+#    Time: 190 ps  Iteration: 0  Instance: /MRELBP_CI_R2_tb
+# Break in Module MRELBP_CI_R2_tb at D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v line 112
+# Compile of MRELBP_CI_R2.v was successful.
+# Compile of MRELBP_CI_R2_controller.v was successful.
+# Compile of MRELBP_CI_R2_datapath.v was successful.
+# Compile of CI_buffer_R2.v was successful.
+# Compile of MRELBP_CI_R2_tb.v was successful.
+# 5 compiles, 0 failed with no errors.
+vsim -gui work.MRELBP_CI_R2_tb
+# End time: 18:47:48 on Dec 07,2024, Elapsed time: 0:01:39
+# Errors: 0, Warnings: 2
+# vsim -gui work.MRELBP_CI_R2_tb 
+# Start time: 18:47:48 on Dec 07,2024
+# Loading work.MRELBP_CI_R2_tb
+# Loading work.MRELBP_CI_R2
+# Loading work.CI_buffer_R2
+# Loading work.MRELBP_CI_R2_controller
+# Loading work.MRELBP_CI_R2_datapath
+add wave *
+add wave *
+run
+# At time                    0, done_o = x, ci_o = x
+# At time                    5, done_o = 0, ci_o = 0
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v(112)
+#    Time: 190 ps  Iteration: 0  Instance: /MRELBP_CI_R2_tb
+# Break in Module MRELBP_CI_R2_tb at D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v line 112
+# Compile of MRELBP_CI_R2.v was successful.
+# Compile of MRELBP_CI_R2_controller.v was successful.
+# Compile of MRELBP_CI_R2_datapath.v was successful.
+# Compile of CI_buffer_R2.v was successful.
+# Compile of MRELBP_CI_R2_tb.v was successful.
+# 5 compiles, 0 failed with no errors.
+vsim -gui work.MRELBP_CI_R2_tb
+# End time: 18:48:59 on Dec 07,2024, Elapsed time: 0:01:11
+# Errors: 0, Warnings: 2
+# vsim -gui work.MRELBP_CI_R2_tb 
+# Start time: 18:48:59 on Dec 07,2024
+# Loading work.MRELBP_CI_R2_tb
+# Loading work.MRELBP_CI_R2
+# Loading work.CI_buffer_R2
+# Loading work.MRELBP_CI_R2_controller
+# Loading work.MRELBP_CI_R2_datapath
+add wave *
+add wave *
+run
+# At time                    0, done_o = x, ci_o = x
+# At time                    5, done_o = 0, ci_o = 0
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v(112)
+#    Time: 190 ps  Iteration: 0  Instance: /MRELBP_CI_R2_tb
+# Break in Module MRELBP_CI_R2_tb at D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v line 112
+# Compile of MRELBP_CI_R2.v was successful.
+# Compile of MRELBP_CI_R2_controller.v was successful.
+# Compile of MRELBP_CI_R2_datapath.v was successful.
+# Compile of CI_buffer_R2.v was successful.
+# Compile of MRELBP_CI_R2_tb.v was successful.
+# 5 compiles, 0 failed with no errors.
+vsim -gui work.MRELBP_CI_R2_tb
+# End time: 18:51:39 on Dec 07,2024, Elapsed time: 0:02:40
+# Errors: 0, Warnings: 2
+# vsim -gui work.MRELBP_CI_R2_tb 
+# Start time: 18:51:40 on Dec 07,2024
+# Loading work.MRELBP_CI_R2_tb
+# Loading work.MRELBP_CI_R2
+# Loading work.CI_buffer_R2
+# Loading work.MRELBP_CI_R2_controller
+# Loading work.MRELBP_CI_R2_datapath
+add wave *
+add wave *
+run
+# At time                    0, done_o = x, ci_o = x
+# At time                    5, done_o = 0, ci_o = 0
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v(112)
+#    Time: 190 ps  Iteration: 0  Instance: /MRELBP_CI_R2_tb
+# Break in Module MRELBP_CI_R2_tb at D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v line 112
+# Compile of MRELBP_CI_R2.v was successful.
+# Compile of MRELBP_CI_R2_controller.v was successful.
+# Compile of MRELBP_CI_R2_datapath.v was successful.
+# Compile of CI_buffer_R2.v was successful.
+# Compile of MRELBP_CI_R2_tb.v was successful.
+# 5 compiles, 0 failed with no errors.
+vsim -gui work.MRELBP_CI_R2_tb
+# End time: 18:53:54 on Dec 07,2024, Elapsed time: 0:02:14
+# Errors: 0, Warnings: 2
+# vsim -gui work.MRELBP_CI_R2_tb 
+# Start time: 18:53:54 on Dec 07,2024
+# Loading work.MRELBP_CI_R2_tb
+# Loading work.MRELBP_CI_R2
+# Loading work.CI_buffer_R2
+# Loading work.MRELBP_CI_R2_controller
+# Loading work.MRELBP_CI_R2_datapath
+add wave *
+add wave *
+run
+# At time                    0, done_o = x, ci_o = x
+# At time                    5, done_o = 0, ci_o = 0
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v(112)
+#    Time: 190 ps  Iteration: 0  Instance: /MRELBP_CI_R2_tb
+# Break in Module MRELBP_CI_R2_tb at D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v line 112
+# Compile of MRELBP_CI_R2.v was successful.
+# Compile of MRELBP_CI_R2_controller.v was successful.
+# Compile of MRELBP_CI_R2_datapath.v was successful.
+# Compile of CI_buffer_R2.v was successful.
+# Compile of MRELBP_CI_R2_tb.v was successful.
+# 5 compiles, 0 failed with no errors.
+vsim -gui work.MRELBP_CI_R2_tb
+# End time: 19:07:01 on Dec 07,2024, Elapsed time: 0:13:07
+# Errors: 0, Warnings: 2
+# vsim -gui work.MRELBP_CI_R2_tb 
+# Start time: 19:07:02 on Dec 07,2024
+# Loading work.MRELBP_CI_R2_tb
+# Loading work.MRELBP_CI_R2
+# Loading work.CI_buffer_R2
+# Loading work.MRELBP_CI_R2_controller
+# Loading work.MRELBP_CI_R2_datapath
+add wave *
+add wave **
+run
+# At time                    0, done_o = x, ci_o = x
+# At time                    5, done_o = 0, ci_o = 0
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v(112)
+#    Time: 190 ps  Iteration: 0  Instance: /MRELBP_CI_R2_tb
+# Break in Module MRELBP_CI_R2_tb at D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v line 112
+# Compile of MRELBP_CI_R2.v was successful.
+# Compile of MRELBP_CI_R2_controller.v was successful.
+# Compile of MRELBP_CI_R2_datapath.v was successful.
+# Compile of CI_buffer_R2.v failed with 5 errors.
+# Compile of MRELBP_CI_R2_tb.v was successful.
+# 5 compiles, 1 failed with 5 errors.
+# Compile of MRELBP_CI_R2.v was successful.
+# Compile of MRELBP_CI_R2_controller.v was successful.
+# Compile of MRELBP_CI_R2_datapath.v was successful.
+# Compile of CI_buffer_R2.v was successful.
+# Compile of MRELBP_CI_R2_tb.v was successful.
+# 5 compiles, 0 failed with no errors.
+vsim -gui work.MRELBP_CI_R2_tb
+# End time: 19:13:51 on Dec 07,2024, Elapsed time: 0:06:49
+# Errors: 0, Warnings: 3
+# vsim -gui work.MRELBP_CI_R2_tb 
+# Start time: 19:13:51 on Dec 07,2024
+# Loading work.MRELBP_CI_R2_tb
+# Loading work.MRELBP_CI_R2
+# Loading work.CI_buffer_R2
+# Loading work.MRELBP_CI_R2_controller
+# Loading work.MRELBP_CI_R2_datapath
+add wave *
+add wave *
+run
+# At time                    0, done_o = x, ci_o = x
+# At time                    5, done_o = 0, ci_o = 0
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v(112)
+#    Time: 190 ps  Iteration: 0  Instance: /MRELBP_CI_R2_tb
+# Break in Module MRELBP_CI_R2_tb at D:/Thesis/Src/test_benches/MRELBP_CI/MRELBP_CI_R2_tb.v line 112
+# End time: 19:14:38 on Dec 07,2024, Elapsed time: 0:00:47
 # Errors: 0, Warnings: 1
