@@ -274,13 +274,6 @@ module Median_filter_5x5_calc (
       st2_max <= st1_max;
     end
   end
-  always @(posedge clk) begin
-    if (rst) begin
-      st3_max <= 0;
-    end else begin
-      st3_max <= st2_max;
-    end
-  end
   wire p3_done_o;
   // // diag 1
   // p3_S6 <= sa10_min;
@@ -367,7 +360,7 @@ module Median_filter_5x5_calc (
 
     end
   end
-  reg [7:0] st1_min, st2_min;
+  reg  [7:0] st1_min;
   wire [7:0] sn5_min;
   Sorting_network SN5 (
       .S1 (p2_sn3_min),
@@ -384,22 +377,16 @@ module Median_filter_5x5_calc (
       st1_min <= sn5_min;
     end
   end
-  always @(posedge clk) begin
-    if (rst) begin
-      st2_min <= 0;
-    end else begin
-      st2_min <= st1_min;
-    end
-  end
+
 
 
   wire [7:0] sn6_med;
   reg p4_done_o;
   reg [7:0] med;
   Sorting_network SN6 (
-      .S1 (st2_min),
+      .S1 (st1_min),
       .S2 (mid),
-      .S3 (st3_max),
+      .S3 (st2_max),
       .max(),
       .med(sn6_med),
       .min()

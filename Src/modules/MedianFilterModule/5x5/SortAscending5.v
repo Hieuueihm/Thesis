@@ -112,35 +112,15 @@ module SortAscending5 (
       .min(sn4_min)
   );
 
-  reg [7:0] p4_max, p4_med, p4_min;
-  reg p4_done_o;
-  reg [7:0] p4_max_o;
-  reg [7:0] p4_out4;
-  always @(posedge clk) begin
-    if (rst) begin
-      p4_max <= 0;
-      p4_med <= 0;
-      p4_min <= 0;
-      p4_max_o <= 0;
-      p4_out4 <= 0;
-      p4_done_o <= 0;
-    end else begin
-      p4_max_o <= p3_max_o;
-      p4_out4 <= p3_max;
-      p4_max <= sn4_max;
-      p4_med <= sn4_med;
-      p4_min <= sn4_min;
-      p4_done_o <= p3_done_o;
-    end
-  end
 
-  assign min = p4_min;
-  assign out2 = p4_med;
-  assign mid = p4_max;
-  assign out4 = p4_out4;
-  assign max = p4_max_o;
 
-  assign done_o = p4_done_o;
+  assign min = sn4_min;
+  assign out2 = sn4_med;
+  assign mid = sn4_max;
+  assign out4 = p3_max;
+  assign max = p3_max_o;
+
+  assign done_o = p3_done_o;
 
 
 
