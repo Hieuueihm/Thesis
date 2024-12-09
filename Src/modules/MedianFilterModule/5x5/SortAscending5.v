@@ -1,5 +1,9 @@
 module SortAscending5 (
-    input  [7:0] S1,
+    input clk,
+    input rst,
+    input done_i,
+    output done_o,
+    input [7:0] S1,
     S2,
     S3,
     S4,
@@ -10,42 +14,133 @@ module SortAscending5 (
     out4,
     max
 );
-  wire [7:0] max1, min1, med1;
-  wire [7:0] max2, min2, med2;
-  wire [7:0] max3, min3, med3;
-  wire [7:0] max4, min4, med4;
+  wire [7:0] sn1_max, sn1_med, sn1_min;
+
   Sorting_network SN1 (
       .S1 (S1),
       .S2 (S2),
       .S3 (S3),
-      .max(max1),
-      .med(med1),
-      .min(min1)
+      .max(sn1_max),
+      .med(sn1_med),
+      .min(sn1_min)
   );
+  reg [7:0] p1_S4, p1_S5, p1_max, p1_med, p1_min;
+  reg p1_done_o;
+  always @(posedge clk) begin
+    if (rst) begin
+      p1_S4 <= 0;
+      p1_S5 <= 0;
+      p1_max <= 0;
+      p1_min <= 0;
+      p1_med <= 0;
+      p1_done_o <= 0;
+    end else begin
+      p1_S4 <= S4;
+      p1_S5 <= S5;
+      p1_max <= sn1_max;
+      p1_min <= sn1_min;
+      p1_med <= sn1_med;
+      p1_done_o <= done_i;
+    end
+  end
+  wire [7:0] sn2_max, sn2_med, sn2_min;
   Sorting_network SN2 (
-      .S1 (max1),
-      .S2 (S4),
-      .S3 (S5),
-      .max(max),
-      .med(med2),
-      .min(min2)
+      .S1 (p1_max),
+      .S2 (p1_S4),
+      .S3 (p1_S5),
+      .max(sn2_max),
+      .med(sn2_med),
+      .min(sn2_min)
   );
+  reg [7:0] p2_max, p2_med, p2_min;
+  reg [7:0] p2_med1, p2_min1;
+  reg p2_done_o;
+  always @(posedge clk) begin
+    if (rst) begin
+      p2_max <= 0;
+      p2_min <= 0;
+      p2_med <= 0;
+      p2_med1 <= 0;
+      p2_min1 <= 0;
+      p2_done_o <= 0;
+    end else begin
+      p2_med1 <= p1_med;
+      p2_min1 <= p1_min;
+      p2_max <= sn2_max;
+      p2_min <= sn2_min;
+      p2_med <= sn2_med;
+      p2_done_o <= p1_done_o;
+    end
+  end
+  wire [7:0] sn3_max, sn3_med, sn3_min;
   Sorting_network SN3 (
-      .S1 (med1),
-      .S2 (med2),
-      .S3 (min2),
-      .max(out4),
-      .med(med3),
-      .min(min3)
+      .S1 (p2_med1),
+      .S2 (p2_med),
+      .S3 (p2_min),
+      .max(sn3_max),
+      .med(sn3_med),
+      .min(sn3_min)
   );
+  reg [7:0] p3_max, p3_min, p3_med;
+  reg [7:0] p3_min1, p3_max_o;
+  reg p3_done_o;
+  always @(posedge clk) begin
+    if (rst) begin
+      p3_max <= 0;
+      p3_min <= 0;
+      p3_med <= 0;
+      p3_min1 <= 0;
+      p3_max_o <= 0;
+      p3_done_o <= 0;
+    end else begin
+      p3_max_o <= p2_max;
+      p3_min1 <= p2_min1;
+      p3_max <= sn3_max;
+      p3_min <= sn3_min;
+      p3_med <= sn3_med;
+      p3_done_o <= p2_done_o;
+    end
+  end
+  wire [7:0] sn4_max, sn4_med, sn4_min;
+
   Sorting_network SN4 (
-      .S1 (min1),
-      .S2 (med3),
-      .S3 (min3),
-      .max(mid),
-      .med(out2),
-      .min(min)
+      .S1 (p3_min1),
+      .S2 (p3_med),
+      .S3 (p3_min),
+      .max(sn4_max),
+      .med(sn4_med),
+      .min(sn4_min)
   );
+
+  reg [7:0] p4_max, p4_med, p4_min;
+  reg p4_done_o;
+  reg [7:0] p4_max_o;
+  reg [7:0] p4_out4;
+  always @(posedge clk) begin
+    if (rst) begin
+      p4_max <= 0;
+      p4_med <= 0;
+      p4_min <= 0;
+      p4_max_o <= 0;
+      p4_out4 <= 0;
+      p4_done_o <= 0;
+    end else begin
+      p4_max_o <= p3_max_o;
+      p4_out4 <= p3_max;
+      p4_max <= sn4_max;
+      p4_med <= sn4_med;
+      p4_min <= sn4_min;
+      p4_done_o <= p3_done_o;
+    end
+  end
+
+  assign min = p4_min;
+  assign out2 = p4_med;
+  assign mid = p4_max;
+  assign out4 = p4_out4;
+  assign max = p4_max_o;
+
+  assign done_o = p4_done_o;
 
 
 

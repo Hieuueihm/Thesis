@@ -1,11 +1,10 @@
-module Data_modulate_13x13
-#(
-  parameter ROWS, 
-  parameter COLS
-)
- (
+module Data_modulate_13x13 #(
+    parameter ROWS,
+    parameter COLS
+) (
     input clk,
     input rst,
+    input done_i,
     input [7:0] data0_i,
     data1_i,
     data2_i,
@@ -616,7 +615,7 @@ module Data_modulate_13x13
         data29_o  <= (i_row < 5 || i_col < 4) ? 0 : data29;
         data30_o  <= (i_row < 5 || i_col < 3) ? 0 : data30;
         data31_o  <= (i_row < 5 || i_col < 2) ? 0 : data31;
-        data32_o  <= (i_row < 5) ? data32;
+        data32_o  <= (i_row < 5) ? 0 : data32;
         data33_o  <= (i_row < 5 || i_col > COLS - 2) ? 0 : data33;
         data34_o  <= (i_row < 5 || i_col > COLS - 3) ? 0 : data34;
         data35_o  <= (i_row < 5 || i_col > COLS - 4) ? 0 : data35;
@@ -630,7 +629,7 @@ module Data_modulate_13x13
         data42_o  <= (i_row < 4 || i_col < 4) ? 0 : data42;
         data43_o  <= (i_row < 4 || i_col < 3) ? 0 : data43;
         data44_o  <= (i_row < 4 || i_col < 2) ? 0 : data44;
-        data45_o  <= (i_row < 4) ? data45;
+        data45_o  <= (i_row < 4) ? 0 : data45;
         data46_o  <= (i_row < 4 || i_col > COLS - 2) ? 0 : data46;
         data47_o  <= (i_row < 4 || i_col > COLS - 3) ? 0 : data47;
         data48_o  <= (i_row < 4 || i_col > COLS - 4) ? 0 : data48;
@@ -638,28 +637,28 @@ module Data_modulate_13x13
         data50_o  <= (i_row < 4 || i_col > COLS - 6) ? 0 : data50;
         data51_o  <= (i_row < 4 || i_col > COLS - 7) ? 0 : data51;
 
-        
+
         data52_o  <= (i_row < 3 || i_col < 7) ? 0 : data52;
         data53_o  <= (i_row < 3 || i_col < 6) ? 0 : data53;
         data54_o  <= (i_row < 3 || i_col < 5) ? 0 : data54;
         data55_o  <= (i_row < 3 || i_col < 4) ? 0 : data55;
         data56_o  <= (i_row < 3 || i_col < 3) ? 0 : data56;
         data57_o  <= (i_row < 3 || i_col < 2) ? 0 : data57;
-        data58_o  <= (i_row < 3) ? data58;
+        data58_o  <= (i_row < 3) ? 0 : data58;
         data59_o  <= (i_row < 3 || i_col > COLS - 2) ? 0 : data59;
         data60_o  <= (i_row < 3 || i_col > COLS - 3) ? 0 : data60;
         data61_o  <= (i_row < 3 || i_col > COLS - 4) ? 0 : data61;
         data62_o  <= (i_row < 3 || i_col > COLS - 5) ? 0 : data62;
         data63_o  <= (i_row < 3 || i_col > COLS - 6) ? 0 : data63;
         data64_o  <= (i_row < 3 || i_col > COLS - 7) ? 0 : data64;
-        
+
         data65_o  <= (i_row < 2 || i_col < 7) ? 0 : data65;
         data66_o  <= (i_row < 2 || i_col < 6) ? 0 : data66;
         data67_o  <= (i_row < 2 || i_col < 5) ? 0 : data67;
         data68_o  <= (i_row < 2 || i_col < 4) ? 0 : data68;
         data69_o  <= (i_row < 2 || i_col < 3) ? 0 : data69;
         data70_o  <= (i_row < 2 || i_col < 2) ? 0 : data70;
-        data71_o  <= (i_row < 2) ? data71;
+        data71_o  <= (i_row < 2) ? 0 : data71;
         data72_o  <= (i_row < 2 || i_col > COLS - 2) ? 0 : data72;
         data73_o  <= (i_row < 2 || i_col > COLS - 3) ? 0 : data73;
         data74_o  <= (i_row < 2 || i_col > COLS - 4) ? 0 : data74;
@@ -667,7 +666,7 @@ module Data_modulate_13x13
         data76_o  <= (i_row < 2 || i_col > COLS - 6) ? 0 : data76;
         data77_o  <= (i_row < 2 || i_col > COLS - 7) ? 0 : data77;
 
-        
+
         data78_o  <= (i_col < 7) ? 0 : data78;
         data79_o  <= (i_col < 6) ? 0 : data79;
         data80_o  <= (i_col < 5) ? 0 : data80;
@@ -675,99 +674,99 @@ module Data_modulate_13x13
         data82_o  <= (i_col < 3) ? 0 : data82;
         data83_o  <= (i_col < 2) ? 0 : data83;
         data84_o  <= data84;
-        data85_o  <= (i_col > COLS -  2) ? 0 : data85;
-        data86_o  <= (i_col > COLS -  3) ? 0 : data86;
-        data87_o  <= (i_col > COLS -  4) ? 0 : data87;
-        data88_o  <= (i_col > COLS -  5) ? 0 : data88;
-        data89_o  <= (i_col > COLS -  6) ? 0 : data89;
-        data90_o  <= (i_col > COLS -  7) ? 0 : data90;
+        data85_o  <= (i_col > COLS - 2) ? 0 : data85;
+        data86_o  <= (i_col > COLS - 3) ? 0 : data86;
+        data87_o  <= (i_col > COLS - 4) ? 0 : data87;
+        data88_o  <= (i_col > COLS - 5) ? 0 : data88;
+        data89_o  <= (i_col > COLS - 6) ? 0 : data89;
+        data90_o  <= (i_col > COLS - 7) ? 0 : data90;
 
 
-        data91_o  <= (i_row > ROWS - 2 || i_col < 7) ? 0: data91;
-        data92_o  <= (i_row > ROWS - 2 || i_col < 6) ? 0: data92;
-        data93_o  <= (i_row > ROWS - 2 || i_col < 5) ? 0: data93;
-        data94_o  <= (i_row > ROWS - 2 || i_col < 4) ? 0: data94;
-        data95_o  <= (i_row > ROWS - 2 || i_col < 3) ? 0: data95;
-        data96_o  <= (i_row > ROWS - 2 || i_col < 2) ? 0: data96;
-        data97_o  <= (i_row > ROWS - 2 ) ? 0 : data97;
-        data98_o  <= (i_row > ROWS - 2 || i_col > COLS - 2) ? 0: data98;
-        data99_o  <= (i_row > ROWS - 2 || i_col > COLS - 3) ? 0: data99;
-        data100_o <= (i_row > ROWS - 2 || i_col > COLS - 4) ? 0: data100;
-        data101_o <= (i_row > ROWS - 2 || i_col > COLS - 5) ? 0: data101;
-        data102_o <= (i_row > ROWS - 2 || i_col > COLS - 6) ? 0: data102;
-        data103_o <= (i_row > ROWS - 2 || i_col > COLS - 7) ? 0: data103;
+        data91_o  <= (i_row > ROWS - 2 || i_col < 7) ? 0 : data91;
+        data92_o  <= (i_row > ROWS - 2 || i_col < 6) ? 0 : data92;
+        data93_o  <= (i_row > ROWS - 2 || i_col < 5) ? 0 : data93;
+        data94_o  <= (i_row > ROWS - 2 || i_col < 4) ? 0 : data94;
+        data95_o  <= (i_row > ROWS - 2 || i_col < 3) ? 0 : data95;
+        data96_o  <= (i_row > ROWS - 2 || i_col < 2) ? 0 : data96;
+        data97_o  <= (i_row > ROWS - 2) ? 0 : data97;
+        data98_o  <= (i_row > ROWS - 2 || i_col > COLS - 2) ? 0 : data98;
+        data99_o  <= (i_row > ROWS - 2 || i_col > COLS - 3) ? 0 : data99;
+        data100_o <= (i_row > ROWS - 2 || i_col > COLS - 4) ? 0 : data100;
+        data101_o <= (i_row > ROWS - 2 || i_col > COLS - 5) ? 0 : data101;
+        data102_o <= (i_row > ROWS - 2 || i_col > COLS - 6) ? 0 : data102;
+        data103_o <= (i_row > ROWS - 2 || i_col > COLS - 7) ? 0 : data103;
 
-        data104_o <= (i_row > ROWS - 3 || i_col < 7) ? 0: data104;
-        data105_o <= (i_row > ROWS - 3 || i_col < 6) ? 0: data105;
-        data106_o <= (i_row > ROWS - 3 || i_col < 5) ? 0: data106;
-        data107_o <= (i_row > ROWS - 3 || i_col < 4) ? 0: data107;
-        data108_o <= (i_row > ROWS - 3 || i_col < 3) ? 0: data108;
-        data109_o <= (i_row > ROWS - 3 || i_col < 2) ? 0: data109;
-        data110_o <= (i_row > ROWS - 3)? 0: data110; 
-        data111_o <= (i_row > ROWS - 3 || i_col > COLS - 2) ? 0: data111;
-        data112_o <= (i_row > ROWS - 3 || i_col > COLS - 3) ? 0: data112;
-        data113_o <= (i_row > ROWS - 3 || i_col > COLS - 4) ? 0: data113;
-        data114_o <= (i_row > ROWS - 3 || i_col > COLS - 5) ? 0: data114;
-        data115_o <= (i_row > ROWS - 3 || i_col > COLS - 6) ? 0: data115;
-        data116_o <= (i_row > ROWS - 3 || i_col > COLS - 7) ? 0: data116;
+        data104_o <= (i_row > ROWS - 3 || i_col < 7) ? 0 : data104;
+        data105_o <= (i_row > ROWS - 3 || i_col < 6) ? 0 : data105;
+        data106_o <= (i_row > ROWS - 3 || i_col < 5) ? 0 : data106;
+        data107_o <= (i_row > ROWS - 3 || i_col < 4) ? 0 : data107;
+        data108_o <= (i_row > ROWS - 3 || i_col < 3) ? 0 : data108;
+        data109_o <= (i_row > ROWS - 3 || i_col < 2) ? 0 : data109;
+        data110_o <= (i_row > ROWS - 3) ? 0 : data110;
+        data111_o <= (i_row > ROWS - 3 || i_col > COLS - 2) ? 0 : data111;
+        data112_o <= (i_row > ROWS - 3 || i_col > COLS - 3) ? 0 : data112;
+        data113_o <= (i_row > ROWS - 3 || i_col > COLS - 4) ? 0 : data113;
+        data114_o <= (i_row > ROWS - 3 || i_col > COLS - 5) ? 0 : data114;
+        data115_o <= (i_row > ROWS - 3 || i_col > COLS - 6) ? 0 : data115;
+        data116_o <= (i_row > ROWS - 3 || i_col > COLS - 7) ? 0 : data116;
 
 
-        data117_o <= (i_row > ROWS - 4 || i_col < 7) ? 0: data117;
-        data118_o <= (i_row > ROWS - 4 || i_col < 6) ? 0: data118;
-        data119_o <= (i_row > ROWS - 4 || i_col < 5) ? 0: data119;
-        data120_o <= (i_row > ROWS - 4 || i_col < 4) ? 0: data120;
-        data121_o <= (i_row > ROWS - 4 || i_col < 3) ? 0: data121;
-        data122_o <= (i_row > ROWS - 4 || i_col < 2) ? 0: data122;
-        data123_o <= (i_row > ROWS - 4) ? 0: data123;
-        data124_o <= (i_row > ROWS - 4 || i_col > COLS - 2) ? 0: data124;
-        data125_o <= (i_row > ROWS - 4 || i_col > COLS - 3) ? 0: data125;
-        data126_o <= (i_row > ROWS - 4 || i_col > COLS - 4) ? 0: data126;
-        data127_o <= (i_row > ROWS - 4 || i_col > COLS - 5) ? 0: data127;
-        data128_o <= (i_row > ROWS - 4 || i_col > COLS - 6) ? 0: data128;
-        data129_o <= (i_row > ROWS - 4 || i_col > COLS - 7) ? 0: data129;
-        
+        data117_o <= (i_row > ROWS - 4 || i_col < 7) ? 0 : data117;
+        data118_o <= (i_row > ROWS - 4 || i_col < 6) ? 0 : data118;
+        data119_o <= (i_row > ROWS - 4 || i_col < 5) ? 0 : data119;
+        data120_o <= (i_row > ROWS - 4 || i_col < 4) ? 0 : data120;
+        data121_o <= (i_row > ROWS - 4 || i_col < 3) ? 0 : data121;
+        data122_o <= (i_row > ROWS - 4 || i_col < 2) ? 0 : data122;
+        data123_o <= (i_row > ROWS - 4) ? 0 : data123;
+        data124_o <= (i_row > ROWS - 4 || i_col > COLS - 2) ? 0 : data124;
+        data125_o <= (i_row > ROWS - 4 || i_col > COLS - 3) ? 0 : data125;
+        data126_o <= (i_row > ROWS - 4 || i_col > COLS - 4) ? 0 : data126;
+        data127_o <= (i_row > ROWS - 4 || i_col > COLS - 5) ? 0 : data127;
+        data128_o <= (i_row > ROWS - 4 || i_col > COLS - 6) ? 0 : data128;
+        data129_o <= (i_row > ROWS - 4 || i_col > COLS - 7) ? 0 : data129;
 
-        data130_o <= (i_row > ROWS - 5 || i_col < 7) ? 0: data130;
-        data131_o <= (i_row > ROWS - 5 || i_col < 6) ? 0: data131;
-        data132_o <= (i_row > ROWS - 5 || i_col < 5) ? 0: data132;
-        data133_o <= (i_row > ROWS - 5 || i_col < 4) ? 0: data133;
-        data134_o <= (i_row > ROWS - 5 || i_col < 3) ? 0: data134;
-        data135_o <= (i_row > ROWS - 5 || i_col < 2) ? 0: data135;
+
+        data130_o <= (i_row > ROWS - 5 || i_col < 7) ? 0 : data130;
+        data131_o <= (i_row > ROWS - 5 || i_col < 6) ? 0 : data131;
+        data132_o <= (i_row > ROWS - 5 || i_col < 5) ? 0 : data132;
+        data133_o <= (i_row > ROWS - 5 || i_col < 4) ? 0 : data133;
+        data134_o <= (i_row > ROWS - 5 || i_col < 3) ? 0 : data134;
+        data135_o <= (i_row > ROWS - 5 || i_col < 2) ? 0 : data135;
         data136_o <= (i_row > ROWS - 5) ? 0 : data136;
-        data137_o <= (i_row > ROWS - 5 || i_col > COLS - 2) ? 0: data137;
-        data138_o <= (i_row > ROWS - 5 || i_col > COLS - 3) ? 0: data138;
-        data139_o <= (i_row > ROWS - 5 || i_col > COLS - 4) ? 0: data139;
-        data140_o <= (i_row > ROWS - 5 || i_col > COLS - 5) ? 0: data140;
-        data141_o <= (i_row > ROWS - 5 || i_col > COLS - 6) ? 0: data141;
-        data142_o <= (i_row > ROWS - 5 || i_col > COLS - 7) ? 0: data142;
+        data137_o <= (i_row > ROWS - 5 || i_col > COLS - 2) ? 0 : data137;
+        data138_o <= (i_row > ROWS - 5 || i_col > COLS - 3) ? 0 : data138;
+        data139_o <= (i_row > ROWS - 5 || i_col > COLS - 4) ? 0 : data139;
+        data140_o <= (i_row > ROWS - 5 || i_col > COLS - 5) ? 0 : data140;
+        data141_o <= (i_row > ROWS - 5 || i_col > COLS - 6) ? 0 : data141;
+        data142_o <= (i_row > ROWS - 5 || i_col > COLS - 7) ? 0 : data142;
 
-        data143_o <= (i_row > ROWS - 6 || i_col < 7) ? 0: data143;
-        data144_o <= (i_row > ROWS - 6 || i_col < 6) ? 0: data144;
-        data145_o <= (i_row > ROWS - 6 || i_col < 5) ? 0: data145;
-        data146_o <= (i_row > ROWS - 6 || i_col < 4) ? 0: data146;
-        data147_o <= (i_row > ROWS - 6 || i_col < 3) ? 0: data147;
-        data148_o <= (i_row > ROWS - 6 || i_col < 2) ? 0: data148;
+        data143_o <= (i_row > ROWS - 6 || i_col < 7) ? 0 : data143;
+        data144_o <= (i_row > ROWS - 6 || i_col < 6) ? 0 : data144;
+        data145_o <= (i_row > ROWS - 6 || i_col < 5) ? 0 : data145;
+        data146_o <= (i_row > ROWS - 6 || i_col < 4) ? 0 : data146;
+        data147_o <= (i_row > ROWS - 6 || i_col < 3) ? 0 : data147;
+        data148_o <= (i_row > ROWS - 6 || i_col < 2) ? 0 : data148;
         data149_o <= (i_row > ROWS - 6) ? 0 : data149;
-        data150_o <= (i_row > ROWS - 6 || i_col > COLS - 2) ? 0: data150;
-        data151_o <= (i_row > ROWS - 6 || i_col > COLS - 3) ? 0: data151;
-        data152_o <= (i_row > ROWS - 6 || i_col > COLS - 4) ? 0: data152;
-        data153_o <= (i_row > ROWS - 6 || i_col > COLS - 5) ? 0: data153;
-        data154_o <= (i_row > ROWS - 6 || i_col > COLS - 6) ? 0: data154;
-        data155_o <= (i_row > ROWS - 6 || i_col > COLS - 7) ? 0: data155;
+        data150_o <= (i_row > ROWS - 6 || i_col > COLS - 2) ? 0 : data150;
+        data151_o <= (i_row > ROWS - 6 || i_col > COLS - 3) ? 0 : data151;
+        data152_o <= (i_row > ROWS - 6 || i_col > COLS - 4) ? 0 : data152;
+        data153_o <= (i_row > ROWS - 6 || i_col > COLS - 5) ? 0 : data153;
+        data154_o <= (i_row > ROWS - 6 || i_col > COLS - 6) ? 0 : data154;
+        data155_o <= (i_row > ROWS - 6 || i_col > COLS - 7) ? 0 : data155;
 
-        data156_o <= (i_row > ROWS - 7 || i_col < 7) ? 0: data156;
-        data157_o <= (i_row > ROWS - 7 || i_col < 6) ? 0: data157;
-        data158_o <= (i_row > ROWS - 7 || i_col < 5) ? 0: data158;
-        data159_o <= (i_row > ROWS - 7 || i_col < 4) ? 0: data159;
-        data160_o <= (i_row > ROWS - 7 || i_col < 3) ? 0: data160;
-        data161_o <= (i_row > ROWS - 7 || i_col < 2) ? 0: data161;
+        data156_o <= (i_row > ROWS - 7 || i_col < 7) ? 0 : data156;
+        data157_o <= (i_row > ROWS - 7 || i_col < 6) ? 0 : data157;
+        data158_o <= (i_row > ROWS - 7 || i_col < 5) ? 0 : data158;
+        data159_o <= (i_row > ROWS - 7 || i_col < 4) ? 0 : data159;
+        data160_o <= (i_row > ROWS - 7 || i_col < 3) ? 0 : data160;
+        data161_o <= (i_row > ROWS - 7 || i_col < 2) ? 0 : data161;
         data162_o <= (i_row > ROWS - 7) ? 0 : data162;
-        data163_o <= (i_row > ROWS - 7 || i_col > COLS - 2) ? 0: data163;
-        data164_o <= (i_row > ROWS - 7 || i_col > COLS - 3) ? 0: data164;
-        data165_o <= (i_row > ROWS - 7 || i_col > COLS - 4) ? 0: data165;
-        data166_o <= (i_row > ROWS - 7 || i_col > COLS - 5) ? 0: data166;
-        data167_o <= (i_row > ROWS - 7 || i_col > COLS - 6) ? 0: data167;
-        data168_o <= (i_row > ROWS - 7 || i_col > COLS - 7) ? 0: data168;
+        data163_o <= (i_row > ROWS - 7 || i_col > COLS - 2) ? 0 : data163;
+        data164_o <= (i_row > ROWS - 7 || i_col > COLS - 3) ? 0 : data164;
+        data165_o <= (i_row > ROWS - 7 || i_col > COLS - 4) ? 0 : data165;
+        data166_o <= (i_row > ROWS - 7 || i_col > COLS - 5) ? 0 : data166;
+        data167_o <= (i_row > ROWS - 7 || i_col > COLS - 6) ? 0 : data167;
+        data168_o <= (i_row > ROWS - 7 || i_col > COLS - 7) ? 0 : data168;
 
       end
     end

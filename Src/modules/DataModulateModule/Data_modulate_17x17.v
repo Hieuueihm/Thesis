@@ -4,6 +4,7 @@ module Data_modulate_17x17 #(
 ) (
     input clk,
     input rst,
+    input done_i,
     input [7:0] data0_i,
     data1_i,
     data2_i,
@@ -1186,7 +1187,7 @@ module Data_modulate_17x17 #(
         data225_o <= (i_row > ROWS - 6 || i_col < 5) ? 0 : data225;
         data226_o <= (i_row > ROWS - 6 || i_col < 4) ? 0 : data226;
         data227_o <= (i_row > ROWS - 6 || i_col < 3) ? 0 : data227;
-        data228_o <= (i_row > ROWS - 6 || i_col < 2) ? 0 : data2228;
+        data228_o <= (i_row > ROWS - 6 || i_col < 2) ? 0 : data228;
         data229_o <= (i_row > ROWS - 6) ? 0 : data229;
         data230_o <= (i_row > ROWS - 6 || i_col < COLS - 2) ? 0 : data230;
         data231_o <= (i_row > ROWS - 6 || i_col < COLS - 3) ? 0 : data231;

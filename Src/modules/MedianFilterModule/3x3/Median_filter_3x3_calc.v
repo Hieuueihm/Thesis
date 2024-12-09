@@ -163,6 +163,7 @@ module Median_filter_3x3_calc (
     end
   end
 
+
   Sorting_network SN5 (
       .S1 (p3_min5),
       .S2 (p3_med5),
@@ -172,7 +173,21 @@ module Median_filter_3x3_calc (
       .min()
   );
 
-  assign done_o   = p3_done_i;
-  assign median_o = p3_median;
+  reg [7:0] p4_median;
+  reg        p4_done_i;
+  always @(posedge clk) begin
+    if (rst) begin
+      p4_median <= 0;
+      p4_done_i <= 0;
+    end else begin
+      p4_median <= p3_median;
+      p4_done_i <= p3_done_i;
+    end
+  end
+
+
+
+  assign done_o   = p4_done_i;
+  assign median_o = p4_median;
 
 endmodule
