@@ -12,6 +12,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	MRELBP_CI_R2_datapath
 
+} {} {}} D:/Thesis/Src/modules/PreparationModule/LineBuffer/Line_buffer_datapath.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/PreparationModule/LineBuffer/Line_buffer_datapath.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Line_buffer_datapath
+
+Top level modules:
+	Line_buffer_datapath
+
 } {} {}} D:/Thesis/Src/test_benches/MedianFilterModule/7x7/Median_filter_7x7_calc_tb.v {1 {vlog -work work -stats=none D:/Thesis/Src/test_benches/MedianFilterModule/7x7/Median_filter_7x7_calc_tb.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module Median_filter_7x7_calc_tb
@@ -61,6 +68,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	MRELBP_CI_R2_tb
 
+} {} {}} D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v {1 {vlog -work work -stats=none D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module median_no_image_tb
+
+Top level modules:
+	median_no_image_tb
+
 } {} {}} D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_calc.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_calc.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module Median_filter_5x5_calc
@@ -75,6 +89,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	Sorting_network
 
+} {} {}} D:/Thesis/Src/modules/PreparationModule/Line_buffer.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/PreparationModule/Line_buffer.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Line_buffer
+
+Top level modules:
+	Line_buffer
+
 } {} {}} D:/Thesis/Src/modules/MedianFilterModule/5x5/SortAscending5.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/MedianFilterModule/5x5/SortAscending5.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module SortAscending5
@@ -88,13 +109,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 
 Top level modules:
 	MRELBP_CI_R2
-
-} {} {}} D:/Thesis/Src/modules/PreparationModule/Line_buffer.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/PreparationModule/Line_buffer.v
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module Line_buffer
-
-Top level modules:
-	Line_buffer
 
 } {} {}} D:/Thesis/Src/modules/DataModulateModule/Data_modulate_3x3.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/DataModulateModule/Data_modulate_3x3.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020

@@ -3436,3 +3436,2340 @@ run
 #    Time: 10930 ps  Iteration: 0  Instance: /median_no_image_tb
 # Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 88
 # Can't move the Now cursor.
+# Compile of median_no_image_tb.v was successful.
+# Compile of median_no_image_tb.v was successful.
+vsim -gui work.median_no_image_tb
+# End time: 21:27:56 on Dec 10,2024, Elapsed time: 0:06:30
+# Errors: 0, Warnings: 4
+# vsim -gui work.median_no_image_tb 
+# Start time: 21:27:56 on Dec 10,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Preparation
+# Loading work.Median_filter_7x7
+# Loading work.Data_modulate_7x7
+# Loading work.Median_filter_7x7_calc
+# Loading work.SortAscending7
+# Loading work.SortAscending5
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Median_filter_5x5_calc
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ps  Iteration: 0  Region: /median_no_image_tb/read_matrix File: D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v Line: 45
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  35
+# 
+#  40
+# 
+#  47
+# 
+#   0
+# 
+#  12
+# 
+#  47
+# 
+#  70
+# 
+#  72
+# 
+#  80
+# 
+#  61
+# 
+#  10
+# 
+#   0
+# 
+#  47
+# 
+#  70
+# 
+# 106
+# 
+# 100
+# 
+#  94
+# 
+#  72
+# 
+#  35
+# 
+#   0
+# 
+#  35
+# 
+#  60
+# 
+#  85
+# 
+# 106
+# 
+# 110
+# 
+#  94
+# 
+#  80
+# 
+#  20
+# 
+#  50
+# 
+# 105
+# 
+# 128
+# 
+# 140
+# 
+# 145
+# 
+# 150
+# 
+# 125
+# 
+#  95
+# 
+#  20
+# 
+#  50
+# 
+# 120
+# 
+# 145
+# 
+# 165
+# 
+# 125
+# 
+#  95
+# 
+#  20
+# 
+#   0
+# 
+#  60
+# 
+#  85
+# 
+# 130
+# 
+# 125
+# 
+# 100
+# 
+#  80
+# 
+#   0
+# 
+#  45
+# 
+#  85
+# 
+# 130
+# 
+# 125
+# 
+#  75
+# 
+#   0
+# 
+#  55
+# 
+#  35
+# 
+#   0
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(88)
+#    Time: 10840 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 88
+# Compile of Line_buffer.v failed with 1 errors.
+# Compile of Line_buffer.v was successful.
+vsim -gui work.median_no_image_tb
+# End time: 21:30:53 on Dec 10,2024, Elapsed time: 0:02:57
+# Errors: 0, Warnings: 4
+# vsim -gui work.median_no_image_tb 
+# Start time: 21:30:53 on Dec 10,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Preparation
+# Loading work.Median_filter_7x7
+# Loading work.Data_modulate_7x7
+# Loading work.Median_filter_7x7_calc
+# Loading work.SortAscending7
+# Loading work.SortAscending5
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Median_filter_5x5_calc
+# Loading work.Line_buffer
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ps  Iteration: 0  Region: /median_no_image_tb/read_matrix File: D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v Line: 45
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  35
+# 
+#  40
+# 
+#  47
+# 
+#   0
+# 
+#  12
+# 
+#  47
+# 
+#  70
+# 
+#  72
+# 
+#  80
+# 
+#  61
+# 
+#  10
+# 
+#   0
+# 
+#  47
+# 
+#  70
+# 
+# 106
+# 
+# 100
+# 
+#  94
+# 
+#  72
+# 
+#  35
+# 
+#   0
+# 
+#  35
+# 
+#  60
+# 
+#  85
+# 
+# 106
+# 
+# 110
+# 
+#  94
+# 
+#  80
+# 
+#  20
+# 
+#  50
+# 
+# 105
+# 
+# 128
+# 
+# 140
+# 
+# 145
+# 
+# 150
+# 
+# 125
+# 
+#  95
+# 
+#  20
+# 
+#  50
+# 
+# 120
+# 
+# 145
+# 
+# 165
+# 
+# 125
+# 
+#  95
+# 
+#  20
+# 
+#   0
+# 
+#  60
+# 
+#  85
+# 
+# 130
+# 
+# 125
+# 
+# 100
+# 
+#  80
+# 
+#   0
+# 
+#  45
+# 
+#  85
+# 
+# 130
+# 
+# 125
+# 
+#  75
+# 
+#   0
+# 
+#  55
+# 
+#  35
+# 
+#   0
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(88)
+#    Time: 10840 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 88
+# Compile of Line_buffer.v was successful.
+vsim -gui work.median_no_image_tb
+# End time: 21:32:53 on Dec 10,2024, Elapsed time: 0:02:00
+# Errors: 0, Warnings: 3
+# vsim -gui work.median_no_image_tb 
+# Start time: 21:32:53 on Dec 10,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Preparation
+# Loading work.Median_filter_7x7
+# Loading work.Data_modulate_7x7
+# Loading work.Median_filter_7x7_calc
+# Loading work.SortAscending7
+# Loading work.SortAscending5
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Median_filter_5x5_calc
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ps  Iteration: 0  Region: /median_no_image_tb/read_matrix File: D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v Line: 45
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  35
+# 
+#  40
+# 
+#  47
+# 
+#   0
+# 
+#  12
+# 
+#  47
+# 
+#  70
+# 
+#  72
+# 
+#  80
+# 
+#  61
+# 
+#  10
+# 
+#   0
+# 
+#  47
+# 
+#  70
+# 
+# 106
+# 
+# 100
+# 
+#  94
+# 
+#  72
+# 
+#  35
+# 
+#   0
+# 
+#  35
+# 
+#  60
+# 
+#  85
+# 
+# 106
+# 
+# 110
+# 
+#  94
+# 
+#  80
+# 
+#  20
+# 
+#  50
+# 
+# 105
+# 
+# 128
+# 
+# 140
+# 
+# 145
+# 
+# 150
+# 
+# 125
+# 
+#  95
+# 
+#  20
+# 
+#  50
+# 
+# 120
+# 
+# 145
+# 
+# 165
+# 
+# 125
+# 
+#  95
+# 
+#  20
+# 
+#   0
+# 
+#  60
+# 
+#  85
+# 
+# 130
+# 
+# 125
+# 
+# 100
+# 
+#  80
+# 
+#   0
+# 
+#  45
+# 
+#  85
+# 
+# 130
+# 
+# 125
+# 
+#  75
+# 
+#   0
+# 
+#  55
+# 
+#  35
+# 
+#   0
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(88)
+#    Time: 10840 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 88
+vsim -gui work.median_no_image_tb
+# End time: 21:34:20 on Dec 10,2024, Elapsed time: 0:01:27
+# Errors: 0, Warnings: 2
+# vsim -gui work.median_no_image_tb 
+# Start time: 21:34:20 on Dec 10,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Preparation
+# Loading work.Median_filter_7x7
+# Loading work.Data_modulate_7x7
+# Loading work.Median_filter_7x7_calc
+# Loading work.SortAscending7
+# Loading work.SortAscending5
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Median_filter_5x5_calc
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ps  Iteration: 0  Region: /median_no_image_tb/read_matrix File: D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v Line: 45
+add wave *
+add wave *
+# ** UI-Msg: (vish-4014) No objects found matching '*'.
+add wave *
+# ** UI-Msg: (vish-4014) No objects found matching '*'.
+run
+#   x
+# 
+#   0
+# 
+#  35
+# 
+#  40
+# 
+#  47
+# 
+#   0
+# 
+#  12
+# 
+#  47
+# 
+#  70
+# 
+#  72
+# 
+#  80
+# 
+#  61
+# 
+#  10
+# 
+#   0
+# 
+#  47
+# 
+#  70
+# 
+# 106
+# 
+# 100
+# 
+#  94
+# 
+#  72
+# 
+#  35
+# 
+#   0
+# 
+#  35
+# 
+#  60
+# 
+#  85
+# 
+# 106
+# 
+# 110
+# 
+#  94
+# 
+#  80
+# 
+#  20
+# 
+#  50
+# 
+# 105
+# 
+# 128
+# 
+# 140
+# 
+# 145
+# 
+# 150
+# 
+# 125
+# 
+#  95
+# 
+#  20
+# 
+#  50
+# 
+# 120
+# 
+# 145
+# 
+# 165
+# 
+# 125
+# 
+#  95
+# 
+#  20
+# 
+#   0
+# 
+#  60
+# 
+#  85
+# 
+# 130
+# 
+# 125
+# 
+# 100
+# 
+#  80
+# 
+#   0
+# 
+#  45
+# 
+#  85
+# 
+# 130
+# 
+# 125
+# 
+#  75
+# 
+#   0
+# 
+#  55
+# 
+#  35
+# 
+#   0
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(88)
+#    Time: 10840 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 88
+vsim -gui work.median_no_image_tb
+# End time: 21:40:41 on Dec 10,2024, Elapsed time: 0:06:21
+# Errors: 0, Warnings: 2
+# vsim -gui work.median_no_image_tb 
+# Start time: 21:40:41 on Dec 10,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Preparation
+# Loading work.Median_filter_7x7
+# Loading work.Data_modulate_7x7
+# Loading work.Median_filter_7x7_calc
+# Loading work.SortAscending7
+# Loading work.SortAscending5
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Median_filter_5x5_calc
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ps  Iteration: 0  Region: /median_no_image_tb/read_matrix File: D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v Line: 45
+add wave *
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  35
+# 
+#  40
+# 
+#  47
+# 
+#   0
+# 
+#  12
+# 
+#  47
+# 
+#  70
+# 
+#  72
+# 
+#  80
+# 
+#  61
+# 
+#  10
+# 
+#   0
+# 
+#  47
+# 
+#  70
+# 
+# 106
+# 
+# 100
+# 
+#  94
+# 
+#  72
+# 
+#  35
+# 
+#   0
+# 
+#  35
+# 
+#  60
+# 
+#  85
+# 
+# 106
+# 
+# 110
+# 
+#  94
+# 
+#  80
+# 
+#  20
+# 
+#  50
+# 
+# 105
+# 
+# 128
+# 
+# 140
+# 
+# 145
+# 
+# 150
+# 
+# 125
+# 
+#  95
+# 
+#  20
+# 
+#  50
+# 
+# 120
+# 
+# 145
+# 
+# 165
+# 
+# 125
+# 
+#  95
+# 
+#  20
+# 
+#   0
+# 
+#  60
+# 
+#  85
+# 
+# 130
+# 
+# 125
+# 
+# 100
+# 
+#  80
+# 
+#   0
+# 
+#  45
+# 
+#  85
+# 
+# 130
+# 
+# 125
+# 
+#  75
+# 
+#   0
+# 
+#  55
+# 
+#  35
+# 
+#   0
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(88)
+#    Time: 10840 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 88
+vsim -gui work.median_no_image_tb
+# End time: 21:42:16 on Dec 10,2024, Elapsed time: 0:01:35
+# Errors: 0, Warnings: 2
+# vsim -gui work.median_no_image_tb 
+# Start time: 21:42:16 on Dec 10,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Preparation
+# Loading work.Median_filter_7x7
+# Loading work.Data_modulate_7x7
+# Loading work.Median_filter_7x7_calc
+# Loading work.SortAscending7
+# Loading work.SortAscending5
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Median_filter_5x5_calc
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ps  Iteration: 0  Region: /median_no_image_tb/read_matrix File: D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v Line: 45
+add wave *
+add wave *
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  35
+# 
+#  40
+# 
+#  47
+# 
+#   0
+# 
+#  12
+# 
+#  47
+# 
+#  70
+# 
+#  72
+# 
+#  80
+# 
+#  61
+# 
+#  10
+# 
+#   0
+# 
+#  47
+# 
+#  70
+# 
+# 106
+# 
+# 100
+# 
+#  94
+# 
+#  72
+# 
+#  35
+# 
+#   0
+# 
+#  35
+# 
+#  60
+# 
+#  85
+# 
+# 106
+# 
+# 110
+# 
+#  94
+# 
+#  80
+# 
+#  20
+# 
+#  50
+# 
+# 105
+# 
+# 128
+# 
+# 140
+# 
+# 145
+# 
+# 150
+# 
+# 125
+# 
+#  95
+# 
+#  20
+# 
+#  50
+# 
+# 120
+# 
+# 145
+# 
+# 165
+# 
+# 125
+# 
+#  95
+# 
+#  20
+# 
+#   0
+# 
+#  60
+# 
+#  85
+# 
+# 130
+# 
+# 125
+# 
+# 100
+# 
+#  80
+# 
+#   0
+# 
+#  45
+# 
+#  85
+# 
+# 130
+# 
+# 125
+# 
+#  75
+# 
+#   0
+# 
+#  55
+# 
+#  35
+# 
+#   0
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(88)
+#    Time: 10840 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 88
+vsim -gui work.median_no_image_tb
+# End time: 21:43:06 on Dec 10,2024, Elapsed time: 0:00:50
+# Errors: 0, Warnings: 2
+# vsim -gui work.median_no_image_tb 
+# Start time: 21:43:06 on Dec 10,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Preparation
+# Loading work.Median_filter_7x7
+# Loading work.Data_modulate_7x7
+# Loading work.Median_filter_7x7_calc
+# Loading work.SortAscending7
+# Loading work.SortAscending5
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Median_filter_5x5_calc
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ps  Iteration: 0  Region: /median_no_image_tb/read_matrix File: D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v Line: 45
+add wave *
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  35
+# 
+#  40
+# 
+#  47
+# 
+#   0
+# 
+#  12
+# 
+#  47
+# 
+#  70
+# 
+#  72
+# 
+#  80
+# 
+#  61
+# 
+#  10
+# 
+#   0
+# 
+#  47
+# 
+#  70
+# 
+# 106
+# 
+# 100
+# 
+#  94
+# 
+#  72
+# 
+#  35
+# 
+#   0
+# 
+#  35
+# 
+#  60
+# 
+#  85
+# 
+# 106
+# 
+# 110
+# 
+#  94
+# 
+#  80
+# 
+#  20
+# 
+#  50
+# 
+# 105
+# 
+# 128
+# 
+# 140
+# 
+# 145
+# 
+# 150
+# 
+# 125
+# 
+#  95
+# 
+#  20
+# 
+#  50
+# 
+# 120
+# 
+# 145
+# 
+# 165
+# 
+# 125
+# 
+#  95
+# 
+#  20
+# 
+#   0
+# 
+#  60
+# 
+#  85
+# 
+# 130
+# 
+# 125
+# 
+# 100
+# 
+#  80
+# 
+#   0
+# 
+#  45
+# 
+#  85
+# 
+# 130
+# 
+# 125
+# 
+#  75
+# 
+#   0
+# 
+#  55
+# 
+#  35
+# 
+#   0
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(88)
+#    Time: 10840 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 88
+# Compile of Preparation.v failed with 1 errors.
+# Compile of Preparation.v failed with 1 errors.
+# Compile of Preparation.v was successful with warnings.
+vsim -gui work.median_no_image_tb
+# End time: 21:54:16 on Dec 10,2024, Elapsed time: 0:11:10
+# Errors: 0, Warnings: 5
+# vsim -gui work.median_no_image_tb 
+# Start time: 21:54:16 on Dec 10,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Preparation
+# Loading work.Median_filter_7x7
+# Loading work.Data_modulate_7x7
+# Loading work.Median_filter_7x7_calc
+# Loading work.SortAscending7
+# Loading work.SortAscending5
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Median_filter_5x5_calc
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ps  Iteration: 0  Region: /median_no_image_tb/read_matrix File: D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v Line: 45
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  40
+# 
+#  47
+# 
+#   0
+# 
+#  24
+# 
+#  58
+# 
+#  72
+# 
+#  80
+# 
+#  83
+# 
+#  70
+# 
+#  10
+# 
+#   0
+# 
+#  50
+# 
+#  72
+# 
+# 100
+# 
+#  94
+# 
+#  72
+# 
+#  30
+# 
+#   0
+# 
+#  47
+# 
+#  65
+# 
+#  90
+# 
+# 106
+# 
+# 110
+# 
+#  95
+# 
+#  80
+# 
+#  25
+# 
+#  60
+# 
+#  95
+# 
+# 130
+# 
+# 145
+# 
+# 150
+# 
+# 120
+# 
+#  95
+# 
+#  25
+# 
+#  55
+# 
+#  80
+# 
+# 130
+# 
+# 145
+# 
+# 125
+# 
+# 115
+# 
+#  90
+# 
+#  44
+# 
+#  24
+# 
+#   0
+# 
+#  55
+# 
+#  75
+# 
+#  95
+# 
+#  45
+# 
+#  25
+# 
+#   0
+# 
+#   4
+# 
+#  55
+# 
+#  85
+# 
+#  75
+# 
+#  45
+# 
+#  24
+# 
+#   0
+# 
+#  15
+# 
+#   0
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(88)
+#    Time: 10840 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 88
+# Compile of median_no_image_tb.v was successful.
+vsim -gui work.median_no_image_tb
+# End time: 21:55:24 on Dec 10,2024, Elapsed time: 0:01:08
+# Errors: 0, Warnings: 3
+# vsim -gui work.median_no_image_tb 
+# Start time: 21:55:24 on Dec 10,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Preparation
+# Loading work.Median_filter_7x7
+# Loading work.Data_modulate_7x7
+# Loading work.Median_filter_7x7_calc
+# Loading work.SortAscending7
+# Loading work.SortAscending5
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Median_filter_5x5_calc
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ps  Iteration: 0  Region: /median_no_image_tb/read_matrix File: D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v Line: 45
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  40
+# 
+#  47
+# 
+#   0
+# 
+#  24
+# 
+#  58
+# 
+#  72
+# 
+#  80
+# 
+#  83
+# 
+#  70
+# 
+#  10
+# 
+#   0
+# 
+#  50
+# 
+#  72
+# 
+# 100
+# 
+#  94
+# 
+#  72
+# 
+#  30
+# 
+#   0
+# 
+#  47
+# 
+#  65
+# 
+#  90
+# 
+# 106
+# 
+# 110
+# 
+#  95
+# 
+#  80
+# 
+#  25
+# 
+#  60
+# 
+#  95
+# 
+# 130
+# 
+# 145
+# 
+# 150
+# 
+# 120
+# 
+#  95
+# 
+#  25
+# 
+#  55
+# 
+#  80
+# 
+# 130
+# 
+# 145
+# 
+# 125
+# 
+# 115
+# 
+#  90
+# 
+#  44
+# 
+#  24
+# 
+#   0
+# 
+#  55
+# 
+#  75
+# 
+#  95
+# 
+#  45
+# 
+#  25
+# 
+#   0
+# 
+#   4
+# 
+#  55
+# 
+#  85
+# 
+#  75
+# 
+#  45
+# 
+#  24
+# 
+#   0
+# 
+#  15
+# 
+#   0
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(87)
+#    Time: 10830 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 87
+add wave *
+add wave *
+run
+vsim -gui work.median_no_image_tb
+# End time: 21:56:29 on Dec 10,2024, Elapsed time: 0:01:05
+# Errors: 0, Warnings: 2
+# vsim -gui work.median_no_image_tb 
+# Start time: 21:56:29 on Dec 10,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Preparation
+# Loading work.Median_filter_7x7
+# Loading work.Data_modulate_7x7
+# Loading work.Median_filter_7x7_calc
+# Loading work.SortAscending7
+# Loading work.SortAscending5
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Median_filter_5x5_calc
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ps  Iteration: 0  Region: /median_no_image_tb/read_matrix File: D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v Line: 45
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  40
+# 
+#  47
+# 
+#   0
+# 
+#  24
+# 
+#  58
+# 
+#  72
+# 
+#  80
+# 
+#  83
+# 
+#  70
+# 
+#  10
+# 
+#   0
+# 
+#  50
+# 
+#  72
+# 
+# 100
+# 
+#  94
+# 
+#  72
+# 
+#  30
+# 
+#   0
+# 
+#  47
+# 
+#  65
+# 
+#  90
+# 
+# 106
+# 
+# 110
+# 
+#  95
+# 
+#  80
+# 
+#  25
+# 
+#  60
+# 
+#  95
+# 
+# 130
+# 
+# 145
+# 
+# 150
+# 
+# 120
+# 
+#  95
+# 
+#  25
+# 
+#  55
+# 
+#  80
+# 
+# 130
+# 
+# 145
+# 
+# 125
+# 
+# 115
+# 
+#  90
+# 
+#  44
+# 
+#  24
+# 
+#   0
+# 
+#  55
+# 
+#  75
+# 
+#  95
+# 
+#  45
+# 
+#  25
+# 
+#   0
+# 
+#   4
+# 
+#  55
+# 
+#  85
+# 
+#  75
+# 
+#  45
+# 
+#  24
+# 
+#   0
+# 
+#  15
+# 
+#   0
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(87)
+#    Time: 10830 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 87
+# Compile of Preparation.v was successful with warnings.
+vsim -gui work.median_no_image_tb
+# End time: 21:58:17 on Dec 10,2024, Elapsed time: 0:01:48
+# Errors: 0, Warnings: 3
+# vsim -gui work.median_no_image_tb 
+# Start time: 21:58:17 on Dec 10,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Preparation
+# Loading work.Median_filter_7x7
+# Loading work.Data_modulate_7x7
+# Loading work.Median_filter_7x7_calc
+# Loading work.SortAscending7
+# Loading work.SortAscending5
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Median_filter_5x5_calc
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ps  Iteration: 0  Region: /median_no_image_tb/read_matrix File: D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v Line: 45
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  40
+# 
+#  47
+# 
+#   0
+# 
+#  24
+# 
+#  58
+# 
+#  72
+# 
+#  80
+# 
+#  83
+# 
+#  70
+# 
+#  10
+# 
+#   0
+# 
+#  50
+# 
+#  72
+# 
+# 100
+# 
+#  94
+# 
+#  72
+# 
+#  30
+# 
+#   0
+# 
+#  47
+# 
+#  65
+# 
+#  90
+# 
+# 106
+# 
+# 110
+# 
+#  95
+# 
+#  80
+# 
+#  25
+# 
+#  60
+# 
+#  95
+# 
+# 130
+# 
+# 145
+# 
+# 150
+# 
+# 120
+# 
+#  95
+# 
+#  25
+# 
+#  55
+# 
+#  80
+# 
+# 130
+# 
+# 145
+# 
+# 125
+# 
+# 115
+# 
+#  90
+# 
+#  44
+# 
+#  24
+# 
+#   0
+# 
+#  55
+# 
+#  75
+# 
+#  95
+# 
+#  45
+# 
+#  25
+# 
+#   0
+# 
+#   4
+# 
+#  55
+# 
+#  85
+# 
+#  75
+# 
+#  45
+# 
+#  24
+# 
+#   0
+# 
+#  15
+# 
+#   0
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(87)
+#    Time: 10830 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 87
+# Compile of Data_modulate_13x13.v was successful.
+# Compile of Data_modulate_17x17.v was successful.
+# Compile of Node.v was successful.
+# Compile of Sorting_network.v was successful.
+# Compile of Median_filter_3x3_calc.v was successful.
+# Compile of median_no_image.v was successful.
+# Compile of Data_modulate_3x3.v was successful.
+# Compile of Line_buffer_controller.v was successful.
+# Compile of Line_buffer_datapath.v was successful.
+# Compile of Preparation.v failed with 1 errors.
+# Compile of median_no_image_tb.v was successful.
+# Compile of Median_filter_3x3.v was successful.
+# Compile of Line_buffer.v was successful.
+# Compile of SortAscending5.v was successful.
+# Compile of Median_filter_5x5.v was successful.
+# Compile of Median_filter_5x5_calc.v was successful.
+# Compile of Data_modulate_5x5.v was successful.
+# Compile of Median_filter_5x5_calc_tb.v was successful.
+# Compile of SortAscending5_tb.v was successful.
+# Compile of Median_filter_7x7.v was successful.
+# Compile of Median_filter_7x7_calc.v was successful.
+# Compile of SortAscending7.v was successful.
+# Compile of Data_modulate_7x7.v was successful.
+# Compile of Data_modulate_9x9.v was successful.
+# Compile of SortAscending7_tb.v was successful.
+# Compile of Median_filter_7x7_calc_tb.v was successful.
+# 26 compiles, 1 failed with 1 error.
+# Compile of Preparation.v was successful with warnings.
+vsim -gui work.median_no_image_tb
+# End time: 21:59:47 on Dec 10,2024, Elapsed time: 0:01:30
+# Errors: 0, Warnings: 4
+# vsim -gui work.median_no_image_tb 
+# Start time: 21:59:47 on Dec 10,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Preparation
+# Loading work.Median_filter_7x7
+# Loading work.Data_modulate_7x7
+# Loading work.Median_filter_7x7_calc
+# Loading work.SortAscending7
+# Loading work.SortAscending5
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Median_filter_5x5_calc
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ps  Iteration: 0  Region: /median_no_image_tb/read_matrix File: D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v Line: 45
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  35
+# 
+#  40
+# 
+#  47
+# 
+#   0
+# 
+#  12
+# 
+#  47
+# 
+#  70
+# 
+#  72
+# 
+#  80
+# 
+#  61
+# 
+#  10
+# 
+#   0
+# 
+#  47
+# 
+#  70
+# 
+# 106
+# 
+# 100
+# 
+#  94
+# 
+#  72
+# 
+#  35
+# 
+#   0
+# 
+#  35
+# 
+#  60
+# 
+#  85
+# 
+# 106
+# 
+# 110
+# 
+#  94
+# 
+#  80
+# 
+#  20
+# 
+#  50
+# 
+# 105
+# 
+# 128
+# 
+# 140
+# 
+# 145
+# 
+# 150
+# 
+# 125
+# 
+#  95
+# 
+#  20
+# 
+#  50
+# 
+#  85
+# 
+# 135
+# 
+# 150
+# 
+# 145
+# 
+# 125
+# 
+#  95
+# 
+#  44
+# 
+#  15
+# 
+#   0
+# 
+#  55
+# 
+#  75
+# 
+#  95
+# 
+#  75
+# 
+#  24
+# 
+#   0
+# 
+#   4
+# 
+#  65
+# 
+#  95
+# 
+#  85
+# 
+#  75
+# 
+#  24
+# 
+#   0
+# 
+#  15
+# 
+#   0
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(88)
+#    Time: 10930 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 88
+# Compile of Data_modulate_13x13.v was successful.
+# Compile of Data_modulate_17x17.v was successful.
+# Compile of Node.v was successful.
+# Compile of Sorting_network.v was successful.
+# Compile of Median_filter_3x3_calc.v was successful.
+# Compile of median_no_image.v was successful.
+# Compile of Data_modulate_3x3.v was successful.
+# Compile of Line_buffer_controller.v was successful.
+# Compile of Line_buffer_datapath.v was successful.
+# Compile of Preparation.v was successful with warnings.
+# Compile of median_no_image_tb.v was successful.
+# Compile of Median_filter_3x3.v was successful.
+# Compile of Line_buffer.v was successful.
+# Compile of SortAscending5.v was successful.
+# Compile of Median_filter_5x5.v was successful.
+# Compile of Median_filter_5x5_calc.v was successful.
+# Compile of Data_modulate_5x5.v was successful.
+# Compile of Median_filter_5x5_calc_tb.v was successful.
+# Compile of SortAscending5_tb.v was successful.
+# Compile of Median_filter_7x7.v was successful.
+# Compile of Median_filter_7x7_calc.v was successful.
+# Compile of SortAscending7.v was successful.
+# Compile of Data_modulate_7x7.v was successful.
+# Compile of Data_modulate_9x9.v was successful.
+# Compile of SortAscending7_tb.v was successful.
+# Compile of Median_filter_7x7_calc_tb.v was successful.
+# 26 compiles, 0 failed with no errors.
+vsim -gui work.median_no_image_tb
+# End time: 22:02:17 on Dec 10,2024, Elapsed time: 0:02:30
+# Errors: 0, Warnings: 3
+# vsim -gui work.median_no_image_tb 
+# Start time: 22:02:17 on Dec 10,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Preparation
+# Loading work.Median_filter_7x7
+# Loading work.Data_modulate_7x7
+# Loading work.Median_filter_7x7_calc
+# Loading work.SortAscending7
+# Loading work.SortAscending5
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Median_filter_5x5_calc
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ps  Iteration: 0  Region: /median_no_image_tb/read_matrix File: D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v Line: 45
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  40
+# 
+#  47
+# 
+#   0
+# 
+#  24
+# 
+#  58
+# 
+#  72
+# 
+#  80
+# 
+#  83
+# 
+#  70
+# 
+#  10
+# 
+#   0
+# 
+#  50
+# 
+#  72
+# 
+# 100
+# 
+#  94
+# 
+#  72
+# 
+#  30
+# 
+#   0
+# 
+#  47
+# 
+#  65
+# 
+#  90
+# 
+# 106
+# 
+# 110
+# 
+#  95
+# 
+#  80
+# 
+#  25
+# 
+#  60
+# 
+#  95
+# 
+# 130
+# 
+# 145
+# 
+# 150
+# 
+# 120
+# 
+#  95
+# 
+#  25
+# 
+#  55
+# 
+#  80
+# 
+# 130
+# 
+# 145
+# 
+# 125
+# 
+# 115
+# 
+#  90
+# 
+#  44
+# 
+#  24
+# 
+#   0
+# 
+#  55
+# 
+#  75
+# 
+#  95
+# 
+#  45
+# 
+#  25
+# 
+#   0
+# 
+#   4
+# 
+#  55
+# 
+#  85
+# 
+#  75
+# 
+#  45
+# 
+#  24
+# 
+#   0
+# 
+#  15
+# 
+#   0
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(88)
+#    Time: 10840 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 88
+vsim -gui work.median_no_image_tb
+# End time: 22:02:52 on Dec 10,2024, Elapsed time: 0:00:35
+# Errors: 0, Warnings: 2
+# vsim -gui work.median_no_image_tb 
+# Start time: 22:02:52 on Dec 10,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Preparation
+# Loading work.Median_filter_7x7
+# Loading work.Data_modulate_7x7
+# Loading work.Median_filter_7x7_calc
+# Loading work.SortAscending7
+# Loading work.SortAscending5
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Median_filter_5x5_calc
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ps  Iteration: 0  Region: /median_no_image_tb/read_matrix File: D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v Line: 45
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  40
+# 
+#  47
+# 
+#   0
+# 
+#  24
+# 
+#  58
+# 
+#  72
+# 
+#  80
+# 
+#  83
+# 
+#  70
+# 
+#  10
+# 
+#   0
+# 
+#  50
+# 
+#  72
+# 
+# 100
+# 
+#  94
+# 
+#  72
+# 
+#  30
+# 
+#   0
+# 
+#  47
+# 
+#  65
+# 
+#  90
+# 
+# 106
+# 
+# 110
+# 
+#  95
+# 
+#  80
+# 
+#  25
+# 
+#  60
+# 
+#  95
+# 
+# 130
+# 
+# 145
+# 
+# 150
+# 
+# 120
+# 
+#  95
+# 
+#  25
+# 
+#  55
+# 
+#  80
+# 
+# 130
+# 
+# 145
+# 
+# 125
+# 
+# 115
+# 
+#  90
+# 
+#  44
+# 
+#  24
+# 
+#   0
+# 
+#  55
+# 
+#  75
+# 
+#  95
+# 
+#  45
+# 
+#  25
+# 
+#   0
+# 
+#   4
+# 
+#  55
+# 
+#  85
+# 
+#  75
+# 
+#  45
+# 
+#  24
+# 
+#   0
+# 
+#  15
+# 
+#   0
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(88)
+#    Time: 10840 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 88
+# Compile of Preparation.v was successful with warnings.
+vsim -gui work.median_no_image_tb
+# End time: 22:05:32 on Dec 10,2024, Elapsed time: 0:02:40
+# Errors: 0, Warnings: 3
+# vsim -gui work.median_no_image_tb 
+# Start time: 22:05:32 on Dec 10,2024
+# Loading work.median_no_image_tb
+# Loading work.median_no_image
+# Loading work.Preparation
+# Loading work.Median_filter_7x7
+# Loading work.Data_modulate_7x7
+# Loading work.Median_filter_7x7_calc
+# Loading work.SortAscending7
+# Loading work.SortAscending5
+# Loading work.Sorting_network
+# Loading work.Node
+# Loading work.Median_filter_5x5_calc
+# Loading work.Line_buffer
+# Loading work.Line_buffer_controller
+# Loading work.Line_buffer_datapath
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ps  Iteration: 0  Region: /median_no_image_tb/read_matrix File: D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v Line: 45
+add wave *
+run
+#   x
+# 
+#   0
+# 
+#  35
+# 
+#  40
+# 
+#  47
+# 
+#   0
+# 
+#  12
+# 
+#  47
+# 
+#  70
+# 
+#  72
+# 
+#  80
+# 
+#  61
+# 
+#  10
+# 
+#   0
+# 
+#  47
+# 
+#  70
+# 
+# 106
+# 
+# 100
+# 
+#  94
+# 
+#  72
+# 
+#  35
+# 
+#   0
+# 
+#  35
+# 
+#  60
+# 
+#  85
+# 
+# 106
+# 
+# 110
+# 
+#  94
+# 
+#  80
+# 
+#  20
+# 
+#  50
+# 
+# 105
+# 
+# 128
+# 
+# 140
+# 
+# 145
+# 
+# 150
+# 
+# 125
+# 
+#  95
+# 
+#  20
+# 
+#  50
+# 
+#  85
+# 
+# 135
+# 
+# 150
+# 
+# 145
+# 
+# 125
+# 
+#  95
+# 
+#  44
+# 
+#  15
+# 
+#   0
+# 
+#  55
+# 
+#  75
+# 
+#  95
+# 
+#  75
+# 
+#  24
+# 
+#   0
+# 
+#   4
+# 
+#  65
+# 
+#  95
+# 
+#  85
+# 
+#  75
+# 
+#  24
+# 
+#   0
+# 
+#  15
+# 
+#   0
+# 
+# ** Note: $stop    : D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v(88)
+#    Time: 10840 ps  Iteration: 0  Instance: /median_no_image_tb
+# Break in Module median_no_image_tb at D:/Thesis/Src/test_benches/MedianFilterModule/median_no_image_tb.v line 88
+# End time: 22:06:22 on Dec 10,2024, Elapsed time: 0:00:50
+# Errors: 0, Warnings: 2

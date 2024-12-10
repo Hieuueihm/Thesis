@@ -78,7 +78,7 @@ module median_no_image_tb;
       grayscale_i = matrix[i];
       #10;
     end
-    #100;
+    #10;
     done_i = 0;
 
     // Check the outputs after some time
