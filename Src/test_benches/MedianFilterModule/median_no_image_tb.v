@@ -35,7 +35,7 @@ module median_no_image_tb;
     integer file;
     reg [7:0] value;
     begin
-      file = $fopen("D:\\Thesis\\Src\\test_benches\\MedianFilterModule\\matrix_7x7.txt", "r");
+      file = $fopen("D:\\Thesis\\Src\\test_benches\\MedianFilterModule\\matrix_9x9.txt", "r");
       if (file == 0) begin
         $display("ERROR: Unable to open file: %s", "matrix_5x5.txt");
         $finish;
@@ -74,7 +74,7 @@ module median_no_image_tb;
     // Apply done signal
     #10;
     done_i = 1;
-    for (i = 0; i < 81; i = i + 1) begin
+    for (i = 0; i < 121; i = i + 1) begin
       grayscale_i = matrix[i];
       #10;
     end

@@ -357,464 +357,234 @@ module Median_filter_9x9_calc (
   wire [7:0] sa9_max, sa9_out8, sa9_out7, sa9_out6, sa9_mid, sa9_out4, sa9_out3, sa9_out2, sa9_min;
 
 
-  reg [7:0]
-      p2_S1,
-      p2_S2,
-      p2_S3,
-      p2_S4,
-      p2_S5,
-      p2_S6,
-      p2_S7,
-      p2_S8,
-      p2_S9,
-      p2_S10,
-      p2_S11,
-      p2_S12,
-      p2_S13,
-      p2_S14,
-      p2_S15,
-      p2_S16,
-      p2_S17,
-      p2_S18,
-      p2_S19,
-      p2_S20,
-      p2_S21,
-      p2_S22,
-      p2_S23,
-      p2_S24,
-      p2_S25,
-      p2_S26,
-      p2_S27,
-      p2_S28,
-      p2_S29,
-      p2_S30,
-      p2_S31,
-      p2_S32,
-      p2_S33,
-      p2_S34,
-      p2_S35,
-      p2_S36,
-      p2_S37,
-      p2_S38,
-      p2_S39,
-      p2_S40,
-      p2_S41,
-      p2_S42,
-      p2_S43,
-      p2_S44,
-      p2_S45,
-      p2_S46,
-      p2_S47,
-      p2_S48,
-      p2_S49,
-      p2_S50,
-      p2_S51,
-      p2_S52,
-      p2_S53,
-      p2_S54,
-      p2_S55,
-      p2_S56,
-      p2_S57,
-      p2_S58,
-      p2_S59,
-      p2_S60,
-      p2_S61,
-      p2_S62,
-      p2_S63,
-      p2_S64,
-      p2_S65,
-      p2_S66,
-      p2_S67,
-      p2_S68,
-      p2_S69,
-      p2_S70,
-      p2_S71,
-      p2_S72,
-      p2_S73,
-      p2_S74,
-      p2_S75,
-      p2_S76,
-      p2_S77,
-      p2_S78,
-      p2_S79,
-      p2_S80,
-      p2_S81;
-  reg p2_done_i;
+
+  wire p2_done_o;
 
   SortAscending9 SA1 (
-      .S1  (p1_S1),
-      .S2  (p1_S2),
-      .S3  (p1_S3),
-      .S4  (p1_S4),
-      .S5  (p1_S5),
-      .S6  (p1_S6),
-      .S7  (p1_S7),
-      .S8  (p1_S8),
-      .S9  (p1_S9),
-      .min (sa1_min),
+      .clk(clk),
+      .rst(rst),
+      .done_i(p1_done_i),
+      .done_o(p2_done_o),
+      .S1(p1_S1),
+      .S2(p1_S2),
+      .S3(p1_S3),
+      .S4(p1_S4),
+      .S5(p1_S5),
+      .S6(p1_S6),
+      .S7(p1_S7),
+      .S8(p1_S8),
+      .S9(p1_S9),
+      .min(sa1_min),
       .out2(sa1_out2),
       .out3(sa1_out3),
       .out4(sa1_out4),
-      .mid (sa1_mid),
+      .mid(sa1_mid),
       .out6(sa1_out6),
       .out7(sa1_out7),
       .out8(sa1_out8),
-      .max (sa1_max)
+      .max(sa1_max)
   );
 
   SortAscending9 SA2 (
-      .S1  (p1_S10),
-      .S2  (p1_S11),
-      .S3  (p1_S12),
-      .S4  (p1_S13),
-      .S5  (p1_S14),
-      .S6  (p1_S15),
-      .S7  (p1_S16),
-      .S8  (p1_S17),
-      .S9  (p1_S18),
-      .min (sa2_min),
+      .clk(clk),
+      .rst(rst),
+      .done_i(),
+      .done_o(),
+      .S1(p1_S10),
+      .S2(p1_S11),
+      .S3(p1_S12),
+      .S4(p1_S13),
+      .S5(p1_S14),
+      .S6(p1_S15),
+      .S7(p1_S16),
+      .S8(p1_S17),
+      .S9(p1_S18),
+      .min(sa2_min),
       .out2(sa2_out2),
       .out3(sa2_out3),
       .out4(sa2_out4),
-      .mid (sa2_mid),
+      .mid(sa2_mid),
       .out6(sa2_out6),
       .out7(sa2_out7),
       .out8(sa2_out8),
-      .max (sa2_max)
+      .max(sa2_max)
   );
 
   SortAscending9 SA3 (
-      .S1  (p1_S19),
-      .S2  (p1_S20),
-      .S3  (p1_S21),
-      .S4  (p1_S22),
-      .S5  (p1_S23),
-      .S6  (p1_S24),
-      .S7  (p1_S25),
-      .S8  (p1_S26),
-      .S9  (p1_S27),
-      .min (sa3_min),
+      .clk(clk),
+      .rst(rst),
+      .done_i(),
+      .done_o(),
+      .S1(p1_S19),
+      .S2(p1_S20),
+      .S3(p1_S21),
+      .S4(p1_S22),
+      .S5(p1_S23),
+      .S6(p1_S24),
+      .S7(p1_S25),
+      .S8(p1_S26),
+      .S9(p1_S27),
+      .min(sa3_min),
       .out2(sa3_out2),
       .out3(sa3_out3),
       .out4(sa3_out4),
-      .mid (sa3_mid),
+      .mid(sa3_mid),
       .out6(sa3_out6),
       .out7(sa3_out7),
       .out8(sa3_out8),
-      .max (sa3_max)
+      .max(sa3_max)
   );
 
 
   SortAscending9 SA4 (
-      .S1  (p1_S28),
-      .S2  (p1_S29),
-      .S3  (p1_S30),
-      .S4  (p1_S31),
-      .S5  (p1_S32),
-      .S6  (p1_S33),
-      .S7  (p1_S34),
-      .S8  (p1_S35),
-      .S9  (p1_S36),
-      .min (sa4_min),
+      .clk(clk),
+      .rst(rst),
+      .done_i(),
+      .done_o(),
+      .S1(p1_S28),
+      .S2(p1_S29),
+      .S3(p1_S30),
+      .S4(p1_S31),
+      .S5(p1_S32),
+      .S6(p1_S33),
+      .S7(p1_S34),
+      .S8(p1_S35),
+      .S9(p1_S36),
+      .min(sa4_min),
       .out2(sa4_out2),
       .out3(sa4_out3),
       .out4(sa4_out4),
-      .mid (sa4_mid),
+      .mid(sa4_mid),
       .out6(sa4_out6),
       .out7(sa4_out7),
       .out8(sa4_out8),
-      .max (sa4_max)
+      .max(sa4_max)
   );
 
   SortAscending9 SA5 (
-      .S1  (p1_S37),
-      .S2  (p1_S38),
-      .S3  (p1_S39),
-      .S4  (p1_S40),
-      .S5  (p1_S41),
-      .S6  (p1_S42),
-      .S7  (p1_S43),
-      .S8  (p1_S44),
-      .S9  (p1_S45),
-      .min (sa5_min),
+      .clk(clk),
+      .rst(rst),
+      .done_i(),
+      .done_o(),
+      .S1(p1_S37),
+      .S2(p1_S38),
+      .S3(p1_S39),
+      .S4(p1_S40),
+      .S5(p1_S41),
+      .S6(p1_S42),
+      .S7(p1_S43),
+      .S8(p1_S44),
+      .S9(p1_S45),
+      .min(sa5_min),
       .out2(sa5_out2),
       .out3(sa5_out3),
       .out4(sa5_out4),
-      .mid (sa5_mid),
+      .mid(sa5_mid),
       .out6(sa5_out6),
       .out7(sa5_out7),
       .out8(sa5_out8),
-      .max (sa5_max)
+      .max(sa5_max)
   );
 
   SortAscending9 SA6 (
-      .S1  (p1_S46),
-      .S2  (p1_S47),
-      .S3  (p1_S48),
-      .S4  (p1_S49),
-      .S5  (p1_S50),
-      .S6  (p1_S51),
-      .S7  (p1_S52),
-      .S8  (p1_S53),
-      .S9  (p1_S54),
-      .min (sa6_min),
+      .clk(clk),
+      .rst(rst),
+      .done_i(),
+      .done_o(),
+      .S1(p1_S46),
+      .S2(p1_S47),
+      .S3(p1_S48),
+      .S4(p1_S49),
+      .S5(p1_S50),
+      .S6(p1_S51),
+      .S7(p1_S52),
+      .S8(p1_S53),
+      .S9(p1_S54),
+      .min(sa6_min),
       .out2(sa6_out2),
       .out3(sa6_out3),
       .out4(sa6_out4),
-      .mid (sa6_mid),
+      .mid(sa6_mid),
       .out6(sa6_out6),
       .out7(sa6_out7),
       .out8(sa6_out8),
-      .max (sa6_max)
+      .max(sa6_max)
   );
 
   SortAscending9 SA7 (
-      .S1  (p1_S55),
-      .S2  (p1_S56),
-      .S3  (p1_S57),
-      .S4  (p1_S58),
-      .S5  (p1_S59),
-      .S6  (p1_S60),
-      .S7  (p1_S61),
-      .S8  (p1_S62),
-      .S9  (p1_S63),
-      .min (sa7_min),
+      .clk(clk),
+      .rst(rst),
+      .done_i(),
+      .done_o(),
+      .S1(p1_S55),
+      .S2(p1_S56),
+      .S3(p1_S57),
+      .S4(p1_S58),
+      .S5(p1_S59),
+      .S6(p1_S60),
+      .S7(p1_S61),
+      .S8(p1_S62),
+      .S9(p1_S63),
+      .min(sa7_min),
       .out2(sa7_out2),
       .out3(sa7_out3),
       .out4(sa7_out4),
-      .mid (sa7_mid),
+      .mid(sa7_mid),
       .out6(sa7_out6),
       .out7(sa7_out7),
       .out8(sa7_out8),
-      .max (sa7_max)
+      .max(sa7_max)
   );
 
   SortAscending9 SA8 (
-      .S1  (p1_S64),
-      .S2  (p1_S65),
-      .S3  (p1_S66),
-      .S4  (p1_S67),
-      .S5  (p1_S68),
-      .S6  (p1_S69),
-      .S7  (p1_S70),
-      .S8  (p1_S71),
-      .S9  (p1_S72),
-      .min (sa8_min),
+      .clk(clk),
+      .rst(rst),
+      .done_i(),
+      .done_o(),
+      .S1(p1_S64),
+      .S2(p1_S65),
+      .S3(p1_S66),
+      .S4(p1_S67),
+      .S5(p1_S68),
+      .S6(p1_S69),
+      .S7(p1_S70),
+      .S8(p1_S71),
+      .S9(p1_S72),
+      .min(sa8_min),
       .out2(sa8_out2),
       .out3(sa8_out3),
       .out4(sa8_out4),
-      .mid (sa8_mid),
+      .mid(sa8_mid),
       .out6(sa8_out6),
       .out7(sa8_out7),
       .out8(sa8_out8),
-      .max (sa8_max)
+      .max(sa8_max)
   );
   SortAscending9 SA9 (
-      .S1  (p1_S73),
-      .S2  (p1_S74),
-      .S3  (p1_S75),
-      .S4  (p1_S76),
-      .S5  (p1_S77),
-      .S6  (p1_S78),
-      .S7  (p1_S79),
-      .S8  (p1_S80),
-      .S9  (p1_S81),
-      .min (sa9_min),
+      .clk(clk),
+      .rst(rst),
+      .done_i(),
+      .done_o(),
+      .S1(p1_S73),
+      .S2(p1_S74),
+      .S3(p1_S75),
+      .S4(p1_S76),
+      .S5(p1_S77),
+      .S6(p1_S78),
+      .S7(p1_S79),
+      .S8(p1_S80),
+      .S9(p1_S81),
+      .min(sa9_min),
       .out2(sa9_out2),
       .out3(sa9_out3),
       .out4(sa9_out4),
-      .mid (sa9_mid),
+      .mid(sa9_mid),
       .out6(sa9_out6),
       .out7(sa9_out7),
       .out8(sa9_out8),
-      .max (sa9_max)
+      .max(sa9_max)
   );
 
-
-  always @(posedge clk) begin
-    if (rst) begin
-      p2_S1 <= 0;
-      p2_S2 <= 0;
-      p2_S3 <= 0;
-      p2_S4 <= 0;
-      p2_S5 <= 0;
-      p2_S6 <= 0;
-      p2_S7 <= 0;
-      p2_S8 <= 0;
-      p2_S9 <= 0;
-      p2_S10 <= 0;
-      p2_S11 <= 0;
-      p2_S12 <= 0;
-      p2_S13 <= 0;
-      p2_S14 <= 0;
-      p2_S15 <= 0;
-      p2_S16 <= 0;
-      p2_S17 <= 0;
-      p2_S18 <= 0;
-      p2_S19 <= 0;
-      p2_S20 <= 0;
-      p2_S21 <= 0;
-      p2_S22 <= 0;
-      p2_S23 <= 0;
-      p2_S24 <= 0;
-      p2_S25 <= 0;
-      p2_S26 <= 0;
-      p2_S27 <= 0;
-      p2_S28 <= 0;
-      p2_S29 <= 0;
-      p2_S30 <= 0;
-      p2_S31 <= 0;
-      p2_S32 <= 0;
-      p2_S33 <= 0;
-      p2_S34 <= 0;
-      p2_S35 <= 0;
-      p2_S36 <= 0;
-      p2_S37 <= 0;
-      p2_S38 <= 0;
-      p2_S39 <= 0;
-      p2_S40 <= 0;
-      p2_S41 <= 0;
-      p2_S42 <= 0;
-      p2_S43 <= 0;
-      p2_S44 <= 0;
-      p2_S45 <= 0;
-      p2_S46 <= 0;
-      p2_S47 <= 0;
-      p2_S48 <= 0;
-      p2_S49 <= 0;
-      p2_S50 <= 0;
-      p2_S51 <= 0;
-      p2_S52 <= 0;
-      p2_S53 <= 0;
-      p2_S54 <= 0;
-      p2_S55 <= 0;
-      p2_S56 <= 0;
-      p2_S57 <= 0;
-      p2_S58 <= 0;
-      p2_S59 <= 0;
-      p2_S60 <= 0;
-      p2_S61 <= 0;
-      p2_S62 <= 0;
-      p2_S63 <= 0;
-      p2_S64 <= 0;
-      p2_S65 <= 0;
-      p2_S66 <= 0;
-      p2_S67 <= 0;
-      p2_S68 <= 0;
-      p2_S69 <= 0;
-      p2_S70 <= 0;
-      p2_S71 <= 0;
-      p2_S72 <= 0;
-      p2_S73 <= 0;
-      p2_S74 <= 0;
-      p2_S75 <= 0;
-      p2_S76 <= 0;
-      p2_S77 <= 0;
-      p2_S78 <= 0;
-      p2_S79 <= 0;
-      p2_S80 <= 0;
-      p2_S81 <= 0;
-      p2_done_i <= 0;
-    end else begin
-      // col 1
-
-      p2_S1 <= sa1_min;
-      p2_S2 <= sa2_min;
-      p2_S3 <= sa3_min;
-      p2_S4 <= sa4_min;
-      p2_S5 <= sa5_min;
-      p2_S6 <= sa6_min;
-      p2_S7 <= sa7_min;
-      p2_S8 <= sa8_min;
-      p2_S9 <= sa9_min;
-
-
-      p2_S10 <= sa1_out2;
-      p2_S11 <= sa2_out2;
-      p2_S12 <= sa3_out2;
-      p2_S13 <= sa4_out2;
-      p2_S14 <= sa5_out2;
-      p2_S15 <= sa6_out2;
-      p2_S16 <= sa7_out2;
-      p2_S17 <= sa8_out2;
-      p2_S18 <= sa9_out2;
-
-      p2_S19 <= sa1_out3;
-      p2_S20 <= sa2_out3;
-      p2_S21 <= sa3_out3;
-      p2_S22 <= sa4_out3;
-      p2_S23 <= sa5_out3;
-      p2_S24 <= sa6_out3;
-      p2_S25 <= sa7_out3;
-      p2_S26 <= sa8_out3;
-      p2_S27 <= sa9_out3;
-
-
-      p2_S28 <= sa1_out4;
-      p2_S29 <= sa2_out4;
-      p2_S30 <= sa3_out4;
-      p2_S31 <= sa4_out4;
-      p2_S32 <= sa5_out4;
-      p2_S33 <= sa6_out4;
-      p2_S34 <= sa7_out4;
-      p2_S35 <= sa8_out4;
-      p2_S36 <= sa9_out4;
-
-
-      p2_S37 <= sa1_mid;
-      p2_S38 <= sa2_mid;
-      p2_S39 <= sa3_mid;
-      p2_S40 <= sa4_mid;
-      p2_S41 <= sa5_mid;
-      p2_S42 <= sa6_mid;
-      p2_S43 <= sa7_mid;
-      p2_S44 <= sa8_mid;
-      p2_S45 <= sa9_mid;
-
-      p2_S46 <= sa1_out6;
-      p2_S47 <= sa2_out6;
-      p2_S48 <= sa3_out6;
-      p2_S49 <= sa4_out6;
-      p2_S50 <= sa5_out6;
-      p2_S51 <= sa6_out6;
-      p2_S52 <= sa7_out6;
-      p2_S53 <= sa8_out6;
-      p2_S54 <= sa9_out6;
-
-      p2_S55 <= sa1_out7;
-      p2_S56 <= sa2_out7;
-      p2_S57 <= sa3_out7;
-      p2_S58 <= sa4_out7;
-      p2_S59 <= sa5_out7;
-      p2_S60 <= sa6_out7;
-      p2_S61 <= sa7_out7;
-      p2_S62 <= sa8_out7;
-      p2_S63 <= sa9_out7;
-
-      p2_S64 <= sa1_out8;
-      p2_S65 <= sa2_out8;
-      p2_S66 <= sa3_out8;
-      p2_S67 <= sa4_out8;
-      p2_S68 <= sa5_out8;
-      p2_S69 <= sa6_out8;
-      p2_S70 <= sa7_out8;
-      p2_S71 <= sa8_out8;
-      p2_S72 <= sa9_out8;
-
-      p2_S73 <= sa1_max;
-      p2_S74 <= sa2_max;
-      p2_S75 <= sa3_max;
-      p2_S76 <= sa4_max;
-      p2_S77 <= sa5_max;
-      p2_S78 <= sa6_max;
-      p2_S79 <= sa7_max;
-      p2_S80 <= sa8_max;
-      p2_S81 <= sa9_max;
-
-
-      p2_done_i <= p1_done_i;
-    end
-  end
   // stage 2 - sort cols
   wire [7:0] sa10_max, sa10_out8, sa10_out7, sa10_out6, sa10_mid, sa10_out4, sa10_out3, sa10_out2, sa10_min;
   wire [7:0] sa11_max, sa11_out8, sa11_out7, sa11_out6, sa11_mid, sa11_out4, sa11_out3, sa11_out2, sa11_min;
@@ -878,195 +648,231 @@ module Median_filter_9x9_calc (
       p3_S49;
 
 
-  reg p3_done_i;
+  wire p3_done_o;
 
   SortAscending9 SA10 (
-      .S1  (p2_S1),
-      .S2  (p2_S2),
-      .S3  (p2_S3),
-      .S4  (p2_S4),
-      .S5  (p2_S5),
-      .S6  (p2_S6),
-      .S7  (p2_S7),
-      .S8  (p2_S8),
-      .S9  (p2_S9),
-      .min (sa10_min),
+      .clk(clk),
+      .rst(rst),
+      .done_i(p2_done_o),
+      .done_o(p3_done_o),
+      .S1(sa1_min),
+      .S2(sa2_min),
+      .S3(sa3_min),
+      .S4(sa4_min),
+      .S5(sa5_min),
+      .S6(sa6_min),
+      .S7(sa7_min),
+      .S8(sa8_min),
+      .S9(sa9_min),
+      .min(sa10_min),
       .out2(sa10_out2),
       .out3(sa10_out3),
       .out4(sa10_out4),
-      .mid (sa10_mid),
+      .mid(sa10_mid),
       .out6(sa10_out6),
       .out7(sa10_out7),
       .out8(sa10_out8),
-      .max (sa10_max)
+      .max(sa10_max)
   );
 
   SortAscending9 SA11 (
-      .S1  (p2_S10),
-      .S2  (p2_S11),
-      .S3  (p2_S12),
-      .S4  (p2_S13),
-      .S5  (p2_S14),
-      .S6  (p2_S15),
-      .S7  (p2_S16),
-      .S8  (p2_S17),
-      .S9  (p2_S18),
-      .min (sa11_min),
+      .clk(clk),
+      .rst(rst),
+      .done_i(),
+      .done_o(),
+      .S1(sa1_out2),
+      .S2(sa2_out2),
+      .S3(sa3_out2),
+      .S4(sa4_out2),
+      .S5(sa5_out2),
+      .S6(sa6_out2),
+      .S7(sa7_out2),
+      .S8(sa8_out2),
+      .S9(sa9_out2),
+      .min(sa11_min),
       .out2(sa11_out2),
       .out3(sa11_out3),
       .out4(sa11_out4),
-      .mid (sa11_mid),
+      .mid(sa11_mid),
       .out6(sa11_out6),
       .out7(sa11_out7),
       .out8(sa11_out8),
-      .max (sa11_max)
+      .max(sa11_max)
   );
 
   SortAscending9 SA12 (
-      .S1  (p2_S19),
-      .S2  (p2_S20),
-      .S3  (p2_S21),
-      .S4  (p2_S22),
-      .S5  (p2_S23),
-      .S6  (p2_S24),
-      .S7  (p2_S25),
-      .S8  (p2_S26),
-      .S9  (p2_S27),
-      .min (sa12_min),
+      .clk(clk),
+      .rst(rst),
+      .done_i(),
+      .done_o(),
+      .S1(sa1_out3),
+      .S2(sa2_out3),
+      .S3(sa3_out3),
+      .S4(sa4_out3),
+      .S5(sa5_out3),
+      .S6(sa6_out3),
+      .S7(sa7_out3),
+      .S8(sa8_out3),
+      .S9(sa9_out3),
+      .min(sa12_min),
       .out2(sa12_out2),
       .out3(sa12_out3),
       .out4(sa12_out4),
-      .mid (sa12_mid),
+      .mid(sa12_mid),
       .out6(sa12_out6),
       .out7(sa12_out7),
       .out8(sa12_out8),
-      .max (sa12_max)
+      .max(sa12_max)
   );
 
 
   SortAscending9 SA13 (
-      .S1  (p2_S28),
-      .S2  (p2_S29),
-      .S3  (p2_S30),
-      .S4  (p2_S31),
-      .S5  (p2_S32),
-      .S6  (p2_S33),
-      .S7  (p2_S34),
-      .S8  (p2_S35),
-      .S9  (p2_S36),
-      .min (sa13_min),
+      .clk(clk),
+      .rst(rst),
+      .done_i(),
+      .done_o(),
+      .S1(sa1_out4),
+      .S2(sa2_out4),
+      .S3(sa3_out4),
+      .S4(sa4_out4),
+      .S5(sa5_out4),
+      .S6(sa6_out4),
+      .S7(sa7_out4),
+      .S8(sa8_out4),
+      .S9(sa9_out4),
+      .min(sa13_min),
       .out2(sa13_out2),
       .out3(sa13_out3),
       .out4(sa13_out4),
-      .mid (sa13_mid),
+      .mid(sa13_mid),
       .out6(sa13_out6),
       .out7(sa13_out7),
       .out8(sa13_out8),
-      .max (sa13_max)
+      .max(sa13_max)
   );
 
   SortAscending9 SA14 (
-      .S1  (p2_S37),
-      .S2  (p2_S38),
-      .S3  (p2_S39),
-      .S4  (p2_S40),
-      .S5  (p2_S41),
-      .S6  (p2_S42),
-      .S7  (p2_S43),
-      .S8  (p2_S44),
-      .S9  (p2_S45),
-      .min (sa14_min),
+      .clk(clk),
+      .rst(rst),
+      .done_i(),
+      .done_o(),
+      .S1(sa1_mid),
+      .S2(sa2_mid),
+      .S3(sa3_mid),
+      .S4(sa4_mid),
+      .S5(sa5_mid),
+      .S6(sa6_mid),
+      .S7(sa7_mid),
+      .S8(sa8_mid),
+      .S9(sa9_mid),
+      .min(sa14_min),
       .out2(sa14_out2),
       .out3(sa14_out3),
       .out4(sa14_out4),
-      .mid (sa14_mid),
+      .mid(sa14_mid),
       .out6(sa14_out6),
       .out7(sa14_out7),
       .out8(sa14_out8),
-      .max (sa14_max)
+      .max(sa14_max)
   );
 
   SortAscending9 SA15 (
-      .S1  (p2_S46),
-      .S2  (p2_S47),
-      .S3  (p2_S48),
-      .S4  (p2_S49),
-      .S5  (p2_S50),
-      .S6  (p2_S51),
-      .S7  (p2_S52),
-      .S8  (p2_S53),
-      .S9  (p2_S54),
-      .min (sa15_min),
+      .clk(clk),
+      .rst(rst),
+      .done_i(),
+      .done_o(),
+      .S1(sa1_out6),
+      .S2(sa2_out6),
+      .S3(sa3_out6),
+      .S4(sa4_out6),
+      .S5(sa5_out6),
+      .S6(sa6_out6),
+      .S7(sa7_out6),
+      .S8(sa8_out6),
+      .S9(sa9_out6),
+      .min(sa15_min),
       .out2(sa15_out2),
       .out3(sa15_out3),
       .out4(sa15_out4),
-      .mid (sa15_mid),
+      .mid(sa15_mid),
       .out6(sa15_out6),
       .out7(sa15_out7),
       .out8(sa15_out8),
-      .max (sa15_max)
+      .max(sa15_max)
   );
 
   SortAscending9 SA16 (
-      .S1  (p2_S55),
-      .S2  (p2_S56),
-      .S3  (p2_S57),
-      .S4  (p2_S58),
-      .S5  (p2_S59),
-      .S6  (p2_S60),
-      .S7  (p2_S61),
-      .S8  (p2_S62),
-      .S9  (p2_S63),
-      .min (sa16_min),
+      .clk(clk),
+      .rst(rst),
+      .done_i(),
+      .done_o(),
+      .S1(sa1_out7),
+      .S2(sa2_out7),
+      .S3(sa3_out7),
+      .S4(sa4_out7),
+      .S5(sa5_out7),
+      .S6(sa6_out7),
+      .S7(sa7_out7),
+      .S8(sa8_out7),
+      .S9(sa9_out7),
+      .min(sa16_min),
       .out2(sa16_out2),
       .out3(sa16_out3),
       .out4(sa16_out4),
-      .mid (sa16_mid),
+      .mid(sa16_mid),
       .out6(sa16_out6),
       .out7(sa16_out7),
       .out8(sa16_out8),
-      .max (sa16_max)
+      .max(sa16_max)
   );
 
   SortAscending9 SA17 (
-      .S1  (p2_S64),
-      .S2  (p2_S65),
-      .S3  (p2_S66),
-      .S4  (p2_S67),
-      .S5  (p2_S68),
-      .S6  (p2_S69),
-      .S7  (p2_S70),
-      .S8  (p2_S71),
-      .S9  (p2_S72),
-      .min (sa17_min),
+      .clk(clk),
+      .rst(rst),
+      .done_i(),
+      .done_o(),
+      .S1(sa1_out8),
+      .S2(sa2_out8),
+      .S3(sa3_out8),
+      .S4(sa4_out8),
+      .S5(sa5_out8),
+      .S6(sa6_out8),
+      .S7(sa7_out8),
+      .S8(sa8_out8),
+      .S9(sa9_out8),
+      .min(sa17_min),
       .out2(sa17_out2),
       .out3(sa17_out3),
       .out4(sa17_out4),
-      .mid (sa17_mid),
+      .mid(sa17_mid),
       .out6(sa17_out6),
       .out7(sa17_out7),
       .out8(sa17_out8),
-      .max (sa17_max)
+      .max(sa17_max)
   );
   SortAscending9 SA18 (
-      .S1  (p2_S73),
-      .S2  (p2_S74),
-      .S3  (p2_S75),
-      .S4  (p2_S76),
-      .S5  (p2_S77),
-      .S6  (p2_S78),
-      .S7  (p2_S79),
-      .S8  (p2_S80),
-      .S9  (p2_S81),
-      .min (sa18_min),
+      .clk(clk),
+      .rst(rst),
+      .done_i(),
+      .done_o(),
+      .S1(sa1_max),
+      .S2(sa2_max),
+      .S3(sa3_max),
+      .S4(sa4_max),
+      .S5(sa5_max),
+      .S6(sa6_max),
+      .S7(sa7_max),
+      .S8(sa8_max),
+      .S9(sa9_max),
+      .min(sa18_min),
       .out2(sa18_out2),
       .out3(sa18_out3),
       .out4(sa18_out4),
-      .mid (sa18_mid),
+      .mid(sa18_mid),
       .out6(sa18_out6),
       .out7(sa18_out7),
       .out8(sa18_out8),
-      .max (sa18_max)
+      .max(sa18_max)
   );
 
   // sort 3 upper left corner element and lower right corner element
@@ -1084,7 +890,7 @@ module Median_filter_9x9_calc (
       .max_o(),
       .min_o(lower_right_min)
   );
-
+  reg p4_done_o;
   always @(posedge clk) begin
     if (rst) begin
       p3_S1 <= 0;
@@ -1137,7 +943,7 @@ module Median_filter_9x9_calc (
       p3_S48 <= 0;
 
 
-      p3_done_i <= 0;
+      p4_done_o <= 0;
     end else begin
 
       p3_S1 <= sa16_min;
@@ -1204,14 +1010,15 @@ module Median_filter_9x9_calc (
 
 
 
-      p3_done_i <= p2_done_i;
+      p4_done_o <= p3_done_o;
     end
   end
-
-  Median_filter_7x7_calc CALC87 (
+  wire calc97_done_o;
+  wire [7:0] calc97_med_o;
+  Median_filter_7x7_calc CALC97 (
       .clk(clk),
       .rst(rst),
-      .done_i(p3_done_i),
+      .done_i(p4_done_o),
       .S1(p3_S1),
       .S2(p3_S2),
       .S3(p3_S3),
@@ -1262,9 +1069,23 @@ module Median_filter_9x9_calc (
       .S48(p3_S48),
       .S49(p3_S49),
 
-      .median_o(median_o),
-      .done_o  (done_o)
+      .median_o(calc97_med_o),
+      .done_o  (calc97_done_o)
   );
+  reg [7:0] p5_med_o;
+  reg p5_done_o;
+  always @(posedge clk) begin
+    if (rst) begin
+      p5_med_o  <= 0;
+      p5_done_o <= 0;
+    end else begin
+      p5_done_o <= calc97_done_o;
+      p5_med_o  <= calc97_med_o;
+    end
+
+  end
+  assign done_o   = p5_done_o;
+  assign median_o = p5_med_o;
 
 
 
