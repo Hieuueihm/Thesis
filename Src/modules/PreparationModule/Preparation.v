@@ -21,7 +21,7 @@ module Preparation #(
   wire [7:0] line_buffer_out[7:0];
   wire line_buffer_done[7:0];
   assign done_o  = line_buffer_done[3];  // line buffer 3 done 
-  assign data0_o = data_i;
+  assign data0_o = grayscale_i;
   assign data1_o = line_buffer_out[0];
   assign data2_o = line_buffer_out[1];
   assign data3_o = line_buffer_out[2];
@@ -30,7 +30,6 @@ module Preparation #(
   assign data6_o = line_buffer_out[5];
   assign data7_o = line_buffer_out[6];
   assign data8_o = line_buffer_out[7];
-
   generate
     for (genvar i = 0; i < 8; i = i + 1) begin : gen_line_buffers
       Line_buffer #(
@@ -38,13 +37,14 @@ module Preparation #(
       ) LINE_BUFFER (
           .clk(clk),
           .rst(rst),
-          .data_i((i == 0) ? data_i : line_buffer_out[i-1]),
+          .data_i((i == 0) ? grayscale_i : line_buffer_out[i-1]),
           .done_i((i == 0) ? done_i : line_buffer_done[i-1]),
           .data_o(line_buffer_out[i]),
           .done_o(line_buffer_done[i])
       );
     end
   endgenerate
+
 
 
 

@@ -31,7 +31,91 @@ module Median_filter_5x5_calc (
     output reg done_o
 );
 
+  reg [7:0]
+      p1_S1,
+      p1_S2,
+      p1_S3,
+      p1_S4,
+      p1_S5,
+      p1_S6,
+      p1_S7,
+      p1_S8,
+      p1_S9,
+      p1_S10,
+      p1_S11,
+      p1_S12,
+      p1_S13,
+      p1_S14,
+      p1_S15,
+      p1_S16,
+      p1_S17,
+      p1_S18,
+      p1_S19,
+      p1_S20,
+      p1_S21,
+      p1_S22,
+      p1_S23,
+      p1_S24,
+      p1_S25;
+  reg p1_done_i;
 
+  always @(posedge clk) begin
+    if (rst) begin
+      p1_S1 <= 0;
+      p1_S2 <= 0;
+      p1_S3 <= 0;
+      p1_S4 <= 0;
+      p1_S5 <= 0;
+      p1_S6 <= 0;
+      p1_S7 <= 0;
+      p1_S8 <= 0;
+      p1_S9 <= 0;
+      p1_S10 <= 0;
+      p1_S11 <= 0;
+      p1_S12 <= 0;
+      p1_S13 <= 0;
+      p1_S14 <= 0;
+      p1_S15 <= 0;
+      p1_S16 <= 0;
+      p1_S17 <= 0;
+      p1_S18 <= 0;
+      p1_S19 <= 0;
+      p1_S20 <= 0;
+      p1_S21 <= 0;
+      p1_S22 <= 0;
+      p1_S23 <= 0;
+      p1_S24 <= 0;
+      p1_S25 <= 0;
+      p1_done_i <= 0;
+    end else begin
+      p1_S1 <= S1;
+      p1_S2 <= S2;
+      p1_S3 <= S3;
+      p1_S4 <= S4;
+      p1_S5 <= S5;
+      p1_S6 <= S6;
+      p1_S7 <= S7;
+      p1_S8 <= S8;
+      p1_S9 <= S9;
+      p1_S10 <= S10;
+      p1_S11 <= S11;
+      p1_S12 <= S12;
+      p1_S13 <= S13;
+      p1_S14 <= S14;
+      p1_S15 <= S15;
+      p1_S16 <= S16;
+      p1_S17 <= S17;
+      p1_S18 <= S18;
+      p1_S19 <= S19;
+      p1_S20 <= S20;
+      p1_S21 <= S21;
+      p1_S22 <= S22;
+      p1_S23 <= S23;
+      p1_S24 <= S24;
+      p1_S25 <= S25;
+      p1_done_i <= done_i;
+    end
+  end
   wire p1_done_o;
   wire [7:0] sa1_max, sa1_out4, sa1_mid, sa1_out2, sa1_min;
   wire [7:0] sa2_max, sa2_out4, sa2_mid, sa2_out2, sa2_min;
@@ -44,13 +128,13 @@ module Median_filter_5x5_calc (
   SortAscending5 SA1 (
       .clk(clk),
       .rst(rst),
-      .done_i(done_i),
+      .done_i(p1_done_i),
       .done_o(p1_done_o),
-      .S1(S1),
-      .S2(S2),
-      .S3(S3),
-      .S4(S4),
-      .S5(S5),
+      .S1(p1_S1),
+      .S2(p1_S2),
+      .S3(p1_S3),
+      .S4(p1_S4),
+      .S5(p1_S5),
       .min(sa1_min),
       .out2(sa1_out2),
       .mid(sa1_mid),
@@ -62,11 +146,11 @@ module Median_filter_5x5_calc (
       .rst(rst),
       .done_i(),
       .done_o(),
-      .S1(S6),
-      .S2(S7),
-      .S3(S8),
-      .S4(S9),
-      .S5(S10),
+      .S1(p1_S6),
+      .S2(p1_S7),
+      .S3(p1_S8),
+      .S4(p1_S9),
+      .S5(p1_S10),
       .min(sa2_min),
       .out2(sa2_out2),
       .mid(sa2_mid),
@@ -78,11 +162,11 @@ module Median_filter_5x5_calc (
       .rst(rst),
       .done_i(),
       .done_o(),
-      .S1(S11),
-      .S2(S12),
-      .S3(S13),
-      .S4(S14),
-      .S5(S15),
+      .S1(p1_S11),
+      .S2(p1_S12),
+      .S3(p1_S13),
+      .S4(p1_S14),
+      .S5(p1_S15),
       .min(sa3_min),
       .out2(sa3_out2),
       .mid(sa3_mid),
@@ -94,11 +178,11 @@ module Median_filter_5x5_calc (
       .rst(rst),
       .done_i(),
       .done_o(),
-      .S1(S16),
-      .S2(S17),
-      .S3(S18),
-      .S4(S19),
-      .S5(S20),
+      .S1(p1_S16),
+      .S2(p1_S17),
+      .S3(p1_S18),
+      .S4(p1_S19),
+      .S5(p1_S20),
       .min(sa4_min),
       .out2(sa4_out2),
       .mid(sa4_mid),
@@ -110,11 +194,11 @@ module Median_filter_5x5_calc (
       .rst(rst),
       .done_i(),
       .done_o(),
-      .S1(S21),
-      .S2(S22),
-      .S3(S23),
-      .S4(S24),
-      .S5(S25),
+      .S1(p1_S21),
+      .S2(p1_S22),
+      .S3(p1_S23),
+      .S4(p1_S24),
+      .S5(p1_S25),
       .min(sa5_min),
       .out2(sa5_out2),
       .mid(sa5_mid),
