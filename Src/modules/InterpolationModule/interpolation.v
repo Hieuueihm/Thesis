@@ -1,0 +1,47 @@
+module interpolation
+ (
+    input clk,
+    input rst,
+    input done_i,
+    input [7:0],
+    S_0_i,
+    S_90_i,
+    S_180_i,
+    S_270_i,
+
+    S_45_i_1,
+    S_45_i_2,
+    S_45_i_3,
+    S_45_i_4,
+
+    S_135_i_1,
+    S_135_i_2,
+    S_135_i_3,
+    S_135_i_4,
+
+    S_225_i_1,
+    S_225_i_2,
+    S_225_i_3,
+    S_225_i_4,
+
+    S_315_i_1,
+    S_315_i_2,
+    S_315_i_3,
+    S_315_i_4,
+
+    input [1:0] r,
+    output [7:0] S1_o,
+    S2_o,
+    S3_o,
+    S4_o,
+    S5_o,
+    S6_o,
+    S7_o,
+    S8_o,
+    output done_o
+);
+
+// define LUT
+
+
+endmodule
