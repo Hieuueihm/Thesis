@@ -1,7 +1,7 @@
 module bilinear_interpolation (
     input clk,
     input rst,
-    input [1:0] r,
+    input [2:0] r,
     input [1:0] angle,
     input [7:0] A,
     B,
@@ -18,7 +18,7 @@ module bilinear_interpolation (
 
   wire [15:0] one_minus_dx, one_minus_dy, dx, dy;
   // 2D LUT r angle
-  // r 0 -> 3 -> 2, 4, 6, 8
+  // r 0 -> 7 ->1, 2,3, 4,5 6,7, 8
   // angle 0 -> 3 -> 45, 135, 225, 315
   reg [63:0] lut[0:3][0:3];
 
