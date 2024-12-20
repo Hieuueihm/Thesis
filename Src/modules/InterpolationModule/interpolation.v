@@ -4,6 +4,7 @@ module interpolation
     input rst,
     input done_i,
     input [7:0],
+    mid_i,
     S_0_i,
     S_90_i,
     S_180_i,
@@ -38,6 +39,7 @@ module interpolation
     S6_o,
     S7_o,
     S8_o,
+    mid_o
     output done_o
 );
 
