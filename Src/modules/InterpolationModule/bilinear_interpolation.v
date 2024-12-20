@@ -93,7 +93,7 @@ module bilinear_interpolation (
       product3 <= mult_result3[23:8] * {_C, 8'b0};
       product4 <= mult_result4[23:8] * {_D, 8'b0};
 
-      final_result <= product1[23:8] + product2[23:8] + product3[23:8] + product4[23:8];  // Scale down to 8.8 fixed-point
+      final_result <= product1[23:8] + product2[23:8] + product3[23:8] + product4[23:8];
 
     end
   end
