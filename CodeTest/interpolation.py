@@ -91,9 +91,9 @@ def interpolate_45_135_225_315(image, center_x, center_y, radius):
 
 image = np.random.randint(0, 101, (19, 19))
 
-radius = 8  # Distance from center to the interpolated points
+radius = 7  # Distance from center to the interpolated points
 
-interpolated_values = interpolate_45_135_225_315(image, 8, 8, radius)
+interpolated_values = interpolate_45_135_225_315(image, 7, 7, radius)
 print("Interpolated Values:")
 for angle, value in interpolated_values.items():
     print(f"{angle}: {value:.2f}")

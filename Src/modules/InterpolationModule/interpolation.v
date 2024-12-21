@@ -30,7 +30,7 @@ module interpolation
     S_315_i_3,
     S_315_i_4,
 
-    input [1:0] r,
+    input [2:0] r,
     output [7:0] S1_o,
     S2_o,
     S3_o,
