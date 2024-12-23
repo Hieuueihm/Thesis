@@ -194,26 +194,26 @@ module Serialiser_datapath (input clk,
             st0_S24 <= S24;
             st0_S25 <= S25;
             
-            st1_S2  <= st0_S2;
-            st1_S3  <= st0_S3;
-            st1_S4  <= st0_S4;
-            st1_S5  <= st0_S5;
-            st1_S7  <= st0_S7;
-            st1_S8  <= st0_S8;
-            st1_S9  <= st0_S9;
-            st1_S10 <= st0_S10;
-            st1_S12 <= st0_S12;
-            st1_S13 <= st0_S13;
-            st1_S14 <= st0_S14;
-            st1_S15 <= st0_S15;
-            st1_S17 <= st0_S17;
-            st1_S18 <= st0_S18;
-            st1_S19 <= st0_S19;
-            st1_S20 <= st0_S20;
-            st1_S22 <= st0_S22;
-            st1_S23 <= st0_S23;
-            st1_S24 <= st0_S24;
-            st1_S25 <= st0_S25;
+            st1_S2  <= S2;
+            st1_S3  <= S3;
+            st1_S4  <= S4;
+            st1_S5  <= S5;
+            st1_S7  <= S7;
+            st1_S8  <= S8;
+            st1_S9  <= S9;
+            st1_S10 <= S10;
+            st1_S12 <= S12;
+            st1_S13 <= S13;
+            st1_S14 <= S14;
+            st1_S15 <= S15;
+            st1_S17 <= S17;
+            st1_S18 <= S18;
+            st1_S19 <= S19;
+            st1_S20 <= S20;
+            st1_S22 <= S22;
+            st1_S23 <= S23;
+            st1_S24 <= S24;
+            st1_S25 <= S25;
             
             
             st2_S3  <= st1_S3;
@@ -259,39 +259,39 @@ module Serialiser_datapath (input clk,
         case (o_select)
             3'd0:
             begin
-                S1_o <= st0_S1;
-                S2_o <= st0_S6;
-                S3_o <= st0_S11;
-                S4_o <= st0_S16;
-                S5_o <= st0_S21;
+                S1_o <= S1;
+                S2_o <= S6;
+                S3_o <= S11;
+                S4_o <= S16;
+                S5_o <= S21;
             end
             3'd1: begin
-                S1_o <= st1_S2;
-                S2_o <= st1_S7;
-                S3_o <= st1_S12;
-                S4_o <= st1_S17;
-                S5_o <= st1_S22;
+                S1_o <= st0_S2;
+                S2_o <= st0_S7;
+                S3_o <= st0_S12;
+                S4_o <= st0_S17;
+                S5_o <= st0_S22;
             end
             3'd2: begin
-                S1_o <= st2_S3;
-                S2_o <= st2_S8;
-                S3_o <= st2_S13;
-                S4_o <= st2_S18;
-                S5_o <= st2_S23;
+                S1_o <= st1_S3;
+                S2_o <= st1_S8;
+                S3_o <= st1_S13;
+                S4_o <= st1_S18;
+                S5_o <= st1_S23;
             end
             3'd3: begin
-                S1_o <= st3_S4;
-                S2_o <= st3_S9;
-                S3_o <= st3_S14;
-                S4_o <= st3_S19;
-                S5_o <= st3_S24;
+                S1_o <= st2_S4;
+                S2_o <= st2_S9;
+                S3_o <= st2_S14;
+                S4_o <= st2_S19;
+                S5_o <= st2_S24;
             end
             3'd4:begin
-                S1_o <= st4_S5;
-                S2_o <= st4_S10;
-                S3_o <= st4_S15;
-                S4_o <= st4_S20;
-                S5_o <= st4_S25;
+                S1_o <= st3_S5;
+                S2_o <= st3_S10;
+                S3_o <= st3_S15;
+                S4_o <= st3_S20;
+                S5_o <= st3_S25;
             end
             3'd5:begin
                 S1_o <= st4_S5;
