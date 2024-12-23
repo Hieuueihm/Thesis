@@ -67,7 +67,7 @@ module bilinear_interpolation (input clk,
         lut[5][2] = {16'h00C2, 16'h003E, 16'h003E, 16'h00C2};
         lut[5][3] = {16'h00C2, 16'h00C2, 16'h003E, 16'h003E};
         
-        // r = 7
+        // rg = 7
         
         lut[6][0] = {16'h00F4, 16'h000C, 16'h000C, 16'h00F4};
         lut[6][1] = {16'h00F4, 16'h00F4, 16'h000C, 16'h000C};
