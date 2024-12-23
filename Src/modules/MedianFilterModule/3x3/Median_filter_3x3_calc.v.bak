@@ -173,7 +173,7 @@ module Median_filter_3x3_calc (
       .min()
   );
 
-  wire [7:0] p4_median;
+  reg [7:0] p4_median;
   reg        p4_done_i;
   always @(posedge clk) begin
     if (rst) begin

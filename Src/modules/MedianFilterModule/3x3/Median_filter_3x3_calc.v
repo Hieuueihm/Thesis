@@ -11,8 +11,8 @@ module Median_filter_3x3_calc (
     input [7:0] S7,
     input [7:0] S8,
     input [7:0] S9,
-    output reg [7:0] median_o,
-    output reg done_o
+    output  [7:0] median_o,
+    output  done_o
 );
 
   reg [7:0] p1_S1, p1_S2, p1_S3;

@@ -18,7 +18,8 @@ module Line_buffer_datapath #(parameter DEPTH = 1024)
     //  output assignment
     assign data_o = (i_counter == DEPTH) ? mem[internal_rd_pointer] : 8'bz;
     
-    counter COUNTER_I
+    plus_1 #(.WIDTH(10))
+    COUNTER_I
     (
     .rst(rst),
     .clk(clk),
@@ -28,7 +29,9 @@ module Line_buffer_datapath #(parameter DEPTH = 1024)
     );
     assign i_counter = (internal_i_counter_plus_1 > DEPTH) ? i_counter : internal_i_counter_plus_1;
     
-    counter COUNTER_WR_POINTER
+    plus_1 #(.WIDTH(10))
+    
+    COUNTER_WR_POINTER
     (
     .rst(rst),
     .clk(clk),
@@ -48,7 +51,8 @@ module Line_buffer_datapath #(parameter DEPTH = 1024)
     end
     
     
-    counter COUNTER_RD_POINTER
+    plus_1 #(.WIDTH(10))
+    COUNTER_RD_POINTER
     (
     .rst(rst),
     .clk(clk),
