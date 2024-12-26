@@ -163,32 +163,32 @@ module Data_modulate_5x5_datapath #(parameter ROWS,
                 d0_o <= (i_row < 2 || i_col < 2) ? 0 : data0;
                 d1_o <= (i_row < 2 || i_col < 1) ? 0 : data1;
                 d2_o <= (i_row < 2) ? 0 : data2;
-                d3_o <= (i_row < 2 || i_col > COLS - 3) ? 0 : data3;
-                d4_o <= (i_row < 2 || i_col > COLS - 2) ? 0 : data4;
+                d3_o <= (i_row < 2 || i_col > COLS - 2) ? 0 : data3;
+                d4_o <= (i_row < 2 || i_col > COLS - 3) ? 0 : data4;
                 
                 d5_o <= (i_row < 1 || i_col < 2) ? 0 : data5;
                 d6_o <= (i_row < 1 || i_col < 1) ? 0 : data6;
                 d7_o <= (i_row < 1) ? 0 : data7;
-                d8_o <= (i_row < 1 || i_col > COLS - 3) ? 0 : data8;
-                d9_o <= (i_row < 1 || i_col > COLS - 2) ? 0 : data9;
+                d8_o <= (i_row < 1 || i_col > COLS - 2) ? 0 : data8;
+                d9_o <= (i_row < 1 || i_col > COLS - 3) ? 0 : data9;
                 
                 d10_o <= (i_col < 2) ? 0 : data10;
                 d11_o <= (i_col < 1) ? 0 : data11;
                 d12_o <= data12;
-                d13_o <= (i_col > COLS - 3) ? 0 : data13;
-                d14_o <= (i_col > COLS - 2) ? 0 : data14;
+                d13_o <= (i_col > COLS - 2) ? 0 : data13;
+                d14_o <= (i_col > COLS - 3) ? 0 : data14;
                 
-                d15_o <= (i_row > ROWS - 3 || i_col < 2) ? 0 : data15;
-                d16_o <= (i_row > ROWS - 3 || i_col < 1) ? 0 : data16;
-                d17_o <= (i_row > ROWS - 3) ? 0 : data17;
-                d18_o <= (i_row > ROWS - 3 || i_col > COLS - 3) ? 0 : data18;
-                d19_o <= (i_row > ROWS - 3 || i_col > COLS - 2) ? 0 : data19;
+                d15_o <= (i_row > ROWS - 2 || i_col < 2) ? 0 : data15;
+                d16_o <= (i_row > ROWS - 2 || i_col < 1) ? 0 : data16;
+                d17_o <= (i_row > ROWS - 2) ? 0 : data17;
+                d18_o <= (i_row > ROWS - 2 || i_col > COLS - 2) ? 0 : data18;
+                d19_o <= (i_row > ROWS - 2 || i_col > COLS - 3) ? 0 : data19;
                 
-                d20_o <= (i_row > ROWS - 2 || i_col < 2) ? 0 : data20;
-                d21_o <= (i_row > ROWS - 2 || i_col < 1) ? 0 : data21;
-                d22_o <= (i_row > ROWS - 2) ? 0 : data22;
-                d23_o <= (i_row > ROWS - 2 || i_col > COLS - 3) ? 0 : data23;
-                d24_o <= (i_row > ROWS - 2 || i_col > COLS - 2) ? 0 : data24;
+                d20_o <= (i_row > ROWS - 3 || i_col < 2) ? 0 : data20;
+                d21_o <= (i_row > ROWS - 3 || i_col < 1) ? 0 : data21;
+                d22_o <= (i_row > ROWS - 3) ? 0 : data22;
+                d23_o <= (i_row > ROWS - 3 || i_col > COLS - 2) ? 0 : data23;
+                d24_o <= (i_row > ROWS - 3 || i_col > COLS - 3) ? 0 : data24;
                 
                 
             end
