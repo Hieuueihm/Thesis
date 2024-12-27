@@ -14,15 +14,12 @@ module R2_sum #(parameter COLS = 7,
                 S4,
                 S5,
                 output [12:0] sum_o,
-                output i_row_eq_0,
                 output [9:0] i_counter,
                 output [7:0] central_value,
                 output i_start_gt_1);
     
     
     
-    wire [9:0] i_row;
-    wire [9:0] i_row_plus_1;
     wire [9:0] i_counter_plus_1;
     wire [1:0] i_start;
     wire [1:0] i_start_plus_1;
@@ -39,15 +36,7 @@ module R2_sum #(parameter COLS = 7,
     assign i_start_gt_1 = (i_start_plus_1 > 1) ? 1'b1 : 1'b0;
     assign i_start      = (i_start_plus_1 == 3) ? 0 : i_start_plus_1;
     
-    plus_1 #(.WIDTH(10))
-    ROW_PLUS
-    (
-    .rst(rst),
-    .clk(clk),
-    .en(i_counter_eq_max),
-    .D(i_row),
-    .Q(i_row_plus_1)
-    );
+    
     
     plus_1 #(.WIDTH(10))
     COUNTER_PLUS
@@ -60,11 +49,9 @@ module R2_sum #(parameter COLS = 7,
     );
     
     wire i_counter_eq_max;
-    assign i_row_eq_0       = (i_row == 0) ? 1'b1 : 1'b0;
     assign i_counter_eq_max = (i_counter_plus_1 == COLS) ? 1'b1 : 1'b0;
     
     assign i_counter = (i_counter_eq_max == 1'b1) ? 0: i_counter_plus_1;
-    assign i_row     = (i_row_plus_1 == ROWS) ? 0 : i_row_plus_1;
     
     
     
@@ -174,18 +161,26 @@ module R2_sum #(parameter COLS = 7,
     );
     
     // central value
-    reg [7:0] central_1, central_2, central_3;
+    reg [7:0] central_1, central_2, central_3, central_4, central_5, central_6;
     always @(posedge clk) begin
         if (rst) begin
             central_1 <= 0;
             central_2 <= 0;
             central_3 <= 0;
+            central_4 <= 0;
+            central_5 <= 0;
+            central_6 <= 0;
+            
             end else if (done_delayed) begin
-            central_1 <= S2;
+            central_1 <= st1_S2;
             central_2 <= central_1;
             central_3 <= central_2;
+            central_4 <= central_3;
+            central_5 <= central_4;
+            central_6 <= central_5;
         end
     end
+    assign central_value = central_6;
     
     
 endmodule

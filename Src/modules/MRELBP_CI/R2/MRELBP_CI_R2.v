@@ -8,12 +8,11 @@ module MRELBP_CI_R2 (input clk,
                      input [7:0] S5,
                      output [12:0] sum_o,
                      output progressing,
+                     output [7:0] central_value,
                      output done_o);
     
     wire cum_en, sum_en, count_en, done_delayed;
     wire [9:0] i_counter;
-    wire [7:0] central_value;
-    wire i_row_eq_0;
     wire i_start_gt_1;
     wire ld_en;
     wire start_en;
@@ -24,7 +23,6 @@ module MRELBP_CI_R2 (input clk,
     .clk(clk),
     .rst(rst),
     .done_i(done_i),
-    .i_row_eq_0(i_row_eq_0),
     .i_counter(i_counter),
     .i_start_gt_1(i_start_gt_1),
     .ld_en(ld_en),
@@ -52,7 +50,6 @@ module MRELBP_CI_R2 (input clk,
     .S4(S4),
     .S5(S5),
     .sum_o(sum_o),
-    .i_row_eq_0(i_row_eq_0),
     .i_counter(i_counter),
     .i_start_gt_1(i_start_gt_1),
     .central_value(central_value),

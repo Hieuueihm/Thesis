@@ -2,7 +2,6 @@ module R2_controller #(parameter COLS = 7)
                       (input clk,
                        input rst,
                        input done_i,
-                       input i_row_eq_0,
                        input i_start_gt_1,
                        input [9:0] i_counter,
                        output reg cum_en,
