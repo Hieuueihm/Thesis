@@ -58,7 +58,6 @@ initial begin
         grayscale_i = matrix[i];
         #10;
     end
-    #10;
     done_i = 0;
     
     // Check the outputs after some time

@@ -1,4 +1,4 @@
-module plus_1 #(parameter WIDTH)
+module plus_1 #(parameter WIDTH = 10)
                (input rst,
                 input clk,
                 input en,

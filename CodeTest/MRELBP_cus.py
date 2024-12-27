@@ -37,17 +37,23 @@ class MRELBP():
 
     def mrelbp_ci(self, image, in_r):
         # r = 2 -> window_size = 5
-        out = np.zeros(image.shape)
         window_size = 2 * in_r + 1
 
-        pad_image = np.pad(image, pad_width=in_r, mode='constant', constant_values=0) 
-        width, height = pad_image.shape
+        width, height = image.shape
+        out = np.zeros((width - in_r, height - in_r))
 
-        for i in range(in_r,height - in_r):
-            for j in range(in_r,width - in_r):
-                area = pad_image[i - in_r: i + in_r +1, j - in_r:j + in_r+1]
+        x = int(in_r /  2)
+
+
+        for i in range(0,height - in_r):
+            for j in range(0,width - in_r):
+                area = image[i : i + in_r +1, j :j + in_r+1]
+                print(image[i + x][j + x])
+                print(area)
                 muy = np.mean(area)
-                out[i - in_r, j - in_r] = (image[i - in_r, j - in_r] - muy) >= 0
+                print(muy)
+                out[i,j] = (image[i + x, j + x] - muy) >= 0
+        print(out)
         centre_hist = np.array([np.sum(out > 0), np.sum(out <= 0)], dtype=np.int32)
         print(centre_hist)
         return centre_hist
