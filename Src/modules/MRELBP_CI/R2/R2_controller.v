@@ -10,7 +10,7 @@ module R2_controller #(parameter COLS = 7)
                        output reg count_en,
                        output reg start_en,
                        output reg ld_en,
-                       output reg progressing,
+                       output reg progress_done,
                        output done_delayed);
     
     // i_col = 0 -> done_o = 0
@@ -50,27 +50,27 @@ module R2_controller #(parameter COLS = 7)
     
     always @(*) begin
         case(current_state)
-            IDLE: next_state           = (done_delayed) ? START : IDLE;
-            START : next_state         = (~done_delayed) ? FINISH_ALL : (i_start_gt_1 == 1'b1) ? START_ROW : START;
-            START_ROW: next_state      = (~done_delayed) ? FINISH_ALL : SUM_EN;
-            SUM_EN: next_state         = (~done_delayed) ? FINISH_ALL : (i_counter > 3) ? CUM_EN : SUM_EN;
-            CUM_EN: next_state         = (~done_delayed) ? FINISH_ALL : (i_counter > 5) ? START_ROW : CUM_EN;
-            // FINISH_ALL : next_state = IDLE;
+            IDLE: next_state        = (done_delayed) ? START : IDLE;
+            START : next_state      = (~done_delayed) ? FINISH_ALL : (i_start_gt_1 == 1'b1) ? START_ROW : START;
+            START_ROW: next_state   = (~done_delayed) ? FINISH_ALL : SUM_EN;
+            SUM_EN: next_state      = (~done_delayed) ? FINISH_ALL : (i_counter > 3) ? CUM_EN : SUM_EN;
+            CUM_EN: next_state      = (~done_delayed) ? FINISH_ALL : (i_counter > 5) ? START_ROW : CUM_EN;
+            FINISH_ALL : next_state = IDLE;
         endcase
     end
     always @(*) begin
         case(current_state)
             IDLE: begin
-                count_en = 1'b0;
-                done_o   = 1'b0;
-                cum_en   = 1'b0;
-                ld_en    = 1'b0;
-                sum_en   = 1'b0;
-                start_en = 1'b0;
+                count_en      = 1'b0;
+                done_o        = 1'b0;
+                cum_en        = 1'b0;
+                ld_en         = 1'b0;
+                sum_en        = 1'b0;
+                start_en      = 1'b0;
+                progress_done = 1'b0;
             end
             START: begin
-                start_en    = 1'b1;
-                progressing = 1'b1;
+                start_en = 1'b1;
             end
             START_ROW: begin
                 start_en = 1'b0;
@@ -89,8 +89,8 @@ module R2_controller #(parameter COLS = 7)
                 done_o = 1'b1;
             end
             FINISH_ALL: begin
-                count_en    = 1'b0;
-                progressing = 1'b0;
+                count_en      = 1'b0;
+                progress_done = 1'b1;
             end
         endcase
         

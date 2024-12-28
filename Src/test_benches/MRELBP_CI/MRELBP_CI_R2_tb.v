@@ -9,11 +9,11 @@ module MRELBP_CI_R2_tb();
     reg [7:0] S2;
     reg [7:0] S3;
     reg [7:0] S4; reg [7:0] S5;
-    wire [12:0] sum_o; wire done_o;
-    wire [7:0] central_value;
-    wire progressing;
-    MRELBP_CI_R2 DUT (.clk(clk), .rst(rst), .done_i(done_i), .S1(S1), .S2(S2), .S3(S3), .S4(S4), .S5(S5), .sum_o(sum_o),
-    .done_o(done_o), .progressing(progressing), .central_value(central_value));
+    wire done_o;
+    wire ci_o;
+    wire progress_done_o;
+    MRELBP_CI_R2 DUT (.clk(clk), .rst(rst), .done_i(done_i), .S1(S1), .S2(S2), .S3(S3), .S4(S4), .S5(S5),
+    .done_o(done_o), .ci_o(ci_o), .progress_done_o(progress_done_o));
     
     
     // Clock generation
