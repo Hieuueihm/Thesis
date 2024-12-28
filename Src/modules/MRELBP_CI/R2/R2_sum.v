@@ -122,7 +122,7 @@ module R2_sum #(parameter COLS = 7,
     .clk(clk),
     .rst(rst),
     .a(sum1234),
-    .b({3'b00, st3_S5}),
+    .b({2'b00, st3_S5}),
     .result(sum1)
     );
     

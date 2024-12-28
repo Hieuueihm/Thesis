@@ -1,8 +1,8 @@
-module R2_controller #(parameter COLS = 7)
+module R4_controller #(parameter COLS = 11)
                       (input clk,
                        input rst,
                        input done_i,
-                       input i_start_gt_1,
+                       input i_start_gt_2,
                        input [9:0] i_counter,
                        output reg cum_en,
                        output reg done_o,
@@ -51,9 +51,9 @@ module R2_controller #(parameter COLS = 7)
     always @(*) begin
         case(current_state)
             IDLE: next_state        = (done_delayed) ? START : IDLE;
-            START : next_state      = (~done_delayed) ? FINISH_ALL : (i_start_gt_1 == 1'b1) ? START_ROW : START;
+            START : next_state      = (~done_delayed) ? FINISH_ALL : (i_start_gt_2 == 1'b1) ? START_ROW : START;
             START_ROW: next_state   = (~done_delayed) ? FINISH_ALL : SUM_EN;
-            SUM_EN: next_state      = (~done_delayed) ? FINISH_ALL : (i_counter > 3) ? CUM_EN : SUM_EN;
+            SUM_EN: next_state      = (~done_delayed) ? FINISH_ALL : (i_counter > 7) ? CUM_EN : SUM_EN;
             CUM_EN: next_state      = (~done_delayed) ? FINISH_ALL : (i_counter > COLS - 2) ? START_ROW : CUM_EN;
             FINISH_ALL : next_state = IDLE;
         endcase
