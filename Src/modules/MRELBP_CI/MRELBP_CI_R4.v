@@ -12,16 +12,20 @@ module MRELBP_CI_R4 (input clk,
                      S9,
                      output ci_o,
                      output progress_done_o,
-                     output done_o);
+                     output reg done_o);
     
     wire cum_en, sum_en, count_en, done_delayed;
     wire [9:0] i_counter;
     wire i_start_gt_2;
     wire ld_en;
     wire start_en;
-    wire done_o_sum;
+    wire done_o_sum, done_o_mean;
     wire [13:0] sum_o;
     wire [7:0] central_value;
+    
+    
+    wire [7:0] muy;
+    wire [7:0] r;
     
     R4_controller #(.COSL(11)) R2_CONTROLLER
     
@@ -69,13 +73,24 @@ module MRELBP_CI_R4 (input clk,
     
     );
     
-    R4_CI R2_CI_INSTANCE(
+    R4_mean R4_MEAN_INSTANCE(
     .clk(clk),
     .rst(rst),
     .done_i(done_o_sum),
     .sum_i(sum_o),
-    .central_value(central_value),
-    .ci_o(ci_o),
-    .done_o(done_o));
+    .muy(muy),
+    .r(r),
+    .done_o(done_o_mean));
+    always @(posedge clk) begin
+        if (rst) begin
+            done_o <= 0;
+            end else if (done_o_mean) begin
+            done_o <= done_o_mean;
+        end
+        else begin
+            done_o <= 0;
+        end
+    end
     
+    assign ci_o = (central_value > muy || (central_value == muy && r == 0)) ? 1'b1 : 1'b0;
 endmodule
