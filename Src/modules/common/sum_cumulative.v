@@ -6,7 +6,7 @@ module sum_cumulative #(parameter WIDTH1 = 13,
                         input ld,
                         input [WIDTH1-1:0] data_in1,
                         input [WIDTH1 -1 : 0] data_in2,
-                        output reg [WIDTH2:0] sum_out);
+                        output reg [WIDTH2 - 1:0] sum_out);
     
     always @(posedge clk) begin
         if (rst) begin

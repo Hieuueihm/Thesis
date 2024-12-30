@@ -10,8 +10,6 @@ module MRELBP_CI_R2_tb();
     reg [7:0] S3;
     reg [7:0] S4; reg [7:0] S5;
     wire done_o;
-    wire ci_o;
-    wire progress_done_o;
     wire [9:0] bit_one_o, bit_zero_o;
     R2_top DUT (.clk(clk), .rst(rst), .done_i(done_i), .S1(S1), .S2(S2), .S3(S3), .S4(S4), .S5(S5),
     .done_o(done_o), .bit_one_o(bit_one_o), .bit_zero_o(bit_zero_o));

@@ -155,8 +155,8 @@ module R2_sum #(parameter COLS = 7,
     .rst(rst),
     .en(sum_en),
     .ld(ld_en),
-    .data_in1({{3{sum1[10]}}, sum1}),
-    .data_in2({{3{mux_1[10]}}, mux_1}),
+    .data_in1({{2{sum1[10]}}, sum1}),
+    .data_in2({{2{mux_1[10]}}, mux_1}),
     .sum_out(sum_o)
     );
     
