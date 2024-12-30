@@ -3,12 +3,13 @@ module RGB2Gray_controller (input clk,
                             input done_i,
                             output done_o);
     
-    always @(posedge clk) begin
-        if (rst) begin
-            done_o <= 0;
-            end else begin
-            done_o <= done_i;
-        end
-    end
+    
+    dff RGB_DFF_1(
+    .clk(clk),
+    .rst(rst),
+    .en(1'b1),
+    .D(done_i),
+    .Q(done_o)
+    );
     
 endmodule

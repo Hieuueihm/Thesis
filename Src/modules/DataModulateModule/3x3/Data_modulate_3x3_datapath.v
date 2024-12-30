@@ -92,13 +92,13 @@ module Data_modulate_3x3_datapath #(parameter ROWS,
             if (done_o) begin
                 d0_o <= (i_row < 1 || i_col < 1)    ? 0 : data0;
                 d1_o <= (i_row < 1)    ? 0 : data1;
-                d2_o <= (i_row < 1 || i_col == COLS - 1) ? 0 : data2;
+                d2_o < = (i_row < 1 || i_col == COLS - 1) ? 0 : data2;
                 d3_o <= (i_col < 1)    ? 0 : data3;
                 d4_o <= data4;
-                d5_o <= (i_col == COLS - 1) ? 0 : data5;
-                d6_o <= (i_row == ROWS - 1 || i_col < 1) ? 0 : data6;
-                d7_o <= (i_row == ROWS - 1) ? 0 : data7;
-                d8_o <= (i_row == ROWS - 1 || i_col == COLS - 1) ? 0 : data8;
+                d5_o < = (i_col == COLS - 1) ? 0 : data5;
+                d6_o < = (i_row == ROWS - 1 || i_col < 1) ? 0 : data6;
+                d7_o < = (i_row == ROWS - 1) ? 0 : data7;
+                d8_o < = (i_row == ROWS - 1 || i_col == COLS - 1) ? 0 : data8;
             end
         end
         

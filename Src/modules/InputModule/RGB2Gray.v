@@ -38,6 +38,7 @@ module RGB2Gray (input clk,
     .red_i(red_i),
     .green_i(green_i),
     .blue_i(blue_i),
+    .done_i(done_i),
     .grayscale_o(grayscale_o)
     );
     RGB2Gray_controller CONTROLLER

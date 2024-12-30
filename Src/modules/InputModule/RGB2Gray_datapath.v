@@ -3,6 +3,7 @@ module RGB2Gray_datapath (input clk,
                           input [7:0] red_i,
                           input [7:0] green_i,
                           input [7:0] blue_i,
+                          input done_i,
                           output [7:0] grayscale_o);
     
     wire [7:0] red_shift_2, red_shift_5, green_shift_1, green_shift_4, blue_shift_4, blue_shift_5;
@@ -50,12 +51,17 @@ module RGB2Gray_datapath (input clk,
     .data_o(blue_shift_5)
     );
     
-    always @(posedge clk) begin
-        if (rst) begin
-            grayscale <= 0;
-            end else begin
-            grayscale <= (red_shift_2 + red_shift_5 + green_shift_1 + green_shift_4 + blue_shift_4 + blue_shift_5);
-        end
-    end
+    
+    wire [7:0] grayscale;
+    assign grayscale = red_shift_2 + red_shift_5 + green_shift_1 + green_shift_4 + blue_shift_4 + blue_shift_5;
+    
+    dff GRAY_DFF(
+    .clk(clk),
+    .rst(rst),
+    .en(done_i),
+    .D(grayscale),
+    .Q(grayscale_o)
+    );
+    
     
 endmodule
