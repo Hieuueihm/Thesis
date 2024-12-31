@@ -1,5 +1,5 @@
-module R2_top #(parameter COLS = 7,
-                parameter ROWS = 7)
+module R6_top #(parameter COLS = 15,
+                parameter ROWS = 15)
                (input clk,
                 input rst,
                 input done_i,
@@ -8,13 +8,21 @@ module R2_top #(parameter COLS = 7,
                 input [7:0] S3,
                 input [7:0] S4,
                 input [7:0] S5,
+                S6,
+                S7,
+                S8,
+                S9,
+                S10,
+                S11,
+                S12,
+                S13,
                 output done_o,
                 output [9:0] bit_one_o,
                 output [9:0] bit_zero_o);
     
-    wire done_o_R2, progress_done_o;
+    wire done_o_R6, progress_done_o;
     wire ci_o;
-    MRELBP_CI_R2 #(.COLS(COLS), .ROWS(ROWS)) CI_R2 (
+    MRELBP_CI_R6  #(.COLS(COLS), .ROWS(ROWS)) CI_R6(
     .clk(clk),
     .rst(rst),
     .done_i(done_i),
@@ -23,14 +31,22 @@ module R2_top #(parameter COLS = 7,
     .S3(S3),
     .S4(S4),
     .S5(S5),
+    .S6(S6),
+    .S7(S7),
+    .S8(S8),
+    .S9(S9),
+    .S10(S10),
+    .S11(S11),
+    .S12(S12),
+    .S13(S13),
     .ci_o(ci_o),
     .progress_done_o(progress_done_o),
-    .done_o(done_o_R2));
+    .done_o(done_o_R6));
     
-    Zero_one_counter CI_COUNTER_R2(
+    Zero_one_counter CI_COUNTER_R6(
     .clk(clk),
     .rst(rst),
-    .done_i(done_o_R2),
+    .done_i(done_o_R4),
     .data_i(ci_o),
     .progress_done_i(progress_done_o),
     .bit_one_o(bit_one_o),

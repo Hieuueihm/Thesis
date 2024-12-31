@@ -1,25 +1,27 @@
-module MRELBP_CI_R6 (input clk,
-                     input rst,
-                     input done_i,
-                     input [7:0] S1,
-                     input [7:0] S2,
-                     input [7:0] S3,
-                     input [7:0] S4,
-                     input [7:0] S5,
-                     input [7:0] S6,
-                     input [7:0] S7,
-                     input [7:0] S8,
-                     input [7:0] S9,
-                     input [7:0] S10,
-                     input [7:0] S11,
-                     input [7:0] S12,
-                     input [7:0] S13,
-                     output ci_o,             // 0 or 1
-                     output reg done_o,
-                     output progress_done_o);
+module MRELBP_CI_R6 #(parameter COLS = 15,
+                      parameter ROWS = 15)
+                     (input clk,
+                      input rst,
+                      input done_i,
+                      input [7:0] S1,
+                      input [7:0] S2,
+                      input [7:0] S3,
+                      input [7:0] S4,
+                      input [7:0] S5,
+                      input [7:0] S6,
+                      input [7:0] S7,
+                      input [7:0] S8,
+                      input [7:0] S9,
+                      input [7:0] S10,
+                      input [7:0] S11,
+                      input [7:0] S12,
+                      input [7:0] S13,
+                      output ci_o,             // 0 or 1
+                      output reg done_o,
+                      output progress_done_o);
     
     
-    `define DEPTH 15
+    
     
     wire cum_en, sum_en, count_en, done_delayed;
     wire [9:0] i_counter;
@@ -34,7 +36,7 @@ module MRELBP_CI_R6 (input clk,
     wire [7:0] muy;
     wire [7:0] r;
     
-    R6_controller #(.COLS(`DEPTH)) R6_CONTROLLER
+    R6_controller #(.COLS(COLS)) R6_CONTROLLER
     
     (
     .clk(clk),
@@ -53,7 +55,7 @@ module MRELBP_CI_R6 (input clk,
     
     );
     
-    R6_sum #(.COLS(`DEPTH),.ROWS(`DEPTH)) R6_SUM
+    R6_sum #(.COLS(COLS),.ROWS(ROWS)) R6_SUM
     (
     .clk(clk),
     .rst(rst),

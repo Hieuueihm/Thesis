@@ -21,6 +21,10 @@ module R8_sum #(parameter COLS = 11,
                 S11,
                 S12,
                 S13,
+                S14,
+                S15,
+                S16,
+                S17,
                 output [16:0] sum_o,
                 output [9:0] i_counter,
                 output [7:0] central_value,
@@ -144,14 +148,14 @@ module R8_sum #(parameter COLS = 11,
     .b(st1_S10),
     .result(sum910)
     );
-    sum #(.WIDTH(8)) sum1112 (
+    sum #(.WIDTH(8)) SUM1112 (
     .clk(clk),
     .rst(rst),
     .a(st1_S11),
     .b(st1_S12),
     .result(sum1112)
     );
-    sum #(.WIDTH(8)) sum1314 (
+    sum #(.WIDTH(8)) SUM1314 (
     .clk(clk),
     .rst(rst),
     .a(st1_S13),
@@ -159,7 +163,7 @@ module R8_sum #(parameter COLS = 11,
     .result(sum1314)
     );
     
-    sum #(.WIDTH(8)) sum1516 (
+    sum #(.WIDTH(8)) SUM1516 (
     .clk(clk),
     .rst(rst),
     .a(st1_S15),

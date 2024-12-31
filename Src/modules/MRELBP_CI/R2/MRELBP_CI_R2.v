@@ -1,14 +1,16 @@
-module MRELBP_CI_R2 (input clk,
-                     input rst,
-                     input done_i,
-                     input [7:0] S1,
-                     input [7:0] S2,
-                     input [7:0] S3,
-                     input [7:0] S4,
-                     input [7:0] S5,
-                     output ci_o,
-                     output progress_done_o,
-                     output reg done_o);
+module MRELBP_CI_R2 #(parameter COLS = 7,
+                      parameter ROWS = 7)
+                     (input clk,
+                      input rst,
+                      input done_i,
+                      input [7:0] S1,
+                      input [7:0] S2,
+                      input [7:0] S3,
+                      input [7:0] S4,
+                      input [7:0] S5,
+                      output ci_o,
+                      output progress_done_o,
+                      output reg done_o);
     
     wire cum_en, sum_en, count_en, done_delayed;
     wire [9:0] i_counter;
@@ -22,7 +24,7 @@ module MRELBP_CI_R2 (input clk,
     wire [7:0] muy;
     wire [7:0] r;
     
-    R2_controller #(.COLS(7)) R2_CONTROLLER
+    R2_controller #(.COLS(COLS)) R2_CONTROLLER
     
     (
     .clk(clk),
@@ -41,7 +43,7 @@ module MRELBP_CI_R2 (input clk,
     
     );
     
-    R2_sum #(.COLS(7),.ROWS(7)) R2_SUM
+    R2_sum #(.COLS(COLS),.ROWS(ROWS)) R2_SUM
     (
     .clk(clk),
     .rst(rst),

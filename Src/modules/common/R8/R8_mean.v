@@ -1,7 +1,7 @@
 module R8_mean(input clk,
                input rst,
                input done_i,
-               input [13:0] sum_i,
+               input [16:0] sum_i,
                output reg [7:0] muy,
                output reg [7:0] r,
                output reg done_o);
