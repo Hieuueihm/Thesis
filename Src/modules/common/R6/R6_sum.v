@@ -103,6 +103,8 @@ module R6_sum #(parameter COLS = 11,
     .rst(rst),
     .a(st1_S1),
     .b(st1_S2),
+    .en(1'b1),
+    
     .result(sum12)
     );
     
@@ -111,6 +113,8 @@ module R6_sum #(parameter COLS = 11,
     .rst(rst),
     .a(st1_S3),
     .b(st1_S4),
+    .en(1'b1),
+    
     .result(sum34)
     );
     sum #(.WIDTH(8)) SUM56 (
@@ -118,6 +122,8 @@ module R6_sum #(parameter COLS = 11,
     .rst(rst),
     .a(st1_S5),
     .b(st1_S6),
+    .en(1'b1),
+    
     .result(sum56)
     );
     sum #(.WIDTH(8)) SUM78 (
@@ -125,6 +131,8 @@ module R6_sum #(parameter COLS = 11,
     .rst(rst),
     .a(st1_S7),
     .b(st1_S8),
+    .en(1'b1),
+    
     .result(sum78)
     );
     
@@ -133,6 +141,8 @@ module R6_sum #(parameter COLS = 11,
     .rst(rst),
     .a(st1_S9),
     .b(st1_S10),
+    .en(1'b1),
+    
     .result(sum910)
     );
     sum #(.WIDTH(8)) SUM1112 (
@@ -140,6 +150,8 @@ module R6_sum #(parameter COLS = 11,
     .rst(rst),
     .a(st1_S11),
     .b(st1_S12),
+    .en(1'b1),
+    
     .result(sum1112)
     );
     
@@ -150,6 +162,8 @@ module R6_sum #(parameter COLS = 11,
     .rst(rst),
     .a(sum12),
     .b(sum34),
+    .en(1'b1),
+    
     .result(sum1234)
     );
     sum #(.WIDTH(9)) SUM5678 (
@@ -157,6 +171,8 @@ module R6_sum #(parameter COLS = 11,
     .rst(rst),
     .a(sum56),
     .b(sum78),
+    .en(1'b1),
+    
     .result(sum5678)
     );
     sum #(.WIDTH(9)) SUM9_TO_12 (
@@ -164,6 +180,8 @@ module R6_sum #(parameter COLS = 11,
     .rst(rst),
     .a(sum910),
     .b(sum1112),
+    .en(1'b1),
+    
     .result(sum9_to_12)
     );
     reg [7:0] st2_S13, st3_S13;
@@ -184,6 +202,8 @@ module R6_sum #(parameter COLS = 11,
     .rst(rst),
     .a(sum1234),
     .b(sum5678),
+    .en(1'b1),
+    
     .result(sum1_to_8)
     );
     sum #(.WIDTH(10)) SUM9_TO_13 (
@@ -191,6 +211,8 @@ module R6_sum #(parameter COLS = 11,
     .rst(rst),
     .a(sum9_to_12),
     .b({2'b00, st3_S13}),
+    .en(1'b1),
+    
     .result(sum9_to_13)
     );
     
@@ -200,6 +222,8 @@ module R6_sum #(parameter COLS = 11,
     .rst(rst),
     .a(sum1_to_8),
     .b(sum9_to_13),
+    .en(1'b1),
+    
     .result(sum1)
     );
     

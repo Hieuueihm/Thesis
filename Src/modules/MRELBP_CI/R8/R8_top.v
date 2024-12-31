@@ -54,7 +54,7 @@ module R8_top #(parameter COLS = 19,
     Zero_one_counter CI_COUNTER_R8(
     .clk(clk),
     .rst(rst),
-    .done_i(done_o_R4),
+    .done_i(done_o_R8),
     .data_i(ci_o),
     .progress_done_i(progress_done_o),
     .bit_one_o(bit_one_o),

@@ -4,7 +4,7 @@ module RGB2Gray_controller (input clk,
                             output done_o);
     
     
-    dff RGB_DFF_1(
+    dff #(.WIDTH(1)) RGB_DFF_1(
     .clk(clk),
     .rst(rst),
     .en(1'b1),

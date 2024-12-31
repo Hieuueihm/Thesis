@@ -85,6 +85,7 @@ module R2_sum #(parameter COLS = 7,
     sum #(.WIDTH(8)) SUM12 (
     .clk(clk),
     .rst(rst),
+    .en(1'b1),
     .a(st1_S1),
     .b(st1_S2),
     .result(sum12)
@@ -93,6 +94,7 @@ module R2_sum #(parameter COLS = 7,
     sum #(.WIDTH(8)) SUM34 (
     .clk(clk),
     .rst(rst),
+    .en(1'b1),
     .a(st1_S3),
     .b(st1_S4),
     .result(sum34)
@@ -103,6 +105,7 @@ module R2_sum #(parameter COLS = 7,
     sum #(.WIDTH(9)) SUM1234 (
     .clk(clk),
     .rst(rst),
+    .en(1'b1),
     .a(sum12),
     .b(sum34),
     .result(sum1234)
@@ -122,6 +125,8 @@ module R2_sum #(parameter COLS = 7,
     .clk(clk),
     .rst(rst),
     .a(sum1234),
+    .en(1'b1),
+    
     .b({2'b00, st3_S5}),
     .result(sum1)
     );

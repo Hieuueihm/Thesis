@@ -3,12 +3,13 @@ module sum #(parameter WIDTH = 8)
              input rst,
              input [WIDTH-1:0] a,
              input [WIDTH-1:0] b,
+             input en,
              output reg [WIDTH:0] result);
     
     always @(posedge clk) begin
         if (rst) begin
             result <= 0;
-            end else begin
+            end else if (en) begin
             result <= a + b;
         end
     end

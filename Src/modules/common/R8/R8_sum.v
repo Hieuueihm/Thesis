@@ -116,6 +116,8 @@ module R8_sum #(parameter COLS = 11,
     .rst(rst),
     .a(st1_S1),
     .b(st1_S2),
+    .en(1'b1),
+    
     .result(sum12)
     );
     
@@ -124,6 +126,8 @@ module R8_sum #(parameter COLS = 11,
     .rst(rst),
     .a(st1_S3),
     .b(st1_S4),
+    .en(1'b1),
+    
     .result(sum34)
     );
     sum #(.WIDTH(8)) SUM56 (
@@ -131,6 +135,8 @@ module R8_sum #(parameter COLS = 11,
     .rst(rst),
     .a(st1_S5),
     .b(st1_S6),
+    .en(1'b1),
+    
     .result(sum56)
     );
     sum #(.WIDTH(8)) SUM78 (
@@ -138,6 +144,8 @@ module R8_sum #(parameter COLS = 11,
     .rst(rst),
     .a(st1_S7),
     .b(st1_S8),
+    .en(1'b1),
+    
     .result(sum78)
     );
     
@@ -146,6 +154,8 @@ module R8_sum #(parameter COLS = 11,
     .rst(rst),
     .a(st1_S9),
     .b(st1_S10),
+    .en(1'b1),
+    
     .result(sum910)
     );
     sum #(.WIDTH(8)) SUM1112 (
@@ -153,6 +163,8 @@ module R8_sum #(parameter COLS = 11,
     .rst(rst),
     .a(st1_S11),
     .b(st1_S12),
+    .en(1'b1),
+    
     .result(sum1112)
     );
     sum #(.WIDTH(8)) SUM1314 (
@@ -160,6 +172,8 @@ module R8_sum #(parameter COLS = 11,
     .rst(rst),
     .a(st1_S13),
     .b(st1_S14),
+    .en(1'b1),
+    
     .result(sum1314)
     );
     
@@ -168,6 +182,8 @@ module R8_sum #(parameter COLS = 11,
     .rst(rst),
     .a(st1_S15),
     .b(st1_S16),
+    .en(1'b1),
+    
     .result(sum1516)
     );
     
@@ -179,6 +195,8 @@ module R8_sum #(parameter COLS = 11,
     .rst(rst),
     .a(sum12),
     .b(sum34),
+    .en(1'b1),
+    
     .result(sum1234)
     );
     sum #(.WIDTH(9)) SUM5678 (
@@ -186,6 +204,8 @@ module R8_sum #(parameter COLS = 11,
     .rst(rst),
     .a(sum56),
     .b(sum78),
+    .en(1'b1),
+    
     .result(sum5678)
     );
     sum #(.WIDTH(9)) SUM9_TO_12 (
@@ -193,6 +213,8 @@ module R8_sum #(parameter COLS = 11,
     .rst(rst),
     .a(sum910),
     .b(sum1112),
+    .en(1'b1),
+    
     .result(sum9_to_12)
     );
     sum #(.WIDTH(9)) SUM13_TO_16 (
@@ -200,6 +222,8 @@ module R8_sum #(parameter COLS = 11,
     .rst(rst),
     .a(sum1314),
     .b(sum1516),
+    .en(1'b1),
+    
     .result(sum13_to_16)
     );
     reg [7:0] st2_S17, st3_S17, st4_S17, st5_S17;
@@ -224,6 +248,8 @@ module R8_sum #(parameter COLS = 11,
     .rst(rst),
     .a(sum1234),
     .b(sum5678),
+    .en(1'b1),
+    
     .result(sum1_to_8)
     );
     sum #(.WIDTH(10)) SUM9_TO_16 (
@@ -231,6 +257,8 @@ module R8_sum #(parameter COLS = 11,
     .rst(rst),
     .a(sum9_to_12),
     .b(sum13_to_16),
+    .en(1'b1),
+    
     .result(sum9_to_16)
     );
     
@@ -240,6 +268,8 @@ module R8_sum #(parameter COLS = 11,
     .rst(rst),
     .a(sum1_to_8),
     .b(sum9_to_16),
+    .en(1'b1),
+    
     .result(sum1_to_16)
     );
     
@@ -248,6 +278,8 @@ module R8_sum #(parameter COLS = 11,
     .clk(clk),
     .rst(rst),
     .a(sum1_to_16),
+    .en(1'b1),
+    
     .b({4'b0000 ,st5_S17}),
     .result(sum1)
     );

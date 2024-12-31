@@ -91,6 +91,8 @@ module R4_sum #(parameter COLS = 11,
     .rst(rst),
     .a(st1_S1),
     .b(st1_S2),
+    .en(1'b1),
+    
     .result(sum12)
     );
     
@@ -99,6 +101,8 @@ module R4_sum #(parameter COLS = 11,
     .rst(rst),
     .a(st1_S3),
     .b(st1_S4),
+    .en(1'b1),
+    
     .result(sum34)
     );
     sum #(.WIDTH(8)) SUM56 (
@@ -106,6 +110,8 @@ module R4_sum #(parameter COLS = 11,
     .rst(rst),
     .a(st1_S5),
     .b(st1_S6),
+    .en(1'b1),
+    
     .result(sum56)
     );
     sum #(.WIDTH(8)) SUM78 (
@@ -113,6 +119,8 @@ module R4_sum #(parameter COLS = 11,
     .rst(rst),
     .a(st1_S7),
     .b(st1_S8),
+    .en(1'b1),
+    
     .result(sum78)
     );
     
@@ -123,6 +131,8 @@ module R4_sum #(parameter COLS = 11,
     .rst(rst),
     .a(sum12),
     .b(sum34),
+    .en(1'b1),
+    
     .result(sum1234)
     );
     sum #(.WIDTH(9)) SUM5678 (
@@ -130,6 +140,8 @@ module R4_sum #(parameter COLS = 11,
     .rst(rst),
     .a(sum56),
     .b(sum78),
+    .en(1'b1),
+    
     .result(sum5678)
     );
     reg [7:0] st2_S9;
@@ -153,6 +165,8 @@ module R4_sum #(parameter COLS = 11,
     .rst(rst),
     .a(sum1234),
     .b(sum5678),
+    .en(1'b1),
+    
     .result(sum_alL_except_9)
     );
     
@@ -160,6 +174,8 @@ module R4_sum #(parameter COLS = 11,
     sum #(.WIDTH(11)) SUM1 (
     .clk(clk),
     .rst(rst),
+    .en(1'b1),
+    
     .a(sum_alL_except_9),
     .b({3'b000, st4_S9}),
     .result(sum1)

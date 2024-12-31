@@ -1,9 +1,10 @@
-module dff(input clk,
-           input rst,
-           input en,
-           input [7:0] D,
-           output [7:0] Q);
-    reg [7:0] data_out;
+module dff #(parameter WIDTH = 7)
+            (input clk,
+             input rst,
+             input en,
+             input [WIDTH - 1:0] D,
+             output [WIDTH - 1:0] Q);
+    reg [WIDTH - 1:0] data_out;
     assign Q = data_out;
     always @(posedge clk) begin
         if (rst) begin

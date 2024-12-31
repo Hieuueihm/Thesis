@@ -55,7 +55,7 @@ module RGB2Gray_datapath (input clk,
     wire [7:0] grayscale;
     assign grayscale = red_shift_2 + red_shift_5 + green_shift_1 + green_shift_4 + blue_shift_4 + blue_shift_5;
     
-    dff GRAY_DFF(
+    dff #(.WIDTH(8)) GRAY_DFF(
     .clk(clk),
     .rst(rst),
     .en(done_i),
