@@ -1,4 +1,4 @@
-module Line_buffer #(parameter DEPTH)
+module Line_buffer #(parameter DEPTH = 17)
                     (input clk,
                      input rst,
                      input done_i,
@@ -9,7 +9,7 @@ module Line_buffer #(parameter DEPTH)
     wire [9:0] wr_pointer;
     wire [9:0] rd_pointer;
     wire [9:0] i_counter;
-  
+    
     
     // Instantiate the controller
     Line_buffer_controller #(

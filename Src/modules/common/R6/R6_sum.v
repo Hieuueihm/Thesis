@@ -135,7 +135,7 @@ module R6_sum #(parameter COLS = 11,
     .b(st1_S10),
     .result(sum910)
     );
-    sum #(.WIDTH(8)) sum1112 (
+    sum #(.WIDTH(8)) SUM1112 (
     .clk(clk),
     .rst(rst),
     .a(st1_S11),

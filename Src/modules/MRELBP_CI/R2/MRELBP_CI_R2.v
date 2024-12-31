@@ -22,7 +22,7 @@ module MRELBP_CI_R2 (input clk,
     wire [7:0] muy;
     wire [7:0] r;
     
-    R2_controller #(.COSL(7)) R2_CONTROLLER
+    R2_controller #(.COLS(7)) R2_CONTROLLER
     
     (
     .clk(clk),

@@ -20,14 +20,14 @@ module MRELBP_CI_R4 (input clk,
     wire ld_en;
     wire start_en;
     wire done_o_sum, done_o_mean;
-    wire [13:0] sum_o;
+    wire [14:0] sum_o;
     wire [7:0] central_value;
     
     
     wire [7:0] muy;
     wire [7:0] r;
     
-    R4_controller #(.COSL(11)) R2_CONTROLLER
+    R4_controller #(.COLS(11)) R2_CONTROLLER
     
     (
     .clk(clk),
