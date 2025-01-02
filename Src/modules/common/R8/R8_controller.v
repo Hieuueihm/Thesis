@@ -4,6 +4,7 @@ module R8_controller #(parameter COLS = 19)
                        input done_i,
                        input i_start_gt_3,
                        input [9:0] i_counter,
+                       input i_row_eq_max,
                        output reg cum_en,
                        output reg done_o,
                        output reg sum_en,
@@ -40,6 +41,7 @@ module R8_controller #(parameter COLS = 19)
     parameter SUM_EN     = 3'b011;
     parameter CUM_EN     = 3'b100;
     parameter FINISH_ALL = 3'b101;
+    parameter DONE       = 3'b110;
     always @(posedge clk) begin
         if (rst) begin
             current_state <= IDLE;
@@ -50,12 +52,12 @@ module R8_controller #(parameter COLS = 19)
     
     always @(*) begin
         case(current_state)
-            IDLE: next_state        = (done_delayed) ? START : IDLE;
-            START : next_state      = (~done_delayed) ? FINISH_ALL : (i_start_gt_3 == 1'b1) ? START_ROW : START;
-            START_ROW: next_state   = (~done_delayed) ? FINISH_ALL : SUM_EN;
-            SUM_EN: next_state      = (~done_delayed) ? FINISH_ALL : (i_counter > 15) ? CUM_EN : SUM_EN; // wINDOW_SIZE - 2
-            CUM_EN: next_state      = (~done_delayed) ? FINISH_ALL : (i_counter > COLS - 2) ? START_ROW : CUM_EN;
-            FINISH_ALL : next_state = IDLE;
+            IDLE: next_state        = (done_delayed | i_row_eq_max) ? START : IDLE;
+            START : next_state      = (~done_delayed | i_row_eq_max) ? FINISH_ALL : (i_start_gt_3 == 1'b1) ? START_ROW : START;
+            START_ROW: next_state   = (~done_delayed | i_row_eq_max) ? FINISH_ALL : SUM_EN;
+            SUM_EN: next_state      = (~done_delayed | i_row_eq_max) ? FINISH_ALL : (i_counter > 15) ? CUM_EN : SUM_EN;
+            CUM_EN: next_state      = (~done_delayed | i_row_eq_max) ? FINISH_ALL : (i_counter > COLS - 2) ? START_ROW : CUM_EN;
+            FINISH_ALL : next_state = DONE;
         endcase
     end
     always @(*) begin
@@ -89,8 +91,19 @@ module R8_controller #(parameter COLS = 19)
                 done_o = 1'b1;
             end
             FINISH_ALL: begin
-                count_en      = 1'b0;
+                count_en = 1'b0;
+                count_en = 1'b0;
+                done_o   = 1'b0;
+                cum_en   = 1'b0;
+                ld_en    = 1'b0;
+                sum_en   = 1'b0;
+                start_en = 1'b0;
+                
                 progress_done = 1'b1;
+                
+            end
+            DONE: begin
+                progress_done = 1'b0;
             end
         endcase
         

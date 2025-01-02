@@ -24,6 +24,7 @@ module R6_sum #(parameter COLS = 11,
                 output [15:0] sum_o,
                 output [9:0] i_counter,
                 output [7:0] central_value,
+                output i_row_eq_max,
                 output i_start_gt_2);
     
     
@@ -31,6 +32,10 @@ module R6_sum #(parameter COLS = 11,
     wire [9:0] i_counter_plus_1;
     wire [2:0] i_start;
     wire [2:0] i_start_plus_1;
+    wire [9:0] i_row_plus_1;
+    wire [9:0] i_row;
+    wire i_counter_eq_max;
+    
     
     plus_1 #(.WIDTH(3))
     I_START_PLUS
@@ -55,11 +60,21 @@ module R6_sum #(parameter COLS = 11,
     .D(i_counter),
     .Q(i_counter_plus_1)
     );
-    
-    wire i_counter_eq_max;
+    plus_1 #(.WIDTH(10))
+    ROW_PLUS
+    (
+    .rst(rst),
+    .clk(clk),
+    .en(i_counter_eq_max),
+    .D(i_row),
+    .Q(i_row_plus_1)
+    );
     assign i_counter_eq_max = (i_counter_plus_1 == COLS) ? 1'b1 : 1'b0;
     
-    assign i_counter = (i_counter_eq_max == 1'b1) ? 0: i_counter_plus_1;
+    assign i_counter    = (i_counter_eq_max == 1'b1) ? 0: i_counter_plus_1;
+    assign i_row        = (i_counter_eq_max) ? i_row : i_row_plus_1;
+    assign i_row_eq_max = (i_row_plus_1 == ROWS - 12) ? 1'b1 : 1'b0;
+    
     
     
     
@@ -104,7 +119,6 @@ module R6_sum #(parameter COLS = 11,
     .a(st1_S1),
     .b(st1_S2),
     .en(1'b1),
-    
     .result(sum12)
     );
     
@@ -114,7 +128,6 @@ module R6_sum #(parameter COLS = 11,
     .a(st1_S3),
     .b(st1_S4),
     .en(1'b1),
-    
     .result(sum34)
     );
     sum #(.WIDTH(8)) SUM56 (
@@ -123,7 +136,6 @@ module R6_sum #(parameter COLS = 11,
     .a(st1_S5),
     .b(st1_S6),
     .en(1'b1),
-    
     .result(sum56)
     );
     sum #(.WIDTH(8)) SUM78 (
@@ -132,7 +144,6 @@ module R6_sum #(parameter COLS = 11,
     .a(st1_S7),
     .b(st1_S8),
     .en(1'b1),
-    
     .result(sum78)
     );
     
@@ -142,7 +153,6 @@ module R6_sum #(parameter COLS = 11,
     .a(st1_S9),
     .b(st1_S10),
     .en(1'b1),
-    
     .result(sum910)
     );
     sum #(.WIDTH(8)) SUM1112 (
@@ -151,7 +161,6 @@ module R6_sum #(parameter COLS = 11,
     .a(st1_S11),
     .b(st1_S12),
     .en(1'b1),
-    
     .result(sum1112)
     );
     
@@ -172,7 +181,6 @@ module R6_sum #(parameter COLS = 11,
     .a(sum56),
     .b(sum78),
     .en(1'b1),
-    
     .result(sum5678)
     );
     sum #(.WIDTH(9)) SUM9_TO_12 (
@@ -181,7 +189,6 @@ module R6_sum #(parameter COLS = 11,
     .a(sum910),
     .b(sum1112),
     .en(1'b1),
-    
     .result(sum9_to_12)
     );
     reg [7:0] st2_S13, st3_S13;
@@ -203,7 +210,6 @@ module R6_sum #(parameter COLS = 11,
     .a(sum1234),
     .b(sum5678),
     .en(1'b1),
-    
     .result(sum1_to_8)
     );
     sum #(.WIDTH(10)) SUM9_TO_13 (
@@ -216,19 +222,18 @@ module R6_sum #(parameter COLS = 11,
     .result(sum9_to_13)
     );
     
-    wire [11:0] sum1;
-    sum #(.WIDTH(11)) SUM1 (
+    wire [12:0] sum1;
+    sum #(.WIDTH(12)) SUM1 (
     .clk(clk),
     .rst(rst),
-    .a(sum1_to_8),
-    .b(sum9_to_13),
+    .a({1'b0,sum1_to_8}),
+    .b({1'b0,sum9_to_13}),
     .en(1'b1),
-    
     .result(sum1)
     );
     
-    reg [11:0] sum2;
-    reg [11:0] st_sum2 [0:11];
+    reg [12:0] sum2;
+    reg [12:0] st_sum2 [0:11];
     integer i;
     
     always @(posedge clk) begin
@@ -248,36 +253,35 @@ module R6_sum #(parameter COLS = 11,
     
     
     
-    wire [11:0] mux_1;
+    wire [12:0] mux_1;
     assign mux_1 = (cum_en == 0) ? 10'b0 : ((~sum2) + 1);
-    
     
     sum_cumulative #(.WIDTH1(16), .WIDTH2(16)) SUMO (
     .clk(clk),
     .rst(rst),
     .en(sum_en),
     .ld(ld_en),
-    .data_in1({{4{sum1[11]}}, sum1}),
-    .data_in2({{4{mux_1[11]}}, mux_1}),
+    .data_in1({3'b0000, sum1}),
+    .data_in2({{3{mux_1[12]}}, mux_1}),
     .sum_out(sum_o)
     );
     
     // central value
-    reg [7:0] central[0:12];
+    reg [7:0] central[0:10];
     always @(posedge clk) begin
         if (rst) begin
-            for(i = 0; i < 13; i = i + 1) begin
+            for(i = 0; i < 11; i = i + 1) begin
                 central[i] <= 0;
             end
             
             end else if (done_delayed) begin
             central[0] <= st1_S7;
-            for(i = 0; i < 12; i = i + 1) begin
+            for(i = 0; i < 10; i = i + 1) begin
                 central[i + 1] <= central[i];
             end
         end
     end
-    assign central_value = central[12];
+    assign central_value = central[10];
     
     
 endmodule

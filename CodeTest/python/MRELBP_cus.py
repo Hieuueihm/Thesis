@@ -48,22 +48,28 @@ class MRELBP():
         pixel_central =  np.zeros((width - 2 * in_r, height - 2 * in_r))
         muy_arr_central = np.zeros((width - 2 * in_r, height - 2 * in_r))
 
+        coup = np.zeros((width - 2 * in_r, height - 2 * in_r), dtype=object)
+
 
         for i in range(0,height - 2 * in_r):
             for j in range(0,width - 2 * in_r):
                 area = image[i : i + 2 * in_r +1, j :j +  2 * in_r+1]
                 # print(image[i + x][j + x])
-                # print(area)
+                print(area)
                 sum_o[i, j] = np.sum(area)
                 muy = np.mean(area)
                 pixel_central[i, j] = image[i + 2 * x][j + 2 * x]
                 muy_arr_central[i, j] = muy
-                out[i,j] = (image[i + 2 * x, j +  2 * x] ) >= muy
+                out[i,j] = (image[i + 2 * x, j +  2 * x] )  >= muy
+                coup[i, j] =  (image[i + 2 * x, j + 2 * x], muy)
         # print(out)
+        coup_array = np.array([[f"({np.uint8(t[0])}, {np.uint8(t[1])})" for t in row] for row in coup])
 
         np.savetxt("out.txt", out, fmt='%d')
         np.savetxt("pixel_central.txt", pixel_central, fmt='%d')
         np.savetxt("muy_arr_central.txt", muy_arr_central, fmt='%d')
+        np.savetxt("diff.txt", pixel_central - muy_arr_central, fmt='%d')
+        np.savetxt("coup.txt", coup_array, fmt='%s')
 
         centre_hist = np.array([np.sum(out > 0), np.sum(out <= 0)], dtype=np.int32)
         return centre_hist, sum_o
@@ -71,18 +77,18 @@ class MRELBP():
     def CI_test(self, image):
         m_3x3, m_5x5, m_7x7, m_9x9 = self.median_processing(image)
 
-        np.savetxt("matrix_3x3_o", m_3x3, fmt='%d')
+        # np.savetxt("matrix_3x3_o", m_3x3, fmt='%d')
 
 
-        hist_r2, sum_r2 = self.mrelbp_ci(m_3x3, 2)
+        # hist_r2, sum_r2 = self.mrelbp_ci(m_3x3, 2)
         # hist_r4, sum_r4 = self.mrelbp_ci(m_3x3, 4)
-        # hist_r6, sum_6 = self.mrelbp_ci(m_3x3, 6)
-        # hist_r8, sum_r8 = self.mrelbp_ci(m_3x3, 8)
+        # hist_r6, sum_r6 = self.mrelbp_ci(m_3x3, 6)
+        hist_r8, sum_r8 = self.mrelbp_ci(m_3x3, 8)
 
-        print(hist_r2)
+        print(hist_r8)
 
         # print(hist_r2, hist_r4, hist_r6, hist_r8)
-        np.savetxt("sum_3.txt", sum_r2, fmt='%d')
+        np.savetxt("sum_8.txt", sum_r8, fmt='%d')
 
 
 

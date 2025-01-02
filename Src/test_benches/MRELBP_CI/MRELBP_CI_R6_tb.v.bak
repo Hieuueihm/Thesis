@@ -54,7 +54,7 @@ module MRELBP_CI_R6_tb();
         // Test Case 1: Apply some values
         #10;
         done_i = 1;
-        for (i = 10; i <= 150; i = i + 10) begin
+        for (i = 10; i < = 150; i = i + 10) begin
             S1  = i;
             S2  = i;
             S3  = i;
@@ -71,7 +71,7 @@ module MRELBP_CI_R6_tb();
             #10;
             
         end
-        for (i = 20; i <= 160; i = i + 10) begin
+        for (i = 20; i < = 160; i = i + 10) begin
             S1  = i;
             S2  = i;
             S3  = i;
@@ -88,7 +88,7 @@ module MRELBP_CI_R6_tb();
             #10;
             
         end
-        for (i = 30; i <= 170; i = i + 10) begin
+        for (i = 30; i < = 170; i = i + 10) begin
             S1  = i;
             S2  = i;
             S3  = i;

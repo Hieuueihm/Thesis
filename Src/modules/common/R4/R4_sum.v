@@ -20,6 +20,7 @@ module R4_sum #(parameter COLS = 11,
                 output [14:0] sum_o,
                 output [9:0] i_counter,
                 output [7:0] central_value,
+                output i_row_eq_max,
                 output i_start_gt_2);
     
     
@@ -27,6 +28,9 @@ module R4_sum #(parameter COLS = 11,
     wire [9:0] i_counter_plus_1;
     wire [2:0] i_start;
     wire [2:0] i_start_plus_1;
+    wire [9:0] i_row_plus_1;
+    wire [9:0] i_row;
+    wire i_counter_eq_max;
     
     plus_1 #(.WIDTH(3))
     I_START_PLUS
@@ -51,11 +55,22 @@ module R4_sum #(parameter COLS = 11,
     .D(i_counter),
     .Q(i_counter_plus_1)
     );
-    
-    wire i_counter_eq_max;
+    plus_1 #(.WIDTH(10))
+    ROW_PLUS
+    (
+    .rst(rst),
+    .clk(clk),
+    .en(i_counter_eq_max),
+    .D(i_row),
+    .Q(i_row_plus_1)
+    );
     assign i_counter_eq_max = (i_counter_plus_1 == COLS) ? 1'b1 : 1'b0;
     
     assign i_counter = (i_counter_eq_max == 1'b1) ? 0: i_counter_plus_1;
+    
+    assign i_row        = (i_counter_eq_max) ? i_row : i_row_plus_1;
+    assign i_row_eq_max = (i_row_plus_1 == ROWS - 8) ? 1'b1 : 1'b0;
+    
     
     
     

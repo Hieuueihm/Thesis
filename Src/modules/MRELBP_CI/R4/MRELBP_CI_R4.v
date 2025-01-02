@@ -14,22 +14,23 @@ module MRELBP_CI_R4 #(parameter COLS = 11,
                       S9,
                       output ci_o,
                       output progress_done_o,
-                      output reg done_o);
+                      output done_o);
     
     wire cum_en, sum_en, count_en, done_delayed;
     wire [9:0] i_counter;
     wire i_start_gt_2;
     wire ld_en;
     wire start_en;
-    wire done_o_sum, done_o_mean;
+    wire done_o_sum;
     wire [14:0] sum_o;
     wire [7:0] central_value;
+    wire i_row_eq_max;
     
     
     wire [7:0] muy;
     wire [7:0] r;
     
-    R4_controller #(.COLS(COLS)) R2_CONTROLLER
+    R4_controller #(.COLS(COLS)) R4_CONTROLLER
     
     (
     .clk(clk),
@@ -42,13 +43,14 @@ module MRELBP_CI_R4 #(parameter COLS = 11,
     .done_o(done_o_sum),
     .sum_en(sum_en),
     .count_en(count_en),
+    .i_row_eq_max(i_row_eq_max),
     .done_delayed(done_delayed),
     .start_en(start_en),
     .progress_done(progress_done_o)
     
     );
     
-    R4_sum #(.COLS(COLS),.ROWS(ROWS)) R2_SUM
+    R4_sum #(.COLS(COLS),.ROWS(ROWS)) R4_SUM
     (
     .clk(clk),
     .rst(rst),
@@ -68,6 +70,7 @@ module MRELBP_CI_R4 #(parameter COLS = 11,
     .S9(S9),
     .sum_o(sum_o),
     .i_counter(i_counter),
+    .i_row_eq_max(i_row_eq_max),
     .i_start_gt_2(i_start_gt_2),
     .central_value(central_value),
     .start_en(start_en)
@@ -82,17 +85,18 @@ module MRELBP_CI_R4 #(parameter COLS = 11,
     .sum_i(sum_o),
     .muy(muy),
     .r(r),
-    .done_o(done_o_mean));
+    .done_o(done_o));
+    
+    
+    reg [7:0] central_value_delayed;
     always @(posedge clk) begin
         if (rst) begin
-            done_o <= 0;
-            end else if (done_o_mean) begin
-            done_o <= done_o_mean;
+            central_value_delayed <= 0;
+            end else  begin
+            central_value_delayed <= central_value;
         end
-        else begin
-            done_o <= 0;
-        end
+        
     end
     
-    assign ci_o = (central_value > muy || (central_value == muy && r == 0)) ? 1'b1 : 1'b0;
+    assign ci_o = (central_value_delayed > muy || (central_value_delayed == muy && r == 0)) ? 1'b1 : 1'b0;
 endmodule

@@ -10,19 +10,20 @@ module MRELBP_CI_R2 #(parameter COLS = 7,
                       input [7:0] S5,
                       output ci_o,
                       output progress_done_o,
-                      output reg done_o);
+                      output done_o);
     
     wire cum_en, sum_en, count_en, done_delayed;
     wire [9:0] i_counter;
     wire i_start_gt_1;
     wire ld_en;
     wire start_en;
-    wire done_o_sum, done_o_mean;
+    wire done_o_sum;
     wire [12:0] sum_o;
     wire [7:0] central_value;
     
     wire [7:0] muy;
     wire [7:0] r;
+    wire i_row_eq_max;
     
     R2_controller #(.COLS(COLS)) R2_CONTROLLER
     
@@ -38,6 +39,7 @@ module MRELBP_CI_R2 #(parameter COLS = 7,
     .sum_en(sum_en),
     .count_en(count_en),
     .done_delayed(done_delayed),
+    .i_row_eq_max(i_row_eq_max),
     .start_en(start_en),
     .progress_done(progress_done_o)
     
@@ -59,6 +61,7 @@ module MRELBP_CI_R2 #(parameter COLS = 7,
     .S5(S5),
     .sum_o(sum_o),
     .i_counter(i_counter),
+    .i_row_eq_max(i_row_eq_max),
     .i_start_gt_1(i_start_gt_1),
     .central_value(central_value),
     .start_en(start_en)
@@ -73,19 +76,20 @@ module MRELBP_CI_R2 #(parameter COLS = 7,
     .sum_i(sum_o),
     .muy(muy),
     .r(r),
-    .done_o(done_o_mean));
+    .done_o(done_o));
     
+    
+    
+    reg [7:0] central_value_delayed;
     always @(posedge clk) begin
         if (rst) begin
-            done_o <= 0;
-            end else if (done_o_mean) begin
-            done_o <= done_o_mean;
+            central_value_delayed <= 0;
+            end else  begin
+            central_value_delayed <= central_value;
         end
-        else begin
-            done_o <= 0;
-        end
+        
     end
     
-    assign ci_o = (central_value > muy || (central_value == muy && r == 0)) ? 1'b1 : 1'b0;
+    assign ci_o = (central_value_delayed > muy || (central_value_delayed == muy && r == 0)) ? 1'b1 : 1'b0;
     
 endmodule

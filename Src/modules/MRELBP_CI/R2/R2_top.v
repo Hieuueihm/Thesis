@@ -9,8 +9,8 @@ module R2_top #(parameter COLS = 7,
                 input [7:0] S4,
                 input [7:0] S5,
                 output done_o,
-                output [9:0] bit_one_o,
-                output [9:0] bit_zero_o);
+                output [15:0] bit_one_o,
+                output [15:0] bit_zero_o);
     
     wire done_o_R2, progress_done_o;
     wire ci_o;

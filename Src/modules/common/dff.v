@@ -1,4 +1,4 @@
-module dff #(parameter WIDTH = 7)
+module dff #(parameter WIDTH = 8)
             (input clk,
              input rst,
              input en,
