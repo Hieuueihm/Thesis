@@ -40,33 +40,70 @@ class MRELBP():
         window_size = 2 * in_r + 1
 
         width, height = image.shape
-        out = np.zeros((width - in_r, height - in_r))
+        out = np.zeros((width - 2 * in_r, height - 2 * in_r))
 
         x = int(in_r /  2)
+        sum_o = np.zeros((width - 2 * in_r, height - 2 * in_r))
+
+        pixel_central =  np.zeros((width - 2 * in_r, height - 2 * in_r))
+        muy_arr_central = np.zeros((width - 2 * in_r, height - 2 * in_r))
 
 
-        for i in range(0,height - in_r):
-            for j in range(0,width - in_r):
-                area = image[i : i + in_r +1, j :j + in_r+1]
-                print(image[i + x][j + x])
-                print(area)
+        for i in range(0,height - 2 * in_r):
+            for j in range(0,width - 2 * in_r):
+                area = image[i : i + 2 * in_r +1, j :j +  2 * in_r+1]
+                # print(image[i + x][j + x])
+                # print(area)
+                sum_o[i, j] = np.sum(area)
                 muy = np.mean(area)
-                print(muy)
-                out[i,j] = (image[i + x, j + x] - muy) >= 0
-        print(out)
+                pixel_central[i, j] = image[i + 2 * x][j + 2 * x]
+                muy_arr_central[i, j] = muy
+                out[i,j] = (image[i + 2 * x, j +  2 * x] ) >= muy
+        # print(out)
+
+        np.savetxt("out.txt", out, fmt='%d')
+        np.savetxt("pixel_central.txt", pixel_central, fmt='%d')
+        np.savetxt("muy_arr_central.txt", muy_arr_central, fmt='%d')
+
         centre_hist = np.array([np.sum(out > 0), np.sum(out <= 0)], dtype=np.int32)
-        print(centre_hist)
-        return centre_hist
+        return centre_hist, sum_o
+
+    def CI_test(self, image):
+        m_3x3, m_5x5, m_7x7, m_9x9 = self.median_processing(image)
+
+        np.savetxt("matrix_3x3_o", m_3x3, fmt='%d')
+
+
+        hist_r2, sum_r2 = self.mrelbp_ci(m_3x3, 2)
+        # hist_r4, sum_r4 = self.mrelbp_ci(m_3x3, 4)
+        # hist_r6, sum_6 = self.mrelbp_ci(m_3x3, 6)
+        # hist_r8, sum_r8 = self.mrelbp_ci(m_3x3, 8)
+
+        print(hist_r2)
+
+        # print(hist_r2, hist_r4, hist_r6, hist_r8)
+        np.savetxt("sum_3.txt", sum_r2, fmt='%d')
+
+
+
+        # print(m_3x3)
+
 
 
 # Example Usage
-image = np.array([
-    [1, 2, 3, 2, 1],
-    [4, 5, 6, 5, 4],
-    [7, 8, 9, 8, 7],
-    [4, 5, 6, 5, 4],
-    [1, 2, 3, 2, 1]
-], dtype=np.float32)
+np.random.seed(42)
+
+
+random_matrix = np.random.randint(0, 256, size=(30, 30), dtype=np.uint8)
+# print(random_matrix)
+file_path = "random_matrix.txt"
+
+np.savetxt(file_path, random_matrix, fmt='%d')
+flattened_matrix = random_matrix.flatten()
+
+np.savetxt("random_matrix_hex.txt", flattened_matrix, fmt='%02X', delimiter=" ")
+
+
 
 lbp = MRELBP()
-lbp.mrelbp_ci(image, 2)
+lbp.CI_test(random_matrix)
