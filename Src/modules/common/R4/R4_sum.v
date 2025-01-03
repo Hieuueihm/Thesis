@@ -181,7 +181,6 @@ module R4_sum #(parameter COLS = 11,
     .a(sum1234),
     .b(sum5678),
     .en(1'b1),
-    
     .result(sum_alL_except_9)
     );
     
@@ -190,7 +189,6 @@ module R4_sum #(parameter COLS = 11,
     .clk(clk),
     .rst(rst),
     .en(1'b1),
-    
     .a(sum_alL_except_9),
     .b({3'b000, st4_S9}),
     .result(sum1)
@@ -217,8 +215,10 @@ module R4_sum #(parameter COLS = 11,
     
     
     
-    wire [11:0] mux_1;
-    assign mux_1 = (cum_en == 0) ? 10'b0 : ((~sum2) + 1);
+    wire [14:0] sum2_extended;
+    assign sum2_extended = {3'b000, sum2};
+    wire [14:0] mux_1;
+    assign mux_1 = (cum_en == 0) ? 15'd0 : ((~sum2_extended) + 1);
     
     
     sum_cumulative #(.WIDTH1(15), .WIDTH2(15)) SUMO (
@@ -226,8 +226,8 @@ module R4_sum #(parameter COLS = 11,
     .rst(rst),
     .en(sum_en),
     .ld(ld_en),
-    .data_in1({{3{sum1[11]}}, sum1}),
-    .data_in2({{3{mux_1[11]}}, mux_1}),
+    .data_in1({3'b000, sum1}),
+    .data_in2(mux_1),
     .sum_out(sum_o)
     );
     

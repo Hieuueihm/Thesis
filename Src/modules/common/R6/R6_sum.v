@@ -222,18 +222,18 @@ module R6_sum #(parameter COLS = 11,
     .result(sum9_to_13)
     );
     
-    wire [12:0] sum1;
-    sum #(.WIDTH(12)) SUM1 (
+    wire [11:0] sum1;
+    sum #(.WIDTH(11)) SUM1 (
     .clk(clk),
     .rst(rst),
-    .a({1'b0,sum1_to_8}),
-    .b({1'b0,sum9_to_13}),
+    .a(sum1_to_8),
+    .b(sum9_to_13),
     .en(1'b1),
     .result(sum1)
     );
     
-    reg [12:0] sum2;
-    reg [12:0] st_sum2 [0:11];
+    reg [11:0] sum2;
+    reg [11:0] st_sum2 [0:11];
     integer i;
     
     always @(posedge clk) begin
@@ -253,16 +253,18 @@ module R6_sum #(parameter COLS = 11,
     
     
     
-    wire [12:0] mux_1;
-    assign mux_1 = (cum_en == 0) ? 10'b0 : ((~sum2) + 1);
+    wire [15:0] sum2_extended;
+    assign sum2_extended = ({4'b0000, sum2});
+    wire [15:0] mux_1;
+    assign mux_1 = (cum_en == 0) ? 16'b0 : ((~sum2_extended) + 1);
     
     sum_cumulative #(.WIDTH1(16), .WIDTH2(16)) SUMO (
     .clk(clk),
     .rst(rst),
     .en(sum_en),
     .ld(ld_en),
-    .data_in1({3'b0000, sum1}),
-    .data_in2({{3{mux_1[12]}}, mux_1}),
+    .data_in1({4'b0000, sum1}),
+    .data_in2(mux_1),
     .sum_out(sum_o)
     );
     

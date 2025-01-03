@@ -316,8 +316,10 @@ module R8_sum #(parameter COLS = 11,
     
     
     
-    wire [12:0] mux_1;
-    assign mux_1 = (cum_en == 0) ? 10'b0 : ((~sum2) + 1);
+    wire [16:0] sum2_extended;
+    assign sum2_extended = ({4'b0000, sum2});
+    wire [16:0] mux_1;
+    assign mux_1 = (cum_en == 0) ? 17'b0 : ((~sum2_extended) + 1);
     
     
     sum_cumulative #(.WIDTH1(17), .WIDTH2(17)) SUMO (
@@ -325,8 +327,8 @@ module R8_sum #(parameter COLS = 11,
     .rst(rst),
     .en(sum_en),
     .ld(ld_en),
-    .data_in1({{4{sum1[12]}}, sum1}),
-    .data_in2({{4{mux_1[12]}}, mux_1}),
+    .data_in1({4'b0000, sum1}),
+    .data_in2(mux_1),
     .sum_out(sum_o)
     );
     

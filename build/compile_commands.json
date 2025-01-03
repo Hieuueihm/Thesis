@@ -1,7 +1,7 @@
 [
 {
   "directory": "D:/Thesis/build",
-  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/mrelbp.dir/includes_CXX.rsp -g -o CMakeFiles\\mrelbp.dir\\mrelbp.cpp.obj -c D:\\Thesis\\CodeTest\\c++\\mrelbp.cpp",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/mrelbp.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\mrelbp.dir\\mrelbp.cpp.obj -c D:\\Thesis\\CodeTest\\c++\\mrelbp.cpp",
   "file": "D:/Thesis/CodeTest/c++/mrelbp.cpp",
   "output": "CMakeFiles/mrelbp.dir/mrelbp.cpp.obj"
 }

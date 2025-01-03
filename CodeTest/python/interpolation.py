@@ -1,6 +1,7 @@
 import numpy as np
-
-def bilinear_interpolate(image, x, y):
+def to_fixed_point(value, frac_bits=16):
+    return int(value * (2 ** frac_bits))
+def bilinear_interpolate(image, x, y, r):
     """
     Perform bilinear interpolation for a given point (x, y) on a 2D grid.
     :param image: 2D numpy array representing the grid
@@ -12,12 +13,12 @@ def bilinear_interpolate(image, x, y):
     x2 = int(np.ceil(x))
     y1 = int(np.floor(y))
     y2 = int(np.ceil(y))
-    print(x)
-    print(x1, x2, y1, y2)
-    print(x1, y1)
-    print(x1, y2)
-    print(x2, y1)
-    print(x2, y2)
+    # print(x)
+    # print(x1, x2, y1, y2)
+    # print(x1, y1)
+    # print(x1, y2)
+    # print(x2, y1)
+    # print(x2, y2)
     # print(x2 - x)
     # print(x - x1)
     # print(y2 - y)
@@ -27,12 +28,14 @@ def bilinear_interpolate(image, x, y):
     a = x - x1
     b = y - y1
 
-    print(a, b)
-    print(1 - a, 1 - b)
-    print(( 1- a ) *(1 - b) * image[x1, y1])
-    print(image[x1, y2] * a * (1 - b))
-    print(image[x2, y1] * (1 - a) * b )
-    print( image[x2, y2] * a * b)
+    # print(a, b)
+    # print(1 - a, 1 - b)
+    # print(( 1- a ) *(1 - b) * image[x1, y1])
+    # print(image[x1, y2] * a * (1 - b))
+    # print(image[x2, y1] * (1 - a) * b )
+    # print( image[x2, y2] * a * b)
+
+
 
     # # Interpolation
     interpolated_value = (
@@ -41,7 +44,27 @@ def bilinear_interpolate(image, x, y):
         image[x2, y1] * (1 - a) * b +
         image[x2, y2] * a * b
     )
-    print(image[x1, y1], image[x1, y2], image[x2, y1], image[x2, y2])
+    r1 = (1 - a) * (1-b)
+    r2 =  a * (1 - b)
+    r3 = (1 - a) * b
+    r4 = a * b
+
+    r1_fixed = to_fixed_point(r1)
+    r2_fixed = to_fixed_point(r2)
+    r3_fixed = to_fixed_point(r3)
+    r4_fixed = to_fixed_point(r4)
+
+
+
+    # with open("weights.txt", "a") as file:
+    #     file.write(f"{r}\n")
+    #     file.write(f"r1 = 24'h{r1_fixed:07X};\n")
+    #     file.write(f"r2 = 24'h{r2_fixed:07X};\n")
+    #     file.write(f"r3 = 24'h{r3_fixed:07X};\n")
+    #     file.write(f"r4 = 24'h{r4_fixed:07X};\n")
+    #     file.write("\n")
+
+    # print(image[x1, y1], image[x1, y2], image[x2, y1], image[x2, y2])
     return interpolated_value
 
 
@@ -57,16 +80,17 @@ def interpolate_45_135_225_315(image, center_x, center_y, radius):
     angles = [45, 135, 225, 315]
     results = {}
     print(image[center_x][center_y])
-
-    for angle in angles:
-        # Convert angle to radians
-        theta = np.radians(angle)
-        # Calculate target coordinates
-        target_x = center_x - radius * np.sin(theta)
-        target_y = center_y + radius * np.cos(theta)
-        print(target_x, target_y)
-        # Perform bilinear interpolation
-        results[f"{angle}°"] = bilinear_interpolate(image, target_x, target_y)
+    radius = [2, 3, 4, 5, 6, 7, 8]
+    for r in radius:
+        for angle in angles:
+            # Convert angle to radians
+            theta = np.radians(angle)
+            # Calculate target coordinates
+            target_x = center_x - r * np.sin(theta)
+            target_y = center_y + r * np.cos(theta)
+            # print(target_x, target_y)
+            # Perform bilinear interpolation
+            results[f"{angle}°"] = bilinear_interpolate(image, target_x, target_y, r)
 
 
     return results
@@ -94,6 +118,6 @@ image = np.random.randint(0, 101, (19, 19))
 radius = 5  # Distance from center to the interpolated points
 
 interpolated_values = interpolate_45_135_225_315(image, 8, 8, radius)
-print("Interpolated Values:")
-for angle, value in interpolated_values.items():
-    print(f"{angle}: {value:.2f}")
+# print("Interpolated Values:")
+# for angle, value in interpolated_values.items():
+#     print(f"{angle}: {value:.2f}")

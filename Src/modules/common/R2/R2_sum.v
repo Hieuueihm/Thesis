@@ -142,7 +142,6 @@ module R2_sum #(parameter COLS = 7,
     .rst(rst),
     .a(sum1234),
     .en(1'b1),
-    
     .b({2'b00, st3_S5}),
     .result(sum1)
     );
@@ -167,17 +166,20 @@ module R2_sum #(parameter COLS = 7,
     
     
     
-    wire [10:0] mux_1;
-    assign mux_1 = (cum_en == 0) ? 10'b0 : ((~sum2) + 1);
     
     
+    
+    wire [12:0] sum2_extended;
+    assign sum2_extended = {2'b00, sum2};
+    wire [12:0] mux_1;
+    assign mux_1 = (cum_en == 0) ? 13'b0 : ((~sum2_extended) + 1);
     sum_cumulative #(.WIDTH1(13), .WIDTH2(13)) SUMO (
     .clk(clk),
     .rst(rst),
     .en(sum_en),
     .ld(ld_en),
-    .data_in1({{2{sum1[10]}}, sum1}),
-    .data_in2({{2{mux_1[10]}}, mux_1}),
+    .data_in1({2'b00, sum1}),
+    .data_in2(mux_1),
     .sum_out(sum_o)
     );
     
