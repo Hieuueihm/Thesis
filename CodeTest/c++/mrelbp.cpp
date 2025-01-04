@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <opencv2/imgcodecs.hpp>
+#include <opencv2/opencv.hpp>
 
 // namespace LBP {
 //     class MRELBP {
@@ -103,23 +103,22 @@
 
 int main() {
     // Path to the input image and the output grayscale image
-    std::string inputPath = "D:\\Thesis\\Data\\Ex\\sample.bmp";   // Change to your input image path
+    std::string inputPath = "/home/ms1sm/Documents/Code/Thesis/Data/Ex/sample.bmp";   // Change to your input image path
 
     // // Create an instance of MRELBP and process the image
     // // LBP::MRELBP processor;
     cv::Mat image = cv::imread(inputPath, cv::IMREAD_COLOR);
 
-    // if (image.empty()) {
-    //     std::cerr << "Failed to read the image!" << std::endl;
-    //     return -1;
-    // }
-
-    // // Kiểm tra nếu ảnh là ảnh màu
-    // if (image.channels() != 3) {
-    //     std::cerr << "The input image is not a color image!" << std::endl;
-    //     return -1;
-    // }
-
+    if (image.empty()) {
+        std::cout << "Not a valid image file" << std::endl;
+        return -1;
+    }
+    
+    cv::namedWindow("Simple Demo", cv::WINDOW_AUTOSIZE);
+    cv::imshow("Simple Demo", image);
+    
+    cv::waitKey(0);
+    cv::destroyAllWindows();
     std::cout << CV_VERSION << std::endl;
 
     return 0;
