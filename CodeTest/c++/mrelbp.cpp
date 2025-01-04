@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <opencv2/imgcodecs.hpp>
+#include <opencv2/opencv.hpp>
 
+using namespace cv;
 // namespace LBP {
 //     class MRELBP {
 //     private:
@@ -103,11 +104,11 @@
 
 int main() {
     // Path to the input image and the output grayscale image
-    std::string inputPath = "D:\\Thesis\\Data\\Ex\\sample.bmp";   // Change to your input image path
+    std::string inputPath = "D:\\Thesis\\Data\\Ex\\download.jpg";   // Change to your input image path
 
     // // Create an instance of MRELBP and process the image
     // // LBP::MRELBP processor;
-    cv::Mat image = cv::imread(inputPath, cv::IMREAD_COLOR);
+    Mat image = cv::imread(inputPath);
 
     // if (image.empty()) {
     //     std::cerr << "Failed to read the image!" << std::endl;
