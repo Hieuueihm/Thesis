@@ -7,17 +7,14 @@ module plus_1 #(parameter WIDTH = 10)
     
     reg [9:0] counter_value;
     
-    always @(posedge clk) begin
-        if (rst) begin
-            counter_value <= {10{1'b0}};
-            counter_value <= 0;
-            end else begin
-            if (en) begin
-                counter_value <= D + 1;
-            end
-        end
-    end
+    dff #(.WIDTH(WIDTH)) PLUS_1_DFF(
+    .clk(clk),
+    .rst(rst),
+    .en(en),
+    .D(D + 1'b1),
+    .Q(Q)
+    );
     
-    assign Q = counter_value;
+    
     
 endmodule

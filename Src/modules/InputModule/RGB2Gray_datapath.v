@@ -53,13 +53,70 @@ module RGB2Gray_datapath (input clk,
     
     
     wire [7:0] grayscale;
-    assign grayscale = red_shift_2 + red_shift_5 + green_shift_1 + green_shift_4 + blue_shift_4 + blue_shift_5;
+    wire [8:0] sum_red, sum_green, sum_blue;
+    sum #(.WIDTH(8)) SUM_RED (
+    .clk(clk),
+    .rst(rst),
+    .en(1'b1),
+    .a(red_shift_2),
+    .b(red_shift_5),
+    .result(sum_red)
+    
+    );
+    sum #(.WIDTH(8)) SUM_GREEN (
+    .clk(clk),
+    .rst(rst),
+    .en(1'b1),
+    .a(green_shift_1),
+    .b(green_shift_4),
+    .result(sum_green)
+    
+    );
+    sum #(.WIDTH(8)) SUM_BLUE (
+    .clk(clk),
+    .rst(rst),
+    .en(1'b1),
+    .a(blue_shift_4),
+    .b(blue_shift_5),
+    .result(sum_blue)
+    
+    );
+    
+    wire [8:0] sum_red_green;
+    sum #(.WIDTH(8)) SUM_RED_GREEN (
+    .clk(clk),
+    .rst(rst),
+    .en(1'b1),
+    .a(sum_red[7:0]),
+    .b(sum_green[7:0]),
+    .result(sum_red_green)
+    );
+    wire [7:0] sum_blue_delay;
+    dff #(.WIDTH(8)) SUM_BLUE_DELAY (
+    .clk(clk),
+    .rst(rst),
+    .en(1'b1),
+    .D(sum_blue[7:0]),
+    .Q(sum_blue_delay)
+    );
+    
+    wire [8:0] gray_sum;
+    sum #(.WIDTH(8)) GRAY_SUM (
+    .clk(clk),
+    .rst(rst),
+    .en(1'b1),
+    .a(sum_red_green[7:0]),
+    .b(sum_blue_delay),
+    .result(gray_sum)
+    );
+    
+    
     
     dff #(.WIDTH(8)) GRAY_DFF(
     .clk(clk),
     .rst(rst),
     .en(done_i),
-    .D(grayscale),
+    .D(gray_sum[7:0]),
     .Q(grayscale_o)
     );
     

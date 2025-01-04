@@ -4,14 +4,18 @@ module sum #(parameter WIDTH = 8)
              input [WIDTH-1:0] a,
              input [WIDTH-1:0] b,
              input en,
-             output reg [WIDTH:0] result);
+             output [WIDTH:0] result);
     
-    always @(posedge clk) begin
-        if (rst) begin
-            result <= 0;
-            end else if (en) begin
-            result <= a + b;
-        end
-    end
+    
+    wire [WIDTH:0] sum;
+    assign sum = a + b;
+    dff #(.WIDTH(WIDTH + 1)) SUM_DFF (
+    .clk(clk),
+    .rst(rst),
+    .en(en),
+    .D(sum),
+    .Q(result)
+    );
+    
     
 endmodule

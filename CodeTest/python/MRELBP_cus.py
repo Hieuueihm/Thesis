@@ -100,7 +100,7 @@ class MRELBP():
 
 
 # Example Usage
-np.random.seed(5)
+np.random.seed(1)
 
 
 random_matrix = np.random.randint(0, 256, size=(30, 30), dtype=np.uint8)
