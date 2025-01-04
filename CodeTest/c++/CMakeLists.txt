@@ -1,11 +1,11 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.11)
 
 project(mrelbp)
 set(CMAKE_CXX_STANDARD 17)
 
 set(OpenCV_DIR C:/opencv/build/x64/vc15/lib)
 
-find_package(OpenCV REQUIRED core imgproc highgui)
+find_package(OpenCV REQUIRED core imgproc highgui imgcodecs)
 add_executable(${PROJECT_NAME} mrelbp.cpp)
 
 target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})

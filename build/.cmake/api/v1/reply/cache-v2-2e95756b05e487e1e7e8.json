@@ -1283,19 +1283,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "[C:/opencv/build][cfound components: core imgproc highgui ][v4.6.0()]"
-		},
-		{
-			"name" : "OpenCV_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "The directory containing a CMake configuration file for OpenCV."
-				}
-			],
-			"type" : "PATH",
-			"value" : "OpenCV_DIR-NOTFOUND"
+			"value" : "[C:/opencv/build][cfound components: core imgproc highgui imgcodecs ][v4.6.0()]"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
