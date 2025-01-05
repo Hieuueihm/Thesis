@@ -8,7 +8,7 @@ module Interpolation_calc #(parameter R = 2,
                             C,
                             D,
                             output reg [31:0] data_o,
-                            output done_o);
+                            output reg done_o);
     reg [23:0] r1, r2, r3, r4;
     // r1 = (1-dx) * (1-dy)
     // r2 = dx * (1-dy)

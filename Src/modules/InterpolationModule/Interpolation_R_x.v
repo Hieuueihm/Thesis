@@ -47,74 +47,89 @@ module Interpolation_R_x #(parameter R = 2)
     
     
     generate
-    if (R == 2) begin
-        Interpolation_calc #(.R(2),
-        .RADIUS(45)) INTER_R2_45
-        (
-        .clk(clk),
-        .rst(rst),
-        .done_i(done_i),
-        .A(S_45_i_1),
-        .B(S_45_i_2),
-        .C(S_45_i_3),
-        .D(S_45_i_4),
-        data_o(S2_o),
-        done_o(done_45_o));
+    if (R == 1) begin
         
-        Interpolation_calc #(.R(2),
-        .RADIUS(135)) INTER_R2_135
-        (
-        .clk(clk),
-        .rst(rst),
-        .done_i(done_i),
-        .A(S_135_i_1),
-        .B(S_135_i_2),
-        .C(S_135_i_3),
-        .D(S_135_i_4),
-        data_o(S4_o),
-        done_o(done_135_o));
+        reg [2:0] done_shift;
+        always @(posedge clk) begin
+            if (rst) begin
+                done_shift <= 0;
+                end else begin
+                done_shift <= {done_shift[1:0], done_i};
+                
+            end
+        end
         
-        
-        
-        Interpolation_calc #(.R(2),
-        .RADIUS(225)) INTER_R2_225
-        (
-        .clk(clk),
-        .rst(rst),
-        .done_i(done_i),
-        .A(S_225_i_1),
-        .B(S_225_i_2),
-        .C(S_225_i_3),
-        .D(S_225_i_4),
-        data_o(S6_o),
-        done_o(done_225_o));
-        
-        
-        Interpolation_calc #(.R(2),
-        .RADIUS(315)) INTER_R2_315
-        (
-        .clk(clk),
-        .rst(rst),
-        .done_i(done_i),
-        .A(S_315_i_1),
-        .B(S_315_i_2),
-        .C(S_315_i_3),
-        .D(S_315_i_4),
-        data_o(S7_o),
-        done_o(done_315_o));
-        
-        
-        
-        end else if (R == 4) begin
-        
-        
-        
-        end else if (R == 6) begin
-        
-        
-        end else if (R == 8) begin
+        assign done_o = done_shift[2];
         
     end
+        if (R == 2) begin
+            Interpolation_calc #(.R(2),
+            .RADIUS(45)) INTER_R2_45
+            (
+            .clk(clk),
+            .rst(rst),
+            .done_i(done_i),
+            .A(S_45_i_1),
+            .B(S_45_i_2),
+            .C(S_45_i_3),
+            .D(S_45_i_4),
+            data_o(S2_o),
+            done_o(done_45_o));
+            
+            Interpolation_calc #(.R(2),
+            .RADIUS(135)) INTER_R2_135
+            (
+            .clk(clk),
+            .rst(rst),
+            .done_i(done_i),
+            .A(S_135_i_1),
+            .B(S_135_i_2),
+            .C(S_135_i_3),
+            .D(S_135_i_4),
+            data_o(S4_o),
+            done_o(done_135_o));
+            
+            
+            
+            Interpolation_calc #(.R(2),
+            .RADIUS(225)) INTER_R2_225
+            (
+            .clk(clk),
+            .rst(rst),
+            .done_i(done_i),
+            .A(S_225_i_1),
+            .B(S_225_i_2),
+            .C(S_225_i_3),
+            .D(S_225_i_4),
+            data_o(S6_o),
+            done_o(done_225_o));
+            
+            
+            Interpolation_calc #(.R(2),
+            .RADIUS(315)) INTER_R2_315
+            (
+            .clk(clk),
+            .rst(rst),
+            .done_i(done_i),
+            .A(S_315_i_1),
+            .B(S_315_i_2),
+            .C(S_315_i_3),
+            .D(S_315_i_4),
+            data_o(S7_o),
+            done_o(done_315_o));
+            
+            
+            
+            end else if (R == 4) begin
+            
+            
+            
+            end else if (R == 6) begin
+            
+            
+            end else if (R == 8) begin
+            
+        end
     
     endgenerate
     

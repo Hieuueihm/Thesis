@@ -1,0 +1,45 @@
+`timescale 1ns/1ps
+
+module Interpolation_calc_tb();
+    reg clk;
+    reg rst;
+    reg done_i;
+    reg [7:0] A;
+    reg [7:0] B;
+    reg [7:0] C;
+    reg [7:0] D;
+    wire[31:0] data_o;
+    wire done_o;
+    Interpolation_calc #(.R(R) , .RADIUS(RADIUS))
+    uut (.clk(clk), .rst(rst), .done_i(done_i),
+    .A(A), .B(B), .C(C), .D(D), .data_o(data_o),
+    .done_o(done_o));
+    
+    // Clock generation
+    always #5 clk = ~clk;
+    
+    initial begin
+        // Initialize Inputs
+        clk    = 0;
+        rst    = 1;
+        done_i = 0;
+        A      = 0;
+        B      = 0;
+        C      = 0;
+        D      = 0;
+        
+        #20;
+        rst = 0;
+        
+        #10;
+        done_i = 1;
+        A      = 8'd106; // 16
+        B      = 8'd235; // 32
+        C      = 8'd103; // 48
+        D      = 8'd184; // 64
+        
+        #50;
+        $stop;
+    end
+    
+endmodule

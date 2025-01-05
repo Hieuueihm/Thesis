@@ -125,89 +125,101 @@ class MRELBP():
             image[x2, y2] * r4
         )
 
-        # print(image[x1, y1], image[x1, y2], image[x2, y1], image[x2, y2])
+        print(image[x1, y1], image[x1, y2], image[x2, y1], image[x2, y2])
+        print(interpolated_value)
 
 
         return interpolated_value
     
 
-    # def interpolationProcessing(self, image, r):
+    def interpolationProcessing(self, image, r):
 
-    #     width, height = image.shape
-    #     NI = np.zeros((width - 2 * r, height - 2 * r))
-    #     RD = np.zeros((width - 2 * r, height - 2 * r))
+        width, height = image.shape
+        NI = np.zeros((width - 2 * r, height - 2 * r))
+        RD = np.zeros((width - 2 * r, height - 2 * r))
 
 
-    #     angles = [45, 135, 225, 315]
-    #     r2 = r - 1
+        angles = [45, 135, 225, 315]
+        r2 = r - 1
 
-    #     for i in range(r,height - r):
-    #         for j in range(r,width -r):
-    #             area = image[i - r  : i  + r + 1 , j  - r :j + r + 1]
-    #             # print(area)
-    #             # return
-    #             # print(image[i, j])
+        for i in range(r,height - r):
+            for j in range(r,width -r):
+                area = image[i - r  : i  + r + 1 , j  - r :j + r + 1]
+                # print(area)
+                # return
+                # print(image[i, j])
 
-    #             results = {}
+                results = {}
 
-    #             muy = np.mean(area)
+                muy = np.mean(area)
 
-    #             S = np.zeros(9)
+                S = np.zeros(9)
 
-    #             S[1] = image[i, j + r]
-    #             # S2 -> 45
-    #             S[3] = image[i - r, j]
-    #             S[5] = image[i, j - r]
-    #             S[7] = image[i + r, j]
+                S[1] = image[i, j + r]
+                # S2 -> 45
+                S[3] = image[i - r, j]
+                S[5] = image[i, j - r]
+                S[7] = image[i + r, j]
 
-    #             for angle in angles:
-    #                 theta = np.radians(angle)
-    #                 target_x = i - r * np.sin(theta)
-    #                 target_y = j + r * np.cos(theta)
-    #                 # print(target_x, target_y)
-    #                 results[f"{angle}"] = self.getInterpolation(image, target_x, target_y, r)
+                for angle in angles:
+                    theta = np.radians(angle)
+                    target_x = i - r * np.sin(theta)
+                    target_y = j + r * np.cos(theta)
+                    # print(target_x, target_y)
+                    results[f"{angle}"] = self.getInterpolation(image, target_x, target_y, r)
                 
-    #             S[2] = results["45"]
-    #             S[4] = results["135"]
-    #             S[6] = results["225"]
-    #             S[8] = results["315"]
+                S[2] = results["45"]
+                S[4] = results["135"]
+                S[6] = results["225"]
+                S[8] = results["315"]
+                return
 
-    #             # X = np.zeros(9)
-    #             # if(r2 == 1):
-    #             #  X[1] = image[]   
+                # X = np.zeros(9)
+                # if(r2 == 1):
+                #  X[1] = image[]   
 
 
 
                
 
-    #             # print(S[1], S[3], S[5], S[7])
-    #             # print(S[2], S[4], S[6], S[8])
-    #             sum = 0
-    #             for k in range(1, 9):
-    #                 if(S[k] >= muy):
-    #                     sum = sum + 2**(k - 1)
+                # print(S[1], S[3], S[5], S[7])
+                # print(S[2], S[4], S[6], S[8])
+                sum = 0
+                for k in range(1, 9):
+                    if(S[k] >= muy):
+                        sum = sum + 2**(k - 1)
                 
-    #             NI[i - r][j - r] = sum
+                NI[i - r][j - r] = sum
 
 
 
-    #     print(NI)
+        # print(NI)
 
 
 
 
 # Example Usage
-np.random.seed(99)
+np.random.seed(1)
 
 
-random_matrix = np.random.randint(0, 256, size=(30, 30), dtype=np.uint8)
+random_matrix = np.random.randint(0, 256, size=(7, 7), dtype=np.uint8)
 print(random_matrix)
 # print(random_matrix)
-file_path = "random_matrix.txt"
+# file_path = "random_matrix.txt"
 
+# with open('output_3x3.txt', 'a') as f:
+#     for row in random_matrix:
+#         f.write(' '.join(map(str, row)) + '\n')
+#     f.write('\n')
+
+# padded_result = median_filter(random_matrix, size=3, mode='constant', cval=0)
+
+# with open('output_3x3.txt', 'a') as f:
+#     for row in padded_result:
+#         f.write(' '.join(map(str, row)) + '\n')
 # np.savetxt(file_path, random_matrix, fmt='%d')
 
-np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
+# np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
 # cpp_array = 'uint8_t array[30]307] = {\n'
 # for row in random_matrix:
 #     cpp_array += '{' + ', '.join(map(str, row)) + '},\n'
@@ -220,6 +232,6 @@ np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matri
 #     f.write(cpp_array)
 
 lbp = MRELBP()
-# lbp.interpolationProcessing(random_matrix, 2)
+lbp.interpolationProcessing(random_matrix, 2)
 
-lbp.CI_test(random_matrix)
+# lbp.CI_test(random_matrix)
