@@ -9,7 +9,7 @@ module median_no_image (input clk,
     
     wire prepare_done_o;
     
-    `define WIDTH 11
+    `define WIDTH 9
     
     Preparation #(
     .DEPTH(`WIDTH)
@@ -31,10 +31,10 @@ module median_no_image (input clk,
     );
     
     
-    Median_filter_9x9 #(
+    Median_filter_7x7 #(
     .ROWS(`WIDTH),
     .COLS(`WIDTH)
-    ) MEDIAN_FILTER_7x7 (
+    ) MEDIAN_FILTER_3x3 (
     .clk(clk),
     .rst(rst),
     .done_i(prepare_done_o),
