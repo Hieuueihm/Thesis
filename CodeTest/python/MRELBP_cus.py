@@ -59,14 +59,15 @@ class MRELBP():
                 sum_o[i, j] = np.sum(area)
                 # muy = np.mean(area)
                 pixel_central[i, j] = image[i + 2 * x][j + 2 * x]
-                muy = sum_o[i, j] /  ((2 * in_r +  1)**2)
-                muy_arr_central[i, j] = muy
-                r = sum_o[i, j] % ((2 * in_r +  1)**2)
+                scale_value = pixel_central[i, j] * ((2*in_r + 1)**2)
+    
+                if scale_value == sum_o[i, j]:
+                    print(i, j)
 
-                out[i,j] = ((np.uint8(image[i + 2 * x, j +  2 * x])  > np.uint8(muy)) or (np.uint8(image[i + 2 * x, j +  2 * x])  == np.uint8(muy) and np.uint8(r) == 0)) 
-                coup[i, j] =  (image[i + 2 * x, j + 2 * x], muy, out[i, j], r)
+                out[i,j] =  (scale_value >= sum_o[i, j])
+                coup[i, j] =  (sum_o[i, j], scale_value, out[i, j], pixel_central[i, j])
         # print(out)
-        coup_array = np.array([[f"({np.uint8(t[0])}, {np.uint8(t[1])}, {np.uint8(t[2])}, {np.uint8(t[3])}) " for t in row] for row in coup])
+        coup_array = np.array([[f"({np.uint16(t[0])}, {np.uint16(t[1])}, {np.uint8(t[2])}, {np.uint8(t[3])}) " for t in row] for row in coup])
 
         # np.savetxt("out.txt", out, fmt='%d')
         # np.savetxt("pixel_central.txt", pixel_central, fmt='%d')
@@ -132,9 +133,8 @@ class MRELBP():
         return interpolated_value
     
 
-    def interpolationProcessing(self, image, r):
-
-        width, height = image.shape
+    def interpolationProcessing(self, image_r1, image_r2, r):
+        width, height = image_r2.shape
         NI = np.zeros((width - 2 * r, height - 2 * r))
         RD = np.zeros((width - 2 * r, height - 2 * r))
 
@@ -144,7 +144,7 @@ class MRELBP():
 
         for i in range(r,height - r):
             for j in range(r,width -r):
-                area = image[i - r  : i  + r + 1 , j  - r :j + r + 1]
+                area = image_r2[i - r  : i  + r + 1 , j  - r :j + r + 1]
                 # print(area)
                 # return
                 # print(image[i, j])
@@ -155,18 +155,18 @@ class MRELBP():
 
                 S = np.zeros(9)
 
-                S[1] = image[i, j + r]
+                S[1] = image_r2[i, j + r]
                 # S2 -> 45
-                S[3] = image[i - r, j]
-                S[5] = image[i, j - r]
-                S[7] = image[i + r, j]
+                S[3] = image_r2[i - r, j]
+                S[5] = image_r2[i, j - r]
+                S[7] = image_r2[i + r, j]
 
                 for angle in angles:
                     theta = np.radians(angle)
                     target_x = i - r * np.sin(theta)
                     target_y = j + r * np.cos(theta)
                     # print(target_x, target_y)
-                    results[f"{angle}"] = self.getInterpolation(image, target_x, target_y, r)
+                    results[f"{angle}"] = self.getInterpolation(image_r2, target_x, target_y, r)
                 
                 S[2] = results["45"]
                 S[4] = results["135"]
@@ -199,24 +199,24 @@ class MRELBP():
 
 
 # Example Usage
-np.random.seed(1)
+np.random.seed(2)
 
 
 random_matrix = np.random.randint(0, 256, size=(30, 30), dtype=np.uint8)
-print(random_matrix)
-file_path = "random_matrix.txt"
+# print(random_matrix)
+# file_path = "random_matrix.txt"
 
-with open('output_3x3.txt', 'a') as f:
-    for row in random_matrix:
-        f.write(' '.join(map(str, row)) + '\n')
-    f.write('\n')
+# with open('output_3x3.txt', 'a') as f:
+#     for row in random_matrix:
+#         f.write(' '.join(map(str, row)) + '\n')
+#     f.write('\n')
 np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
 
-padded_result = median_filter(random_matrix, size=3, mode='constant', cval=0)
+# padded_result = median_filter(random_matrix, size=3, mode='constant', cval=0)
 
-with open('output_3x3.txt', 'a') as f:
-    for row in padded_result:
-        f.write(' '.join(map(str, row)) + '\n')
+# with open('output_3x3.txt', 'a') as f:
+#     for row in padded_result:
+#         f.write(' '.join(map(str, row)) + '\n')
 # np.savetxt(file_path, random_matrix, fmt='%d')
 
 # cpp_array = 'uint8_t array[30]307] = {\n'
