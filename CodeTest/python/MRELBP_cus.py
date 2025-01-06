@@ -204,22 +204,21 @@ np.random.seed(1)
 
 random_matrix = np.random.randint(0, 256, size=(30, 30), dtype=np.uint8)
 print(random_matrix)
-# print(random_matrix)
-# file_path = "random_matrix.txt"
+file_path = "random_matrix.txt"
 
-# with open('output_3x3.txt', 'a') as f:
-#     for row in random_matrix:
-#         f.write(' '.join(map(str, row)) + '\n')
-#     f.write('\n')
+with open('output_3x3.txt', 'a') as f:
+    for row in random_matrix:
+        f.write(' '.join(map(str, row)) + '\n')
+    f.write('\n')
+np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
 
-# padded_result = median_filter(random_matrix, size=3, mode='constant', cval=0)
+padded_result = median_filter(random_matrix, size=3, mode='constant', cval=0)
 
-# with open('output_3x3.txt', 'a') as f:
-#     for row in padded_result:
-#         f.write(' '.join(map(str, row)) + '\n')
+with open('output_3x3.txt', 'a') as f:
+    for row in padded_result:
+        f.write(' '.join(map(str, row)) + '\n')
 # np.savetxt(file_path, random_matrix, fmt='%d')
 
-np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
 # cpp_array = 'uint8_t array[30]307] = {\n'
 # for row in random_matrix:
 #     cpp_array += '{' + ', '.join(map(str, row)) + '},\n'

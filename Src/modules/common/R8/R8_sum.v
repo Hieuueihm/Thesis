@@ -3,7 +3,6 @@ module R8_sum #(parameter COLS = 11,
                (input clk,
                 input rst,
                 input cum_en,
-                input done_i,
                 input sum_en,
                 input count_en,
                 input start_en,
@@ -100,7 +99,7 @@ module R8_sum #(parameter COLS = 11,
             st1_S15 <= 0;
             st1_S16 <= 0;
             st1_S17 <= 0;
-            end else if (done_i) begin
+            end else  begin
             st1_S1  <= S1;
             st1_S2  <= S2;
             st1_S3  <= S3;
@@ -245,7 +244,7 @@ module R8_sum #(parameter COLS = 11,
             st3_S17 <= 0;
             st4_S17 <= 0;
             st5_S17 <= 0;
-            end else if (done_i) begin
+            end else  begin
             st2_S17 <= st1_S17;
             st3_S17 <= st2_S17;
             st4_S17 <= st3_S17;
@@ -305,7 +304,7 @@ module R8_sum #(parameter COLS = 11,
             for(i = 0; i < 16; i = i + 1) begin
                 st_sum2[i] <= 0;
             end
-            end else if (done_i) begin
+            end else  begin
             st_sum2[0] <= sum1;
             for(i = 0 ;i < 15; i = i + 1) begin
                 st_sum2[i + 1] <= st_sum2[i];
@@ -340,7 +339,7 @@ module R8_sum #(parameter COLS = 11,
                 central[i] <= 0;
             end
             
-            end else if (done_i) begin
+            end else  begin
             central[0] <= st1_S9;
             for(i = 0; i < 13; i = i + 1) begin
                 central[i + 1] <= central[i];

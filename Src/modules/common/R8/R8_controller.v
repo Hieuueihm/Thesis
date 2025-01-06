@@ -51,11 +51,11 @@ module R8_controller #(parameter COLS = 19)
     
     always @(*) begin
         case(current_state)
-            IDLE: next_state        = (done_i | i_row_eq_max) ? START : IDLE;
-            START : next_state      = (~done_i | i_row_eq_max) ? FINISH_ALL : (i_start_gt_3 == 1'b1) ? START_ROW : START;
-            START_ROW: next_state   = (~done_i | i_row_eq_max) ? FINISH_ALL : SUM_EN;
-            SUM_EN: next_state      = (~done_i | i_row_eq_max) ? FINISH_ALL : (i_counter > 15) ? CUM_EN : SUM_EN;
-            CUM_EN: next_state      = (~done_i | i_row_eq_max) ? FINISH_ALL : (i_counter > COLS - 2) ? START_ROW : CUM_EN;
+            IDLE: next_state        = (done_i) ? START : IDLE;
+            START : next_state      = (i_row_eq_max) ? FINISH_ALL : (i_start_gt_3 == 1'b1) ? START_ROW : START;
+            START_ROW: next_state   = (i_row_eq_max) ? FINISH_ALL : SUM_EN;
+            SUM_EN: next_state      = (i_row_eq_max) ? FINISH_ALL : (i_counter > 15) ? CUM_EN : SUM_EN;
+            CUM_EN: next_state      = (i_row_eq_max) ? FINISH_ALL : (i_counter > COLS - 2) ? START_ROW : CUM_EN;
             FINISH_ALL : next_state = DONE;
         endcase
     end
@@ -90,7 +90,6 @@ module R8_controller #(parameter COLS = 19)
                 done_o = 1'b1;
             end
             FINISH_ALL: begin
-                count_en = 1'b0;
                 count_en = 1'b0;
                 done_o   = 1'b0;
                 cum_en   = 1'b0;

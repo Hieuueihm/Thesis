@@ -1,4 +1,4 @@
-module Window_buffer_3x3_controller(input clk,
+module Window_buffer_5x5_controller(input clk,
                                     input rst,
                                     input done_i,
                                     input i_row_eq_max,
