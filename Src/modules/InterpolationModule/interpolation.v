@@ -31,7 +31,7 @@ module interpolation (input clk,
                       S6_o,
                       S7_o,
                       S8_o,
-                      mid_o output done_o);
+                      output done_o);
     
     // define LUT
     

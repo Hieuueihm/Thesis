@@ -12,7 +12,7 @@ module MRELBP_CI_R2 #(parameter COLS = 7,
                       output progress_done_o,
                       output done_o);
     
-    wire cum_en, sum_en, count_en, done_delayed;
+    wire cum_en, sum_en, count_en;
     wire [9:0] i_counter;
     wire i_start_gt_1;
     wire ld_en;
@@ -38,7 +38,6 @@ module MRELBP_CI_R2 #(parameter COLS = 7,
     .done_o(done_o_sum),
     .sum_en(sum_en),
     .count_en(count_en),
-    .done_delayed(done_delayed),
     .i_row_eq_max(i_row_eq_max),
     .start_en(start_en),
     .progress_done(progress_done_o)
@@ -50,7 +49,7 @@ module MRELBP_CI_R2 #(parameter COLS = 7,
     .clk(clk),
     .rst(rst),
     .cum_en(cum_en),
-    .done_delayed(done_delayed),
+    .done_i(done_i),
     .count_en(count_en),
     .sum_en(sum_en),
     .ld_en(ld_en),

@@ -3,7 +3,7 @@ module R6_sum #(parameter COLS = 11,
                (input clk,
                 input rst,
                 input cum_en,
-                input done_delayed,
+                input done_i,
                 input sum_en,
                 input count_en,
                 input start_en,
@@ -94,7 +94,7 @@ module R6_sum #(parameter COLS = 11,
             st1_S11 <= 0;
             st1_S12 <= 0;
             st1_S13 <= 0;
-            end else if (done_delayed) begin
+            end else if (done_i) begin
             st1_S1  <= S1;
             st1_S2  <= S2;
             st1_S3  <= S3;
@@ -196,7 +196,7 @@ module R6_sum #(parameter COLS = 11,
         if (rst) begin
             st2_S13 <= 0;
             st3_S13 <= 0;
-            end else if (done_delayed) begin
+            end else if (done_i) begin
             st2_S13 <= st1_S13;
             st3_S13 <= st2_S13;
             
@@ -242,7 +242,7 @@ module R6_sum #(parameter COLS = 11,
             for(i = 0; i < 12; i = i + 1) begin
                 st_sum2[i] <= 0;
             end
-            end else if (done_delayed) begin
+            end else if (done_i) begin
             st_sum2[0] <= sum1;
             for(i = 0 ;i < 11; i = i + 1) begin
                 st_sum2[i + 1] <= st_sum2[i];
@@ -276,7 +276,7 @@ module R6_sum #(parameter COLS = 11,
                 central[i] <= 0;
             end
             
-            end else if (done_delayed) begin
+            end else if (done_i) begin
             central[0] <= st1_S7;
             for(i = 0; i < 10; i = i + 1) begin
                 central[i + 1] <= central[i];

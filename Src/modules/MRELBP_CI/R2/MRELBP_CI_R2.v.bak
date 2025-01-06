@@ -10,14 +10,14 @@ module MRELBP_CI_R2 #(parameter COLS = 7,
                       input [7:0] S5,
                       output ci_o,
                       output progress_done_o,
-                      output reg done_o);
+                      output done_o);
     
-    wire cum_en, sum_en, count_en, done_delayed;
+    wire cum_en, sum_en, count_en;
     wire [9:0] i_counter;
     wire i_start_gt_1;
     wire ld_en;
-    wire start_en;
-    wire done_o_sum, done_o_mean;
+    wire start_en;U
+    wire done_o_sum;
     wire [12:0] sum_o;
     wire [7:0] central_value;
     
@@ -38,7 +38,6 @@ module MRELBP_CI_R2 #(parameter COLS = 7,
     .done_o(done_o_sum),
     .sum_en(sum_en),
     .count_en(count_en),
-    .done_delayed(done_delayed),
     .i_row_eq_max(i_row_eq_max),
     .start_en(start_en),
     .progress_done(progress_done_o)
@@ -50,7 +49,7 @@ module MRELBP_CI_R2 #(parameter COLS = 7,
     .clk(clk),
     .rst(rst),
     .cum_en(cum_en),
-    .done_delayed(done_delayed),
+    .done_i(done_i),
     .count_en(count_en),
     .sum_en(sum_en),
     .ld_en(ld_en),
@@ -76,25 +75,16 @@ module MRELBP_CI_R2 #(parameter COLS = 7,
     .sum_i(sum_o),
     .muy(muy),
     .r(r),
-    .done_o(done_o_mean));
+    .done_o(done_o));
     
-    always @(posedge clk) begin
-        if (rst) begin
-            done_o <= 0;
-            end else if (done_o_mean) begin
-            done_o <= done_o_mean;
-        end
-        else begin
-            done_o <= 0;
-        end
-    end
+    
     
     reg [7:0] central_value_delayed;
     always @(posedge clk) begin
         if (rst) begin
             central_value_delayed <= 0;
-            end else if (done_o_mean) begin
-            central_value_delayed <= central_value
+            end else  begin
+            central_value_delayed <= central_value;
         end
         
     end

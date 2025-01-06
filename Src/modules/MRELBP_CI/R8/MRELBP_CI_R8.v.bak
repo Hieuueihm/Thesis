@@ -1,5 +1,5 @@
-module MRELBP_CI_R6 #(parameter COLS = 15,
-                      parameter ROWS = 15)
+module MRELBP_CI_R8 #(parameter COLS = 19,
+                      parameter ROWS = 19)
                      (input clk,
                       input rst,
                       input done_i,
@@ -16,6 +16,10 @@ module MRELBP_CI_R6 #(parameter COLS = 15,
                       input [7:0] S11,
                       input [7:0] S12,
                       input [7:0] S13,
+                      S14,
+                      S15,
+                      S16,
+                      S17,
                       output ci_o,             // 0 or 1
                       output done_o,
                       output progress_done_o);
@@ -23,28 +27,27 @@ module MRELBP_CI_R6 #(parameter COLS = 15,
     
     
     
-    wire cum_en, sum_en, count_en;
+    wire cum_en, sum_en, count_en, done_i;
     wire [9:0] i_counter;
-    wire i_start_gt_2;
+    wire i_start_gt_3;
     wire ld_en;
     wire start_en;
     wire done_o_sum;
-    wire [15:0] sum_o;
+    wire [16:0] sum_o;
     wire [7:0] central_value;
     wire i_row_eq_max;
-    
     
     wire [7:0] muy;
     wire [7:0] r;
     
-    R6_controller #(.COLS(COLS)) R6_CONTROLLER
+    R8_controller #(.COLS(COLS)) R8_CONTROLLER
     
     (
     .clk(clk),
     .rst(rst),
     .done_i(done_i),
     .i_counter(i_counter),
-    .i_start_gt_2(i_start_gt_2),
+    .i_start_gt_3(i_start_gt_3),
     .ld_en(ld_en),
     .cum_en(cum_en),
     .done_o(done_o_sum),
@@ -56,7 +59,7 @@ module MRELBP_CI_R6 #(parameter COLS = 15,
     
     );
     
-    R6_sum #(.COLS(COLS),.ROWS(ROWS)) R6_SUM
+    R8_sum #(.COLS(COLS),.ROWS(ROWS)) R8_SUM
     (
     .clk(clk),
     .rst(rst),
@@ -78,9 +81,13 @@ module MRELBP_CI_R6 #(parameter COLS = 15,
     .S11(S11),
     .S12(S12),
     .S13(S13),
+    .S14(S14),
+    .S15(S15),
+    .S16(S16),
+    .S17(S17),
     .sum_o(sum_o),
     .i_counter(i_counter),
-    .i_start_gt_2(i_start_gt_2),
+    .i_start_gt_3(i_start_gt_3),
     .i_row_eq_max(i_row_eq_max),
     .central_value(central_value),
     .start_en(start_en)
@@ -88,7 +95,7 @@ module MRELBP_CI_R6 #(parameter COLS = 15,
     
     );
     
-    R6_mean R6_MEAN_INSTANCE(
+    R8_mean R8_MEAN_INSTANCE(
     .clk(clk),
     .rst(rst),
     .done_i(done_o_sum),

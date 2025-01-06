@@ -202,7 +202,7 @@ class MRELBP():
 np.random.seed(1)
 
 
-random_matrix = np.random.randint(0, 256, size=(7, 7), dtype=np.uint8)
+random_matrix = np.random.randint(0, 256, size=(30, 30), dtype=np.uint8)
 print(random_matrix)
 # print(random_matrix)
 # file_path = "random_matrix.txt"
@@ -219,7 +219,7 @@ print(random_matrix)
 #         f.write(' '.join(map(str, row)) + '\n')
 # np.savetxt(file_path, random_matrix, fmt='%d')
 
-# np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
+np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
 # cpp_array = 'uint8_t array[30]307] = {\n'
 # for row in random_matrix:
 #     cpp_array += '{' + ', '.join(map(str, row)) + '},\n'
@@ -232,6 +232,6 @@ print(random_matrix)
 #     f.write(cpp_array)
 
 lbp = MRELBP()
-lbp.interpolationProcessing(random_matrix, 2)
+# lbp.interpolationProcessing(random_matrix, 2)
 
-# lbp.CI_test(random_matrix)
+lbp.CI_test(random_matrix)

@@ -3,7 +3,7 @@ module R4_sum #(parameter COLS = 11,
                (input clk,
                 input rst,
                 input cum_en,
-                input done_delayed,
+                input done_i,
                 input sum_en,
                 input count_en,
                 input start_en,
@@ -86,7 +86,7 @@ module R4_sum #(parameter COLS = 11,
             st1_S7 <= 0;
             st1_S8 <= 0;
             st1_S9 <= 0;
-            end else if (done_delayed) begin
+            end else if (done_i) begin
             st1_S1 <= S1;
             st1_S2 <= S2;
             st1_S3 <= S3;
@@ -166,7 +166,7 @@ module R4_sum #(parameter COLS = 11,
             st2_S9 <= 0;
             st3_S9 <= 0;
             st4_S9 <= 0;
-            end else if (done_delayed) begin
+            end else if (done_i) begin
             st2_S9 <= st1_S9;
             st3_S9 <= st2_S9;
             st4_S9 <= st3_S9;
@@ -204,7 +204,7 @@ module R4_sum #(parameter COLS = 11,
             for(i = 0; i < 8; i = i + 1) begin
                 st_sum2[i] <= 0;
             end
-            end else if (done_delayed) begin
+            end else if (done_i) begin
             st_sum2[0] <= sum1;
             for(i = 0 ;i < 7; i = i + 1) begin
                 st_sum2[i + 1] <= st_sum2[i];
@@ -239,7 +239,7 @@ module R4_sum #(parameter COLS = 11,
                 central[i] <= 0;
             end
             
-            end else if (done_delayed) begin
+            end else if (done_i) begin
             central[0] <= st1_S5;
             for(i = 0; i < 8; i = i + 1) begin
                 central[i + 1] <= central[i];

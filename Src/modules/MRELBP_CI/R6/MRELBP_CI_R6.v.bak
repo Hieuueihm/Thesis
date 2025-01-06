@@ -23,7 +23,7 @@ module MRELBP_CI_R6 #(parameter COLS = 15,
     
     
     
-    wire cum_en, sum_en, count_en;
+    wire cum_en, sum_en, count_en, done_i;
     wire [9:0] i_counter;
     wire i_start_gt_2;
     wire ld_en;

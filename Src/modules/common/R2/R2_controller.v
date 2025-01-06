@@ -11,28 +11,7 @@ module R2_controller #(parameter COLS = 7)
                        output reg count_en,
                        output reg start_en,
                        output reg ld_en,
-                       output reg progress_done,
-                       output done_delayed);
-    
-    // i_col = 0 -> done_o = 0
-    reg [9:0] counter;
-    reg done_extended;
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
-            counter       <= 0;
-            done_extended <= 0;
-            end else if (done_i) begin
-            counter       <= 0;
-            done_extended <= 1;
-            end else if (done_extended && counter < COLS) begin
-            counter       <= counter + 1;
-            done_extended <= 1;
-            end else begin
-            counter       <= 0;
-            done_extended <= 0;
-        end
-    end
-    assign  done_delayed = (done_i | done_extended);
+                       output reg progress_done);
     
     reg [2:0] current_state, next_state;
     parameter IDLE       = 3'b000;
@@ -52,11 +31,11 @@ module R2_controller #(parameter COLS = 7)
     
     always @(*) begin
         case(current_state)
-            IDLE: next_state        = (done_delayed | i_row_eq_max) ? START : IDLE;
-            START : next_state      = (~done_delayed | i_row_eq_max) ? FINISH_ALL : (i_start_gt_1 == 1'b1) ? START_ROW : START;
-            START_ROW: next_state   = (~done_delayed | i_row_eq_max) ? FINISH_ALL : SUM_EN;
-            SUM_EN: next_state      = (~done_delayed | i_row_eq_max) ? FINISH_ALL : (i_counter > 3) ? CUM_EN : SUM_EN;
-            CUM_EN: next_state      = (~done_delayed | i_row_eq_max) ? FINISH_ALL : (i_counter > COLS - 2) ? START_ROW : CUM_EN;
+            IDLE: next_state        = (done_i | i_row_eq_max) ? START : IDLE;
+            START : next_state      = (~done_i | i_row_eq_max) ? FINISH_ALL : (i_start_gt_1 == 1'b1) ? START_ROW : START;
+            START_ROW: next_state   = (~done_i | i_row_eq_max) ? FINISH_ALL : SUM_EN;
+            SUM_EN: next_state      = (~done_i | i_row_eq_max) ? FINISH_ALL : (i_counter > 3) ? CUM_EN : SUM_EN;
+            CUM_EN: next_state      = (~done_i | i_row_eq_max) ? FINISH_ALL : (i_counter > COLS - 2) ? START_ROW : CUM_EN;
             FINISH_ALL : next_state = DONE;
         endcase
     end

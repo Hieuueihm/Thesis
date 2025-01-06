@@ -3,7 +3,7 @@ module R2_sum #(parameter COLS = 7,
                (input clk,
                 input rst,
                 input cum_en,
-                input done_delayed,
+                input done_i,
                 input sum_en,
                 input count_en,
                 input start_en,
@@ -79,7 +79,7 @@ module R2_sum #(parameter COLS = 7,
             st1_S3 <= 0;
             st1_S4 <= 0;
             st1_S5 <= 0;
-            end else if (done_delayed) begin
+            end else if (done_i) begin
             st1_S1 <= S1;
             st1_S2 <= S2;
             st1_S3 <= S3;
@@ -93,7 +93,7 @@ module R2_sum #(parameter COLS = 7,
     always @(posedge clk) begin
         if (rst) begin
             st2_S5 <= 0;
-            end else if (done_delayed) begin
+            end else if (done_i) begin
             st2_S5 <= st1_S5;
             
         end
@@ -130,7 +130,7 @@ module R2_sum #(parameter COLS = 7,
     always @(posedge clk) begin
         if (rst) begin
             st3_S5 <= 0;
-            end else if (done_delayed) begin
+            end else if (done_i) begin
             st3_S5 <= st2_S5;
             
         end
@@ -155,7 +155,7 @@ module R2_sum #(parameter COLS = 7,
             st2_sum2 <= 0;
             st3_sum2 <= 0;
             st4_sum2 <= 0;
-            end else if (done_delayed) begin
+            end else if (done_i) begin
             st1_sum2 <= sum1;
             st2_sum2 <= st1_sum2;
             st3_sum2 <= st2_sum2;
@@ -194,7 +194,7 @@ module R2_sum #(parameter COLS = 7,
             central_5 <= 0;
             central_6 <= 0;
             
-            end else if (done_delayed) begin
+            end else if (done_i) begin
             central_1 <= st1_S3;
             central_2 <= central_1;
             central_3 <= central_2;

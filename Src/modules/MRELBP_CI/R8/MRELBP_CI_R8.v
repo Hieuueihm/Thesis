@@ -27,7 +27,7 @@ module MRELBP_CI_R8 #(parameter COLS = 19,
     
     
     
-    wire cum_en, sum_en, count_en, done_delayed;
+    wire cum_en, sum_en, count_en;
     wire [9:0] i_counter;
     wire i_start_gt_3;
     wire ld_en;
@@ -53,7 +53,6 @@ module MRELBP_CI_R8 #(parameter COLS = 19,
     .done_o(done_o_sum),
     .sum_en(sum_en),
     .count_en(count_en),
-    .done_delayed(done_delayed),
     .start_en(start_en),
     .i_row_eq_max(i_row_eq_max),
     .progress_done(progress_done_o)
@@ -65,7 +64,7 @@ module MRELBP_CI_R8 #(parameter COLS = 19,
     .clk(clk),
     .rst(rst),
     .cum_en(cum_en),
-    .done_delayed(done_delayed),
+    .done_i(done_i),
     .count_en(count_en),
     .sum_en(sum_en),
     .ld_en(ld_en),
