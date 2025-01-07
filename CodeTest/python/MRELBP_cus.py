@@ -238,6 +238,17 @@ class MRELBP():
 
 
     def getInterNeighbors(self, image, r, i, j):
+        if r == 1:
+            S =  np.zeros(9, dtype = np.uint8)
+            S[1] = image[i, j + r]
+            S[2] = image[i -r , j + r]
+            S[3] = image[i -r, j]
+            S[4] = image[i -r, j - r]
+            S[5] = image[i, j -r ]
+            S[6] = image[i + r, j - r]
+            S[7] = image[i + r , j]
+            S[8] = image[i + r, j + r]
+            return S
         angles = [45, 135, 225, 315]
         results = {}
         S =  np.zeros(9)
@@ -268,13 +279,26 @@ class MRELBP():
         RD = np.zeros((width - 2 * r2, height - 2 * r2))
         r1 = r2 - 1
     
-
+        # k = 0
         for i in range(r2,height - r2):
             for j in range(r2,width -r2):
                 area = image_r2[i - r2  : i  + r2 + 1 , j  - r2 :j + r2 + 1]
                 sum_r2_patch = np.sum(area)
+                # k += 1
                 r1_descriptor = self.getInterNeighbors(image_r1, r1, i, j)
-                r2_descriptor = self.getInterNeighbors(image_r2, r2, i, j)               
+                r2_descriptor = self.getInterNeighbors(image_r2, r2, i, j)
+
+                # r1_descriptor_str = str(r1_descriptor)
+                # with open("r1_inter", "a") as file:
+                #     file.write(r1_descriptor_str + "\n") 
+
+                # r2_descriptor_str = str(r2_descriptor)
+                # with open("r2_inter", "a") as file:
+                #     file.write(r2_descriptor_str + "\n") 
+                #     file.write("\n")
+                # for i in range(0, 9):
+                #     print(r2_descriptor)
+                # return               
                 NI[i - r2, j - r2] = self.getNIDescriptor(r2_descriptor, r2, sum_r2_patch)
                 RD[i - r2, j - r2] = self.getRDDescriptor(r2_descriptor, r1_descriptor)
        
@@ -286,7 +310,7 @@ class MRELBP():
 np.random.seed(1)
 
 
-random_matrix = np.random.randint(0, 256, size=(100, 100), dtype=np.uint8)
+random_matrix = np.random.randint(0, 256, size=(30, 30), dtype=np.uint8)
 median_matrix = median_filter(random_matrix, size=3, mode='constant', cval=0)
 
 print(random_matrix)
@@ -297,7 +321,7 @@ print(median_matrix)
 #     for row in random_matrix:
 #         f.write(' '.join(map(str, row)) + '\n')
 #     f.write('\n')
-# np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
+np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
 
 # padded_result = median_filter(random_matrix, size=3, mode='constant', cval=0)
 
@@ -318,6 +342,6 @@ print(median_matrix)
 #     f.write(cpp_array)
 
 lbp = MRELBP()
-lbp.MRELBP(random_matrix)
-
+# lbp.MRELBP(random_matrix)
+lbp.getNI_RD(random_matrix, median_matrix, 2)
 # lbp.CI_test(random_matrix)

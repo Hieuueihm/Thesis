@@ -1,5 +1,5 @@
-module Data_modulate_5x5 #(parameter ROWS,
-                           parameter COLS)
+module Data_modulate_5x5 #(parameter ROWS = 7,
+                           parameter COLS = 7)
                           (input clk,
                            input rst,
                            input [7:0] d0_i,

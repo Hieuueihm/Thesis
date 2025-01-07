@@ -1,10 +1,10 @@
-module Data_modulate_3x3 #(parameter ROWS,
-                           parameter COLS)
+module Data_modulate_3x3 #(parameter ROWS = 5,
+                           parameter COLS = 5)
                           (input clk,
                            input rst,
-                           input [7:0] d0_i,  // 99
-                           input [7:0] d1_i,  // 8
-                           input [7:0] d2_i,  // 7
+                           input [7:0] d0_i,   // 99
+                           input [7:0] d1_i,   // 8
+                           input [7:0] d2_i,   // 7
                            input [7:0] d3_i,
                            input [7:0] d4_i,
                            input [7:0] d5_i,

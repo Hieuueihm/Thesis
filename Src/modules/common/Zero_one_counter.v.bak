@@ -9,19 +9,10 @@ module Zero_one_counter(input clk,
     
     
     // bit one
-    
-    dff #(.WIDTH(1)) DONE_DFF (
-    .clk(clk),
-    .rst(rst),
-    .en(1'b1),
-    .D(progress_done_i),
-    .Q(done_o)
-    );
-    
     wire [15:0] bit_one, bit_zero;
     wire [15:0] mux_1;
     wire [15:0] mux_2;
-    assign mux_2 = (data_i == 1'b1) ? bit_one: bit_zero;
+    assign mux_2 = (data_i == 1'b1) ? bit_one ? bit_zero;
     assign mux_1 = (rst == 1'b1) ? 16'b0 : mux_2;
     wire [15:0] sum_with_1;
     assign sum_with_1 = mux_1 + 1;

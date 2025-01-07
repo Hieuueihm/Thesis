@@ -1,5 +1,5 @@
-module Data_modulate_3x3_datapath #(parameter ROWS,
-                                    parameter COLS)
+module Data_modulate_3x3_datapath #(parameter ROWS = 5,
+                                    parameter COLS = 5)
                                    (input clk,
                                     input rst,
                                     input [7:0] d0_i,        // 99

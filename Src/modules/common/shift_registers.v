@@ -1,5 +1,5 @@
 module shift_registers #(parameter WIDTH = 8,
-                         parameter CYCLE)
+                         parameter CYCLE = 5)
                         (input clk,
                          input rst,
                          input [WIDTH - 1 : 0] data_i,

@@ -1,4 +1,4 @@
-module Preparation #(parameter DEPTH)
+module Preparation #(parameter DEPTH = 10)
                     (input clk,
                      input rst,
                      input done_i,
