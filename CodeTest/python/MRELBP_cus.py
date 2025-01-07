@@ -61,8 +61,8 @@ class MRELBP():
                 pixel_central[i, j] = image[i + 2 * x][j + 2 * x]
                 scale_value = pixel_central[i, j] * ((2*in_r + 1)**2)
     
-                if scale_value == sum_o[i, j]:
-                    print(i, j)
+                # if scale_value == sum_o[i, j]:
+                #     print(i, j)
 
                 out[i,j] =  (scale_value >= sum_o[i, j])
                 coup[i, j] =  (sum_o[i, j], scale_value, out[i, j], pixel_central[i, j])
@@ -126,91 +126,178 @@ class MRELBP():
             image[x2, y2] * r4
         )
 
-        print(image[x1, y1], image[x1, y2], image[x2, y1], image[x2, y2])
-        print(interpolated_value)
+        # print(image[x1, y1], image[x1, y2], image[x2, y1], image[x2, y2])
+        # print(interpolated_value)
 
 
         return interpolated_value
     
 
-    def interpolationProcessing(self, image_r1, image_r2, r):
-        width, height = image_r2.shape
-        NI = np.zeros((width - 2 * r, height - 2 * r))
-        RD = np.zeros((width - 2 * r, height - 2 * r))
+    def getNIDescriptor(self, NI, r, sum):
+        ni_des = 0
+        for index in range(1, 9):
+            scale_value = NI[index] * ((2 * r + 1) ** 2)
+            # print(scale_value)
+            if scale_value >= sum:
+                ni_des  = ni_des + 2**(index - 1)
 
+        return ni_des
 
-        angles = [45, 135, 225, 315]
-        r2 = r - 1
+    def getRDDescriptor(self, r2, r1):
+        sum = 0
+        for i in range(1, 9):
+            if r2[i] >= r1[i]:
+                sum = sum + 2**(i - 1)
 
-        for i in range(r,height - r):
-            for j in range(r,width -r):
-                area = image_r2[i - r  : i  + r + 1 , j  - r :j + r + 1]
-                # print(area)
-                # return
-                # print(image[i, j])
+        return sum
+    def ror(self, pixel):
+        min_value = 255  
+        binary_pixel = bin(pixel)[2:].zfill(8)
+        binary_pixel_int = int(binary_pixel, 2)
 
-                results = {}
+        for i in range(8):
+            # Perform circular right shift
+            result = ((binary_pixel_int >> i) | ((binary_pixel_int << (8 - i))) & 0xFF)
+            if min_value > result:
+                min_value = result
+        return  min_value
+    
+    def checkU2(self, pixel):
 
-                muy = np.mean(area)
+        binary_pixel = bin(pixel)[2:].zfill(8)
+        # print(binary_pixel)
+    
+        transitions = 0
 
-                S = np.zeros(9)
+        for i in range(8):
+            current_bit = binary_pixel[i]
+            next_bit = binary_pixel[(i + 1) % 8]  #
 
-                S[1] = image_r2[i, j + r]
-                # S2 -> 45
-                S[3] = image_r2[i - r, j]
-                S[5] = image_r2[i, j - r]
-                S[7] = image_r2[i + r, j]
+            # Check transitions
+            if current_bit == '1' and next_bit == '0':
+                transitions += 1
+            elif current_bit == '0' and next_bit == '1':
+                transitions += 1
 
-                for angle in angles:
-                    theta = np.radians(angle)
-                    target_x = i - r * np.sin(theta)
-                    target_y = j + r * np.cos(theta)
-                    # print(target_x, target_y)
-                    results[f"{angle}"] = self.getInterpolation(image_r2, target_x, target_y, r)
-                
-                S[2] = results["45"]
-                S[4] = results["135"]
-                S[6] = results["225"]
-                S[8] = results["315"]
-                return
+        # Print the results
+        return transitions
+    def getSumPixel(self, pixel):
+        sum = 0
+        binary_pixel = bin(pixel)[2:].zfill(8)
+        for i in range(0, 8):
+            sum += int(binary_pixel[i]) 
+        return sum
+            
 
-                # X = np.zeros(9)
-                # if(r2 == 1):
-                #  X[1] = image[]   
-
-
-
-               
-
-                # print(S[1], S[3], S[5], S[7])
-                # print(S[2], S[4], S[6], S[8])
-                sum = 0
-                for k in range(1, 9):
-                    if(S[k] >= muy):
-                        sum = sum + 2**(k - 1)
-                
-                NI[i - r][j - r] = sum
-
-
-
+    def NI_RD_descriptor(self, image_r1, image_r2, r2):
+        NI, RD = self.getNI_RD(image_r1, image_r2, r2)
         # print(NI)
+        # print(RD)
+        NI_out  = np.zeros(NI.shape, dtype= np.uint8)
+        RD_out  = np.zeros(NI.shape, dtype= np.uint8)
+        NI_width, NI_height = NI.shape
+        for i in range(0, NI_height):
+            for j in range(0, NI_width):
+                NI_min = self.ror(np.uint8(NI[i, j]))
+                NI_transitions = self.checkU2(NI_min)
+                NI_des = 0
+                if NI_transitions <= 2:
+                    NI_des = self.getSumPixel(NI_min)
+                else:
+                    NI_des = 9
+                NI_out[i, j] = NI_des
 
+                RD_min  = self.ror(np.uint8(RD[i, j]))
+                RD_transitions = self.checkU2(RD_min)
+                RD_des = 0
+                if RD_transitions <= 2:
+                    RD_des = self.getSumPixel(RD_min)
+                else:
+                    RD_des = 9
+                RD_out[i, j] = RD_des
+        
+        NI_histogram = np.zeros(10, dtype = np.uint8)
+        RD_histogram = np.zeros(10, dtype = np.uint8)
+        for i in range(0, NI_height):
+            for j in range(0, NI_width):
+                NI_histogram[NI_out[i, j]] += 1
+                RD_histogram[RD_out[i, j]] += 1
+        return NI_histogram, RD_histogram
+    def MRELBP(self, image):
+        m_3x3, m_5x5, m_7x7, m_9x9 = self.median_processing(image)
+        # r = 2
+        hist_r2, sum_r2 = self.mrelbp_ci(m_3x3, 2)
+        NI_r2, RD_r2 = self.NI_RD_descriptor(image, m_3x3, 2)
+
+        print(hist_r2)
+        print(NI_r2)
+
+        print(RD_r2)
+
+
+
+
+    def getInterNeighbors(self, image, r, i, j):
+        angles = [45, 135, 225, 315]
+        results = {}
+        S =  np.zeros(9)
+        S[1] = image[i, j + r]
+                # S2 -> 45
+        S[3] = image[i - r, j]
+        S[5] = image[i, j - r]
+        S[7] = image[i + r, j]
+        # print(S[1], S[3], S[5], S[7])
+
+        for angle in angles:
+            theta = np.radians(angle)
+            target_x = i - r * np.sin(theta)
+            target_y = j + r * np.cos(theta)
+                    # print(target_x, target_y)
+            results[f"{angle}"] = self.getInterpolation(image, target_x, target_y, r)
+                
+        S[2] = results["45"]
+        S[4] = results["135"]
+        S[6] = results["225"]
+        S[8] = results["315"]
+
+        return S
+
+    def getNI_RD(self, image_r1, image_r2, r2):
+        width, height = image_r2.shape
+        NI = np.zeros((width - 2 * r2, height - 2 * r2))
+        RD = np.zeros((width - 2 * r2, height - 2 * r2))
+        r1 = r2 - 1
+    
+
+        for i in range(r2,height - r2):
+            for j in range(r2,width -r2):
+                area = image_r2[i - r2  : i  + r2 + 1 , j  - r2 :j + r2 + 1]
+                sum_r2_patch = np.sum(area)
+                r1_descriptor = self.getInterNeighbors(image_r1, r1, i, j)
+                r2_descriptor = self.getInterNeighbors(image_r2, r2, i, j)               
+                NI[i - r2, j - r2] = self.getNIDescriptor(r2_descriptor, r2, sum_r2_patch)
+                RD[i - r2, j - r2] = self.getRDDescriptor(r2_descriptor, r1_descriptor)
+       
+        return NI, RD
 
 
 
 # Example Usage
-np.random.seed(2)
+np.random.seed(1)
 
 
-random_matrix = np.random.randint(0, 256, size=(30, 30), dtype=np.uint8)
-# print(random_matrix)
+random_matrix = np.random.randint(0, 256, size=(100, 100), dtype=np.uint8)
+median_matrix = median_filter(random_matrix, size=3, mode='constant', cval=0)
+
+print(random_matrix)
+print(median_matrix)
 # file_path = "random_matrix.txt"
 
 # with open('output_3x3.txt', 'a') as f:
 #     for row in random_matrix:
 #         f.write(' '.join(map(str, row)) + '\n')
 #     f.write('\n')
-np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
+# np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
 
 # padded_result = median_filter(random_matrix, size=3, mode='constant', cval=0)
 
@@ -231,6 +318,6 @@ np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matri
 #     f.write(cpp_array)
 
 lbp = MRELBP()
-# lbp.interpolationProcessing(random_matrix, 2)
+lbp.MRELBP(random_matrix)
 
-lbp.CI_test(random_matrix)
+# lbp.CI_test(random_matrix)

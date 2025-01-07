@@ -47,7 +47,7 @@ module Window_buffer_3x3_datapath #(parameter COLS = 5,
     assign i_counter          = (i_col_eq_max == 1'b1) ? 0: i_counter_plus_1;
     
     assign i_row        = (i_col_eq_max) ? i_row : i_row_plus_1;
-    assign i_row_eq_max = (i_row_plus_1 == ROWS - 2) ? 1'b1 : 1'b0;
+    assign i_row_eq_max = (i_row_plus_1 == ROWS - 3) ? 1'b1 : 1'b0;
     
     
     reg [7:0] S1_delay;

@@ -20,9 +20,6 @@ module MRELBP_CI_R2 #(parameter COLS = 7,
     wire done_o_sum;
     wire [12:0] sum_o;
     wire [7:0] central_value;
-    
-    wire [7:0] muy;
-    wire [7:0] r;
     wire i_row_eq_max;
     
     R2_controller #(.COLS(COLS)) R2_CONTROLLER
@@ -67,27 +64,27 @@ module MRELBP_CI_R2 #(parameter COLS = 7,
     
     );
     
-    R2_mean R2_MEAN_INSTANCE(
-    .clk(clk),
-    .rst(rst),
-    .done_i(done_o_sum),
-    .sum_i(sum_o),
-    .muy(muy),
-    .r(r),
-    .done_o(done_o));
     
-    
-    
-    reg [7:0] central_value_delayed;
+    reg [25:0] scale_value;
+    reg done_scale;
+    reg [12:0] sum_o_delay;
     always @(posedge clk) begin
         if (rst) begin
-            central_value_delayed <= 0;
-            end else  begin
-            central_value_delayed <= central_value;
+            done_scale  <= 0;
+            scale_value <= 0;
+            sum_o_delay <= 0;
+            end else begin
+            done_scale  <= done_o_sum;
+            scale_value <= central_value * 25;
+            sum_o_delay <= sum_o;
         end
-        
     end
     
-    assign ci_o = (central_value_delayed > muy || (central_value_delayed == muy && r == 0)) ? 1'b1 : 1'b0;
+    assign ci_o   = (scale_value < sum_o_delay) ? 1'b0: 1'b1;
+    assign done_o = done_scale;
+    
+    
+    
+    
     
 endmodule

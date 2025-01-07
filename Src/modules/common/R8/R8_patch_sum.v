@@ -1,4 +1,4 @@
-module MRELBP_CI_R8 #(parameter COLS = 19,
+module R8_patch_sum #(parameter COLS = 19,
                       parameter ROWS = 19)
                      (input clk,
                       input rst,
@@ -20,7 +20,7 @@ module MRELBP_CI_R8 #(parameter COLS = 19,
                       S15,
                       S16,
                       S17,
-                      output ci_o,             // 0 or 1
+                      output [16:0] sum_o,     // 0 or 1
                       output done_o,
                       output progress_done_o);
     
@@ -32,8 +32,6 @@ module MRELBP_CI_R8 #(parameter COLS = 19,
     wire i_start_gt_3;
     wire ld_en;
     wire start_en;
-    wire done_o_sum;
-    wire [16:0] sum_o;
     wire [7:0] central_value;
     wire i_row_eq_max;
     
@@ -48,7 +46,7 @@ module MRELBP_CI_R8 #(parameter COLS = 19,
     .i_start_gt_3(i_start_gt_3),
     .ld_en(ld_en),
     .cum_en(cum_en),
-    .done_o(done_o_sum),
+    .done_o(done_o),
     .sum_en(sum_en),
     .count_en(count_en),
     .start_en(start_en),
@@ -92,22 +90,5 @@ module MRELBP_CI_R8 #(parameter COLS = 19,
     
     );
     
-    reg [33:0] scale_value;
-    reg done_scale;
-    reg [16:0] sum_o_delay;
-    always @(posedge clk) begin
-        if (rst) begin
-            done_scale  <= 0;
-            scale_value <= 0;
-            sum_o_delay <= 0;
-            end else begin
-            done_scale  <= done_o_sum;
-            scale_value <= central_value * 289; //delay
-            sum_o_delay <= sum_o;
-        end
-    end
-    
-    assign ci_o   = (scale_value < sum_o_delay) ? 1'b0: 1'b1;
-    assign done_o = done_scale;
     
 endmodule

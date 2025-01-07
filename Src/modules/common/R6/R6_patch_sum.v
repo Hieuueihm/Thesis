@@ -1,5 +1,5 @@
-module MRELBP_CI_R8 #(parameter COLS = 19,
-                      parameter ROWS = 19)
+module R6_patch_sum #(parameter COLS = 15,
+                      parameter ROWS = 15)
                      (input clk,
                       input rst,
                       input done_i,
@@ -16,11 +16,7 @@ module MRELBP_CI_R8 #(parameter COLS = 19,
                       input [7:0] S11,
                       input [7:0] S12,
                       input [7:0] S13,
-                      S14,
-                      S15,
-                      S16,
-                      S17,
-                      output ci_o,             // 0 or 1
+                      output [15:0] sum_o,
                       output done_o,
                       output progress_done_o);
     
@@ -29,26 +25,23 @@ module MRELBP_CI_R8 #(parameter COLS = 19,
     
     wire cum_en, sum_en, count_en;
     wire [9:0] i_counter;
-    wire i_start_gt_3;
+    wire i_start_gt_2;
     wire ld_en;
     wire start_en;
-    wire done_o_sum;
-    wire [16:0] sum_o;
     wire [7:0] central_value;
     wire i_row_eq_max;
     
-    
-    R8_controller #(.COLS(COLS)) R8_CONTROLLER
+    R6_controller #(.COLS(COLS)) R6_CONTROLLER
     
     (
     .clk(clk),
     .rst(rst),
     .done_i(done_i),
     .i_counter(i_counter),
-    .i_start_gt_3(i_start_gt_3),
+    .i_start_gt_2(i_start_gt_2),
     .ld_en(ld_en),
     .cum_en(cum_en),
-    .done_o(done_o_sum),
+    .done_o(done_o),
     .sum_en(sum_en),
     .count_en(count_en),
     .start_en(start_en),
@@ -57,7 +50,7 @@ module MRELBP_CI_R8 #(parameter COLS = 19,
     
     );
     
-    R8_sum #(.COLS(COLS),.ROWS(ROWS)) R8_SUM
+    R6_sum #(.COLS(COLS),.ROWS(ROWS)) R6_SUM
     (
     .clk(clk),
     .rst(rst),
@@ -78,36 +71,14 @@ module MRELBP_CI_R8 #(parameter COLS = 19,
     .S11(S11),
     .S12(S12),
     .S13(S13),
-    .S14(S14),
-    .S15(S15),
-    .S16(S16),
-    .S17(S17),
     .sum_o(sum_o),
     .i_counter(i_counter),
-    .i_start_gt_3(i_start_gt_3),
+    .i_start_gt_2(i_start_gt_2),
     .i_row_eq_max(i_row_eq_max),
     .central_value(central_value),
     .start_en(start_en)
     
     
     );
-    
-    reg [33:0] scale_value;
-    reg done_scale;
-    reg [16:0] sum_o_delay;
-    always @(posedge clk) begin
-        if (rst) begin
-            done_scale  <= 0;
-            scale_value <= 0;
-            sum_o_delay <= 0;
-            end else begin
-            done_scale  <= done_o_sum;
-            scale_value <= central_value * 289; //delay
-            sum_o_delay <= sum_o;
-        end
-    end
-    
-    assign ci_o   = (scale_value < sum_o_delay) ? 1'b0: 1'b1;
-    assign done_o = done_scale;
     
 endmodule
