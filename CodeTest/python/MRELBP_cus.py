@@ -75,7 +75,7 @@ class MRELBP():
         # np.savetxt("diff.txt", pixel_central - muy_arr_central, fmt='%d')
         # np.savetxt("coup.txt", coup_array, fmt='%s')
         centre_hist = np.array([np.sum(out == 1), np.sum(out == 0)], dtype=np.int32)
-        return centre_hist, sum_o
+        return centre_hist, sum_o, out
 
     def CI_test(self, image):
         m_3x3, m_5x5, m_7x7, m_9x9 = self.median_processing(image)
@@ -83,15 +83,16 @@ class MRELBP():
         # np.savetxt("matrix_3x3_o", m_3x3, fmt='%d')
 
 
-        hist_r2, sum_r2 = self.mrelbp_ci(m_3x3, 2)
-        hist_r4, sum_r4 = self.mrelbp_ci(m_3x3, 4)
-        hist_r6, sum_r6 = self.mrelbp_ci(m_3x3, 6)
-        hist_r8, sum_r8 = self.mrelbp_ci(m_3x3, 8)
+        hist_r2, sum_r2, out_r2 = self.mrelbp_ci(m_3x3, 2)
+        hist_r4, sum_r4, out_r4 = self.mrelbp_ci(m_3x3, 4)
+        hist_r6, sum_r6, out_r6 = self.mrelbp_ci(m_3x3, 6)
+        hist_r8, sum_r8, out_r8 = self.mrelbp_ci(m_3x3, 8)
 
         # print(hist_r8)
 
 
-        print(hist_r2, hist_r4, hist_r6, hist_r8)
+        # print(hist_r2, hist_r4, hist_r6, hist_r8)
+        print(out_r2)
         # np.savetxt("sum_8.txt", sum_r8, fmt='%d')
 
     def to_fixed_point(self, value, frac_bits=16):
@@ -198,20 +199,20 @@ class MRELBP():
         NI_width, NI_height = NI.shape
         for i in range(0, NI_height):
             for j in range(0, NI_width):
-                NI_min = self.ror(np.uint8(NI[i, j]))
-                NI_transitions = self.checkU2(NI_min)
+                # NI_min = self.ror(np.uint8(NI[i, j]))
+                NI_transitions = self.checkU2(np.uint8(NI[i, j]))
                 NI_des = 0
                 if NI_transitions <= 2:
-                    NI_des = self.getSumPixel(NI_min)
+                    NI_des = self.getSumPixel(np.uint8(NI[i, j]))
                 else:
                     NI_des = 9
                 NI_out[i, j] = NI_des
 
-                RD_min  = self.ror(np.uint8(RD[i, j]))
-                RD_transitions = self.checkU2(RD_min)
+                # RD_min  = self.ror(np.uint8(RD[i, j]))
+                RD_transitions = self.checkU2(RD[i, j])
                 RD_des = 0
                 if RD_transitions <= 2:
-                    RD_des = self.getSumPixel(RD_min)
+                    RD_des = self.getSumPixel(RD[i, j])
                 else:
                     RD_des = 9
                 RD_out[i, j] = RD_des
@@ -313,15 +314,15 @@ np.random.seed(1)
 random_matrix = np.random.randint(0, 256, size=(30, 30), dtype=np.uint8)
 median_matrix = median_filter(random_matrix, size=3, mode='constant', cval=0)
 
-print(random_matrix)
-print(median_matrix)
+# print(random_matrix)
+# print(median_matrix)
 # file_path = "random_matrix.txt"
 
 # with open('output_3x3.txt', 'a') as f:
 #     for row in random_matrix:
 #         f.write(' '.join(map(str, row)) + '\n')
 #     f.write('\n')
-np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
+# np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
 
 # padded_result = median_filter(random_matrix, size=3, mode='constant', cval=0)
 
@@ -343,5 +344,5 @@ np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matri
 
 lbp = MRELBP()
 # lbp.MRELBP(random_matrix)
-lbp.getNI_RD(random_matrix, median_matrix, 2)
-# lbp.CI_test(random_matrix)
+# lbp.getNI_RD(random_matrix, median_matrix, 2)
+lbp.CI_test(random_matrix)

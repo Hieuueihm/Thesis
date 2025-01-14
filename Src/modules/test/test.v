@@ -181,6 +181,7 @@ module test(input clk,
     wire [7:0] S1_r1, S2_r1, S3_r1, S4_r1, S5_r1, S6_r1, S7_r1, S8_r1;
     wire done_o_r1;
     wire done_inter;
+    
     Interpolation_R_x #(.R(1)) INTERPOLATION_R_1 (
     .clk(clk),
     .rst(rst),
@@ -219,6 +220,7 @@ module test(input clk,
     );
     wire [7:0] S1_r2, S2_r2, S3_r2, S4_r2, S5_r2, S6_r2, S7_r2, S8_r2;
     wire done_o_r2;
+    
     Interpolation_R_x #(.R(2)) INTERPOLATION_R_2 (
     .clk(clk),
     .rst(rst),

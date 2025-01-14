@@ -102,94 +102,94 @@ module CI_top #(parameter ROWS = 30,
     
     
     
-    // ci calculation
-    R2_top #(.COLS(COLS),
-    .ROWS(ROWS))
-    R2_TOP
-    (
-    .clk(clk),
-    .rst(rst),
-    .done_i(buffer_16_done_o),
-    .S1(data12_o),
-    .S2(data13_o),
-    .S3(data14_o),
-    .S4(data15_o),
-    .S5(data16_o),
-    .done_o(done_R2),
-    .bit_one_o(R2_bit_one_o),
-    .bit_zero_o(R2_bit_zero_o));
+    // // ci calculation
+    // R2_top #(.COLS(COLS),
+    // .ROWS(ROWS))
+    // R2_TOP
+    // (
+    // .clk(clk),
+    // .rst(rst),
+    // .done_i(buffer_16_done_o),
+    // .S1(data12_o),
+    // .S2(data13_o),
+    // .S3(data14_o),
+    // .S4(data15_o),
+    // .S5(data16_o),
+    // .done_o(done_R2),
+    // .bit_one_o(R2_bit_one_o),
+    // .bit_zero_o(R2_bit_zero_o));
     
-    R4_top #(.COLS(COLS),
-    .ROWS(ROWS))
-    R4_TOP
-    (
-    .clk(clk),
-    .rst(rst),
-    .done_i(buffer_16_done_o),
-    .S1(data8_o),
-    .S2(data9_o),
-    .S3(data10_o),
-    .S4(data11_o),
-    .S5(data12_o),
-    .S6(data13_o),
-    .S7(data14_o),
-    .S8(data15_o),
-    .S9(data16_o),
-    .done_o(done_R4),
-    .bit_one_o(R4_bit_one_o),
-    .bit_zero_o(R4_bit_zero_o));
+    // R4_top #(.COLS(COLS),
+    // .ROWS(ROWS))
+    // R4_TOP
+    // (
+    // .clk(clk),
+    // .rst(rst),
+    // .done_i(buffer_16_done_o),
+    // .S1(data8_o),
+    // .S2(data9_o),
+    // .S3(data10_o),
+    // .S4(data11_o),
+    // .S5(data12_o),
+    // .S6(data13_o),
+    // .S7(data14_o),
+    // .S8(data15_o),
+    // .S9(data16_o),
+    // .done_o(done_R4),
+    // .bit_one_o(R4_bit_one_o),
+    // .bit_zero_o(R4_bit_zero_o));
     
-    R6_top #(.COLS(COLS),
-    .ROWS(ROWS))
-    R6_TOP
-    (
-    .clk(clk),
-    .rst(rst),
-    .done_i(buffer_16_done_o),
-    .S1(data4_o),
-    .S2(data5_o),
-    .S3(data6_o),
-    .S4(data7_o),
-    .S5(data8_o),
-    .S6(data9_o),
-    .S7(data10_o),
-    .S8(data11_o),
-    .S9(data12_o),
-    .S10(data13_o),
-    .S11(data14_o),
-    .S12(data15_o),
-    .S13(data16_o),
-    .done_o(done_R6),
-    .bit_one_o(R6_bit_one_o),
-    .bit_zero_o(R6_bit_zero_o));
+    // R6_top #(.COLS(COLS),
+    // .ROWS(ROWS))
+    // R6_TOP
+    // (
+    // .clk(clk),
+    // .rst(rst),
+    // .done_i(buffer_16_done_o),
+    // .S1(data4_o),
+    // .S2(data5_o),
+    // .S3(data6_o),
+    // .S4(data7_o),
+    // .S5(data8_o),
+    // .S6(data9_o),
+    // .S7(data10_o),
+    // .S8(data11_o),
+    // .S9(data12_o),
+    // .S10(data13_o),
+    // .S11(data14_o),
+    // .S12(data15_o),
+    // .S13(data16_o),
+    // .done_o(done_R6),
+    // .bit_one_o(R6_bit_one_o),
+    // .bit_zero_o(R6_bit_zero_o));
     
-    R8_top #(.COLS(COLS),
-    .ROWS(ROWS))
-    R8_TOP
-    (
-    .clk(clk),
-    .rst(rst),
-    .done_i(buffer_16_done_o),
-    .S1(data0_o),
-    .S2(data1_o),
-    .S3(data2_o),
-    .S4(data3_o),
-    .S5(data4_o),
-    .S6(data5_o),
-    .S7(data6_o),
-    .S8(data7_o),
-    .S9(data8_o),
-    .S10(data9_o),
-    .S11(data10_o),
-    .S12(data11_o),
-    .S13(data12_o),
-    .S14(data13_o),
-    .S15(data14_o),
-    .S16(data15_o),
-    .S17(data16_o),
-    .done_o(done_R8),
-    .bit_one_o(R8_bit_one_o),
-    .bit_zero_o(R8_bit_zero_o));
+    // R8_top #(.COLS(COLS),
+    // .ROWS(ROWS))
+    // R8_TOP
+    // (
+    // .clk(clk),
+    // .rst(rst),
+    // .done_i(buffer_16_done_o),
+    // .S1(data0_o),
+    // .S2(data1_o),
+    // .S3(data2_o),
+    // .S4(data3_o),
+    // .S5(data4_o),
+    // .S6(data5_o),
+    // .S7(data6_o),
+    // .S8(data7_o),
+    // .S9(data8_o),
+    // .S10(data9_o),
+    // .S11(data10_o),
+    // .S12(data11_o),
+    // .S13(data12_o),
+    // .S14(data13_o),
+    // .S15(data14_o),
+    // .S16(data15_o),
+    // .S17(data16_o),
+    // .done_o(done_R8),
+    // .bit_one_o(R8_bit_one_o),
+    // .bit_zero_o(R8_bit_zero_o));
     
     
 endmodule
