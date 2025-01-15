@@ -4,28 +4,28 @@ from itertools import zip_longest
 from scipy.ndimage import median_filter
 import cv2
 from PIL import Image
-
+import time
 
 
 class MRELBP():
     def __init__(self, r=[2, 4, 6, 8], p = 8, w_c = 3, w_r = [3, 5, 7, 9]):
         self.r = r
         self.p = p
-        self.w_c = w_c 
+        self.w_c = w_c
         self.w_r = w_r
-        # step : 
+        # step :
         #   RGB2Gray
         #   Median
-        #   CI 
-        #   Bi-interpolation -> RI & ND 
+        #   CI
+        #   Bi-interpolation -> RI & ND
         #   Histogram
 
     def RGB2Gray(self, image):
-        # convert RGB to gray image 
+        # convert RGB to gray image
         img_array = np.array(image)
         R, G, B = img_array[:, :, 0], img_array[:, :, 1], img_array[:, :, 2]
         Y = (R >> 2) + (R >> 5) + (G >> 1) + (G >> 4) + (B >> 4) + (B >> 5)
-        return Y
+        return Y.astype(np.uint8)
     def median_processing(self, image):
         m_3x3 = median_filter(image, size = self.w_r[0], mode='constant', cval=0)
         m_5x5 = median_filter(image, size = self.w_r[1], mode='constant', cval=0)
@@ -33,14 +33,14 @@ class MRELBP():
         m_9x9 = median_filter(image, size = self.w_r[3], mode='constant', cval=0)
         return m_3x3, m_5x5, m_7x7, m_9x9
 
-    
+
 
     def mrelbp_ci(self, image, in_r):
         # r = 2 -> window_size = 5
         window_size = 2 * in_r + 1
 
         width, height = image.shape
-        out = np.zeros((width - 2 * in_r, height - 2 * in_r))
+        out = np.zeros((width - 2 * in_r, height - 2 * in_r), dtype=np.uint8)
 
         x = int(in_r /  2)
         sum_o = np.zeros((width - 2 * in_r, height - 2 * in_r))
@@ -60,14 +60,14 @@ class MRELBP():
                 # muy = np.mean(area)
                 pixel_central[i, j] = image[i + 2 * x][j + 2 * x]
                 scale_value = pixel_central[i, j] * ((2*in_r + 1)**2)
-    
+
                 # if scale_value == sum_o[i, j]:
                 #     print(i, j)
 
                 out[i,j] =  (scale_value >= sum_o[i, j])
-                coup[i, j] =  (sum_o[i, j], scale_value, out[i, j], pixel_central[i, j])
+                # coup[i, j] =  (sum_o[i, j], scale_value, out[i, j], pixel_central[i, j])
         # print(out)
-        coup_array = np.array([[f"({np.uint16(t[0])}, {np.uint16(t[1])}, {np.uint8(t[2])}, {np.uint8(t[3])}) " for t in row] for row in coup])
+        # coup_array = np.array([[f"({np.uint16(t[0])}, {np.uint16(t[1])}, {np.uint8(t[2])}, {np.uint8(t[3])}) " for t in row] for row in coup])
 
         # np.savetxt("out.txt", out, fmt='%d')
         # np.savetxt("pixel_central.txt", pixel_central, fmt='%d')
@@ -75,24 +75,23 @@ class MRELBP():
         # np.savetxt("diff.txt", pixel_central - muy_arr_central, fmt='%d')
         # np.savetxt("coup.txt", coup_array, fmt='%s')
         centre_hist = np.array([np.sum(out == 1), np.sum(out == 0)], dtype=np.int32)
-        return centre_hist, sum_o, out
+        return out, centre_hist
 
-    def CI_test(self, image):
-        m_3x3, m_5x5, m_7x7, m_9x9 = self.median_processing(image)
+    # def CI_test(self, image):
+    #     m_3x3, m_5x5, m_7x7, m_9x9 = self.median_processing(image)
 
-        # np.savetxt("matrix_3x3_o", m_3x3, fmt='%d')
+    #     # np.savetxt("matrix_3x3_o", m_3x3, fmt='%d')
 
 
-        hist_r2, sum_r2, out_r2 = self.mrelbp_ci(m_3x3, 2)
-        hist_r4, sum_r4, out_r4 = self.mrelbp_ci(m_3x3, 4)
-        hist_r6, sum_r6, out_r6 = self.mrelbp_ci(m_3x3, 6)
-        hist_r8, sum_r8, out_r8 = self.mrelbp_ci(m_3x3, 8)
+    #     hist_r2, sum_r2 = self.mrelbp_ci(m_3x3, 2)
+    #     hist_r4, sum_r4 = self.mrelbp_ci(m_3x3, 4)
+    #     hist_r6, sum_r6 = self.mrelbp_ci(m_3x3, 6)
+    #     hist_r8, sum_r8 = self.mrelbp_ci(m_3x3, 8)
 
         # print(hist_r8)
 
 
         # print(hist_r2, hist_r4, hist_r6, hist_r8)
-        print(out_r2)
         # np.savetxt("sum_8.txt", sum_r8, fmt='%d')
 
     def to_fixed_point(self, value, frac_bits=16):
@@ -132,7 +131,14 @@ class MRELBP():
 
 
         return interpolated_value
-    
+    def jointHistogram(self, ci, ni, rd):
+        width, height = ci.shape
+        out_matrix = np.zeros(200, dtype=np.uint32)
+        for i in  range(0, width):
+            for j in range(0, height):
+                out_matrix[ci[i, j] * 100 + ni[i, j] * 10 + rd[i, j]] += 1
+        return out_matrix
+
 
     def getNIDescriptor(self, NI, r, sum):
         ni_des = 0
@@ -141,7 +147,6 @@ class MRELBP():
             # print(scale_value)
             if scale_value >= sum:
                 ni_des  = ni_des + 2**(index - 1)
-
         return ni_des
 
     def getRDDescriptor(self, r2, r1):
@@ -152,7 +157,7 @@ class MRELBP():
 
         return sum
     def ror(self, pixel):
-        min_value = 255  
+        min_value = 255
         binary_pixel = bin(pixel)[2:].zfill(8)
         binary_pixel_int = int(binary_pixel, 2)
 
@@ -162,12 +167,12 @@ class MRELBP():
             if min_value > result:
                 min_value = result
         return  min_value
-    
+
     def checkU2(self, pixel):
 
         binary_pixel = bin(pixel)[2:].zfill(8)
         # print(binary_pixel)
-    
+
         transitions = 0
 
         for i in range(8):
@@ -186,9 +191,9 @@ class MRELBP():
         sum = 0
         binary_pixel = bin(pixel)[2:].zfill(8)
         for i in range(0, 8):
-            sum += int(binary_pixel[i]) 
+            sum += int(binary_pixel[i])
         return sum
-            
+
 
     def NI_RD_descriptor(self, image_r1, image_r2, r2):
         NI, RD = self.getNI_RD(image_r1, image_r2, r2)
@@ -199,41 +204,88 @@ class MRELBP():
         NI_width, NI_height = NI.shape
         for i in range(0, NI_height):
             for j in range(0, NI_width):
-                # NI_min = self.ror(np.uint8(NI[i, j]))
-                NI_transitions = self.checkU2(np.uint8(NI[i, j]))
+                NI_min = self.ror(np.uint8(NI[i, j]))
+                NI_transitions = self.checkU2(NI_min)
                 NI_des = 0
                 if NI_transitions <= 2:
-                    NI_des = self.getSumPixel(np.uint8(NI[i, j]))
+                    NI_des = self.getSumPixel(NI_min)
                 else:
                     NI_des = 9
                 NI_out[i, j] = NI_des
 
-                # RD_min  = self.ror(np.uint8(RD[i, j]))
-                RD_transitions = self.checkU2(RD[i, j])
+                RD_min  = self.ror(np.uint8(RD[i, j]))
+                RD_transitions = self.checkU2(RD_min)
                 RD_des = 0
                 if RD_transitions <= 2:
-                    RD_des = self.getSumPixel(RD[i, j])
+                    RD_des = self.getSumPixel(RD_min)
                 else:
                     RD_des = 9
                 RD_out[i, j] = RD_des
-        
-        NI_histogram = np.zeros(10, dtype = np.uint8)
-        RD_histogram = np.zeros(10, dtype = np.uint8)
-        for i in range(0, NI_height):
-            for j in range(0, NI_width):
-                NI_histogram[NI_out[i, j]] += 1
-                RD_histogram[RD_out[i, j]] += 1
-        return NI_histogram, RD_histogram
+        k = 0
+        for i in range(NI_height):
+            for j in range(NI_width):
+                print(NI_out[i, j])
+                print(RD_out[i, j])
+                k += 1
+                if k == 20:
+                    return
+        NI_histogram = np.histogram(NI_out,  10)[0].astype(dtype=np.int32)
+        RD_histogram = np.histogram(RD_out, 10)[0].astype(dtype=np.int32)
+        # NI_histogram = np.zeros(10, dtype = np.uint8)
+        # RD_histogram = np.zeros(10, dtype = np.uint8)
+        # for i in range(0, NI_height):
+        #     for j in range(0, NI_width):
+        #         NI_histogram[NI_out[i, j]] += 1
+        #         RD_histogram[RD_out[i, j]] += 1
+        return NI_out, RD_out, NI_histogram, RD_histogram
+
+        return NI_out, RD_out
     def MRELBP(self, image):
+        start_time = time.time()
         m_3x3, m_5x5, m_7x7, m_9x9 = self.median_processing(image)
+
         # r = 2
-        hist_r2, sum_r2 = self.mrelbp_ci(m_3x3, 2)
-        NI_r2, RD_r2 = self.NI_RD_descriptor(image, m_3x3, 2)
+        ci_r2, ci_r2_count = self.mrelbp_ci(m_3x3, 2)
+        ci_r4, ci_r4_count = self.mrelbp_ci(m_3x3, 4)
+        ci_r6, ci_r6_count = self.mrelbp_ci(m_3x3, 6)
+        ci_r8, ci_r8_count = self.mrelbp_ci(m_3x3, 8)
 
-        print(hist_r2)
-        print(NI_r2)
 
-        print(RD_r2)
+
+        NI_r2, RD_r2, NI_r2_count, RD_r2_count = self.NI_RD_descriptor(image, m_3x3, 2)
+        NI_r4, RD_r4, NI_r4_count, RD_r4_count = self.NI_RD_descriptor(m_3x3, m_5x5, 4)
+        NI_r6, RD_r6, NI_r6_count, RD_r6_count = self.NI_RD_descriptor(m_5x5, m_7x7, 6)
+        NI_r8, RD_r8, NI_r8_count, RD_r8_count = self.NI_RD_descriptor(m_7x7, m_9x9, 8)
+
+        hist_r2 = self.jointHistogram(ci_r2, NI_r2, RD_r2)
+        hist_r4 = self.jointHistogram(ci_r4, NI_r4, RD_r4)
+        hist_r6 = self.jointHistogram(ci_r6, NI_r6, RD_r6)
+        hist_r8 = self.jointHistogram(ci_r8, NI_r8, RD_r8)
+
+        relbp_ni_rd_r2 = np.concatenate((NI_r2_count, RD_r2_count))
+        hist_r2_c = np.concatenate((ci_r2_count, relbp_ni_rd_r2))
+        relbp_ni_rd_r4 = np.concatenate((NI_r4_count, RD_r4_count))
+        hist_r4_c = np.concatenate((ci_r4_count, relbp_ni_rd_r4))
+        relbp_ni_rd_r6 = np.concatenate((NI_r6_count, RD_r6_count))
+        hist_r6_c = np.concatenate((ci_r6_count, relbp_ni_rd_r6))
+        relbp_ni_rd_r8 = np.concatenate((NI_r8_count, RD_r8_count))
+        hist_r8_c = np.concatenate((ci_r8_count, relbp_ni_rd_r8))
+
+        hist_o = np.concatenate((hist_r2, hist_r4, hist_r6, hist_r8))
+        hist_o_1 = np.concatenate((hist_r2_c, hist_r4_c, hist_r6_c, hist_r8_c))
+        end_time = time.time()
+
+        # Calculate the total execution time
+        execution_time = end_time - start_time
+        print(f"Execution Time: {execution_time:.4f} seconds")
+
+        return hist_o, hist_o_1
+
+
+        # print(hist_r2)
+        # print(NI_r2)
+
+        # print(RD_r2)
 
 
 
@@ -266,7 +318,7 @@ class MRELBP():
             target_y = j + r * np.cos(theta)
                     # print(target_x, target_y)
             results[f"{angle}"] = self.getInterpolation(image, target_x, target_y, r)
-                
+
         S[2] = results["45"]
         S[4] = results["135"]
         S[6] = results["225"]
@@ -276,10 +328,10 @@ class MRELBP():
 
     def getNI_RD(self, image_r1, image_r2, r2):
         width, height = image_r2.shape
-        NI = np.zeros((width - 2 * r2, height - 2 * r2))
-        RD = np.zeros((width - 2 * r2, height - 2 * r2))
+        NI = np.zeros((width - 2 * r2, height - 2 * r2), dtype = np.uint8)
+        RD = np.zeros((width - 2 * r2, height - 2 * r2), dtype = np.uint8)
         r1 = r2 - 1
-    
+
         # k = 0
         for i in range(r2,height - r2):
             for j in range(r2,width -r2):
@@ -291,18 +343,30 @@ class MRELBP():
 
                 # r1_descriptor_str = str(r1_descriptor)
                 # with open("r1_inter", "a") as file:
-                #     file.write(r1_descriptor_str + "\n") 
+                #     file.write(r1_descriptor_str + "\n")
 
                 # r2_descriptor_str = str(r2_descriptor)
                 # with open("r2_inter", "a") as file:
-                #     file.write(r2_descriptor_str + "\n") 
+                #     file.write(r2_descriptor_str + "\n")
                 #     file.write("\n")
                 # for i in range(0, 9):
                 #     print(r2_descriptor)
-                # return               
+                # return
+                # with open("check_ni.txt", "a") as file:
+                #     file.write(str(sum_r2_patch))
+                #     file.write(" ")
+                #     file.write(r2_descriptor_str)
+                #     file.write('\n')
                 NI[i - r2, j - r2] = self.getNIDescriptor(r2_descriptor, r2, sum_r2_patch)
                 RD[i - r2, j - r2] = self.getRDDescriptor(r2_descriptor, r1_descriptor)
-       
+        # k = 0
+        # for i in range(height - 2 * r2):
+        #     for j in range(width - 2 * r2):
+        #         print(f'{NI[i, j]:08b}')
+        #         k += 1
+        #         if k == 20:
+        #             break
+        #     break
         return NI, RD
 
 
@@ -344,5 +408,6 @@ median_matrix = median_filter(random_matrix, size=3, mode='constant', cval=0)
 
 lbp = MRELBP()
 # lbp.MRELBP(random_matrix)
-# lbp.getNI_RD(random_matrix, median_matrix, 2)
-lbp.CI_test(random_matrix)
+lbp.getNI_RD(random_matrix, median_matrix, 2)
+lbp.NI_RD_descriptor(random_matrix, median_matrix, 2)
+# lbp.CI_test(random_matrix)

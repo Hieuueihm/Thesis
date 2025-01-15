@@ -178,7 +178,7 @@ module test(input clk,
     .progress_done_o(window_3x3_progress_done_o)
     );
     
-    wire [7:0] S1_r1, S2_r1, S3_r1, S4_r1, S5_r1, S6_r1, S7_r1, S8_r1;
+    wire [23:0] S1_r1, S2_r1, S3_r1, S4_r1, S5_r1, S6_r1, S7_r1, S8_r1;
     wire done_o_r1;
     wire done_inter;
     
@@ -218,7 +218,7 @@ module test(input clk,
     .done_o(done_o_r1),
     .progress_done_o()
     );
-    wire [7:0] S1_r2, S2_r2, S3_r2, S4_r2, S5_r2, S6_r2, S7_r2, S8_r2;
+    wire [23:0] S1_r2, S2_r2, S3_r2, S4_r2, S5_r2, S6_r2, S7_r2, S8_r2;
     wire done_o_r2;
     
     Interpolation_R_x #(.R(2)) INTERPOLATION_R_2 (
@@ -257,6 +257,129 @@ module test(input clk,
     .done_o(done_o_r2),
     .progress_done_o(done_inter)
     );
+    wire [12:0] sum_o_patch_sum;
+    wire patch_sum_done_o;
+    wire progress_patch_done;
+    R2_patch_sum #(.COLS(30),
+    .ROWS(30)) R2_PATCH_SUM
+    (
+    .clk(clk),
+    .rst(rst),
+    .done_i(done_buffer_3x3_o),
+    .S1(data0_3x3_o),
+    .S2(data1_3x3_o),
+    .S3(data2_3x3_o),
+    .S4(data3_3x3_o),
+    .S5(data4_3x3_o),
+    .sum_o(sum_o_patch_sum),
+    .done_o(patch_sum_done_o),
+    .progress_done_o(progress_patch_done));
     
+    wire ni_r2_done, ni_r2_progress_done, bit1_o_ni, bit2_o_ni, bit3_o_ni,
+    bit4_o_ni, bit5_o_ni, bit6_o_ni, bit7_o_ni, bit8_o_ni;
+    NI #(.WIDTH(13), .GAIN(25)) NI_CALC_R2 (
+    .clk(clk),
+    .rst(rst),
+    .done_i(done_o_r2),
+    .progress_done_i(done_inter),
+    .S1_r2(S1_r2),
+    .S2_r2(S2_r2),
+    .S3_r2(S3_r2),
+    .S4_r2(S4_r2),
+    .S5_r2(S5_r2),
+    .S6_r2(S6_r2),
+    .S7_r2(S7_r2),
+    .S8_r2(S8_r2),
+    .sum_i(sum_o_patch_sum),
+    .done_o(ni_r2_done),
+    .progress_done_o(ni_r2_progress_done),
+    .bit1_o(bit1_o_ni),
+    .bit2_o(bit2_o_ni),
+    .bit3_o(bit3_o_ni),
+    .bit4_o(bit4_o_ni),
+    .bit5_o(bit5_o_ni),
+    .bit6_o(bit6_o_ni),
+    .bit7_o(bit7_o_ni),
+    .bit8_o(bit8_o_ni)
+    );
+    wire [7:0] o_test_ni;
+    assign o_test_ni = {bit8_o_ni, bit7_o_ni, bit6_o_ni, bit5_o_ni, bit4_o_ni, bit3_o_ni, bit2_o_ni, bit1_o_ni};
+    
+    
+    wire rd_r2_done, rd_r2_progress_done, bit1_o, bit2_o, bit3_o, bit4_o, bit5_o, bit6_o, bit7_o, bit8_o;
+    RD RD_CALC_R2 (
+    .clk(clk),
+    .rst(rst),
+    .done_i(done_o_r2),
+    .progress_done_i(done_inter),
+    .S1_r2(S1_r2),
+    .S2_r2(S2_r2),
+    .S3_r2(S3_r2),
+    .S4_r2(S4_r2),
+    .S5_r2(S5_r2),
+    .S6_r2(S6_r2),
+    .S7_r2(S7_r2),
+    .S8_r2(S8_r2),
+    .S1_r1(S1_r1),
+    .S2_r1(S2_r1),
+    .S3_r1(S3_r1),
+    .S4_r1(S4_r1),
+    .S5_r1(S5_r1),
+    .S6_r1(S6_r1),
+    .S7_r1(S7_r1),
+    .S8_r1(S8_r1),
+    .done_o(rd_r2_done),
+    .progress_done_o(rd_r2_progress_done),
+    .bit1_o(bit1_o),
+    .bit2_o(bit2_o),
+    .bit3_o(bit3_o),
+    .bit4_o(bit4_o),
+    .bit5_o(bit5_o),
+    .bit6_o(bit6_o),
+    .bit7_o(bit7_o),
+    .bit8_o(bit8_o)
+    );
+    
+    
+    wire [7:0] o_test_rd;
+    assign o_test_rd = {bit8_o, bit7_o, bit6_o, bit5_o, bit4_o, bit3_o, bit2_o, bit1_o};
+    
+    wire [3:0] data_o_riu;
+    wire riu_done_o, riu_progress_done;
+    riu2_mapping RIU2(
+    .clk(clk),
+    .rst(rst),
+    .done_i(rd_r2_done),
+    .progress_done_i(rd_r2_progress_done),
+    .bit1_i(bit1_o),
+    .bit2_i(bit2_o),
+    .bit3_i(bit3_o),
+    .bit4_i(bit4_o),
+    .bit5_i(bit5_o),
+    .bit6_i(bit6_o),
+    .bit7_i(bit7_o),
+    .bit8_i(bit8_o),
+    .data_o(data_o_riu),
+    .done_o(riu_done_o),
+    .progress_done_o(riu_progress_done));
+    
+    wire [3:0] data_o_riu_ni;
+    wire riu_done_o_ni, riu_progress_done_ni;
+    riu2_mapping RIU2_NI(
+    .clk(clk),
+    .rst(rst),
+    .done_i(ni_r2_done),
+    .progress_done_i(ni_r2_progress_done),
+    .bit1_i(bit1_o_ni),
+    .bit2_i(bit2_o_ni),
+    .bit3_i(bit3_o_ni),
+    .bit4_i(bit4_o_ni),
+    .bit5_i(bit5_o_ni),
+    .bit6_i(bit6_o_ni),
+    .bit7_i(bit7_o_ni),
+    .bit8_i(bit8_o_ni),
+    .data_o(data_o_riu_ni),
+    .done_o(riu_done_o_ni),
+    .progress_done_o(riu_progress_done_ni));
     
 endmodule
