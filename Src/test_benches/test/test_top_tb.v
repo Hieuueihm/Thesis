@@ -28,13 +28,19 @@ module test_top_tb ();
     reg rst;
     reg [7:0] grayscale_i;
     reg done_i;
+    wire [15:0] cinird_r2;
+    wire done_r2;
+    wire finish;
     
     TopModule #(.COLS(30), .ROWS(30)) DUT
     (
     .clk(clk),
     .rst(rst),
     .grayscale_i(grayscale_i),
-    .done_i(done_i)
+    .done_i(done_i),
+    .cinird_r2(cinird_r2),
+    .done_r2(done_r2),
+    .finish(finish)
     );
     
     initial begin
@@ -44,7 +50,7 @@ module test_top_tb ();
     always #(`half_clk_period) clk = ~clk;
     
     integer row, col;
-    integer file;
+    integer file, file_id;
     
     initial begin
         // Initialize clock and reset
@@ -56,6 +62,11 @@ module test_top_tb ();
         
         if (file == 0) begin
             $display("Error: Cannot open file.");
+            $finish;
+        end
+        file_id = $fopen("D:\\Thesis\\CodeTest\\python\\output_simu.txt", "w");
+        if (file_id == 0) begin
+            $display("Error: Could not open file.");
             $finish;
         end
         
@@ -80,8 +91,17 @@ module test_top_tb ();
             end
         end
         done_i <= 1'b0;
-        #(`clk_period * 1000);
+        
+        wait(finish);
+        $fclose(file_id);
+        #100;
         
         $stop;  // End simulation
+    end
+    
+    always @(posedge clk) begin
+        if (done_r2) begin
+            $fwrite(file_id, "%d\n", cinird_r2); // Write binary value of cinird_r2 to file
+        end
     end
 endmodule

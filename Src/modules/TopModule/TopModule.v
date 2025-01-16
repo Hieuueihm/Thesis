@@ -3,7 +3,10 @@ module TopModule #(parameter COLS = 30,
                   (input clk,
                    input rst,
                    input [7:0] grayscale_i,
-                   input done_i);
+                   input done_i,
+                   output [15:0] cinird_r2,
+                   output done_r2,
+                   output finish);
     
     //    output [15:0] cinird_r2,
     //    output done_r2,
@@ -81,36 +84,38 @@ module TopModule #(parameter COLS = 30,
     .done_o(done_o_nird),
     .progress_done_o(progress_done_o_nird));
     
+    wire done_nird_r2_delay, progress_done_nird_r2_delay;
+    wire [3:0] ni_r2_delay;
+    wire [3:0] rd_r2_delay;
     
-    wire done_o_ni_rd_delay, progress_done_nird_delay;
-    wire [3:0] ni_delay, rd_delay;
-    shift_registers #(.WIDTH(1), .CYCLE(12 * COLS - 3))
-    SHIFT_DONE_O_delay (
+    Synchronize_cinird #(.CYCLE(12 * COLS - 3)) SYNCHRONIZE_R2
+    (
     .clk(clk),
     .rst(rst),
-    .data_i(done_o_nird),
-    .data_o(done_o_ni_rd_delay)
-    );
-    shift_registers #(.WIDTH(1), .CYCLE(12 * COLS - 3))
-    SHIFT_finish_O_delay (
+    .done_nird(done_o_nird),
+    .progress_done_nird(progress_done_o_nird),
+    .ni_i(ni_o),
+    .rd_i(rd_o),
+    .done_delay(done_nird_r2_delay),
+    .progress_delay(progress_done_nird_r2_delay),
+    .ni_delay(ni_r2_delay),
+    .rd_delay(rd_r2_delay));
+    
+    
+    wire joint_r2_done, joint_r2_finish;
+    wire [15:0] cinird_r2;
+    Joint_histogram JOINT_R2 (
     .clk(clk),
     .rst(rst),
-    .data_i(progress_done_o_nird),
-    .data_o(progress_done_nird_delay)
-    );
-    shift_registers #(.WIDTH(4), .CYCLE(12 * COLS - 3))
-    SHIFT_NI (
-    .clk(clk),
-    .rst(rst),
-    .data_i(ni_o),
-    .data_o(ni_delay)
-    );
-    shift_registers #(.WIDTH(4), .CYCLE(12 * COLS - 3))
-    SHIFT_RD (
-    .clk(clk),
-    .rst(rst),
-    .data_i(rd_o),
-    .data_o(rd_delay)
-    );
+    .ci_i(ci_r2_o),
+    .ni_i(ni_r2_delay),
+    .rd_i(rd_r2_delay),
+    .done_i(done_nird_r2_delay),
+    .progress_done_i(progress_done_nird_r2_delay),
+    .cinird_o(cinird_r2),
+    .done_o(done_r2),
+    .finish(finish));
+    
+    
     
 endmodule

@@ -5,7 +5,14 @@ from scipy.ndimage import median_filter
 import cv2
 from PIL import Image
 import time
+def float_to_fixed_point(value, frac_bits=16):
+    # Convert a floating point value to fixed-point with 16 fractional bits
+    return int(value * (2 ** frac_bits))
 
+def float_to_hex(value, frac_bits=16):
+    # Convert floating point value to fixed-point and then to hexadecimal
+    fixed_point_value = float_to_fixed_point(value, frac_bits)
+    return hex(fixed_point_value)
 
 class MRELBP():
     def __init__(self, r=[2, 4, 6, 8], p = 8, w_c = 3, w_r = [3, 5, 7, 9]):
@@ -20,12 +27,6 @@ class MRELBP():
         #   Bi-interpolation -> RI & ND
         #   Histogram
 
-    def RGB2Gray(self, image):
-        # convert RGB to gray image
-        img_array = np.array(image)
-        R, G, B = img_array[:, :, 0], img_array[:, :, 1], img_array[:, :, 2]
-        Y = (R >> 2) + (R >> 5) + (G >> 1) + (G >> 4) + (B >> 4) + (B >> 5)
-        return Y.astype(np.uint8)
     def median_processing(self, image):
         m_3x3 = median_filter(image, size = self.w_r[0], mode='constant', cval=0)
         m_5x5 = median_filter(image, size = self.w_r[1], mode='constant', cval=0)
@@ -94,10 +95,6 @@ class MRELBP():
         # print(hist_r2, hist_r4, hist_r6, hist_r8)
         # np.savetxt("sum_8.txt", sum_r8, fmt='%d')
 
-    def to_fixed_point(self, value, frac_bits=16):
-        return int(value * (2 ** frac_bits))
-
-
     def getInterpolation(self, image, x, y, r):
         x1 = int(np.floor(x))
         x2 = int(np.ceil(x))
@@ -113,11 +110,7 @@ class MRELBP():
         r2 =  a * (1 - b)
         r3 = (1 - a) * b
         r4 = a * b
-
-        r1_fixed = self.to_fixed_point(r1)
-        r2_fixed = self.to_fixed_point(r2)
-        r3_fixed = self.to_fixed_point(r3)
-        r4_fixed = self.to_fixed_point(r4)
+        # print(r1)
 
         interpolated_value = (
             image[x1, y1] * r1 +
@@ -201,34 +194,32 @@ class MRELBP():
         # print(RD)
         NI_out  = np.zeros(NI.shape, dtype= np.uint8)
         RD_out  = np.zeros(NI.shape, dtype= np.uint8)
+        with open("rd_code.txt", 'w') as f:
+            for i in range(RD.shape[0]):
+                for j in range(RD.shape[1]):
+                    rd_bin = format(RD[i, j], '08b')  # 8-bit binary for RD
+                
+                
+                    f.write(f'{rd_bin}\n')
         NI_width, NI_height = NI.shape
         for i in range(0, NI_height):
             for j in range(0, NI_width):
-                NI_min = self.ror(np.uint8(NI[i, j]))
-                NI_transitions = self.checkU2(NI_min)
+                NI_transitions = self.checkU2(np.uint8(NI[i, j]))
                 NI_des = 0
                 if NI_transitions <= 2:
-                    NI_des = self.getSumPixel(NI_min)
+                    NI_des = self.getSumPixel(np.uint8(NI[i, j]))
                 else:
                     NI_des = 9
                 NI_out[i, j] = NI_des
 
-                RD_min  = self.ror(np.uint8(RD[i, j]))
-                RD_transitions = self.checkU2(RD_min)
+                RD_transitions = self.checkU2(np.uint8(RD[i, j]))
                 RD_des = 0
                 if RD_transitions <= 2:
-                    RD_des = self.getSumPixel(RD_min)
+                    RD_des = self.getSumPixel(np.uint8(RD[i, j]))
                 else:
                     RD_des = 9
                 RD_out[i, j] = RD_des
-        k = 0
-        for i in range(NI_height):
-            for j in range(NI_width):
-                print(NI_out[i, j])
-                print(RD_out[i, j])
-                k += 1
-                if k == 20:
-                    return
+   
         NI_histogram = np.histogram(NI_out,  10)[0].astype(dtype=np.int32)
         RD_histogram = np.histogram(RD_out, 10)[0].astype(dtype=np.int32)
         # NI_histogram = np.zeros(10, dtype = np.uint8)
@@ -237,7 +228,7 @@ class MRELBP():
         #     for j in range(0, NI_width):
         #         NI_histogram[NI_out[i, j]] += 1
         #         RD_histogram[RD_out[i, j]] += 1
-        return NI_out, RD_out, NI_histogram, RD_histogram
+        # return NI_out, RD_out, NI_histogram, RD_histogram
 
         return NI_out, RD_out
     def MRELBP(self, image):
@@ -252,34 +243,56 @@ class MRELBP():
 
 
 
-        NI_r2, RD_r2, NI_r2_count, RD_r2_count = self.NI_RD_descriptor(image, m_3x3, 2)
-        NI_r4, RD_r4, NI_r4_count, RD_r4_count = self.NI_RD_descriptor(m_3x3, m_5x5, 4)
-        NI_r6, RD_r6, NI_r6_count, RD_r6_count = self.NI_RD_descriptor(m_5x5, m_7x7, 6)
-        NI_r8, RD_r8, NI_r8_count, RD_r8_count = self.NI_RD_descriptor(m_7x7, m_9x9, 8)
+        NI_r2, RD_r2= self.NI_RD_descriptor(image, m_3x3, 2)
+        # NI_r4, RD_r4= self.NI_RD_descriptor(m_3x3, m_5x5, 4)
+        # NI_r6, RD_r6= self.NI_RD_descriptor(m_5x5, m_7x7, 6)
+        # NI_r8, RD_r8= self.NI_RD_descriptor(m_7x7, m_9x9, 8)
+        
 
         hist_r2 = self.jointHistogram(ci_r2, NI_r2, RD_r2)
-        hist_r4 = self.jointHistogram(ci_r4, NI_r4, RD_r4)
-        hist_r6 = self.jointHistogram(ci_r6, NI_r6, RD_r6)
-        hist_r8 = self.jointHistogram(ci_r8, NI_r8, RD_r8)
+        # hist_r4 = self.jointHistogram(ci_r4, NI_r4, RD_r4)
+        # hist_r6 = self.jointHistogram(ci_r6, NI_r6, RD_r6)
+        # hist_r8 = self.jointHistogram(ci_r8, NI_r8, RD_r8)
+        with open("file_r2_cinird", 'w') as file:
+            # Write ci_r2 to file
+            file.write("ci_r2:\n")
+            for row in ci_r2:
+                file.write(' '.join(map(str, row)) + '\n')
 
-        relbp_ni_rd_r2 = np.concatenate((NI_r2_count, RD_r2_count))
-        hist_r2_c = np.concatenate((ci_r2_count, relbp_ni_rd_r2))
-        relbp_ni_rd_r4 = np.concatenate((NI_r4_count, RD_r4_count))
-        hist_r4_c = np.concatenate((ci_r4_count, relbp_ni_rd_r4))
-        relbp_ni_rd_r6 = np.concatenate((NI_r6_count, RD_r6_count))
-        hist_r6_c = np.concatenate((ci_r6_count, relbp_ni_rd_r6))
-        relbp_ni_rd_r8 = np.concatenate((NI_r8_count, RD_r8_count))
-        hist_r8_c = np.concatenate((ci_r8_count, relbp_ni_rd_r8))
+            # Write ni_r2 to file
+            file.write("\nni_r2:\n")
+            for row in NI_r2:
+                file.write(' '.join(map(str, row)) + '\n')
 
-        hist_o = np.concatenate((hist_r2, hist_r4, hist_r6, hist_r8))
-        hist_o_1 = np.concatenate((hist_r2_c, hist_r4_c, hist_r6_c, hist_r8_c))
-        end_time = time.time()
+            # Write rd_r2 to file
+            file.write("\nrd_r2:\n")
+            for row in RD_r2:
+                file.write(' '.join(map(str, row)) + '\n')
 
-        # Calculate the total execution time
-        execution_time = end_time - start_time
-        print(f"Execution Time: {execution_time:.4f} seconds")
+        with open("tuple_ricind.txt", 'w') as file:
+            # Write each index as a tuple (ci, ni, rd) to the file
+            for i in range(len(ci_r2)):  # Assuming all matrices have the same shape
+                for j in range(len(ci_r2[i])):
+                    # Create tuple (ci_r2[i][j], NI_r2[i][j], RD_r2[i][j])
+                    tuple_data = (int(ci_r2[i][j]), int(NI_r2[i][j]), int(RD_r2[i][j]))  # Ensure casting to int
+                    file.write(f"{tuple_data}\n")
+        with open("hist_r21.txt", "w") as file:
+            for i in range(200):
+                    file.write(str(hist_r2[i]))
+                    file.write("\n")
 
-        return hist_o, hist_o_1
+            
+
+      
+
+        # hist_o = np.concatenate((hist_r2, hist_r4, hist_r6, hist_r8))
+        # end_time = time.time()
+
+        # # Calculate the total execution time
+        # execution_time = end_time - start_time
+        # print(f"Execution Time: {execution_time:.4f} seconds")
+
+        # return hist_o
 
 
         # print(hist_r2)
@@ -357,6 +370,8 @@ class MRELBP():
                 #     file.write(" ")
                 #     file.write(r2_descriptor_str)
                 #     file.write('\n')
+
+
                 NI[i - r2, j - r2] = self.getNIDescriptor(r2_descriptor, r2, sum_r2_patch)
                 RD[i - r2, j - r2] = self.getRDDescriptor(r2_descriptor, r1_descriptor)
         # k = 0
@@ -372,7 +387,7 @@ class MRELBP():
 
 
 # Example Usage
-np.random.seed(1)
+np.random.seed(3)
 
 
 random_matrix = np.random.randint(0, 256, size=(30, 30), dtype=np.uint8)
@@ -386,7 +401,7 @@ median_matrix = median_filter(random_matrix, size=3, mode='constant', cval=0)
 #     for row in random_matrix:
 #         f.write(' '.join(map(str, row)) + '\n')
 #     f.write('\n')
-# np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
+np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
 
 # padded_result = median_filter(random_matrix, size=3, mode='constant', cval=0)
 
@@ -407,7 +422,57 @@ median_matrix = median_filter(random_matrix, size=3, mode='constant', cval=0)
 #     f.write(cpp_array)
 
 lbp = MRELBP()
-# lbp.MRELBP(random_matrix)
-lbp.getNI_RD(random_matrix, median_matrix, 2)
-lbp.NI_RD_descriptor(random_matrix, median_matrix, 2)
+lbp.MRELBP(random_matrix)
+# lbp.getNI_RD(random_matrix, median_matrix, 2)
+# lbp.NI_RD_descriptor(random_matrix, median_matrix, 2)
 # lbp.CI_test(random_matrix)
+
+def compare_files(file1, file2):
+    with open(file1, 'r') as f1, open(file2, 'r') as f2:
+        line_number = 1
+        mismatch_found = False
+
+        # Read each line from both files
+        while True:
+            line1 = f1.readline().strip()
+            line2 = f2.readline().strip()
+
+            # If both lines are empty, the files are identical up to this point
+            if not line1 and not line2:
+                break
+
+            # If one of the files ends and the other doesn't, it's a mismatch
+            if not line1 or not line2:
+                print(f"Mismatch found at line {line_number}:")
+                print(f"File 1: {line1}")
+                print(f"File 2: {line2}")
+                mismatch_found = True
+                break
+
+            # Convert the lines to integers and compare
+            try:
+                int_line1 = int(line1)
+                int_line2 = int(line2)
+            except ValueError:
+                print(f"Invalid integer at line {line_number}:")
+                print(f"File 1: {line1}")
+                print(f"File 2: {line2}")
+                mismatch_found = True
+                break
+
+            # If the integer values are different, report the mismatch
+            if int_line1 != int_line2:
+                print(f"Mismatch found at line {line_number}:")
+                print(f"File 1: {int_line1}")
+                print(f"File 2: {int_line2}")
+                mismatch_found = True
+
+            line_number += 1
+
+        if not mismatch_found:
+            print("The files are identical.")
+
+# Example usage
+file1 = 'hist_r21.txt'
+file2 = 'output_simu.txt'
+compare_files(file1, file2)

@@ -290,7 +290,20 @@ module R2_NIRD #(parameter COLS = 30,
     .bit8_o(bit8_o_ni)
     );
     
-    
+    integer file1;
+    always @(posedge clk) begin
+        if (rst) begin
+            file1 = $fopen("D:\\Thesis\\CodeTest\\python\\rd_data_hex.txt", "w");
+            end else if (done_o_r2) begin
+            if (file1) begin
+                $fwrite(file1, "r2 %h %h %h %h %h %h %h %h r1 %h %h %h %h %h %h %h %h\n",
+                S8_r2, S7_r2, S6_r2, S5_r2, S4_r2, S3_r2, S2_r2, S1_r2, S8_r1, S7_r1, S6_r1, S5_r1, S4_r1, S3_r1, S2_r1, S1_r1);
+            end
+            end else if (finish_inter) begin
+            $fclose(file1);
+        end
+        
+    end
     wire rd_r2_done, rd_r2_progress_done, bit1_o, bit2_o, bit3_o, bit4_o, bit5_o, bit6_o, bit7_o, bit8_o;
     RD RD_CALC_R2 (
     .clk(clk),
@@ -325,38 +338,51 @@ module R2_NIRD #(parameter COLS = 30,
     .bit8_o(bit8_o)
     );
     
-    riu2_mapping RIU2_RD(
-    .clk(clk),
-    .rst(rst),
-    .done_i(rd_r2_done),
-    .progress_done_i(rd_r2_progress_done),
-    .bit1_i(bit1_o),
-    .bit2_i(bit2_o),
-    .bit3_i(bit3_o),
-    .bit4_i(bit4_o),
-    .bit5_i(bit5_o),
-    .bit6_i(bit6_o),
-    .bit7_i(bit7_o),
-    .bit8_i(bit8_o),
-    .data_o(rd_o),
-    .done_o(done_o),
-    .progress_done_o(progress_done_o));
-    
-    
-    riu2_mapping RIU2_NI(
-    .clk(clk),
-    .rst(rst),
-    .done_i(ni_r2_done),
-    .progress_done_i(ni_r2_progress_done),
-    .bit1_i(bit1_o_ni),
-    .bit2_i(bit2_o_ni),
-    .bit3_i(bit3_o_ni),
-    .bit4_i(bit4_o_ni),
-    .bit5_i(bit5_o_ni),
-    .bit6_i(bit6_o_ni),
-    .bit7_i(bit7_o_ni),
-    .bit8_i(bit8_o_ni),
-    .data_o(ni_o),
-    .done_o(),
-    .progress_done_o());
-endmodule
+    integer file;
+    always @(posedge clk) begin
+        if (rst) begin
+            file = $fopen("D:\\Thesis\\CodeTest\\python\\rd_data.txt", "w");
+            end else if (rd_r2_done) begin
+            if (file) begin
+                $fwrite(file, "%b\n", {bit8_o, bit7_o, bit6_o, bit5_o, bit4_o, bit3_o, bit2_o, bit1_o});            end
+                end else if (rd_r2_progress_done) begin
+                $fclose(file);
+            end
+            
+        end
+        
+        riu2_mapping RIU2_RD(
+        .clk(clk),
+        .rst(rst),
+        .done_i(rd_r2_done),
+        .progress_done_i(rd_r2_progress_done),
+        .bit1_i(bit1_o),
+        .bit2_i(bit2_o),
+        .bit3_i(bit3_o),
+        .bit4_i(bit4_o),
+        .bit5_i(bit5_o),
+        .bit6_i(bit6_o),
+        .bit7_i(bit7_o),
+        .bit8_i(bit8_o),
+        .data_o(rd_o),
+        .done_o(done_o),
+        .progress_done_o(progress_done_o));
+        
+        
+        riu2_mapping RIU2_NI(
+        .clk(clk),
+        .rst(rst),
+        .done_i(ni_r2_done),
+        .progress_done_i(ni_r2_progress_done),
+        .bit1_i(bit1_o_ni),
+        .bit2_i(bit2_o_ni),
+        .bit3_i(bit3_o_ni),
+        .bit4_i(bit4_o_ni),
+        .bit5_i(bit5_o_ni),
+        .bit6_i(bit6_o_ni),
+        .bit7_i(bit7_o_ni),
+        .bit8_i(bit8_o_ni),
+        .data_o(ni_o),
+        .done_o(),
+        .progress_done_o());
+        endmodule
