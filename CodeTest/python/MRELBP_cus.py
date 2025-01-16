@@ -237,6 +237,7 @@ class MRELBP():
 
         # r = 2
         ci_r2, ci_r2_count = self.mrelbp_ci(m_3x3, 2)
+        # print(ci_r2)
         ci_r4, ci_r4_count = self.mrelbp_ci(m_3x3, 4)
         ci_r6, ci_r6_count = self.mrelbp_ci(m_3x3, 6)
         ci_r8, ci_r8_count = self.mrelbp_ci(m_3x3, 8)
@@ -397,11 +398,11 @@ median_matrix = median_filter(random_matrix, size=3, mode='constant', cval=0)
 # print(median_matrix)
 # file_path = "random_matrix.txt"
 
-# with open('output_3x3.txt', 'a') as f:
-#     for row in random_matrix:
-#         f.write(' '.join(map(str, row)) + '\n')
-#     f.write('\n')
-np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
+with open('output_matrix_original.txt', 'w') as f:
+    for row in random_matrix:
+        f.write(' '.join(map(str, row)) + '\n')
+    f.write('\n')
+# np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
 
 # padded_result = median_filter(random_matrix, size=3, mode='constant', cval=0)
 
@@ -422,57 +423,57 @@ np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matri
 #     f.write(cpp_array)
 
 lbp = MRELBP()
+
 lbp.MRELBP(random_matrix)
 # lbp.getNI_RD(random_matrix, median_matrix, 2)
 # lbp.NI_RD_descriptor(random_matrix, median_matrix, 2)
-# lbp.CI_test(random_matrix)
 
-def compare_files(file1, file2):
-    with open(file1, 'r') as f1, open(file2, 'r') as f2:
-        line_number = 1
-        mismatch_found = False
+# def compare_files(file1, file2):
+#     with open(file1, 'r') as f1, open(file2, 'r') as f2:
+#         line_number = 1
+#         mismatch_found = False
 
-        # Read each line from both files
-        while True:
-            line1 = f1.readline().strip()
-            line2 = f2.readline().strip()
+#         # Read each line from both files
+#         while True:
+#             line1 = f1.readline().strip()
+#             line2 = f2.readline().strip()
 
-            # If both lines are empty, the files are identical up to this point
-            if not line1 and not line2:
-                break
+#             # If both lines are empty, the files are identical up to this point
+#             if not line1 and not line2:
+#                 break
 
-            # If one of the files ends and the other doesn't, it's a mismatch
-            if not line1 or not line2:
-                print(f"Mismatch found at line {line_number}:")
-                print(f"File 1: {line1}")
-                print(f"File 2: {line2}")
-                mismatch_found = True
-                break
+#             # If one of the files ends and the other doesn't, it's a mismatch
+#             if not line1 or not line2:
+#                 print(f"Mismatch found at line {line_number}:")
+#                 print(f"File 1: {line1}")
+#                 print(f"File 2: {line2}")
+#                 mismatch_found = True
+#                 break
 
-            # Convert the lines to integers and compare
-            try:
-                int_line1 = int(line1)
-                int_line2 = int(line2)
-            except ValueError:
-                print(f"Invalid integer at line {line_number}:")
-                print(f"File 1: {line1}")
-                print(f"File 2: {line2}")
-                mismatch_found = True
-                break
+#             # Convert the lines to integers and compare
+#             try:
+#                 int_line1 = int(line1)
+#                 int_line2 = int(line2)
+#             except ValueError:
+#                 print(f"Invalid integer at line {line_number}:")
+#                 print(f"File 1: {line1}")
+#                 print(f"File 2: {line2}")
+#                 mismatch_found = True
+#                 break
 
-            # If the integer values are different, report the mismatch
-            if int_line1 != int_line2:
-                print(f"Mismatch found at line {line_number}:")
-                print(f"File 1: {int_line1}")
-                print(f"File 2: {int_line2}")
-                mismatch_found = True
+#             # If the integer values are different, report the mismatch
+#             if int_line1 != int_line2:
+#                 print(f"Mismatch found at line {line_number}:")
+#                 print(f"File 1: {int_line1}")
+#                 print(f"File 2: {int_line2}")
+#                 mismatch_found = True
 
-            line_number += 1
+#             line_number += 1
 
-        if not mismatch_found:
-            print("The files are identical.")
+#         if not mismatch_found:
+#             print("The files are identical.")
 
-# Example usage
-file1 = 'hist_r21.txt'
-file2 = 'output_simu.txt'
-compare_files(file1, file2)
+# # Example usage
+# file1 = 'hist_r21.txt'
+# file2 = 'output_simu.txt'
+# compare_files(file1, file2)

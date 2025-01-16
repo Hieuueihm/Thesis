@@ -1,9 +1,0 @@
-<<<<<<< HEAD
-D:/Thesis/CodeTest/c++/build/CMakeFiles/mrelbp.dir
-D:/Thesis/CodeTest/c++/build/CMakeFiles/edit_cache.dir
-D:/Thesis/CodeTest/c++/build/CMakeFiles/rebuild_cache.dir
-=======
-/home/ms1sm/Documents/Code/Thesis/CodeTest/c++/build/CMakeFiles/mrelbp.dir
-/home/ms1sm/Documents/Code/Thesis/CodeTest/c++/build/CMakeFiles/edit_cache.dir
-/home/ms1sm/Documents/Code/Thesis/CodeTest/c++/build/CMakeFiles/rebuild_cache.dir
->>>>>>> ad799effd43b589225a85facc52d2d4a5699a2e7
