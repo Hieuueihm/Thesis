@@ -278,7 +278,7 @@ module Median_filter_5x5_calc (input clk,
             p2_sa8_S5 <= sa5_mid;
             
             p2_sa9_S1 <= sa1_out4;
-            p2_sa9_S2 <= sa2_out2;
+            p2_sa9_S2 <= sa2_out4;
             p2_sa9_S3 <= sa3_out4;
             p2_sa9_S4 <= sa4_out4;
             p2_sa9_S5 <= sa5_out4;

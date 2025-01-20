@@ -235,6 +235,22 @@ class MRELBP():
         start_time = time.time()
         m_3x3, m_5x5, m_7x7, m_9x9 = self.median_processing(image)
 
+        with open('output_5x5_test.txt', 'w') as f:
+            for row in image:
+                f.write(' '.join(map(str, row)) + '\n')
+
+            f.write('\n') 
+
+        with open('output_5x5_test.txt', 'a') as f:
+            for row in m_3x3:
+                f.write(' '.join(map(str, row)) + '\n')
+
+            f.write('\n')
+
+
+        with open('output_5x5_test.txt', 'a') as f:
+            for row in m_5x5:
+                f.write(' '.join(map(str, row)) + '\n')
         # r = 2
         ci_r2, ci_r2_count = self.mrelbp_ci(m_3x3, 2)
         # print(ci_r2)
@@ -390,11 +406,12 @@ np.random.seed(3)
 
 
 random_matrix = np.random.randint(0, 256, size=(30, 30), dtype=np.uint8)
-median_matrix = median_filter(random_matrix, size=3, mode='constant', cval=0)
-median_matrix_5x5 = median_filter(random_matrix, size=5, mode='constant', cval=0)
+# median_matrix = median_filter(random_matrix, size=3, mode='constant', cval=0)
+# median_matrix_5x5 = median_filter(random_matrix, size=5, mode='constant', cval=0)
 
-print(random_matrix)
+# print(random_matrix)
 
+# print(median_matrix_5x5)
 # print(random_matrix)
 # print(median_matrix)
 # file_path = "random_matrix.txt"
@@ -407,16 +424,7 @@ np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matri
 
 # padded_result = median_filter(random_matrix, size=3, mode='constant', cval=0)
 
-with open('output_5x5_test.txt', 'a') as f:
-    for row in median_matrix:
-        f.write(' '.join(map(str, row)) + '\n')
 
-    f.write('\n')
-
-
-with open('output_5x5_test.txt', 'a') as f:
-    for row in median_matrix_5x5:
-        f.write(' '.join(map(str, row)) + '\n')
 # np.savetxt(file_path, random_matrix, fmt='%d')
 
 # cpp_array = 'uint8_t array[30]307] = {\n'
