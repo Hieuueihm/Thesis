@@ -378,7 +378,7 @@ module test_r4 #(parameter COLS = 30,
     wire done_o_r4;
     
     wire done_interpolation;
-    Interpolation_R_x #(.R(2)) INTERPOLATION_R_4 (
+    Interpolation_R_x #(.R(4)) INTERPOLATION_R_4 (
     .clk(clk),
     .rst(rst),
     .progress_done_i(wdbf_9x9_progress_done),
@@ -387,22 +387,22 @@ module test_r4 #(parameter COLS = 30,
     .S_90_i(S5_9x9_o),
     .S_180_i(S37_9x9_o),
     .S_270_i(S77_9x9_o),
-    .S_45_i_1(S8_9x9_o),
-    .S_45_i_2(S9_9x9_o),
-    .S_45_i_3(S17_9x9_o),
-    .S_45_i_4(S18_9x9_o),
-    .S_135_i_1(S1_9x9_o),
-    .S_135_i_2(S2_9x9_o),
-    .S_135_i_3(S10_9x9_o),
-    .S_135_i_4(S11_9x9_o),
-    .S_225_i_1(S64_9x9_o),
-    .S_225_i_2(S65_9x9_o),
-    .S_225_i_3(S73_9x9_o),
-    .S_225_i_4(S74_9x9_o),
-    .S_315_i_1(S71_9x9_o),
-    .S_315_i_2(S72_9x9_o),
-    .S_315_i_3(S80_9x9_o),
-    .S_315_i_4(S81_9x9_o),
+    .S_45_i_1(S16_9x9_o),
+    .S_45_i_2(S17_9x9_o),
+    .S_45_i_3(S25_9x9_o),
+    .S_45_i_4(S26_9x9_o),
+    .S_135_i_1(S11_9x9_o),
+    .S_135_i_2(S12_9x9_o),
+    .S_135_i_3(S20_9x9_o),
+    .S_135_i_4(S21_9x9_o),
+    .S_225_i_1(S56_9x9_o),
+    .S_225_i_2(S57_9x9_o),
+    .S_225_i_3(S65_9x9_o),
+    .S_225_i_4(S66_9x9_o),
+    .S_315_i_1(S61_9x9_o),
+    .S_315_i_2(S62_9x9_o),
+    .S_315_i_3(S70_9x9_o),
+    .S_315_i_4(S71_9x9_o),
     .S1_o(S1_r4),
     .S2_o(S2_r4),
     .S3_o(S3_r4),
@@ -415,6 +415,45 @@ module test_r4 #(parameter COLS = 30,
     .progress_done_o(done_interpolation)
     );
     
+    
+    // r4 rd
+    wire rd_r4_done, rd_r4_progress_done, bit1_o, bit2_o, bit3_o, bit4_o, bit5_o, bit6_o, bit7_o, bit8_o;
+    RD RD_CALC_R4 (
+    .clk(clk),
+    .rst(rst),
+    .done_i(done_o_r4),
+    .progress_done_i(done_interpolation),
+    .S1_r2(S1_r4),
+    .S2_r2(S2_r4),
+    .S3_r2(S3_r4),
+    .S4_r2(S4_r4),
+    .S5_r2(S5_r4),
+    .S6_r2(S6_r4),
+    .S7_r2(S7_r4),
+    .S8_r2(S8_r4),
+    .S1_r1(S1_r3),
+    .S2_r1(S2_r3),
+    .S3_r1(S3_r3),
+    .S4_r1(S4_r3),
+    .S5_r1(S5_r3),
+    .S6_r1(S6_r3),
+    .S7_r1(S7_r3),
+    .S8_r1(S8_r3),
+    .done_o(rd_r4_done),
+    .progress_done_o(rd_r4_progress_done),
+    .bit1_o(bit1_o),
+    .bit2_o(bit2_o),
+    .bit3_o(bit3_o),
+    .bit4_o(bit4_o),
+    .bit5_o(bit5_o),
+    .bit6_o(bit6_o),
+    .bit7_o(bit7_o),
+    .bit8_o(bit8_o)
+    );
+    
+    
+    wire [7:0] o_test_rd;
+    assign o_test_rd = {bit8_o, bit7_o, bit6_o, bit5_o, bit4_o, bit3_o, bit2_o, bit1_o};
     
     
 endmodule

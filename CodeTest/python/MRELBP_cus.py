@@ -118,9 +118,23 @@ class MRELBP():
             image[x2, y1] * r3 +
             image[x2, y2] * r4
         )
+        fraction_bits = 16
 
-        # print(image[x1, y1], image[x1, y2], image[x2, y1], image[x2, y2])
-        # print(interpolated_value)
+        # Chuyển đổi sang fixed-point 24-bit
+        fixed_r1 = int(r1 * (1 << fraction_bits))
+        fixed_r2 = int(r2 * (1 << fraction_bits))
+        fixed_r3 = int(r3 * (1 << fraction_bits))
+        fixed_r4 = int(r4 * (1 << fraction_bits))
+
+        # In kết quả dưới dạng hex
+        print(f"r1: {fixed_r1:06x}")
+        print(f"r2: {fixed_r2:06x}")
+        print(f"r3: {fixed_r3:06x}")
+        print(f"r4: {fixed_r4:06x}")
+
+
+        print(image[x1, y1], image[x1, y2], image[x2, y1], image[x2, y2])
+        print(interpolated_value)
 
 
         return interpolated_value
@@ -321,6 +335,7 @@ class MRELBP():
 
 
     def getInterNeighbors(self, image, r, i, j):
+
         if r == 1:
             S =  np.zeros(9, dtype = np.uint8)
             S[1] = image[i, j + r]
@@ -340,13 +355,13 @@ class MRELBP():
         S[3] = image[i - r, j]
         S[5] = image[i, j - r]
         S[7] = image[i + r, j]
-        # print(S[1], S[3], S[5], S[7])
 
+        print(S[1], S[3], S[5], S[7])
         for angle in angles:
             theta = np.radians(angle)
             target_x = i - r * np.sin(theta)
             target_y = j + r * np.cos(theta)
-                    # print(target_x, target_y)
+            # print(target_x, target_y)
             results[f"{angle}"] = self.getInterpolation(image, target_x, target_y, r)
 
         S[2] = results["45"]
@@ -369,34 +384,35 @@ class MRELBP():
                 sum_r2_patch = np.sum(area)
                 # k += 1
                 r1_descriptor = self.getInterNeighbors(image_r1, r1, i, j)
+                # return
+                # print(r2)
                 r2_descriptor = self.getInterNeighbors(image_r2, r2, i, j)
 
                 # r1_descriptor_str = str(r1_descriptor)
                 # with open("r1_inter", "a") as file:
                 #     file.write(r1_descriptor_str + "\n")
 
-                # r2_descriptor_str = str(r2_descriptor)
-                # with open("r2_inter", "a") as file:
-                #     file.write(r2_descriptor_str + "\n")
-                #     file.write("\n")
+                r2_descriptor_str = str(r2_descriptor)
+                with open("r2_inter", "a") as file:
+                    file.write(r2_descriptor_str + "\n")
+                    file.write("\n")
                 # for i in range(0, 9):
                 #     print(r2_descriptor)
-                # return
-                # with open("check_ni.txt", "a") as file:
-                #     file.write(str(sum_r2_patch))
-                #     file.write(" ")
-                #     file.write(r2_descriptor_str)
-                #     file.write('\n')
+                with open("check_ni.txt", "a") as file:
+                    file.write(str(sum_r2_patch))
+                    file.write(" ")
+                    file.write(r2_descriptor_str)
+                    file.write('\n')
                 NI[i - r2, j - r2] = self.getNIDescriptor(r2_descriptor, r2, sum_r2_patch)
                 RD[i - r2, j - r2] = self.getRDDescriptor(r2_descriptor, r1_descriptor)
-        # k = 0
-        # for i in range(height - 2 * r2):
-        #     for j in range(width - 2 * r2):
-        #         print(f'{NI[i, j]:08b}')
-        #         k += 1
-        #         if k == 20:
-        #             break
-        #     break
+        k = 0
+        for i in range(height - 2 * r2):
+            for j in range(width - 2 * r2):
+                print(f'{RD[i, j]:08b}')
+                k += 1
+                if k == 20:
+                    break
+            break
         return NI, RD
 
 
@@ -438,9 +454,14 @@ np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matri
 # with open("matrix_cpp.txt", "w") as f:
 #     f.write(cpp_array)
 
-lbp = MRELBP()
+def test(matrix):
+    lbp = MRELBP()
+    m_3x3, m_5x5, m_7x7, m_9x9 = lbp.median_processing(matrix)
+    lbp.getNI_RD(m_3x3, m_5x5, 4)
 
-lbp.MRELBP(random_matrix)
+
+
+test(random_matrix)
 # lbp.getNI_RD(random_matrix, median_matrix, 2)
 # lbp.NI_RD_descriptor(random_matrix, median_matrix, 2)
 
@@ -489,7 +510,7 @@ def compare_files(file1, file2):
         if not mismatch_found:
             print("The files are identical.")
 
-# Example usage
-file1 = 'hist_r21.txt'
-file2 = 'output_simu.txt'
-compare_files(file1, file2)
+# # Example usage
+# file1 = 'hist_r21.txt'
+# file2 = 'output_simu.txt'
+# compare_files(file1, file2)

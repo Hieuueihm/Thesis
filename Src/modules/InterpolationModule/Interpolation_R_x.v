@@ -120,10 +120,10 @@ module Interpolation_R_x #(parameter R = 2)
     assign S8_o = {S8_shift_3, 16'b0};
     
     
-    end else if (R == 2) begin: R2_LOGIC
+    end else if (R > 1) begin
     // same time
     
-    Interpolation_calc #(.R(2),
+    Interpolation_calc #(.R(R),
     .RADIUS(45)) INTER_R2_45
     (
     .clk(clk),
@@ -134,7 +134,7 @@ module Interpolation_R_x #(parameter R = 2)
     .D(S_45_i_4),
     .data_o(S2_o));
     
-    Interpolation_calc #(.R(2), .RADIUS(135)) INTER_R2_135
+    Interpolation_calc #(.R(R), .RADIUS(135)) INTER_R2_135
     (
     .clk(clk),
     .rst(rst),
@@ -146,7 +146,7 @@ module Interpolation_R_x #(parameter R = 2)
     
     
     
-    Interpolation_calc #(.R(2),
+    Interpolation_calc #(.R(R),
     .RADIUS(225)) INTER_R2_225
     (
     .clk(clk),
@@ -158,7 +158,7 @@ module Interpolation_R_x #(parameter R = 2)
     .data_o(S6_o));
     
     
-    Interpolation_calc #(.R(2),
+    Interpolation_calc #(.R(R),
     .RADIUS(315)) INTER_R2_315
     (
     .clk(clk),
@@ -170,19 +170,7 @@ module Interpolation_R_x #(parameter R = 2)
     .data_o(S8_o));
     
     
-    
-    
-    end else if (R == 4) begin
-    
-    
-    
-    end else if (R == 6) begin
-    
-    
-    end else if (R == 8) begin
-    
     end
-    
     endgenerate
     
     reg [2:0] done_shift;
