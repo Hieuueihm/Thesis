@@ -11,7 +11,6 @@ module Synchronize_cinird #(parameter CYCLE = 100)
                             output [3:0] rd_delay);
     
     wire done_o_ni_rd_delay, progress_done_nird_delay;
-    wire [3:0] ni_delay, rd_delay;
     shift_registers #(.WIDTH(1), .CYCLE(CYCLE))
     SHIFT_DONE_O_delay (
     .clk(clk),

@@ -1,9 +1,10 @@
 `timescale 1ns / 1ps
 
 module Window_buffer_3x3_tb();
+
     
     // Parameters
-    parameter COLS = 5;
+parameter COLS = 5;
     parameter ROWS = 5;
     
     // Inputs
@@ -50,7 +51,7 @@ module Window_buffer_3x3_tb();
         done_i = 0;
         S1_i   = 0;
         S2_i   = 0;
-        S3_i   = 0;
+    S3_i   = 0;
         
         // Reset pulse
         #10;

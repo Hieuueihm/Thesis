@@ -371,8 +371,6 @@ class MRELBP():
                 #     file.write(" ")
                 #     file.write(r2_descriptor_str)
                 #     file.write('\n')
-
-
                 NI[i - r2, j - r2] = self.getNIDescriptor(r2_descriptor, r2, sum_r2_patch)
                 RD[i - r2, j - r2] = self.getRDDescriptor(r2_descriptor, r1_descriptor)
         # k = 0
@@ -393,22 +391,32 @@ np.random.seed(3)
 
 random_matrix = np.random.randint(0, 256, size=(30, 30), dtype=np.uint8)
 median_matrix = median_filter(random_matrix, size=3, mode='constant', cval=0)
+median_matrix_5x5 = median_filter(random_matrix, size=5, mode='constant', cval=0)
+
+print(random_matrix)
 
 # print(random_matrix)
 # print(median_matrix)
 # file_path = "random_matrix.txt"
 
-with open('output_matrix_original.txt', 'w') as f:
-    for row in random_matrix:
-        f.write(' '.join(map(str, row)) + '\n')
-    f.write('\n')
-# np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
+# with open('output_matrix_original.txt', 'w') as f:
+#     for row in random_matrix:
+#         f.write(' '.join(map(str, row)) + '\n')
+#     f.write('\n')
+np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
 
 # padded_result = median_filter(random_matrix, size=3, mode='constant', cval=0)
 
-# with open('output_3x3.txt', 'a') as f:
-#     for row in padded_result:
-#         f.write(' '.join(map(str, row)) + '\n')
+with open('output_5x5_test.txt', 'a') as f:
+    for row in median_matrix:
+        f.write(' '.join(map(str, row)) + '\n')
+
+    f.write('\n')
+
+
+with open('output_5x5_test.txt', 'a') as f:
+    for row in median_matrix_5x5:
+        f.write(' '.join(map(str, row)) + '\n')
 # np.savetxt(file_path, random_matrix, fmt='%d')
 
 # cpp_array = 'uint8_t array[30]307] = {\n'

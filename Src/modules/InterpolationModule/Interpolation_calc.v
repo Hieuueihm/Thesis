@@ -218,10 +218,10 @@ module Interpolation_calc #(parameter R = 2,
     reg [23:0] add_result1, add_result2;
     always @(posedge clk) begin
         if (rst) begin
-            mult_result1 <= 32'h0;
-            mult_result2 <= 32'h0;
-            mult_result3 <= 32'h0;
-            mult_result4 <= 32'h0;
+            mult_result1 <= 24'h0;
+            mult_result2 <= 24'h0;
+            mult_result3 <= 24'h0;
+            mult_result4 <= 24'h0;
             data_o       <= 0;
             add_result1  <= 0;
             add_result2  <= 0;
