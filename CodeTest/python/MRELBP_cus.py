@@ -5,6 +5,7 @@ from scipy.ndimage import median_filter
 import cv2
 from PIL import Image
 import time
+import math
 def float_to_fixed_point(value, frac_bits=16):
     # Convert a floating point value to fixed-point with 16 fractional bits
     return int(value * (2 ** frac_bits))
@@ -138,8 +139,11 @@ class MRELBP():
 
 
         return interpolated_value
-    
-    def getInterpolation_r_phi(self, image, r, phi):
+    def convertToFixedPoint(self, value, frac_bits=16):
+        integer_value = int(value)  # Convert hex to integer
+        fractional_value = integer_value / (1 << frac_bits)
+        return fractional_value
+    def getInterpolation_r_phi(self, image, x, y, r, phi):
         lookup_table = {
             (45, 2): (0x0003E1D, 0x00057D8, 0x0002BEC, 0x0003E1D),
             (135, 2): (0x0002BEC, 0x0003E1D, 0x0003E1D, 0x00057D8),
@@ -170,20 +174,39 @@ class MRELBP():
             (225, 8): (0x00039B3, 0x0006E73, 0x0001E24, 0x00039B3),
             (315, 8): (0x0001E24, 0x00039B3, 0x00039B3, 0x0006E73),
         }
+        r1 = lookup_table[(phi, r)][0]
+        r2 = lookup_table[(phi, r)][1]
+        r3 = lookup_table[(phi, r)][2]
+        r4 = lookup_table[(phi, r)][3]
+        x1 = int(np.floor(x))
+        x2 = int(np.ceil(x))
+        y1 = int(np.floor(y))
+        y2 = int(np.ceil(y)) 
+        r1_ = self.convertToFixedPoint(r1)
+        r2_ = self.convertToFixedPoint(r2)
+        r3_ = self.convertToFixedPoint(r3)
+        r4_ = self.convertToFixedPoint(r4)
+        # print(r1_, r2_, r3_, r4_)
+        # print(r1)
+
         interpolated_value = (
-            image[x1, y1] * r1 +
-            image[x1, y2] * r2 +
-            image[x2, y1] * r3 +
-            image[x2, y2] * r4
+            image[x1, y1] * r1_ +
+            image[x1, y2] * r2_ +
+            image[x2, y1] * r3_ +
+            image[x2, y2] * r4_
         )
+        return interpolated_value
         
     def jointHistogram(self, ci, ni, rd):
-        width, height = ci.shape
-        out_matrix = np.zeros(200, dtype=np.uint32)
-        for i in  range(0, width):
-            for j in range(0, height):
-                out_matrix[ci[i, j] * 100 + ni[i, j] * 10 + rd[i, j]] += 1
-        return out_matrix
+        with open("test_joint.txt", 'w') as f:
+            
+            width, height = ci.shape
+            out_matrix = np.zeros(200, dtype=np.uint32)
+            for i in  range(0, width):
+                for j in range(0, height):
+                    out_matrix[ci[i, j] * 100 + ni[i, j] * 10 + rd[i, j]] += 1
+                    f.write(f'{ci[i, j]} {ni[i, j]} {rd[i, j]}\n')
+            return out_matrix
 
 
     def getNIDescriptor(self, NI, r, sum):
@@ -401,7 +424,10 @@ class MRELBP():
             target_x = i - r * np.sin(theta)
             target_y = j + r * np.cos(theta)
             # print(target_x, target_y)
-            results[f"{angle}"] = self.getInterpolation(image, target_x, target_y, r)
+            results[f"{angle}"] = self.getInterpolation_r_phi(image, target_x, target_y, r, angle )
+            # results[f"{angle}"] = self.getInterpolation(image, target_x, target_y, r )
+
+            # return
 
         S[2] = results["45"]
         S[4] = results["135"]
@@ -499,9 +525,21 @@ def test(matrix):
     lbp = MRELBP()
     m_3x3, m_5x5, m_7x7, m_9x9 = lbp.median_processing(matrix)
     # lbp.getNI_RD(m_3x3, m_5x5, 4)
-    ci_r4, ci_r4_count = lbp.mrelbp_ci(m_3x3, 4)
-    NI_r4, RD_r4= lbp.NI_RD_descriptor(m_3x3, m_5x5, 4)
+    ci_r4, ci_r4_count = lbp.mrelbp_ci(m_3x3, 2)
+    NI_r4, RD_r4= lbp.NI_RD_descriptor(matrix, m_3x3, 2)
     hist_r4 = lbp.jointHistogram(ci_r4, NI_r4, RD_r4)
+    with open("ci_r4_test.txt", 'w') as f:
+        for i in range(ci_r4.shape[0]):
+            for j in range(ci_r4.shape[1]):
+                f.write(f'{ci_r4[i, j]}\n')
+    with open("ni_r4.txt", "w") as file:
+        for i in range(NI_r4.shape[0]):
+            for j in range(NI_r4.shape[1]):
+                file.write(f'{NI_r4[i, j]}\n')
+    with open("rd_r4.txt", "w") as file:
+        for i in range(RD_r4.shape[0]):
+            for j in range(RD_r4.shape[1]):
+                file.write(f'{RD_r4[i, j]}\n')
     with open("hist_r21.txt", "w") as file:
         for i in range(200):
             file.write(str(hist_r4[i]))
@@ -522,6 +560,7 @@ def compare_files(file1, file2):
         mismatch_found = False
         sum_1 = 0
         sum_2 = 0
+        diff = 0
 
         # Read each line from both files
         while True:
@@ -534,8 +573,8 @@ def compare_files(file1, file2):
             # If both lines are empty, the files are identical up to this point
             if not line1 and not line2:
                 break
-            sum_1 += int(line1)
-            sum_2 += int(line2)
+            # sum_1 += int(line1)
+            # sum_2 += int(line2)
             # If one of the files ends and the other doesn't, it's a mismatch
             if not line1 or not line2:
                 print(f"Mismatch found at line {line_number}:")
@@ -561,6 +600,8 @@ def compare_files(file1, file2):
                 print(f"File 1: {int_line1}")
                 print(f"File 2: {int_line2}")
                 mismatch_found = True
+                # diff += abs(int(line1) - int(line2))
+
 
             line_number += 1
 
@@ -568,9 +609,22 @@ def compare_files(file1, file2):
             print("The files are identical.")
         print(f"Sum 1: {sum_1}")
         print(f"Sum 2: {sum_2}")
+        print(f"Diff: {diff}")
 
 
 # Example usage
 file1 = 'hist_r21.txt'
 file2 = 'output_simu.txt'
 compare_files(file1, file2)
+
+# file1 = 'ni_r4.txt'
+# file2 = 'ri_data_r4.txt'
+# compare_files(file1, file2)
+
+# file3 = 'rd_r4.txt'
+# file4   = 'rd_data_r4.txt'
+# compare_files(file3, file4)
+
+# file3 = 'ci_r4.txt'
+# file4   = 'ci_r4_test.txt'
+# compare_files(file3, file4)
