@@ -104,8 +104,8 @@ module test_top_tb ();
     end
     
     always @(posedge clk) begin
-        if (done_r4) begin
-            $fwrite(file_id, "%d\n", cinird_r4); // Write binary value of cinird_r2 to file
+        if (done_r2) begin
+            $fwrite(file_id, "%d\n", cinird_r2); // Write binary value of cinird_r2 to file
         end
     end
 endmodule

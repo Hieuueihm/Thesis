@@ -146,6 +146,17 @@ module CI_top #(parameter ROWS = 30,
     .ci_o(ci_r8_o),
     .progress_done_o(progress_done_r8));
     
-    
+    integer file1;
+    always @(posedge clk) begin
+        if (rst) begin
+            file1 = $fopen("D:\\Thesis\\CodeTest\\python\\ci_r4.txt", "w");
+            end else if (done_r4) begin
+            if (file1) begin
+                $fwrite(file1, "%d\n", ci_r4_o);
+            end
+            end else if (progress_done_r4) begin
+            $fclose(file1);
+        end
+    end
     
 endmodule

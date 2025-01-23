@@ -652,8 +652,8 @@ module R4_NIRD #(parameter COLS = 30,
     riu2_mapping RIU2_RD(
     .clk(clk),
     .rst(rst),
-    .done_i(rd_r4_done),
-    .progress_done_i(rd_r4_progress_done),
+    .done_i(rd_done_delay),
+    .progress_done_i(rd_progress_done_delay),
     .bit1_i(bit1_delay),
     .bit2_i(bit2_delay),
     .bit3_i(bit3_delay),
@@ -683,4 +683,7 @@ module R4_NIRD #(parameter COLS = 30,
     .data_o(ni_o),
     .done_o(),
     .progress_done_o());
+    
+    
+    
 endmodule

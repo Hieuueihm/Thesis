@@ -35,4 +35,18 @@ module Joint_histogram(input clk,
     .cinird_o(cinird_o),
     .done_read(done_read));
     
+    integer file1;
+    always @(posedge clk) begin
+        if (rst) begin
+            file1 = $fopen("D:\\Thesis\\CodeTest\\python\\joint_r4.txt", "w");
+            end else if (done_i) begin
+            if (file1) begin
+                $fwrite(file1, "%d %d %d\n",ci_i, ni_i, rd_i);
+            end
+            end else if (progress_done_i) begin
+            $fclose(file1);
+        end
+        
+    end
+    
 endmodule

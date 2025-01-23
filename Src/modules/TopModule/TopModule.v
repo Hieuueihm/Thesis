@@ -141,7 +141,7 @@ module TopModule #(parameter COLS = 30,
     wire [3:0] rd_r4_delay;
     
     
-    Synchronize_cinird #(.CYCLE(8 * COLS - 13)) SYNCHRONIZE_R4
+    Synchronize_cinird #(.CYCLE(8 * COLS - 14)) SYNCHRONIZE_R4
     (
     .clk(clk),
     .rst(rst),
