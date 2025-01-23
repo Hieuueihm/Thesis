@@ -29,6 +29,8 @@ module test_top_tb ();
     reg [7:0] grayscale_i;
     reg done_i;
     wire [15:0] cinird_r2;
+    wire [15:0] cinird_r4;
+    wire done_r4;
     wire done_r2;
     wire finish;
     
@@ -40,6 +42,8 @@ module test_top_tb ();
     .done_i(done_i),
     .cinird_r2(cinird_r2),
     .done_r2(done_r2),
+    .cinird_r4(cinird_r4),
+    .done_r4(done_r4),
     .finish(finish)
     );
     
@@ -100,8 +104,8 @@ module test_top_tb ();
     end
     
     always @(posedge clk) begin
-        if (done_r2) begin
-            $fwrite(file_id, "%d\n", cinird_r2); // Write binary value of cinird_r2 to file
+        if (done_r4) begin
+            $fwrite(file_id, "%d\n", cinird_r4); // Write binary value of cinird_r2 to file
         end
     end
 endmodule

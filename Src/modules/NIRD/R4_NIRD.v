@@ -1,43 +1,24 @@
-module test_r4 #(parameter COLS = 30,
+module R4_NIRD #(parameter COLS = 30,
                  parameter ROWS = 30)
                 (input clk,
                  input rst,
-                 input [7:0] grayscale_i,
-                 input done_i);
+                 input [7:0] m_3x3_i,
+                 input done_m_3x3_i,
+                 input [7:0] m_5x5_i,
+                 input done_m_5x5_i,
+                 output [3:0] ni_o,
+                 output [3:0] rd_o,
+                 output done_o,
+                 output progress_done_o);
     
-    wire done_original_o;
-    wire [7:0] data_o;
-    wire done_3x3_o;
-    wire [7:0] m_3x3_o;
-    wire [7:0] m_5x5_o;
-    wire done_5x5_o;
-    
-    Median_processing #(.ROWS(ROWS), .COLS(COLS))
-    MEDIAN_PROCESSING
-    (
-    .clk(clk),
-    .rst(rst),
-    .data_i(grayscale_i),
-    .done_i(done_i),
-    .data_o(data_o),
-    .done_o(done_original_o),
-    .m_3x3_o(m_3x3_o),
-    .done_3x3_o(done_3x3_o),
-    .m_5x5_o(m_5x5_o),
-    .done_5x5_o(done_5x5_o),
-    .m_7x7_o(),
-    .done_7x7_o(),
-    .m_9x9_o(),
-    .done_9x9_o()
-    );
     
     wire [7:0] data0_3x3_o, data1_3x3_o, data2_3x3_o, data3_3x3_o, data4_3x3_o, data5_3x3_o, data6_3x3_o, data7_3x3_o, data8_3x3_o;
     wire done_buffer_3x3_o;
     Buffer_8_rows #(.DEPTH(COLS)) BUFFER_8_ROWS_3X3 (
     .clk(clk),
     .rst(rst),
-    .done_i(done_3x3_o),
-    .data_i(m_3x3_o),
+    .done_i(done_m_3x3_i),
+    .data_i(m_3x3_i),
     .data0_o(data0_3x3_o),
     .data1_o(data1_3x3_o),
     .data2_o(data2_3x3_o),
@@ -55,8 +36,8 @@ module test_r4 #(parameter COLS = 30,
     Buffer_8_rows #(.DEPTH(COLS)) BUFFER_8_ROWS_5x5 (
     .clk(clk),
     .rst(rst),
-    .done_i(done_5x5_o),
-    .data_i(m_5x5_o),
+    .done_i(done_m_5x5_i),
+    .data_i(m_5x5_i),
     .data0_o(data0_5x5_o),
     .data1_o(data1_5x5_o),
     .data2_o(data2_5x5_o),
@@ -633,8 +614,8 @@ module test_r4 #(parameter COLS = 30,
     
     
     
-    wire [7:0] o_test_rd;
-    assign o_test_rd = {bit8_delay, bit7_delay, bit6_delay, bit5_delay, bit4_delay, bit3_delay, bit2_delay, bit1_delay};
+    // wire [7:0] o_test_rd;
+    // assign o_test_rd = {bit8_delay, bit7_delay, bit6_delay, bit5_delay, bit4_delay, bit3_delay, bit2_delay, bit1_delay};
     
     
     wire ni_r4_done, ni_r4_progress_done, bit1_o_ni, bit2_o_ni, bit3_o_ni,
@@ -664,36 +645,33 @@ module test_r4 #(parameter COLS = 30,
     .bit7_o(bit7_o_ni),
     .bit8_o(bit8_o_ni)
     );
-    wire [7:0] o_test_ni;
-    assign o_test_ni = {bit8_o_ni, bit7_o_ni, bit6_o_ni, bit5_o_ni, bit4_o_ni, bit3_o_ni, bit2_o_ni, bit1_o_ni};
+    // wire [7:0] o_test_ni;
+    // assign o_test_ni = {bit8_o_ni, bit7_o_ni, bit6_o_ni, bit5_o_ni, bit4_o_ni, bit3_o_ni, bit2_o_ni, bit1_o_ni};
     
     
-    wire [3:0] data_o_riu;
-    wire riu_done_o, riu_progress_done;
-    riu2_mapping RIU2(
+    riu2_mapping RIU2_RD(
     .clk(clk),
     .rst(rst),
-    .done_i(rd_r2_done),
-    .progress_done_i(rd_r2_progress_done),
-    .bit1_i(bit1_o),
-    .bit2_i(bit2_o),
-    .bit3_i(bit3_o),
-    .bit4_i(bit4_o),
-    .bit5_i(bit5_o),
-    .bit6_i(bit6_o),
-    .bit7_i(bit7_o),
-    .bit8_i(bit8_o),
-    .data_o(data_o_riu),
-    .done_o(riu_done_o),
-    .progress_done_o(riu_progress_done));
+    .done_i(rd_r4_done),
+    .progress_done_i(rd_r4_progress_done),
+    .bit1_i(bit1_delay),
+    .bit2_i(bit2_delay),
+    .bit3_i(bit3_delay),
+    .bit4_i(bit4_delay),
+    .bit5_i(bit5_delay),
+    .bit6_i(bit6_delay),
+    .bit7_i(bit7_delay),
+    .bit8_i(bit8_delay),
+    .data_o(rd_o),
+    .done_o(done_o),
+    .progress_done_o(progress_done_o));
     
-    wire [3:0] data_o_riu_ni;
-    wire riu_done_o_ni, riu_progress_done_ni;
+    
     riu2_mapping RIU2_NI(
     .clk(clk),
     .rst(rst),
-    .done_i(ni_r2_done),
-    .progress_done_i(ni_r2_progress_done),
+    .done_i(ni_r4_done),
+    .progress_done_i(ni_r4_progress_done),
     .bit1_i(bit1_o_ni),
     .bit2_i(bit2_o_ni),
     .bit3_i(bit3_o_ni),
@@ -702,7 +680,7 @@ module test_r4 #(parameter COLS = 30,
     .bit6_i(bit6_o_ni),
     .bit7_i(bit7_o_ni),
     .bit8_i(bit8_o_ni),
-    .data_o(data_o_riu_ni),
-    .done_o(riu_done_o_ni),
-    .progress_done_o(riu_progress_done_ni));
+    .data_o(ni_o),
+    .done_o(),
+    .progress_done_o());
 endmodule

@@ -6,6 +6,8 @@ module TopModule #(parameter COLS = 30,
                    input done_i,
                    output [15:0] cinird_r2,
                    output done_r2,
+                   output [15:0] cinird_r4,
+                   output done_r4,
                    output finish);
     
     //    output [15:0] cinird_r2,
@@ -67,10 +69,10 @@ module TopModule #(parameter COLS = 30,
     .progress_done_r8(progress_done_ci_r8));
     
     
-    wire [3:0] ni_o, rd_o;
-    wire done_o_nird, progress_done_o_nird;
-    R2_NIRD #(.COLS(30),
-    .ROWS(30))
+    wire [3:0] ni_r2_o, rd_r2_o;
+    wire done_r2_nird, progress_done_r2_nird;
+    R2_NIRD #(.COLS(COLS),
+    .ROWS(ROWS))
     R2_NI_RD
     (
     .clk(clk),
@@ -79,10 +81,10 @@ module TopModule #(parameter COLS = 30,
     .done_m_3x3_i(done_m_3x3_o),
     .data_original_i(data_original_o),
     .done_original_i(done_original_o),
-    .ni_o(ni_o),
-    .rd_o(rd_o),
-    .done_o(done_o_nird),
-    .progress_done_o(progress_done_o_nird));
+    .ni_o(ni_r2_o),
+    .rd_o(rd_r2_o),
+    .done_o(done_r2_nird),
+    .progress_done_o(progress_done_r2_nird));
     
     wire done_nird_r2_delay, progress_done_nird_r2_delay;
     wire [3:0] ni_r2_delay;
@@ -92,10 +94,10 @@ module TopModule #(parameter COLS = 30,
     (
     .clk(clk),
     .rst(rst),
-    .done_nird(done_o_nird),
-    .progress_done_nird(progress_done_o_nird),
-    .ni_i(ni_o),
-    .rd_i(rd_o),
+    .done_nird(done_r2_nird),
+    .progress_done_nird(progress_done_r2_nird),
+    .ni_i(ni_r2_o),
+    .rd_i(rd_r2_o),
     .done_delay(done_nird_r2_delay),
     .progress_delay(progress_done_nird_r2_delay),
     .ni_delay(ni_r2_delay),
@@ -117,5 +119,52 @@ module TopModule #(parameter COLS = 30,
     .finish(finish));
     
     
+    wire [3:0] ni_r4_o, rd_r4_o;
+    wire done_r4_nird, progress_done_r4_nird;
+    R4_NIRD #(.COLS(COLS),
+    .ROWS(ROWS))
+    R4_NI_RD
+    (
+    .clk(clk),
+    .rst(rst),
+    .m_3x3_i(m_3x3_o),
+    .done_m_3x3_i(done_m_3x3_o),
+    .m_5x5_i(m_5x5_o),
+    .done_m_5x5_i(done_m_5x5_o),
+    .ni_o(ni_r4_o),
+    .rd_o(rd_r4_o),
+    .done_o(done_r4_nird),
+    .progress_done_o(progress_done_r4_nird));
     
+    wire done_nird_r4_delay, progress_done_nird_r4_delay;
+    wire [3:0] ni_r4_delay;
+    wire [3:0] rd_r4_delay;
+    
+    
+    Synchronize_cinird #(.CYCLE(8 * COLS - 13)) SYNCHRONIZE_R4
+    (
+    .clk(clk),
+    .rst(rst),
+    .done_nird(done_r4_nird),
+    .progress_done_nird(progress_done_r4_nird),
+    .ni_i(ni_r4_o),
+    .rd_i(rd_r4_o),
+    .done_delay(done_nird_r4_delay),
+    .progress_delay(progress_done_nird_r4_delay),
+    .ni_delay(ni_r4_delay),
+    .rd_delay(rd_r4_delay));
+    
+    wire joint_r4_done, joint_r4_finish;
+    wire [15:0] cinird_r4;
+    Joint_histogram JOINT_R4 (
+    .clk(clk),
+    .rst(rst),
+    .ci_i(ci_r4_o),
+    .ni_i(ni_r4_delay),
+    .rd_i(rd_r4_delay),
+    .done_i(done_nird_r4_delay),
+    .progress_done_i(progress_done_nird_r4_delay),
+    .cinird_o(cinird_r4),
+    .done_o(done_r4),
+    .finish());
 endmodule

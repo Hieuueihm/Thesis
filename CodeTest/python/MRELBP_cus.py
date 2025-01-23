@@ -127,17 +127,56 @@ class MRELBP():
         fixed_r4 = int(r4 * (1 << fraction_bits))
 
         # In kết quả dưới dạng hex
-        print(f"r1: {fixed_r1:06x}")
-        print(f"r2: {fixed_r2:06x}")
-        print(f"r3: {fixed_r3:06x}")
-        print(f"r4: {fixed_r4:06x}")
+        # print(f"r1: {fixed_r1:06x}")
+        # print(f"r2: {fixed_r2:06x}")
+        # print(f"r3: {fixed_r3:06x}")
+        # print(f"r4: {fixed_r4:06x}")
 
 
-        print(image[x1, y1], image[x1, y2], image[x2, y1], image[x2, y2])
-        print(interpolated_value)
+        # print(image[x1, y1], image[x1, y2], image[x2, y1], image[x2, y2])
+        # print(interpolated_value)
 
 
         return interpolated_value
+    
+    def getInterpolation_r_phi(self, image, r, phi):
+        lookup_table = {
+            (45, 2): (0x0003E1D, 0x00057D8, 0x0002BEC, 0x0003E1D),
+            (135, 2): (0x0002BEC, 0x0003E1D, 0x0003E1D, 0x00057D8),
+            (225, 2): (0x0003E1D, 0x0002BEC, 0x00057D8, 0x0003E1D),
+            (315, 2): (0x00057D8, 0x0003E1D, 0x0003E1D, 0x0002BEC),
+            (45, 3): (0x0001B4A, 0x000C5A6, 0x00003C4, 0x0001B4A),
+            (135, 3): (0x00003C4, 0x0001B4A, 0x0001B4A, 0x000C5A6),
+            (225, 3): (0x0001B4A, 0x00003C4, 0x000C5A6, 0x0001B4A),
+            (315, 3): (0x000C5A6, 0x0001B4A, 0x0001B4A, 0x00003C4),
+            (45, 4): (0x002463, 0x000789, 0x00AFB0, 0x002463),
+            (135, 4): (0x00AFB0, 0x002463, 0x002463, 0x000789),
+            (225, 4): (0x002463, 0x00AFB0, 0x000789, 0x002463),
+            (315, 4): (0x000789, 0x002463, 0x002463, 0x00AFB0),
+            (45, 5): (0x0003FAD, 0x0003739, 0x000496B, 0x0003FAD),
+            (135, 5): (0x000496B, 0x0003FAD, 0x0003FAD, 0x0003739),
+            (225, 5): (0x0003FAD, 0x000496B, 0x0003739, 0x0003FAD),
+            (315, 5): (0x0003739, 0x0003FAD, 0x0003FAD, 0x000496B),
+            (45, 6): (0x0002F0B, 0x00092D6, 0x0000F12, 0x0002F0B),
+            (135, 6): (0x0000F12, 0x0002F0B, 0x0002F0B, 0x00092D6),
+            (225, 6): (0x0002F0B, 0x0000F12, 0x00092D6, 0x0002F0B),
+            (315, 6): (0x00092D6, 0x0002F0B, 0x0002F0B, 0x0000F12),
+            (45, 7): (0x0000C37, 0x00000A5, 0x000E6EA, 0x0000C37),
+            (135, 7): (0x000E6EA, 0x0000C37, 0x0000C37, 0x00000A5),
+            (225, 7): (0x0000C37, 0x000E6EA, 0x00000A5, 0x0000C37),
+            (315, 7): (0x00000A5, 0x0000C37, 0x0000C37, 0x000E6EA),
+            (45, 8): (0x00039B3, 0x0001E24, 0x0006E73, 0x00039B3),
+            (135, 8): (0x0006E73, 0x00039B3, 0x00039B3, 0x0001E24),
+            (225, 8): (0x00039B3, 0x0006E73, 0x0001E24, 0x00039B3),
+            (315, 8): (0x0001E24, 0x00039B3, 0x00039B3, 0x0006E73),
+        }
+        interpolated_value = (
+            image[x1, y1] * r1 +
+            image[x1, y2] * r2 +
+            image[x2, y1] * r3 +
+            image[x2, y2] * r4
+        )
+        
     def jointHistogram(self, ci, ni, rd):
         width, height = ci.shape
         out_matrix = np.zeros(200, dtype=np.uint32)
@@ -356,7 +395,7 @@ class MRELBP():
         S[5] = image[i, j - r]
         S[7] = image[i + r, j]
 
-        print(S[1], S[3], S[5], S[7])
+        # print(S[1], S[3], S[5], S[7])
         for angle in angles:
             theta = np.radians(angle)
             target_x = i - r * np.sin(theta)
@@ -405,14 +444,16 @@ class MRELBP():
                     file.write('\n')
                 NI[i - r2, j - r2] = self.getNIDescriptor(r2_descriptor, r2, sum_r2_patch)
                 RD[i - r2, j - r2] = self.getRDDescriptor(r2_descriptor, r1_descriptor)
-        k = 0
-        for i in range(height - 2 * r2):
-            for j in range(width - 2 * r2):
-                print(f'{RD[i, j]:08b}')
-                k += 1
-                if k == 20:
-                    break
-            break
+        # k = 0
+        # for i in range(height - 2 * r2):
+        #     for j in range(width - 2 * r2):
+        #         print(f'{NI[i, j]:08b}')
+        #         print(f'{RD[i, j]:08b}')
+        #         print('\n')
+        #         k += 1
+        #         if k == 20:
+        #             break
+        #     break
         return NI, RD
 
 
@@ -457,7 +498,17 @@ np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matri
 def test(matrix):
     lbp = MRELBP()
     m_3x3, m_5x5, m_7x7, m_9x9 = lbp.median_processing(matrix)
-    lbp.getNI_RD(m_3x3, m_5x5, 4)
+    # lbp.getNI_RD(m_3x3, m_5x5, 4)
+    ci_r4, ci_r4_count = lbp.mrelbp_ci(m_3x3, 4)
+    NI_r4, RD_r4= lbp.NI_RD_descriptor(m_3x3, m_5x5, 4)
+    hist_r4 = lbp.jointHistogram(ci_r4, NI_r4, RD_r4)
+    with open("hist_r21.txt", "w") as file:
+        for i in range(200):
+            file.write(str(hist_r4[i]))
+            file.write("\n")
+
+
+
 
 
 
@@ -469,16 +520,22 @@ def compare_files(file1, file2):
     with open(file1, 'r') as f1, open(file2, 'r') as f2:
         line_number = 1
         mismatch_found = False
+        sum_1 = 0
+        sum_2 = 0
 
         # Read each line from both files
         while True:
             line1 = f1.readline().strip()
             line2 = f2.readline().strip()
 
+
+        
+
             # If both lines are empty, the files are identical up to this point
             if not line1 and not line2:
                 break
-
+            sum_1 += int(line1)
+            sum_2 += int(line2)
             # If one of the files ends and the other doesn't, it's a mismatch
             if not line1 or not line2:
                 print(f"Mismatch found at line {line_number}:")
@@ -509,8 +566,11 @@ def compare_files(file1, file2):
 
         if not mismatch_found:
             print("The files are identical.")
+        print(f"Sum 1: {sum_1}")
+        print(f"Sum 2: {sum_2}")
 
-# # Example usage
-# file1 = 'hist_r21.txt'
-# file2 = 'output_simu.txt'
-# compare_files(file1, file2)
+
+# Example usage
+file1 = 'hist_r21.txt'
+file2 = 'output_simu.txt'
+compare_files(file1, file2)
