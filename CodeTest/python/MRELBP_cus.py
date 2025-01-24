@@ -195,6 +195,7 @@ class MRELBP():
             image[x2, y1] * r3_ +
             image[x2, y2] * r4_
         )
+        print(image[x1, y1], image[x1, y2], image[x2, y1], image[x2, y2])
         return interpolated_value
         
     def jointHistogram(self, ci, ni, rd):
@@ -418,16 +419,18 @@ class MRELBP():
         S[5] = image[i, j - r]
         S[7] = image[i + r, j]
 
-        # print(S[1], S[3], S[5], S[7])
+        print(S[1], S[3], S[5], S[7])
+
         for angle in angles:
             theta = np.radians(angle)
             target_x = i - r * np.sin(theta)
             target_y = j + r * np.cos(theta)
+            
             # print(target_x, target_y)
             results[f"{angle}"] = self.getInterpolation_r_phi(image, target_x, target_y, r, angle )
             # results[f"{angle}"] = self.getInterpolation(image, target_x, target_y, r )
 
-            # return
+        return
 
         S[2] = results["45"]
         S[4] = results["135"]
@@ -447,11 +450,14 @@ class MRELBP():
             for j in range(r2,width -r2):
                 area = image_r2[i - r2  : i  + r2 + 1 , j  - r2 :j + r2 + 1]
                 sum_r2_patch = np.sum(area)
+                print(area)
+                r2_descriptor = self.getInterNeighbors(image_r2, r2, i, j)
+
                 # k += 1
                 r1_descriptor = self.getInterNeighbors(image_r1, r1, i, j)
                 # return
                 # print(r2)
-                r2_descriptor = self.getInterNeighbors(image_r2, r2, i, j)
+                return
 
                 # r1_descriptor_str = str(r1_descriptor)
                 # with open("r1_inter", "a") as file:
@@ -524,26 +530,33 @@ np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matri
 def test(matrix):
     lbp = MRELBP()
     m_3x3, m_5x5, m_7x7, m_9x9 = lbp.median_processing(matrix)
-    # lbp.getNI_RD(m_3x3, m_5x5, 4)
-    ci_r4, ci_r4_count = lbp.mrelbp_ci(m_3x3, 2)
-    NI_r4, RD_r4= lbp.NI_RD_descriptor(matrix, m_3x3, 2)
-    hist_r4 = lbp.jointHistogram(ci_r4, NI_r4, RD_r4)
-    with open("ci_r4_test.txt", 'w') as f:
-        for i in range(ci_r4.shape[0]):
-            for j in range(ci_r4.shape[1]):
-                f.write(f'{ci_r4[i, j]}\n')
-    with open("ni_r4.txt", "w") as file:
-        for i in range(NI_r4.shape[0]):
-            for j in range(NI_r4.shape[1]):
-                file.write(f'{NI_r4[i, j]}\n')
-    with open("rd_r4.txt", "w") as file:
-        for i in range(RD_r4.shape[0]):
-            for j in range(RD_r4.shape[1]):
-                file.write(f'{RD_r4[i, j]}\n')
-    with open("hist_r21.txt", "w") as file:
-        for i in range(200):
-            file.write(str(hist_r4[i]))
-            file.write("\n")
+    with open("median_5x5.txt", "w") as file:
+        for row in m_5x5:
+            file.write(" ".join(map(str, row)) + "\n")
+    with open("median_7x7.txt", "w") as file:
+        for row in m_7x7:
+            file.write(" ".join(map(str, row)) + "\n")
+    # lbp.getNI_RD(m_3x3, m_5x5, 4) 
+    ci_r6, ci_r6_count = lbp.mrelbp_ci(m_7x7, 6)
+    NI_r6, RD_r6= lbp.NI_RD_descriptor(m_5x5, m_7x7, 6)
+    hist_r6 = lbp.jointHistogram(ci_r6, NI_r6, RD_r6)
+
+    # with open("ci_r4_test.txt", 'w') as f:
+    #     for i in range(ci_r4.shape[0]):
+    #         for j in range(ci_r4.shape[1]):
+    #             f.write(f'{ci_r4[i, j]}\n')
+    # with open("ni_r4.txt", "w") as file:
+    #     for i in range(NI_r4.shape[0]):
+    #         for j in range(NI_r4.shape[1]):
+    #             file.write(f'{NI_r4[i, j]}\n')
+    # with open("rd_r4.txt", "w") as file:
+    #     for i in range(RD_r4.shape[0]):
+    #         for j in range(RD_r4.shape[1]):
+    #             file.write(f'{RD_r4[i, j]}\n')
+    # with open("hist_r21.txt", "w") as file:
+    #     for i in range(200):
+    #         file.write(str(hist_r4[i]))
+    #         file.write("\n")
 
 
 

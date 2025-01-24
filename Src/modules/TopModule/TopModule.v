@@ -1,5 +1,5 @@
-module TopModule #(parameter COLS = 30,
-                   parameter ROWS = 30)
+module TopModule #(parameter COLS = 128,
+                   parameter ROWS = 128)
                   (input clk,
                    input rst,
                    input [7:0] grayscale_i,
