@@ -35,6 +35,8 @@ module Joint_histogram(input clk,
     .cinird_o(cinird_o),
     .done_read(done_read));
     
+    
+    
     integer file1;
     always @(posedge clk) begin
         if (rst) begin

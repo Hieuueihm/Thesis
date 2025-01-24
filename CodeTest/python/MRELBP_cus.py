@@ -195,12 +195,11 @@ class MRELBP():
             image[x2, y1] * r3_ +
             image[x2, y2] * r4_
         )
-        print(image[x1, y1], image[x1, y2], image[x2, y1], image[x2, y2])
+        # print(image[x1, y1], image[x1, y2], image[x2, y1], image[x2, y2])
         return interpolated_value
         
     def jointHistogram(self, ci, ni, rd):
-        with open("test_joint.txt", 'w') as f:
-            
+        with open("joint_code_python.txt", 'w') as f:
             width, height = ci.shape
             out_matrix = np.zeros(200, dtype=np.uint32)
             for i in  range(0, width):
@@ -419,7 +418,7 @@ class MRELBP():
         S[5] = image[i, j - r]
         S[7] = image[i + r, j]
 
-        print(S[1], S[3], S[5], S[7])
+        # print(S[1], S[3], S[5], S[7])
 
         for angle in angles:
             theta = np.radians(angle)
@@ -430,7 +429,6 @@ class MRELBP():
             results[f"{angle}"] = self.getInterpolation_r_phi(image, target_x, target_y, r, angle )
             # results[f"{angle}"] = self.getInterpolation(image, target_x, target_y, r )
 
-        return
 
         S[2] = results["45"]
         S[4] = results["135"]
@@ -450,14 +448,13 @@ class MRELBP():
             for j in range(r2,width -r2):
                 area = image_r2[i - r2  : i  + r2 + 1 , j  - r2 :j + r2 + 1]
                 sum_r2_patch = np.sum(area)
-                print(area)
+                # print(area)
                 r2_descriptor = self.getInterNeighbors(image_r2, r2, i, j)
 
                 # k += 1
                 r1_descriptor = self.getInterNeighbors(image_r1, r1, i, j)
                 # return
                 # print(r2)
-                return
 
                 # r1_descriptor_str = str(r1_descriptor)
                 # with open("r1_inter", "a") as file:
@@ -537,14 +534,26 @@ def test(matrix):
         for row in m_7x7:
             file.write(" ".join(map(str, row)) + "\n")
     # lbp.getNI_RD(m_3x3, m_5x5, 4) 
-    ci_r6, ci_r6_count = lbp.mrelbp_ci(m_7x7, 6)
+    ci_r2, ci_r2_count = lbp.mrelbp_ci(m_3x3, 2)
+    ci_r4, ci_r4_count = lbp.mrelbp_ci(m_3x3, 4)
+    ci_r6, ci_r6_count = lbp.mrelbp_ci(m_3x3, 6)
+    # NI_r4, RD_r4= lbp.NI_RD_descriptor(m_3x3, m_5x5, 4)
+    # hist_r4 = lbp.jointHistogram(ci_r4, NI_r4, RD_r4)
     NI_r6, RD_r6= lbp.NI_RD_descriptor(m_5x5, m_7x7, 6)
     hist_r6 = lbp.jointHistogram(ci_r6, NI_r6, RD_r6)
-
-    # with open("ci_r4_test.txt", 'w') as f:
-    #     for i in range(ci_r4.shape[0]):
-    #         for j in range(ci_r4.shape[1]):
-    #             f.write(f'{ci_r4[i, j]}\n')
+    print(ci_r6.shape)
+    with open("ci_r6.txt", 'w') as f:
+        for i in range(ci_r6.shape[0]):
+            for j in range(ci_r6.shape[1]):
+                f.write(f'{ci_r6[i, j]}\n')
+    with open("ci_r4.txt", 'w') as f:
+        for i in range(ci_r4.shape[0]):
+            for j in range(ci_r4.shape[1]):
+                f.write(f'{ci_r4[i, j]}\n')
+    with open("ci_r2.txt", 'w') as f:
+        for i in range(ci_r2.shape[0]):
+            for j in range(ci_r2.shape[1]):
+                f.write(f'{ci_r2[i, j]}\n')
     # with open("ni_r4.txt", "w") as file:
     #     for i in range(NI_r4.shape[0]):
     #         for j in range(NI_r4.shape[1]):
@@ -553,10 +562,10 @@ def test(matrix):
     #     for i in range(RD_r4.shape[0]):
     #         for j in range(RD_r4.shape[1]):
     #             file.write(f'{RD_r4[i, j]}\n')
-    # with open("hist_r21.txt", "w") as file:
-    #     for i in range(200):
-    #         file.write(str(hist_r4[i]))
-    #         file.write("\n")
+    with open("hist_r21.txt", "w") as file:
+        for i in range(200):
+            file.write(str(hist_r6[i]))
+            file.write("\n")
 
 
 
@@ -625,7 +634,7 @@ def compare_files(file1, file2):
         print(f"Diff: {diff}")
 
 
-# Example usage
+# # Example usage
 file1 = 'hist_r21.txt'
 file2 = 'output_simu.txt'
 compare_files(file1, file2)
@@ -638,6 +647,16 @@ compare_files(file1, file2)
 # file4   = 'rd_data_r4.txt'
 # compare_files(file3, file4)
 
-# file3 = 'ci_r4.txt'
-# file4   = 'ci_r4_test.txt'
+# file3 = 'ci_r6.txt'
+# file4   = 'ci_r6_simu.txt'
+# compare_files(file3, file4)
+
+
+# file3 = 'ci_r2.txt'
+# file4   = 'ci_r2_simu.txt'
+# compare_files(file3, file4)
+
+
+# file3 = 'ci_r6.txt'
+# file4   = 'ci_r6_simu.txt'
 # compare_files(file3, file4)
