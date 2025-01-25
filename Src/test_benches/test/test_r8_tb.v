@@ -3,7 +3,7 @@
 `define half_clk_period 5
 `define SIZE 30
 
-module test_top_tb ();
+module test_r8_tb ();
     reg [7:0] matrix [0:`SIZE-1][0:`SIZE-1];
     
     task read_matrix;
@@ -28,31 +28,13 @@ module test_top_tb ();
     reg rst;
     reg [7:0] grayscale_i;
     reg done_i;
-    wire [15:0] cinird_r2;
-    wire [15:0] cinird_r4;
-    wire [15:0] cinird_r6;
-    wire [15:0] cinird_r8;
-    wire done_r8;
-    wire done_r6;
-    wire done_r4;
-    wire done_r2;
-    wire finish;
     
-    TopModule #(.COLS(30), .ROWS(30)) DUT
+    test_r8 DUT
     (
     .clk(clk),
     .rst(rst),
     .grayscale_i(grayscale_i),
-    .done_i(done_i),
-    .cinird_r2(cinird_r2),
-    .done_r2(done_r2),
-    .cinird_r4(cinird_r4),
-    .done_r4(done_r4),
-    .cinird_r6(cinird_r6),
-    .done_r6(done_r6),
-    .cinird_r8(cinird_r8),
-    .done_r8(done_r8),
-    .finish(finish)
+    .done_i(done_i)
     );
     
     initial begin
@@ -62,7 +44,7 @@ module test_top_tb ();
     always #(`half_clk_period) clk = ~clk;
     
     integer row, col;
-    integer file, file_id;
+    integer file;
     
     initial begin
         // Initialize clock and reset
@@ -74,11 +56,6 @@ module test_top_tb ();
         
         if (file == 0) begin
             $display("Error: Cannot open file.");
-            $finish;
-        end
-        file_id = $fopen("D:\\Thesis\\CodeTest\\python\\output_simu.txt", "w");
-        if (file_id == 0) begin
-            $display("Error: Could not open file.");
             $finish;
         end
         
@@ -103,18 +80,8 @@ module test_top_tb ();
             end
         end
         done_i <= 1'b0;
-        
-        #50000;
-        // wait(finish);
-        $fclose(file_id);
-        #100;
+        #(`clk_period * 1000);
         
         $stop;  // End simulation
-    end
-    
-    always @(posedge clk) begin
-        if (done_r8) begin
-            $fwrite(file_id, "%d\n", cinird_r8); // Write binary value of cinird_r2 to file
-        end
     end
 endmodule

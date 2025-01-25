@@ -419,7 +419,7 @@ class MRELBP():
         S[7] = image[i + r, j]
 
         # print(S[1], S[3], S[5], S[7])
-
+# 
         for angle in angles:
             theta = np.radians(angle)
             target_x = i - r * np.sin(theta)
@@ -427,6 +427,7 @@ class MRELBP():
             
             # print(target_x, target_y)
             results[f"{angle}"] = self.getInterpolation_r_phi(image, target_x, target_y, r, angle )
+        # return
             # results[f"{angle}"] = self.getInterpolation(image, target_x, target_y, r )
 
 
@@ -442,6 +443,7 @@ class MRELBP():
         NI = np.zeros((width - 2 * r2, height - 2 * r2), dtype = np.uint8)
         RD = np.zeros((width - 2 * r2, height - 2 * r2), dtype = np.uint8)
         r1 = r2 - 1
+        print(r1, r2)
 
         # k = 0
         for i in range(r2,height - r2):
@@ -449,16 +451,17 @@ class MRELBP():
                 area = image_r2[i - r2  : i  + r2 + 1 , j  - r2 :j + r2 + 1]
                 sum_r2_patch = np.sum(area)
                 # print(area)
-                r2_descriptor = self.getInterNeighbors(image_r2, r2, i, j)
 
                 # k += 1
                 r1_descriptor = self.getInterNeighbors(image_r1, r1, i, j)
-                # return
-                # print(r2)
+                r2_descriptor = self.getInterNeighbors(image_r2, r2, i, j)
 
-                # r1_descriptor_str = str(r1_descriptor)
-                # with open("r1_inter", "a") as file:
-                #     file.write(r1_descriptor_str + "\n")
+                # return
+                
+
+                r1_descriptor_str = str(r1_descriptor)
+                with open("r1_inter", "a") as file:
+                    file.write(r1_descriptor_str + "\n")
 
                 r2_descriptor_str = str(r2_descriptor)
                 with open("r2_inter", "a") as file:
@@ -527,33 +530,36 @@ np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matri
 def test(matrix):
     lbp = MRELBP()
     m_3x3, m_5x5, m_7x7, m_9x9 = lbp.median_processing(matrix)
-    with open("median_5x5.txt", "w") as file:
-        for row in m_5x5:
-            file.write(" ".join(map(str, row)) + "\n")
     with open("median_7x7.txt", "w") as file:
         for row in m_7x7:
+            file.write(" ".join(map(str, row)) + "\n")
+    with open("median_9x9.txt", "w") as file:
+        for row in m_9x9:
             file.write(" ".join(map(str, row)) + "\n")
     # lbp.getNI_RD(m_3x3, m_5x5, 4) 
     ci_r2, ci_r2_count = lbp.mrelbp_ci(m_3x3, 2)
     ci_r4, ci_r4_count = lbp.mrelbp_ci(m_3x3, 4)
     ci_r6, ci_r6_count = lbp.mrelbp_ci(m_3x3, 6)
+    ci_r8, ci_r8_count = lbp.mrelbp_ci(m_3x3, 8)
     # NI_r4, RD_r4= lbp.NI_RD_descriptor(m_3x3, m_5x5, 4)
     # hist_r4 = lbp.jointHistogram(ci_r4, NI_r4, RD_r4)
-    NI_r6, RD_r6= lbp.NI_RD_descriptor(m_5x5, m_7x7, 6)
-    hist_r6 = lbp.jointHistogram(ci_r6, NI_r6, RD_r6)
-    print(ci_r6.shape)
-    with open("ci_r6.txt", 'w') as f:
-        for i in range(ci_r6.shape[0]):
-            for j in range(ci_r6.shape[1]):
-                f.write(f'{ci_r6[i, j]}\n')
-    with open("ci_r4.txt", 'w') as f:
-        for i in range(ci_r4.shape[0]):
-            for j in range(ci_r4.shape[1]):
-                f.write(f'{ci_r4[i, j]}\n')
-    with open("ci_r2.txt", 'w') as f:
-        for i in range(ci_r2.shape[0]):
-            for j in range(ci_r2.shape[1]):
-                f.write(f'{ci_r2[i, j]}\n')
+    # NI_r6, RD_r6= lbp.NI_RD_descriptor(m_5x5, m_7x7, 6)
+    # hist_r6 = lbp.jointHistogram(ci_r6, NI_r6, RD_r6)
+    NI_r8, RD_r8= lbp.NI_RD_descriptor(m_7x7, m_9x9, 8)
+    hist_r8 = lbp.jointHistogram(ci_r8, NI_r8, RD_r8)
+    # print(ci_r6.shape)
+    # with open("ci_r8.txt", 'w') as f:
+    #     for i in range(ci_r8.shape[0]):
+    #         for j in range(ci_r8.shape[1]):
+    #             f.write(f'{ci_r8[i, j]}\n')
+    with open("rd_r8_p.txt", 'w') as f:
+        for i in range(RD_r8.shape[0]):
+            for j in range(RD_r8.shape[1]):
+                f.write(f'{RD_r8[i, j]}\n')
+    with open("ni_r8_p.txt", 'w') as f:
+        for i in range(NI_r8.shape[0]):
+            for j in range(NI_r8.shape[1]):
+                f.write(f'{NI_r8[i, j]}\n')
     # with open("ni_r4.txt", "w") as file:
     #     for i in range(NI_r4.shape[0]):
     #         for j in range(NI_r4.shape[1]):
@@ -564,7 +570,7 @@ def test(matrix):
     #             file.write(f'{RD_r4[i, j]}\n')
     with open("hist_r21.txt", "w") as file:
         for i in range(200):
-            file.write(str(hist_r6[i]))
+            file.write(str(hist_r8[i]))
             file.write("\n")
 
 
@@ -634,21 +640,27 @@ def compare_files(file1, file2):
         print(f"Diff: {diff}")
 
 
-# # Example usage
+# Example usage
 file1 = 'hist_r21.txt'
 file2 = 'output_simu.txt'
 compare_files(file1, file2)
 
-# file1 = 'ni_r4.txt'
-# file2 = 'ri_data_r4.txt'
+# file1 = 'ni_r8.txt'
+# file2 = 'ni_r8_p.txt'
 # compare_files(file1, file2)
+
+
+# file1 = 'rd_r8.txt'
+# file2 = 'rd_r8_p.txt'
+# compare_files(file1, file2)
+
 
 # file3 = 'rd_r4.txt'
 # file4   = 'rd_data_r4.txt'
 # compare_files(file3, file4)
 
-# file3 = 'ci_r6.txt'
-# file4   = 'ci_r6_simu.txt'
+# file3 = 'ci_r8.txt'
+# file4   = 'ni_r8.txt'
 # compare_files(file3, file4)
 
 

@@ -10,17 +10,10 @@ module TopModule #(parameter COLS = 128,
                    output done_r4,
                    output [15:0] cinird_r6,
                    output done_r6,
+                   output [15:0] cinird_r8,
+                   output done_r8,
                    output finish);
     
-    //    output [15:0] cinird_r2,
-    //    output done_r2,
-    //    output [15:0] cinidrd_r4,
-    //    output done_r4,
-    //    output [15:0] cinird_r6,
-    //    output done_r6,
-    //    output [15:0] cinird_r8,
-    //    output done_r8,
-    //    output finish
     wire [7:0]done_original_o, data_original_o;
     wire[7:0] m_3x3_o; wire done_m_3x3_o;
     wire [7:0] m_5x5_o; wire done_m_5x5_o;
@@ -70,40 +63,7 @@ module TopModule #(parameter COLS = 128,
     .done_r8(done_ci_r8),
     .progress_done_r8(progress_done_ci_r8));
     
-    // integer file1;
-    // always @(posedge clk) begin
-    //     if (rst) begin
-    //         file1 = $fopen("D:\\Thesis\\CodeTest\\python\\ci_r6_simu.txt", "w");
-    //         end else if (done_ci_r6) begin
-    //         $fwrite(file1, "%d\n",ci_r6_o);
-    //     end
-    //     else if (progress_done_ci_r6) begin
-    //         $fclose(file1);
-    //     end
-    //         end
-    //         integer file2;
-    //         always @(posedge clk) begin
-    //             if (rst) begin
-    //                 file2 = $fopen("D:\\Thesis\\CodeTest\\python\\ci_r4_simu.txt", "w");
-    //                 end else if (done_ci_r4) begin
-    //                 $fwrite(file2, "%d\n",ci_r4_o);
-    //             end
-    //             else if (progress_done_ci_r4) begin
-    //                 $fclose(file2);
-    //             end
-    //                 end
     
-    //                 integer file3;
-    //                 always @(posedge clk) begin
-    //                     if (rst) begin
-    //                         file3 = $fopen("D:\\Thesis\\CodeTest\\python\\ci_r2_simu.txt", "w");
-    //                         end else if (done_ci_r2) begin
-    //                         $fwrite(file3, "%d\n",ci_r2_o);
-    //                     end
-    //                     else if (progress_done_ci_r2) begin
-    //                         $fclose(file3);
-    //                     end
-    //                         end
     
     wire [3:0] ni_r2_o, rd_r2_o;
     wire done_r2_nird, progress_done_r2_nird;
@@ -188,17 +148,17 @@ module TopModule #(parameter COLS = 128,
     .ni_delay(ni_r4_delay),
     .rd_delay(rd_r4_delay));
     
-    Joint_histogram JOINT_R4 (
-    .clk(clk),
-    .rst(rst),
-    .ci_i(ci_r4_o),
-    .ni_i(ni_r4_delay),
-    .rd_i(rd_r4_delay),
-    .done_i(done_nird_r4_delay),
-    .progress_done_i(progress_done_nird_r4_delay),
-    .cinird_o(cinird_r4),
-    .done_o(done_r4),
-    .finish());
+    // Joint_histogram JOINT_R4 (
+    // .clk(clk),
+    // .rst(rst),
+    // .ci_i(ci_r4_o),
+    // .ni_i(ni_r4_delay),
+    // .rd_i(rd_r4_delay),
+    // .done_i(done_nird_r4_delay),
+    // .progress_done_i(progress_done_nird_r4_delay),
+    // .cinird_o(cinird_r4),
+    // .done_o(done_r4),
+    // .finish());
     
     
     
@@ -237,18 +197,96 @@ module TopModule #(parameter COLS = 128,
     .ni_delay(ni_r6_delay),
     .rd_delay(rd_r6_delay));
     
-    Joint_histogram JOINT_R6 (
+    // Joint_histogram JOINT_R6 (
+    // .clk(clk),
+    // .rst(rst),
+    // .ci_i(ci_r6_o),
+    // .ni_i(ni_r6_delay),
+    // .rd_i(rd_r6_delay),
+    // .done_i(done_nird_r6_delay),
+    // .progress_done_i(progress_done_nird_r4_delay),
+    // .cinird_o(cinird_r6),
+    // .done_o(done_r6),
+    // .finish());
+    
+    
+    
+    wire [3:0] ni_r8_o, rd_r8_o;
+    wire done_r8_nird, progress_done_r8_nird;
+    R8_NIRD #(.COLS(COLS),
+    .ROWS(ROWS))
+    R8_NI_RD
+    (
     .clk(clk),
     .rst(rst),
-    .ci_i(ci_r6_o),
-    .ni_i(ni_r6_delay),
-    .rd_i(rd_r6_delay),
-    .done_i(done_nird_r6_delay),
-    .progress_done_i(progress_done_nird_r4_delay),
-    .cinird_o(cinird_r6),
-    .done_o(done_r6),
-    .finish());
+    .m_7x7_i(m_7x7_o),
+    .done_m_7x7_i(done_m_7x7_o),
+    .m_9x9_i(m_9x9_o),
+    .done_m_9x9_i(done_m_9x9_o),
+    .rd_o(rd_r8_o),
+    .ni_o(ni_r8_o),
+    .done_o(done_r8_nird),
+    .progress_done_o(progress_done_r8_nird));
     
     
-    
-endmodule
+    integer file1;
+    always @(posedge clk) begin
+        if (rst) begin
+            file1 = $fopen("D:\\Thesis\\CodeTest\\python\\ni_r8.txt", "w");
+            end else if (done_r8_nird) begin
+            $fwrite(file1, "%d\n",ni_r8_o);
+        end
+        else if (progress_done_r8_nird) begin
+            $fclose(file1);
+        end
+            
+            end
+            
+            
+            integer file2;
+            always @(posedge clk) begin
+                if (rst) begin
+                    file2 = $fopen("D:\\Thesis\\CodeTest\\python\\rd_r8.txt", "w");
+                    end else if (done_r8_nird) begin
+                    $fwrite(file2,"%d\n",rd_r8_o);
+                end
+                else if (progress_done_r8_nird) begin
+                    $fclose(file2);
+                end
+                    
+                    end
+                    
+                    
+                    `define CI_R8_CYCLE_DELAY 92
+                    wire done_ci_r8_delay;
+                    wire ci_r8_delay;
+                    shift_registers #(.WIDTH(1), .CYCLE(`CI_R8_CYCLE_DELAY)) SHIFT_DONE_CI_R8
+                    (
+                    .clk(clk),
+                    .rst(rst),
+                    .data_i(done_ci_r8),
+                    .data_o(done_ci_r8_delay));
+                    
+                    shift_registers #(.WIDTH(1), .CYCLE(`CI_R8_CYCLE_DELAY)) SHIFT_CI_R8 (
+                    .clk(clk),
+                    .rst(rst),
+                    .data_i(ci_r8_o),
+                    .data_o(ci_r8_delay));
+                    
+                    
+                    Joint_histogram JOINT_R8 (
+                    .clk(clk),
+                    .rst(rst),
+                    .ci_i(ci_r8_delay),
+                    .ni_i(ni_r8_o),
+                    .rd_i(rd_r8_o),
+                    .done_i(done_r8_nird),
+                    .progress_done_i(progress_done_r8_nird),
+                    .cinird_o(cinird_r8),
+                    .done_o(done_r8),
+                    .finish());
+                    
+                    
+                    
+                    
+                    endmodule
