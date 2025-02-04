@@ -1,8 +1,7 @@
 `timescale 1ns/1ps
 `define clk_period 10
 `define half_clk_period 5
-`define SIZE 30
-
+`define SIZE 128
 module test_top_tb ();
     reg [7:0] matrix [0:`SIZE-1][0:`SIZE-1];
     
@@ -31,14 +30,12 @@ module test_top_tb ();
     wire [15:0] cinird_r2;
     wire [15:0] cinird_r4;
     wire [15:0] cinird_r6;
-    wire [15:0] cinird_r8;
-    wire done_r8;
     wire done_r6;
     wire done_r4;
     wire done_r2;
     wire finish;
     
-    TopModule #(.COLS(30), .ROWS(30)) DUT
+    TopModule #(.COLS(`SIZE), .ROWS(`SIZE)) DUT
     (
     .clk(clk),
     .rst(rst),
@@ -50,8 +47,6 @@ module test_top_tb ();
     .done_r4(done_r4),
     .cinird_r6(cinird_r6),
     .done_r6(done_r6),
-    .cinird_r8(cinird_r8),
-    .done_r8(done_r8),
     .finish(finish)
     );
     
@@ -62,10 +57,9 @@ module test_top_tb ();
     always #(`half_clk_period) clk = ~clk;
     
     integer row, col;
-    integer file, file_id;
+    integer file, file_id_r2, file_id_r4, file_id_r6;
     
     initial begin
-        // Initialize clock and reset
         clk         <= 1'b0;
         rst         <= 1'b1;
         done_i      <= 1'b0;
@@ -76,45 +70,43 @@ module test_top_tb ();
             $display("Error: Cannot open file.");
             $finish;
         end
-        file_id = $fopen("D:\\Thesis\\CodeTest\\python\\output_simu.txt", "w");
-        if (file_id == 0) begin
-            $display("Error: Could not open file.");
+        
+        file_id_r2 = $fopen("D:\\Thesis\\CodeTest\\python\\cinird_r2_verilog.txt", "w");
+        file_id_r4 = $fopen("D:\\Thesis\\CodeTest\\python\\cinird_r4_verilog.txt", "w");
+        file_id_r6 = $fopen("D:\\Thesis\\CodeTest\\python\\cinird_r6_verilog.txt", "w");
+        
+        if (file_id_r2 == 0 || file_id_r4 == 0 || file_id_r6 == 0) begin
+            $display("Error: Could not open output files.");
             $finish;
         end
         
         read_matrix(file);
-        
         $fclose(file);
         
-        
-        // Reset release after some delay
         #(`clk_period * 2);
         rst    <= 1'b0;
         done_i <= 1'b1;
         
-        // Initialize the matrix with given data
-        // Example: Assign values (can be automated or read from a file)
-        
-        // Iterate through each row and column to send grayscale data
         for (row = 0; row < `SIZE; row = row + 1) begin
             for (col = 0; col < `SIZE; col = col + 1) begin
-                grayscale_i <= matrix[row][col]; // Send one pixel
+                grayscale_i <= matrix[row][col];
                 #(`clk_period);
             end
         end
         done_i <= 1'b0;
         
         #50000;
-        // wait(finish);
-        $fclose(file_id);
-        #100;
+        $fclose(file_id_r2);
+        $fclose(file_id_r4);
+        $fclose(file_id_r6);
         
-        $stop;  // End simulation
+        #100;
+        $stop;
     end
     
     always @(posedge clk) begin
-        if (done_r8) begin
-            $fwrite(file_id, "%d\n", cinird_r8); // Write binary value of cinird_r2 to file
-        end
+        if (done_r2) $fwrite(file_id_r2, "%d\n", cinird_r2);
+        if (done_r4) $fwrite(file_id_r4, "%d\n", cinird_r4);
+        if (done_r6) $fwrite(file_id_r6, "%d\n", cinird_r6);
     end
 endmodule

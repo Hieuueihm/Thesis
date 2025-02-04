@@ -11,9 +11,7 @@ module Median_processing #(parameter COLS = 30,
                            output [7:0] m_5x5_o,
                            output done_5x5_o,
                            output [7:0] m_7x7_o,
-                           output done_7x7_o,
-                           output [7:0] m_9x9_o,
-                           output done_9x9_o);
+                           output done_7x7_o);
     
     
     wire [7:0] d0_o, d1_o, d2_o, d3_o, d4_o, d5_o, d6_o, d7_o, d8_o;
@@ -100,26 +98,6 @@ module Median_processing #(parameter COLS = 30,
     .d8_i(d8_o),
     .median_o(m_7x7_o),
     .done_o(done_7x7_o)
-    );
-    
-    Median_filter_9x9 #(
-    .ROWS(ROWS),
-    .COLS(COLS)
-    ) MEDIAN_FILTER_9x9(
-    .clk(clk),
-    .rst(rst),
-    .done_i(prepare_done_o),
-    .d0_i(d0_o),
-    .d1_i(d1_o),
-    .d2_i(d2_o),
-    .d3_i(d3_o),
-    .d4_i(d4_o),
-    .d5_i(d5_o),
-    .d6_i(d6_o),
-    .d7_i(d7_o),
-    .d8_i(d8_o),
-    .median_o(m_9x9_o),
-    .done_o(done_9x9_o)
     );
     
     

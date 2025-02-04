@@ -65,17 +65,17 @@ module Joint_histogram_datapath(input clk,
     end
     assign cinird_o = output_value;
     
-    integer file;
-    always @(posedge clk) begin
-        if (rst) begin
-            file = $fopen("D:\\Thesis\\CodeTest\\python\\ci_ni_rd_data.txt", "w");
-            end else if (done_i) begin
-            if (file) begin
-                $fwrite(file, "(%d, %d, %d)\n", ci_i, ni_i, rd_i);
-            end
-            end else if (read_index == 200) begin
-            $fclose(file);
-        end
-    end
+    // integer file;
+    // always @(posedge clk) begin
+    //     if (rst) begin
+    //         file = $fopen("D:\\Thesis\\CodeTest\\python\\ci_ni_rd_data.txt", "w");
+    //         end else if (done_i) begin
+    //         if (file) begin
+    //             $fwrite(file, "(%d, %d, %d)\n", ci_i, ni_i, rd_i);
+    //         end
+    //         end else if (read_index == 200) begin
+    //         $fclose(file);
+    //     end
+    // end
     
 endmodule

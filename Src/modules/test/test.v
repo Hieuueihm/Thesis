@@ -344,42 +344,42 @@ module test(input clk,
     wire [7:0] o_test_rd;
     assign o_test_rd = {bit8_o, bit7_o, bit6_o, bit5_o, bit4_o, bit3_o, bit2_o, bit1_o};
     
-    wire [3:0] data_o_riu;
-    wire riu_done_o, riu_progress_done;
-    riu2_mapping RIU2(
-    .clk(clk),
-    .rst(rst),
-    .done_i(rd_r2_done),
-    .progress_done_i(rd_r2_progress_done),
-    .bit1_i(bit1_o),
-    .bit2_i(bit2_o),
-    .bit3_i(bit3_o),
-    .bit4_i(bit4_o),
-    .bit5_i(bit5_o),
-    .bit6_i(bit6_o),
-    .bit7_i(bit7_o),
-    .bit8_i(bit8_o),
-    .data_o(data_o_riu),
-    .done_o(riu_done_o),
-    .progress_done_o(riu_progress_done));
+    // wire [3:0] data_o_riu;
+    // wire riu_done_o, riu_progress_done;
+    // riu2_mapping RIU2(
+    // .clk(clk),
+    // .rst(rst),
+    // .done_i(rd_r2_done),
+    // .progress_done_i(rd_r2_progress_done),
+    // .bit1_i(bit1_o),
+    // .bit2_i(bit2_o),
+    // .bit3_i(bit3_o),
+    // .bit4_i(bit4_o),
+    // .bit5_i(bit5_o),
+    // .bit6_i(bit6_o),
+    // .bit7_i(bit7_o),
+    // .bit8_i(bit8_o),
+    // .data_o(data_o_riu),
+    // .done_o(riu_done_o),
+    // .progress_done_o(riu_progress_done));
     
-    wire [3:0] data_o_riu_ni;
-    wire riu_done_o_ni, riu_progress_done_ni;
-    riu2_mapping RIU2_NI(
-    .clk(clk),
-    .rst(rst),
-    .done_i(ni_r2_done),
-    .progress_done_i(ni_r2_progress_done),
-    .bit1_i(bit1_o_ni),
-    .bit2_i(bit2_o_ni),
-    .bit3_i(bit3_o_ni),
-    .bit4_i(bit4_o_ni),
-    .bit5_i(bit5_o_ni),
-    .bit6_i(bit6_o_ni),
-    .bit7_i(bit7_o_ni),
-    .bit8_i(bit8_o_ni),
-    .data_o(data_o_riu_ni),
-    .done_o(riu_done_o_ni),
-    .progress_done_o(riu_progress_done_ni));
+    // wire [3:0] data_o_riu_ni;
+    // wire riu_done_o_ni, riu_progress_done_ni;
+    // riu2_mapping RIU2_NI(
+    // .clk(clk),
+    // .rst(rst),
+    // .done_i(ni_r2_done),
+    // .progress_done_i(ni_r2_progress_done),
+    // .bit1_i(bit1_o_ni),
+    // .bit2_i(bit2_o_ni),
+    // .bit3_i(bit3_o_ni),
+    // .bit4_i(bit4_o_ni),
+    // .bit5_i(bit5_o_ni),
+    // .bit6_i(bit6_o_ni),
+    // .bit7_i(bit7_o_ni),
+    // .bit8_i(bit8_o_ni),
+    // .data_o(data_o_riu_ni),
+    // .done_o(riu_done_o_ni),
+    // .progress_done_o(riu_progress_done_ni));
     
 endmodule
