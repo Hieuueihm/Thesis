@@ -1,5 +1,5 @@
-module TopModule #(parameter COLS = 30,
-                   parameter ROWS = 30)
+module TopModule #(parameter COLS = 128,
+                   parameter ROWS = 128)
                   (input clk,
                    input rst,
                    input [7:0] grayscale_i,
@@ -12,6 +12,43 @@ module TopModule #(parameter COLS = 30,
                    output done_r6,
                    output finish);
     
+    
+    wire [7:0] grayscale_d;
+    wire  rst_d;
+    wire done_d;
+    
+    dff #(.WIDTH(8)) DFF_GRAYSCALE
+    (
+    .clk(clk),
+    .rst(rst),
+    .en(1'b1),
+    .D(grayscale_i),
+    .Q(grayscale_d)
+    );
+    
+    dff #(.WIDTH(1)) DFF_RST
+    (
+    .clk(clk),
+    .rst(1'b0),
+    .en(1'b1),
+    .D(rst),
+    .Q(rst_d)
+    );
+    
+    dff #(.WIDTH(1)) DFF_DONE
+    (
+    .clk(clk),
+    .rst(rst),
+    .en(1'b1),
+    .D(done_i),
+    .Q(done_d)
+    );
+    
+    
+    
+    
+    
+    
     wire [7:0]done_original_o, data_original_o;
     wire[7:0] m_3x3_o; wire done_m_3x3_o;
     wire [7:0] m_5x5_o; wire done_m_5x5_o;
@@ -20,9 +57,9 @@ module TopModule #(parameter COLS = 30,
     MEDIAN_PROCESSING
     (
     .clk(clk),
-    .rst(rst),
-    .data_i(grayscale_i),
-    .done_i(done_i),
+    .rst(rst_d),
+    .data_i(grayscale_d),
+    .done_i(done_d),
     .data_o(data_original_o),
     .done_o(done_original_o),
     .m_3x3_o(m_3x3_o),
@@ -37,11 +74,12 @@ module TopModule #(parameter COLS = 30,
     wire ci_r4_o, done_ci_r4, progress_done_ci_r4;
     wire ci_r6_o, done_ci_r6, progress_done_ci_r6;
     
+    
     CI_top #(.ROWS(ROWS),
     .COLS(COLS)) CI_TOP
     (
     .clk(clk),
-    .rst(rst),
+    .rst(rst_d),
     .m_3x3_i(m_3x3_o),
     .done_i(done_m_3x3_o),
     .ci_r2_o(ci_r2_o),
@@ -63,7 +101,7 @@ module TopModule #(parameter COLS = 30,
     R2_NI_RD
     (
     .clk(clk),
-    .rst(rst),
+    .rst(rst_d),
     .m_3x3_i(m_3x3_o),
     .done_m_3x3_i(done_m_3x3_o),
     .data_original_i(data_original_o),
@@ -82,7 +120,7 @@ module TopModule #(parameter COLS = 30,
     shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_SHIFT_CI_R2))
     SHIFT_CI_R2 (
     .clk(clk),
-    .rst(rst),
+    .rst(rst_d),
     .data_i(ci_r2_o),
     .data_o(ci_r2_delay)
     );
@@ -90,7 +128,7 @@ module TopModule #(parameter COLS = 30,
     shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_SHIFT_CI_R2))
     SHIFT_DONE_CI_R2 (
     .clk(clk),
-    .rst(rst),
+    .rst(rst_d),
     .data_i(done_ci_r2),
     .data_o(done_ci_r2_delay)
     );
@@ -100,7 +138,7 @@ module TopModule #(parameter COLS = 30,
     
     Joint_histogram JOINT_R2 (
     .clk(clk),
-    .rst(rst),
+    .rst(rst_d),
     .ci_i(ci_r2_delay),
     .ni_i(ni_r2_o),
     .rd_i(rd_r2_o),
@@ -108,7 +146,7 @@ module TopModule #(parameter COLS = 30,
     .progress_done_i(progress_done_r2_nird),
     .cinird_o(cinird_r2),
     .done_o(done_r2),
-    .finish(finish));
+    .finish());
     
     
     wire [3:0] ni_r4_o, rd_r4_o;
@@ -118,7 +156,7 @@ module TopModule #(parameter COLS = 30,
     R4_NI_RD
     (
     .clk(clk),
-    .rst(rst),
+    .rst(rst_d),
     .m_3x3_i(m_3x3_o),
     .done_m_3x3_i(done_m_3x3_o),
     .m_5x5_i(m_5x5_o),
@@ -137,7 +175,7 @@ module TopModule #(parameter COLS = 30,
     shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_SHIFT_CI_R4))
     SHIFT_CI_R4 (
     .clk(clk),
-    .rst(rst),
+    .rst(rst_d),
     .data_i(ci_r4_o),
     .data_o(ci_r4_delay)
     );
@@ -145,7 +183,7 @@ module TopModule #(parameter COLS = 30,
     shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_SHIFT_CI_R4))
     SHIFT_DONE_CI_R4 (
     .clk(clk),
-    .rst(rst),
+    .rst(rst_d),
     .data_i(done_ci_r4),
     .data_o(done_ci_r4_delay)
     );
@@ -153,7 +191,7 @@ module TopModule #(parameter COLS = 30,
     
     Joint_histogram JOINT_R4 (
     .clk(clk),
-    .rst(rst),
+    .rst(rst_d),
     .ci_i(ci_r4_delay),
     .ni_i(ni_r4_o),
     .rd_i(rd_r4_o),
@@ -172,7 +210,7 @@ module TopModule #(parameter COLS = 30,
     R6_NI_RD
     (
     .clk(clk),
-    .rst(rst),
+    .rst(rst_d),
     .m_5x5_i(m_5x5_o),
     .done_m_5x5_i(done_m_5x5_o),
     .m_7x7_i(m_7x7_o),
@@ -191,7 +229,7 @@ module TopModule #(parameter COLS = 30,
     shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_SHIFT_CI_R6))
     SHIFT_CI_R6 (
     .clk(clk),
-    .rst(rst),
+    .rst(rst_d),
     .data_i(ci_r6_o),
     .data_o(ci_r6_delay)
     );
@@ -199,7 +237,7 @@ module TopModule #(parameter COLS = 30,
     shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_SHIFT_CI_R6))
     SHIFT_DONE_CI_R6 (
     .clk(clk),
-    .rst(rst),
+    .rst(rst_d),
     .data_i(done_ci_r6),
     .data_o(done_ci_r6_delay)
     );
@@ -210,7 +248,7 @@ module TopModule #(parameter COLS = 30,
     
     Joint_histogram JOINT_R6 (
     .clk(clk),
-    .rst(rst),
+    .rst(rst_d),
     .ci_i(ci_r6_delay),
     .ni_i(ni_r6_o),
     .rd_i(rd_r6_o),
@@ -218,7 +256,7 @@ module TopModule #(parameter COLS = 30,
     .progress_done_i(progress_done_r6_nird),
     .cinird_o(cinird_r6),
     .done_o(done_r6),
-    .finish());
+    .finish(finish));
     
     
     

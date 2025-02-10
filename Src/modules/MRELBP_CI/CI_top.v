@@ -29,7 +29,7 @@ module CI_top #(parameter ROWS = 30,
     wire buffer_r2_done_o;
     Buffer_12_rows_ci #(
     .DEPTH(COLS)
-    ) BUFFER_16_ROWS (
+    ) BUFFER_12_ROWS (
     .clk(clk),
     .rst(rst),
     .done_i(done_i),

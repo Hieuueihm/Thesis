@@ -1,7 +1,7 @@
 `timescale 1ns/1ps
 `define clk_period 10
 `define half_clk_period 5
-`define SIZE 128
+`define SIZE 30
 module test_top_tb ();
     reg [7:0] matrix [0:`SIZE-1][0:`SIZE-1];
     

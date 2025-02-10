@@ -6,17 +6,22 @@ module Line_buffer_datapath #(parameter DEPTH = 1024)
                               input wr_en,
                               input rd_en,
                               input [7:0] data_i,
-                              output [7:0] data_o,
+                              output reg [7:0] data_o,
                               output [9:0] i_counter);
     reg [7:0] mem[0:DEPTH - 1];
-    wire [9:0] internal_wr_pointer, internal_wr_pointer_plus_1;
+    wire[9:0] internal_wr_pointer; wire [9:0] internal_wr_pointer_plus_1;
     wire [9:0] internal_rd_pointer, internal_rd_pointer_plus_1;
     wire [9:0] internal_i_counter_plus_1;
     
+    // assign data_o = (i_counter == DEPTH) ? mem[internal_rd_pointer] : 8'bzz;
     
-    
-    //  output assignment
-    assign data_o = (i_counter == DEPTH) ? mem[internal_rd_pointer] : 8'bz;
+    always @(posedge clk) begin
+        if (rst) begin
+            data_o <= 8'bz;
+            end else if (i_counter > DEPTH - 2) begin
+            data_o <= mem[internal_rd_pointer];
+        end
+    end
     
     plus_1 #(.WIDTH(10))
     COUNTER_I
@@ -27,7 +32,7 @@ module Line_buffer_datapath #(parameter DEPTH = 1024)
     .D(i_counter),
     .Q(internal_i_counter_plus_1)
     );
-    assign i_counter = (internal_i_counter_plus_1 > DEPTH) ? i_counter : internal_i_counter_plus_1;
+    
     
     plus_1 #(.WIDTH(10))
     
@@ -39,7 +44,9 @@ module Line_buffer_datapath #(parameter DEPTH = 1024)
     .D(internal_wr_pointer),
     .Q(internal_wr_pointer_plus_1)
     );
-    assign internal_wr_pointer = (internal_wr_pointer_plus_1 == DEPTH) ? 0 : internal_wr_pointer_plus_1;
+    assign i_counter            = (internal_i_counter_plus_1 > DEPTH - 1) ? i_counter : internal_i_counter_plus_1;
+    assign  internal_wr_pointer = (internal_wr_pointer_plus_1 == DEPTH) ? 0 : internal_wr_pointer_plus_1;
+    
     
     
     // Write process

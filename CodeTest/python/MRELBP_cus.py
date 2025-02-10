@@ -504,14 +504,19 @@ class MRELBP():
 
 
 # Example Usage
-np.random.seed(9)
+np.random.seed(12)
 
 
-random_matrix = np.random.randint(0, 256, size=(128, 128), dtype=np.uint8)
+random_matrix = np.random.randint(0, 256, size=(30, 30), dtype=np.uint8)
 np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
 
+image_file = "D://Thesis//Data//Ex//test_input.bmp"
+img = cv2.imread(image_file.rstrip(), cv2.IMREAD_GRAYSCALE)
+file_path = "random_matrix.txt"
+
 lbp = MRELBP()
-lbp.MRELBP(random_matrix)
+lbp.MRELBP(img)
+np.savetxt(file_path, random_matrix, fmt='%d')
 # median_matrix = median_filter(random_matrix, size=3, mode='constant', cval=0)
 # median_matrix_5x5 = median_filter(random_matrix, size=5, mode='constant', cval=0)
 
@@ -520,7 +525,6 @@ lbp.MRELBP(random_matrix)
 # print(median_matrix_5x5)
 # print(random_matrix)
 # print(median_matrix)
-# file_path = "random_matrix.txt"
 
 # with open('output_matrix_original.txt', 'w') as f:
 #     for row in random_matrix:
