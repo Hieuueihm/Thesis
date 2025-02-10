@@ -506,7 +506,16 @@ class MRELBP():
 # Example Usage
 np.random.seed(12)
 
-
+def resize_bmp(input_file, output_file, size=(128, 128)):
+    # Mở ảnh BMP ở chế độ grayscale
+    img = cv2.imread(input_file.rstrip(), cv2.IMREAD_GRAYSCALE)
+    
+    # Thay đổi kích thước ảnh về 128x128
+    img_resized = cv2.resize(img, size, interpolation=cv2.INTER_LANCZOS4)
+    # Ghi ảnh đã thay đổi kích thước ra file BMP khác
+    cv2.imwrite(output_file, img_resized)
+    print(f"Ảnh đã được lưu tại {output_file}")
+resize_bmp('D:\\Thesis\\CodeTest\\python\\Train\\Dataset\\Outex-TC-00010\\images\\000001.bmp', 'D:\\Thesis\\Data\\Ex\\test_input.bmp')
 random_matrix = np.random.randint(0, 256, size=(30, 30), dtype=np.uint8)
 np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
 

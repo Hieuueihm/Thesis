@@ -29,12 +29,14 @@ module Line_buffer_controller #(parameter DEPTH = 1024)
     .y(done_o_mux)
     );
     
-    shift_registers #(.WIDTH(1), .CYCLE(1)) SHIFT_DONE(
+    dff #(.WIDTH(1)) SHIFT_DONE(
     .clk(clk),
     .rst(rst),
-    .data_i(done_o_mux),
-    .data_o(done_o)
+    .en(1'b1),
+    .D(done_o_mux),
+    .Q(done_o)
     );
+
     
     
 endmodule

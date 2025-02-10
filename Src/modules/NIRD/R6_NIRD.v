@@ -662,67 +662,78 @@ module R6_NIRD #(parameter COLS = 30,
     wire [23:0] S1_r4_delay, S2_r4_delay, S3_r4_delay, S4_r4_delay, S5_r4_delay, S6_r4_delay, S7_r4_delay, S8_r4_delay;
     wire done_o_r4_delay;
     wire finish_interpolation_delay;
-    shift_registers #(.WIDTH(24), .CYCLE(1)) SHIFT_S1_R4 (
+    dff #(.WIDTH(24)) SHIFT_S1_R4(
     .clk(clk),
     .rst(rst),
-    .data_i(S1_r4),
-    .data_o(S1_r4_delay)
+    .en(1'b1),
+    .D(S1_r4),
+    .Q(S1_r4_delay)
     );
-    shift_registers #(.WIDTH(24), .CYCLE(1)) SHIFT_S2_R4 (
+    dff #(.WIDTH(24)) SHIFT_S2_R4(
     .clk(clk),
     .rst(rst),
-    .data_i(S2_r4),
-    .data_o(S2_r4_delay)
+    .en(1'b1),
+    .D(S2_r4),
+    .Q(S2_r4_delay)
+    );
+    dff #(.WIDTH(24)) SHIFT_S3_R4(
+    .clk(clk),
+    .rst(rst),
+    .en(1'b1),
+    .D(S3_r4),
+    .Q(S3_r4_delay)
+    );
+    dff #(.WIDTH(24)) SHIFT_S4_R4(
+    .clk(clk),
+    .rst(rst),
+    .en(1'b1),
+    .D(S4_r4),
+    .Q(S4_r4_delay)
+    );
+    dff #(.WIDTH(24)) SHIFT_S5_R4(
+    .clk(clk),
+    .rst(rst),
+    .en(1'b1),
+    .D(S5_r4),
+    .Q(S5_r4_delay)
+    );
+    dff #(.WIDTH(24)) SHIFT_S6_R4(
+    .clk(clk),
+    .rst(rst),
+    .en(1'b1),
+    .D(S6_r4),
+    .Q(S6_r4_delay)
+    );
+    dff #(.WIDTH(24)) SHIFT_S7_R4(
+    .clk(clk),
+    .rst(rst),
+    .en(1'b1),
+    .D(S7_r4),
+    .Q(S7_r4_delay)
+    );
+    dff #(.WIDTH(24)) SHIFT_S8_R4(
+    .clk(clk),
+    .rst(rst),
+    .en(1'b1),
+    .D(S8_r4),
+    .Q(S8_r4_delay)
+    );
+    dff #(.WIDTH(1)) SHIFT_DONE_R4(
+    .clk(clk),
+    .rst(rst),
+    .en(1'b1),
+    .D(done_o_r4),
+    .Q(done_o_r4_delay)
+    );
+    dff #(.WIDTH(1)) SHIFT_FINISH_INTERPOLATION(
+    .clk(clk),
+    .rst(rst),
+    .en(1'b1),
+    .D(finish_interpolation),
+    .Q(finish_interpolation_delay)
     );
     
-    shift_registers #(.WIDTH(24), .CYCLE(1)) SHIFT_S3_R4 (
-    .clk(clk),
-    .rst(rst),
-    .data_i(S3_r4),
-    .data_o(S3_r4_delay)
-    );
-    shift_registers #(.WIDTH(24), .CYCLE(1)) SHIFT_S4_R4 (
-    .clk(clk),
-    .rst(rst),
-    .data_i(S4_r4),
-    .data_o(S4_r4_delay)
-    );
-    shift_registers #(.WIDTH(24), .CYCLE(1)) SHIFT_S5_R4 (
-    .clk(clk),
-    .rst(rst),
-    .data_i(S5_r4),
-    .data_o(S5_r4_delay)
-    );
-    shift_registers #(.WIDTH(24), .CYCLE(1)) SHIFT_S6_R4 (
-    .clk(clk),
-    .rst(rst),
-    .data_i(S6_r4),
-    .data_o(S6_r4_delay)
-    );
-    shift_registers #(.WIDTH(24), .CYCLE(1)) SHIFT_S7_R4 (
-    .clk(clk),
-    .rst(rst),
-    .data_i(S7_r4),
-    .data_o(S7_r4_delay)
-    );
-    shift_registers #(.WIDTH(24), .CYCLE(1)) SHIFT_S8_R4 (
-    .clk(clk),
-    .rst(rst),
-    .data_i(S8_r4),
-    .data_o(S8_r4_delay)
-    );
-    shift_registers #(.WIDTH(1), .CYCLE(1)) SHIFT_DONE_R4 (
-    .clk(clk),
-    .rst(rst),
-    .data_i(done_o_r4),
-    .data_o(done_o_r4_delay)
-    );
-    shift_registers #(.WIDTH(1), .CYCLE(1)) SHIFT_FINISH_INTERPOLATION (
-    .clk(clk),
-    .rst(rst),
-    .data_i(finish_interpolation),
-    .data_o(finish_interpolation_delay)
-    );
+    
     
     
     
@@ -766,78 +777,82 @@ module R6_NIRD #(parameter COLS = 30,
     
     wire rd_done_delay, rd_progress_done_delay;
     wire bit1_delay, bit2_delay, bit3_delay, bit4_delay, bit5_delay, bit6_delay, bit7_delay, bit8_delay;
-    shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_DELAY_NI))
-    SHIFT_RD_DONE (
+    
+    dff #(.WIDTH(1)) SHIFT_RD_DONE (
     .clk(clk),
     .rst(rst),
-    .data_i(rd_r4_done),
-    .data_o(rd_done_delay)
-    );
-    shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_DELAY_NI))
-    SHIFT_RD_PROGRESS_DONE (
-    .clk(clk),
-    .rst(rst),
-    .data_i(rd_r4_progress_done),
-    .data_o(rd_progress_done_delay)
-    );
-    shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_DELAY_NI))
-    SHIFT_BIT1 (
-    .clk(clk),
-    .rst(rst),
-    .data_i(bit1_o),
-    .data_o(bit1_delay)
-    );
-    shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_DELAY_NI))
-    SHIFT_BIT2 (
-    .clk(clk),
-    .rst(rst),
-    .data_i(bit2_o),
-    .data_o(bit2_delay)
+    .en(1'b1),
+    .D(rd_r4_done),
+    .Q(rd_done_delay)
     );
     
-    shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_DELAY_NI))
-    SHIFT_BIT3 (
+    dff #(.WIDTH(1)) SHIFT_RD_PROGRESS_DONE (
     .clk(clk),
     .rst(rst),
-    .data_i(bit3_o),
-    .data_o(bit3_delay)
-    );
-    shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_DELAY_NI))
-    SHIFT_BIT4 (
-    .clk(clk),
-    .rst(rst),
-    .data_i(bit4_o),
-    .data_o(bit4_delay)
-    );
-    shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_DELAY_NI))
-    SHIFT_BIT5 (
-    .clk(clk),
-    .rst(rst),
-    .data_i(bit5_o),
-    .data_o(bit5_delay)
-    );
-    shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_DELAY_NI))
-    SHIFT_BIT6 (
-    .clk(clk),
-    .rst(rst),
-    .data_i(bit6_o),
-    .data_o(bit6_delay)
-    );
-    shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_DELAY_NI))
-    SHIFT_BIT7 (
-    .clk(clk),
-    .rst(rst),
-    .data_i(bit7_o),
-    .data_o(bit7_delay)
+    .en(1'b1),
+    .D(rd_r4_progress_done),
+    .Q(rd_progress_done_delay)
     );
     
-    shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_DELAY_NI))
-    SHIFT_BIT8 (
+    dff #(.WIDTH(1)) SHIFT_BIT1 (
     .clk(clk),
     .rst(rst),
-    .data_i(bit8_o),
-    .data_o(bit8_delay)
+    .en(1'b1),
+    .D(bit1_o),
+    .Q(bit1_delay)
     );
+    dff #(.WIDTH(1)) SHIFT_BIT2 (
+    .clk(clk),
+    .rst(rst),
+    .en(1'b1),
+    .D(bit2_o),
+    .Q(bit2_delay)
+    );
+    dff #(.WIDTH(1)) SHIFT_BIT3 (
+    .clk(clk),
+    .rst(rst),
+    .en(1'b1),
+    .D(bit3_o),
+    .Q(bit3_delay)
+    );
+    
+    dff #(.WIDTH(1)) SHIFT_BIT4 (
+    .clk(clk),
+    .rst(rst),
+    .en(1'b1),
+    .D(bit4_o),
+    .Q(bit4_delay)
+    );
+    dff #(.WIDTH(1)) SHIFT_BIT5 (
+    .clk(clk),
+    .rst(rst),
+    .en(1'b1),
+    .D(bit5_o),
+    .Q(bit5_delay)
+    );
+    dff #(.WIDTH(1)) SHIFT_BIT6 (
+    .clk(clk),
+    .rst(rst),
+    .en(1'b1),
+    .D(bit6_o),
+    .Q(bit6_delay)
+    );
+    
+    dff #(.WIDTH(1)) SHIFT_BIT7 (
+    .clk(clk),
+    .rst(rst),
+    .en(1'b1),
+    .D(bit7_o),
+    .Q(bit7_delay)
+    );
+    dff #(.WIDTH(1)) SHIFT_BIT8 (
+    .clk(clk),
+    .rst(rst),
+    .en(1'b1),
+    .D(bit8_o),
+    .Q(bit8_delay)
+    );
+    
     
     
     wire ni_r4_done, ni_r4_progress_done, bit1_o_ni, bit2_o_ni, bit3_o_ni,
