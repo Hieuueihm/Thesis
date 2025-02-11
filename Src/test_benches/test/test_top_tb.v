@@ -32,10 +32,7 @@ module test_top_tb ();
     wire [15:0] histogram_o;
     wire o_valid;
     wire o_intr;
-    wire done_r6;
-    wire done_r4;
-    wire done_r2;
-    wire finish;
+
     
     TopModule #(.COLS(`SIZE), .ROWS(`SIZE)) DUT
     (

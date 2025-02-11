@@ -88,11 +88,11 @@
         <mxCell id="Q8wWB-HcS4peFA1Eoi-V-25" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="Q8wWB-HcS4peFA1Eoi-V-24">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="-20" y="55" as="sourcePoint" />
-            <mxPoint y="30" as="targetPoint" />
+            <mxPoint x="10" y="30" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="Q8wWB-HcS4peFA1Eoi-V-26" value="FINISH" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="-60" width="60" height="60" as="geometry" />
+          <mxGeometry x="-50" width="60" height="60" as="geometry" />
         </mxCell>
         <mxCell id="Q8wWB-HcS4peFA1Eoi-V-27" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.428;entryY=1.045;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.635;exitY=0.014;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="Q8wWB-HcS4peFA1Eoi-V-26">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -100,7 +100,7 @@
             <mxPoint x="-14.319999999999936" y="-69.99999999999996" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Q8wWB-HcS4peFA1Eoi-V-28" value="read_en" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="Q8wWB-HcS4peFA1Eoi-V-28" value="read_finish" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="30" width="60" height="30" as="geometry" />
         </mxCell>
       </root>
