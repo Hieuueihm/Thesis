@@ -97,7 +97,7 @@ module Window_buffer_9x9 #(parameter COLS = 11,
                            output progress_done_o);
     wire i_row_eq_max, i_col_eq_max, i_col_ge_threshold;
     wire count_en;
-    Window_buffer_9x9_controller WINDOW_BUFFER_3X3_CONTROLLER(
+    Window_buffer_9x9_controller WINDOW_BUFFER_9X9_CONTROLLER(
     .clk(clk),
     .rst(rst),
     .done_i(done_i),
@@ -110,7 +110,7 @@ module Window_buffer_9x9 #(parameter COLS = 11,
     
     Window_buffer_9x9_datapath #(.COLS(COLS),
     .ROWS(ROWS))
-    WINDOW_BUFFER_3X3_DATAPATH
+    WINDOW_BUFFER_9X9_DATAPATH
     (
     .clk(clk),
     .rst(rst),

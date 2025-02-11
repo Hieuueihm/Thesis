@@ -1,0 +1,189 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/Buffer_12_rows.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Buffer_12_rows
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/Buffer_12_rows_ci.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Buffer_12_rows_ci
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/Buffer_4_rows.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Buffer_4_rows
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/Buffer_8_rows.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Buffer_8_rows
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/MRELBP_CI/CI_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CI_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Data_modulate_3x3
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Data_modulate_3x3_controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Data_modulate_3x3_datapath
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Data_modulate_5x5
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Data_modulate_5x5_controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Data_modulate_5x5_datapath
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Data_modulate_7x7
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Data_modulate_7x7_controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Data_modulate_7x7_datapath
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/InterpolationModule/Interpolation_R_x.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Interpolation_R_x
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Interpolation_calc
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:21]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:27]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:35]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:42]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:48]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:54]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:62]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:69]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:75]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:81]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:89]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:96]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:103]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:109]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:118]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:125]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:131]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:137]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:145]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:152]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:158]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:164]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:172]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:179]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:185]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:191]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:199]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:206]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/OutputModule/Joint_histogram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Joint_histogram
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/OutputModule/Joint_histogram_controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Joint_histogram_controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/OutputModule/Joint_histogram_datapath.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Joint_histogram_datapath
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/Line_buffer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Line_buffer
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/LineBuffer/Line_buffer_controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Line_buffer_controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/LineBuffer/Line_buffer_datapath.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Line_buffer_datapath
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/MRELBP_CI/R2/MRELBP_CI_R2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MRELBP_CI_R2
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/MRELBP_CI/R4/MRELBP_CI_R4.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MRELBP_CI_R4
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/MRELBP_CI/R6/MRELBP_CI_R6.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MRELBP_CI_R6
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/MedianFilterModule/3x3/Median_filter_3x3.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Median_filter_3x3
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/MedianFilterModule/3x3/Median_filter_3x3_calc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Median_filter_3x3_calc
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Median_filter_5x5
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_calc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Median_filter_5x5_calc
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Median_filter_7x7
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7_calc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Median_filter_7x7_calc
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/MedianFilterModule/Median_processing.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Median_processing
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/NIRD/NI.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NI
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/NIRD/NI_calc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NI_calc
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/MedianFilterModule/Node.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Node
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/Preparation.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Preparation
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/NIRD/R2_NIRD.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module R2_NIRD
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/common/R2/R2_controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module R2_controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/common/R2/R2_patch_sum.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module R2_patch_sum
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/common/R2/R2_sum.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module R2_sum
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/NIRD/R4_NIRD.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module R4_NIRD
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/common/R4/R4_controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module R4_controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/common/R4/R4_patch_sum.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module R4_patch_sum
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/common/R4/R4_sum.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module R4_sum
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/NIRD/R6_NIRD.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module R6_NIRD
+WARNING: [VRFC 10-9157] macro 'CYCLE_DELAY' is redefined [D:/Thesis/Src/modules/NIRD/R6_NIRD.v:70]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/common/R6/R6_controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module R6_controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/common/R6/R6_patch_sum.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module R6_patch_sum
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/common/R6/R6_sum.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module R6_sum
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/NIRD/RD.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RD
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/NIRD/RD_calc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RD_calc
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/MedianFilterModule/5x5/SortAscending5.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SortAscending5
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/MedianFilterModule/7x7/SortAscending7.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SortAscending7
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/MedianFilterModule/Sorting_network.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Sorting_network
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/TopModule/TopModule.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module TopModule
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/WindowBuffer/11x11/Window_buffer_11x11.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Window_buffer_11x11
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/WindowBuffer/11x11/Window_buffer_11x11_controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Window_buffer_11x11_controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/WindowBuffer/11x11/Window_buffer_11x11_datapath.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Window_buffer_11x11_datapath
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/WindowBuffer/13x13/Window_buffer_13x13.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Window_buffer_13x13
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/WindowBuffer/13x13/Window_buffer_13x13_controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Window_buffer_13x13_controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/WindowBuffer/13x13/Window_buffer_13x13_datapath.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Window_buffer_13x13_datapath
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/WindowBuffer/3x3/Window_buffer_3x3.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Window_buffer_3x3
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/WindowBuffer/3x3/Window_buffer_3x3_controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Window_buffer_3x3_controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/WindowBuffer/3x3/Window_buffer_3x3_datapath.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Window_buffer_3x3_datapath
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Window_buffer_5x5
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5_controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Window_buffer_5x5_controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5_datapath.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Window_buffer_5x5_datapath
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/WindowBuffer/7x7/Window_buffer_7x7.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Window_buffer_7x7
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/WindowBuffer/7x7/Window_buffer_7x7_controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Window_buffer_7x7_controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/WindowBuffer/7x7/Window_buffer_7x7_datapath.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Window_buffer_7x7_datapath
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/WindowBuffer/9x9/Window_buffer_9x9.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Window_buffer_9x9
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/WindowBuffer/9x9/Window_buffer_9x9_controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Window_buffer_9x9_controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/WindowBuffer/9x9/Window_buffer_9x9_datapath.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Window_buffer_9x9_datapath
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/common/dff.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dff
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/common/mux_2_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux_2_1
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/common/plus_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module plus_1
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/NIRD/riu2_mapping.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module riu2_mapping
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/common/shift_registers.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module shift_registers
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/common/sum.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sum
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/common/sum_cumulative.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sum_cumulative
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/test_benches/test/test_top_tb_with_image.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_top_tb_with_image

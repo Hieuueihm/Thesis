@@ -3,262 +3,41 @@ module TopModule #(parameter COLS = 128,
                   (input clk,
                    input rst,
                    input [7:0] grayscale_i,
-                   input done_i,
-                   output [15:0] cinird_r2,
-                   output done_r2,
-                   output [15:0] cinird_r4,
-                   output done_r4,
-                   output [15:0] cinird_r6,
-                   output done_r6,
-                   output finish);
+                   input start_i,
+                   input i_valid,
+                   output [15:0] histogram_o,
+                   output o_valid,
+                   output o_intr);
     
     
-    wire [7:0] grayscale_d;
-    wire  rst_d;
-    wire done_d;
-    
-    dff #(.WIDTH(8)) DFF_GRAYSCALE
-    (
-    .clk(clk),
-    .rst(rst),
-    .en(1'b1),
-    .D(grayscale_i),
-    .Q(grayscale_d)
+    wire finish;
+    wire read_finish;
+    wire read_en;
+    TopModule_controller  inst_TopModule_controller (
+    .clk         (clk),
+    .rst         (rst),
+    .finish_i    (finish),
+    .start_i     (start_i),
+    .read_finish (read_finish),
+    .o_intr      (o_intr),
+    .read_en     (read_en)
     );
-    
-    dff #(.WIDTH(1)) DFF_RST
-    (
-    .clk(clk),
-    .rst(1'b0),
-    .en(1'b1),
-    .D(rst),
-    .Q(rst_d)
+    TopModule_datapath #(
+    .COLS(COLS),
+    .ROWS(ROWS)
+    ) inst_TopModule_datapath (
+    .clk         (clk),
+    .rst         (rst),
+    .grayscale_i (grayscale_i),
+    .i_valid     (i_valid),
+    .read_en     (read_en),
+    .histogram_o (histogram_o),
+    .o_valid     (o_valid),
+    .finish      (finish),
+    .read_finish(read_finish)
     );
-    
-    dff #(.WIDTH(1)) DFF_DONE
-    (
-    .clk(clk),
-    .rst(rst),
-    .en(1'b1),
-    .D(done_i),
-    .Q(done_d)
-    );
-    
-    
-    
-    
-    
-    
-    wire [7:0]done_original_o, data_original_o;
-    wire[7:0] m_3x3_o; wire done_m_3x3_o;
-    wire [7:0] m_5x5_o; wire done_m_5x5_o;
-    wire [7:0] m_7x7_o;wire  done_m_7x7_o;
-    Median_processing #(.ROWS(ROWS), .COLS(COLS))
-    MEDIAN_PROCESSING
-    (
-    .clk(clk),
-    .rst(rst_d),
-    .data_i(grayscale_d),
-    .done_i(done_d),
-    .data_o(data_original_o),
-    .done_o(done_original_o),
-    .m_3x3_o(m_3x3_o),
-    .done_3x3_o(done_m_3x3_o),
-    .m_5x5_o(m_5x5_o),
-    .done_5x5_o(done_m_5x5_o),
-    .m_7x7_o(m_7x7_o),
-    .done_7x7_o(done_m_7x7_o)
-    );
-    
-    wire ci_r2_o, done_ci_r2, progress_done_ci_r2;
-    wire ci_r4_o, done_ci_r4, progress_done_ci_r4;
-    wire ci_r6_o, done_ci_r6, progress_done_ci_r6;
-    
-    
-    CI_top #(.ROWS(ROWS),
-    .COLS(COLS)) CI_TOP
-    (
-    .clk(clk),
-    .rst(rst_d),
-    .m_3x3_i(m_3x3_o),
-    .done_i(done_m_3x3_o),
-    .ci_r2_o(ci_r2_o),
-    .done_r2(done_ci_r2),
-    .progress_done_r2(progress_done_ci_r2),
-    .ci_r4_o(ci_r4_o),
-    .done_r4(done_ci_r4),
-    .progress_done_r4(progress_done_ci_r4),
-    .ci_r6_o(ci_r6_o),
-    .done_r6(done_ci_r6),
-    .progress_done_r6(progress_done_ci_r6));
-    
-    
-    
-    wire [3:0] ni_r2_o, rd_r2_o;
-    wire done_r2_nird, progress_done_r2_nird;
-    R2_NIRD #(.COLS(COLS),
-    .ROWS(ROWS))
-    R2_NI_RD
-    (
-    .clk(clk),
-    .rst(rst_d),
-    .m_3x3_i(m_3x3_o),
-    .done_m_3x3_i(done_m_3x3_o),
-    .data_original_i(data_original_o),
-    .done_original_i(done_original_o),
-    .ni_o(ni_r2_o),
-    .rd_o(rd_r2_o),
-    .done_o(done_r2_nird),
-    .progress_done_o(progress_done_r2_nird));
-    
-    wire  ci_r2_delay;
-    wire done_ci_r2_delay;
-    
-    `define CYCLE_SHIFT_CI_R2 3
-    
-    
-    shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_SHIFT_CI_R2))
-    SHIFT_CI_R2 (
-    .clk(clk),
-    .rst(rst_d),
-    .data_i(ci_r2_o),
-    .data_o(ci_r2_delay)
-    );
-    
-    shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_SHIFT_CI_R2))
-    SHIFT_DONE_CI_R2 (
-    .clk(clk),
-    .rst(rst_d),
-    .data_i(done_ci_r2),
-    .data_o(done_ci_r2_delay)
-    );
-    
-    
-    
-    
-    Joint_histogram JOINT_R2 (
-    .clk(clk),
-    .rst(rst_d),
-    .ci_i(ci_r2_delay),
-    .ni_i(ni_r2_o),
-    .rd_i(rd_r2_o),
-    .done_i(done_r2_nird),
-    .progress_done_i(progress_done_r2_nird),
-    .cinird_o(cinird_r2),
-    .done_o(done_r2),
-    .finish());
-    
-    
-    wire [3:0] ni_r4_o, rd_r4_o;
-    wire done_r4_nird, progress_done_r4_nird;
-    R4_NIRD #(.COLS(COLS),
-    .ROWS(ROWS))
-    R4_NI_RD
-    (
-    .clk(clk),
-    .rst(rst_d),
-    .m_3x3_i(m_3x3_o),
-    .done_m_3x3_i(done_m_3x3_o),
-    .m_5x5_i(m_5x5_o),
-    .done_m_5x5_i(done_m_5x5_o),
-    .ni_o(ni_r4_o),
-    .rd_o(rd_r4_o),
-    .done_o(done_r4_nird),
-    .progress_done_o(progress_done_r4_nird));
-    
-    wire  ci_r4_delay;
-    wire done_ci_r4_delay;
-    
-    `define CYCLE_SHIFT_CI_R4 14
-    
-    
-    shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_SHIFT_CI_R4))
-    SHIFT_CI_R4 (
-    .clk(clk),
-    .rst(rst_d),
-    .data_i(ci_r4_o),
-    .data_o(ci_r4_delay)
-    );
-    
-    shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_SHIFT_CI_R4))
-    SHIFT_DONE_CI_R4 (
-    .clk(clk),
-    .rst(rst_d),
-    .data_i(done_ci_r4),
-    .data_o(done_ci_r4_delay)
-    );
-    
-    
-    Joint_histogram JOINT_R4 (
-    .clk(clk),
-    .rst(rst_d),
-    .ci_i(ci_r4_delay),
-    .ni_i(ni_r4_o),
-    .rd_i(rd_r4_o),
-    .done_i(done_r4_nird),
-    .progress_done_i(progress_done_r4_nird),
-    .cinird_o(cinird_r4),
-    .done_o(done_r4),
-    .finish());
-    
-    
-    
-    wire [3:0] ni_r6_o, rd_r6_o;
-    wire done_r6_nird, progress_done_r6_nird;
-    R6_NIRD #(.COLS(COLS),
-    .ROWS(ROWS))
-    R6_NI_RD
-    (
-    .clk(clk),
-    .rst(rst_d),
-    .m_5x5_i(m_5x5_o),
-    .done_m_5x5_i(done_m_5x5_o),
-    .m_7x7_i(m_7x7_o),
-    .done_m_7x7_i(done_m_7x7_o),
-    .rd_o(rd_r6_o),
-    .ni_o(ni_r6_o),
-    .done_o(done_r6_nird),
-    .progress_done_o(progress_done_r6_nird));
-    
-    wire  ci_r6_delay;
-    wire done_ci_r6_delay;
-    
-    `define CYCLE_SHIFT_CI_R6 39
-    
-    
-    shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_SHIFT_CI_R6))
-    SHIFT_CI_R6 (
-    .clk(clk),
-    .rst(rst_d),
-    .data_i(ci_r6_o),
-    .data_o(ci_r6_delay)
-    );
-    
-    shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_SHIFT_CI_R6))
-    SHIFT_DONE_CI_R6 (
-    .clk(clk),
-    .rst(rst_d),
-    .data_i(done_ci_r6),
-    .data_o(done_ci_r6_delay)
-    );
-    
-    
-    
-    
-    
-    Joint_histogram JOINT_R6 (
-    .clk(clk),
-    .rst(rst_d),
-    .ci_i(ci_r6_delay),
-    .ni_i(ni_r6_o),
-    .rd_i(rd_r6_o),
-    .done_i(done_r6_nird),
-    .progress_done_i(progress_done_r6_nird),
-    .cinird_o(cinird_r6),
-    .done_o(done_r6),
-    .finish(finish));
-    
     
     
     
 endmodule
+    

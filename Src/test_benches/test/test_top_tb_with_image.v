@@ -10,14 +10,12 @@ module test_top_tb_with_image();
     reg clk;
     reg rst;
     reg [7:0] grayscale_i;
-    reg done_i;
-    wire [15:0] cinird_r2;
-    wire [15:0] cinird_r4;
-    wire [15:0] cinird_r6;
-    wire done_r6;
-    wire done_r4;
-    wire done_r2;
-    wire finish;
+    reg i_valid;
+    reg start_i;
+    
+    wire [15:0] histogram_o;
+    wire o_valid;
+    wire o_intr;
     
     integer i, j;
     
@@ -29,7 +27,6 @@ module test_top_tb_with_image();
     integer row_size, pixel_index;
     integer start;
     integer file_out;
-    integer file_id_r2, file_id_r4, file_id_r6;
     
     task readBMP;
         integer fileId;
@@ -70,14 +67,13 @@ module test_top_tb_with_image();
     
     initial begin
         rst         = 1'b1;
-        done_i      = 1'b0;
+        start_i     = 1'b0;
+        i_valid     = 1'b0;
         grayscale_i = 8'b0;
         
-        file_id_r2 = $fopen("D:\\Thesis\\CodeTest\\python\\cinird_r2_verilog.txt", "w");
-        file_id_r4 = $fopen("D:\\Thesis\\CodeTest\\python\\cinird_r4_verilog.txt", "w");
-        file_id_r6 = $fopen("D:\\Thesis\\CodeTest\\python\\cinird_r6_verilog.txt", "w");
+        file_out = $fopen("D:\\Thesis\\CodeTest\\python\\histogram_verilog.txt", "w");
         
-        if (file_id_r2 == 0 || file_id_r4 == 0 || file_id_r6 == 0) begin
+        if (file_out == 0) begin
             $display("Error: Could not open output files.");
             $finish;
         end
@@ -85,10 +81,13 @@ module test_top_tb_with_image();
         readBMP;
         $display("BMP Read Complete!");
         
-        #(`clk_period);
+        #(`clk_period * 3);
         rst = 1'b0;
         #(`clk_period);
-        done_i = 1'b1;
+        start_i = 1'b1;
+        #(`clk_period);
+        start_i = 1'b0;
+        i_valid = 1'b1;
         
         // Gửi dữ liệu ảnh vào thiết bị xử lý
         for (i = 0; i < bmp_width * bmp_height; i = i + 1) begin
@@ -97,27 +96,11 @@ module test_top_tb_with_image();
         end
         
         #(`clk_period);
-        done_i = 1'b0;
-        wait(finish);
-        $fclose(file_id_r2);
-        $fclose(file_id_r4);
-        $fclose(file_id_r6);
-        $display("Processing Complete!");
-        
-        file_out = $fopen(`OUTPUT_TEXTFILE, "w");
-        if (file_out == 0) begin
-            $display("Error opening output file!");
-            $finish;
-        end
-        
-        for (i = 0; i < bmp_width * bmp_height; i = i + 1) begin
-            $fwrite(file_out, "%d\n", img_out[i]);
-        end
-        
+        i_valid = 1'b0;
+        wait(o_intr);
         $fclose(file_out);
-        $display("Image data written to file successfully!");
-        
-        #(`clk_period);
+        $display("Processing Complete!");
+        #(`clk_period * 10);
         $stop;
     end
     
@@ -126,14 +109,11 @@ module test_top_tb_with_image();
     .clk(clk),
     .rst(rst),
     .grayscale_i(grayscale_i),
-    .done_i(done_i),
-    .cinird_r2(cinird_r2),
-    .done_r2(done_r2),
-    .cinird_r4(cinird_r4),
-    .done_r4(done_r4),
-    .cinird_r6(cinird_r6),
-    .done_r6(done_r6),
-    .finish(finish)
+    .i_valid(i_valid),
+    .start_i(start_i),
+    .histogram_o(histogram_o),
+    .o_valid(o_valid),
+    .o_intr(o_intr)
     );
     
     initial begin
@@ -141,8 +121,7 @@ module test_top_tb_with_image();
         forever #5 clk = ~clk;
     end
     always @(posedge clk) begin
-        if (done_r2) $fwrite(file_id_r2, "%d\n", cinird_r2);
-        if (done_r4) $fwrite(file_id_r4, "%d\n", cinird_r4);
-        if (done_r6) $fwrite(file_id_r6, "%d\n", cinird_r6);
+        if (o_valid) $fwrite(file_out, "%d\n", histogram_o);
+        
     end
 endmodule

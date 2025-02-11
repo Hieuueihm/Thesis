@@ -270,13 +270,13 @@ class MRELBP():
         # print(RD)
         NI_out  = np.zeros(NI.shape, dtype= np.uint8)
         RD_out  = np.zeros(NI.shape, dtype= np.uint8)
-        with open("rd_code.txt", 'w') as f:
-            for i in range(RD.shape[0]):
-                for j in range(RD.shape[1]):
-                    rd_bin = format(RD[i, j], '08b')  # 8-bit binary for RD
+        # with open("rd_code.txt", 'w') as f:
+        #     for i in range(RD.shape[0]):
+        #         for j in range(RD.shape[1]):
+        #             rd_bin = format(RD[i, j], '08b')  # 8-bit binary for RD
                 
                 
-                    f.write(f'{rd_bin}\n')
+                    # f.write(f'{rd_bin}\n')
         NI_width, NI_height = NI.shape
         for i in range(0, NI_height):
             for j in range(0, NI_width):
@@ -311,22 +311,22 @@ class MRELBP():
         start_time = time.time()
         m_3x3, m_5x5, m_7x7, m_9x9 = self.median_processing(image)
 
-        with open('output_5x5_test.txt', 'w') as f:
-            for row in image:
-                f.write(' '.join(map(str, row)) + '\n')
+        # with open('output_5x5_test.txt', 'w') as f:
+        #     for row in image:
+        #         f.write(' '.join(map(str, row)) + '\n')
 
-            f.write('\n') 
+        #     f.write('\n') 
 
-        with open('output_5x5_test.txt', 'a') as f:
-            for row in m_3x3:
-                f.write(' '.join(map(str, row)) + '\n')
+        # with open('output_5x5_test.txt', 'a') as f:
+        #     for row in m_3x3:
+        #         f.write(' '.join(map(str, row)) + '\n')
 
-            f.write('\n')
+        #     f.write('\n')
 
 
-        with open('output_5x5_test.txt', 'a') as f:
-            for row in m_5x5:
-                f.write(' '.join(map(str, row)) + '\n')
+        # with open('output_5x5_test.txt', 'a') as f:
+        #     for row in m_5x5:
+        #         f.write(' '.join(map(str, row)) + '\n')
         # r = 2
         ci_r2, ci_r2_count = self.mrelbp_ci(m_3x3, 2)
         # print(ci_r2)
@@ -346,16 +346,16 @@ class MRELBP():
         hist_r4 = self.jointHistogram(ci_r4, NI_r4, RD_r4)
         hist_r6 = self.jointHistogram(ci_r6, NI_r6, RD_r6)
 
-        with open("cinird_r2.txt", "w") as file:
+        with open("histogram_o.txt", "w") as file:
             for value in hist_r2:
                 file.write(f"{value}\n")
 
 
-        with open("cinird_r4.txt", "w") as file:
+        with open("histogram_o.txt", "a") as file:
             for value in hist_r4:
                 file.write(f"{value}\n")
 
-        with open("cinird_r6.txt", "w") as file:
+        with open("histogram_o.txt", "a") as file:
             for value in hist_r6:
                 file.write(f"{value}\n")      
         # hist_r8 = self.jointHistogram(ci_r8, NI_r8, RD_r8)
@@ -504,7 +504,7 @@ class MRELBP():
 
 
 # Example Usage
-np.random.seed(12)
+np.random.seed(1)
 
 def resize_bmp(input_file, output_file, size=(128, 128)):
     # Mở ảnh BMP ở chế độ grayscale
@@ -515,7 +515,7 @@ def resize_bmp(input_file, output_file, size=(128, 128)):
     # Ghi ảnh đã thay đổi kích thước ra file BMP khác
     cv2.imwrite(output_file, img_resized)
     print(f"Ảnh đã được lưu tại {output_file}")
-resize_bmp('D:\\Thesis\\CodeTest\\python\\Train\\Dataset\\Outex-TC-00010\\images\\000001.bmp', 'D:\\Thesis\\Data\\Ex\\test_input.bmp')
+resize_bmp('D:\\Thesis\\CodeTest\\python\\Train\\Dataset\\Outex-TC-00010\\images\\000004.bmp', 'D:\\Thesis\\Data\\Ex\\test_input.bmp')
 random_matrix = np.random.randint(0, 256, size=(30, 30), dtype=np.uint8)
 np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
 
@@ -663,18 +663,18 @@ def compare_files(file1, file2):
 
 
 # # # Example usage
-file1 = 'cinird_r2.txt'
-file2 = 'cinird_r2_verilog.txt'
+file1 = 'histogram_o.txt'
+file2 = 'histogram_verilog.txt'
 compare_files(file1, file2)
 
-file1 = 'cinird_r4.txt'
-file2 = 'cinird_r4_verilog.txt'
-compare_files(file1, file2)
+# file1 = 'cinird_r4.txt'
+# file2 = 'cinird_r4_verilog.txt'
+# compare_files(file1, file2)
 
 
-file1 = 'cinird_r6.txt'
-file2 = 'cinird_r6_verilog.txt'
-compare_files(file1, file2)
+# file1 = 'cinird_r6.txt'
+# file2 = 'cinird_r6_verilog.txt'
+# compare_files(file1, file2)
 
 
 # file3 = 'rd_r4.txt'

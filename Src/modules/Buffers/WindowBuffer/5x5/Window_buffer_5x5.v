@@ -37,7 +37,7 @@ module Window_buffer_5x5 #(parameter COLS = 7,
                            output progress_done_o);
     wire i_row_eq_max, i_col_eq_max, i_col_ge_threshold;
     wire count_en;
-    Window_buffer_5x5_controller WINDOW_BUFFER_3X3_CONTROLLER(
+    Window_buffer_5x5_controller WINDOW_BUFFER_5X5_CONTROLLER(
     .clk(clk),
     .rst(rst),
     .done_i(done_i),
@@ -50,7 +50,7 @@ module Window_buffer_5x5 #(parameter COLS = 7,
     
     Window_buffer_5x5_datapath #(.COLS(COLS),
     .ROWS(ROWS))
-    WINDOW_BUFFER_3X3_DATAPATH
+    WINDOW_BUFFER_5X5_DATAPATH
     (
     .clk(clk),
     .rst(rst),

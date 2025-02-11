@@ -13,14 +13,15 @@ module shift_registers #(parameter WIDTH = 8,
             for (i = 0; i < CYCLE - 1; i = i + 1) begin
                 shift_reg[i] <= 0;
             end
-            data_o <= 0;  // Reset output register
+            data_o <= 0;
             end else begin
             shift_reg[0] <= data_i;
             for (i = 1; i < CYCLE - 1; i = i + 1) begin
                 shift_reg[i] <= shift_reg[i-1];
             end
             data_o <= shift_reg[CYCLE - 2];
+            
         end
     end
-    
+    // assign data_o = shift_reg[CYCLE - 1];
 endmodule

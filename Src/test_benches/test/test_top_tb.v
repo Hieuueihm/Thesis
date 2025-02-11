@@ -26,10 +26,12 @@ module test_top_tb ();
     reg clk;
     reg rst;
     reg [7:0] grayscale_i;
-    reg done_i;
-    wire [15:0] cinird_r2;
-    wire [15:0] cinird_r4;
-    wire [15:0] cinird_r6;
+    reg i_valid;
+    reg start_i;
+    
+    wire [15:0] histogram_o;
+    wire o_valid;
+    wire o_intr;
     wire done_r6;
     wire done_r4;
     wire done_r2;

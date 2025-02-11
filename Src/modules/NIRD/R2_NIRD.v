@@ -140,7 +140,7 @@ module R2_NIRD #(parameter COLS = 30,
     wire [7:0] S1_o_3x3, S2_o_3x3, S3_o_3x3, S4_o_3x3, S5_o_3x3, S6_o_3x3, S7_o_3x3, S8_o_3x3, S9_o_3x3;
     wire window_3x3_done_o;
     wire window_3x3_progress_done_o;
-    Window_buffer_3x3 #(.COLS(COLS), .ROWS(ROWS)) WINDOW_BUFFER_3X3 (
+    Window_buffer_3x3 #(.COLS(COLS), .ROWS(ROWS)) WINDOW_BUFFER_3X3_R2 (
     .clk(clk),
     .rst(rst),
     .done_i(done_o_delay),
