@@ -34,19 +34,16 @@ module test_top_tb ();
     wire o_intr;
 
     
-    TopModule #(.COLS(`SIZE), .ROWS(`SIZE)) DUT
+     TopModule #(.COLS(`SIZE), .ROWS(`SIZE)) DUT
     (
     .clk(clk),
     .rst(rst),
     .grayscale_i(grayscale_i),
-    .done_i(done_i),
-    .cinird_r2(cinird_r2),
-    .done_r2(done_r2),
-    .cinird_r4(cinird_r4),
-    .done_r4(done_r4),
-    .cinird_r6(cinird_r6),
-    .done_r6(done_r6),
-    .finish(finish)
+    .i_valid(i_valid),
+    .start_i(start_i),
+    .histogram_o(histogram_o),
+    .o_valid(o_valid),
+    .o_intr(o_intr)
     );
     
     initial begin
@@ -56,13 +53,15 @@ module test_top_tb ();
     always #(`half_clk_period) clk = ~clk;
     
     integer row, col;
-    integer file, file_id_r2, file_id_r4, file_id_r6;
-    
+        integer file_out;
+        integer file;
+
     initial begin
         clk         <= 1'b0;
         rst         <= 1'b1;
-        done_i      <= 1'b0;
+        i_valid      <= 1'b0;
         grayscale_i <= 8'b0;
+        start_i <= 0;
         file = $fopen("D:\\Thesis\\Src\\test_benches\\test\\random_matrix.txt", "r");
         
         if (file == 0) begin
@@ -70,21 +69,26 @@ module test_top_tb ();
             $finish;
         end
         
-        file_id_r2 = $fopen("D:\\Thesis\\CodeTest\\python\\cinird_r2_verilog.txt", "w");
-        file_id_r4 = $fopen("D:\\Thesis\\CodeTest\\python\\cinird_r4_verilog.txt", "w");
-        file_id_r6 = $fopen("D:\\Thesis\\CodeTest\\python\\cinird_r6_verilog.txt", "w");
+      file_out = $fopen("D:\\Thesis\\CodeTest\\python\\histogram_verilog.txt", "w");
         
-        if (file_id_r2 == 0 || file_id_r4 == 0 || file_id_r6 == 0) begin
+        if (file_out == 0) begin
             $display("Error: Could not open output files.");
             $finish;
         end
+        
+      
         
         read_matrix(file);
         $fclose(file);
         
         #(`clk_period * 2);
         rst    <= 1'b0;
-        done_i <= 1'b1;
+
+        #(`clk_period);
+        start_i <= 1'b1;
+        #(`clk_period);
+        start_i <= 1'b0;
+        i_valid <= 1'b1;
         
         for (row = 0; row < `SIZE; row = row + 1) begin
             for (col = 0; col < `SIZE; col = col + 1) begin
@@ -92,20 +96,17 @@ module test_top_tb ();
                 #(`clk_period);
             end
         end
-        done_i <= 1'b0;
+        i_valid <= 1'b0;
         
         #50000;
-        $fclose(file_id_r2);
-        $fclose(file_id_r4);
-        $fclose(file_id_r6);
+        $fclose(file_out);
+
         
         #100;
         $stop;
     end
     
     always @(posedge clk) begin
-        if (done_r2) $fwrite(file_id_r2, "%d\n", cinird_r2);
-        if (done_r4) $fwrite(file_id_r4, "%d\n", cinird_r4);
-        if (done_r6) $fwrite(file_id_r6, "%d\n", cinird_r6);
+           if (o_valid) $fwrite(file_out, "%d\n", histogram_o);
     end
 endmodule

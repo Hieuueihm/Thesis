@@ -5,12 +5,6 @@ module Data_modulate_3x3_datapath #(parameter ROWS = 5,
                                     input [7:0] d0_i,        // 99
                                     input [7:0] d1_i,        // 8
                                     input [7:0] d2_i,        // 7
-                                    input [7:0] d3_i,
-                                    input [7:0] d4_i,
-                                    input [7:0] d5_i,
-                                    input [7:0] d6_i,
-                                    input [7:0] d7_i,
-                                    input [7:0] d8_i,
                                     input start,
                                     input done_o,
                                     output reg [7:0] d0_o,
@@ -121,22 +115,28 @@ module Data_modulate_3x3_datapath #(parameter ROWS = 5,
             data7 <= 0;
             data8 <= 0;
             
-            
+            // 0 
+            // 1 
+            // 2
+            // 3
+            // 4 
+            // 5 
+            // 6 
             end else begin
             if (start) begin
                 data0 <= data1;
                 data1 <= data2;
-                data2 <= d5_i;
+                data2 <= d2_i;
                 
                 
                 data3 <= data4;
                 data4 <= data5;
-                data5 <= d4_i;
+                data5 <= d1_i;
                 
                 
                 data6 <= data7;
                 data7 <= data8;
-                data8 <= d3_i;
+                data8 <= d0_i;
                 
             end
             

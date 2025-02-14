@@ -9,8 +9,6 @@ module Data_modulate_7x7_datapath #(parameter ROWS = 7,
                                     input [7:0] d4_i,
                                     input [7:0] d5_i,
                                     input [7:0] d6_i,
-                                    input [7:0] d7_i,
-                                    input [7:0] d8_i,
                                     input start,
                                     input done_o,
                                     output reg [7:0] d0_o,
@@ -358,7 +356,7 @@ module Data_modulate_7x7_datapath #(parameter ROWS = 7,
                 data3 <= data4;
                 data4 <= data5;
                 data5 <= data6;
-                data6 <= d7_i;
+                data6 <= d6_i;
                 
                 
                 data7  <= data8;
@@ -367,7 +365,7 @@ module Data_modulate_7x7_datapath #(parameter ROWS = 7,
                 data10 <= data11;
                 data11 <= data12;
                 data12 <= data13;
-                data13 <= d6_i;
+                data13 <= d5_i;
                 
                 data14 <= data15;
                 data15 <= data16;
@@ -375,7 +373,7 @@ module Data_modulate_7x7_datapath #(parameter ROWS = 7,
                 data17 <= data18;
                 data18 <= data19;
                 data19 <= data20;
-                data20 <= d5_i;
+                data20 <= d4_i;
                 
                 data21 <= data22;
                 data22 <= data23;
@@ -383,7 +381,7 @@ module Data_modulate_7x7_datapath #(parameter ROWS = 7,
                 data24 <= data25;
                 data25 <= data26;
                 data26 <= data27;
-                data27 <= d4_i;
+                data27 <= d3_i;
                 
                 
                 data28 <= data29;
@@ -392,7 +390,7 @@ module Data_modulate_7x7_datapath #(parameter ROWS = 7,
                 data31 <= data32;
                 data32 <= data33;
                 data33 <= data34;
-                data34 <= d3_i;
+                data34 <= d2_i;
                 
                 
                 data35 <= data36;
@@ -401,7 +399,7 @@ module Data_modulate_7x7_datapath #(parameter ROWS = 7,
                 data38 <= data39;
                 data39 <= data40;
                 data40 <= data41;
-                data41 <= d2_i;
+                data41 <= d1_i;
                 
                 data42 <= data43;
                 data43 <= data44;
@@ -409,7 +407,7 @@ module Data_modulate_7x7_datapath #(parameter ROWS = 7,
                 data45 <= data46;
                 data46 <= data47;
                 data47 <= data48;
-                data48 <= d1_i;
+                data48 <= d0_i;
             end
             
         end

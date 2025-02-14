@@ -1,0 +1,1070 @@
+
+*** Running vivado
+    with args -log TopModule.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source TopModule.tcl
+
+
+
+****** Vivado v2024.2 (64-bit)
+  **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Fri Feb 14 15:18:20 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source TopModule.tcl -notrace
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 399.309 ; gain = 110.234
+Command: read_checkpoint -auto_incremental -incremental D:/Thesis/Zedboard_v/Zedboard_v.srcs/utils_1/imports/synth_1/TopModule.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from D:/Thesis/Zedboard_v/Zedboard_v.srcs/utils_1/imports/synth_1/TopModule.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top TopModule -part xc7z020clg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 20084
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1104.555 ; gain = 469.250
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:21]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:21]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:27]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:27]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:35]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:35]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:42]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:42]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:48]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:48]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:54]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:54]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:62]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:62]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:69]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:69]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:75]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:75]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:81]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:81]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:89]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:89]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:96]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:96]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:103]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:103]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:109]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:109]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:118]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:118]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:125]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:125]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:131]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:131]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:137]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:137]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:145]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:145]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:152]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:152]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:158]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:158]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:164]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:164]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:172]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:172]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:179]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:179]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:185]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:185]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:191]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:191]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:199]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:199]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:206]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:206]
+INFO: [Synth 8-11241] undeclared symbol 'compare_result', assumed default net type 'wire' [D:/Thesis/Src/modules/NIRD/NI_calc.v:39]
+WARNING: [Synth 8-11065] parameter 'IDLE' becomes localparam in 'R2_controller' with formal parameter declaration list [D:/Thesis/Src/modules/common/R2/R2_controller.v:17]
+WARNING: [Synth 8-11065] parameter 'START' becomes localparam in 'R2_controller' with formal parameter declaration list [D:/Thesis/Src/modules/common/R2/R2_controller.v:18]
+WARNING: [Synth 8-11065] parameter 'START_ROW' becomes localparam in 'R2_controller' with formal parameter declaration list [D:/Thesis/Src/modules/common/R2/R2_controller.v:19]
+WARNING: [Synth 8-11065] parameter 'SUM_EN' becomes localparam in 'R2_controller' with formal parameter declaration list [D:/Thesis/Src/modules/common/R2/R2_controller.v:20]
+WARNING: [Synth 8-11065] parameter 'CUM_EN' becomes localparam in 'R2_controller' with formal parameter declaration list [D:/Thesis/Src/modules/common/R2/R2_controller.v:21]
+WARNING: [Synth 8-11065] parameter 'FINISH_ALL' becomes localparam in 'R2_controller' with formal parameter declaration list [D:/Thesis/Src/modules/common/R2/R2_controller.v:22]
+WARNING: [Synth 8-11065] parameter 'DONE' becomes localparam in 'R2_controller' with formal parameter declaration list [D:/Thesis/Src/modules/common/R2/R2_controller.v:23]
+WARNING: [Synth 8-11065] parameter 'IDLE' becomes localparam in 'R4_controller' with formal parameter declaration list [D:/Thesis/Src/modules/common/R4/R4_controller.v:18]
+WARNING: [Synth 8-11065] parameter 'START' becomes localparam in 'R4_controller' with formal parameter declaration list [D:/Thesis/Src/modules/common/R4/R4_controller.v:19]
+WARNING: [Synth 8-11065] parameter 'START_ROW' becomes localparam in 'R4_controller' with formal parameter declaration list [D:/Thesis/Src/modules/common/R4/R4_controller.v:20]
+WARNING: [Synth 8-11065] parameter 'SUM_EN' becomes localparam in 'R4_controller' with formal parameter declaration list [D:/Thesis/Src/modules/common/R4/R4_controller.v:21]
+WARNING: [Synth 8-11065] parameter 'CUM_EN' becomes localparam in 'R4_controller' with formal parameter declaration list [D:/Thesis/Src/modules/common/R4/R4_controller.v:22]
+WARNING: [Synth 8-11065] parameter 'FINISH_ALL' becomes localparam in 'R4_controller' with formal parameter declaration list [D:/Thesis/Src/modules/common/R4/R4_controller.v:23]
+WARNING: [Synth 8-11065] parameter 'DONE' becomes localparam in 'R4_controller' with formal parameter declaration list [D:/Thesis/Src/modules/common/R4/R4_controller.v:24]
+WARNING: [Synth 8-10940] macro 'CYCLE_DELAY' is redefined [D:/Thesis/Src/modules/NIRD/R6_NIRD.v:70]
+WARNING: [Synth 8-11065] parameter 'IDLE' becomes localparam in 'R6_controller' with formal parameter declaration list [D:/Thesis/Src/modules/common/R6/R6_controller.v:36]
+WARNING: [Synth 8-11065] parameter 'START' becomes localparam in 'R6_controller' with formal parameter declaration list [D:/Thesis/Src/modules/common/R6/R6_controller.v:37]
+WARNING: [Synth 8-11065] parameter 'START_ROW' becomes localparam in 'R6_controller' with formal parameter declaration list [D:/Thesis/Src/modules/common/R6/R6_controller.v:38]
+WARNING: [Synth 8-11065] parameter 'SUM_EN' becomes localparam in 'R6_controller' with formal parameter declaration list [D:/Thesis/Src/modules/common/R6/R6_controller.v:39]
+WARNING: [Synth 8-11065] parameter 'CUM_EN' becomes localparam in 'R6_controller' with formal parameter declaration list [D:/Thesis/Src/modules/common/R6/R6_controller.v:40]
+WARNING: [Synth 8-11065] parameter 'FINISH_ALL' becomes localparam in 'R6_controller' with formal parameter declaration list [D:/Thesis/Src/modules/common/R6/R6_controller.v:41]
+WARNING: [Synth 8-11065] parameter 'DONE' becomes localparam in 'R6_controller' with formal parameter declaration list [D:/Thesis/Src/modules/common/R6/R6_controller.v:42]
+INFO: [Synth 8-11241] undeclared symbol 'bit', assumed default net type 'wire' [D:/Thesis/Src/modules/NIRD/RD_calc.v:18]
+WARNING: [Synth 8-11121] redeclaration of ANSI port 'finish' is not allowed [D:/Thesis/Src/modules/TopModule/TopModule_datapath.v:19]
+INFO: [Synth 8-11241] undeclared symbol 'gt', assumed default net type 'wire' [D:/Thesis/Src/modules/NIRD/riu2_mapping.v:166]
+INFO: [Synth 8-6157] synthesizing module 'TopModule' [D:/Thesis/Src/modules/TopModule/TopModule.v:1]
+INFO: [Synth 8-6157] synthesizing module 'TopModule_controller' [D:/Thesis/Src/modules/TopModule/TopModule_controller.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'TopModule_controller' (0#1) [D:/Thesis/Src/modules/TopModule/TopModule_controller.v:1]
+INFO: [Synth 8-6157] synthesizing module 'TopModule_datapath' [D:/Thesis/Src/modules/TopModule/TopModule_datapath.v:1]
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Median_processing' [D:/Thesis/Src/modules/MedianFilterModule/Median_processing.v:1]
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Preparation_6' [D:/Thesis/Src/modules/Buffers/Preparation_6.v:1]
+	Parameter DEPTH bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Line_buffer' [D:/Thesis/Src/modules/Buffers/Line_buffer.v:1]
+	Parameter DEPTH bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Line_buffer_controller' [D:/Thesis/Src/modules/Buffers/LineBuffer/Line_buffer_controller.v:1]
+	Parameter DEPTH bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'mux_2_1' [D:/Thesis/Src/modules/common/mux_2_1.v:1]
+	Parameter WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux_2_1' (0#1) [D:/Thesis/Src/modules/common/mux_2_1.v:1]
+INFO: [Synth 8-6157] synthesizing module 'dff' [D:/Thesis/Src/modules/common/dff.v:1]
+	Parameter WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'dff' (0#1) [D:/Thesis/Src/modules/common/dff.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Line_buffer_controller' (0#1) [D:/Thesis/Src/modules/Buffers/LineBuffer/Line_buffer_controller.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Line_buffer_datapath' [D:/Thesis/Src/modules/Buffers/LineBuffer/Line_buffer_datapath.v:3]
+	Parameter DEPTH bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'plus_1' [D:/Thesis/Src/modules/common/plus_1.v:1]
+	Parameter WIDTH bound to: 10 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'dff__parameterized0' [D:/Thesis/Src/modules/common/dff.v:1]
+	Parameter WIDTH bound to: 10 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'dff__parameterized0' (0#1) [D:/Thesis/Src/modules/common/dff.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'plus_1' (0#1) [D:/Thesis/Src/modules/common/plus_1.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Line_buffer_datapath' (0#1) [D:/Thesis/Src/modules/Buffers/LineBuffer/Line_buffer_datapath.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'Line_buffer' (0#1) [D:/Thesis/Src/modules/Buffers/Line_buffer.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Preparation_6' (0#1) [D:/Thesis/Src/modules/Buffers/Preparation_6.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Median_filter_3x3' [D:/Thesis/Src/modules/MedianFilterModule/3x3/Median_filter_3x3.v:1]
+	Parameter ROWS bound to: 128 - type: integer 
+	Parameter COLS bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Data_modulate_3x3' [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3.v:1]
+	Parameter ROWS bound to: 128 - type: integer 
+	Parameter COLS bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Data_modulate_3x3_controller' [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_controller.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Data_modulate_3x3_controller' (0#1) [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_controller.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Data_modulate_3x3_datapath' [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v:1]
+	Parameter ROWS bound to: 128 - type: integer 
+	Parameter COLS bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'plus_1__parameterized0' [D:/Thesis/Src/modules/common/plus_1.v:1]
+	Parameter WIDTH bound to: 3 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'dff__parameterized1' [D:/Thesis/Src/modules/common/dff.v:1]
+	Parameter WIDTH bound to: 3 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'dff__parameterized1' (0#1) [D:/Thesis/Src/modules/common/dff.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'plus_1__parameterized0' (0#1) [D:/Thesis/Src/modules/common/plus_1.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Data_modulate_3x3_datapath' (0#1) [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Data_modulate_3x3' (0#1) [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Median_filter_3x3_calc' [D:/Thesis/Src/modules/MedianFilterModule/3x3/Median_filter_3x3_calc.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Sorting_network' [D:/Thesis/Src/modules/MedianFilterModule/Sorting_network.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Node' [D:/Thesis/Src/modules/MedianFilterModule/Node.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'Node' (0#1) [D:/Thesis/Src/modules/MedianFilterModule/Node.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'Sorting_network' (0#1) [D:/Thesis/Src/modules/MedianFilterModule/Sorting_network.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Median_filter_3x3_calc' (0#1) [D:/Thesis/Src/modules/MedianFilterModule/3x3/Median_filter_3x3_calc.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Median_filter_3x3' (0#1) [D:/Thesis/Src/modules/MedianFilterModule/3x3/Median_filter_3x3.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Median_filter_5x5' [D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5.v:1]
+	Parameter ROWS bound to: 128 - type: integer 
+	Parameter COLS bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Data_modulate_5x5' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5.v:1]
+	Parameter ROWS bound to: 128 - type: integer 
+	Parameter COLS bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Data_modulate_5x5_controller' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_controller.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Data_modulate_5x5_controller' (0#1) [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_controller.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Data_modulate_5x5_datapath' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:1]
+	Parameter ROWS bound to: 128 - type: integer 
+	Parameter COLS bound to: 128 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Data_modulate_5x5_datapath' (0#1) [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Data_modulate_5x5' (0#1) [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Median_filter_5x5_calc' [D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_calc.v:1]
+INFO: [Synth 8-6157] synthesizing module 'SortAscending5' [D:/Thesis/Src/modules/MedianFilterModule/5x5/SortAscending5.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'SortAscending5' (0#1) [D:/Thesis/Src/modules/MedianFilterModule/5x5/SortAscending5.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Median_filter_5x5_calc' (0#1) [D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_calc.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Median_filter_5x5' (0#1) [D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Median_filter_7x7' [D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7.v:1]
+	Parameter ROWS bound to: 128 - type: integer 
+	Parameter COLS bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Data_modulate_7x7' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7.v:1]
+	Parameter ROWS bound to: 128 - type: integer 
+	Parameter COLS bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Data_modulate_7x7_controller' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_controller.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Data_modulate_7x7_controller' (0#1) [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_controller.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Data_modulate_7x7_datapath' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:1]
+	Parameter ROWS bound to: 128 - type: integer 
+	Parameter COLS bound to: 128 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Data_modulate_7x7_datapath' (0#1) [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Data_modulate_7x7' (0#1) [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Median_filter_7x7_calc' [D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7_calc.v:1]
+INFO: [Synth 8-6157] synthesizing module 'SortAscending7' [D:/Thesis/Src/modules/MedianFilterModule/7x7/SortAscending7.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'SortAscending7' (0#1) [D:/Thesis/Src/modules/MedianFilterModule/7x7/SortAscending7.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Median_filter_7x7_calc' (0#1) [D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7_calc.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Median_filter_7x7' (0#1) [D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Median_processing' (0#1) [D:/Thesis/Src/modules/MedianFilterModule/Median_processing.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'done_o' does not match port width (1) of module 'Median_processing' [D:/Thesis/Src/modules/TopModule/TopModule_datapath.v:35]
+INFO: [Synth 8-6157] synthesizing module 'CI_top' [D:/Thesis/Src/modules/MRELBP_CI/CI_top.v:1]
+	Parameter ROWS bound to: 128 - type: integer 
+	Parameter COLS bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Buffer_12_rows_ci' [D:/Thesis/Src/modules/Buffers/Buffer_12_rows_ci.v:1]
+	Parameter DEPTH bound to: 128 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Buffer_12_rows_ci' (0#1) [D:/Thesis/Src/modules/Buffers/Buffer_12_rows_ci.v:1]
+INFO: [Synth 8-6157] synthesizing module 'MRELBP_CI_R2' [D:/Thesis/Src/modules/MRELBP_CI/R2/MRELBP_CI_R2.v:1]
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'R2_controller' [D:/Thesis/Src/modules/common/R2/R2_controller.v:1]
+	Parameter COLS bound to: 128 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Thesis/Src/modules/common/R2/R2_controller.v:33]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Thesis/Src/modules/common/R2/R2_controller.v:43]
+INFO: [Synth 8-6155] done synthesizing module 'R2_controller' (0#1) [D:/Thesis/Src/modules/common/R2/R2_controller.v:1]
+INFO: [Synth 8-6157] synthesizing module 'R2_sum' [D:/Thesis/Src/modules/common/R2/R2_sum.v:1]
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'plus_1__parameterized1' [D:/Thesis/Src/modules/common/plus_1.v:1]
+	Parameter WIDTH bound to: 2 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'dff__parameterized2' [D:/Thesis/Src/modules/common/dff.v:1]
+	Parameter WIDTH bound to: 2 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'dff__parameterized2' (0#1) [D:/Thesis/Src/modules/common/dff.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'plus_1__parameterized1' (0#1) [D:/Thesis/Src/modules/common/plus_1.v:1]
+INFO: [Synth 8-6157] synthesizing module 'sum' [D:/Thesis/Src/modules/common/sum.v:1]
+	Parameter WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'dff__parameterized3' [D:/Thesis/Src/modules/common/dff.v:1]
+	Parameter WIDTH bound to: 9 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'dff__parameterized3' (0#1) [D:/Thesis/Src/modules/common/dff.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'sum' (0#1) [D:/Thesis/Src/modules/common/sum.v:1]
+INFO: [Synth 8-6157] synthesizing module 'sum__parameterized0' [D:/Thesis/Src/modules/common/sum.v:1]
+	Parameter WIDTH bound to: 9 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'sum__parameterized0' (0#1) [D:/Thesis/Src/modules/common/sum.v:1]
+INFO: [Synth 8-6157] synthesizing module 'sum__parameterized1' [D:/Thesis/Src/modules/common/sum.v:1]
+	Parameter WIDTH bound to: 10 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'dff__parameterized4' [D:/Thesis/Src/modules/common/dff.v:1]
+	Parameter WIDTH bound to: 11 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'dff__parameterized4' (0#1) [D:/Thesis/Src/modules/common/dff.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'sum__parameterized1' (0#1) [D:/Thesis/Src/modules/common/sum.v:1]
+INFO: [Synth 8-6157] synthesizing module 'sum_cumulative' [D:/Thesis/Src/modules/common/sum_cumulative.v:1]
+	Parameter WIDTH1 bound to: 13 - type: integer 
+	Parameter WIDTH2 bound to: 13 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'sum_cumulative' (0#1) [D:/Thesis/Src/modules/common/sum_cumulative.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'R2_sum' (0#1) [D:/Thesis/Src/modules/common/R2/R2_sum.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'MRELBP_CI_R2' (0#1) [D:/Thesis/Src/modules/MRELBP_CI/R2/MRELBP_CI_R2.v:1]
+INFO: [Synth 8-6157] synthesizing module 'MRELBP_CI_R4' [D:/Thesis/Src/modules/MRELBP_CI/R4/MRELBP_CI_R4.v:1]
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'R4_controller' [D:/Thesis/Src/modules/common/R4/R4_controller.v:1]
+	Parameter COLS bound to: 128 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Thesis/Src/modules/common/R4/R4_controller.v:34]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Thesis/Src/modules/common/R4/R4_controller.v:44]
+INFO: [Synth 8-6155] done synthesizing module 'R4_controller' (0#1) [D:/Thesis/Src/modules/common/R4/R4_controller.v:1]
+INFO: [Synth 8-6157] synthesizing module 'R4_sum' [D:/Thesis/Src/modules/common/R4/R4_sum.v:1]
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'sum__parameterized2' [D:/Thesis/Src/modules/common/sum.v:1]
+	Parameter WIDTH bound to: 11 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'dff__parameterized5' [D:/Thesis/Src/modules/common/dff.v:1]
+	Parameter WIDTH bound to: 12 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'dff__parameterized5' (0#1) [D:/Thesis/Src/modules/common/dff.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'sum__parameterized2' (0#1) [D:/Thesis/Src/modules/common/sum.v:1]
+INFO: [Synth 8-6157] synthesizing module 'sum_cumulative__parameterized0' [D:/Thesis/Src/modules/common/sum_cumulative.v:1]
+	Parameter WIDTH1 bound to: 15 - type: integer 
+	Parameter WIDTH2 bound to: 15 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'sum_cumulative__parameterized0' (0#1) [D:/Thesis/Src/modules/common/sum_cumulative.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'R4_sum' (0#1) [D:/Thesis/Src/modules/common/R4/R4_sum.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'MRELBP_CI_R4' (0#1) [D:/Thesis/Src/modules/MRELBP_CI/R4/MRELBP_CI_R4.v:1]
+INFO: [Synth 8-6157] synthesizing module 'MRELBP_CI_R6' [D:/Thesis/Src/modules/MRELBP_CI/R6/MRELBP_CI_R6.v:1]
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'R6_controller' [D:/Thesis/Src/modules/common/R6/R6_controller.v:1]
+	Parameter COLS bound to: 128 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Thesis/Src/modules/common/R6/R6_controller.v:52]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Thesis/Src/modules/common/R6/R6_controller.v:62]
+INFO: [Synth 8-6155] done synthesizing module 'R6_controller' (0#1) [D:/Thesis/Src/modules/common/R6/R6_controller.v:1]
+INFO: [Synth 8-6157] synthesizing module 'R6_sum' [D:/Thesis/Src/modules/common/R6/R6_sum.v:1]
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'sum_cumulative__parameterized1' [D:/Thesis/Src/modules/common/sum_cumulative.v:1]
+	Parameter WIDTH1 bound to: 16 - type: integer 
+	Parameter WIDTH2 bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'sum_cumulative__parameterized1' (0#1) [D:/Thesis/Src/modules/common/sum_cumulative.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'R6_sum' (0#1) [D:/Thesis/Src/modules/common/R6/R6_sum.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'MRELBP_CI_R6' (0#1) [D:/Thesis/Src/modules/MRELBP_CI/R6/MRELBP_CI_R6.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'CI_top' (0#1) [D:/Thesis/Src/modules/MRELBP_CI/CI_top.v:1]
+INFO: [Synth 8-6157] synthesizing module 'R2_NIRD' [D:/Thesis/Src/modules/NIRD/R2_NIRD.v:1]
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Buffer_4_rows' [D:/Thesis/Src/modules/Buffers/Buffer_4_rows.v:1]
+	Parameter DEPTH bound to: 128 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Buffer_4_rows' (0#1) [D:/Thesis/Src/modules/Buffers/Buffer_4_rows.v:1]
+INFO: [Synth 8-6157] synthesizing module 'shift_registers' [D:/Thesis/Src/modules/common/shift_registers.v:1]
+	Parameter WIDTH bound to: 1 - type: integer 
+	Parameter CYCLE bound to: 7 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'shift_registers' (0#1) [D:/Thesis/Src/modules/common/shift_registers.v:1]
+INFO: [Synth 8-6157] synthesizing module 'shift_registers__parameterized0' [D:/Thesis/Src/modules/common/shift_registers.v:1]
+	Parameter WIDTH bound to: 8 - type: integer 
+	Parameter CYCLE bound to: 7 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'shift_registers__parameterized0' (0#1) [D:/Thesis/Src/modules/common/shift_registers.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Window_buffer_5x5' [D:/Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5.v:1]
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Window_buffer_5x5_controller' [D:/Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5_controller.v:1]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5_controller.v:29]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5_controller.v:41]
+INFO: [Synth 8-6155] done synthesizing module 'Window_buffer_5x5_controller' (0#1) [D:/Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5_controller.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Window_buffer_5x5_datapath' [D:/Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5_datapath.v:1]
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Window_buffer_5x5_datapath' (0#1) [D:/Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5_datapath.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Window_buffer_5x5' (0#1) [D:/Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Window_buffer_3x3' [D:/Thesis/Src/modules/Buffers/WindowBuffer/3x3/Window_buffer_3x3.v:1]
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Window_buffer_3x3_controller' [D:/Thesis/Src/modules/Buffers/WindowBuffer/3x3/Window_buffer_3x3_controller.v:1]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Thesis/Src/modules/Buffers/WindowBuffer/3x3/Window_buffer_3x3_controller.v:29]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Thesis/Src/modules/Buffers/WindowBuffer/3x3/Window_buffer_3x3_controller.v:41]
+INFO: [Synth 8-6155] done synthesizing module 'Window_buffer_3x3_controller' (0#1) [D:/Thesis/Src/modules/Buffers/WindowBuffer/3x3/Window_buffer_3x3_controller.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Window_buffer_3x3_datapath' [D:/Thesis/Src/modules/Buffers/WindowBuffer/3x3/Window_buffer_3x3_datapath.v:1]
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Window_buffer_3x3_datapath' (0#1) [D:/Thesis/Src/modules/Buffers/WindowBuffer/3x3/Window_buffer_3x3_datapath.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Window_buffer_3x3' (0#1) [D:/Thesis/Src/modules/Buffers/WindowBuffer/3x3/Window_buffer_3x3.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Interpolation_R_x' [D:/Thesis/Src/modules/InterpolationModule/Interpolation_R_x.v:1]
+	Parameter R bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Interpolation_R_x' (0#1) [D:/Thesis/Src/modules/InterpolationModule/Interpolation_R_x.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Interpolation_R_x__parameterized0' [D:/Thesis/Src/modules/InterpolationModule/Interpolation_R_x.v:1]
+	Parameter R bound to: 2 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Interpolation_calc' [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:1]
+	Parameter R bound to: 2 - type: integer 
+	Parameter RADIUS bound to: 45 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Interpolation_calc' (0#1) [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Interpolation_calc__parameterized0' [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:1]
+	Parameter R bound to: 2 - type: integer 
+	Parameter RADIUS bound to: 135 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Interpolation_calc__parameterized0' (0#1) [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Interpolation_calc__parameterized1' [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:1]
+	Parameter R bound to: 2 - type: integer 
+	Parameter RADIUS bound to: 225 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Interpolation_calc__parameterized1' (0#1) [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Interpolation_calc__parameterized2' [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:1]
+	Parameter R bound to: 2 - type: integer 
+	Parameter RADIUS bound to: 315 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Interpolation_calc__parameterized2' (0#1) [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Interpolation_R_x__parameterized0' (0#1) [D:/Thesis/Src/modules/InterpolationModule/Interpolation_R_x.v:1]
+INFO: [Synth 8-6157] synthesizing module 'R2_patch_sum' [D:/Thesis/Src/modules/common/R2/R2_patch_sum.v:1]
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'R2_patch_sum' (0#1) [D:/Thesis/Src/modules/common/R2/R2_patch_sum.v:1]
+INFO: [Synth 8-6157] synthesizing module 'NI' [D:/Thesis/Src/modules/NIRD/NI.v:1]
+	Parameter WIDTH bound to: 13 - type: integer 
+	Parameter GAIN bound to: 25 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'NI_calc' [D:/Thesis/Src/modules/NIRD/NI_calc.v:1]
+	Parameter WIDTH bound to: 13 - type: integer 
+	Parameter GAIN bound to: 25 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'dff__parameterized6' [D:/Thesis/Src/modules/common/dff.v:1]
+	Parameter WIDTH bound to: 13 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'dff__parameterized6' (0#1) [D:/Thesis/Src/modules/common/dff.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'NI_calc' (0#1) [D:/Thesis/Src/modules/NIRD/NI_calc.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'NI' (0#1) [D:/Thesis/Src/modules/NIRD/NI.v:1]
+INFO: [Synth 8-6157] synthesizing module 'RD' [D:/Thesis/Src/modules/NIRD/RD.v:1]
+INFO: [Synth 8-6157] synthesizing module 'RD_calc' [D:/Thesis/Src/modules/NIRD/RD_calc.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'RD_calc' (0#1) [D:/Thesis/Src/modules/NIRD/RD_calc.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'RD' (0#1) [D:/Thesis/Src/modules/NIRD/RD.v:1]
+INFO: [Synth 8-6157] synthesizing module 'riu2_mapping' [D:/Thesis/Src/modules/NIRD/riu2_mapping.v:1]
+INFO: [Synth 8-6157] synthesizing module 'sum__parameterized3' [D:/Thesis/Src/modules/common/sum.v:1]
+	Parameter WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'sum__parameterized3' (0#1) [D:/Thesis/Src/modules/common/sum.v:1]
+INFO: [Synth 8-6157] synthesizing module 'sum__parameterized4' [D:/Thesis/Src/modules/common/sum.v:1]
+	Parameter WIDTH bound to: 2 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'sum__parameterized4' (0#1) [D:/Thesis/Src/modules/common/sum.v:1]
+INFO: [Synth 8-6157] synthesizing module 'sum__parameterized5' [D:/Thesis/Src/modules/common/sum.v:1]
+	Parameter WIDTH bound to: 3 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'dff__parameterized7' [D:/Thesis/Src/modules/common/dff.v:1]
+	Parameter WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'dff__parameterized7' (0#1) [D:/Thesis/Src/modules/common/dff.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'sum__parameterized5' (0#1) [D:/Thesis/Src/modules/common/sum.v:1]
+INFO: [Synth 8-6157] synthesizing module 'shift_registers__parameterized1' [D:/Thesis/Src/modules/common/shift_registers.v:1]
+	Parameter WIDTH bound to: 1 - type: integer 
+	Parameter CYCLE bound to: 3 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'shift_registers__parameterized1' (0#1) [D:/Thesis/Src/modules/common/shift_registers.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'riu2_mapping' (0#1) [D:/Thesis/Src/modules/NIRD/riu2_mapping.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'R2_NIRD' (0#1) [D:/Thesis/Src/modules/NIRD/R2_NIRD.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'done_original_i' does not match port width (1) of module 'R2_NIRD' [D:/Thesis/Src/modules/TopModule/TopModule_datapath.v:79]
+INFO: [Synth 8-6157] synthesizing module 'Joint_histogram' [D:/Thesis/Src/modules/OutputModule/Joint_histogram.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Joint_histogram_controller' [D:/Thesis/Src/modules/OutputModule/Joint_histogram_controller.v:1]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Thesis/Src/modules/OutputModule/Joint_histogram_controller.v:25]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Thesis/Src/modules/OutputModule/Joint_histogram_controller.v:35]
+INFO: [Synth 8-6155] done synthesizing module 'Joint_histogram_controller' (0#1) [D:/Thesis/Src/modules/OutputModule/Joint_histogram_controller.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Joint_histogram_datapath' [D:/Thesis/Src/modules/OutputModule/Joint_histogram_datapath.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Joint_histogram_datapath' (0#1) [D:/Thesis/Src/modules/OutputModule/Joint_histogram_datapath.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Joint_histogram' (0#1) [D:/Thesis/Src/modules/OutputModule/Joint_histogram.v:1]
+INFO: [Synth 8-6157] synthesizing module 'R4_NIRD' [D:/Thesis/Src/modules/NIRD/R4_NIRD.v:1]
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Buffer_8_rows' [D:/Thesis/Src/modules/Buffers/Buffer_8_rows.v:1]
+	Parameter DEPTH bound to: 128 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Buffer_8_rows' (0#1) [D:/Thesis/Src/modules/Buffers/Buffer_8_rows.v:1]
+INFO: [Synth 8-6157] synthesizing module 'shift_registers__parameterized2' [D:/Thesis/Src/modules/common/shift_registers.v:1]
+	Parameter WIDTH bound to: 1 - type: integer 
+	Parameter CYCLE bound to: 12 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'shift_registers__parameterized2' (0#1) [D:/Thesis/Src/modules/common/shift_registers.v:1]
+INFO: [Synth 8-6157] synthesizing module 'shift_registers__parameterized3' [D:/Thesis/Src/modules/common/shift_registers.v:1]
+	Parameter WIDTH bound to: 8 - type: integer 
+	Parameter CYCLE bound to: 12 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'shift_registers__parameterized3' (0#1) [D:/Thesis/Src/modules/common/shift_registers.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Window_buffer_7x7' [D:/Thesis/Src/modules/Buffers/WindowBuffer/7x7/Window_buffer_7x7.v:1]
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Window_buffer_7x7_controller' [D:/Thesis/Src/modules/Buffers/WindowBuffer/7x7/Window_buffer_7x7_controller.v:1]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Thesis/Src/modules/Buffers/WindowBuffer/7x7/Window_buffer_7x7_controller.v:29]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Thesis/Src/modules/Buffers/WindowBuffer/7x7/Window_buffer_7x7_controller.v:41]
+INFO: [Synth 8-6155] done synthesizing module 'Window_buffer_7x7_controller' (0#1) [D:/Thesis/Src/modules/Buffers/WindowBuffer/7x7/Window_buffer_7x7_controller.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Window_buffer_7x7_datapath' [D:/Thesis/Src/modules/Buffers/WindowBuffer/7x7/Window_buffer_7x7_datapath.v:1]
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Window_buffer_7x7_datapath' (0#1) [D:/Thesis/Src/modules/Buffers/WindowBuffer/7x7/Window_buffer_7x7_datapath.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Window_buffer_7x7' (0#1) [D:/Thesis/Src/modules/Buffers/WindowBuffer/7x7/Window_buffer_7x7.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Window_buffer_9x9' [D:/Thesis/Src/modules/Buffers/WindowBuffer/9x9/Window_buffer_9x9.v:1]
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Window_buffer_9x9_controller' [D:/Thesis/Src/modules/Buffers/WindowBuffer/9x9/Window_buffer_9x9_controller.v:1]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Thesis/Src/modules/Buffers/WindowBuffer/9x9/Window_buffer_9x9_controller.v:29]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Thesis/Src/modules/Buffers/WindowBuffer/9x9/Window_buffer_9x9_controller.v:41]
+INFO: [Synth 8-6155] done synthesizing module 'Window_buffer_9x9_controller' (0#1) [D:/Thesis/Src/modules/Buffers/WindowBuffer/9x9/Window_buffer_9x9_controller.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Window_buffer_9x9_datapath' [D:/Thesis/Src/modules/Buffers/WindowBuffer/9x9/Window_buffer_9x9_datapath.v:1]
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Window_buffer_9x9_datapath' (0#1) [D:/Thesis/Src/modules/Buffers/WindowBuffer/9x9/Window_buffer_9x9_datapath.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Window_buffer_9x9' (0#1) [D:/Thesis/Src/modules/Buffers/WindowBuffer/9x9/Window_buffer_9x9.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Interpolation_R_x__parameterized1' [D:/Thesis/Src/modules/InterpolationModule/Interpolation_R_x.v:1]
+	Parameter R bound to: 3 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Interpolation_calc__parameterized3' [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:1]
+	Parameter R bound to: 3 - type: integer 
+	Parameter RADIUS bound to: 45 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Interpolation_calc__parameterized3' (0#1) [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Interpolation_calc__parameterized4' [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:1]
+INFO: [Common 17-14] Message 'Synth 8-6157' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+	Parameter R bound to: 3 - type: integer 
+	Parameter RADIUS bound to: 135 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Interpolation_calc__parameterized4' (0#1) [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:1]
+	Parameter R bound to: 3 - type: integer 
+	Parameter RADIUS bound to: 225 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Interpolation_calc__parameterized5' (0#1) [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:1]
+	Parameter R bound to: 3 - type: integer 
+	Parameter RADIUS bound to: 315 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Interpolation_calc__parameterized6' (0#1) [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Interpolation_R_x__parameterized1' (0#1) [D:/Thesis/Src/modules/InterpolationModule/Interpolation_R_x.v:1]
+	Parameter R bound to: 4 - type: integer 
+	Parameter R bound to: 4 - type: integer 
+	Parameter RADIUS bound to: 45 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Interpolation_calc__parameterized7' (0#1) [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:1]
+INFO: [Common 17-14] Message 'Synth 8-6155' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+	Parameter R bound to: 4 - type: integer 
+	Parameter RADIUS bound to: 135 - type: integer 
+	Parameter R bound to: 4 - type: integer 
+	Parameter RADIUS bound to: 225 - type: integer 
+	Parameter R bound to: 4 - type: integer 
+	Parameter RADIUS bound to: 315 - type: integer 
+	Parameter WIDTH bound to: 24 - type: integer 
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+	Parameter WIDTH bound to: 15 - type: integer 
+	Parameter GAIN bound to: 81 - type: integer 
+	Parameter WIDTH bound to: 15 - type: integer 
+	Parameter GAIN bound to: 81 - type: integer 
+	Parameter WIDTH bound to: 15 - type: integer 
+	Parameter WIDTH bound to: 1 - type: integer 
+	Parameter CYCLE bound to: 14 - type: integer 
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+	Parameter DEPTH bound to: 128 - type: integer 
+	Parameter WIDTH bound to: 1 - type: integer 
+	Parameter CYCLE bound to: 26 - type: integer 
+	Parameter WIDTH bound to: 8 - type: integer 
+	Parameter CYCLE bound to: 26 - type: integer 
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Thesis/Src/modules/Buffers/WindowBuffer/11x11/Window_buffer_11x11_controller.v:29]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Thesis/Src/modules/Buffers/WindowBuffer/11x11/Window_buffer_11x11_controller.v:41]
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Thesis/Src/modules/Buffers/WindowBuffer/13x13/Window_buffer_13x13_controller.v:29]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Thesis/Src/modules/Buffers/WindowBuffer/13x13/Window_buffer_13x13_controller.v:41]
+	Parameter R bound to: 5 - type: integer 
+	Parameter R bound to: 5 - type: integer 
+	Parameter RADIUS bound to: 45 - type: integer 
+	Parameter R bound to: 5 - type: integer 
+	Parameter RADIUS bound to: 135 - type: integer 
+	Parameter R bound to: 5 - type: integer 
+	Parameter RADIUS bound to: 225 - type: integer 
+	Parameter R bound to: 5 - type: integer 
+	Parameter RADIUS bound to: 315 - type: integer 
+	Parameter R bound to: 6 - type: integer 
+	Parameter R bound to: 6 - type: integer 
+	Parameter RADIUS bound to: 45 - type: integer 
+	Parameter R bound to: 6 - type: integer 
+	Parameter RADIUS bound to: 135 - type: integer 
+	Parameter R bound to: 6 - type: integer 
+	Parameter RADIUS bound to: 225 - type: integer 
+	Parameter R bound to: 6 - type: integer 
+	Parameter RADIUS bound to: 315 - type: integer 
+	Parameter COLS bound to: 128 - type: integer 
+	Parameter ROWS bound to: 128 - type: integer 
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter GAIN bound to: 169 - type: integer 
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter GAIN bound to: 169 - type: integer 
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter WIDTH bound to: 1 - type: integer 
+	Parameter CYCLE bound to: 39 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Thesis/Src/modules/TopModule/TopModule_datapath.v:270]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa6_S1_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_calc.v:392]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa6_S2_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_calc.v:393]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa6_S3_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_calc.v:394]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa7_S1_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_calc.v:398]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa7_S2_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_calc.v:399]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa8_S1_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_calc.v:404]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa8_S5_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_calc.v:408]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa9_S4_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_calc.v:413]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa9_S5_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_calc.v:414]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa10_S3_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_calc.v:418]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa10_S4_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_calc.v:419]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa10_S5_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_calc.v:420]
+WARNING: [Synth 8-6014] Unused sequential element p1_sn4_max_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/5x5/Median_filter_5x5_calc.v:587]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa8_S1_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7_calc.v:668]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa8_S2_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7_calc.v:669]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa8_S3_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7_calc.v:670]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa8_S4_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7_calc.v:671]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa9_S1_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7_calc.v:676]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa9_S2_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7_calc.v:677]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa9_S3_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7_calc.v:678]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa10_S1_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7_calc.v:684]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa10_S2_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7_calc.v:685]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa11_S1_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7_calc.v:692]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa11_S7_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7_calc.v:698]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa12_S6_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7_calc.v:705]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa12_S7_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7_calc.v:706]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa13_S5_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7_calc.v:712]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa13_S6_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7_calc.v:713]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa13_S7_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7_calc.v:714]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa14_S4_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7_calc.v:719]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa14_S5_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7_calc.v:720]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa14_S6_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7_calc.v:721]
+WARNING: [Synth 8-6014] Unused sequential element p3_sa14_S7_reg was removed.  [D:/Thesis/Src/modules/MedianFilterModule/7x7/Median_filter_7x7_calc.v:722]
+WARNING: [Synth 8-7129] Port S_45_i_2[7] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_45_i_2[6] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_45_i_2[5] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_45_i_2[4] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_45_i_2[3] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_45_i_2[2] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_45_i_2[1] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_45_i_2[0] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_45_i_3[7] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_45_i_3[6] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_45_i_3[5] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_45_i_3[4] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_45_i_3[3] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_45_i_3[2] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_45_i_3[1] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_45_i_3[0] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_45_i_4[7] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_45_i_4[6] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_45_i_4[5] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_45_i_4[4] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_45_i_4[3] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_45_i_4[2] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_45_i_4[1] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_45_i_4[0] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_135_i_2[7] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_135_i_2[6] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_135_i_2[5] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_135_i_2[4] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_135_i_2[3] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_135_i_2[2] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_135_i_2[1] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_135_i_2[0] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_135_i_3[7] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_135_i_3[6] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_135_i_3[5] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_135_i_3[4] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_135_i_3[3] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_135_i_3[2] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_135_i_3[1] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_135_i_3[0] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_135_i_4[7] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_135_i_4[6] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_135_i_4[5] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_135_i_4[4] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_135_i_4[3] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_135_i_4[2] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_135_i_4[1] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_135_i_4[0] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_225_i_2[7] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_225_i_2[6] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_225_i_2[5] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_225_i_2[4] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_225_i_2[3] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_225_i_2[2] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_225_i_2[1] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_225_i_2[0] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_225_i_3[7] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_225_i_3[6] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_225_i_3[5] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_225_i_3[4] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_225_i_3[3] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_225_i_3[2] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_225_i_3[1] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_225_i_3[0] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_225_i_4[7] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_225_i_4[6] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_225_i_4[5] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_225_i_4[4] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_225_i_4[3] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_225_i_4[2] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_225_i_4[1] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_225_i_4[0] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_315_i_2[7] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_315_i_2[6] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_315_i_2[5] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_315_i_2[4] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_315_i_2[3] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_315_i_2[2] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_315_i_2[1] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_315_i_2[0] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_315_i_3[7] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_315_i_3[6] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_315_i_3[5] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_315_i_3[4] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_315_i_3[3] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_315_i_3[2] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_315_i_3[1] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_315_i_3[0] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_315_i_4[7] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_315_i_4[6] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_315_i_4[5] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_315_i_4[4] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_315_i_4[3] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_315_i_4[2] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_315_i_4[1] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_315_i_4[0] in module Interpolation_R_x is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rst in module Data_modulate_7x7_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module Data_modulate_7x7_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rst in module Data_modulate_5x5_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module Data_modulate_5x5_controller is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1306.090 ; gain = 670.785
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1306.090 ; gain = 670.785
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1306.090 ; gain = 670.785
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1306.090 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/Thesis/Zedboard_v/Zedboard_v.srcs/constrs_1/new/Constraints.xdc]
+Finished Parsing XDC File [D:/Thesis/Zedboard_v/Zedboard_v.srcs/constrs_1/new/Constraints.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 1426.652 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.998 . Memory (MB): peak = 1435.031 ; gain = 8.379
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 1435.031 ; gain = 799.727
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 1435.031 ; gain = 799.727
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 1435.031 ; gain = 799.727
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Preparing Guide Design
+---------------------------------------------------------------------------------
+got a mismatch Median_filter_3x3
+got a mismatch Data_modulate_3x3
+got a mismatch Data_modulate_3x3_datapath
+got a mismatch Median_filter_5x5
+Is not a child genome
+got a mismatch Data_modulate_5x5
+got a mismatch Data_modulate_5x5_datapath
+got a mismatch Median_filter_7x7
+Is not a child genome
+got a mismatch Data_modulate_7x7
+got a mismatch Data_modulate_7x7_datapath
+---------------------------------------------------------------------------------
+Finished Doing Graph Differ : Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 1435.031 ; gain = 799.727
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Preparing Guide Design : Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 1435.031 ; gain = 799.727
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'TopModule_controller'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'R2_controller'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'R4_controller'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'R6_controller'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'Window_buffer_5x5_controller'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'Window_buffer_3x3_controller'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'Joint_histogram_controller'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'Window_buffer_7x7_controller'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'Window_buffer_9x9_controller'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'Window_buffer_11x11_controller'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'Window_buffer_13x13_controller'
+INFO: [Synth 8-802] inferred FSM for state register 'read_stage_reg' in module 'TopModule_datapath'
+WARNING: [Synth 8-327] inferring latch for variable 'o_intr_reg' [D:/Thesis/Src/modules/TopModule/TopModule_datapath.v:33]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                               00 |                               00
+                 PROCESS |                               01 |                               01
+                    READ |                               10 |                               10
+                  FINISH |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'TopModule_controller'
+WARNING: [Synth 8-327] inferring latch for variable 'read_en_reg' [D:/Thesis/Src/modules/TopModule/TopModule_datapath.v:32]
+WARNING: [Synth 8-327] inferring latch for variable 'i_counter' [D:/Thesis/Src/modules/Buffers/LineBuffer/Line_buffer_datapath.v:47]
+WARNING: [Synth 8-327] inferring latch for variable 'd0_o_reg' [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v:75]
+WARNING: [Synth 8-327] inferring latch for variable 'd1_o_reg' [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v:76]
+WARNING: [Synth 8-327] inferring latch for variable 'd2_o_reg' [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'd3_o_reg' [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v:78]
+WARNING: [Synth 8-327] inferring latch for variable 'd4_o_reg' [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v:79]
+WARNING: [Synth 8-327] inferring latch for variable 'd5_o_reg' [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v:80]
+WARNING: [Synth 8-327] inferring latch for variable 'd6_o_reg' [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v:81]
+WARNING: [Synth 8-327] inferring latch for variable 'd7_o_reg' [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v:82]
+WARNING: [Synth 8-327] inferring latch for variable 'd8_o_reg' [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'i_counter' [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v:57]
+WARNING: [Synth 8-327] inferring latch for variable 'd0_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:131]
+WARNING: [Synth 8-327] inferring latch for variable 'd1_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:132]
+WARNING: [Synth 8-327] inferring latch for variable 'd2_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:133]
+WARNING: [Synth 8-327] inferring latch for variable 'd3_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:134]
+WARNING: [Synth 8-327] inferring latch for variable 'd4_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'd5_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:136]
+WARNING: [Synth 8-327] inferring latch for variable 'd6_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:137]
+WARNING: [Synth 8-327] inferring latch for variable 'd7_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:138]
+WARNING: [Synth 8-327] inferring latch for variable 'd8_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:139]
+WARNING: [Synth 8-327] inferring latch for variable 'd9_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:140]
+WARNING: [Synth 8-327] inferring latch for variable 'd10_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:141]
+WARNING: [Synth 8-327] inferring latch for variable 'd11_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:142]
+WARNING: [Synth 8-327] inferring latch for variable 'd12_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:143]
+WARNING: [Synth 8-327] inferring latch for variable 'd13_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:144]
+WARNING: [Synth 8-327] inferring latch for variable 'd14_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:145]
+WARNING: [Synth 8-327] inferring latch for variable 'd15_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:146]
+WARNING: [Synth 8-327] inferring latch for variable 'd16_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:147]
+WARNING: [Synth 8-327] inferring latch for variable 'd17_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:148]
+WARNING: [Synth 8-327] inferring latch for variable 'd18_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:149]
+WARNING: [Synth 8-327] inferring latch for variable 'd19_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:150]
+WARNING: [Synth 8-327] inferring latch for variable 'd20_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:151]
+WARNING: [Synth 8-327] inferring latch for variable 'd21_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:152]
+WARNING: [Synth 8-327] inferring latch for variable 'd22_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:153]
+WARNING: [Synth 8-327] inferring latch for variable 'd23_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:154]
+WARNING: [Synth 8-327] inferring latch for variable 'd24_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:155]
+WARNING: [Synth 8-327] inferring latch for variable 'i_counter' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:109]
+WARNING: [Synth 8-327] inferring latch for variable 'd0_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:179]
+WARNING: [Synth 8-327] inferring latch for variable 'd1_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:180]
+WARNING: [Synth 8-327] inferring latch for variable 'd2_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:181]
+WARNING: [Synth 8-327] inferring latch for variable 'd3_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:182]
+WARNING: [Synth 8-327] inferring latch for variable 'd4_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:183]
+WARNING: [Synth 8-327] inferring latch for variable 'd5_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:184]
+WARNING: [Synth 8-327] inferring latch for variable 'd6_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:185]
+WARNING: [Synth 8-327] inferring latch for variable 'd7_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:186]
+WARNING: [Synth 8-327] inferring latch for variable 'd8_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:187]
+WARNING: [Synth 8-327] inferring latch for variable 'd9_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:188]
+WARNING: [Synth 8-327] inferring latch for variable 'd10_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:189]
+WARNING: [Synth 8-327] inferring latch for variable 'd11_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:190]
+WARNING: [Synth 8-327] inferring latch for variable 'd12_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:191]
+WARNING: [Synth 8-327] inferring latch for variable 'd13_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:192]
+WARNING: [Synth 8-327] inferring latch for variable 'd14_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:193]
+WARNING: [Synth 8-327] inferring latch for variable 'd15_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:194]
+WARNING: [Synth 8-327] inferring latch for variable 'd16_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:195]
+WARNING: [Synth 8-327] inferring latch for variable 'd17_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:196]
+WARNING: [Synth 8-327] inferring latch for variable 'd18_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:197]
+WARNING: [Synth 8-327] inferring latch for variable 'd19_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:198]
+WARNING: [Synth 8-327] inferring latch for variable 'd20_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:199]
+WARNING: [Synth 8-327] inferring latch for variable 'd21_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:200]
+WARNING: [Synth 8-327] inferring latch for variable 'd22_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:201]
+WARNING: [Synth 8-327] inferring latch for variable 'd23_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:202]
+WARNING: [Synth 8-327] inferring latch for variable 'd24_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:203]
+WARNING: [Synth 8-327] inferring latch for variable 'd25_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:204]
+WARNING: [Synth 8-327] inferring latch for variable 'd26_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:205]
+WARNING: [Synth 8-327] inferring latch for variable 'd27_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:206]
+WARNING: [Synth 8-327] inferring latch for variable 'd28_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:207]
+WARNING: [Synth 8-327] inferring latch for variable 'd29_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:208]
+WARNING: [Synth 8-327] inferring latch for variable 'd30_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:209]
+WARNING: [Synth 8-327] inferring latch for variable 'd31_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:210]
+WARNING: [Synth 8-327] inferring latch for variable 'd32_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:211]
+WARNING: [Synth 8-327] inferring latch for variable 'd33_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:212]
+WARNING: [Synth 8-327] inferring latch for variable 'd34_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:213]
+WARNING: [Synth 8-327] inferring latch for variable 'd35_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:214]
+WARNING: [Synth 8-327] inferring latch for variable 'd36_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:215]
+WARNING: [Synth 8-327] inferring latch for variable 'd37_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:216]
+WARNING: [Synth 8-327] inferring latch for variable 'd38_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:217]
+WARNING: [Synth 8-327] inferring latch for variable 'd39_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:218]
+WARNING: [Synth 8-327] inferring latch for variable 'd40_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:219]
+WARNING: [Synth 8-327] inferring latch for variable 'd41_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:220]
+WARNING: [Synth 8-327] inferring latch for variable 'd42_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:221]
+WARNING: [Synth 8-327] inferring latch for variable 'd43_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:222]
+WARNING: [Synth 8-327] inferring latch for variable 'd44_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:223]
+WARNING: [Synth 8-327] inferring latch for variable 'd45_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:224]
+WARNING: [Synth 8-327] inferring latch for variable 'd46_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:225]
+WARNING: [Synth 8-327] inferring latch for variable 'd47_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:226]
+WARNING: [Synth 8-327] inferring latch for variable 'd48_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:227]
+WARNING: [Synth 8-327] inferring latch for variable 'i_counter' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:157]
+WARNING: [Synth 8-327] inferring latch for variable 'cum_en_reg' [D:/Thesis/Src/modules/common/R2/R2_patch_sum.v:47]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_next_state_reg' [D:/Thesis/Src/modules/common/R2/R2_patch_sum.v:34]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_next_state_reg' [D:/Thesis/Src/modules/common/R2/R2_patch_sum.v:34]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                          0000001 |                              000
+                   START |                          0000010 |                              001
+               START_ROW |                          0000100 |                              010
+                  SUM_EN |                          0001000 |                              011
+                  CUM_EN |                          0010000 |                              100
+              FINISH_ALL |                          0100000 |                              101
+                  iSTATE |                          1000000 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'R2_controller'
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_next_state_reg' [D:/Thesis/Src/modules/common/R2/R2_patch_sum.v:34]
+WARNING: [Synth 8-327] inferring latch for variable 'done_o_reg' [D:/Thesis/Src/modules/common/R2/R2_patch_sum.v:46]
+WARNING: [Synth 8-327] inferring latch for variable 'sum_en_reg' [D:/Thesis/Src/modules/common/R2/R2_patch_sum.v:49]
+WARNING: [Synth 8-327] inferring latch for variable 'count_en_reg' [D:/Thesis/Src/modules/common/R2/R2_patch_sum.v:45]
+WARNING: [Synth 8-327] inferring latch for variable 'start_en_reg' [D:/Thesis/Src/modules/common/R2/R2_patch_sum.v:50]
+WARNING: [Synth 8-327] inferring latch for variable 'ld_en_reg' [D:/Thesis/Src/modules/common/R2/R2_patch_sum.v:48]
+WARNING: [Synth 8-327] inferring latch for variable 'progress_done_reg' [D:/Thesis/Src/modules/common/R2/R2_patch_sum.v:51]
+WARNING: [Synth 8-327] inferring latch for variable 'i_row' [D:/Thesis/Src/modules/NIRD/R4_NIRD.v:68]
+INFO: [Common 17-14] Message 'Synth 8-327' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                          0000001 |                              000
+                   START |                          0000010 |                              001
+               START_ROW |                          0000100 |                              010
+                  SUM_EN |                          0001000 |                              011
+                  CUM_EN |                          0010000 |                              100
+              FINISH_ALL |                          0100000 |                              101
+                  iSTATE |                          1000000 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'R4_controller'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                          0000001 |                              000
+                   START |                          0000010 |                              001
+               START_ROW |                          0000100 |                              010
+                  SUM_EN |                          0001000 |                              011
+                  CUM_EN |                          0010000 |                              100
+              FINISH_ALL |                          0100000 |                              101
+                  iSTATE |                          1000000 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'R6_controller'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                              000
+                   START |                              001 |                              001
+               START_COL |                              010 |                              010
+                 COL_OUT |                              011 |                              011
+                 END_COL |                              100 |                              100
+               END_COL_2 |                              101 |                              101
+              FINISH_ALL |                              110 |                              110
+                  iSTATE |                              111 |                              111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'Window_buffer_5x5_controller'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                              000
+                   START |                              001 |                              001
+               START_COL |                              010 |                              010
+                 COL_OUT |                              011 |                              011
+                 END_COL |                              100 |                              100
+               END_COL_2 |                              101 |                              101
+              FINISH_ALL |                              110 |                              110
+                  iSTATE |                              111 |                              111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'Window_buffer_3x3_controller'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                            00001 |                              000
+                COUNTING |                            00010 |                              001
+              START_READ |                            00100 |                              010
+                 READING |                            01000 |                              011
+                  FINISH |                            10000 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'Joint_histogram_controller'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                              000
+                   START |                              001 |                              001
+               START_COL |                              010 |                              010
+                 COL_OUT |                              011 |                              011
+                 END_COL |                              100 |                              100
+               END_COL_2 |                              101 |                              101
+              FINISH_ALL |                              110 |                              110
+                  iSTATE |                              111 |                              111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'Window_buffer_7x7_controller'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                              000
+                   START |                              001 |                              001
+               START_COL |                              010 |                              010
+                 COL_OUT |                              011 |                              011
+                 END_COL |                              100 |                              100
+               END_COL_2 |                              101 |                              101
+              FINISH_ALL |                              110 |                              110
+                  iSTATE |                              111 |                              111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'Window_buffer_9x9_controller'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                              000
+                   START |                              001 |                              001
+               START_COL |                              010 |                              010
+                 COL_OUT |                              011 |                              011
+                 END_COL |                              100 |                              100
+               END_COL_2 |                              101 |                              101
+              FINISH_ALL |                              110 |                              110
+                  iSTATE |                              111 |                              111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'Window_buffer_11x11_controller'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                              000
+                   START |                              001 |                              001
+               START_COL |                              010 |                              010
+                 COL_OUT |                              011 |                              011
+                 END_COL |                              100 |                              100
+               END_COL_2 |                              101 |                              101
+              FINISH_ALL |                              110 |                              110
+                  iSTATE |                              111 |                              111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'Window_buffer_13x13_controller'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                              000 |                              000
+                 iSTATE0 |                              001 |                              001
+                 iSTATE1 |                              010 |                              010
+                 iSTATE2 |                              011 |                              011
+                 iSTATE3 |                              100 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'read_stage_reg' using encoding 'sequential' in module 'TopModule_datapath'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:43 ; elapsed = 00:00:50 . Memory (MB): peak = 1435.031 ; gain = 799.727
+---------------------------------------------------------------------------------
+
+
+Incremental Synthesis Report Summary:
+
+1. Incremental synthesis run: no
+
+   Reason for not running incremental synthesis : Port sizes have changed
+
+
+INFO: [Synth 8-7130] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   16 Bit       Adders := 5     
+	   3 Input   16 Bit       Adders := 2     
+	   3 Input   15 Bit       Adders := 2     
+	   2 Input   15 Bit       Adders := 2     
+	   3 Input   13 Bit       Adders := 2     
+	   2 Input   13 Bit       Adders := 2     
+	   2 Input   12 Bit       Adders := 4     
+	   2 Input   11 Bit       Adders := 8     
+	   2 Input   10 Bit       Adders := 241   
+	   2 Input    9 Bit       Adders := 24    
+	   2 Input    8 Bit       Adders := 17    
+	   3 Input    8 Bit       Adders := 3     
+	   2 Input    4 Bit       Adders := 12    
+	   2 Input    3 Bit       Adders := 31    
+	   2 Input    2 Bit       Adders := 50    
++---XORs : 
+	   2 Input      1 Bit         XORs := 48    
++---Registers : 
+	               30 Bit    Registers := 1     
+	               26 Bit    Registers := 1     
+	               24 Bit    Registers := 116   
+	               16 Bit    Registers := 615   
+	               15 Bit    Registers := 11    
+	               13 Bit    Registers := 11    
+	               12 Bit    Registers := 48    
+	               11 Bit    Registers := 18    
+	               10 Bit    Registers := 242   
+	                9 Bit    Registers := 24    
+	                8 Bit    Registers := 3002  
+	                4 Bit    Registers := 12    
+	                3 Bit    Registers := 43    
+	                2 Bit    Registers := 50    
+	                1 Bit    Registers := 607   
++---RAMs : 
+	               3K Bit	(200 X 16 bit)          RAMs := 3     
+	             1024 Bit	(128 X 8 bit)          RAMs := 66    
++---Muxes : 
+	   2 Input   16 Bit        Muxes := 6     
+	   5 Input   16 Bit        Muxes := 1     
+	   2 Input   15 Bit        Muxes := 6     
+	   2 Input   13 Bit        Muxes := 6     
+	   2 Input   10 Bit        Muxes := 71    
+	   5 Input   10 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 1720  
+	   3 Input    8 Bit        Muxes := 3     
+	   6 Input    7 Bit        Muxes := 6     
+	   2 Input    7 Bit        Muxes := 48    
+	   5 Input    5 Bit        Muxes := 3     
+	   2 Input    5 Bit        Muxes := 9     
+	   2 Input    4 Bit        Muxes := 6     
+	   5 Input    3 Bit        Muxes := 4     
+	   7 Input    3 Bit        Muxes := 12    
+	   2 Input    3 Bit        Muxes := 46    
+	   4 Input    2 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 5     
+	   4 Input    1 Bit        Muxes := 3     
+	   2 Input    1 Bit        Muxes := 294   
+	   5 Input    1 Bit        Muxes := 28    
+	   8 Input    1 Bit        Muxes := 48    
+	   7 Input    1 Bit        Muxes := 48    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------

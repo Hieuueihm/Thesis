@@ -7,10 +7,6 @@ module Data_modulate_5x5_datapath #(parameter ROWS = 7,
                                     input [7:0] d2_i,
                                     input [7:0] d3_i,
                                     input [7:0] d4_i,
-                                    input [7:0] d5_i,
-                                    input [7:0] d6_i,
-                                    input [7:0] d7_i,
-                                    input [7:0] d8_i,
                                     input start,
                                     input done_o,
                                     output reg [7:0] d0_o,
@@ -234,27 +230,27 @@ module Data_modulate_5x5_datapath #(parameter ROWS = 7,
                 data1  <= data2;
                 data2  <= data3;
                 data3  <= data4;
-                data4  <= d6_i;
+                data4  <= d4_i;
                 data5  <= data6;
                 data6  <= data7;
                 data7  <= data8;
                 data8  <= data9;
-                data9  <= d5_i;
+                data9  <= d3_i;
                 data10 <= data11;
                 data11 <= data12;
                 data12 <= data13;
                 data13 <= data14;
-                data14 <= d4_i;
+                data14 <= d2_i;
                 data15 <= data16;
                 data16 <= data17;
                 data17 <= data18;
                 data18 <= data19;
-                data19 <= d3_i;
+                data19 <= d1_i;
                 data20 <= data21;
                 data21 <= data22;
                 data22 <= data23;
                 data23 <= data24;
-                data24 <= d2_i;
+                data24 <= d0_i;
                 
             end
             

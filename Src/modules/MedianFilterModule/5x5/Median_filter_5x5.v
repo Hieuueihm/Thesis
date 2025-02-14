@@ -8,10 +8,6 @@ module Median_filter_5x5 #(parameter ROWS = 7,
                            input [7:0] d2_i,
                            input [7:0] d3_i,
                            input [7:0] d4_i,
-                           input [7:0] d5_i,
-                           input [7:0] d6_i,
-                           input [7:0] d7_i,
-                           input [7:0] d8_i,
                            output [7:0] median_o,
                            output done_o);
     wire [7:0]
@@ -52,10 +48,6 @@ module Median_filter_5x5 #(parameter ROWS = 7,
     .d2_i(d2_i),  // 7
     .d3_i(d3_i),
     .d4_i(d4_i),
-    .d5_i(d5_i),
-    .d6_i(d6_i),
-    .d7_i(d7_i),
-    .d8_i(d8_i),
     // d5 d4 d3
     .done_i(done_i),
     .d0_o(data0),

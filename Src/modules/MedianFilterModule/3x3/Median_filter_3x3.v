@@ -6,12 +6,6 @@ module Median_filter_3x3 #(parameter ROWS = 5,
                            input [7:0] d0_i,
                            input [7:0] d1_i,
                            input [7:0] d2_i,
-                           input [7:0] d3_i,
-                           input [7:0] d4_i,
-                           input [7:0] d5_i,
-                           input [7:0] d6_i,
-                           input [7:0] d7_i,
-                           input [7:0] d8_i,
                            output [7:0] median_o,
                            output done_o);
     wire [7:0] data0, data1, data2, data3, data4, data5, data6, data7, data8;
@@ -24,13 +18,7 @@ module Median_filter_3x3 #(parameter ROWS = 5,
     .rst(rst),
     .d0_i(d0_i),  // 99
     .d1_i(d1_i),  // 8
-    .d2_i(d2_i),  // 7
-    .d3_i(d3_i),
-    .d4_i(d4_i),
-    .d5_i(d5_i),
-    .d6_i(d6_i),
-    .d7_i(d7_i),
-    .d8_i(d8_i),
+    .d2_i(d2_i),
     // d5 d4 d3
     .done_i(done_i),
     .d0_o(data0),

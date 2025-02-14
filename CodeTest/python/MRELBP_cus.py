@@ -199,14 +199,14 @@ class MRELBP():
         return interpolated_value
         
     def jointHistogram(self, ci, ni, rd):
-        with open("joint_code_python.txt", 'w') as f:
-            width, height = ci.shape
-            out_matrix = np.zeros(200, dtype=np.uint32)
-            for i in  range(0, width):
-                for j in range(0, height):
-                    out_matrix[ci[i, j] * 100 + ni[i, j] * 10 + rd[i, j]] += 1
-                    f.write(f'{ci[i, j]} {ni[i, j]} {rd[i, j]}\n')
-            return out_matrix
+        # with open("joint_code_python.txt", 'w') as f:
+        width, height = ci.shape
+        out_matrix = np.zeros(200, dtype=np.uint32)
+        for i in  range(0, width):
+            for j in range(0, height):
+                out_matrix[ci[i, j] * 100 + ni[i, j] * 10 + rd[i, j]] += 1
+                    # f.write(f'{ci[i, j]} {ni[i, j]} {rd[i, j]}\n')
+        return out_matrix
 
 
     def getNIDescriptor(self, NI, r, sum):
@@ -274,8 +274,6 @@ class MRELBP():
         #     for i in range(RD.shape[0]):
         #         for j in range(RD.shape[1]):
         #             rd_bin = format(RD[i, j], '08b')  # 8-bit binary for RD
-                
-                
                     # f.write(f'{rd_bin}\n')
         NI_width, NI_height = NI.shape
         for i in range(0, NI_height):
@@ -310,7 +308,23 @@ class MRELBP():
     def MRELBP(self, image):
         start_time = time.time()
         m_3x3, m_5x5, m_7x7, m_9x9 = self.median_processing(image)
+        # with open('median_3x3.txt', 'w') as f:
+        #     for i in range(m_3x3.shape[0]):
+        #         for j in range(m_3x3.shape[1]):
+        #             f.write(str(m_3x3[i, j]))
+        #             f.write("\n")
 
+        # with open('median_5x5.txt', 'w') as f:
+        #     for i in range(m_5x5.shape[0]):
+        #         for j in range(m_5x5.shape[1]):
+        #             f.write(str(m_5x5[i, j]))
+        #             f.write("\n")
+        # with open('median_7x7.txt', 'w') as f:
+        #     for i in range(m_7x7.shape[0]):
+        #         for j in range(m_7x7.shape[1]):
+        #             f.write(str(m_7x7[i, j]))
+        #             f.write("\n")
+                    
         # with open('output_5x5_test.txt', 'w') as f:
         #     for row in image:
         #         f.write(' '.join(map(str, row)) + '\n')
@@ -340,6 +354,19 @@ class MRELBP():
         NI_r4, RD_r4= self.NI_RD_descriptor(m_3x3, m_5x5, 4)
         NI_r6, RD_r6= self.NI_RD_descriptor(m_5x5, m_7x7, 6)
         # NI_r8, RD_r8= self.NI_RD_descriptor(m_7x7, m_9x9, 8)
+
+        # with open('ni_r2.txt', 'w') as f:
+        #     for i in range(NI_r2.shape[0]):
+        #         for j in range(NI_r2.shape[1]):
+        #             f.write(str(NI_r2[i, j]))
+        #             f.write("\n")
+        # with open('rd_r2.txt', 'w') as f:
+        #     for i in range(RD_r2.shape[0]):
+        #         for j in range(RD_r2.shape[1]):
+        #             f.write(str(RD_r2[i, j]))
+        #             f.write("\n")
+                    
+                    
         
 
         hist_r2 = self.jointHistogram(ci_r2, NI_r2, RD_r2)
@@ -480,8 +507,8 @@ class MRELBP():
                 # with open("r2_inter", "a") as file:
                 #     file.write(r2_descriptor_str + "\n")
                 #     file.write("\n")
-                # # for i in range(0, 9):
-                # #     print(r2_descriptor)
+                # for i in range(0, 9):
+                #     print(r2_descriptor)
                 # with open("check_ni.txt", "a") as file:
                 #     file.write(str(sum_r2_patch))
                 #     file.write(" ")
@@ -504,7 +531,7 @@ class MRELBP():
 
 
 # Example Usage
-np.random.seed(1)
+np.random.seed(2)
 
 def resize_bmp(input_file, output_file, size=(128, 128)):
     # Mở ảnh BMP ở chế độ grayscale
@@ -526,82 +553,6 @@ file_path = "random_matrix.txt"
 lbp = MRELBP()
 lbp.MRELBP(img)
 np.savetxt(file_path, random_matrix, fmt='%d')
-# median_matrix = median_filter(random_matrix, size=3, mode='constant', cval=0)
-# median_matrix_5x5 = median_filter(random_matrix, size=5, mode='constant', cval=0)
-
-# print(random_matrix)
-
-# print(median_matrix_5x5)
-# print(random_matrix)
-# print(median_matrix)
-
-# with open('output_matrix_original.txt', 'w') as f:
-#     for row in random_matrix:
-#         f.write(' '.join(map(str, row)) + '\n')
-#     f.write('\n')
-
-# padded_result = median_filter(random_matrix, size=3, mode='constant', cval=0)
-
-
-# np.savetxt(file_path, random_matrix, fmt='%d')
-
-# cpp_array = 'uint8_t array[30]307] = {\n'
-# for row in random_matrix:
-#     cpp_array += '{' + ', '.join(map(str, row)) + '},\n'
-# cpp_array += '};'
-
-# print("\nC++ Code for 30x30 Array:")
-# print(cpp_array)
-
-# with open("matrix_cpp.txt", "w") as f:
-#     f.write(cpp_array)
-
-# def test(matrix):
-#     lbp = MRELBP()
-#     m_3x3, m_5x5, m_7x7, m_9x9 = lbp.median_processing(matrix)
-#     with open("median_7x7.txt", "w") as file:
-#         for row in m_7x7:
-#             file.write(" ".join(map(str, row)) + "\n")
-#     with open("median_9x9.txt", "w") as file:
-#         for row in m_9x9:
-#             file.write(" ".join(map(str, row)) + "\n")
-#     # lbp.getNI_RD(m_3x3, m_5x5, 4) 
-#     ci_r2, ci_r2_count = lbp.mrelbp_ci(m_3x3, 2)
-#     ci_r4, ci_r4_count = lbp.mrelbp_ci(m_3x3, 4)
-#     ci_r6, ci_r6_count = lbp.mrelbp_ci(m_3x3, 6)
-#     ci_r8, ci_r8_count = lbp.mrelbp_ci(m_3x3, 8)
-#     # NI_r4, RD_r4= lbp.NI_RD_descriptor(m_3x3, m_5x5, 4)
-#     # hist_r4 = lbp.jointHistogram(ci_r4, NI_r4, RD_r4)
-#     # NI_r6, RD_r6= lbp.NI_RD_descriptor(m_5x5, m_7x7, 6)
-#     # hist_r6 = lbp.jointHistogram(ci_r6, NI_r6, RD_r6)
-#     NI_r8, RD_r8= lbp.NI_RD_descriptor(m_7x7, m_9x9, 8)
-#     hist_r8 = lbp.jointHistogram(ci_r8, NI_r8, RD_r8)
-#     # print(ci_r6.shape)
-#     # with open("ci_r8.txt", 'w') as f:
-#     #     for i in range(ci_r8.shape[0]):
-#     #         for j in range(ci_r8.shape[1]):
-#     #             f.write(f'{ci_r8[i, j]}\n')
-#     with open("rd_r8_p.txt", 'w') as f:
-#         for i in range(RD_r8.shape[0]):
-#             for j in range(RD_r8.shape[1]):
-#                 f.write(f'{RD_r8[i, j]}\n')
-#     with open("ni_r8_p.txt", 'w') as f:
-#         for i in range(NI_r8.shape[0]):
-#             for j in range(NI_r8.shape[1]):
-#                 f.write(f'{NI_r8[i, j]}\n')
-#     # with open("ni_r4.txt", "w") as file:
-#     #     for i in range(NI_r4.shape[0]):
-#     #         for j in range(NI_r4.shape[1]):
-#     #             file.write(f'{NI_r4[i, j]}\n')
-#     # with open("rd_r4.txt", "w") as file:
-#     #     for i in range(RD_r4.shape[0]):
-#     #         for j in range(RD_r4.shape[1]):
-#     #             file.write(f'{RD_r4[i, j]}\n')
-#     with open("hist_r21.txt", "w") as file:
-#         for i in range(200):
-#             file.write(str(hist_r8[i]))
-#             file.write("\n")
-
 
 
 
@@ -662,18 +613,18 @@ def compare_files(file1, file2):
             print("The files are identical.")
 
 
-# # # Example usage
+# # Example usage
 file1 = 'histogram_o.txt'
 file2 = 'histogram_verilog.txt'
 compare_files(file1, file2)
 
-# file1 = 'cinird_r4.txt'
-# file2 = 'cinird_r4_verilog.txt'
+# file1 = 'ni_data.txt'
+# file2 = 'ni_r2.txt'
 # compare_files(file1, file2)
 
 
-# file1 = 'cinird_r6.txt'
-# file2 = 'cinird_r6_verilog.txt'
+# file1 = 'rd_data.txt'
+# file2 = 'rd_r2.txt'
 # compare_files(file1, file2)
 
 
@@ -691,6 +642,14 @@ compare_files(file1, file2)
 # compare_files(file3, file4)
 
 
-# file3 = 'ci_r6.txt'
-# file4   = 'ci_r6_simu.txt'
+# file3 = 'median_3x3_verilog.txt'
+# file4   = 'median_3x3.txt'
+# compare_files(file3, file4)
+
+# file3 = 'median_5x5_verilog.txt'
+# file4   = 'median_5x5.txt'
+# compare_files(file3, file4)
+
+# file3 = 'median_7x7_verilog.txt'
+# file4   = 'median_7x7.txt'
 # compare_files(file3, file4)
