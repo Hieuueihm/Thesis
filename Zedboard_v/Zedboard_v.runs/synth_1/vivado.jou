@@ -21,3 +21,4 @@
 # Total Virtual      : 27740 MB
 # Available Virtual  : 10596 MB
 #-----------------------------------------------------------
+source TopModule.tcl -notrace
