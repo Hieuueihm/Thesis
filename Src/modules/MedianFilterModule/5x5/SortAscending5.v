@@ -15,7 +15,6 @@ module SortAscending5 (
     max
 );
   wire [7:0] sn1_max, sn1_med, sn1_min;
-
   Sorting_network SN1 (
       .S1 (S1),
       .S2 (S2),
