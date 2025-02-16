@@ -6,7 +6,7 @@ module Data_modulate_3x3_datapath #(parameter ROWS = 5,
                                     input [7:0] d1_i,        // 8
                                     input [7:0] d2_i,        // 7
                                     input start,
-                                    input done_o,
+                                    input o_en,
                                     output reg [7:0] d0_o,
                                     output reg [7:0] d1_o,
                                     output reg [7:0] d2_o,
@@ -28,7 +28,7 @@ module Data_modulate_3x3_datapath #(parameter ROWS = 5,
     (
     .rst(rst),
     .clk(clk),
-    .en(done_o),
+    .en(o_en),
     .D(i_col),
     .Q(i_col_plus_1)
     );
@@ -38,7 +38,7 @@ module Data_modulate_3x3_datapath #(parameter ROWS = 5,
     ROW_PLUS (
     .rst(rst),
     .clk(clk),
-    .en(done_o && (i_col == COLS - 1)),
+    .en(o_en && (i_col == COLS - 1)),
     .D(i_row),
     .Q(i_row_plus_1)
     );
@@ -59,7 +59,7 @@ module Data_modulate_3x3_datapath #(parameter ROWS = 5,
         if (rst) begin
             done_reg <= 0;
             end else begin
-            if (done_o) begin
+            if (o_en) begin
                 if (i_col == COLS - 1) begin
                     if (i_row == ROWS - 1) begin
                         done_reg <= 1;
@@ -69,8 +69,11 @@ module Data_modulate_3x3_datapath #(parameter ROWS = 5,
         end
     end
     
-    
-    always @(*) begin
+    wire i_row_lt_1 = (i_row < 1) ? 1 : 0;
+    wire i_col_lt_1 = (i_col < 1) ? 1 : 0;
+    wire i_col_eq_max = (i_col == COLS - 1) ? 1 : 0;
+    wire i_row_eq_max = (i_row == ROWS - 1) ? 1 : 0; 
+    always @(posedge clk) begin
         if (rst) begin
             d0_o <= 0;
             d1_o <= 0;
@@ -83,16 +86,16 @@ module Data_modulate_3x3_datapath #(parameter ROWS = 5,
             d8_o <= 0;
             
             end else begin
-            if (done_o) begin
-                d0_o <= (i_row < 1 || i_col < 1)    ? 0 : data0;
-                d1_o <= (i_row < 1)    ? 0 : data1;
-                d2_o <= (i_row < 1 || i_col == COLS - 1) ? 0 : data2;
-                d3_o <= (i_col < 1)    ? 0 : data3;
+            if (o_en) begin
+                d0_o <= (i_row_lt_1 || i_col_lt_1)    ? 0 : data0;
+                d1_o <= (i_row_lt_1)    ? 0 : data1;
+                d2_o <= (i_row_lt_1 || i_col_eq_max) ? 0 : data2;
+                d3_o <= (i_col_lt_1)    ? 0 : data3;
                 d4_o <= data4;
-                d5_o <= (i_col == COLS - 1) ? 0 : data5;
-                d6_o <= (i_row == ROWS - 1 || i_col < 1) ? 0 : data6;
-                d7_o <= (i_row == ROWS - 1) ? 0 : data7;
-                d8_o <= (i_row == ROWS - 1 || i_col == COLS - 1) ? 0 : data8;
+                d5_o <= (i_col_eq_max) ? 0 : data5;
+                d6_o <= (i_row_eq_max || i_col_lt_1) ? 0 : data6;
+                d7_o <= (i_row_eq_max) ? 0 : data7;
+                d8_o <= (i_row_eq_max || i_col_eq_max) ? 0 : data8;
             end
         end
         

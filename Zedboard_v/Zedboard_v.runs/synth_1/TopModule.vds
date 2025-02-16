@@ -3,8 +3,8 @@
 # SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Fri Feb 14 15:18:20 2025
-# Process ID         : 18056
+# Start of session at: Sun Feb 16 23:22:23 2025
+# Process ID         : 6296
 # Current directory  : D:/Thesis/Zedboard_v/Zedboard_v.runs/synth_1
 # Command line       : vivado.exe -log TopModule.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source TopModule.tcl
 # Log file           : D:/Thesis/Zedboard_v/Zedboard_v.runs/synth_1/TopModule.vds
@@ -19,10 +19,9 @@
 # Host memory        : 17002 MB
 # Swap memory        : 10737 MB
 # Total Virtual      : 27740 MB
-# Available Virtual  : 10596 MB
+# Available Virtual  : 11086 MB
 #-----------------------------------------------------------
 source TopModule.tcl -notrace
-create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 399.309 ; gain = 110.234
 Command: read_checkpoint -auto_incremental -incremental D:/Thesis/Zedboard_v/Zedboard_v.srcs/utils_1/imports/synth_1/TopModule.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from D:/Thesis/Zedboard_v/Zedboard_v.srcs/utils_1/imports/synth_1/TopModule.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -33,9 +32,9 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 20084
+INFO: [Synth 8-7075] Helper process launched with PID 15904
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1104.555 ; gain = 469.250
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1102.035 ; gain = 466.473
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:21]
 WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:21]
@@ -309,11 +308,11 @@ INFO: [Synth 8-6157] synthesizing module 'Buffer_4_rows' [D:/Thesis/Src/modules/
 INFO: [Synth 8-6155] done synthesizing module 'Buffer_4_rows' (0#1) [D:/Thesis/Src/modules/Buffers/Buffer_4_rows.v:1]
 INFO: [Synth 8-6157] synthesizing module 'shift_registers' [D:/Thesis/Src/modules/common/shift_registers.v:1]
 	Parameter WIDTH bound to: 1 - type: integer 
-	Parameter CYCLE bound to: 7 - type: integer 
+	Parameter CYCLE bound to: 8 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'shift_registers' (0#1) [D:/Thesis/Src/modules/common/shift_registers.v:1]
 INFO: [Synth 8-6157] synthesizing module 'shift_registers__parameterized0' [D:/Thesis/Src/modules/common/shift_registers.v:1]
 	Parameter WIDTH bound to: 8 - type: integer 
-	Parameter CYCLE bound to: 7 - type: integer 
+	Parameter CYCLE bound to: 8 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'shift_registers__parameterized0' (0#1) [D:/Thesis/Src/modules/common/shift_registers.v:1]
 INFO: [Synth 8-6157] synthesizing module 'Window_buffer_5x5' [D:/Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5.v:1]
 	Parameter COLS bound to: 128 - type: integer 
@@ -661,24 +660,19 @@ WARNING: [Synth 8-7129] Port S_315_i_4[3] in module Interpolation_R_x is either 
 WARNING: [Synth 8-7129] Port S_315_i_4[2] in module Interpolation_R_x is either unconnected or has no load
 WARNING: [Synth 8-7129] Port S_315_i_4[1] in module Interpolation_R_x is either unconnected or has no load
 WARNING: [Synth 8-7129] Port S_315_i_4[0] in module Interpolation_R_x is either unconnected or has no load
-WARNING: [Synth 8-7129] Port rst in module Data_modulate_7x7_controller is either unconnected or has no load
-WARNING: [Synth 8-7129] Port clk in module Data_modulate_7x7_controller is either unconnected or has no load
-WARNING: [Synth 8-7129] Port rst in module Data_modulate_5x5_controller is either unconnected or has no load
-WARNING: [Synth 8-7129] Port clk in module Data_modulate_5x5_controller is either unconnected or has no load
-INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1306.090 ; gain = 670.785
+Finished RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1307.410 ; gain = 671.848
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1306.090 ; gain = 670.785
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1307.410 ; gain = 671.848
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1306.090 ; gain = 670.785
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1307.410 ; gain = 671.848
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1306.090 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1307.410 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -687,46 +681,47 @@ Parsing XDC File [D:/Thesis/Zedboard_v/Zedboard_v.srcs/constrs_1/new/Constraints
 Finished Parsing XDC File [D:/Thesis/Zedboard_v/Zedboard_v.srcs/constrs_1/new/Constraints.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 1426.652 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.022 . Memory (MB): peak = 1426.059 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.998 . Memory (MB): peak = 1435.031 ; gain = 8.379
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.572 . Memory (MB): peak = 1433.168 ; gain = 7.109
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 1435.031 ; gain = 799.727
+Finished Constraint Validation : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1433.168 ; gain = 797.605
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 1435.031 ; gain = 799.727
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1433.168 ; gain = 797.605
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 1435.031 ; gain = 799.727
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1433.168 ; gain = 797.605
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Preparing Guide Design
 ---------------------------------------------------------------------------------
-got a mismatch Median_filter_3x3
-got a mismatch Data_modulate_3x3
-got a mismatch Data_modulate_3x3_datapath
-got a mismatch Median_filter_5x5
-Is not a child genome
-got a mismatch Data_modulate_5x5
-got a mismatch Data_modulate_5x5_datapath
-got a mismatch Median_filter_7x7
-Is not a child genome
-got a mismatch Data_modulate_7x7
-got a mismatch Data_modulate_7x7_datapath
+got a mismatch Data_modulate_3x3_controller
+got a mismatch Data_modulate_5x5_controller
+got a mismatch Data_modulate_7x7_controller
 ---------------------------------------------------------------------------------
-Finished Doing Graph Differ : Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 1435.031 ; gain = 799.727
+Finished Doing Graph Differ : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1433.168 ; gain = 797.605
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-6702] IncrSynth : Over 50% of reference run partitions are impacted by design changes. Reverting to default synthesis
+TopModule_datapath__GCB0R4_NIRDJoint_histogramTopModule_controllerIncrSyn: Total reference run partitions are 12, Impacted partitions are 9.
+IncrSyn: List of changed modules: 
+	Changed Module : Data_modulate_3x3
+	Changed Module : Node
+	Changed Module : Data_modulate_5x5
+	Changed Module : Data_modulate_7x7
+	Changed Module : R2_NIRD
+WARNING: [Synth 8-6702] IncrSynth : Reverting to default synthesis
 ---------------------------------------------------------------------------------
-Finished Preparing Guide Design : Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 1435.031 ; gain = 799.727
+Finished Preparing Guide Design : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1433.168 ; gain = 797.605
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'TopModule_controller'
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'R2_controller'
@@ -752,91 +747,8 @@ WARNING: [Synth 8-327] inferring latch for variable 'o_intr_reg' [D:/Thesis/Src/
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'TopModule_controller'
 WARNING: [Synth 8-327] inferring latch for variable 'read_en_reg' [D:/Thesis/Src/modules/TopModule/TopModule_datapath.v:32]
 WARNING: [Synth 8-327] inferring latch for variable 'i_counter' [D:/Thesis/Src/modules/Buffers/LineBuffer/Line_buffer_datapath.v:47]
-WARNING: [Synth 8-327] inferring latch for variable 'd0_o_reg' [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'd1_o_reg' [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v:76]
-WARNING: [Synth 8-327] inferring latch for variable 'd2_o_reg' [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v:77]
-WARNING: [Synth 8-327] inferring latch for variable 'd3_o_reg' [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v:78]
-WARNING: [Synth 8-327] inferring latch for variable 'd4_o_reg' [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v:79]
-WARNING: [Synth 8-327] inferring latch for variable 'd5_o_reg' [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v:80]
-WARNING: [Synth 8-327] inferring latch for variable 'd6_o_reg' [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v:81]
-WARNING: [Synth 8-327] inferring latch for variable 'd7_o_reg' [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v:82]
-WARNING: [Synth 8-327] inferring latch for variable 'd8_o_reg' [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v:83]
 WARNING: [Synth 8-327] inferring latch for variable 'i_counter' [D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v:57]
-WARNING: [Synth 8-327] inferring latch for variable 'd0_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:131]
-WARNING: [Synth 8-327] inferring latch for variable 'd1_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:132]
-WARNING: [Synth 8-327] inferring latch for variable 'd2_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:133]
-WARNING: [Synth 8-327] inferring latch for variable 'd3_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:134]
-WARNING: [Synth 8-327] inferring latch for variable 'd4_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:135]
-WARNING: [Synth 8-327] inferring latch for variable 'd5_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:136]
-WARNING: [Synth 8-327] inferring latch for variable 'd6_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:137]
-WARNING: [Synth 8-327] inferring latch for variable 'd7_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:138]
-WARNING: [Synth 8-327] inferring latch for variable 'd8_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:139]
-WARNING: [Synth 8-327] inferring latch for variable 'd9_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:140]
-WARNING: [Synth 8-327] inferring latch for variable 'd10_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:141]
-WARNING: [Synth 8-327] inferring latch for variable 'd11_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:142]
-WARNING: [Synth 8-327] inferring latch for variable 'd12_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:143]
-WARNING: [Synth 8-327] inferring latch for variable 'd13_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:144]
-WARNING: [Synth 8-327] inferring latch for variable 'd14_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:145]
-WARNING: [Synth 8-327] inferring latch for variable 'd15_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:146]
-WARNING: [Synth 8-327] inferring latch for variable 'd16_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:147]
-WARNING: [Synth 8-327] inferring latch for variable 'd17_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:148]
-WARNING: [Synth 8-327] inferring latch for variable 'd18_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:149]
-WARNING: [Synth 8-327] inferring latch for variable 'd19_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:150]
-WARNING: [Synth 8-327] inferring latch for variable 'd20_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:151]
-WARNING: [Synth 8-327] inferring latch for variable 'd21_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:152]
-WARNING: [Synth 8-327] inferring latch for variable 'd22_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:153]
-WARNING: [Synth 8-327] inferring latch for variable 'd23_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:154]
-WARNING: [Synth 8-327] inferring latch for variable 'd24_o_reg' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:155]
 WARNING: [Synth 8-327] inferring latch for variable 'i_counter' [D:/Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v:109]
-WARNING: [Synth 8-327] inferring latch for variable 'd0_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:179]
-WARNING: [Synth 8-327] inferring latch for variable 'd1_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:180]
-WARNING: [Synth 8-327] inferring latch for variable 'd2_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:181]
-WARNING: [Synth 8-327] inferring latch for variable 'd3_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:182]
-WARNING: [Synth 8-327] inferring latch for variable 'd4_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:183]
-WARNING: [Synth 8-327] inferring latch for variable 'd5_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:184]
-WARNING: [Synth 8-327] inferring latch for variable 'd6_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:185]
-WARNING: [Synth 8-327] inferring latch for variable 'd7_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:186]
-WARNING: [Synth 8-327] inferring latch for variable 'd8_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:187]
-WARNING: [Synth 8-327] inferring latch for variable 'd9_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:188]
-WARNING: [Synth 8-327] inferring latch for variable 'd10_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:189]
-WARNING: [Synth 8-327] inferring latch for variable 'd11_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:190]
-WARNING: [Synth 8-327] inferring latch for variable 'd12_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:191]
-WARNING: [Synth 8-327] inferring latch for variable 'd13_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:192]
-WARNING: [Synth 8-327] inferring latch for variable 'd14_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:193]
-WARNING: [Synth 8-327] inferring latch for variable 'd15_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:194]
-WARNING: [Synth 8-327] inferring latch for variable 'd16_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:195]
-WARNING: [Synth 8-327] inferring latch for variable 'd17_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:196]
-WARNING: [Synth 8-327] inferring latch for variable 'd18_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:197]
-WARNING: [Synth 8-327] inferring latch for variable 'd19_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:198]
-WARNING: [Synth 8-327] inferring latch for variable 'd20_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:199]
-WARNING: [Synth 8-327] inferring latch for variable 'd21_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:200]
-WARNING: [Synth 8-327] inferring latch for variable 'd22_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:201]
-WARNING: [Synth 8-327] inferring latch for variable 'd23_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:202]
-WARNING: [Synth 8-327] inferring latch for variable 'd24_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:203]
-WARNING: [Synth 8-327] inferring latch for variable 'd25_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:204]
-WARNING: [Synth 8-327] inferring latch for variable 'd26_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:205]
-WARNING: [Synth 8-327] inferring latch for variable 'd27_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:206]
-WARNING: [Synth 8-327] inferring latch for variable 'd28_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:207]
-WARNING: [Synth 8-327] inferring latch for variable 'd29_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:208]
-WARNING: [Synth 8-327] inferring latch for variable 'd30_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:209]
-WARNING: [Synth 8-327] inferring latch for variable 'd31_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:210]
-WARNING: [Synth 8-327] inferring latch for variable 'd32_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:211]
-WARNING: [Synth 8-327] inferring latch for variable 'd33_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:212]
-WARNING: [Synth 8-327] inferring latch for variable 'd34_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:213]
-WARNING: [Synth 8-327] inferring latch for variable 'd35_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:214]
-WARNING: [Synth 8-327] inferring latch for variable 'd36_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:215]
-WARNING: [Synth 8-327] inferring latch for variable 'd37_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:216]
-WARNING: [Synth 8-327] inferring latch for variable 'd38_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:217]
-WARNING: [Synth 8-327] inferring latch for variable 'd39_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:218]
-WARNING: [Synth 8-327] inferring latch for variable 'd40_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:219]
-WARNING: [Synth 8-327] inferring latch for variable 'd41_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:220]
-WARNING: [Synth 8-327] inferring latch for variable 'd42_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:221]
-WARNING: [Synth 8-327] inferring latch for variable 'd43_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:222]
-WARNING: [Synth 8-327] inferring latch for variable 'd44_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:223]
-WARNING: [Synth 8-327] inferring latch for variable 'd45_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:224]
-WARNING: [Synth 8-327] inferring latch for variable 'd46_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:225]
-WARNING: [Synth 8-327] inferring latch for variable 'd47_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:226]
-WARNING: [Synth 8-327] inferring latch for variable 'd48_o_reg' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:227]
 WARNING: [Synth 8-327] inferring latch for variable 'i_counter' [D:/Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v:157]
 WARNING: [Synth 8-327] inferring latch for variable 'cum_en_reg' [D:/Thesis/Src/modules/common/R2/R2_patch_sum.v:47]
 WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_next_state_reg' [D:/Thesis/Src/modules/common/R2/R2_patch_sum.v:34]
@@ -861,7 +773,9 @@ WARNING: [Synth 8-327] inferring latch for variable 'start_en_reg' [D:/Thesis/Sr
 WARNING: [Synth 8-327] inferring latch for variable 'ld_en_reg' [D:/Thesis/Src/modules/common/R2/R2_patch_sum.v:48]
 WARNING: [Synth 8-327] inferring latch for variable 'progress_done_reg' [D:/Thesis/Src/modules/common/R2/R2_patch_sum.v:51]
 WARNING: [Synth 8-327] inferring latch for variable 'i_row' [D:/Thesis/Src/modules/NIRD/R4_NIRD.v:68]
-INFO: [Common 17-14] Message 'Synth 8-327' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-327] inferring latch for variable 'cum_en_reg' [D:/Thesis/Src/modules/common/R4/R4_patch_sum.v:48]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_next_state_reg' [D:/Thesis/Src/modules/common/R4/R4_patch_sum.v:35]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_next_state_reg' [D:/Thesis/Src/modules/common/R4/R4_patch_sum.v:35]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -874,6 +788,17 @@ INFO: [Common 17-14] Message 'Synth 8-327' appears 100 times and further instanc
                   iSTATE |                          1000000 |                              110
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'R4_controller'
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_next_state_reg' [D:/Thesis/Src/modules/common/R4/R4_patch_sum.v:35]
+WARNING: [Synth 8-327] inferring latch for variable 'done_o_reg' [D:/Thesis/Src/modules/common/R4/R4_patch_sum.v:47]
+WARNING: [Synth 8-327] inferring latch for variable 'sum_en_reg' [D:/Thesis/Src/modules/common/R4/R4_patch_sum.v:50]
+WARNING: [Synth 8-327] inferring latch for variable 'count_en_reg' [D:/Thesis/Src/modules/common/R4/R4_patch_sum.v:46]
+WARNING: [Synth 8-327] inferring latch for variable 'start_en_reg' [D:/Thesis/Src/modules/common/R4/R4_patch_sum.v:51]
+WARNING: [Synth 8-327] inferring latch for variable 'ld_en_reg' [D:/Thesis/Src/modules/common/R4/R4_patch_sum.v:49]
+WARNING: [Synth 8-327] inferring latch for variable 'progress_done_reg' [D:/Thesis/Src/modules/common/R4/R4_patch_sum.v:52]
+WARNING: [Synth 8-327] inferring latch for variable 'i_row' [D:/Thesis/Src/modules/NIRD/R6_NIRD.v:70]
+WARNING: [Synth 8-327] inferring latch for variable 'cum_en_reg' [D:/Thesis/Src/modules/common/R6/R6_patch_sum.v:66]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_next_state_reg' [D:/Thesis/Src/modules/common/R6/R6_patch_sum.v:53]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_next_state_reg' [D:/Thesis/Src/modules/common/R6/R6_patch_sum.v:53]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -886,6 +811,17 @@ INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using e
                   iSTATE |                          1000000 |                              110
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'R6_controller'
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_next_state_reg' [D:/Thesis/Src/modules/common/R6/R6_patch_sum.v:53]
+WARNING: [Synth 8-327] inferring latch for variable 'done_o_reg' [D:/Thesis/Src/modules/common/R6/R6_patch_sum.v:65]
+WARNING: [Synth 8-327] inferring latch for variable 'sum_en_reg' [D:/Thesis/Src/modules/common/R6/R6_patch_sum.v:68]
+WARNING: [Synth 8-327] inferring latch for variable 'count_en_reg' [D:/Thesis/Src/modules/common/R6/R6_patch_sum.v:64]
+WARNING: [Synth 8-327] inferring latch for variable 'start_en_reg' [D:/Thesis/Src/modules/common/R6/R6_patch_sum.v:69]
+WARNING: [Synth 8-327] inferring latch for variable 'ld_en_reg' [D:/Thesis/Src/modules/common/R6/R6_patch_sum.v:67]
+WARNING: [Synth 8-327] inferring latch for variable 'progress_done_reg' [D:/Thesis/Src/modules/common/R6/R6_patch_sum.v:70]
+WARNING: [Synth 8-327] inferring latch for variable 'i_row' [D:/Thesis/Src/modules/NIRD/RD.v:74]
+WARNING: [Synth 8-327] inferring latch for variable 'count_en_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5_datapath.v:43]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_next_state_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5_datapath.v:30]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_next_state_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5_datapath.v:30]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -899,6 +835,13 @@ INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using e
                   iSTATE |                              111 |                              111
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'Window_buffer_5x5_controller'
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_next_state_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5_datapath.v:30]
+WARNING: [Synth 8-327] inferring latch for variable 'progress_done_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5_datapath.v:45]
+WARNING: [Synth 8-327] inferring latch for variable 'done_o_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5_datapath.v:44]
+WARNING: [Synth 8-327] inferring latch for variable 'i_row' [D:/Thesis/Src/modules/Buffers/WindowBuffer/7x7/Window_buffer_7x7.v:67]
+WARNING: [Synth 8-327] inferring latch for variable 'count_en_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/3x3/Window_buffer_3x3_datapath.v:43]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_next_state_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/3x3/Window_buffer_3x3_datapath.v:30]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_next_state_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/3x3/Window_buffer_3x3_datapath.v:30]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -912,6 +855,13 @@ INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using e
                   iSTATE |                              111 |                              111
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'Window_buffer_3x3_controller'
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_next_state_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/3x3/Window_buffer_3x3_datapath.v:30]
+WARNING: [Synth 8-327] inferring latch for variable 'progress_done_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/3x3/Window_buffer_3x3_datapath.v:45]
+WARNING: [Synth 8-327] inferring latch for variable 'done_o_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/3x3/Window_buffer_3x3_datapath.v:44]
+WARNING: [Synth 8-327] inferring latch for variable 'i_row' [D:/Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5.v:49]
+WARNING: [Synth 8-327] inferring latch for variable 'done_o_reg' [D:/Thesis/Src/modules/OutputModule/Joint_histogram_controller.v:37]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_next_state_reg' [D:/Thesis/Src/modules/OutputModule/Joint_histogram_controller.v:26]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_next_state_reg' [D:/Thesis/Src/modules/OutputModule/Joint_histogram_controller.v:26]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -922,6 +872,13 @@ INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using e
                   FINISH |                            10000 |                              100
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'Joint_histogram_controller'
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_next_state_reg' [D:/Thesis/Src/modules/OutputModule/Joint_histogram_controller.v:26]
+WARNING: [Synth 8-327] inferring latch for variable 'finish_reg' [D:/Thesis/Src/modules/OutputModule/Joint_histogram_controller.v:38]
+WARNING: [Synth 8-327] inferring latch for variable 'count_en_reg' [D:/Thesis/Src/modules/OutputModule/Joint_histogram_controller.v:39]
+WARNING: [Synth 8-327] inferring latch for variable 'read_en_reg' [D:/Thesis/Src/modules/OutputModule/Joint_histogram_controller.v:40]
+WARNING: [Synth 8-327] inferring latch for variable 'count_en_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/7x7/Window_buffer_7x7_datapath.v:43]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_next_state_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/7x7/Window_buffer_7x7_datapath.v:30]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_next_state_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/7x7/Window_buffer_7x7_datapath.v:30]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -935,6 +892,13 @@ INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using e
                   iSTATE |                              111 |                              111
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'Window_buffer_7x7_controller'
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_next_state_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/7x7/Window_buffer_7x7_datapath.v:30]
+WARNING: [Synth 8-327] inferring latch for variable 'progress_done_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/7x7/Window_buffer_7x7_datapath.v:45]
+WARNING: [Synth 8-327] inferring latch for variable 'done_o_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/7x7/Window_buffer_7x7_datapath.v:44]
+WARNING: [Synth 8-327] inferring latch for variable 'i_row' [D:/Thesis/Src/modules/Buffers/WindowBuffer/9x9/Window_buffer_9x9.v:93]
+WARNING: [Synth 8-327] inferring latch for variable 'count_en_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/9x9/Window_buffer_9x9_datapath.v:43]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_next_state_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/9x9/Window_buffer_9x9_datapath.v:30]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_next_state_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/9x9/Window_buffer_9x9_datapath.v:30]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -948,6 +912,13 @@ INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using e
                   iSTATE |                              111 |                              111
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'Window_buffer_9x9_controller'
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_next_state_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/9x9/Window_buffer_9x9_datapath.v:30]
+WARNING: [Synth 8-327] inferring latch for variable 'progress_done_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/9x9/Window_buffer_9x9_datapath.v:45]
+WARNING: [Synth 8-327] inferring latch for variable 'done_o_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/9x9/Window_buffer_9x9_datapath.v:44]
+WARNING: [Synth 8-327] inferring latch for variable 'i_row' [D:/Thesis/Src/modules/common/dff.v:127]
+WARNING: [Synth 8-327] inferring latch for variable 'count_en_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/11x11/Window_buffer_11x11_datapath.v:43]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_next_state_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/11x11/Window_buffer_11x11_datapath.v:30]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_next_state_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/11x11/Window_buffer_11x11_datapath.v:30]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -961,6 +932,14 @@ INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using e
                   iSTATE |                              111 |                              111
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'Window_buffer_11x11_controller'
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_next_state_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/11x11/Window_buffer_11x11_datapath.v:30]
+WARNING: [Synth 8-327] inferring latch for variable 'progress_done_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/11x11/Window_buffer_11x11_datapath.v:45]
+WARNING: [Synth 8-327] inferring latch for variable 'done_o_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/11x11/Window_buffer_11x11_datapath.v:44]
+WARNING: [Synth 8-327] inferring latch for variable 'i_row' [D:/Thesis/Src/modules/Buffers/WindowBuffer/13x13/Window_buffer_13x13.v:169]
+WARNING: [Synth 8-327] inferring latch for variable 'i_row' [D:/Thesis/Src/modules/Buffers/WindowBuffer/3x3/Window_buffer_3x3.v:219]
+WARNING: [Synth 8-327] inferring latch for variable 'count_en_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/13x13/Window_buffer_13x13_datapath.v:43]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_next_state_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/13x13/Window_buffer_13x13_datapath.v:30]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_next_state_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/13x13/Window_buffer_13x13_datapath.v:30]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -974,6 +953,9 @@ INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using e
                   iSTATE |                              111 |                              111
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'Window_buffer_13x13_controller'
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_next_state_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/13x13/Window_buffer_13x13_datapath.v:30]
+WARNING: [Synth 8-327] inferring latch for variable 'progress_done_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/13x13/Window_buffer_13x13_datapath.v:45]
+WARNING: [Synth 8-327] inferring latch for variable 'done_o_reg' [D:/Thesis/Src/modules/Buffers/WindowBuffer/13x13/Window_buffer_13x13_datapath.v:44]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -985,7 +967,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using e
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'read_stage_reg' using encoding 'sequential' in module 'TopModule_datapath'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:43 ; elapsed = 00:00:50 . Memory (MB): peak = 1435.031 ; gain = 799.727
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 1433.168 ; gain = 797.605
 ---------------------------------------------------------------------------------
 
 
@@ -993,7 +975,7 @@ Incremental Synthesis Report Summary:
 
 1. Incremental synthesis run: no
 
-   Reason for not running incremental synthesis : Port sizes have changed
+   Reason for not running incremental synthesis : Change is too high
 
 
 INFO: [Synth 8-7130] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
@@ -1030,11 +1012,11 @@ Detailed RTL Component Info :
 	               11 Bit    Registers := 18    
 	               10 Bit    Registers := 242   
 	                9 Bit    Registers := 24    
-	                8 Bit    Registers := 3002  
+	                8 Bit    Registers := 3090  
 	                4 Bit    Registers := 12    
 	                3 Bit    Registers := 43    
 	                2 Bit    Registers := 50    
-	                1 Bit    Registers := 607   
+	                1 Bit    Registers := 611   
 +---RAMs : 
 	               3K Bit	(200 X 16 bit)          RAMs := 3     
 	             1024 Bit	(128 X 8 bit)          RAMs := 66    
@@ -1045,7 +1027,7 @@ Detailed RTL Component Info :
 	   2 Input   13 Bit        Muxes := 6     
 	   2 Input   10 Bit        Muxes := 71    
 	   5 Input   10 Bit        Muxes := 1     
-	   2 Input    8 Bit        Muxes := 1720  
+	   2 Input    8 Bit        Muxes := 1642  
 	   3 Input    8 Bit        Muxes := 3     
 	   6 Input    7 Bit        Muxes := 6     
 	   2 Input    7 Bit        Muxes := 48    
@@ -1058,7 +1040,7 @@ Detailed RTL Component Info :
 	   4 Input    2 Bit        Muxes := 1     
 	   2 Input    2 Bit        Muxes := 5     
 	   4 Input    1 Bit        Muxes := 3     
-	   2 Input    1 Bit        Muxes := 294   
+	   2 Input    1 Bit        Muxes := 374   
 	   5 Input    1 Bit        Muxes := 28    
 	   8 Input    1 Bit        Muxes := 48    
 	   7 Input    1 Bit        Muxes := 48    
@@ -1834,7 +1816,7 @@ WARNING: [Synth 8-3332] Sequential element (R4_CONTROLLER/FSM_onehot_next_state_
 WARNING: [Synth 8-3332] Sequential element (R4_CONTROLLER/done_o_reg) is unused and will be removed from module R4_patch_sum.
 WARNING: [Synth 8-3332] Sequential element (R4_CONTROLLER/progress_done_reg) is unused and will be removed from module R4_patch_sum.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:09 ; elapsed = 00:04:23 . Memory (MB): peak = 1500.250 ; gain = 864.945
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:03 ; elapsed = 00:02:34 . Memory (MB): peak = 1497.273 ; gain = 861.711
 ---------------------------------------------------------------------------------
  Sort Area is TopModule_datapath__GCB0 INTERPOLATION_R_2/INTER_R2_135/mult_result3_reg_f : 0 0 : 1326 2842 : Used 1 time 0
  Sort Area is TopModule_datapath__GCB0 INTERPOLATION_R_2/INTER_R2_135/mult_result3_reg_f : 0 1 : 1421 2842 : Used 1 time 0
@@ -2184,7 +2166,7 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:26 ; elapsed = 00:04:43 . Memory (MB): peak = 1701.582 ; gain = 1066.277
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:15 ; elapsed = 00:02:46 . Memory (MB): peak = 1700.156 ; gain = 1064.594
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
@@ -2192,7 +2174,7 @@ Start Timing Optimization
 WARNING: [Synth 8-3332] Sequential element (JOINT_CONTROLLER/finish_reg) is unused and will be removed from module Joint_histogram.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:03:48 ; elapsed = 00:05:07 . Memory (MB): peak = 1798.312 ; gain = 1163.008
+Finished Timing Optimization : Time (s): cpu = 00:02:34 ; elapsed = 00:03:06 . Memory (MB): peak = 1924.426 ; gain = 1288.863
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -2283,53 +2265,53 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-7052] The timing for the instance MEDIAN_PROCESSINGi_4/MEDIAN_PREPARATION/gen_line_buffers[0].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance MEDIAN_PROCESSINGi_4/MEDIAN_PREPARATION/gen_line_buffers[1].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance MEDIAN_PROCESSINGi_4/MEDIAN_PREPARATION/gen_line_buffers[2].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance MEDIAN_PROCESSINGi_4/MEDIAN_PREPARATION/gen_line_buffers[3].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance MEDIAN_PROCESSINGi_4/MEDIAN_PREPARATION/gen_line_buffers[4].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance MEDIAN_PROCESSINGi_4/MEDIAN_PREPARATION/gen_line_buffers[5].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance MEDIAN_PROCESSINGi_2/MEDIAN_PREPARATION/gen_line_buffers[0].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance MEDIAN_PROCESSINGi_2/MEDIAN_PREPARATION/gen_line_buffers[1].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance MEDIAN_PROCESSINGi_2/MEDIAN_PREPARATION/gen_line_buffers[2].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance MEDIAN_PROCESSINGi_2/MEDIAN_PREPARATION/gen_line_buffers[3].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance MEDIAN_PROCESSINGi_2/MEDIAN_PREPARATION/gen_line_buffers[4].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance MEDIAN_PROCESSINGi_2/MEDIAN_PREPARATION/gen_line_buffers[5].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/CI_TOP/BUFFER_12_ROWS/gen_line_buffers[0].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/CI_TOP/BUFFER_12_ROWS/gen_line_buffers[1].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/CI_TOP/BUFFER_12_ROWS/gen_line_buffers[2].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/CI_TOP/BUFFER_12_ROWS/gen_line_buffers[3].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/CI_TOP/BUFFER_12_ROWS/gen_line_buffers[4].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/CI_TOP/BUFFER_12_ROWS/gen_line_buffers[5].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/CI_TOP/BUFFER_12_ROWS/gen_line_buffers[6].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/CI_TOP/BUFFER_12_ROWS/gen_line_buffers[7].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/CI_TOP/BUFFER_12_ROWS/gen_line_buffers[8].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/CI_TOP/BUFFER_12_ROWS/gen_line_buffers[9].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/CI_TOP/BUFFER_12_ROWS/gen_line_buffers[10].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R2_NI_RD/BUFFER_4_ROWS_3X3/gen_line_buffers[0].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R2_NI_RD/BUFFER_4_ROWS_3X3/gen_line_buffers[1].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R2_NI_RD/BUFFER_4_ROWS_3X3/gen_line_buffers[2].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R2_NI_RD/BUFFER_4_ROWS_3X3/gen_line_buffers[3].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R2_NI_RD/BUFFER_4_ROWS/gen_line_buffers[0].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R2_NI_RD/BUFFER_4_ROWS/gen_line_buffers[1].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R2_NI_RD/BUFFER_4_ROWS/gen_line_buffers[2].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R6_NI_RD/BUFFER_12_ROWS_5x5/gen_line_buffers[0].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R6_NI_RD/BUFFER_12_ROWS_5x5/gen_line_buffers[1].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R6_NI_RD/BUFFER_12_ROWS_5x5/gen_line_buffers[2].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R6_NI_RD/BUFFER_12_ROWS_5x5/gen_line_buffers[3].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R6_NI_RD/BUFFER_12_ROWS_5x5/gen_line_buffers[4].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R6_NI_RD/BUFFER_12_ROWS_5x5/gen_line_buffers[5].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R6_NI_RD/BUFFER_12_ROWS_5x5/gen_line_buffers[6].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R6_NI_RD/BUFFER_12_ROWS_5x5/gen_line_buffers[7].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R6_NI_RD/BUFFER_12_ROWS_5x5/gen_line_buffers[8].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R6_NI_RD/BUFFER_12_ROWS_5x5/gen_line_buffers[9].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R6_NI_RD/BUFFER_12_ROWS_5x5/gen_line_buffers[10].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R6_NI_RD/BUFFER_8_ROWS_7x7/gen_line_buffers[0].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R6_NI_RD/BUFFER_8_ROWS_7x7/gen_line_buffers[1].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R6_NI_RD/BUFFER_8_ROWS_7x7/gen_line_buffers[2].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R6_NI_RD/BUFFER_8_ROWS_7x7/gen_line_buffers[3].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R6_NI_RD/BUFFER_8_ROWS_7x7/gen_line_buffers[4].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R6_NI_RD/BUFFER_8_ROWS_7x7/gen_line_buffers[5].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R6_NI_RD/BUFFER_8_ROWS_7x7/gen_line_buffers[6].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R6_NI_RD/BUFFER_8_ROWS_7x7/gen_line_buffers[7].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R6_NI_RD/BUFFER_8_ROWS_7x7/gen_line_buffers[8].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R6_NI_RD/BUFFER_8_ROWS_7x7/gen_line_buffers[9].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_5/inst_TopModule_datapath/R6_NI_RD/BUFFER_8_ROWS_7x7/gen_line_buffers[10].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/CI_TOP/BUFFER_12_ROWS/gen_line_buffers[0].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/CI_TOP/BUFFER_12_ROWS/gen_line_buffers[1].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/CI_TOP/BUFFER_12_ROWS/gen_line_buffers[2].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/CI_TOP/BUFFER_12_ROWS/gen_line_buffers[3].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/CI_TOP/BUFFER_12_ROWS/gen_line_buffers[4].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/CI_TOP/BUFFER_12_ROWS/gen_line_buffers[5].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/CI_TOP/BUFFER_12_ROWS/gen_line_buffers[6].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/CI_TOP/BUFFER_12_ROWS/gen_line_buffers[7].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/CI_TOP/BUFFER_12_ROWS/gen_line_buffers[8].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/CI_TOP/BUFFER_12_ROWS/gen_line_buffers[9].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/CI_TOP/BUFFER_12_ROWS/gen_line_buffers[10].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R2_NI_RD/BUFFER_4_ROWS_3X3/gen_line_buffers[0].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R2_NI_RD/BUFFER_4_ROWS_3X3/gen_line_buffers[1].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R2_NI_RD/BUFFER_4_ROWS_3X3/gen_line_buffers[2].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R2_NI_RD/BUFFER_4_ROWS_3X3/gen_line_buffers[3].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R2_NI_RD/BUFFER_4_ROWS/gen_line_buffers[0].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R2_NI_RD/BUFFER_4_ROWS/gen_line_buffers[1].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R2_NI_RD/BUFFER_4_ROWS/gen_line_buffers[2].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R6_NI_RD/BUFFER_12_ROWS_5x5/gen_line_buffers[0].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R6_NI_RD/BUFFER_12_ROWS_5x5/gen_line_buffers[1].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R6_NI_RD/BUFFER_12_ROWS_5x5/gen_line_buffers[2].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R6_NI_RD/BUFFER_12_ROWS_5x5/gen_line_buffers[3].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R6_NI_RD/BUFFER_12_ROWS_5x5/gen_line_buffers[4].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R6_NI_RD/BUFFER_12_ROWS_5x5/gen_line_buffers[5].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R6_NI_RD/BUFFER_12_ROWS_5x5/gen_line_buffers[6].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R6_NI_RD/BUFFER_12_ROWS_5x5/gen_line_buffers[7].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R6_NI_RD/BUFFER_12_ROWS_5x5/gen_line_buffers[8].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R6_NI_RD/BUFFER_12_ROWS_5x5/gen_line_buffers[9].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R6_NI_RD/BUFFER_12_ROWS_5x5/gen_line_buffers[10].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R6_NI_RD/BUFFER_8_ROWS_7x7/gen_line_buffers[0].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R6_NI_RD/BUFFER_8_ROWS_7x7/gen_line_buffers[1].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R6_NI_RD/BUFFER_8_ROWS_7x7/gen_line_buffers[2].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R6_NI_RD/BUFFER_8_ROWS_7x7/gen_line_buffers[3].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R6_NI_RD/BUFFER_8_ROWS_7x7/gen_line_buffers[4].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R6_NI_RD/BUFFER_8_ROWS_7x7/gen_line_buffers[5].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R6_NI_RD/BUFFER_8_ROWS_7x7/gen_line_buffers[6].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R6_NI_RD/BUFFER_8_ROWS_7x7/gen_line_buffers[7].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R6_NI_RD/BUFFER_8_ROWS_7x7/gen_line_buffers[8].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R6_NI_RD/BUFFER_8_ROWS_7x7/gen_line_buffers[9].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapathi_3/inst_TopModule_datapath/R6_NI_RD/BUFFER_8_ROWS_7x7/gen_line_buffers[10].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Thesis/Src/modules/common/sum.v:16]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Thesis/Src/modules/common/sum.v:16]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Thesis/Src/modules/common/sum.v:16]
@@ -2349,7 +2331,7 @@ INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapath/R4_NI_R
 INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapath/R4_NI_RD/BUFFER_8_ROWS_5x5/gen_line_buffers[5].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance inst_TopModule_datapath/R4_NI_RD/BUFFER_8_ROWS_5x5/gen_line_buffers[6].LINE_BUFFER/datapath_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:04:11 ; elapsed = 00:05:49 . Memory (MB): peak = 1808.215 ; gain = 1172.910
+Finished Technology Mapping : Time (s): cpu = 00:02:46 ; elapsed = 00:03:33 . Memory (MB): peak = 1924.426 ; gain = 1288.863
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -2408,37 +2390,37 @@ INFO: [Common 17-14] Message 'Synth 8-7052' appears 100 times and further instan
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:04:27 ; elapsed = 00:06:08 . Memory (MB): peak = 1972.559 ; gain = 1337.254
+Finished IO Insertion : Time (s): cpu = 00:02:58 ; elapsed = 00:03:45 . Memory (MB): peak = 1983.598 ; gain = 1348.035
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:04:27 ; elapsed = 00:06:08 . Memory (MB): peak = 1972.559 ; gain = 1337.254
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:58 ; elapsed = 00:03:45 . Memory (MB): peak = 1983.598 ; gain = 1348.035
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:04:40 ; elapsed = 00:06:23 . Memory (MB): peak = 2068.383 ; gain = 1433.078
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:07 ; elapsed = 00:03:54 . Memory (MB): peak = 2057.051 ; gain = 1421.488
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:04:41 ; elapsed = 00:06:23 . Memory (MB): peak = 2068.383 ; gain = 1433.078
+Finished Renaming Generated Ports : Time (s): cpu = 00:03:07 ; elapsed = 00:03:55 . Memory (MB): peak = 2057.051 ; gain = 1421.488
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:04:43 ; elapsed = 00:06:26 . Memory (MB): peak = 2091.195 ; gain = 1455.891
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:09 ; elapsed = 00:03:57 . Memory (MB): peak = 2080.902 ; gain = 1445.340
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:04:43 ; elapsed = 00:06:26 . Memory (MB): peak = 2091.195 ; gain = 1455.891
+Finished Renaming Generated Nets : Time (s): cpu = 00:03:10 ; elapsed = 00:03:57 . Memory (MB): peak = 2080.902 ; gain = 1445.340
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -2476,79 +2458,79 @@ Static Shift Register Report:
 |TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/CALC75/p1_S21_reg[7]            | 7      | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/CALC75/p1_S22_reg[7]            | 7      | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/CALC75/p1_S23_reg[7]            | 7      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA1/p4_S6_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA1/p4_S7_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA1/p2_sa1_min_reg[7]           | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA1/p4_S6_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA1/p2_sa1_out2_reg[7]          | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA2/p4_S6_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA1/p2_sa1_min_reg[7]           | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA2/p4_S7_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA2/p2_sa1_min_reg[7]           | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA2/p4_S6_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA2/p2_sa1_out2_reg[7]          | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA3/p4_S6_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA2/p2_sa1_min_reg[7]           | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA3/p4_S7_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA3/p2_sa1_min_reg[7]           | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA3/p4_S6_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA3/p2_sa1_out2_reg[7]          | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA4/p4_S6_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA3/p2_sa1_min_reg[7]           | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA4/p4_S7_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA4/p2_sa1_min_reg[7]           | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA4/p4_S6_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA4/p2_sa1_out2_reg[7]          | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA5/p4_S6_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA4/p2_sa1_min_reg[7]           | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA5/p4_S7_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA5/p2_sa1_min_reg[7]           | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA5/p4_S6_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA5/p2_sa1_out2_reg[7]          | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA10/p4_S6_reg[7]               | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA5/p2_sa1_min_reg[7]           | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA8/p4_S7_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA8/p4_S6_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA9/p4_S7_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA9/p4_S6_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA9/p2_sa1_out2_reg[7]          | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA9/p2_sa1_min_reg[7]           | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA10/p4_S7_reg[7]               | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA10/p2_sa1_min_reg[7]          | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA10/p4_S6_reg[7]               | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA10/p2_sa1_out2_reg[7]         | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA10/p2_sa1_min_reg[7]          | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA11/p4_S7_reg[7]               | 6      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA11/p4_S6_reg[7]               | 6      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA11/p2_sa1_out2_reg[7]         | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA11/p2_sa1_min_reg[7]          | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA12/SA1/p1_S5_reg[7]           | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA12/SA1/p1_S4_reg[7]           | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA12/p4_S7_reg[7]               | 8      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA12/p4_S6_reg[7]               | 8      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA12/p2_sa1_out2_reg[7]         | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA12/p2_sa1_min_reg[7]          | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA13/SA1/p1_S5_reg[7]           | 6      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA13/SA1/p1_S4_reg[7]           | 6      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA13/p4_S7_reg[7]               | 9      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA13/p4_S6_reg[7]               | 9      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA13/p2_sa1_out2_reg[7]         | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA13/p2_sa1_min_reg[7]          | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA6/p4_S7_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA6/p4_S6_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA6/p2_sa1_out2_reg[7]          | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA6/p2_sa1_min_reg[7]           | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA14/SA1/p1_S5_reg[7]           | 7      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA14/SA1/p1_S4_reg[7]           | 7      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA14/p4_S7_reg[7]               | 10     | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA14/p4_S6_reg[7]               | 10     | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA14/p2_sa1_out2_reg[7]         | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA14/p2_sa1_min_reg[7]          | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA7/p4_S7_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA7/p4_S6_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA7/p2_sa1_out2_reg[7]          | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA7/p2_sa1_min_reg[7]           | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/p2_sa13_S1_reg[7]               | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/p2_sa13_S2_reg[7]               | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/p2_sa13_S3_reg[7]               | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/p2_sa12_S3_reg[7]               | 4      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/p2_sa12_S2_reg[7]               | 4      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA11/p4_S6_reg[7]               | 6      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA11/p4_S7_reg[7]               | 6      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA11/p2_sa1_min_reg[7]          | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA11/p2_sa1_out2_reg[7]         | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA8/p4_S6_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA8/p4_S7_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA6/p4_S6_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA6/p4_S7_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA6/p2_sa1_min_reg[7]           | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA6/p2_sa1_out2_reg[7]          | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA13/SA1/p1_S5_reg[7]           | 6      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA13/SA1/p1_S4_reg[7]           | 6      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA13/p4_S6_reg[7]               | 9      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA13/p4_S7_reg[7]               | 9      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA13/p2_sa1_min_reg[7]          | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA13/p2_sa1_out2_reg[7]         | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA12/SA1/p1_S5_reg[7]           | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA12/SA1/p1_S4_reg[7]           | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA12/p4_S6_reg[7]               | 8      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA12/p4_S7_reg[7]               | 8      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA12/p2_sa1_min_reg[7]          | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA12/p2_sa1_out2_reg[7]         | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA9/p4_S6_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA9/p4_S7_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA9/p2_sa1_min_reg[7]           | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA9/p2_sa1_out2_reg[7]          | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA14/SA1/p1_S5_reg[7]           | 7      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA14/SA1/p1_S4_reg[7]           | 7      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA14/p4_S6_reg[7]               | 10     | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA14/p4_S7_reg[7]               | 10     | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA14/p2_sa1_min_reg[7]          | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA14/p2_sa1_out2_reg[7]         | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA7/p4_S6_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA7/p4_S7_reg[7]                | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA7/p2_sa1_min_reg[7]           | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/SA7/p2_sa1_out2_reg[7]          | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/p3_sa12_S5_reg[7]               | 4      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/p3_sa11_S6_reg[7]               | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/p3_sa10_S7_reg[7]               | 6      | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/p2_sa14_S1_reg[7]               | 6      | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/p2_sa14_S2_reg[7]               | 6      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/p3_sa12_S5_reg[7]               | 4      | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/p2_sa12_S1_reg[7]               | 4      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/p2_sa12_S2_reg[7]               | 4      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/p2_sa12_S3_reg[7]               | 4      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/p3_sa11_S6_reg[7]               | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/p3_sa10_S7_reg[7]               | 6      | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_7x7/MEDIAN_7x7_CALC/p2_sa14_S3_reg[7]               | 6      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_3x3/MEDIAN_3X3_CALC/p4_done_i_reg                   | 4      | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|TopModule   | inst_TopModule_datapath/MEDIAN_PROCESSING/MEDIAN_FILTER_3x3/MEDIAN_3X3_CALC/p4_done_i_reg                   | 5      | 1     | YES          | NO                 | YES               | 1      | 0       | 
 |TopModule   | inst_TopModule_datapath/R4_NI_RD/WINDOW_BUFFER_7X7/WINDOW_BUFFER_7X7_DATAPATH/S1_window_reg[3][7]           | 4      | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/R4_NI_RD/WINDOW_BUFFER_7X7/WINDOW_BUFFER_7X7_DATAPATH/S2_window_reg[3][7]           | 4      | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/R4_NI_RD/WINDOW_BUFFER_7X7/WINDOW_BUFFER_7X7_DATAPATH/S6_window_reg[3][7]           | 4      | 8     | YES          | NO                 | YES               | 8      | 0       | 
@@ -2599,9 +2581,9 @@ Static Shift Register Report:
 |TopModule   | inst_TopModule_datapath/R4_NI_RD/SHIFT_DATA4_3x3/data_o_reg[7]                                              | 12     | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/R4_NI_RD/SHIFT_DATA6_3x3/data_o_reg[7]                                              | 12     | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/R4_NI_RD/SHIFT_DATA7_3x3/data_o_reg[7]                                              | 12     | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/R2_NI_RD/SHIFT_5_DATA1/data_o_reg[7]                                                | 7      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/R2_NI_RD/SHIFT_5_DATA2/data_o_reg[7]                                                | 7      | 8     | YES          | NO                 | YES               | 8      | 0       | 
-|TopModule   | inst_TopModule_datapath/R2_NI_RD/SHIFT_5_DATA3/data_o_reg[7]                                                | 7      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/R2_NI_RD/SHIFT_5_DATA1/data_o_reg[7]                                                | 8      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/R2_NI_RD/SHIFT_5_DATA2/data_o_reg[7]                                                | 8      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|TopModule   | inst_TopModule_datapath/R2_NI_RD/SHIFT_5_DATA3/data_o_reg[7]                                                | 8      | 8     | YES          | NO                 | YES               | 8      | 0       | 
 |TopModule   | inst_TopModule_datapath/R6_NI_RD/SHIFT_DATA1_5x5/data_o_reg[7]                                              | 26     | 8     | YES          | NO                 | YES               | 0      | 8       | 
 |TopModule   | inst_TopModule_datapath/R6_NI_RD/SHIFT_DATA2_5x5/data_o_reg[7]                                              | 26     | 8     | YES          | NO                 | YES               | 0      | 8       | 
 |TopModule   | inst_TopModule_datapath/R6_NI_RD/SHIFT_DATA3_5x5/data_o_reg[7]                                              | 26     | 8     | YES          | NO                 | YES               | 0      | 8       | 
@@ -2761,15 +2743,15 @@ Report Cell Usage:
 +------+---------+------+
 |      |Cell     |Count |
 +------+---------+------+
-|1     |BUFG     |     4|
-|2     |CARRY4   |  1749|
+|1     |BUFG     |     1|
+|2     |CARRY4   |  1073|
 |3     |DSP48E1  |   124|
 |9     |LUT1     |   283|
-|10    |LUT2     |  2447|
-|11    |LUT3     |  2945|
-|12    |LUT4     |  5763|
-|13    |LUT5     |  8711|
-|14    |LUT6     | 14082|
+|10    |LUT2     |  2299|
+|11    |LUT3     |  2667|
+|12    |LUT4     |  3830|
+|13    |LUT5     |  5857|
+|14    |LUT6     | 14240|
 |15    |MUXF7    |  1554|
 |16    |MUXF8    |   744|
 |17    |RAM64M   |    60|
@@ -2778,41 +2760,39 @@ Report Cell Usage:
 |21    |SRL16E   |  1198|
 |22    |SRLC32E  |    60|
 |23    |FDCE     |   181|
-|24    |FDRE     | 24675|
+|24    |FDRE     | 25341|
 |25    |FDSE     |    53|
 |26    |LD       |   840|
-|27    |LDC      |   664|
-|28    |IBUF     |    12|
-|29    |OBUF     |    18|
+|27    |IBUF     |    12|
+|28    |OBUF     |    18|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:04:43 ; elapsed = 00:06:26 . Memory (MB): peak = 2091.195 ; gain = 1455.891
+Finished Writing Synthesis Report : Time (s): cpu = 00:03:10 ; elapsed = 00:03:57 . Memory (MB): peak = 2080.902 ; gain = 1445.340
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 272 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:04:17 ; elapsed = 00:06:13 . Memory (MB): peak = 2091.195 ; gain = 1326.949
-Synthesis Optimization Complete : Time (s): cpu = 00:04:44 ; elapsed = 00:06:28 . Memory (MB): peak = 2091.195 ; gain = 1455.891
+Synthesis finished with 0 errors, 0 critical warnings and 191 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:46 ; elapsed = 00:03:46 . Memory (MB): peak = 2080.902 ; gain = 1319.582
+Synthesis Optimization Complete : Time (s): cpu = 00:03:10 ; elapsed = 00:03:58 . Memory (MB): peak = 2080.902 ; gain = 1445.340
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2101.871 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 5810 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2089.996 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 4470 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 5 inverter(s) to 50 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.030 . Memory (MB): peak = 2115.246 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.078 . Memory (MB): peak = 2098.766 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 1576 instances were transformed.
+  A total of 912 instances were transformed.
   LD => LDCE: 790 instances
   LD => LDCE (inverted pins: G): 50 instances
-  LDC => LDCE: 664 instances
   RAM64M => RAM64M (RAMD64E(x4)): 60 instances
   RAM64X1D => RAM64X1D (RAMD64E(x2)): 12 instances
 
-Synth Design complete | Checksum: 8ee27342
+Synth Design complete | Checksum: 5e15122f
 INFO: [Common 17-83] Releasing license: Synthesis
-580 Infos, 415 Warnings, 0 Critical Warnings and 0 Errors encountered.
+578 Infos, 401 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:05:06 ; elapsed = 00:06:56 . Memory (MB): peak = 2115.246 ; gain = 1711.688
-Write ShapeDB Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.189 . Memory (MB): peak = 2115.246 ; gain = 0.000
+synth_design: Time (s): cpu = 00:03:26 ; elapsed = 00:04:17 . Memory (MB): peak = 2098.766 ; gain = 1694.816
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.136 . Memory (MB): peak = 2098.766 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'D:/Thesis/Zedboard_v/Zedboard_v.runs/synth_1/TopModule.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2115.246 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 2098.766 ; gain = 0.000
 INFO: [Vivado 12-24828] Executing command : report_utilization -file TopModule_utilization_synth.rpt -pb TopModule_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Feb 14 15:25:37 2025...
+INFO: [Common 17-206] Exiting Vivado at Sun Feb 16 23:26:56 2025...

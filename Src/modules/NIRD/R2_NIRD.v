@@ -43,7 +43,7 @@ module R2_NIRD #(parameter COLS = 30,
     
     wire [7:0] data0_delay, data1_delay, data2_delay, data3_delay, data4_delay;
     wire done_o_delay;
-    `define DONE_ORIGINAL_DELAY 7
+    `define DONE_ORIGINAL_DELAY 8
     
     shift_registers #(.WIDTH(1), .CYCLE(`DONE_ORIGINAL_DELAY))
     SHIFT_5_DONE_O (

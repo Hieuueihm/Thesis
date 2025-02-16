@@ -8,7 +8,7 @@ module Data_modulate_5x5_datapath #(parameter ROWS = 7,
                                     input [7:0] d3_i,
                                     input [7:0] d4_i,
                                     input start,
-                                    input done_o,
+                                    input o_en,
                                     output reg [7:0] d0_o,
                                     output reg [7:0] d1_o,
                                     output reg [7:0] d2_o,
@@ -80,7 +80,7 @@ module Data_modulate_5x5_datapath #(parameter ROWS = 7,
     (
     .rst(rst),
     .clk(clk),
-    .en(done_o),
+    .en(o_en),
     .D(i_col),
     .Q(i_col_plus_1)
     );
@@ -90,7 +90,7 @@ module Data_modulate_5x5_datapath #(parameter ROWS = 7,
     ROW_PLUS (
     .rst(rst),
     .clk(clk),
-    .en(done_o && (i_col == COLS - 1)),
+    .en(o_en && (i_col == COLS - 1)),
     .D(i_row),
     .Q(i_row_plus_1)
     );
@@ -113,7 +113,7 @@ module Data_modulate_5x5_datapath #(parameter ROWS = 7,
         if (rst) begin
             done_reg <= 0;
             end else begin
-            if (done_o) begin
+            if (o_en) begin
                 if (i_col == COLS - 1) begin
                     if (i_row == ROWS - 1) begin
                         done_reg <= 1;
@@ -124,9 +124,19 @@ module Data_modulate_5x5_datapath #(parameter ROWS = 7,
         end
     end
     
-    
-    
-    always @(*) begin
+    wire i_row_lt_2 = (i_row < 2) ? 1 : 0;
+    wire i_row_lt_1 = (i_row < 1) ? 1 : 0;
+
+    wire i_col_lt_2 = (i_col < 2) ? 1 : 0;
+    wire i_col_lt_1 = (i_col < 1) ? 1 : 0;
+
+    wire i_col_gt_col_2 = (i_col > COLS - 2) ? 1 : 0;
+    wire i_col_gt_col_3 = (i_col > COLS - 3) ? 1 : 0;
+
+    wire i_row_gt_row_2 = (i_row > ROWS - 2) ? 1 : 0;
+    wire i_row_gt_row_3 = (i_row > ROWS - 3) ? 1 : 0; 
+
+    always @(posedge clk) begin
         if (rst) begin
             d0_o  <= 0;
             d1_o  <= 0;
@@ -155,37 +165,39 @@ module Data_modulate_5x5_datapath #(parameter ROWS = 7,
             d24_o <= 0;
             end else begin
             // zero padding
-            if (done_o) begin
-                d0_o <= (i_row < 2 || i_col < 2) ? 0 : data0;
-                d1_o <= (i_row < 2 || i_col < 1) ? 0 : data1;
-                d2_o <= (i_row < 2) ? 0 : data2;
-                d3_o <= (i_row < 2 || i_col > COLS - 2) ? 0 : data3;
-                d4_o <= (i_row < 2 || i_col > COLS - 3) ? 0 : data4;
+            if (o_en) begin
+
+                d0_o <= (i_row_lt_2 || i_col_lt_2) ? 0 : data0;
+                d1_o <= (i_row_lt_2 || i_col_lt_1) ? 0 : data1;
+                d2_o <= (i_row_lt_2) ? 0 : data2;
+                d3_o <= (i_row_lt_2 || i_col_gt_col_2) ? 0 : data3;
+                d4_o <= (i_row_lt_2 || i_col_gt_col_3) ? 0 : data4;
                 
-                d5_o <= (i_row < 1 || i_col < 2) ? 0 : data5;
-                d6_o <= (i_row < 1 || i_col < 1) ? 0 : data6;
-                d7_o <= (i_row < 1) ? 0 : data7;
-                d8_o <= (i_row < 1 || i_col > COLS - 2) ? 0 : data8;
-                d9_o <= (i_row < 1 || i_col > COLS - 3) ? 0 : data9;
+                d5_o <= (i_row_lt_1 || i_col_lt_2) ? 0 : data5;
+                d6_o <= (i_row_lt_1 || i_col_lt_1) ? 0 : data6;
+                d7_o <= (i_row_lt_1) ? 0 : data7;
+                d8_o <= (i_row_lt_1 || i_col_gt_col_2) ? 0 : data8;
+                d9_o <= (i_row_lt_1 || i_col_gt_col_3) ? 0 : data9;
                 
-                d10_o <= (i_col < 2) ? 0 : data10;
-                d11_o <= (i_col < 1) ? 0 : data11;
+                d10_o <= (i_col_lt_2) ? 0 : data10;
+                d11_o <= (i_col_lt_1) ? 0 : data11;
                 d12_o <= data12;
-                d13_o <= (i_col > COLS - 2) ? 0 : data13;
-                d14_o <= (i_col > COLS - 3) ? 0 : data14;
+                d13_o <= (i_col_gt_col_2) ? 0 : data13;
+                d14_o <= (i_col_gt_col_3) ? 0 : data14;
                 
-                d15_o <= (i_row > ROWS - 2 || i_col < 2) ? 0 : data15;
-                d16_o <= (i_row > ROWS - 2 || i_col < 1) ? 0 : data16;
-                d17_o <= (i_row > ROWS - 2) ? 0 : data17;
-                d18_o <= (i_row > ROWS - 2 || i_col > COLS - 2) ? 0 : data18;
-                d19_o <= (i_row > ROWS - 2 || i_col > COLS - 3) ? 0 : data19;
+                d15_o <= (i_row_gt_row_2 || i_col_lt_2) ? 0 : data15;
+                d16_o <= (i_row_gt_row_2 || i_col_lt_1) ? 0 : data16;
+                d17_o <= (i_row_gt_row_2) ? 0 : data17;
+                d18_o <= (i_row_gt_row_2 || i_col_gt_col_2) ? 0 : data18;
+                d19_o <= (i_row_gt_row_2 || i_col_gt_col_3) ? 0 : data19;
                 
-                d20_o <= (i_row > ROWS - 3 || i_col < 2) ? 0 : data20;
-                d21_o <= (i_row > ROWS - 3 || i_col < 1) ? 0 : data21;
-                d22_o <= (i_row > ROWS - 3) ? 0 : data22;
-                d23_o <= (i_row > ROWS - 3 || i_col > COLS - 2) ? 0 : data23;
-                d24_o <= (i_row > ROWS - 3 || i_col > COLS - 3) ? 0 : data24;
-                
+                d20_o <= (i_row_gt_row_3 || i_col_lt_2) ? 0 : data20;
+                d21_o <= (i_row_gt_row_3 || i_col_lt_1) ? 0 : data21;
+                d22_o <= (i_row_gt_row_3) ? 0 : data22;
+                d23_o <= (i_row_gt_row_3 || i_col_gt_col_2) ? 0 : data23;
+                d24_o <= (i_row_gt_row_3 || i_col_gt_col_3) ? 0 : data24;
+
+              
                 
             end
         end

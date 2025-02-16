@@ -36,6 +36,7 @@ module Data_modulate_5x5 #(parameter ROWS = 7,
                            output done_o);
     wire done_reg, start;
     wire [2:0] i_counter;
+    wire o_en;
     Data_modulate_5x5_controller CONTROLLER_5X5
     (
     .rst(rst),
@@ -44,6 +45,7 @@ module Data_modulate_5x5 #(parameter ROWS = 7,
     .i_counter(i_counter),
     .done_reg(done_reg),
     .done_o(done_o),
+    .o_en(o_en),
     .start(start)
     );
     Data_modulate_5x5_datapath #(.COLS(COLS), .ROWS(ROWS)) DATAPATH_5X5
@@ -51,7 +53,7 @@ module Data_modulate_5x5 #(parameter ROWS = 7,
     .clk(clk),
     .rst(rst),
     .start(start),
-    .done_o(done_o),
+    .o_en(o_en),
     .d0_i(d0_i),
     .d1_i(d1_i),
     .d2_i(d2_i),

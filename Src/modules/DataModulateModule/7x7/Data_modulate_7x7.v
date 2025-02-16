@@ -63,6 +63,7 @@ module Data_modulate_7x7 #(parameter ROWS = 7,
     
     wire start, done_reg;
     wire [2:0] i_counter;
+    wire o_en;
     Data_modulate_7x7_controller CONTROLLER_7X7 (
     .clk(clk),
     .rst(rst),
@@ -70,6 +71,7 @@ module Data_modulate_7x7 #(parameter ROWS = 7,
     .i_counter(i_counter),
     .done_reg(done_reg),
     .done_o(done_o),
+    .o_en(o_en),
     .start(start)
     );
     
@@ -90,7 +92,7 @@ module Data_modulate_7x7 #(parameter ROWS = 7,
     .d5_i(d5_i),
     .d6_i(d6_i),
     .start(start),
-    .done_o(done_o),
+    .o_en(o_en),
     .d0_o(d0_o),
     .d1_o(d1_o),
     .d2_o(d2_o),

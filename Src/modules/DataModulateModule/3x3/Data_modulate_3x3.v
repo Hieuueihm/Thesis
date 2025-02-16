@@ -19,6 +19,7 @@ module Data_modulate_3x3 #(parameter ROWS = 5,
     
     wire [2:0] i_counter;
     wire done_reg, start;
+    wire o_en;
     
     Data_modulate_3x3_controller CONTROLLER_3X3(
     .rst(rst),
@@ -26,6 +27,7 @@ module Data_modulate_3x3 #(parameter ROWS = 5,
     .done_i(done_i),
     .i_counter(i_counter),
     .done_reg(done_reg),
+    .o_en(o_en),
     .done_o(done_o),
     .start(start)
     
@@ -43,7 +45,7 @@ module Data_modulate_3x3 #(parameter ROWS = 5,
     .d1_i(d1_i),
     .d2_i(d2_i),
     .start(start),
-    .done_o(done_o),
+    .o_en(o_en),
     .d0_o(d0_o),
     .d1_o(d1_o),
     .d2_o(d2_o),
