@@ -194,3 +194,5 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/common/sum_cu
 INFO: [VRFC 10-311] analyzing module sum_cumulative
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/test_benches/test/test_top_tb_with_image.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module test_top_tb_with_image
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Zedboard_v/Zedboard_v.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
