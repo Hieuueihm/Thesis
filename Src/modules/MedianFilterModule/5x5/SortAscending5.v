@@ -1,6 +1,6 @@
 module SortAscending5 (
     input clk,
-    input rst,
+    input rst_n,
     input done_i,
     output done_o,
     input [7:0] S1,
@@ -26,7 +26,7 @@ module SortAscending5 (
   reg [7:0] p1_S4, p1_S5, p1_max, p1_med, p1_min;
   reg p1_done_o;
   always @(posedge clk) begin
-    if (rst) begin
+    if (!rst_n) begin
       p1_S4 <= 0;
       p1_S5 <= 0;
       p1_max <= 0;
@@ -55,7 +55,7 @@ module SortAscending5 (
   reg [7:0] p2_med1, p2_min1;
   reg p2_done_o;
   always @(posedge clk) begin
-    if (rst) begin
+    if (!rst_n) begin
       p2_max <= 0;
       p2_min <= 0;
       p2_med <= 0;
@@ -84,7 +84,7 @@ module SortAscending5 (
   reg [7:0] p3_min1, p3_max_o;
   reg p3_done_o;
   always @(posedge clk) begin
-    if (rst) begin
+    if (!rst_n) begin
       p3_max <= 0;
       p3_min <= 0;
       p3_med <= 0;

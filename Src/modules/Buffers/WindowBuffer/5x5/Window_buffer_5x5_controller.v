@@ -1,5 +1,5 @@
 module Window_buffer_5x5_controller(input clk,
-                                    input rst,
+                                    input rst_n,
                                     input done_i,
                                     input i_row_eq_max,
                                     input i_col_eq_max,
@@ -18,7 +18,7 @@ module Window_buffer_5x5_controller(input clk,
     parameter FINISH_ALL = 3'b110;
     parameter DONE       = 3'b111;
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             current_state <= IDLE;
             end else begin
             current_state <= next_state;

@@ -1,4 +1,4 @@
-module Data_modulate_5x5_controller (input rst,
+module Data_modulate_5x5_controller (input rst_n,
                                      input clk,
                                      input done_i,
                                      input [2:0] i_counter,
@@ -10,7 +10,7 @@ module Data_modulate_5x5_controller (input rst,
     assign o_en = o_en_r;
     dff #(.WIDTH(1)) DFF_DONE(
         .clk(clk),
-        .rst(rst),
+        .rst_n(rst_n),
         .en(1'b1),
         .D(o_en_r),
         .Q(done_o)

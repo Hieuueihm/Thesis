@@ -1,7 +1,7 @@
 module CI_top #(parameter ROWS = 30,
                 parameter COLS = 30)
                (input clk,
-                input rst,
+                input rst_n,
                 input [7:0] grayscale_i,
                 input done_i,
                 output [15:0] R2_bit_one_o,
@@ -25,7 +25,7 @@ module CI_top #(parameter ROWS = 30,
     .DEPTH(COLS)
     ) MEDIAN_PREPARATION (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_i),
     .data_i(grayscale_i),
     .data0_o(d0_o),
@@ -47,7 +47,7 @@ module CI_top #(parameter ROWS = 30,
     .COLS(COLS)
     ) MEDIAN_FILTER_3x3 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(prepare_done_o),
     .d0_i(d0_o),
     .d1_i(d1_o),
@@ -77,7 +77,7 @@ module CI_top #(parameter ROWS = 30,
     .DEPTH(COLS)
     ) BUFFER_16_ROWS (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(median_done_o),
     .data_i(median_o),
     .data0_o(data0_o),
@@ -108,7 +108,7 @@ module CI_top #(parameter ROWS = 30,
     // R2_TOP
     // (
     // .clk(clk),
-    // .rst(rst),
+    // .rst_n(rst_n),
     // .done_i(buffer_16_done_o),
     // .S1(data12_o),
     // .S2(data13_o),
@@ -124,7 +124,7 @@ module CI_top #(parameter ROWS = 30,
     // R4_TOP
     // (
     // .clk(clk),
-    // .rst(rst),
+    // .rst_n(rst_n),
     // .done_i(buffer_16_done_o),
     // .S1(data8_o),
     // .S2(data9_o),
@@ -144,7 +144,7 @@ module CI_top #(parameter ROWS = 30,
     // R6_TOP
     // (
     // .clk(clk),
-    // .rst(rst),
+    // .rst_n(rst_n),
     // .done_i(buffer_16_done_o),
     // .S1(data4_o),
     // .S2(data5_o),
@@ -168,7 +168,7 @@ module CI_top #(parameter ROWS = 30,
     // R8_TOP
     // (
     // .clk(clk),
-    // .rst(rst),
+    // .rst_n(rst_n),
     // .done_i(buffer_16_done_o),
     // .S1(data0_o),
     // .S2(data1_o),

@@ -1,7 +1,7 @@
 module Window_buffer_9x9_datapath #(parameter COLS = 9,
                                     parameter ROWS = 9)
                                    (input clk,
-                                    input rst,
+                                    input rst_n,
                                     input count_en,
                                     input [7:0] S1_i,
                                     S2_i,
@@ -104,7 +104,7 @@ module Window_buffer_9x9_datapath #(parameter COLS = 9,
     plus_1 #(.WIDTH(10))
     COUNTER_PLUS
     (
-    .rst(rst),
+    .rst_n(rst_n),
     .clk(clk),
     .en(count_en),
     .D(i_counter),
@@ -113,7 +113,7 @@ module Window_buffer_9x9_datapath #(parameter COLS = 9,
     plus_1 #(.WIDTH(10))
     ROW_PLUS
     (
-    .rst(rst),
+    .rst_n(rst_n),
     .clk(clk),
     .en(i_col_eq_max),
     .D(i_row),
@@ -139,7 +139,7 @@ module Window_buffer_9x9_datapath #(parameter COLS = 9,
     reg [7:0] S9_delay;
     
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             S1_delay <= 0;
             S2_delay <= 0;
             S3_delay <= 0;
@@ -173,7 +173,7 @@ module Window_buffer_9x9_datapath #(parameter COLS = 9,
     reg [7:0] S9_window [8:0];
     integer i;
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             for(i = 0;i < 9; i = i + 1) begin
                 S1_window[i] <= 0;
                 S2_window[i] <= 0;

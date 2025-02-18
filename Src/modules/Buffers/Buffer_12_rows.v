@@ -1,6 +1,6 @@
 module Buffer_12_rows #(parameter DEPTH = 17)
                        (input clk,
-                        input rst,
+                        input rst_n,
                         input done_i,
                         input [7:0] data_i,
                         output [7:0] data0_o,
@@ -24,7 +24,7 @@ module Buffer_12_rows #(parameter DEPTH = 17)
     
     // delay done_i
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             counter       <= 0;
             done_extended <= 0;
             end else if (done_i) begin
@@ -62,7 +62,7 @@ module Buffer_12_rows #(parameter DEPTH = 17)
     .DEPTH(DEPTH)
     ) LINE_BUFFER (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i((i == 0) ? data_i : line_buffer_out[i-1]),
     .done_i((i == 0) ? (done_i | done_delayed) : line_buffer_done[i-1]),
     .data_o(line_buffer_out[i]),

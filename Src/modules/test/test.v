@@ -1,5 +1,5 @@
 module test(input clk,
-            input rst,
+            input rst_n,
             input [7:0] grayscale_i,
             input done_i);
     
@@ -12,7 +12,7 @@ module test(input clk,
     MEDIAN_PROCESSING
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(grayscale_i),
     .done_i(done_i),
     .data_o(data_o),
@@ -31,7 +31,7 @@ module test(input clk,
     wire done_buffer_3x3_o;
     Buffer_4_rows #(.DEPTH(30)) BUFFER_4_ROWS_3X3 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_3x3_o),
     .data_i(m_3x3_o),
     .data0_o(data0_3x3_o),
@@ -51,7 +51,7 @@ module test(input clk,
     wire done_o;
     Buffer_4_rows #(.DEPTH(30)) BUFFER_4_ROWS (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_original_o),
     .data_i(data_o),
     .data0_o(data0_o),
@@ -68,7 +68,7 @@ module test(input clk,
     shift_registers #(.WIDTH(1), .CYCLE(7))
     SHIFT_5_DONE_O (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(done_o),
     .data_o(done_o_delay)
     );
@@ -76,7 +76,7 @@ module test(input clk,
     shift_registers #(.WIDTH(8), .CYCLE(7))
     SHIFT_5_DATA0 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data0_o),
     .data_o(data0_delay)
     );
@@ -84,7 +84,7 @@ module test(input clk,
     shift_registers #(.WIDTH(8), .CYCLE(7))
     SHIFT_5_DATA1 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data1_o),
     .data_o(data1_delay)
     );
@@ -93,7 +93,7 @@ module test(input clk,
     shift_registers #(.WIDTH(8), .CYCLE(7))
     SHIFT_5_DATA2 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data2_o),
     .data_o(data2_delay)
     );
@@ -102,7 +102,7 @@ module test(input clk,
     shift_registers #(.WIDTH(8), .CYCLE(7))
     SHIFT_5_DATA3 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data3_o),
     .data_o(data3_delay)
     );
@@ -110,7 +110,7 @@ module test(input clk,
     shift_registers #(.WIDTH(8), .CYCLE(7))
     SHIFT_5_DATA4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data4_o),
     .data_o(data4_delay)
     );
@@ -123,7 +123,7 @@ module test(input clk,
     
     Window_buffer_5x5 #(.COLS(30), .ROWS(30)) WINDOW_BUFFER_5x5 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_buffer_3x3_o),
     .S1_i(data4_3x3_o),
     .S2_i(data3_3x3_o),
@@ -160,7 +160,7 @@ module test(input clk,
     );
     Window_buffer_3x3 #(.COLS(30), .ROWS(30)) WINDOW_BUFFER_3X3 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_o_delay),
     .S1_i(data3_delay),
     .S2_i(data2_delay),
@@ -184,7 +184,7 @@ module test(input clk,
     
     Interpolation_R_x #(.R(1)) INTERPOLATION_R_1 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .progress_done_i(window_buffer_5x5_progress_done_o),
     .done_i(window_buffer_5x5_done_o),
     .S_0_i(S6_o_3x3),
@@ -223,7 +223,7 @@ module test(input clk,
     
     Interpolation_R_x #(.R(2)) INTERPOLATION_R_2 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .progress_done_i(window_buffer_5x5_progress_done_o),
     .done_i(window_buffer_5x5_done_o),
     .S_0_i(S15_o),
@@ -264,7 +264,7 @@ module test(input clk,
     .ROWS(30)) R2_PATCH_SUM
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_buffer_3x3_o),
     .S1(data0_3x3_o),
     .S2(data1_3x3_o),
@@ -279,7 +279,7 @@ module test(input clk,
     bit4_o_ni, bit5_o_ni, bit6_o_ni, bit7_o_ni, bit8_o_ni;
     NI #(.WIDTH(13), .GAIN(25)) NI_CALC_R2 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_o_r2),
     .progress_done_i(done_inter),
     .S1_r2(S1_r2),
@@ -309,7 +309,7 @@ module test(input clk,
     wire rd_r2_done, rd_r2_progress_done, bit1_o, bit2_o, bit3_o, bit4_o, bit5_o, bit6_o, bit7_o, bit8_o;
     RD RD_CALC_R2 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_o_r2),
     .progress_done_i(done_inter),
     .S1_r2(S1_r2),
@@ -348,7 +348,7 @@ module test(input clk,
     // wire riu_done_o, riu_progress_done;
     // riu2_mapping RIU2(
     // .clk(clk),
-    // .rst(rst),
+    // .rst_n(rst_n),
     // .done_i(rd_r2_done),
     // .progress_done_i(rd_r2_progress_done),
     // .bit1_i(bit1_o),
@@ -367,7 +367,7 @@ module test(input clk,
     // wire riu_done_o_ni, riu_progress_done_ni;
     // riu2_mapping RIU2_NI(
     // .clk(clk),
-    // .rst(rst),
+    // .rst_n(rst_n),
     // .done_i(ni_r2_done),
     // .progress_done_i(ni_r2_progress_done),
     // .bit1_i(bit1_o_ni),

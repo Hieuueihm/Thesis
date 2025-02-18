@@ -1,6 +1,6 @@
 module Line_buffer_controller #(parameter DEPTH = 1024)
                                (input clk,              // Clock input
-                                input rst,              // Reset input
+                                input rst_n,              // Reset input
                                 input done_i,           // Done signal when operation is complete
                                 input [9:0] i_counter,
                                 output wr_en,           // Write enable signal
@@ -31,7 +31,7 @@ module Line_buffer_controller #(parameter DEPTH = 1024)
     
     dff #(.WIDTH(1)) SHIFT_DONE(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(done_o_mux),
     .Q(done_o)

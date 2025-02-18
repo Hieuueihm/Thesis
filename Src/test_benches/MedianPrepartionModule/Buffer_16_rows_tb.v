@@ -7,7 +7,7 @@ module Buffer_16_rows_tb ();
     
     // Inputs to the Median_preparation module
     reg clk;
-    reg rst;
+    reg rst_n;
     reg done_i;
     reg [7:0] grayscale_i;
     
@@ -29,7 +29,7 @@ module Buffer_16_rows_tb ();
     .DEPTH(DEPTH)
     ) uut (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_i),
     .data_i(grayscale_i),
     .data0_o(data0_o),
@@ -61,14 +61,14 @@ module Buffer_16_rows_tb ();
     initial begin
         // Initialize signals
         clk         = 0;
-        rst         = 0;
+        rst_n         = 0;
         done_i      = 0;
         grayscale_i = 0;
         
         // Apply reset
-        rst = 1;
+        rst_n = 1;
         #10;
-        rst = 0;
+        rst_n = 0;
         #10;
         
         for (grayscale_i = 1; grayscale_i < 290; grayscale_i = grayscale_i + 1) begin

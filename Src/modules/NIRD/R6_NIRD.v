@@ -1,7 +1,7 @@
 module R6_NIRD #(parameter COLS = 30,
                  parameter ROWS = 30)
                 (input clk,
-                 input rst,
+                 input rst_n,
                  input [7:0] m_5x5_i,
                  input done_m_5x5_i,
                  input [7:0] m_7x7_i,
@@ -18,7 +18,7 @@ module R6_NIRD #(parameter COLS = 30,
     wire done_buffer_5x5_o;
     Buffer_12_rows #(.DEPTH(COLS)) BUFFER_12_ROWS_5x5 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_m_5x5_i),
     .data_i(m_5x5_i),
     .data0_o(data0_5x5_o),
@@ -44,7 +44,7 @@ module R6_NIRD #(parameter COLS = 30,
     wire done_buffer_7x7_o;
     Buffer_12_rows #(.DEPTH(COLS)) BUFFER_8_ROWS_7x7 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_m_7x7_i),
     .data_i(m_7x7_i),
     .data0_o(data0_7x7_o),
@@ -72,7 +72,7 @@ module R6_NIRD #(parameter COLS = 30,
     shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_DELAY))
     SHIFT_DONE_5x5_O (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(done_buffer_5x5_o),
     .data_o(done_buffer_5x5_delay)
     );
@@ -80,42 +80,42 @@ module R6_NIRD #(parameter COLS = 30,
     shift_registers #(.WIDTH(8), .CYCLE(`CYCLE_DELAY))
     SHIFT_DATA0_5x5 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data0_5x5_o),
     .data_o(data0_5x5_delay)
     );
     shift_registers #(.WIDTH(8), .CYCLE(`CYCLE_DELAY))
     SHIFT_DATA1_5x5 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data1_5x5_o),
     .data_o(data1_5x5_delay)
     );
     shift_registers #(.WIDTH(8), .CYCLE(`CYCLE_DELAY))
     SHIFT_DATA2_5x5 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data2_5x5_o),
     .data_o(data2_5x5_delay)
     );
     shift_registers #(.WIDTH(8), .CYCLE(`CYCLE_DELAY))
     SHIFT_DATA3_5x5 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data3_5x5_o),
     .data_o(data3_5x5_delay)
     );
     shift_registers #(.WIDTH(8), .CYCLE(`CYCLE_DELAY))
     SHIFT_DATA4_5x5 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data4_5x5_o),
     .data_o(data4_5x5_delay)
     );
     shift_registers #(.WIDTH(8), .CYCLE(`CYCLE_DELAY))
     SHIFT_DATA5_5x5 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     
     .data_i(data5_5x5_o),
     .data_o(data5_5x5_delay)
@@ -123,14 +123,14 @@ module R6_NIRD #(parameter COLS = 30,
     shift_registers #(.WIDTH(8), .CYCLE(`CYCLE_DELAY))
     SHIFT_DATA6_5x5 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data6_5x5_o),
     .data_o(data6_5x5_delay)
     );
     shift_registers #(.WIDTH(8), .CYCLE(`CYCLE_DELAY))
     SHIFT_DATA7_5x5 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data7_5x5_o),
     
     .data_o(data7_5x5_delay)
@@ -138,14 +138,14 @@ module R6_NIRD #(parameter COLS = 30,
     shift_registers #(.WIDTH(8), .CYCLE(`CYCLE_DELAY))
     SHIFT_DATA8_5x5 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data8_5x5_o),
     .data_o(data8_5x5_delay)
     );
     shift_registers #(.WIDTH(8), .CYCLE(`CYCLE_DELAY))
     SHIFT_DATA9_5x5 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data9_5x5_o),
     .data_o(data9_5x5_delay)
     );
@@ -153,21 +153,21 @@ module R6_NIRD #(parameter COLS = 30,
     
     SHIFT_DATA10_5x5 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data10_5x5_o),
     .data_o(data10_5x5_delay)
     );
     shift_registers #(.WIDTH(8), .CYCLE(`CYCLE_DELAY))
     SHIFT_DATA11_5x5 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data11_5x5_o),
     .data_o(data11_5x5_delay)
     );
     shift_registers #(.WIDTH(8), .CYCLE(`CYCLE_DELAY))
     SHIFT_DATA12_5x5 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data12_5x5_o),
     .data_o(data12_5x5_delay)
     );
@@ -195,7 +195,7 @@ module R6_NIRD #(parameter COLS = 30,
     wire wdbf_11x11_progress_done;
     Window_buffer_11x11 #(.COLS(COLS), .ROWS(ROWS)) WINDOW_BUFFER_11x11 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_buffer_5x5_delay),
     .S1_i(data11_5x5_delay),
     .S2_i(data10_5x5_delay),
@@ -361,7 +361,7 @@ module R6_NIRD #(parameter COLS = 30,
     .ROWS(ROWS)
     ) WINDOW_BUFFER_13x13 (
     .clk             (clk),
-    .rst             (rst),
+    .rst_n             (rst_n),
     .done_i          (done_buffer_7x7_o),
     .S1_i            (data12_7x7_o),
     .S2_i            (data11_7x7_o),
@@ -555,7 +555,7 @@ module R6_NIRD #(parameter COLS = 30,
     
     Interpolation_R_x #(.R(5)) INTERPOLATION_R_5 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .progress_done_i(wdbf_13x13_progress_done),
     .done_i(wdbf_13x13_done),
     .S_0_i(S66_7x7_o),
@@ -595,7 +595,7 @@ module R6_NIRD #(parameter COLS = 30,
     wire finish_interpolation;
     Interpolation_R_x #(.R(6)) INTERPOLATION_R_6 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .progress_done_i(wdbf_13x13_progress_done),
     .done_i(wdbf_13x13_done),
     .S_0_i(S91_9x9_o),
@@ -640,7 +640,7 @@ module R6_NIRD #(parameter COLS = 30,
     .ROWS(ROWS)) R6_PATCH_SUM
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_buffer_7x7_o),
     .S1(data0_7x7_o),
     .S2(data1_7x7_o),
@@ -664,70 +664,70 @@ module R6_NIRD #(parameter COLS = 30,
     wire finish_interpolation_delay;
     dff #(.WIDTH(24)) SHIFT_S1_R4(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S1_r4),
     .Q(S1_r4_delay)
     );
     dff #(.WIDTH(24)) SHIFT_S2_R4(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S2_r4),
     .Q(S2_r4_delay)
     );
     dff #(.WIDTH(24)) SHIFT_S3_R4(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S3_r4),
     .Q(S3_r4_delay)
     );
     dff #(.WIDTH(24)) SHIFT_S4_R4(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S4_r4),
     .Q(S4_r4_delay)
     );
     dff #(.WIDTH(24)) SHIFT_S5_R4(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S5_r4),
     .Q(S5_r4_delay)
     );
     dff #(.WIDTH(24)) SHIFT_S6_R4(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S6_r4),
     .Q(S6_r4_delay)
     );
     dff #(.WIDTH(24)) SHIFT_S7_R4(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S7_r4),
     .Q(S7_r4_delay)
     );
     dff #(.WIDTH(24)) SHIFT_S8_R4(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S8_r4),
     .Q(S8_r4_delay)
     );
     dff #(.WIDTH(1)) SHIFT_DONE_R4(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(done_o_r4),
     .Q(done_o_r4_delay)
     );
     dff #(.WIDTH(1)) SHIFT_FINISH_INTERPOLATION(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(finish_interpolation),
     .Q(finish_interpolation_delay)
@@ -743,7 +743,7 @@ module R6_NIRD #(parameter COLS = 30,
     wire rd_r4_done, rd_r4_progress_done, bit1_o, bit2_o, bit3_o, bit4_o, bit5_o, bit6_o, bit7_o, bit8_o;
     RD RD_CALC_R6 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_o_r4),
     .progress_done_i(finish_interpolation),
     .S1_r2(S1_r4),
@@ -780,7 +780,7 @@ module R6_NIRD #(parameter COLS = 30,
     
     dff #(.WIDTH(1)) SHIFT_RD_DONE (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(rd_r4_done),
     .Q(rd_done_delay)
@@ -788,7 +788,7 @@ module R6_NIRD #(parameter COLS = 30,
     
     dff #(.WIDTH(1)) SHIFT_RD_PROGRESS_DONE (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(rd_r4_progress_done),
     .Q(rd_progress_done_delay)
@@ -796,21 +796,21 @@ module R6_NIRD #(parameter COLS = 30,
     
     dff #(.WIDTH(1)) SHIFT_BIT1 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(bit1_o),
     .Q(bit1_delay)
     );
     dff #(.WIDTH(1)) SHIFT_BIT2 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(bit2_o),
     .Q(bit2_delay)
     );
     dff #(.WIDTH(1)) SHIFT_BIT3 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(bit3_o),
     .Q(bit3_delay)
@@ -818,21 +818,21 @@ module R6_NIRD #(parameter COLS = 30,
     
     dff #(.WIDTH(1)) SHIFT_BIT4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(bit4_o),
     .Q(bit4_delay)
     );
     dff #(.WIDTH(1)) SHIFT_BIT5 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(bit5_o),
     .Q(bit5_delay)
     );
     dff #(.WIDTH(1)) SHIFT_BIT6 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(bit6_o),
     .Q(bit6_delay)
@@ -840,14 +840,14 @@ module R6_NIRD #(parameter COLS = 30,
     
     dff #(.WIDTH(1)) SHIFT_BIT7 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(bit7_o),
     .Q(bit7_delay)
     );
     dff #(.WIDTH(1)) SHIFT_BIT8 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(bit8_o),
     .Q(bit8_delay)
@@ -859,7 +859,7 @@ module R6_NIRD #(parameter COLS = 30,
     bit4_o_ni, bit5_o_ni, bit6_o_ni, bit7_o_ni, bit8_o_ni;
     NI #(.WIDTH(16), .GAIN(169)) NI_CALC_R6 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_o_r4_delay),
     .progress_done_i(finish_interpolation_delay),
     .S1_r2(S1_r4_delay),
@@ -887,7 +887,7 @@ module R6_NIRD #(parameter COLS = 30,
     
     riu2_mapping RIU2_RD(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(rd_done_delay),
     .progress_done_i(rd_progress_done_delay),
     .bit1_i(bit1_delay),
@@ -905,7 +905,7 @@ module R6_NIRD #(parameter COLS = 30,
     
     riu2_mapping RIU2_NI(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(ni_r4_done),
     .progress_done_i(ni_r4_progress_done),
     .bit1_i(bit1_o_ni),

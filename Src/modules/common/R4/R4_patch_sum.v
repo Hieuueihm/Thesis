@@ -1,7 +1,7 @@
 module R4_patch_sum #(parameter COLS = 7,
                       parameter ROWS = 7)
                      (input clk,
-                      input rst,
+                      input rst_n,
                       input done_i,
                       input [7:0] S1,
                       input [7:0] S2,
@@ -27,7 +27,7 @@ module R4_patch_sum #(parameter COLS = 7,
     
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_i),
     .i_counter(i_counter),
     .i_start_gt_2(i_start_gt_2),
@@ -45,7 +45,7 @@ module R4_patch_sum #(parameter COLS = 7,
     R4_sum #(.COLS(COLS),.ROWS(ROWS)) R4_SUM
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .cum_en(cum_en),
     .count_en(count_en),
     .sum_en(sum_en),

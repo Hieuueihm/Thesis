@@ -1,5 +1,5 @@
 module Median_filter_3x3_calc (input clk,
-                               input rst,
+                               input rst_n,
                                input done_i,
                                input [7:0] S1,
                                input [7:0] S2,
@@ -19,7 +19,7 @@ module Median_filter_3x3_calc (input clk,
     reg p1_done_i;
     
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             p1_S1     <= 0;
             p1_S2     <= 0;
             p1_S3     <= 0;
@@ -87,7 +87,7 @@ module Median_filter_3x3_calc (input clk,
     );
     
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             p2_max1   <= 0;
             p2_med1   <= 0;
             p2_min1   <= 0;
@@ -148,7 +148,7 @@ module Median_filter_3x3_calc (input clk,
     
     // Stage 3 pipeline
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             p3_min5   <= 0;
             p3_med5   <= 0;
             p3_max5   <= 0;
@@ -174,7 +174,7 @@ module Median_filter_3x3_calc (input clk,
     reg [7:0] p4_median;
     reg        p4_done_i;
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             p4_median <= 0;
             p4_done_i <= 0;
             end else begin

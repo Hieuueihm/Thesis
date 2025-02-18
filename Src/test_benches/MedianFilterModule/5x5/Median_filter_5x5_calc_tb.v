@@ -1,4 +1,4 @@
-module Median_filter_5x5_calc_tb; reg clk; reg rst; reg done_i; reg [7:0] matrix[0:51]; reg [7:0] S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15; reg [7:0] S16, S17, S18, S19, S20, S21, S22, S23, S24, S25; wire [7:0] median_o; wire done_o; Median_filter_5x5_calc uut (.clk(clk), .rst(rst), .done_i(done_i), .S1(S1), .S2(S2), .S3(S3), .S4(S4), .S5(S5), .S6(S6), .S7(S7), .S8(S8), .S9(S9), .S10(S10), .S11(S11), .S12(S12), .S13(S13), .S14(S14), .S15(S15), .S16(S16), .S17(S17), .S18(S18), .S19(S19), .S20(S20), .S21(S21), .S22(S22), .S23(S23), .S24(S24), .S25(S25), .median_o(median_o), .done_o(done_o));
+module Median_filter_5x5_calc_tb; reg clk; reg rst_n; reg done_i; reg [7:0] matrix[0:51]; reg [7:0] S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15; reg [7:0] S16, S17, S18, S19, S20, S21, S22, S23, S24, S25; wire [7:0] median_o; wire done_o; Median_filter_5x5_calc uut (.clk(clk), .rst_n(rst_n), .done_i(done_i), .S1(S1), .S2(S2), .S3(S3), .S4(S4), .S5(S5), .S6(S6), .S7(S7), .S8(S8), .S9(S9), .S10(S10), .S11(S11), .S12(S12), .S13(S13), .S14(S14), .S15(S15), .S16(S16), .S17(S17), .S18(S18), .S19(S19), .S20(S20), .S21(S21), .S22(S22), .S23(S23), .S24(S24), .S25(S25), .median_o(median_o), .done_o(done_o));
     
     // Clock generation
     always begin
@@ -30,14 +30,14 @@ module Median_filter_5x5_calc_tb; reg clk; reg rst; reg done_i; reg [7:0] matrix
     initial begin
         // Initialize Inputs
         clk    = 0;
-        rst    = 0;
+        rst_n    = 0;
         done_i = 0;
         
         // Read the matrix from file
         read_matrix;
-        rst = 1;
+        rst_n = 1;
         #10;
-        rst    = 0;
+        rst_n    = 0;
         done_i = 1;
         for (i = 0; i < 25; i = i + 1) begin
             case (i)

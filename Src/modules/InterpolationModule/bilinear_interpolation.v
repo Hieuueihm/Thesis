@@ -1,5 +1,5 @@
 module bilinear_interpolation (input clk,
-                               input rst,
+                               input rst_n,
                                input [2:0] r,
                                input [1:0] angle,
                                input [7:0] A,
@@ -83,7 +83,7 @@ module bilinear_interpolation (input clk,
     
     // Main interpolation logic
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             mult_result1 <= 32'h0;
             mult_result2 <= 32'h0;
             mult_result3 <= 32'h0;

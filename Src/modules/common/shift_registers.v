@@ -1,15 +1,15 @@
 module shift_registers #(parameter WIDTH = 8,
                          parameter CYCLE = 5)
                         (input clk,
-                         input rst,
+                         input rst_n,
                          input [WIDTH - 1 : 0] data_i,
                          output reg [WIDTH - 1: 0] data_o);
     
     reg [WIDTH-1:0] shift_reg [CYCLE - 2:0];
     
     integer i;
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk or posedge rst_n) begin
+        if (!rst_n) begin
             for (i = 0; i < CYCLE - 1; i = i + 1) begin
                 shift_reg[i] <= 0;
             end

@@ -1,7 +1,7 @@
 module Data_modulate_5x5 #(parameter ROWS = 7,
                            parameter COLS = 7)
                           (input clk,
-                           input rst,
+                           input rst_n,
                            input [7:0] d0_i,
                            input [7:0] d1_i,
                            input [7:0] d2_i,
@@ -39,7 +39,7 @@ module Data_modulate_5x5 #(parameter ROWS = 7,
     wire o_en;
     Data_modulate_5x5_controller CONTROLLER_5X5
     (
-    .rst(rst),
+    .rst_n(rst_n),
     .clk(clk),
     .done_i(done_i),
     .i_counter(i_counter),
@@ -51,7 +51,7 @@ module Data_modulate_5x5 #(parameter ROWS = 7,
     Data_modulate_5x5_datapath #(.COLS(COLS), .ROWS(ROWS)) DATAPATH_5X5
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .start(start),
     .o_en(o_en),
     .d0_i(d0_i),

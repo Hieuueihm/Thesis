@@ -1,7 +1,7 @@
 module test_r4 #(parameter COLS = 30,
                  parameter ROWS = 30)
                 (input clk,
-                 input rst,
+                 input rst_n,
                  input [7:0] grayscale_i,
                  input done_i);
     
@@ -16,7 +16,7 @@ module test_r4 #(parameter COLS = 30,
     MEDIAN_PROCESSING
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(grayscale_i),
     .done_i(done_i),
     .data_o(data_o),
@@ -35,7 +35,7 @@ module test_r4 #(parameter COLS = 30,
     wire done_buffer_3x3_o;
     Buffer_8_rows #(.DEPTH(COLS)) BUFFER_8_ROWS_3X3 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_3x3_o),
     .data_i(m_3x3_o),
     .data0_o(data0_3x3_o),
@@ -54,7 +54,7 @@ module test_r4 #(parameter COLS = 30,
     wire done_buffer_5x5_o;
     Buffer_8_rows #(.DEPTH(COLS)) BUFFER_8_ROWS_5x5 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_5x5_o),
     .data_i(m_5x5_o),
     .data0_o(data0_5x5_o),
@@ -77,7 +77,7 @@ module test_r4 #(parameter COLS = 30,
     shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_DELAY))
     SHIFT_DONE_3x3_O (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(done_buffer_3x3_o),
     .data_o(done_buffer_3x3_delay)
     );
@@ -85,63 +85,63 @@ module test_r4 #(parameter COLS = 30,
     shift_registers #(.WIDTH(8), .CYCLE(`CYCLE_DELAY))
     SHIFT_DATA0_3x3 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data0_3x3_o),
     .data_o(data0_3x3_delay)
     );
     shift_registers #(.WIDTH(8), .CYCLE(`CYCLE_DELAY))
     SHIFT_DATA1_3x3 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data1_3x3_o),
     .data_o(data1_3x3_delay)
     );
     shift_registers #(.WIDTH(8), .CYCLE(`CYCLE_DELAY))
     SHIFT_DATA2_3x3 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data2_3x3_o),
     .data_o(data2_3x3_delay)
     );
     shift_registers #(.WIDTH(8), .CYCLE(`CYCLE_DELAY))
     SHIFT_DATA3_3x3 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data3_3x3_o),
     .data_o(data3_3x3_delay)
     );
     shift_registers #(.WIDTH(8), .CYCLE(`CYCLE_DELAY))
     SHIFT_DATA4_3x3 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data4_3x3_o),
     .data_o(data4_3x3_delay)
     );
     shift_registers #(.WIDTH(8), .CYCLE(`CYCLE_DELAY))
     SHIFT_DATA5_3x3 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data5_3x3_o),
     .data_o(data5_3x3_delay)
     );
     shift_registers #(.WIDTH(8), .CYCLE(`CYCLE_DELAY))
     SHIFT_DATA6_3x3 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data6_3x3_o),
     .data_o(data6_3x3_delay)
     );
     shift_registers #(.WIDTH(8), .CYCLE(`CYCLE_DELAY))
     SHIFT_DATA7_3x3 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data7_3x3_o),
     .data_o(data7_3x3_delay)
     );
     shift_registers #(.WIDTH(8), .CYCLE(`CYCLE_DELAY))
     SHIFT_DATA8_3x3 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data8_3x3_o),
     .data_o(data8_3x3_delay)
     );
@@ -159,7 +159,7 @@ module test_r4 #(parameter COLS = 30,
     wire wdbf_7x7_progress_done;
     Window_buffer_7x7 #(.COLS(COLS), .ROWS(ROWS)) WINDOW_BUFFER_7X7 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_buffer_3x3_delay),
     .S1_i(data7_3x3_delay),
     .S2_i(data6_3x3_delay),
@@ -239,7 +239,7 @@ module test_r4 #(parameter COLS = 30,
     .ROWS(ROWS)
     ) WINDOW_BUFFER_9X9 (
     .clk             (clk),
-    .rst             (rst),
+    .rst_n             (rst_n),
     .done_i          (done_buffer_5x5_o),
     .S1_i            (data8_5x5_o),
     .S2_i            (data7_5x5_o),
@@ -340,7 +340,7 @@ module test_r4 #(parameter COLS = 30,
     
     Interpolation_R_x #(.R(3)) INTERPOLATION_R_3 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .progress_done_i(wdbf_9x9_progress_done),
     .done_i(wdbf_9x9_done),
     .S_0_i(S28_7x7_o),
@@ -380,7 +380,7 @@ module test_r4 #(parameter COLS = 30,
     wire finish_interpolation;
     Interpolation_R_x #(.R(4)) INTERPOLATION_R_4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .progress_done_i(wdbf_9x9_progress_done),
     .done_i(wdbf_9x9_done),
     .S_0_i(S45_9x9_o),
@@ -420,14 +420,14 @@ module test_r4 #(parameter COLS = 30,
     wire [23:0] S1_r4_delay, S2_r4_delay, S3_r4_delay, S4_r4_delay, S5_r4_delay, S6_r4_delay, S7_r4_delay, S8_r4_delay;
     dff #(.WIDTH(1)) SHIFT_FINISH_REGISTER (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(finish_interpolation),
     .Q(finish_inter_r4_delay)
     );
     dff #(.WIDTH(1)) SHIFT_DONE_R4_O (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(done_o_r4),
     .Q(done_inter_r4_delay)
@@ -435,7 +435,7 @@ module test_r4 #(parameter COLS = 30,
     
     dff #(.WIDTH(24)) SHIFT_S1_R4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S1_r4),
     .Q(S1_r4_delay)
@@ -443,7 +443,7 @@ module test_r4 #(parameter COLS = 30,
     
     dff #(.WIDTH(24)) SHIFT_S2_R4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S2_r4),
     .Q(S2_r4_delay)
@@ -451,14 +451,14 @@ module test_r4 #(parameter COLS = 30,
     
     dff #(.WIDTH(24)) SHIFT_S3_R4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S3_r4),
     .Q(S3_r4_delay)
     );
     dff #(.WIDTH(24)) SHIFT_S4_R4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S4_r4),
     .Q(S4_r4_delay)
@@ -466,21 +466,21 @@ module test_r4 #(parameter COLS = 30,
     
     dff #(.WIDTH(24)) SHIFT_S5_R4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S5_r4),
     .Q(S5_r4_delay)
     );
     dff #(.WIDTH(24)) SHIFT_S6_R4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S6_r4),
     .Q(S6_r4_delay)
     );
     dff #(.WIDTH(24)) SHIFT_S7_R4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S7_r4),
     .Q(S7_r4_delay)
@@ -488,7 +488,7 @@ module test_r4 #(parameter COLS = 30,
     
     dff #(.WIDTH(24)) SHIFT_S8_R4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S8_r4),
     .Q(S8_r4_delay)
@@ -512,7 +512,7 @@ module test_r4 #(parameter COLS = 30,
     .ROWS(ROWS)) R4_PATCH_SUM
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_buffer_5x5_o),
     .S1(data0_5x5_o),
     .S2(data1_5x5_o),
@@ -531,7 +531,7 @@ module test_r4 #(parameter COLS = 30,
     wire rd_r4_done, rd_r4_progress_done, bit1_o, bit2_o, bit3_o, bit4_o, bit5_o, bit6_o, bit7_o, bit8_o;
     RD RD_CALC_R4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_o_r4),
     .progress_done_i(finish_interpolation),
     .S1_r2(S1_r4),
@@ -567,14 +567,14 @@ module test_r4 #(parameter COLS = 30,
     
     dff #(.WIDTH(1)) SHIFT_FINISH_REGISTER (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(finish_interpolation),
     .Q(finish_inter_r4_delay)
     );
     dff #(.WIDTH(1)) SHIFT_DONE_R4_O (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(done_o_r4),
     .Q(done_inter_r4_delay)
@@ -582,7 +582,7 @@ module test_r4 #(parameter COLS = 30,
     
     dff #(.WIDTH(24)) SHIFT_S1_R4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S1_r4),
     .Q(S1_r4_delay)
@@ -590,7 +590,7 @@ module test_r4 #(parameter COLS = 30,
     
     dff #(.WIDTH(24)) SHIFT_S2_R4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S2_r4),
     .Q(S2_r4_delay)
@@ -598,14 +598,14 @@ module test_r4 #(parameter COLS = 30,
     
     dff #(.WIDTH(24)) SHIFT_S3_R4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S3_r4),
     .Q(S3_r4_delay)
     );
     dff #(.WIDTH(24)) SHIFT_S4_R4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S4_r4),
     .Q(S4_r4_delay)
@@ -613,21 +613,21 @@ module test_r4 #(parameter COLS = 30,
     
     dff #(.WIDTH(24)) SHIFT_S5_R4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S5_r4),
     .Q(S5_r4_delay)
     );
     dff #(.WIDTH(24)) SHIFT_S6_R4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S6_r4),
     .Q(S6_r4_delay)
     );
     dff #(.WIDTH(24)) SHIFT_S7_R4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S7_r4),
     .Q(S7_r4_delay)
@@ -635,7 +635,7 @@ module test_r4 #(parameter COLS = 30,
     
     dff #(.WIDTH(24)) SHIFT_S8_R4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S8_r4),
     .Q(S8_r4_delay)
@@ -652,7 +652,7 @@ module test_r4 #(parameter COLS = 30,
     bit4_o_ni, bit5_o_ni, bit6_o_ni, bit7_o_ni, bit8_o_ni;
     NI #(.WIDTH(15), .GAIN(81)) NI_CALC_R4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_inter_r4_delay),
     .progress_done_i(finish_inter_r4_delay),
     .S1_r2(S1_r4_delay),
@@ -683,7 +683,7 @@ module test_r4 #(parameter COLS = 30,
     wire riu_done_o, riu_progress_done;
     riu2_mapping RIU2(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(rd_r2_done),
     .progress_done_i(rd_r2_progress_done),
     .bit1_i(bit1_o),
@@ -702,7 +702,7 @@ module test_r4 #(parameter COLS = 30,
     wire riu_done_o_ni, riu_progress_done_ni;
     riu2_mapping RIU2_NI(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(ni_r2_done),
     .progress_done_i(ni_r2_progress_done),
     .bit1_i(bit1_o_ni),

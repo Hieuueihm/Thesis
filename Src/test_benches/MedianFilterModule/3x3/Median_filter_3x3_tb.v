@@ -4,14 +4,14 @@ module Median_filter_3x3_tb ();
 
   // Testbench signals
   reg clk;
-  reg rst;
+  reg rst_n;
   reg [7:0] S1, S2, S3, S4, S5, S6, S7, S8, S9;
   wire [7:0] median_o;  // Output from Median filter
 
   // Instantiate the Median_filter_3x3 module
   Median_filter_3x3 uut (
       .clk(clk),
-      .rst(rst),
+      .rst_n(rst_n),
       .S1(S1),
       .S2(S2),
       .S3(S3),
@@ -35,7 +35,7 @@ integer start_time, end_time;
   initial begin
     // Initialize signals
     clk = 0;
-    rst = 0;
+    rst_n = 0;
     S1  = 8'd0;
     S2  = 8'd0;
     S3  = 8'd0;
@@ -47,8 +47,8 @@ integer start_time, end_time;
     S9  = 8'd0;
 
     // Apply reset
-    rst = 1;
-    #10 rst = 0;  // Deassert reset after 10 ns
+    rst_n = 1;
+    #10 rst_n = 0;  // Deassert reset after 10 ns
 
     start_time = $time;  // Capture the start time
 

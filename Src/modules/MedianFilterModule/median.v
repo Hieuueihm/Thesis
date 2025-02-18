@@ -1,6 +1,6 @@
 module median (
     input clk,
-    input rst,
+    input rst_n,
     input [7:0] red_i,
     input [7:0] green_i,
     input [7:0] blue_i,
@@ -23,7 +23,7 @@ module median (
 
   RGB2Gray RGB2Gray_instance (
       .clk(clk),
-      .rst(rst),
+      .rst_n(rst_n),
       .red_i(red_i),
       .green_i(green_i),
       .blue_i(blue_i),
@@ -35,7 +35,7 @@ module median (
       .DEPTH(480)
   ) MEDIAN_PREPARATION (
       .clk(clk),
-      .rst(rst),
+      .rst_n(rst_n),
       .done_i(RGB2Gray_done_o),
       .data_i(RGB2Gray_grayscale_o),
       .data0_o(d0_o),
@@ -56,7 +56,7 @@ module median (
       .COLS(480)
   ) MEDIAN_FILTER_5X5 (
       .clk(clk),
-      .rst(rst),
+      .rst_n(rst_n),
       .done_i(prepare_done_o),
       .d0_i(d0_o),
       .d1_i(d1_o),
@@ -72,7 +72,7 @@ module median (
   );
   Gray2RGB Gray2RGB (
       .clk(clk),
-      .rst(rst),
+      .rst_n(rst_n),
       .done_i(grayscale_med_done),
       .grayscale_i(grayscale_med_o),
       .red_o(red_o),

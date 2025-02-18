@@ -1,5 +1,5 @@
 module RD(input clk,
-          input rst,
+          input rst_n,
           input done_i,
           input progress_done_i,
           input [23:0] S1_r2,
@@ -30,7 +30,7 @@ module RD(input clk,
           bit8_o);
     
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             progress_done_o <= 1'b0;
             end else begin
             progress_done_o <= progress_done_i;
@@ -39,7 +39,7 @@ module RD(input clk,
     end
     RD_calc RD1(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_i),
     .S_r2(S1_r2),
     .S_r1(S1_r1),
@@ -48,7 +48,7 @@ module RD(input clk,
     );
     RD_calc RD2(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(),
     .S_r2(S2_r2),
     .S_r1(S2_r1),
@@ -57,7 +57,7 @@ module RD(input clk,
     );
     RD_calc RD3(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(),
     .S_r2(S3_r2),
     .S_r1(S3_r1),
@@ -66,7 +66,7 @@ module RD(input clk,
     );
     RD_calc RD4(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(),
     .S_r2(S4_r2),
     .S_r1(S4_r1),
@@ -75,7 +75,7 @@ module RD(input clk,
     );
     RD_calc RD5(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(),
     .S_r2(S5_r2),
     .S_r1(S5_r1),
@@ -84,7 +84,7 @@ module RD(input clk,
     );
     RD_calc RD6(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(),
     .S_r2(S6_r2),
     .S_r1(S6_r1),
@@ -93,7 +93,7 @@ module RD(input clk,
     );
     RD_calc RD7(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(),
     .S_r2(S7_r2),
     .S_r1(S7_r1),
@@ -102,7 +102,7 @@ module RD(input clk,
     );
     RD_calc RD8(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(),
     .S_r2(S8_r2),
     .S_r1(S8_r1),

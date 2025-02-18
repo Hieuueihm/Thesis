@@ -1,7 +1,7 @@
 module Data_modulate_7x7 #(parameter ROWS = 7,
                            parameter COLS = 7)
                           (input clk,
-                           input rst,
+                           input rst_n,
                            input [7:0] d0_i,
                            input [7:0] d1_i,
                            input [7:0] d2_i,
@@ -66,7 +66,7 @@ module Data_modulate_7x7 #(parameter ROWS = 7,
     wire o_en;
     Data_modulate_7x7_controller CONTROLLER_7X7 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_i),
     .i_counter(i_counter),
     .done_reg(done_reg),
@@ -83,7 +83,7 @@ module Data_modulate_7x7 #(parameter ROWS = 7,
     (
     
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .d0_i(d0_i),
     .d1_i(d1_i),
     .d2_i(d2_i),

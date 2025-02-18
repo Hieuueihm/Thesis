@@ -1,5 +1,5 @@
 module Joint_histogram_controller(input clk,
-                                  input rst,
+                                  input rst_n,
                                   input done_i,
                                   input progress_done_i,
                                   input done_read,
@@ -16,7 +16,7 @@ module Joint_histogram_controller(input clk,
     reg [2:0] current_state, next_state;
     
     always @(posedge clk) begin
-        if (rst)
+        if (!rst_n)
             current_state <= IDLE;
         else
             current_state <= next_state;

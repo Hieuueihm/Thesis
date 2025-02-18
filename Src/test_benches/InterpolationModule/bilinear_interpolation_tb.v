@@ -4,7 +4,7 @@ module bilinear_interpolation_tb;
 
   // Testbench signals
   reg clk;
-  reg rst;
+  reg rst_n;
   reg [1:0] r;
   reg [1:0] angle;
   reg [7:0] A, B, C, D;
@@ -14,7 +14,7 @@ module bilinear_interpolation_tb;
   // Instantiate the DUT (Device Under Test)
   bilinear_interpolation uut (
       .clk(clk),
-      .rst(rst),
+      .rst_n(rst_n),
       .angle(angle),
       .r(r),
       .A(A),
@@ -34,7 +34,7 @@ module bilinear_interpolation_tb;
   // Testbench logic
   initial begin
     // Initialize inputs
-    rst = 1;
+    rst_n = 1;
     A = 8'd0;
     B = 8'd0;
     C = 8'd0;
@@ -44,7 +44,7 @@ module bilinear_interpolation_tb;
 
 
     // Apply reset
-    #(`clk_period) rst = 0;
+    #(`clk_period) rst_n = 0;
     // Test case 1: r = 0
     A = 8'd94;
     B = 8'd18;

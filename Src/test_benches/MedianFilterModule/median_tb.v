@@ -24,7 +24,7 @@
 
 module median_tb ();
   // Testbench signals
-  reg clk, rst, done_i;
+  reg clk, rst_n, done_i;
   reg [7:0] red_i, green_i, blue_i;
   wire [7:0] green_o, blue_o, red_o;
   wire done_o;
@@ -32,7 +32,7 @@ module median_tb ();
   // Instantiate the DUT (Device Under Test) and pass the parameter
   median uut (
       .clk(clk),
-      .rst(rst),
+      .rst_n(rst_n),
       .red_i(red_i),
       .green_i(green_i),
       .blue_i(blue_i),
@@ -57,7 +57,7 @@ module median_tb ();
   // ---------- COPY to result 
 
   always @(posedge clk) begin
-    if (rst) begin
+    if (!rst_n) begin
       j <= 8'd0;
     end else begin
       if (done_o) begin
@@ -153,7 +153,7 @@ module median_tb ();
 
     // writeBMP;
 
-    rst    = 1'b1;
+    rst_n    = 1'b1;
     done_i = 1'b0;
 
     red_i   = 8'b0;
@@ -164,7 +164,7 @@ module median_tb ();
     $display("%s", "read BMP done!");
 
     #(`clk_period);
-    rst = 1'b0;
+    rst_n = 1'b0;
     #(`clk_period);
 
 

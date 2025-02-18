@@ -6,7 +6,7 @@ module Data_modulate_5x5_tb;
 
   // Inputs
   reg clk;
-  reg rst;
+  reg rst_n;
   reg [7:0] d0_i, d1_i, d2_i, d3_i, d4_i, d5_i, d6_i, d7_i, d8_i;
   reg done_i;
 
@@ -22,7 +22,7 @@ module Data_modulate_5x5_tb;
       .COLS(COLS)
   ) uut (
       .clk(clk),
-      .rst(rst),
+      .rst_n(rst_n),
       .d0_i(d0_i),
       .d1_i(d1_i),
       .d2_i(d2_i),
@@ -70,7 +70,7 @@ module Data_modulate_5x5_tb;
   initial begin
     // Initialize inputs
     clk = 0;
-    rst = 0;
+    rst_n = 0;
     done_i = 0;
 
     // Stimulus values for d0_i to d8_i (example)
@@ -85,8 +85,8 @@ module Data_modulate_5x5_tb;
     d8_i = 8'd90;
 
     // Apply reset
-    rst = 1;
-    #10 rst = 0;
+    rst_n = 1;
+    #10 rst_n = 0;
 
     // Test case 1: Provide data for one row and trigger done_i
     done_i = 1;

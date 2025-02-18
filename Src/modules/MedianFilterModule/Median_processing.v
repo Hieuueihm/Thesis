@@ -1,7 +1,7 @@
 module Median_processing #(parameter COLS = 30,
                            parameter ROWS = 30)
                           (input clk,
-                           input rst,
+                           input rst_n,
                            input [7:0] data_i,
                            input done_i,
                            output [7:0] data_o,
@@ -20,7 +20,7 @@ module Median_processing #(parameter COLS = 30,
     .DEPTH(COLS)
     ) MEDIAN_PREPARATION (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_i),
     .data_i(data_i),
     .data0_o(d0_o),
@@ -51,7 +51,7 @@ module Median_processing #(parameter COLS = 30,
     .COLS(COLS)
     ) MEDIAN_FILTER_3x3(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(prepare_done_o),
     .d0_i(d2_o),
     .d1_i(d3_o),
@@ -65,7 +65,7 @@ module Median_processing #(parameter COLS = 30,
     .COLS(COLS)
     ) MEDIAN_FILTER_5x5(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(prepare_done_o),
     .d0_i(d1_o),
     .d1_i(d2_o),
@@ -82,7 +82,7 @@ module Median_processing #(parameter COLS = 30,
     .COLS(COLS)
     ) MEDIAN_FILTER_7x7(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(prepare_done_o),
     .d0_i(d0_o),
     .d1_i(d1_o),
@@ -112,7 +112,7 @@ module Median_processing #(parameter COLS = 30,
     // reg done_5x5_prev;
     // reg done_7x7_prev;
     // always @(posedge clk ) begin
-    //     if(rst) begin
+    //     if (!rst_n) begin
     //         done_3x3_prev <= 0;
     //         done_5x5_prev <= 0;
     //         done_7x7_prev <= 0;

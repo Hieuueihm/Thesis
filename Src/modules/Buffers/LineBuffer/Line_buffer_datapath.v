@@ -2,7 +2,7 @@
 
 module Line_buffer_datapath #(parameter DEPTH = 1024)
                              (input clk,
-                              input rst,
+                              input rst_n,
                               input wr_en,
                               input rd_en,
                               input [7:0] data_i,
@@ -16,7 +16,7 @@ module Line_buffer_datapath #(parameter DEPTH = 1024)
     // assign data_o = (i_counter == DEPTH) ? mem[internal_rd_pointer] : 8'bzz;
     
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             data_o <= 8'bz;
             end else if (i_counter > DEPTH - 2) begin
             data_o <= mem[internal_rd_pointer];
@@ -26,7 +26,7 @@ module Line_buffer_datapath #(parameter DEPTH = 1024)
     plus_1 #(.WIDTH(10))
     COUNTER_I
     (
-    .rst(rst),
+    .rst_n(rst_n),
     .clk(clk),
     .en(wr_en),
     .D(i_counter),
@@ -38,7 +38,7 @@ module Line_buffer_datapath #(parameter DEPTH = 1024)
     
     COUNTER_WR_POINTER
     (
-    .rst(rst),
+    .rst_n(rst_n),
     .clk(clk),
     .en(wr_en),
     .D(internal_wr_pointer),
@@ -51,7 +51,7 @@ module Line_buffer_datapath #(parameter DEPTH = 1024)
     
     // Write process
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             end else if (wr_en) begin
             mem[internal_wr_pointer] <= data_i;
         end
@@ -61,7 +61,7 @@ module Line_buffer_datapath #(parameter DEPTH = 1024)
     plus_1 #(.WIDTH(10))
     COUNTER_RD_POINTER
     (
-    .rst(rst),
+    .rst_n(rst_n),
     .clk(clk),
     .en(rd_en),
     .D(internal_rd_pointer),

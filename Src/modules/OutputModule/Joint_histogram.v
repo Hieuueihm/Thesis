@@ -1,5 +1,5 @@
 module Joint_histogram(input clk,
-                       input rst,
+                       input rst_n,
                        input ci_i,
                        input [3:0] ni_i,
                        input [3:0] rd_i,
@@ -13,7 +13,7 @@ module Joint_histogram(input clk,
     wire count_en, read_en;
     Joint_histogram_controller JOINT_CONTROLLER(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_i),
     .progress_done_i(progress_done_i),
     .done_read(done_read),
@@ -25,7 +25,7 @@ module Joint_histogram(input clk,
     
     Joint_histogram_datapath JOINT_DATAPATH(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .ci_i(ci_i),
     .done_i(done_i),
     .ni_i(ni_i),
@@ -39,7 +39,7 @@ module Joint_histogram(input clk,
     
     // integer file1;
     // always @(posedge clk) begin
-    //     if (rst) begin
+    //     if (!rst_n) begin
     //         file1 = $fopen("D:\\Thesis\\CodeTest\\python\\joint_r4.txt", "w");
     //         end else if (done_i) begin
     //         if (file1) begin

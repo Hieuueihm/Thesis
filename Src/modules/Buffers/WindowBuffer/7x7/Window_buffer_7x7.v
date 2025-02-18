@@ -1,7 +1,7 @@
 module Window_buffer_7x7 #(parameter COLS = 7,
                            parameter ROWS = 7)
                           (input clk,
-                           input rst,
+                           input rst_n,
                            input done_i,
                            input[7:0] S1_i,
                            S2_i,
@@ -65,7 +65,7 @@ module Window_buffer_7x7 #(parameter COLS = 7,
     wire count_en;
     Window_buffer_7x7_controller WINDOW_BUFFER_7X7_CONTROLLER(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_i),
     .i_row_eq_max(i_row_eq_max),
     .i_col_eq_max(i_col_eq_max),
@@ -79,7 +79,7 @@ module Window_buffer_7x7 #(parameter COLS = 7,
     WINDOW_BUFFER_7X7_DATAPATH
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .count_en(count_en),
     .S1_i(S1_i),
     .S2_i(S2_i),

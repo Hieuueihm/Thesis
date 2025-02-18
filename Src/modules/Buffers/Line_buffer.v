@@ -1,6 +1,6 @@
 module Line_buffer #(parameter DEPTH = 17)
                     (input clk,
-                     input rst,
+                     input rst_n,
                      input done_i,
                      input [7:0] data_i,
                      output [7:0] data_o,
@@ -16,7 +16,7 @@ module Line_buffer #(parameter DEPTH = 17)
     .DEPTH(DEPTH)
     ) controller_inst (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_i),
     .done_o(done_o),
     .wr_en(wr_en),
@@ -29,7 +29,7 @@ module Line_buffer #(parameter DEPTH = 17)
     .DEPTH(DEPTH)
     ) datapath_inst (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data_i),
     .wr_en(wr_en),
     .rd_en(rd_en),

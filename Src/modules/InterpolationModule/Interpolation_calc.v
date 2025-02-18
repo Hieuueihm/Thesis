@@ -1,7 +1,7 @@
 module Interpolation_calc #(parameter R = 2,
                             RADIUS = 45)
                            (input clk,
-                            input rst,
+                            input rst_n,
                             input [7:0] A,
                             B,
                             C,
@@ -16,7 +16,7 @@ module Interpolation_calc #(parameter R = 2,
         
     end
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             case ({RADIUS, R})
                 {45, 2}: begin
                     r1 <= 24'h0003E1D;
@@ -217,7 +217,7 @@ module Interpolation_calc #(parameter R = 2,
     reg [23:0] mult_result1, mult_result2, mult_result3, mult_result4;
     reg [23:0] add_result1, add_result2;
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             mult_result1 <= 24'h0;
             mult_result2 <= 24'h0;
             mult_result3 <= 24'h0;

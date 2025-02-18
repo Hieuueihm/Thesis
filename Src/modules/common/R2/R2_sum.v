@@ -1,7 +1,7 @@
 module R2_sum #(parameter COLS = 7,
                 parameter ROWS = 7)
                (input clk,
-                input rst,
+                input rst_n,
                 input cum_en,
                 input sum_en,
                 input count_en,
@@ -30,7 +30,7 @@ module R2_sum #(parameter COLS = 7,
     plus_1 #(.WIDTH(2))
     I_START_PLUS
     (
-    .rst(rst),
+    .rst_n(rst_n),
     .clk(clk),
     .en(start_en),
     .D(i_start),
@@ -44,7 +44,7 @@ module R2_sum #(parameter COLS = 7,
     plus_1 #(.WIDTH(10))
     COUNTER_PLUS
     (
-    .rst(rst),
+    .rst_n(rst_n),
     .clk(clk),
     .en(count_en),
     .D(i_counter),
@@ -54,7 +54,7 @@ module R2_sum #(parameter COLS = 7,
     plus_1 #(.WIDTH(10))
     ROW_PLUS
     (
-    .rst(rst),
+    .rst_n(rst_n),
     .clk(clk),
     .en(i_counter_eq_max),
     .D(i_row),
@@ -72,7 +72,7 @@ module R2_sum #(parameter COLS = 7,
     
     reg [7:0] st1_S1, st1_S2, st1_S3, st1_S4, st1_S5;
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             st1_S1 <= 0;
             st1_S2 <= 0;
             st1_S3 <= 0;
@@ -90,7 +90,7 @@ module R2_sum #(parameter COLS = 7,
     wire [8:0] sum12, sum34;
     reg [7:0] st2_S5;
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             st2_S5 <= 0;
             end else  begin
             st2_S5 <= st1_S5;
@@ -99,7 +99,7 @@ module R2_sum #(parameter COLS = 7,
     end
     sum #(.WIDTH(8)) SUM12 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .a(st1_S1),
     .b(st1_S2),
@@ -108,7 +108,7 @@ module R2_sum #(parameter COLS = 7,
     
     sum #(.WIDTH(8)) SUM34 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .a(st1_S3),
     .b(st1_S4),
@@ -119,7 +119,7 @@ module R2_sum #(parameter COLS = 7,
     
     sum #(.WIDTH(9)) SUM1234 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .a(sum12),
     .b(sum34),
@@ -127,7 +127,7 @@ module R2_sum #(parameter COLS = 7,
     );
     reg [7:0] st3_S5;
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             st3_S5 <= 0;
             end else  begin
             st3_S5 <= st2_S5;
@@ -138,7 +138,7 @@ module R2_sum #(parameter COLS = 7,
     wire [10:0] sum1;
     sum #(.WIDTH(10)) SUM12345 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .a(sum1234),
     .en(1'b1),
     .b({2'b00, st3_S5}),
@@ -148,7 +148,7 @@ module R2_sum #(parameter COLS = 7,
     reg [10:0] sum2, st1_sum2, st2_sum2, st3_sum2, st4_sum2;
     
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             sum2     <= 0;
             st1_sum2 <= 0;
             st2_sum2 <= 0;
@@ -174,7 +174,7 @@ module R2_sum #(parameter COLS = 7,
     assign mux_1 = (cum_en == 0) ? 13'b0 : ((~sum2_extended) + 1);
     sum_cumulative #(.WIDTH1(13), .WIDTH2(13)) SUMO (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(sum_en),
     .ld(ld_en),
     .data_in1({2'b00, sum1}),
@@ -185,7 +185,7 @@ module R2_sum #(parameter COLS = 7,
     // central value
     reg [7:0] central_1, central_2, central_3, central_4, central_5, central_6;
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             central_1 <= 0;
             central_2 <= 0;
             central_3 <= 0;

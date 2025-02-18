@@ -7,7 +7,7 @@ module Median_preparation_tb ();
 
   // Inputs to the Median_preparation module
   reg clk;
-  reg rst;
+  reg rst_n;
   reg done_i;
   reg [7:0] grayscale_i;
 
@@ -28,7 +28,7 @@ module Median_preparation_tb ();
       .DEPTH(DEPTH)
   ) uut (
       .clk(clk),
-      .rst(rst),
+      .rst_n(rst_n),
       .done_i(done_i),
       .data_i(grayscale_i),
       .data0_o(data0_o),
@@ -52,14 +52,14 @@ module Median_preparation_tb ();
   initial begin
     // Initialize signals
     clk = 0;
-    rst = 0;
+    rst_n = 0;
     done_i = 0;
     grayscale_i = 0;
 
     // Apply reset
-    rst = 1;
+    rst_n = 1;
     #10;
-    rst = 0;
+    rst_n = 0;
     #10;
 
     // Generate grayscale values from 0 to 255 using a for loop
@@ -71,9 +71,9 @@ module Median_preparation_tb ();
     end
 
     // Test Case: Reset the system and test again
-    rst = 1;  // Apply reset again
+    rst_n = 1;  // Apply reset again
     #10;
-    rst = 0;
+    rst_n = 0;
     #10;
 
     // Send another round of grayscale values after reset

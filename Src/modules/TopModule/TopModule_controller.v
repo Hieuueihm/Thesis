@@ -1,5 +1,5 @@
 module TopModule_controller(input clk,
-                            input rst,
+                            input rst_n,
                             input finish_i,
                             input start_i,
                             input read_finish,
@@ -12,7 +12,7 @@ module TopModule_controller(input clk,
     reg [1:0] current_state, next_state;
     
     always @(posedge clk) begin
-        if (rst)
+        if (!rst_n)
             current_state <= IDLE;
         else
             current_state <= next_state;

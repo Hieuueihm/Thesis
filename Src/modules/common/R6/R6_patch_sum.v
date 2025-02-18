@@ -1,7 +1,7 @@
 module R6_patch_sum #(parameter COLS = 15,
                       parameter ROWS = 15)
                      (input clk,
-                      input rst,
+                      input rst_n,
                       input done_i,
                       input [7:0] S1,
                       input [7:0] S2,
@@ -35,7 +35,7 @@ module R6_patch_sum #(parameter COLS = 15,
     
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_i),
     .i_counter(i_counter),
     .i_start_gt_2(i_start_gt_2),
@@ -53,7 +53,7 @@ module R6_patch_sum #(parameter COLS = 15,
     R6_sum #(.COLS(COLS),.ROWS(ROWS)) R6_SUM
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .cum_en(cum_en),
     .count_en(count_en),
     .sum_en(sum_en),

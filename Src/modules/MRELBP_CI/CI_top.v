@@ -1,7 +1,7 @@
 module CI_top #(parameter ROWS = 30,
                 parameter COLS = 30)
                (input clk,
-                input rst,
+                input rst_n,
                 input [7:0] m_3x3_i,
                 input done_i,
                 output ci_r2_o,
@@ -31,7 +31,7 @@ module CI_top #(parameter ROWS = 30,
     .DEPTH(COLS)
     ) BUFFER_12_ROWS (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_i),
     .data_i(m_3x3_i),
     .data0_o(data0_o),
@@ -64,7 +64,7 @@ module CI_top #(parameter ROWS = 30,
     R2_TOP
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(buffer_r2_done_o),
     .S1(data0_o),
     .S2(data1_o),
@@ -80,7 +80,7 @@ module CI_top #(parameter ROWS = 30,
     R4_TOP
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(buffer_r4_done_o),
     .S1(data0_o),
     .S2(data1_o),
@@ -100,7 +100,7 @@ module CI_top #(parameter ROWS = 30,
     R6_TOP
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(buffer_r6_done_o),
     .S1(data0_o),
     .S2(data1_o),
@@ -122,7 +122,7 @@ module CI_top #(parameter ROWS = 30,
     
     // integer file1;
     // always @(posedge clk) begin
-    //     if (rst) begin
+    //     if (!rst_n) begin
     //         file1 = $fopen("D:\\Thesis\\CodeTest\\python\\ci_r4.txt", "w");
     //         end else if (done_r4) begin
     //         if (file1) begin

@@ -3,7 +3,7 @@
 module MRELBP_CI_R2_tb();
     
     reg clk;
-    reg rst;
+    reg rst_n;
     reg done_i;
     reg [7:0] S1;
     reg [7:0] S2;
@@ -11,7 +11,7 @@ module MRELBP_CI_R2_tb();
     reg [7:0] S4; reg [7:0] S5;
     wire done_o;
     wire [15:0] bit_one_o, bit_zero_o;
-    R2_top DUT (.clk(clk), .rst(rst), .done_i(done_i), .S1(S1), .S2(S2), .S3(S3), .S4(S4), .S5(S5),
+    R2_top DUT (.clk(clk), .rst_n(rst_n), .done_i(done_i), .S1(S1), .S2(S2), .S3(S3), .S4(S4), .S5(S5),
     .done_o(done_o), .bit_one_o(bit_one_o), .bit_zero_o(bit_zero_o));
     
     
@@ -21,7 +21,7 @@ module MRELBP_CI_R2_tb();
     initial begin
         // Initialize inputs
         clk    = 0;
-        rst    = 1;
+        rst_n    = 1;
         done_i = 0;
         S1     = 8'h00;
         S2     = 8'h00;
@@ -30,7 +30,7 @@ module MRELBP_CI_R2_tb();
         S5     = 8'h00;
         
         // Apply reset
-        #10 rst = 0;
+        #10 rst_n = 0;
         
         // Test Case 1: Apply some values
         #10;

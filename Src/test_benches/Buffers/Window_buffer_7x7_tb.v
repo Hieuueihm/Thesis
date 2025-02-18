@@ -8,7 +8,7 @@ module Window_buffer_7x7_tb();
     
     // Inputs
     reg clk;
-    reg rst;
+    reg rst_n;
     reg done_i;
     reg [7:0] S1_i, S2_i, S3_i, S4_i, S5_i, S6_i, S7_i;
     
@@ -23,7 +23,7 @@ module Window_buffer_7x7_tb();
     // Instantiate the Unit Under Test (UUT)
     Window_buffer_7x7 #(.COLS(COLS), .ROWS(ROWS)) uut (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_i),
     .S1_i(S1_i),
     .S2_i(S2_i),
@@ -93,7 +93,7 @@ module Window_buffer_7x7_tb();
     initial begin
         // Initialize Inputs
         clk    = 0;
-        rst    = 1;
+        rst_n    = 1;
         done_i = 0;
         S1_i   = 0;
         S2_i   = 0;
@@ -101,7 +101,7 @@ module Window_buffer_7x7_tb();
         
         // Reset pulse
         #10;
-        rst    = 0;
+        rst_n    = 0;
         done_i = 1;
         
         // 1 2 3 4 5 6 7 8 9

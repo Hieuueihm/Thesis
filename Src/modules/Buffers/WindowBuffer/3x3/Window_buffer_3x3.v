@@ -1,7 +1,7 @@
 module Window_buffer_3x3 #(parameter COLS = 5,
                            parameter ROWS = 5)
                           (input clk,
-                           input rst,
+                           input rst_n,
                            input done_i,
                            input[7:0] S1_i,
                            S2_i,
@@ -21,7 +21,7 @@ module Window_buffer_3x3 #(parameter COLS = 5,
     wire count_en;
     Window_buffer_3x3_controller WINDOW_BUFFER_3X3_CONTROLLER(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_i),
     .i_row_eq_max(i_row_eq_max),
     .i_col_eq_max(i_col_eq_max),
@@ -35,7 +35,7 @@ module Window_buffer_3x3 #(parameter COLS = 5,
     WINDOW_BUFFER_3X3_DATAPATH
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .count_en(count_en),
     .S1_i(S1_i),
     .S2_i(S2_i),

@@ -1,5 +1,5 @@
 module Median_filter_5x5_calc (input clk,
-                               input rst,
+                               input rst_n,
                                input done_i,
                                input [7:0] S1,
                                S2,
@@ -58,7 +58,7 @@ module Median_filter_5x5_calc (input clk,
     reg p1_done_i;
     
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             p1_S1     <= 0;
             p1_S2     <= 0;
             p1_S3     <= 0;
@@ -125,7 +125,7 @@ module Median_filter_5x5_calc (input clk,
     
     SortAscending5 SA1 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(p1_done_i),
     .done_o(p1_done_o),
     .S1(p1_S1),
@@ -141,7 +141,7 @@ module Median_filter_5x5_calc (input clk,
     );
     SortAscending5 SA2 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(),
     .done_o(),
     .S1(p1_S6),
@@ -157,7 +157,7 @@ module Median_filter_5x5_calc (input clk,
     );
     SortAscending5 SA3 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(),
     .done_o(),
     .S1(p1_S11),
@@ -173,7 +173,7 @@ module Median_filter_5x5_calc (input clk,
     );
     SortAscending5 SA4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(),
     .done_o(),
     .S1(p1_S16),
@@ -189,7 +189,7 @@ module Median_filter_5x5_calc (input clk,
     );
     SortAscending5 SA5 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(),
     .done_o(),
     .S1(p1_S21),
@@ -226,7 +226,7 @@ module Median_filter_5x5_calc (input clk,
     
     
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             p2_sa6_S1 <= 0;
             p2_sa6_S2 <= 0;
             p2_sa6_S3 <= 0;
@@ -300,7 +300,7 @@ module Median_filter_5x5_calc (input clk,
     
     SortAscending5 SA6 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(p1_done_o_delay),
     .done_o(p2_done_o),
     .S1(p2_sa6_S1),
@@ -316,7 +316,7 @@ module Median_filter_5x5_calc (input clk,
     );
     SortAscending5 SA7 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(),
     .done_o(),
     .S1(p2_sa7_S1),
@@ -332,7 +332,7 @@ module Median_filter_5x5_calc (input clk,
     );
     SortAscending5 SA8 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(),
     .done_o(),
     .S1(p2_sa8_S1),
@@ -348,7 +348,7 @@ module Median_filter_5x5_calc (input clk,
     );
     SortAscending5 SA9 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(),
     .done_o(),
     .S1(p2_sa9_S1),
@@ -364,7 +364,7 @@ module Median_filter_5x5_calc (input clk,
     );
     SortAscending5 SA10 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(),
     .done_o(),
     .S1(p2_sa10_S1),
@@ -388,7 +388,7 @@ module Median_filter_5x5_calc (input clk,
     reg p2_done_o_delay;
     
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             p3_sa6_S1 <= 0;
             p3_sa6_S2 <= 0;
             p3_sa6_S3 <= 0;
@@ -476,7 +476,7 @@ module Median_filter_5x5_calc (input clk,
     reg [7:0] p1_sn1_max, p1_sn1_med;
     reg [7:0] p1_sa6_out4;
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             p1_sn1_max  <= 0;
             p1_sn1_med  <= 0;
             p1_sa6_out4 <= 0;
@@ -497,14 +497,14 @@ module Median_filter_5x5_calc (input clk,
     );
     reg [7:0] st1_max, st2_max;
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             st1_max <= 0;
             end else begin
             st1_max <= sn2_max;
         end
     end
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             st2_max <= 0;
             end else begin
             st2_max <= st1_max;
@@ -520,7 +520,7 @@ module Median_filter_5x5_calc (input clk,
     wire [7:0] mid;
     SortAscending5 SA11 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(p2_done_o_delay),
     .done_o(p3_done_o),
     .S1(p3_sa10_S1),
@@ -556,7 +556,7 @@ module Median_filter_5x5_calc (input clk,
     .min(sn3_min)
     );
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             p1_sn3_max <= 0;
             p1_sn3_med <= 0;
             p1_sn3_min <= 0;
@@ -583,7 +583,7 @@ module Median_filter_5x5_calc (input clk,
     reg [7:0] p1_sn4_max, p1_sn4_med, p1_sn4_min;
     reg [7:0] p2_sn3_min;
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             p1_sn4_max <= 0;
             p1_sn4_med <= 0;
             p1_sn4_min <= 0;
@@ -607,7 +607,7 @@ module Median_filter_5x5_calc (input clk,
     .min(sn5_min)
     );
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             st1_min <= 0;
             end else begin
             st1_min <= sn5_min;
@@ -620,7 +620,7 @@ module Median_filter_5x5_calc (input clk,
     reg p3_done_o_delay;
     
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             p3_S1           <= 0;
             p3_S2           <= 0;
             p3_S3           <= 0;
@@ -644,7 +644,7 @@ module Median_filter_5x5_calc (input clk,
     .min()
     );
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             p4_done_o <= 0;
             med       <= 0;
             end else begin

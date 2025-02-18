@@ -1,7 +1,7 @@
 module Median_filter_7x7 #(parameter ROWS = 9,
                            parameter COLS = 9)
                           (input clk,
-                           input rst,
+                           input rst_n,
                            input done_i,
                            input [7:0] d0_i,
                            input [7:0] d1_i,
@@ -68,7 +68,7 @@ module Median_filter_7x7 #(parameter ROWS = 9,
     .COLS(COLS)
     ) MEDIAN_7x7_DATA_MODULATE (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .d0_i(d0_i),  // 99
     .d1_i(d1_i),  // 8
     .d2_i(d2_i),  // 7
@@ -135,7 +135,7 @@ module Median_filter_7x7 #(parameter ROWS = 9,
     
     Median_filter_7x7_calc MEDIAN_7x7_CALC (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_o_modulate),
     .S1(data0),
     .S2(data1),

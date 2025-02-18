@@ -1,7 +1,7 @@
 module MRELBP_CI_R2 #(parameter COLS = 7,
                       parameter ROWS = 7)
                      (input clk,
-                      input rst,
+                      input rst_n,
                       input done_i,
                       input [7:0] S1,
                       input [7:0] S2,
@@ -26,7 +26,7 @@ module MRELBP_CI_R2 #(parameter COLS = 7,
     
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_i),
     .i_counter(i_counter),
     .i_start_gt_1(i_start_gt_1),
@@ -44,7 +44,7 @@ module MRELBP_CI_R2 #(parameter COLS = 7,
     R2_sum #(.COLS(COLS),.ROWS(ROWS)) R2_SUM
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .cum_en(cum_en),
     .count_en(count_en),
     .sum_en(sum_en),
@@ -69,7 +69,7 @@ module MRELBP_CI_R2 #(parameter COLS = 7,
     reg done_scale;
     reg [12:0] sum_o_delay;
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             done_scale  <= 0;
             scale_value <= 0;
             sum_o_delay <= 0;

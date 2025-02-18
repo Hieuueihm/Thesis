@@ -1,5 +1,5 @@
 module test(input clk,
-            input rst,
+            input rst_n,
             input [7:0] grayscale_i,
             input done_i);
     
@@ -12,7 +12,7 @@ module test(input clk,
     MEDIAN_PROCESSING
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(grayscale_i),
     .done_i(done_i),
     .data_o(data_o),
@@ -31,7 +31,7 @@ module test(input clk,
     wire done_buffer_3x3_o;
     Buffer_4_rows #(.DEPTH(30)) BUFFER_4_ROWS_3X3 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_3x3_o),
     .data_i(m_3x3_o),
     .data0_o(data0_3x3_o),
@@ -46,7 +46,7 @@ module test(input clk,
     wire done_o;
     Buffer_4_rows #(.DEPTH(30)) BUFFER_4_ROWS (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_original_o),
     .data_i(data_o),
     .data0_o(data0_o),

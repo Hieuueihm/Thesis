@@ -1,6 +1,6 @@
 module R4_controller #(parameter COLS = 11)
                       (input clk,
-                       input rst,
+                       input rst_n,
                        input done_i,
                        input i_start_gt_2,
                        input [9:0] i_counter,
@@ -23,7 +23,7 @@ module R4_controller #(parameter COLS = 11)
     parameter FINISH_ALL = 3'b101;
     parameter DONE       = 3'b110;
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             current_state <= IDLE;
             end else begin
             current_state <= next_state;

@@ -1,7 +1,7 @@
 module Median_filter_3x3 #(parameter ROWS = 5,
                            parameter COLS = 5)
                           (input clk,
-                           input rst,
+                           input rst_n,
                            input done_i,
                            input [7:0] d0_i,
                            input [7:0] d1_i,
@@ -15,7 +15,7 @@ module Median_filter_3x3 #(parameter ROWS = 5,
     .COLS(COLS)
     ) MEDIAN_3X3_DATA_MODULATE (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .d0_i(d0_i),  // 99
     .d1_i(d1_i),  // 8
     .d2_i(d2_i),
@@ -36,7 +36,7 @@ module Median_filter_3x3 #(parameter ROWS = 5,
     
     Median_filter_3x3_calc MEDIAN_3X3_CALC (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_o_modulate),
     .S1(data0),
     .S2(data1),

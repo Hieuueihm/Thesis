@@ -2,7 +2,7 @@ module Preparation #(
     parameter DEPTH
 ) (
     input clk,
-    input rst,
+    input rst_n,
     input done_i,
     input [7:0] data_i,
     // outputs
@@ -21,8 +21,8 @@ module Preparation #(
   // reg [9:0] counter;
   // reg done_extended;
 
-  // always @(posedge clk or posedge rst) begin
-  //   if (rst) begin
+  // always @(posedge clk or posedge rst_n) begin
+  //   if (!rst_n) begin
   //     counter <= 0;
   //     done_extended <= 0;
   //   end else if (done_i) begin
@@ -56,7 +56,7 @@ module Preparation #(
           .DEPTH(DEPTH)
       ) LINE_BUFFER (
           .clk(clk),
-          .rst(rst),
+          .rst_n(rst_n),
           .data_i((i == 0) ? data_i : line_buffer_out[i-1]),
           .done_i((i == 0) ? done_i : line_buffer_done[i-1]),
           .data_o(line_buffer_out[i]),

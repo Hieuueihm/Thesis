@@ -25,14 +25,14 @@ module test_r4_tb ();
         
     endtask
     reg clk;
-    reg rst;
+    reg rst_n;
     reg [7:0] grayscale_i;
     reg done_i;
     
     test_r4 DUT
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .grayscale_i(grayscale_i),
     .done_i(done_i)
     );
@@ -49,7 +49,7 @@ module test_r4_tb ();
     initial begin
         // Initialize clock and reset
         clk         <= 1'b0;
-        rst         <= 1'b1;
+        rst_n         <= 1'b1;
         done_i      <= 1'b0;
         grayscale_i <= 8'b0;
         file = $fopen("D:\\Thesis\\Src\\test_benches\\test\\random_matrix.txt", "r");
@@ -66,7 +66,7 @@ module test_r4_tb ();
         
         // Reset release after some delay
         #(`clk_period * 2);
-        rst    <= 1'b0;
+        rst_n    <= 1'b0;
         done_i <= 1'b1;
         
         // Initialize the matrix with given data

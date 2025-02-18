@@ -16,7 +16,7 @@ HD_LOG=$1
 shift
 
 # CHECK for a STOP FILE
-if [ -f .stop.rst ]
+if [ -f .stop.rst_n ]
 then
 echo ""                                        >> $HD_LOG
 echo "*** Halting run - EA reset detected ***" >> $HD_LOG
@@ -61,7 +61,7 @@ ISE_USER=$USER
 ISE_HOSTCORE=$(awk '/^processor/{print $3}' /proc/cpuinfo | wc -l)
 ISE_MEMTOTAL=$(awk '/MemTotal/ {print $2}' /proc/meminfo)
 
-ISE_BEGINFILE=.$ISE_STEP.begin.rst
+ISE_BEGINFILE=.$ISE_STEP.begin.rst_n
 /bin/touch $ISE_BEGINFILE
 echo "<?xml version=\"1.0\"?>"                                                                     >> $ISE_BEGINFILE
 echo "<ProcessHandle Version=\"1\" Minor=\"0\">"                                                   >> $ISE_BEGINFILE
@@ -76,9 +76,9 @@ wait $ISE_PID
 RETVAL=$?
 if [ $RETVAL -eq 0 ]
 then
-    /bin/touch .$ISE_STEP.end.rst
+    /bin/touch .$ISE_STEP.end.rst_n
 else
-    /bin/touch .$ISE_STEP.error.rst
+    /bin/touch .$ISE_STEP.error.rst_n
 fi
 
 exit $RETVAL

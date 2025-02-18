@@ -4,7 +4,7 @@ module Line_buffer_tb();
     parameter DEPTH = 10;
     
     reg clk;
-    reg rst;
+    reg rst_n;
     reg done_i;
     reg [7:0] data_i;
     wire [7:0] data_o;
@@ -13,7 +13,7 @@ module Line_buffer_tb();
     // Instantiate DUT (Device Under Test)
     Line_buffer #(DEPTH) DUT (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_i),
     .data_i(data_i),
     .data_o(data_o),
@@ -26,12 +26,12 @@ module Line_buffer_tb();
     initial begin
         // Initialize signals
         clk    = 0;
-        rst    = 1;
+        rst_n    = 1;
         done_i = 0;
         data_i = 0;
         
         // Reset sequence
-        #10 rst = 0;
+        #10 rst_n = 0;
         
         // Write data into the buffer
         repeat (DEPTH) begin

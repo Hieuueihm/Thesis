@@ -1,5 +1,5 @@
 module plus_1 #(parameter WIDTH = 10)
-               (input rst,
+               (input rst_n,
                 input clk,
                 input en,
                 input [WIDTH - 1:0] D,
@@ -9,7 +9,7 @@ module plus_1 #(parameter WIDTH = 10)
     
     dff #(.WIDTH(WIDTH)) PLUS_1_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(en),
     .D(D + 1'b1),
     .Q(Q)

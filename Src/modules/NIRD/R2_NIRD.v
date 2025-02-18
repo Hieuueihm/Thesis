@@ -1,7 +1,7 @@
 module R2_NIRD #(parameter COLS = 30,
                  parameter ROWS = 30)
                 (input clk,
-                 input rst,
+                 input rst_n,
                  input [7:0] m_3x3_i,
                  input done_m_3x3_i,
                  input [7:0] data_original_i,
@@ -14,7 +14,7 @@ module R2_NIRD #(parameter COLS = 30,
     wire done_buffer_3x3_o;
     Buffer_4_rows #(.DEPTH(COLS)) BUFFER_4_ROWS_3X3 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_m_3x3_i),
     .data_i(m_3x3_i),
     .data0_o(data0_3x3_o),
@@ -29,7 +29,7 @@ module R2_NIRD #(parameter COLS = 30,
     wire done_original_o;
     Buffer_4_rows #(.DEPTH(COLS)) BUFFER_4_ROWS (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_original_i),
     .data_i(data_original_i),
     .data0_o(data0_o),
@@ -48,7 +48,7 @@ module R2_NIRD #(parameter COLS = 30,
     shift_registers #(.WIDTH(1), .CYCLE(`DONE_ORIGINAL_DELAY))
     SHIFT_5_DONE_O (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(done_original_o),
     .data_o(done_o_delay)
     );
@@ -56,7 +56,7 @@ module R2_NIRD #(parameter COLS = 30,
     shift_registers #(.WIDTH(8), .CYCLE(`DONE_ORIGINAL_DELAY))
     SHIFT_5_DATA0 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data0_o),
     .data_o(data0_delay)
     );
@@ -64,7 +64,7 @@ module R2_NIRD #(parameter COLS = 30,
     shift_registers #(.WIDTH(8), .CYCLE(`DONE_ORIGINAL_DELAY))
     SHIFT_5_DATA1 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data1_o),
     .data_o(data1_delay)
     );
@@ -73,7 +73,7 @@ module R2_NIRD #(parameter COLS = 30,
     shift_registers #(.WIDTH(8), .CYCLE(`DONE_ORIGINAL_DELAY))
     SHIFT_5_DATA2 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data2_o),
     .data_o(data2_delay)
     );
@@ -82,7 +82,7 @@ module R2_NIRD #(parameter COLS = 30,
     shift_registers #(.WIDTH(8), .CYCLE(`DONE_ORIGINAL_DELAY))
     SHIFT_5_DATA3 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data3_o),
     .data_o(data3_delay)
     );
@@ -90,7 +90,7 @@ module R2_NIRD #(parameter COLS = 30,
     shift_registers #(.WIDTH(8), .CYCLE(`DONE_ORIGINAL_DELAY))
     SHIFT_5_DATA4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(data4_o),
     .data_o(data4_delay)
     );
@@ -101,7 +101,7 @@ module R2_NIRD #(parameter COLS = 30,
     
     Window_buffer_5x5 #(.COLS(COLS), .ROWS(ROWS)) WINDOW_BUFFER_5x5_R2 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_buffer_3x3_o),
     .S1_i(data4_3x3_o),
     .S2_i(data3_3x3_o),
@@ -143,7 +143,7 @@ module R2_NIRD #(parameter COLS = 30,
     wire window_3x3_progress_done_o;
     Window_buffer_3x3 #(.COLS(COLS), .ROWS(ROWS)) WINDOW_BUFFER_3X3_R2 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_o_delay),
     .S1_i(data3_delay),
     .S2_i(data2_delay),
@@ -168,7 +168,7 @@ module R2_NIRD #(parameter COLS = 30,
     
     Interpolation_R_x #(.R(1)) INTERPOLATION_R_1 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .progress_done_i(window_buffer_5x5_progress_done_o),
     .done_i(window_buffer_5x5_done_o),
     .S_0_i(S6_o_3x3),
@@ -208,7 +208,7 @@ module R2_NIRD #(parameter COLS = 30,
     
     Interpolation_R_x #(.R(2)) INTERPOLATION_R_2 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .progress_done_i(window_buffer_5x5_progress_done_o),
     .done_i(window_buffer_5x5_done_o),
     .S_0_i(S15_o),
@@ -252,7 +252,7 @@ module R2_NIRD #(parameter COLS = 30,
     .ROWS(ROWS)) R2_PATCH_SUM
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_buffer_3x3_o),
     .S1(data0_3x3_o),
     .S2(data1_3x3_o),
@@ -267,7 +267,7 @@ module R2_NIRD #(parameter COLS = 30,
     bit4_o_ni, bit5_o_ni, bit6_o_ni, bit7_o_ni, bit8_o_ni;
     NI #(.WIDTH(13), .GAIN(25)) NI_CALC_R2 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_o_r2),
     .progress_done_i(finish_inter),
     .S1_r2(S1_r2),
@@ -293,7 +293,7 @@ module R2_NIRD #(parameter COLS = 30,
     
     // integer file3;
     // always @(posedge clk) begin
-    //     if (rst) begin
+    //     if (!rst_n) begin
     //         file3 = $fopen("D:\\Thesis\\CodeTest\\python\\rd_data_hex.txt", "w");
     //         end else if (done_o_r2) begin
     //         if (file3) begin
@@ -308,7 +308,7 @@ module R2_NIRD #(parameter COLS = 30,
     wire rd_r2_done, rd_r2_progress_done, bit1_o, bit2_o, bit3_o, bit4_o, bit5_o, bit6_o, bit7_o, bit8_o;
     RD RD_CALC_R2 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_o_r2),
     .progress_done_i(finish_inter),
     .S1_r2(S1_r2),
@@ -341,7 +341,7 @@ module R2_NIRD #(parameter COLS = 30,
     
     // integer file2;
     // always @(posedge clk) begin
-    //     if (rst) begin
+    //     if (!rst_n) begin
     //         file2 = $fopen("D:\\Thesis\\CodeTest\\python\\rd_data_bit.txt", "w");
     //         end else if (rd_r2_done) begin
     //         if (file) begin
@@ -354,7 +354,7 @@ module R2_NIRD #(parameter COLS = 30,
     
     riu2_mapping RIU2_RD(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(rd_r2_done),
     .progress_done_i(rd_r2_progress_done),
     .bit1_i(bit1_o),
@@ -372,7 +372,7 @@ module R2_NIRD #(parameter COLS = 30,
     
     riu2_mapping RIU2_NI(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(ni_r2_done),
     .progress_done_i(ni_r2_progress_done),
     .bit1_i(bit1_o_ni),
@@ -390,7 +390,7 @@ module R2_NIRD #(parameter COLS = 30,
      
     // integer file, file1;
     // always @(posedge clk) begin
-    //     if (rst) begin
+    //     if (!rst_n) begin
     //         file = $fopen("D:\\Thesis\\CodeTest\\python\\rd_data.txt", "w");
     //         file1 = $fopen("D:\\Thesis\\CodeTest\\python\\ni_data.txt", "w");
     //         end else if (done_o) begin

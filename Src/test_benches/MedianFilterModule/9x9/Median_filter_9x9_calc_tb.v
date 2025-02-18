@@ -2,7 +2,7 @@ module Median_filter_9x9_calc_tb;
 
   // Inputs
   reg clk;
-  reg rst;
+  reg rst_n;
   reg done_i;
   reg [7:0] matrix[0:80];
   reg [7:0] S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15;
@@ -19,7 +19,7 @@ module Median_filter_9x9_calc_tb;
   // Instantiate the Unit Under Test (UUT)
   Median_filter_9x9_calc uut (
       .clk(clk),
-      .rst(rst),
+      .rst_n(rst_n),
       .done_i(done_i),
       .S1(S1),
       .S2(S2),
@@ -138,7 +138,7 @@ module Median_filter_9x9_calc_tb;
   initial begin
     // Initialize Inputs
     clk = 0;
-    rst = 0;
+    rst_n = 0;
     done_i = 0;
 
     #10

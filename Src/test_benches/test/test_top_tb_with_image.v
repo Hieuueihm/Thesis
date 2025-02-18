@@ -8,7 +8,7 @@
 module test_top_tb_with_image();
     
     reg clk;
-    reg rst;
+    reg rst_n;
     reg [7:0] grayscale_i;
     reg i_valid;
     reg start_i;
@@ -66,7 +66,7 @@ module test_top_tb_with_image();
     endtask
     
     initial begin
-        rst         = 1'b1;
+        rst_n         = 1'b0;
         start_i     = 1'b0;
         i_valid     = 1'b0;
         grayscale_i = 8'b0;
@@ -82,7 +82,7 @@ module test_top_tb_with_image();
         $display("BMP Read Complete!");
         
         #(`clk_period * 3);
-        rst = 1'b0;
+        rst_n = 1'b1;
         #(`clk_period);
         start_i = 1'b1;
         #(`clk_period);
@@ -107,7 +107,7 @@ module test_top_tb_with_image();
     TopModule #(.COLS(`SIZE), .ROWS(`SIZE)) DUT
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .grayscale_i(grayscale_i),
     .i_valid(i_valid),
     .start_i(start_i),

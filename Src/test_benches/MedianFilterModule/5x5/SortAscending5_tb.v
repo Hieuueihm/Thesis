@@ -4,7 +4,7 @@ module SortAscending5_tb;
 
   // Inputs
   reg clk;
-  reg rst;
+  reg rst_n;
   reg done_i;
   reg [7:0] S1, S2, S3, S4, S5;
 
@@ -15,7 +15,7 @@ module SortAscending5_tb;
   // Instantiate the module under test
   SortAscending5 uut (
       .clk(clk),
-      .rst(rst),
+      .rst_n(rst_n),
       .done_i(done_i),
       .done_o(done_o),
       .S1(S1),
@@ -39,7 +39,7 @@ module SortAscending5_tb;
   // Test sequence
   initial begin
     // Initialize inputs
-    rst = 1;
+    rst_n = 1;
     done_i = 0;
     S1 = 0;
     S2 = 0;
@@ -49,7 +49,7 @@ module SortAscending5_tb;
 
     // Apply reset
     #20;
-    rst = 0;
+    rst_n = 0;
 
     // Test case 1
     S1 = 8'd12;

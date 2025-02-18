@@ -1,6 +1,6 @@
 module Interpolation_R_x #(parameter R = 2)
                           (input clk,
-                           input rst,
+                           input rst_n,
                            input done_i,
                            input progress_done_i,
                            input [7:0] S_0_i,
@@ -64,7 +64,7 @@ module Interpolation_R_x #(parameter R = 2)
     
     // Shift logic for S2
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             S2_shift_1 <= 0;
             S2_shift_2 <= 0;
             S2_shift_3 <= 0;
@@ -78,7 +78,7 @@ module Interpolation_R_x #(parameter R = 2)
     
     // Shift logic for S4
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             S4_shift_1 <= 0;
             S4_shift_2 <= 0;
             S4_shift_3 <= 0;
@@ -92,7 +92,7 @@ module Interpolation_R_x #(parameter R = 2)
     
     // Shift logic for S6
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             S6_shift_1 <= 0;
             S6_shift_2 <= 0;
             S6_shift_3 <= 0;
@@ -107,7 +107,7 @@ module Interpolation_R_x #(parameter R = 2)
     
     // Shift logic for S8
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             S8_shift_1 <= 0;
             S8_shift_2 <= 0;
             S8_shift_3 <= 0;
@@ -127,7 +127,7 @@ module Interpolation_R_x #(parameter R = 2)
     .RADIUS(45)) INTER_R2_45
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .A(S_45_i_1),
     .B(S_45_i_2),
     .C(S_45_i_3),
@@ -137,7 +137,7 @@ module Interpolation_R_x #(parameter R = 2)
     Interpolation_calc #(.R(R), .RADIUS(135)) INTER_R2_135
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .A(S_135_i_1),
     .B(S_135_i_2),
     .C(S_135_i_3),
@@ -150,7 +150,7 @@ module Interpolation_R_x #(parameter R = 2)
     .RADIUS(225)) INTER_R2_225
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .A(S_225_i_1),
     .B(S_225_i_2),
     .C(S_225_i_3),
@@ -162,7 +162,7 @@ module Interpolation_R_x #(parameter R = 2)
     .RADIUS(315)) INTER_R2_315
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .A(S_315_i_1),
     .B(S_315_i_2),
     .C(S_315_i_3),
@@ -175,7 +175,7 @@ module Interpolation_R_x #(parameter R = 2)
     
     reg [2:0] done_shift;
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             done_shift <= 0;
             end else begin
             done_shift <= {done_shift[1:0], done_i};
@@ -187,7 +187,7 @@ module Interpolation_R_x #(parameter R = 2)
     
     reg [2:0] progress_shift;
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             progress_shift <= 0;
             end else begin
             progress_shift <= {progress_shift[1:0], progress_done_i};
@@ -202,7 +202,7 @@ module Interpolation_R_x #(parameter R = 2)
     reg [7:0] S5_shift_1, S5_shift_2, S5_shift_3;
     reg [7:0] S7_shift_1, S7_shift_2, S7_shift_3;
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             S1_shift_1 <= 0;
             S1_shift_2 <= 0;
             S1_shift_3 <= 0;
@@ -214,7 +214,7 @@ module Interpolation_R_x #(parameter R = 2)
     end
     assign S1_o = {S1_shift_3, 16'b0};
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             S3_shift_1 <= 0;
             S3_shift_2 <= 0;
             S3_shift_3 <= 0;
@@ -227,7 +227,7 @@ module Interpolation_R_x #(parameter R = 2)
     assign S3_o = {S3_shift_3, 16'b0};
     
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             S5_shift_1 <= 0;
             S5_shift_2 <= 0;
             S5_shift_3 <= 0;
@@ -240,7 +240,7 @@ module Interpolation_R_x #(parameter R = 2)
     assign S5_o = {S5_shift_3, 16'b0};
     
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             S7_shift_1 <= 0;
             S7_shift_2 <= 0;
             S7_shift_3 <= 0;

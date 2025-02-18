@@ -1,7 +1,7 @@
 module Data_modulate_3x3 #(parameter ROWS = 5,
                            parameter COLS = 5)
                           (input clk,
-                           input rst,
+                           input rst_n,
                            input [7:0] d0_i,   // 99
                            input [7:0] d1_i,   // 8
                            input [7:0] d2_i,   
@@ -22,7 +22,7 @@ module Data_modulate_3x3 #(parameter ROWS = 5,
     wire o_en;
     
     Data_modulate_3x3_controller CONTROLLER_3X3(
-    .rst(rst),
+    .rst_n(rst_n),
     .clk(clk),
     .done_i(done_i),
     .i_counter(i_counter),
@@ -40,7 +40,7 @@ module Data_modulate_3x3 #(parameter ROWS = 5,
     
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .d0_i(d0_i),
     .d1_i(d1_i),
     .d2_i(d2_i),

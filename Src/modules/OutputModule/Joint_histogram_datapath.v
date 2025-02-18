@@ -1,5 +1,5 @@
 module Joint_histogram_datapath(input clk,
-                                input rst,
+                                input rst_n,
                                 input ci_i,
                                 input done_i,
                                 input [3:0] ni_i,
@@ -14,7 +14,7 @@ module Joint_histogram_datapath(input clk,
     assign ni_scale = (ni_i << 3) + (ni_i << 1);
     reg [7:0] ci_delay, ni_delay, rd_delay;
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             ci_delay <= 0;
             ni_delay <= 0;
             rd_delay <= 0;
@@ -27,7 +27,7 @@ module Joint_histogram_datapath(input clk,
     wire done_delay;
     dff #(.WIDTH(1)) DONE_I_DELAY (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(done_i),
     .Q(done_delay)
@@ -41,7 +41,7 @@ module Joint_histogram_datapath(input clk,
     reg [15:0] output_value;
     reg [7:0] read_index;
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             for (i = 0; i < 200; i = i + 1) begin
                 register_array[i] <= 0;
             end
@@ -67,7 +67,7 @@ module Joint_histogram_datapath(input clk,
     
     // integer file;
     // always @(posedge clk) begin
-    //     if (rst) begin
+    //     if (!rst_n) begin
     //         file = $fopen("D:\\Thesis\\CodeTest\\python\\ci_ni_rd_data.txt", "w");
     //         end else if (done_i) begin
     //         if (file) begin

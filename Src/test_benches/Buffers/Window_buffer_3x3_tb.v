@@ -9,7 +9,7 @@ parameter COLS = 5;
     
     // Inputs
     reg clk;
-    reg rst;
+    reg rst_n;
     reg done_i;
     reg [7:0] S1_i, S2_i, S3_i;
     
@@ -21,7 +21,7 @@ parameter COLS = 5;
     // Instantiate the Unit Under Test (UUT)
     Window_buffer_3x3 #(.COLS(COLS), .ROWS(ROWS)) uut (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .done_i(done_i),
     .S1_i(S1_i),
     .S2_i(S2_i),
@@ -47,7 +47,7 @@ parameter COLS = 5;
     initial begin
         // Initialize Inputs
         clk    = 0;
-        rst    = 1;
+        rst_n    = 1;
         done_i = 0;
         S1_i   = 0;
         S2_i   = 0;
@@ -55,7 +55,7 @@ parameter COLS = 5;
         
         // Reset pulse
         #10;
-        rst    = 0;
+        rst_n    = 0;
         done_i = 1;
         // 1 2 3 4 5
         // 1 2 3 4 5

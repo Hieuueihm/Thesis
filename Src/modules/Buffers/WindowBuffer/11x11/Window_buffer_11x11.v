@@ -1,7 +1,7 @@
 module Window_buffer_11x11 #(parameter COLS = 11,
                              parameter ROWS = 11)
                             (input clk,
-                             input rst,
+                             input rst_n,
                              input done_i,
                              input[7:0] S1_i,
                              S2_i,
@@ -141,7 +141,7 @@ module Window_buffer_11x11 #(parameter COLS = 11,
     wire count_en;
     Window_buffer_11x11_controller  inst_Window_buffer_11x11_controller (
     .clk                (clk),
-    .rst                (rst),
+    .rst_n                (rst_n),
     .done_i             (done_i),
     .i_row_eq_max       (i_row_eq_max),
     .i_col_eq_max       (i_col_eq_max),
@@ -156,7 +156,7 @@ module Window_buffer_11x11 #(parameter COLS = 11,
     .ROWS(ROWS)
     ) inst_Window_buffer_11x11_datapath (
     .clk                (clk),
-    .rst                (rst),
+    .rst_n                (rst_n),
     .count_en           (count_en),
     .S1_i               (S1_i),
     .S2_i               (S2_i),

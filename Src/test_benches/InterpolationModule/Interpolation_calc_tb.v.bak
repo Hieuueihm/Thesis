@@ -2,7 +2,7 @@
 
 module Interpolation_calc_tb();
     reg clk;
-    reg rst;
+    reg rst_n;
     reg done_i;
     reg [7:0] A;
     reg [7:0] B;
@@ -11,7 +11,7 @@ module Interpolation_calc_tb();
     wire[31:0] data_o;
     wire done_o;
     Interpolation_calc #(.R(R) , .RADIUS(RADIUS))
-    uut (.clk(clk), .rst(rst), .done_i(done_i),
+    uut (.clk(clk), .rst_n(rst_n), .done_i(done_i),
     .A(A), .B(B), .C(C), .D(D), .data_o(data_o),
     .done_o(done_o));
     
@@ -21,7 +21,7 @@ module Interpolation_calc_tb();
     initial begin
         // Initialize Inputs
         clk    = 0;
-        rst    = 1;
+        rst_n    = 1;
         done_i = 0;
         A      = 0;
         B      = 0;
@@ -29,7 +29,7 @@ module Interpolation_calc_tb();
         D      = 0;
         
         #20;
-        rst = 0;
+        rst_n = 0;
         
         #10;
         done_i = 1;

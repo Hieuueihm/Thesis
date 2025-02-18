@@ -4,7 +4,7 @@ module Joint_histogram_tb();
     
     // Clock and reset signals
     reg clk;
-    reg rst;
+    reg rst_n;
     
     // Inputs to the DUT
     reg ci_i;
@@ -21,7 +21,7 @@ module Joint_histogram_tb();
     // Instantiate the DUT
     Joint_histogram DUT (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .ci_i(ci_i),
     .ni_i(ni_i),
     .rd_i(rd_i),
@@ -40,7 +40,7 @@ module Joint_histogram_tb();
     
     // Test stimulus
     initial begin
-        rst             = 1;
+        rst_n             = 1;
         ci_i            = 0;
         ni_i            = 0;
         rd_i            = 0;
@@ -48,7 +48,7 @@ module Joint_histogram_tb();
         progress_done_i = 0;
         
         #20;
-        rst    = 0;
+        rst_n    = 0;
         done_i = 1;
         
         ci_i = 1;

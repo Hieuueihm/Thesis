@@ -1,5 +1,5 @@
 module Median_filter_3x3_calc (input clk,
-                               input rst,
+                               input rst_n,
                                input done_i,
                                input [7:0] S1,
                                input [7:0] S2,
@@ -22,77 +22,77 @@ module Median_filter_3x3_calc (input clk,
     
     dff #(.WIDTH(8)) P1_S1_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S1),
     .Q(p1_S1)
     );
     dff #(.WIDTH(8)) P1_S2_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S2),
     .Q(p1_S2)
     );
     dff #(.WIDTH(8)) P1_S3_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S3),
     .Q(p1_S3)
     );
     dff #(.WIDTH(8)) P1_S3_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S3),
     .Q(p1_S3)
     );
     dff #(.WIDTH(8)) P1_S4_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S4),
     .Q(p1_S4)
     );
     dff #(.WIDTH(8)) P1_S5_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S5),
     .Q(p1_S5)
     );
     dff #(.WIDTH(8)) P1_S6_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S6),
     .Q(p1_S6)
     );
     dff #(.WIDTH(8)) P1_S7_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S7),
     .Q(p1_S7)
     );
     dff #(.WIDTH(8)) P1_S8_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S8),
     .Q(p1_S8)
     );
     dff #(.WIDTH(8)) P1_S9_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(S9),
     .Q(p1_S9)
     );
     dff #(.WIDTH(8)) P1_DONE_I_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(done_i),
     .Q(p1_done_i)
@@ -144,21 +144,21 @@ module Median_filter_3x3_calc (input clk,
     
     dff #(.WIDTH(8)) P2_MAX_1_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(max1),
     .Q(p2_max1)
     );
     dff #(.WIDTH(8)) P2_MED_1_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(med1),
     .Q(p2_med1)
     );
     dff #(.WIDTH(8)) P2_MIN_1_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(min1),
     .Q(p2_min1)
@@ -166,21 +166,21 @@ module Median_filter_3x3_calc (input clk,
     
     dff #(.WIDTH(8)) P2_MAX_2_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(max2),
     .Q(p2_max2)
     );
     dff #(.WIDTH(8)) P2_MED_2_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(med2),
     .Q(p2_med2)
     );
     dff #(.WIDTH(8)) P2_MIN_2_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(min2),
     .Q(p2_min2)
@@ -188,21 +188,21 @@ module Median_filter_3x3_calc (input clk,
     
     dff #(.WIDTH(8)) P2_MAX_3_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(max3),
     .Q(p2_max3)
     );
     dff #(.WIDTH(8)) P2_MED_3_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(med3),
     .Q(p2_med3)
     );
     dff #(.WIDTH(8)) P2_MIN_3_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(min3),
     .Q(p2_min3)
@@ -210,7 +210,7 @@ module Median_filter_3x3_calc (input clk,
     
     dff #(.WIDTH(8)) P2_DONE_I_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(p1_done_i),
     .Q(p2_done_i)
@@ -252,21 +252,21 @@ module Median_filter_3x3_calc (input clk,
     );
     dff #(.WIDTH(8)) P3_MAX_5_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(max5),
     .Q(p3_max5)
     );
     dff #(.WIDTH(8)) P3_MED_5_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(med5),
     .Q(p3_med5)
     );
     dff #(.WIDTH(8)) P3_MIN_5_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(min5),
     .Q(p3_min5)
@@ -274,7 +274,7 @@ module Median_filter_3x3_calc (input clk,
     
     dff #(.WIDTH(8)) P3_DONE_I_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(p2_done_i),
     .Q(p3_done_i)
@@ -294,7 +294,7 @@ module Median_filter_3x3_calc (input clk,
     wire        p4_done_i;
     dff #(.WIDTH(8)) P4_MEDIAN_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(p3_median),
     .Q(p4_median)
@@ -302,7 +302,7 @@ module Median_filter_3x3_calc (input clk,
     
     dff #(.WIDTH(8)) P4_DONE_I_DFF(
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(p3_done_i),
     .Q(p4_done_i)

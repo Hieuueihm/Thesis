@@ -1,7 +1,7 @@
 module Window_buffer_3x3_datapath #(parameter COLS = 5,
                                     parameter ROWS = 5)
                                    (input clk,
-                                    input rst,
+                                    input rst_n,
                                     input count_en,
                                     input [7:0] S1_i,
                                     S2_i,
@@ -26,7 +26,7 @@ module Window_buffer_3x3_datapath #(parameter COLS = 5,
     plus_1 #(.WIDTH(10))
     COUNTER_PLUS
     (
-    .rst(rst),
+    .rst_n(rst_n),
     .clk(clk),
     .en(count_en),
     .D(i_counter),
@@ -35,7 +35,7 @@ module Window_buffer_3x3_datapath #(parameter COLS = 5,
     plus_1 #(.WIDTH(10))
     ROW_PLUS
     (
-    .rst(rst),
+    .rst_n(rst_n),
     .clk(clk),
     .en(i_col_eq_max),
     .D(i_row),
@@ -55,7 +55,7 @@ module Window_buffer_3x3_datapath #(parameter COLS = 5,
     reg [7:0] S3_delay;
     
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             S1_delay <= 0;
             S2_delay <= 0;
             S3_delay <= 0;
@@ -71,7 +71,7 @@ module Window_buffer_3x3_datapath #(parameter COLS = 5,
     reg [7:0] S3_window [2:0];
     integer i;
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             for(i = 0;i < 3; i = i + 1) begin
                 S1_window[i] <= 0;
                 S2_window[i] <= 0;

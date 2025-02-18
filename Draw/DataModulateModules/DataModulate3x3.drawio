@@ -139,7 +139,7 @@
         <mxCell id="NJn-q_vK891O38DvYf-i-7" value="clk" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="70" y="570" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="NJn-q_vK891O38DvYf-i-8" value="rst" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="NJn-q_vK891O38DvYf-i-8" value="rst_n" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="70" y="590" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="NJn-q_vK891O38DvYf-i-9" value="done_i" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">

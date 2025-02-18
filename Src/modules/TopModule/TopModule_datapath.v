@@ -1,7 +1,7 @@
 module TopModule_datapath #(parameter COLS = 128,
                             parameter ROWS = 128)
                            (input clk,
-                            input rst,
+                            input rst_n,
                             input [7:0] grayscale_i,
                             input i_valid,
                             input read_en,
@@ -28,7 +28,7 @@ module TopModule_datapath #(parameter COLS = 128,
     MEDIAN_PROCESSING
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(grayscale_i),
     .done_i(i_valid),
     .data_o(data_original_o),
@@ -50,7 +50,7 @@ module TopModule_datapath #(parameter COLS = 128,
     .COLS(COLS)) CI_TOP
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .m_3x3_i(m_3x3_o),
     .done_i(done_m_3x3_o),
     .ci_r2_o(ci_r2_o),
@@ -72,7 +72,7 @@ module TopModule_datapath #(parameter COLS = 128,
     R2_NI_RD
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .m_3x3_i(m_3x3_o),
     .done_m_3x3_i(done_m_3x3_o),
     .data_original_i(data_original_o),
@@ -91,7 +91,7 @@ module TopModule_datapath #(parameter COLS = 128,
     shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_SHIFT_CI_R2))
     SHIFT_CI_R2 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(ci_r2_o),
     .data_o(ci_r2_delay)
     );
@@ -99,7 +99,7 @@ module TopModule_datapath #(parameter COLS = 128,
     shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_SHIFT_CI_R2))
     SHIFT_DONE_CI_R2 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(done_ci_r2),
     .data_o(done_ci_r2_delay)
     );
@@ -109,7 +109,7 @@ module TopModule_datapath #(parameter COLS = 128,
     
     Joint_histogram JOINT_R2 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .ci_i(ci_r2_delay),
     .ni_i(ni_r2_o),
     .rd_i(rd_r2_o),
@@ -127,7 +127,7 @@ module TopModule_datapath #(parameter COLS = 128,
     R4_NI_RD
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .m_3x3_i(m_3x3_o),
     .done_m_3x3_i(done_m_3x3_o),
     .m_5x5_i(m_5x5_o),
@@ -146,7 +146,7 @@ module TopModule_datapath #(parameter COLS = 128,
     shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_SHIFT_CI_R4))
     SHIFT_CI_R4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(ci_r4_o),
     .data_o(ci_r4_delay)
     );
@@ -154,7 +154,7 @@ module TopModule_datapath #(parameter COLS = 128,
     shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_SHIFT_CI_R4))
     SHIFT_DONE_CI_R4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(done_ci_r4),
     .data_o(done_ci_r4_delay)
     );
@@ -162,7 +162,7 @@ module TopModule_datapath #(parameter COLS = 128,
     
     Joint_histogram JOINT_R4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .ci_i(ci_r4_delay),
     .ni_i(ni_r4_o),
     .rd_i(rd_r4_o),
@@ -181,7 +181,7 @@ module TopModule_datapath #(parameter COLS = 128,
     R6_NI_RD
     (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .m_5x5_i(m_5x5_o),
     .done_m_5x5_i(done_m_5x5_o),
     .m_7x7_i(m_7x7_o),
@@ -200,7 +200,7 @@ module TopModule_datapath #(parameter COLS = 128,
     shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_SHIFT_CI_R6))
     SHIFT_CI_R6 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(ci_r6_o),
     .data_o(ci_r6_delay)
     );
@@ -208,7 +208,7 @@ module TopModule_datapath #(parameter COLS = 128,
     shift_registers #(.WIDTH(1), .CYCLE(`CYCLE_SHIFT_CI_R6))
     SHIFT_DONE_CI_R6 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(done_ci_r6),
     .data_o(done_ci_r6_delay)
     );
@@ -219,7 +219,7 @@ module TopModule_datapath #(parameter COLS = 128,
     
     Joint_histogram JOINT_R6 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .ci_i(ci_r6_delay),
     .ni_i(ni_r6_o),
     .rd_i(rd_r6_o),
@@ -237,7 +237,7 @@ module TopModule_datapath #(parameter COLS = 128,
     reg [15:0] ram_r6[0:199];
     
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             write_addr_r2 <= 0;
             write_addr_r4 <= 0;
             write_addr_r6 <= 0;
@@ -260,7 +260,7 @@ module TopModule_datapath #(parameter COLS = 128,
     reg [2:0] read_stage;
     
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             read_addr   <= 0;
             read_stage  <= 3'b00;
             data_out    <= 0;

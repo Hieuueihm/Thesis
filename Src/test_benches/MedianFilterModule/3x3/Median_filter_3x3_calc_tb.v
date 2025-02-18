@@ -4,7 +4,7 @@ module Median_filter_3x3_calc_tb;
 
   // Testbench Signals
   reg clk;
-  reg rst;
+  reg rst_n;
   reg done_i;
   reg [7:0] S1, S2, S3, S4, S5, S6, S7, S8, S9;
   wire [7:0] median_o;
@@ -13,7 +13,7 @@ module Median_filter_3x3_calc_tb;
   // Instantiate the Median_filter_3x3_calc module
   Median_filter_3x3_calc uut (
       .clk(clk),
-      .rst(rst),
+      .rst_n(rst_n),
       .done_i(done_i),
       .S1(S1),
       .S2(S2),
@@ -37,7 +37,7 @@ module Median_filter_3x3_calc_tb;
   initial begin
     // Initialize signals
     clk = 0;
-    rst = 0;
+    rst_n = 0;
     done_i = 0;
     S1 = 8'd0;
     S2 = 8'd0;
@@ -50,9 +50,9 @@ module Median_filter_3x3_calc_tb;
     S9 = 8'd0;
 
     // Apply reset
-    rst = 1;
+    rst_n = 1;
     #10;
-    rst = 0;
+    rst_n = 0;
     done_i = 1;
     #10;
 

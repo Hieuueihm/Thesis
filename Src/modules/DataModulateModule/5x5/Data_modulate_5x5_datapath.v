@@ -1,7 +1,7 @@
 module Data_modulate_5x5_datapath #(parameter ROWS = 7,
                                     parameter COLS = 7)
                                    (input clk,
-                                    input rst,
+                                    input rst_n,
                                     input [7:0] d0_i,
                                     input [7:0] d1_i,
                                     input [7:0] d2_i,
@@ -78,7 +78,7 @@ module Data_modulate_5x5_datapath #(parameter ROWS = 7,
     plus_1 #(.WIDTH(10))
     COL_PLUS
     (
-    .rst(rst),
+    .rst_n(rst_n),
     .clk(clk),
     .en(o_en),
     .D(i_col),
@@ -88,7 +88,7 @@ module Data_modulate_5x5_datapath #(parameter ROWS = 7,
     plus_1 #(.WIDTH(10))
     
     ROW_PLUS (
-    .rst(rst),
+    .rst_n(rst_n),
     .clk(clk),
     .en(o_en && (i_col == COLS - 1)),
     .D(i_row),
@@ -98,7 +98,7 @@ module Data_modulate_5x5_datapath #(parameter ROWS = 7,
     plus_1 #(.WIDTH(3))
     COUNTER_I
     (
-    .rst(rst),
+    .rst_n(rst_n),
     .clk(clk),
     .en(start),
     .D(i_counter),
@@ -110,7 +110,7 @@ module Data_modulate_5x5_datapath #(parameter ROWS = 7,
     // handle with i rows and i cols
     
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             done_reg <= 0;
             end else begin
             if (o_en) begin
@@ -137,7 +137,7 @@ module Data_modulate_5x5_datapath #(parameter ROWS = 7,
     wire i_row_gt_row_3 = (i_row > ROWS - 3) ? 1 : 0; 
 
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             d0_o  <= 0;
             d1_o  <= 0;
             d2_o  <= 0;
@@ -209,7 +209,7 @@ module Data_modulate_5x5_datapath #(parameter ROWS = 7,
     
     
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             data0  <= 0;
             data1  <= 0;
             data2  <= 0;

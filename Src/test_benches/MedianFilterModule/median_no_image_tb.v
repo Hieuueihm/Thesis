@@ -1,4 +1,4 @@
-module median_no_image_tb; reg clk; reg rst; reg [7:0] grayscale_i; reg done_i; wire [7:0] median_o; wire done_o; median_no_image uut (.clk(clk), .rst(rst), .grayscale_i(grayscale_i), .done_i(done_i), .median_o(median_o), .done_o(done_o));
+module median_no_image_tb; reg clk; reg rst_n; reg [7:0] grayscale_i; reg done_i; wire [7:0] median_o; wire done_o; median_no_image uut (.clk(clk), .rst_n(rst_n), .grayscale_i(grayscale_i), .done_i(done_i), .median_o(median_o), .done_o(done_o));
 
 // Registers for 9x9 matrix
 reg [7:0] S[1:121];  // Array for 81 elements of the 9x9 matrix
@@ -35,7 +35,7 @@ integer i;
 // Test sequence
 initial begin
     clk    = 0;
-    rst    = 0;
+    rst_n    = 0;
     done_i = 0;
     
     // Read the matrix from file
@@ -47,9 +47,9 @@ initial begin
     // end
     
     // Apply reset
-    rst = 1;
+    rst_n = 1;
     #10;
-    rst = 0;
+    rst_n = 0;
     
     // Apply done signal
     #10;

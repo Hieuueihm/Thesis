@@ -1,7 +1,7 @@
 module TopModule #(parameter COLS = 128,
                    parameter ROWS = 128)
                   (input clk,
-                   input rst,
+                   input rst_n,
                    input [7:0] grayscale_i,
                    input start_i,
                    input i_valid,
@@ -15,7 +15,7 @@ module TopModule #(parameter COLS = 128,
     wire read_en;
     TopModule_controller  inst_TopModule_controller (
     .clk         (clk),
-    .rst         (rst),
+    .rst_n         (rst_n),
     .finish_i    (finish),
     .start_i     (start_i),
     .read_finish (read_finish),
@@ -27,7 +27,7 @@ module TopModule #(parameter COLS = 128,
     .ROWS(ROWS)
     ) inst_TopModule_datapath (
     .clk         (clk),
-    .rst         (rst),
+    .rst_n         (rst_n),
     .grayscale_i (grayscale_i),
     .i_valid     (i_valid),
     .read_en     (read_en),

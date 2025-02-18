@@ -2,14 +2,14 @@
 
 module Interpolation_calc_tb();
     reg clk;
-    reg rst;
+    reg rst_n;
     reg [7:0] A;
     reg [7:0] B;
     reg [7:0] C;
     reg [7:0] D;
     wire[23:0] data_o;
     Interpolation_calc #(.R(4) , .RADIUS(45))
-    uut (.clk(clk), .rst(rst),
+    uut (.clk(clk), .rst_n(rst_n),
     .A(A), .B(B), .C(C), .D(D), .data_o(data_o));
     
     // Clock generation
@@ -18,14 +18,14 @@ module Interpolation_calc_tb();
     initial begin
         // Initialize Inputs
         clk = 0;
-        rst = 1;
+        rst_n = 1;
         A   = 0;
         B   = 0;
         C   = 0;
         D   = 0;
         
         #20;
-        rst = 0;
+        rst_n = 0;
         
         #10;
         A = 8'd74; // 16

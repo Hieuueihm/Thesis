@@ -1,7 +1,7 @@
 module Data_modulate_3x3_datapath #(parameter ROWS = 5,
                                     parameter COLS = 5)
                                    (input clk,
-                                    input rst,
+                                    input rst_n,
                                     input [7:0] d0_i,        // 99
                                     input [7:0] d1_i,        // 8
                                     input [7:0] d2_i,        // 7
@@ -26,7 +26,7 @@ module Data_modulate_3x3_datapath #(parameter ROWS = 5,
     plus_1 #(.WIDTH(10))
     COL_PLUS
     (
-    .rst(rst),
+    .rst_n(rst_n),
     .clk(clk),
     .en(o_en),
     .D(i_col),
@@ -36,7 +36,7 @@ module Data_modulate_3x3_datapath #(parameter ROWS = 5,
     plus_1 #(.WIDTH(10))
     
     ROW_PLUS (
-    .rst(rst),
+    .rst_n(rst_n),
     .clk(clk),
     .en(o_en && (i_col == COLS - 1)),
     .D(i_row),
@@ -46,7 +46,7 @@ module Data_modulate_3x3_datapath #(parameter ROWS = 5,
     plus_1 #(.WIDTH(3))
     COUNTER_I
     (
-    .rst(rst),
+    .rst_n(rst_n),
     .clk(clk),
     .en(start),
     .D(i_counter),
@@ -56,7 +56,7 @@ module Data_modulate_3x3_datapath #(parameter ROWS = 5,
     assign i_row     = (i_row_plus_1 == ROWS) ? 0: i_row_plus_1;
     assign i_counter = (i_counter_plus_1 == 3) ? i_counter : i_counter_plus_1;
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             done_reg <= 0;
             end else begin
             if (o_en) begin
@@ -74,7 +74,7 @@ module Data_modulate_3x3_datapath #(parameter ROWS = 5,
     wire i_col_eq_max = (i_col == COLS - 1) ? 1 : 0;
     wire i_row_eq_max = (i_row == ROWS - 1) ? 1 : 0; 
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             d0_o <= 0;
             d1_o <= 0;
             d2_o <= 0;
@@ -107,7 +107,7 @@ module Data_modulate_3x3_datapath #(parameter ROWS = 5,
     
     
     always @(posedge clk) begin
-        if (rst) begin
+        if (!rst_n) begin
             data0 <= 0;
             data1 <= 0;
             data2 <= 0;

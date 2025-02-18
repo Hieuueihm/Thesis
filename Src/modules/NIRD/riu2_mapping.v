@@ -1,5 +1,5 @@
 module riu2_mapping(input clk,
-                    input rst,
+                    input rst_n,
                     input done_i,
                     input progress_done_i,
                     input bit1_i,
@@ -27,7 +27,7 @@ module riu2_mapping(input clk,
     wire [1:0] sum_1, sum_2, sum_3, sum_4;
     sum #(.WIDTH(1)) SUM1 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .a(b1xor2),
     .b(b2xor3),
     .en(done_i),
@@ -35,7 +35,7 @@ module riu2_mapping(input clk,
     );
     sum #(.WIDTH(1)) SUM2 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .a(b3xor4),
     .b(b4xor5),
     .en(done_i),
@@ -43,7 +43,7 @@ module riu2_mapping(input clk,
     );
     sum #(.WIDTH(1)) SUM3 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .a(b5xor6),
     .b(b6xor7),
     .en(done_i),
@@ -51,7 +51,7 @@ module riu2_mapping(input clk,
     );
     sum #(.WIDTH(1)) SUM4 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .a(b7xor8),
     .b(b8xor1),
     .en(done_i),
@@ -61,7 +61,7 @@ module riu2_mapping(input clk,
     wire st1_done;
     dff #(.WIDTH(1)) DONE_DFF1 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(done_i),
     .Q(st1_done)
@@ -69,7 +69,7 @@ module riu2_mapping(input clk,
     wire [2:0] sum_12, sum_34;
     sum #(.WIDTH(2)) SUM12 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .a(sum_1),
     .b(sum_2),
     .en(st1_done),
@@ -77,7 +77,7 @@ module riu2_mapping(input clk,
     );
     sum #(.WIDTH(2)) SUM34 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .a(sum_3),
     .b(sum_4),
     .en(st1_done),
@@ -86,7 +86,7 @@ module riu2_mapping(input clk,
     wire st2_done;
     dff #(.WIDTH(1)) DFF_DONE2 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(st1_done),
     .Q(st2_done)
@@ -94,7 +94,7 @@ module riu2_mapping(input clk,
     wire [3:0] sum_all;
     sum #(.WIDTH(3)) SUMALL (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .a(sum_12),
     .b(sum_34),
     .en(st2_done),
@@ -104,7 +104,7 @@ module riu2_mapping(input clk,
     wire [1:0] sum_1_, sum_2_,sum_3_, sum_4_;
     sum #(.WIDTH(1)) SUM1_ (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .a(bit1_i),
     .b(bit2_i),
     .en(done_i),
@@ -112,7 +112,7 @@ module riu2_mapping(input clk,
     );
     sum #(.WIDTH(1)) SUM2_ (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .a(bit3_i),
     .b(bit4_i),
     .en(done_i),
@@ -120,7 +120,7 @@ module riu2_mapping(input clk,
     );
     sum #(.WIDTH(1)) SUM3_ (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .a(bit5_i),
     .b(bit6_i),
     .en(done_i),
@@ -128,7 +128,7 @@ module riu2_mapping(input clk,
     );
     sum #(.WIDTH(1)) SUM4_ (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .a(bit7_i),
     .b(bit8_i),
     .en(done_i),
@@ -138,7 +138,7 @@ module riu2_mapping(input clk,
     wire [2:0] sum12_, sum34_;
     sum #(.WIDTH(2)) SUM12_ (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .a(sum_1_),
     .b(sum_2_),
     .en(st1_done),
@@ -146,7 +146,7 @@ module riu2_mapping(input clk,
     );
     sum #(.WIDTH(2)) SUM34_ (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .a(sum_3_),
     .b(sum_4_),
     .en(st1_done),
@@ -156,7 +156,7 @@ module riu2_mapping(input clk,
     
     sum #(.WIDTH(3)) SUMALL_ (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .a(sum12_),
     .b(sum34_),
     .en(st2_done),
@@ -170,7 +170,7 @@ module riu2_mapping(input clk,
     
     dff #(.WIDTH(1)) DFF_DONE3 (
     .clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .en(1'b1),
     .D(st2_done),
     .Q(done_o)
@@ -179,7 +179,7 @@ module riu2_mapping(input clk,
     shift_registers #(.WIDTH(1),
     .CYCLE(3)) SHIFT_PROGRESS
     (.clk(clk),
-    .rst(rst),
+    .rst_n(rst_n),
     .data_i(progress_done_i),
     .data_o(progress_done_o));
 endmodule
