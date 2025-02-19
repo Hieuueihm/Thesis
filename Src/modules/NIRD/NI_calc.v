@@ -29,7 +29,7 @@ module NI_calc #(parameter WIDTH = 10,
     end
     
     wire [WIDTH - 1 : 0] sum_delay;
-    dff #(.WIDTH(WIDTH)) DFF_SUM(
+    register #(.WIDTH(WIDTH)) DFF_SUM(
     .clk(clk),
     .rst_n(rst_n),
     .en(done_i),

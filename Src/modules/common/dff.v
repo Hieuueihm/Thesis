@@ -1,7 +1,6 @@
-module dff #(parameter WIDTH = 8)
+module dff #(parameter WIDTH = 8) //  
             (input clk,
              input rst_n,
-             input en,
              input [WIDTH - 1:0] D,
              output [WIDTH - 1:0] Q);
     reg [WIDTH - 1:0] data_out;
@@ -9,9 +8,9 @@ module dff #(parameter WIDTH = 8)
     always @(posedge clk) begin
         if (!rst_n) begin
             data_out <= 0;
-            end else if (en) begin
+            end else begin
             data_out <= D;
-        end
+            end 
     end
     
 endmodule

@@ -19,7 +19,6 @@ module RD_calc(input clk,
     dff #(.WIDTH(1)) DFF_BIT (
     .clk(clk),
     .rst_n(rst_n),
-    .en(1'b1),
     .D(bit),
     .Q(bit_o)
     );

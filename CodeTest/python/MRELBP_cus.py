@@ -542,7 +542,7 @@ def resize_bmp(input_file, output_file, size=(128, 128)):
     # Ghi ảnh đã thay đổi kích thước ra file BMP khác
     cv2.imwrite(output_file, img_resized)
     print(f"Ảnh đã được lưu tại {output_file}")
-resize_bmp('D:\\Thesis\\CodeTest\\python\\Train\\Dataset\\Outex-TC-00010\\images\\000002.bmp', 'D:\\Thesis\\Data\\Ex\\test_input.bmp')
+resize_bmp('D:\\Thesis\\CodeTest\\python\\Train\\Dataset\\Outex-TC-00010\\images\\000003.bmp', 'D:\\Thesis\\Data\\Ex\\test_input.bmp')
 random_matrix = np.random.randint(0, 256, size=(30, 30), dtype=np.uint8)
 np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
 

@@ -10,7 +10,7 @@ HD_LOG=$1
 shift
 
 # CHECK for a STOP FILE
-if [ -f .stop.rst_n ]
+if [ -f .stop.rst ]
 then
 echo ""                                        >> $HD_LOG
 echo "*** Halting run - EA reset detected ***" >> $HD_LOG
@@ -39,7 +39,7 @@ else
 ISE_HOST=$HOST     #csh
 fi
 ISE_USER=$USER
-ISE_BEGINFILE=.$ISE_STEP.begin.rst_n
+ISE_BEGINFILE=.$ISE_STEP.begin.rst
 /bin/touch $ISE_BEGINFILE
 echo "<?xml version=\"1.0\"?>"                                                                     >> $ISE_BEGINFILE
 echo "<ProcessHandle Version=\"1\" Minor=\"0\">"                                                   >> $ISE_BEGINFILE
@@ -54,9 +54,9 @@ wait $ISE_PID
 RETVAL=$?
 if [ $RETVAL -eq 0 ]
 then
-    /bin/touch .$ISE_STEP.end.rst_n
+    /bin/touch .$ISE_STEP.end.rst
 else
-    /bin/touch .$ISE_STEP.error.rst_n
+    /bin/touch .$ISE_STEP.error.rst
 fi
 
 exit $RETVAL

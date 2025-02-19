@@ -28,7 +28,6 @@ module Joint_histogram_datapath(input clk,
     dff #(.WIDTH(1)) DONE_I_DELAY (
     .clk(clk),
     .rst_n(rst_n),
-    .en(1'b1),
     .D(done_i),
     .Q(done_delay)
     );

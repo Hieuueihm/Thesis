@@ -62,7 +62,6 @@ module riu2_mapping(input clk,
     dff #(.WIDTH(1)) DONE_DFF1 (
     .clk(clk),
     .rst_n(rst_n),
-    .en(1'b1),
     .D(done_i),
     .Q(st1_done)
     );
@@ -87,7 +86,6 @@ module riu2_mapping(input clk,
     dff #(.WIDTH(1)) DFF_DONE2 (
     .clk(clk),
     .rst_n(rst_n),
-    .en(1'b1),
     .D(st1_done),
     .Q(st2_done)
     );
@@ -171,7 +169,6 @@ module riu2_mapping(input clk,
     dff #(.WIDTH(1)) DFF_DONE3 (
     .clk(clk),
     .rst_n(rst_n),
-    .en(1'b1),
     .D(st2_done),
     .Q(done_o)
     );

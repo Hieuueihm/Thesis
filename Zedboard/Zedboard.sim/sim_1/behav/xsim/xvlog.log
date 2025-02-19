@@ -186,9 +186,11 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/common/mux_2_
 INFO: [VRFC 10-311] analyzing module mux_2_1
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/common/plus_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module plus_1
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/common/register.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module register
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/NIRD/riu2_mapping.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module riu2_mapping
-INFO: [VRFC 10-2458] undeclared symbol gt, assumed default net type wire [D:/Thesis/Src/modules/NIRD/riu2_mapping.v:166]
+INFO: [VRFC 10-2458] undeclared symbol gt, assumed default net type wire [D:/Thesis/Src/modules/NIRD/riu2_mapping.v:164]
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/common/shift_registers.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module shift_registers
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/common/sum.v" into library xil_defaultlib

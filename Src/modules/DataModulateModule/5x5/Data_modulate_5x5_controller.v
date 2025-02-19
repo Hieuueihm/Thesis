@@ -11,7 +11,6 @@ module Data_modulate_5x5_controller (input rst_n,
     dff #(.WIDTH(1)) DFF_DONE(
         .clk(clk),
         .rst_n(rst_n),
-        .en(1'b1),
         .D(o_en_r),
         .Q(done_o)
     );

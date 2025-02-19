@@ -32,7 +32,6 @@ module Line_buffer_controller #(parameter DEPTH = 1024)
     dff #(.WIDTH(1)) SHIFT_DONE(
     .clk(clk),
     .rst_n(rst_n),
-    .en(1'b1),
     .D(done_o_mux),
     .Q(done_o)
     );

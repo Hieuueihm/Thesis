@@ -63,7 +63,7 @@ function ISEInit() {
 function ISEStep( ISEProg, ISEArgs ) {
 
   // CHECK for a STOP FILE
-  if ( ISEFileSys.FileExists(ISERunDir + "/.stop.rst_n") ) {
+  if ( ISEFileSys.FileExists(ISERunDir + "/.stop.rst") ) {
     ISEStdErr( "" );
     ISEStdErr( "*** Halting run - EA reset detected ***" );
     ISEStdErr( "" );
@@ -120,7 +120,7 @@ function ISEExec( ISEProg, ISEArgs ) {
     var ISEHost = ISENetwork.ComputerName;
     var ISEUser = ISENetwork.UserName;
     var ISEPid = ISEProcess.ProcessID;
-    var ISEBeginFile = ISEOpenFile( "." + ISEStep + ".begin.rst_n" );
+    var ISEBeginFile = ISEOpenFile( "." + ISEStep + ".begin.rst" );
     ISEBeginFile.WriteLine( "<?xml version=\"1.0\"?>" );
     ISEBeginFile.WriteLine( "<ProcessHandle Version=\"1\" Minor=\"0\">" );
     ISEBeginFile.WriteLine( "    <Process Command=\"" + ISEProg + 
@@ -187,7 +187,7 @@ function ISEStdErr( ISELine ) {
 function ISETouchFile( ISERoot, ISEStatus ) {
 
   var ISETFile = 
-    ISEOpenFile( "." + ISERoot + "." + ISEStatus + ".rst_n" );
+    ISEOpenFile( "." + ISERoot + "." + ISEStatus + ".rst" );
   ISETFile.Close();
 }
 

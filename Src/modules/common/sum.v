@@ -9,7 +9,7 @@ module sum #(parameter WIDTH = 8)
     
     wire [WIDTH:0] sum;
     assign sum = a + b;
-    dff #(.WIDTH(WIDTH + 1)) SUM_DFF (
+    register #(.WIDTH(WIDTH + 1)) SUM_R (
     .clk(clk),
     .rst_n(rst_n),
     .en(en),

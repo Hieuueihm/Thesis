@@ -78,6 +78,7 @@ verilog xil_defaultlib  \
 "../../../../../Src/modules/common/dff.v" \
 "../../../../../Src/modules/common/mux_2_1.v" \
 "../../../../../Src/modules/common/plus_1.v" \
+"../../../../../Src/modules/common/register.v" \
 "../../../../../Src/modules/NIRD/riu2_mapping.v" \
 "../../../../../Src/modules/common/shift_registers.v" \
 "../../../../../Src/modules/common/sum.v" \

@@ -20,11 +20,11 @@ WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/mux_2_1.v" Line 1. Module 
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=1) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/Buffers/LineBuffer/Line_buffer_datapath.v" Line 3. Module Line_buffer_datapath(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/plus_1.v" Line 1. Module plus_1 doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/register.v" Line 1. Module register(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/plus_1.v" Line 1. Module plus_1 doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/register.v" Line 1. Module register(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/plus_1.v" Line 1. Module plus_1 doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/register.v" Line 1. Module register(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/Buffers/Line_buffer.v" Line 1. Module Line_buffer(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/Buffers/LineBuffer/Line_buffer_controller.v" Line 1. Module Line_buffer_controller(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/mux_2_1.v" Line 1. Module mux_2_1 doesn't have a timescale but at least one module in design has a timescale.
@@ -33,11 +33,11 @@ WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/mux_2_1.v" Line 1. Module 
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=1) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/Buffers/LineBuffer/Line_buffer_datapath.v" Line 3. Module Line_buffer_datapath(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/plus_1.v" Line 1. Module plus_1 doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/register.v" Line 1. Module register(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/plus_1.v" Line 1. Module plus_1 doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/register.v" Line 1. Module register(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/plus_1.v" Line 1. Module plus_1 doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/register.v" Line 1. Module register(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/Buffers/Line_buffer.v" Line 1. Module Line_buffer(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/Buffers/LineBuffer/Line_buffer_controller.v" Line 1. Module Line_buffer_controller(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/mux_2_1.v" Line 1. Module mux_2_1 doesn't have a timescale but at least one module in design has a timescale.
@@ -46,11 +46,11 @@ WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/mux_2_1.v" Line 1. Module 
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=1) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/Buffers/LineBuffer/Line_buffer_datapath.v" Line 3. Module Line_buffer_datapath(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/plus_1.v" Line 1. Module plus_1 doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/register.v" Line 1. Module register(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/plus_1.v" Line 1. Module plus_1 doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/register.v" Line 1. Module register(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/plus_1.v" Line 1. Module plus_1 doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/register.v" Line 1. Module register(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/Buffers/Line_buffer.v" Line 1. Module Line_buffer(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/Buffers/LineBuffer/Line_buffer_controller.v" Line 1. Module Line_buffer_controller(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/mux_2_1.v" Line 1. Module mux_2_1 doesn't have a timescale but at least one module in design has a timescale.
@@ -59,11 +59,11 @@ WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/mux_2_1.v" Line 1. Module 
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=1) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/Buffers/LineBuffer/Line_buffer_datapath.v" Line 3. Module Line_buffer_datapath(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/plus_1.v" Line 1. Module plus_1 doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/register.v" Line 1. Module register(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/plus_1.v" Line 1. Module plus_1 doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/register.v" Line 1. Module register(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/plus_1.v" Line 1. Module plus_1 doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/register.v" Line 1. Module register(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/Buffers/Line_buffer.v" Line 1. Module Line_buffer(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/Buffers/LineBuffer/Line_buffer_controller.v" Line 1. Module Line_buffer_controller(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/mux_2_1.v" Line 1. Module mux_2_1 doesn't have a timescale but at least one module in design has a timescale.
@@ -72,11 +72,11 @@ WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/mux_2_1.v" Line 1. Module 
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=1) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/Buffers/LineBuffer/Line_buffer_datapath.v" Line 3. Module Line_buffer_datapath(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/plus_1.v" Line 1. Module plus_1 doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/register.v" Line 1. Module register(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/plus_1.v" Line 1. Module plus_1 doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/register.v" Line 1. Module register(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/plus_1.v" Line 1. Module plus_1 doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/register.v" Line 1. Module register(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/Buffers/Line_buffer.v" Line 1. Module Line_buffer(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/Buffers/LineBuffer/Line_buffer_controller.v" Line 1. Module Line_buffer_controller(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/mux_2_1.v" Line 1. Module mux_2_1 doesn't have a timescale but at least one module in design has a timescale.
@@ -85,22 +85,22 @@ WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/mux_2_1.v" Line 1. Module 
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=1) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/Buffers/LineBuffer/Line_buffer_datapath.v" Line 3. Module Line_buffer_datapath(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/plus_1.v" Line 1. Module plus_1 doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/register.v" Line 1. Module register(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/plus_1.v" Line 1. Module plus_1 doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/register.v" Line 1. Module register(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/plus_1.v" Line 1. Module plus_1 doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/register.v" Line 1. Module register(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/MedianFilterModule/3x3/Median_filter_3x3.v" Line 1. Module Median_filter_3x3(ROWS=128,COLS=128) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3.v" Line 1. Module Data_modulate_3x3(ROWS=128,COLS=128) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_controller.v" Line 1. Module Data_modulate_3x3_controller doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=1) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v" Line 1. Module Data_modulate_3x3_datapath(ROWS=128,COLS=128) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/plus_1.v" Line 1. Module plus_1 doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/register.v" Line 1. Module register(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/plus_1.v" Line 1. Module plus_1 doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/register.v" Line 1. Module register(WIDTH=10) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/plus_1.v" Line 1. Module plus_1(WIDTH=3) doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/dff.v" Line 1. Module dff(WIDTH=3) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/common/register.v" Line 1. Module register(WIDTH=3) doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/MedianFilterModule/3x3/Median_filter_3x3_calc.v" Line 1. Module Median_filter_3x3_calc doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/MedianFilterModule/Sorting_network.v" Line 1. Module Sorting_network doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/MedianFilterModule/Node.v" Line 2. Module Node doesn't have a timescale but at least one module in design has a timescale.
@@ -114,13 +114,13 @@ Compiling module xil_defaultlib.TopModule_controller
 Compiling module xil_defaultlib.mux_2_1
 Compiling module xil_defaultlib.dff(WIDTH=1)
 Compiling module xil_defaultlib.Line_buffer_controller(DEPTH=128...
-Compiling module xil_defaultlib.dff(WIDTH=10)
+Compiling module xil_defaultlib.register(WIDTH=10)
 Compiling module xil_defaultlib.plus_1
 Compiling module xil_defaultlib.Line_buffer_datapath(DEPTH=128)
 Compiling module xil_defaultlib.Line_buffer(DEPTH=128)
 Compiling module xil_defaultlib.Preparation_6(DEPTH=128)
 Compiling module xil_defaultlib.Data_modulate_3x3_controller
-Compiling module xil_defaultlib.dff(WIDTH=3)
+Compiling module xil_defaultlib.register(WIDTH=3)
 Compiling module xil_defaultlib.plus_1(WIDTH=3)
 Compiling module xil_defaultlib.Data_modulate_3x3_datapath(ROWS=...
 Compiling module xil_defaultlib.Data_modulate_3x3(ROWS=128,COLS=...
@@ -143,18 +143,18 @@ Compiling module xil_defaultlib.Median_filter_7x7(ROWS=128,COLS=...
 Compiling module xil_defaultlib.Median_processing(COLS=128,ROWS=...
 Compiling module xil_defaultlib.Buffer_12_rows_ci(DEPTH=128)
 Compiling module xil_defaultlib.R2_controller(COLS=128)
-Compiling module xil_defaultlib.dff(WIDTH=2)
+Compiling module xil_defaultlib.register(WIDTH=2)
 Compiling module xil_defaultlib.plus_1(WIDTH=2)
-Compiling module xil_defaultlib.dff(WIDTH=9)
+Compiling module xil_defaultlib.register(WIDTH=9)
 Compiling module xil_defaultlib.sum
 Compiling module xil_defaultlib.sum(WIDTH=9)
-Compiling module xil_defaultlib.dff(WIDTH=11)
+Compiling module xil_defaultlib.register(WIDTH=11)
 Compiling module xil_defaultlib.sum(WIDTH=10)
 Compiling module xil_defaultlib.sum_cumulative
 Compiling module xil_defaultlib.R2_sum(COLS=128,ROWS=128)
 Compiling module xil_defaultlib.MRELBP_CI_R2(COLS=128,ROWS=128)
 Compiling module xil_defaultlib.R4_controller(COLS=128)
-Compiling module xil_defaultlib.dff(WIDTH=12)
+Compiling module xil_defaultlib.register(WIDTH=12)
 Compiling module xil_defaultlib.sum(WIDTH=11)
 Compiling module xil_defaultlib.sum_cumulative(WIDTH1=15,WIDTH2=...
 Compiling module xil_defaultlib.R4_sum(COLS=128,ROWS=128)
@@ -180,14 +180,14 @@ Compiling module xil_defaultlib.Interpolation_calc(RADIUS=225)
 Compiling module xil_defaultlib.Interpolation_calc(RADIUS=315)
 Compiling module xil_defaultlib.Interpolation_R_x_default
 Compiling module xil_defaultlib.R2_patch_sum(COLS=128,ROWS=128)
-Compiling module xil_defaultlib.dff(WIDTH=13)
+Compiling module xil_defaultlib.register(WIDTH=13)
 Compiling module xil_defaultlib.NI_calc(WIDTH=13)
 Compiling module xil_defaultlib.NI(WIDTH=13)
 Compiling module xil_defaultlib.RD_calc
 Compiling module xil_defaultlib.RD
 Compiling module xil_defaultlib.sum(WIDTH=1)
 Compiling module xil_defaultlib.sum(WIDTH=2)
-Compiling module xil_defaultlib.dff(WIDTH=4)
+Compiling module xil_defaultlib.register(WIDTH=4)
 Compiling module xil_defaultlib.sum(WIDTH=3)
 Compiling module xil_defaultlib.shift_registers(WIDTH=1,CYCLE=3)
 Compiling module xil_defaultlib.riu2_mapping
@@ -216,7 +216,7 @@ Compiling module xil_defaultlib.Interpolation_calc(R=4,RADIUS=31...
 Compiling module xil_defaultlib.Interpolation_R_x(R=4)
 Compiling module xil_defaultlib.dff(WIDTH=24)
 Compiling module xil_defaultlib.R4_patch_sum(COLS=128,ROWS=128)
-Compiling module xil_defaultlib.dff(WIDTH=15)
+Compiling module xil_defaultlib.register(WIDTH=15)
 Compiling module xil_defaultlib.NI_calc(WIDTH=15,GAIN=81)
 Compiling module xil_defaultlib.NI(WIDTH=15,GAIN=81)
 Compiling module xil_defaultlib.R4_NIRD(COLS=128,ROWS=128)
@@ -241,7 +241,7 @@ Compiling module xil_defaultlib.Interpolation_calc(R=6,RADIUS=22...
 Compiling module xil_defaultlib.Interpolation_calc(R=6,RADIUS=31...
 Compiling module xil_defaultlib.Interpolation_R_x(R=6)
 Compiling module xil_defaultlib.R6_patch_sum(COLS=128,ROWS=128)
-Compiling module xil_defaultlib.dff(WIDTH=16)
+Compiling module xil_defaultlib.register(WIDTH=16)
 Compiling module xil_defaultlib.NI_calc(WIDTH=16,GAIN=169)
 Compiling module xil_defaultlib.NI(WIDTH=16,GAIN=169)
 Compiling module xil_defaultlib.R6_NIRD(COLS=128,ROWS=128)

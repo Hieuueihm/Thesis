@@ -7,7 +7,7 @@ module plus_1 #(parameter WIDTH = 10)
     
     reg [9:0] counter_value;
     
-    dff #(.WIDTH(WIDTH)) PLUS_1_DFF(
+    register #(.WIDTH(WIDTH)) PLUS_1_DFF(
     .clk(clk),
     .rst_n(rst_n),
     .en(en),
