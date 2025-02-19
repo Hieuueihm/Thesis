@@ -7,25 +7,29 @@ module Line_buffer_controller #(parameter DEPTH = 1024)
                                 output rd_en,           // Read enable signal
                                 output done_o);         // Done output signal
     
+
+    wire done_i_eq_1 = (done_i == 1)  ? 1 : 0;
     mux_2_1 #(.WIDTH(1)) WR_EN_MUX(
     .a(1'b1),
     .b(1'b0),
-    .sel(done_i == 1),
+    .sel(done_i_eq_1),
     .y(wr_en)
     );
+    wire i_counter_eq_max = (i_counter == DEPTH - 1) ? 1 : 0;
+    wire done_and_i_counter = done_i_eq_1 & i_counter_eq_max;
     
     
     mux_2_1  #(.WIDTH(1)) RD_EN_MUX(
     .a(1'b1),
     .b(1'b0),
-    .sel(done_i && i_counter == DEPTH - 1),
+    .sel(done_and_i_counter),
     .y(rd_en)
     );
     wire done_o_mux;
     mux_2_1  #(.WIDTH(1)) DONE_O_MUX(
     .a(1'b1),
     .b(1'b0),
-    .sel(i_counter == DEPTH - 1),
+    .sel(i_counter_eq_max),
     .y(done_o_mux)
     );
     

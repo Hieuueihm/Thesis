@@ -12,9 +12,6 @@ module Interpolation_calc #(parameter R = 2,
     // r2 = dx * (1-dy)
     // r3 = (1-dx) * dy
     // r4 = dx * dy
-    always @(*) begin
-        
-    end
     always @(posedge clk) begin
         if (!rst_n) begin
             case ({RADIUS, R})
@@ -213,9 +210,20 @@ module Interpolation_calc #(parameter R = 2,
         end
     end
     
-    
     reg [23:0] mult_result1, mult_result2, mult_result3, mult_result4;
     reg [23:0] add_result1, add_result2;
+    wire [23:0] r1_mul_a, r2_mul_b, r3_mul_c, r4_mul_d;
+    assign r1_mul_a = r1 * A;
+    assign r2_mul_b = r2 * B;
+    assign r3_mul_c = r3 * C;
+    assign r4_mul_d = r4 * D;
+
+    wire [23:0] add_12, add_34;
+    assign add_12 = mult_result1 + mult_result2;
+    assign add_34 = mult_result3 + mult_result4;
+    wire [23:0] add_result;
+    assign add_result = add_result1 + add_result2;
+
     always @(posedge clk) begin
         if (!rst_n) begin
             mult_result1 <= 24'h0;
@@ -226,15 +234,15 @@ module Interpolation_calc #(parameter R = 2,
             add_result1  <= 0;
             add_result2  <= 0;
             end else begin
-            mult_result1 <= r1 * A;
-            mult_result2 <= r2 * B;
-            mult_result3 <= r3 * C;
-            mult_result4 <= r4 * D;
+            mult_result1 <= r1_mul_a;
+            mult_result2 <= r2_mul_b;
+            mult_result3 <= r3_mul_c;
+            mult_result4 <= r4_mul_d;
             
-            add_result1 <= mult_result1 + mult_result2;
-            add_result2 <= mult_result3 + mult_result4;
+            add_result1 <= add_12;
+            add_result2 <= add_34;
             
-            data_o <= add_result1 + add_result2;
+            data_o <= add_result;
             
             
             

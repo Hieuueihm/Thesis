@@ -13,5 +13,6 @@ module register #(parameter WIDTH = 8) //
             data_out <= D;
             end 
     end
+
     
 endmodule

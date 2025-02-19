@@ -17,10 +17,10 @@ module Line_buffer_datapath #(parameter DEPTH = 1024)
     
     always @(posedge clk) begin
         if (!rst_n) begin
-            data_o <= 8'bz;
+            data_o <= 0;
             end else if (i_counter > DEPTH - 2) begin
             data_o <= mem[internal_rd_pointer];
-        end
+            end else data_o <= 0;
     end
     
     plus_1 #(.WIDTH(10))

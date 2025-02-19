@@ -5,16 +5,20 @@ module sum_cumulative #(parameter WIDTH1 = 13,
                         input en,
                         input ld,
                         input [WIDTH1-1:0] data_in1,
-                        input [WIDTH1 -1 : 0] data_in2,
-                        output reg [WIDTH2 - 1:0] sum_out);
-    
+                        input [WIDTH1-1:0] data_in2,
+                        output reg [WIDTH2-1:0] sum_out);
+
+    wire [WIDTH2-1:0] sum_next;
+
+    assign sum_next = (ld)  ? data_in1 :
+                      (en)  ? sum_out + data_in1 + data_in2 :
+                              sum_out;
+
     always @(posedge clk) begin
-        if (!rst_n) begin
+        if (!rst_n)
             sum_out <= 0;
-            end else if (ld) begin
-            sum_out <= data_in1;
-            end else if (en) begin
-            sum_out <= sum_out + data_in1 + data_in2;
-        end
+        else
+            sum_out <= sum_next;
     end
+
 endmodule
