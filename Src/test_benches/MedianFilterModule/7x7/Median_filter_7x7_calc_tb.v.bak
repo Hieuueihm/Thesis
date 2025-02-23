@@ -1,4 +1,4 @@
-module Median_filter_7x7_calc_tb;
+module median_filter_7x7_calc_tb;
 
   // Inputs
   reg clk;
@@ -15,7 +15,7 @@ module Median_filter_7x7_calc_tb;
   wire done_o;
 
   // Instantiate the Unit Under Test (UUT)
-  Median_filter_7x7_calc uut (
+  median_filter_7x7_calc uut (
       .clk(clk),
       .rst_n(rst_n),
       .done_i(done_i),
@@ -178,7 +178,7 @@ integer i;
 
     // Check the outputs after some time
     #50;
-    $display("Median: %d", median_o);
+    $display("median: %d", median_o);
     $display("Done: %b", done_o);
 
     // Finish simulation

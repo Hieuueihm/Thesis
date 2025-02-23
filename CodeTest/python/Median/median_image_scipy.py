@@ -3,7 +3,7 @@ from scipy import ndimage
 from PIL import Image
 
 # Step 1: Read the BMP image
-image_path = 'D:\\Thesis\\Data\\Ex\\sample.bmp'  # Replace with the path to your BMP image
+image_path = 'D:\\Thesis\\data\\Ex\\sample.bmp'  # Replace with the path to your BMP image
 img = Image.open(image_path)
 
 # Convert the image to grayscale (if it's a color image)

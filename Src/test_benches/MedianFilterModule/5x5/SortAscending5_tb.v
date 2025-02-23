@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module SortAscending5_tb;
+module sort_ascending_5_tb;
 
   // Inputs
   reg clk;
@@ -13,7 +13,7 @@ module SortAscending5_tb;
   wire done_o;
 
   // Instantiate the module under test
-  SortAscending5 uut (
+  sort_ascending_5 uut (
       .clk(clk),
       .rst_n(rst_n),
       .done_i(done_i),

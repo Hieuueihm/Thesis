@@ -1,4 +1,4 @@
-module Preparation #(
+module preparation #(
     parameter DEPTH = 10
 ) (
     input clk,
@@ -52,7 +52,7 @@ module Preparation #(
   assign data8_o = line_buffer_out[7];
   generate
     for (genvar i = 0; i < 8; i = i + 1) begin : gen_line_buffers
-      Line_buffer #(
+      line_buffer #(
           .DEPTH(DEPTH)
       ) LINE_BUFFER (
           .clk(clk),

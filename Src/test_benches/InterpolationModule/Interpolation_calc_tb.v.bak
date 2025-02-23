@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module Interpolation_calc_tb();
+module interpolation_calc_tb();
     reg clk;
     reg rst_n;
     reg done_i;
@@ -10,7 +10,7 @@ module Interpolation_calc_tb();
     reg [7:0] D;
     wire[31:0] data_o;
     wire done_o;
-    Interpolation_calc #(.R(R) , .RADIUS(RADIUS))
+    interpolation_calc #(.R(R) , .RADIUS(RADIUS))
     uut (.clk(clk), .rst_n(rst_n), .done_i(done_i),
     .A(A), .B(B), .C(C), .D(D), .data_o(data_o),
     .done_o(done_o));

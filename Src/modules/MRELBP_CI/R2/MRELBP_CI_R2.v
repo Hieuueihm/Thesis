@@ -1,4 +1,4 @@
-module MRELBP_CI_R2 #(
+module mrelbp_ci_r2 #(
     parameter COLS = 7,
     parameter ROWS = 7
 ) (
@@ -25,9 +25,9 @@ module MRELBP_CI_R2 #(
   wire [7:0] central_value;
   wire i_row_eq_max;
 
-  R2_controller #(
+  r2_controller #(
       .COLS(COLS)
-  ) R2_CONTROLLER (
+  ) r2_CONTROLLER (
       .clk(clk),
       .rst_n(rst_n),
       .done_i(done_i),
@@ -44,10 +44,10 @@ module MRELBP_CI_R2 #(
 
   );
 
-  R2_sum #(
+  r2_sum #(
       .COLS(COLS),
       .ROWS(ROWS)
-  ) R2_SUM (
+  ) r2_SUM (
       .clk(clk),
       .rst_n(rst_n),
       .cum_en(cum_en),

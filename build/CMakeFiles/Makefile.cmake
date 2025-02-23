@@ -46,11 +46,11 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/opencv/build/x64/vc15/lib/OpenCVModules-debug.cmake"
   "C:/opencv/build/x64/vc15/lib/OpenCVModules-release.cmake"
   "C:/opencv/build/x64/vc15/lib/OpenCVModules.cmake"
-  "D:/Thesis/CodeTest/c++/CMakeLists.txt"
   "CMakeFiles/3.31.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.31.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.31.3/CMakeRCCompiler.cmake"
   "CMakeFiles/3.31.3/CMakeSystem.cmake"
+  "D:/Thesis/codetest/c++/CMakeLists.txt"
   )
 
 # The corresponding makefile is:

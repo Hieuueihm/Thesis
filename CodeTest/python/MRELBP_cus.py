@@ -96,7 +96,7 @@ class MRELBP():
         # print(hist_r2, hist_r4, hist_r6, hist_r8)
         # np.savetxt("sum_8.txt", sum_r8, fmt='%d')
 
-    def getInterpolation(self, image, x, y, r):
+    def getinterpolation(self, image, x, y, r):
         x1 = int(np.floor(x))
         x2 = int(np.ceil(x))
         y1 = int(np.floor(y))
@@ -143,7 +143,7 @@ class MRELBP():
         integer_value = int(value)  # Convert hex to integer
         fractional_value = integer_value / (1 << frac_bits)
         return fractional_value
-    def getInterpolation_r_phi(self, image, x, y, r, phi):
+    def getinterpolation_r_phi(self, image, x, y, r, phi):
         lookup_table = {
             (45, 2): (0x0003E1D, 0x00057D8, 0x0002BEC, 0x0003E1D),
             (135, 2): (0x0002BEC, 0x0003E1D, 0x0003E1D, 0x00057D8),
@@ -466,9 +466,9 @@ class MRELBP():
             target_y = j + r * np.cos(theta)
             
             # print(target_x, target_y)
-            results[f"{angle}"] = self.getInterpolation_r_phi(image, target_x, target_y, r, angle )
+            results[f"{angle}"] = self.getinterpolation_r_phi(image, target_x, target_y, r, angle )
         # return
-            # results[f"{angle}"] = self.getInterpolation(image, target_x, target_y, r )
+            # results[f"{angle}"] = self.getinterpolation(image, target_x, target_y, r )
 
 
         S[2] = results["45"]
@@ -542,11 +542,11 @@ def resize_bmp(input_file, output_file, size=(128, 128)):
     # Ghi ảnh đã thay đổi kích thước ra file BMP khác
     cv2.imwrite(output_file, img_resized)
     print(f"Ảnh đã được lưu tại {output_file}")
-resize_bmp('D:\\Thesis\\CodeTest\\python\\Train\\Dataset\\Outex-TC-00010\\images\\000003.bmp', 'D:\\Thesis\\Data\\Ex\\test_input.bmp')
+resize_bmp('D:\\Thesis\\codetest\\python\\Train\\Dataset\\Outex-TC-00010\\images\\000004.bmp', 'D:\\Thesis\\data\\inputs\\test_input.bmp')
 random_matrix = np.random.randint(0, 256, size=(30, 30), dtype=np.uint8)
-np.savetxt("D:\\Thesis\Src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
+np.savetxt("D:\\Thesis\src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
 
-image_file = "D://Thesis//Data//Ex//test_input.bmp"
+image_file = "D://Thesis//data//inputs//test_input.bmp"
 img = cv2.imread(image_file.rstrip(), cv2.IMREAD_GRAYSCALE)
 file_path = "random_matrix.txt"
 

@@ -144,8 +144,8 @@ cv::Mat readMatrixFromFile(const std::string &filename, int rows, int cols)
 int main()
 {
     // Path to the input image and the output grayscale image
-    std::string inputPath = "/home/ms1sm/Documents/Code/Thesis/Data/Ex/sample.bmp"; // Change to your input image path
-    std::string input_matrix_path = "/home/ms1sm/Documents/Code/Thesis/CodeTest/python/output_matrix_original.txt";
+    std::string inputPath = "/home/ms1sm/Documents/Code/Thesis/data/Ex/sample.bmp"; // Change to your input image path
+    std::string input_matrix_path = "/home/ms1sm/Documents/Code/Thesis/codetest/python/output_matrix_original.txt";
     // // // Create an instance of MRELBP and process the image
     LBP::MRELBP processor;
     // cv::Mat image = cv::imread(inputPath, cv::IMREAD_COLOR);

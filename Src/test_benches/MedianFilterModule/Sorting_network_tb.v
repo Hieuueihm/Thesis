@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module Sorting_network_tb;
+module sorting_network_tb;
 
   // Testbench signals
 
@@ -9,7 +9,7 @@ module Sorting_network_tb;
   wire [7:0] max, med, min;
 
   // Instantiate the SortingNetwork module
-  Sorting_network uut (
+  sorting_network uut (
       .S1 (S1),
       .S2 (S2),
       .S3 (S3),

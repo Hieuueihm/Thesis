@@ -274,19 +274,19 @@
         <spirit:userFileType>xdc</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/Buffer_12_rows.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/buffer_12_rows.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/Buffer_12_rows_ci.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/buffer_12_rows_ci.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/Buffer_4_rows.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/buffer_4_rows.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/Buffer_8_rows.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/buffer_8_rows.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -294,47 +294,47 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/dataModulateModule/3x3/data_modulate_3x3.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/dataModulateModule/3x3/data_modulate_3x3_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/dataModulateModule/3x3/data_modulate_3x3_datapath.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/dataModulateModule/5x5/data_modulate_5x5.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/dataModulateModule/5x5/data_modulate_5x5_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/dataModulateModule/5x5/data_modulate_5x5_datapath.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/dataModulateModule/7x7/data_modulate_7x7.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/dataModulateModule/7x7/data_modulate_7x7_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/dataModulateModule/7x7/data_modulate_7x7_datapath.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/InterpolationModule/Interpolation_R_x.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/interpolationModule/interpolation_R_x.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/InterpolationModule/Interpolation_calc.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/interpolationModule/interpolation_calc.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -350,27 +350,27 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/Line_buffer.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/line_buffer.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/LineBuffer/Line_buffer_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Linebuffer/line_buffer_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/LineBuffer/Line_buffer_datapath.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Linebuffer/line_buffer_datapath.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/MRELBP_CI/R2/MRELBP_CI_R2.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/MRELBP_CI/r2/MRELBP_CI_r2.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/MRELBP_CI/R4/MRELBP_CI_R4.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/MRELBP_CI/r4/MRELBP_CI_r4.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/MRELBP_CI/R6/MRELBP_CI_R6.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/MRELBP_CI/r6/MRELBP_CI_r6.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -414,59 +414,59 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/Preparation.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/preparation.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/Preparation_6.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/preparation_6.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/NIRD/R2_NIRD.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/NIRD/r2_NIRD.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/common/R2/R2_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/common/r2/r2_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/common/R2/R2_patch_sum.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/common/r2/r2_patch_sum.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/common/R2/R2_sum.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/common/r2/r2_sum.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/NIRD/R4_NIRD.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/NIRD/r4_NIRD.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/common/R4/R4_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/common/r4/r4_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/common/R4/R4_patch_sum.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/common/r4/r4_patch_sum.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/common/R4/R4_sum.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/common/r4/r4_sum.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/NIRD/R6_NIRD.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/NIRD/r6_NIRD.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/common/R6/R6_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/common/r6/r6_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/common/R6/R6_patch_sum.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/common/r6/r6_patch_sum.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/common/R6/R6_sum.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/common/r6/r6_sum.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -498,75 +498,75 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/11x11/Window_buffer_11x11.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/11x11/window_buffer_11x11.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/11x11/Window_buffer_11x11_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/11x11/window_buffer_11x11_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/11x11/Window_buffer_11x11_datapath.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/11x11/window_buffer_11x11_datapath.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/13x13/Window_buffer_13x13.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/13x13/window_buffer_13x13.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/13x13/Window_buffer_13x13_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/13x13/window_buffer_13x13_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/13x13/Window_buffer_13x13_datapath.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/13x13/window_buffer_13x13_datapath.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/3x3/Window_buffer_3x3.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/3x3/window_buffer_3x3.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/3x3/Window_buffer_3x3_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/3x3/window_buffer_3x3_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/3x3/Window_buffer_3x3_datapath.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/3x3/window_buffer_3x3_datapath.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/5x5/window_buffer_5x5.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/5x5/window_buffer_5x5_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5_datapath.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/5x5/window_buffer_5x5_datapath.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/7x7/Window_buffer_7x7.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/7x7/window_buffer_7x7.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/7x7/Window_buffer_7x7_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/7x7/window_buffer_7x7_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/7x7/Window_buffer_7x7_datapath.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/7x7/window_buffer_7x7_datapath.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/9x9/Window_buffer_9x9.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/9x9/window_buffer_9x9.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/9x9/Window_buffer_9x9_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/9x9/window_buffer_9x9_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/9x9/Window_buffer_9x9_datapath.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/9x9/window_buffer_9x9_datapath.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -606,19 +606,19 @@
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/Buffer_12_rows.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/buffer_12_rows.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/Buffer_12_rows_ci.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/buffer_12_rows_ci.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/Buffer_4_rows.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/buffer_4_rows.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/Buffer_8_rows.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/buffer_8_rows.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -626,47 +626,47 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/dataModulateModule/3x3/data_modulate_3x3.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/dataModulateModule/3x3/data_modulate_3x3_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/DataModulateModule/3x3/Data_modulate_3x3_datapath.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/dataModulateModule/3x3/data_modulate_3x3_datapath.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/dataModulateModule/5x5/data_modulate_5x5.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/dataModulateModule/5x5/data_modulate_5x5_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/DataModulateModule/5x5/Data_modulate_5x5_datapath.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/dataModulateModule/5x5/data_modulate_5x5_datapath.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/dataModulateModule/7x7/data_modulate_7x7.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/dataModulateModule/7x7/data_modulate_7x7_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/DataModulateModule/7x7/Data_modulate_7x7_datapath.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/dataModulateModule/7x7/data_modulate_7x7_datapath.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/InterpolationModule/Interpolation_R_x.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/interpolationModule/interpolation_R_x.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/InterpolationModule/Interpolation_calc.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/interpolationModule/interpolation_calc.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -682,27 +682,27 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/Line_buffer.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/line_buffer.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/LineBuffer/Line_buffer_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Linebuffer/line_buffer_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/LineBuffer/Line_buffer_datapath.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Linebuffer/line_buffer_datapath.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/MRELBP_CI/R2/MRELBP_CI_R2.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/MRELBP_CI/r2/MRELBP_CI_r2.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/MRELBP_CI/R4/MRELBP_CI_R4.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/MRELBP_CI/r4/MRELBP_CI_r4.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/MRELBP_CI/R6/MRELBP_CI_R6.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/MRELBP_CI/r6/MRELBP_CI_r6.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -746,59 +746,59 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/Preparation.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/preparation.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/Preparation_6.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/preparation_6.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/NIRD/R2_NIRD.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/NIRD/r2_NIRD.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/common/R2/R2_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/common/r2/r2_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/common/R2/R2_patch_sum.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/common/r2/r2_patch_sum.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/common/R2/R2_sum.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/common/r2/r2_sum.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/NIRD/R4_NIRD.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/NIRD/r4_NIRD.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/common/R4/R4_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/common/r4/r4_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/common/R4/R4_patch_sum.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/common/r4/r4_patch_sum.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/common/R4/R4_sum.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/common/r4/r4_sum.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/NIRD/R6_NIRD.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/NIRD/r6_NIRD.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/common/R6/R6_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/common/r6/r6_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/common/R6/R6_patch_sum.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/common/r6/r6_patch_sum.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/common/R6/R6_sum.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/common/r6/r6_sum.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -830,75 +830,75 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/11x11/Window_buffer_11x11.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/11x11/window_buffer_11x11.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/11x11/Window_buffer_11x11_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/11x11/window_buffer_11x11_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/11x11/Window_buffer_11x11_datapath.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/11x11/window_buffer_11x11_datapath.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/13x13/Window_buffer_13x13.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/13x13/window_buffer_13x13.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/13x13/Window_buffer_13x13_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/13x13/window_buffer_13x13_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/13x13/Window_buffer_13x13_datapath.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/13x13/window_buffer_13x13_datapath.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/3x3/Window_buffer_3x3.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/3x3/window_buffer_3x3.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/3x3/Window_buffer_3x3_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/3x3/window_buffer_3x3_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/3x3/Window_buffer_3x3_datapath.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/3x3/window_buffer_3x3_datapath.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/5x5/window_buffer_5x5.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/5x5/window_buffer_5x5_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/5x5/Window_buffer_5x5_datapath.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/5x5/window_buffer_5x5_datapath.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/7x7/Window_buffer_7x7.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/7x7/window_buffer_7x7.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/7x7/Window_buffer_7x7_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/7x7/window_buffer_7x7_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/7x7/Window_buffer_7x7_datapath.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/7x7/window_buffer_7x7_datapath.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/9x9/Window_buffer_9x9.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/9x9/window_buffer_9x9.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/9x9/Window_buffer_9x9_controller.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/9x9/window_buffer_9x9_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/Buffers/WindowBuffer/9x9/Window_buffer_9x9_datapath.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/buffers/Windowbuffer/9x9/window_buffer_9x9_datapath.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>

@@ -52,7 +52,7 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Thesis\CodeTest\c++
+CMAKE_SOURCE_DIR = D:\Thesis\codetest\c++
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = D:\Thesis\build
@@ -73,18 +73,18 @@ CMakeFiles/mrelbp.dir/codegen:
 
 CMakeFiles/mrelbp.dir/mrelbp.cpp.obj: CMakeFiles/mrelbp.dir/flags.make
 CMakeFiles/mrelbp.dir/mrelbp.cpp.obj: CMakeFiles/mrelbp.dir/includes_CXX.rsp
-CMakeFiles/mrelbp.dir/mrelbp.cpp.obj: D:/Thesis/CodeTest/c++/mrelbp.cpp
+CMakeFiles/mrelbp.dir/mrelbp.cpp.obj: D:/Thesis/codetest/c++/mrelbp.cpp
 CMakeFiles/mrelbp.dir/mrelbp.cpp.obj: CMakeFiles/mrelbp.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Thesis\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mrelbp.dir/mrelbp.cpp.obj"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mrelbp.dir/mrelbp.cpp.obj -MF CMakeFiles\mrelbp.dir\mrelbp.cpp.obj.d -o CMakeFiles\mrelbp.dir\mrelbp.cpp.obj -c D:\Thesis\CodeTest\c++\mrelbp.cpp
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mrelbp.dir/mrelbp.cpp.obj -MF CMakeFiles\mrelbp.dir\mrelbp.cpp.obj.d -o CMakeFiles\mrelbp.dir\mrelbp.cpp.obj -c D:\Thesis\codetest\c++\mrelbp.cpp
 
 CMakeFiles/mrelbp.dir/mrelbp.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/mrelbp.dir/mrelbp.cpp.i"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Thesis\CodeTest\c++\mrelbp.cpp > CMakeFiles\mrelbp.dir\mrelbp.cpp.i
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Thesis\codetest\c++\mrelbp.cpp > CMakeFiles\mrelbp.dir\mrelbp.cpp.i
 
 CMakeFiles/mrelbp.dir/mrelbp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/mrelbp.dir/mrelbp.cpp.s"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Thesis\CodeTest\c++\mrelbp.cpp -o CMakeFiles\mrelbp.dir\mrelbp.cpp.s
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Thesis\codetest\c++\mrelbp.cpp -o CMakeFiles\mrelbp.dir\mrelbp.cpp.s
 
 # Object files for target mrelbp
 mrelbp_OBJECTS = \
@@ -126,6 +126,6 @@ CMakeFiles/mrelbp.dir/clean:
 .PHONY : CMakeFiles/mrelbp.dir/clean
 
 CMakeFiles/mrelbp.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\Thesis\CodeTest\c++ D:\Thesis\CodeTest\c++ D:\Thesis\build D:\Thesis\build D:\Thesis\build\CMakeFiles\mrelbp.dir\DependInfo.cmake "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\Thesis\codetest\c++ D:\Thesis\codetest\c++ D:\Thesis\build D:\Thesis\build D:\Thesis\build\CMakeFiles\mrelbp.dir\DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/mrelbp.dir/depend
 

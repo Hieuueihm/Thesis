@@ -3,7 +3,7 @@
 `define half_clk_period 5
 `define SIZE 30
 
-module CI_top_tb ();
+module ci_top_tb ();
     task read_matrix;
         output reg [7:0] matrix [0:`SIZE-1][0:`SIZE-1];
         input integer file_id;
@@ -28,17 +28,17 @@ module CI_top_tb ();
     reg [7:0] grayscale_i;
     reg done_i;
     
-    wire [15:0] R2_bit_one_o, R2_bit_zero_o;
+    wire [15:0] r2_bit_one_o, r2_bit_zero_o;
     wire done_o;
-    CI_top #(.COLS(`SIZE), .ROWS(`SIZE))
+    ci_top #(.COLS(`SIZE), .ROWS(`SIZE))
     DUT
     (
     .clk(clk),
     .rst_n(rst_n),
     .grayscale_i(grayscale_i),
     .done_i(done_i),
-    .R2_bit_one_o(R2_bit_one_o),
-    .R2_bit_zero_o(R2_bit_zero_o),
+    .r2_bit_one_o(r2_bit_one_o),
+    .r2_bit_zero_o(r2_bit_zero_o),
     .done_o(done_o)
     );
     reg [7:0] matrix [0:`SIZE-1][0:`SIZE-1];

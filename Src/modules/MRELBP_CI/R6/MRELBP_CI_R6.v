@@ -1,4 +1,4 @@
-module MRELBP_CI_R6 #(
+module mrelbp_ci_r6 #(
     parameter COLS = 15,
     parameter ROWS = 15
 ) (
@@ -38,9 +38,9 @@ module MRELBP_CI_R6 #(
 
 
 
-  R6_controller #(
+  r6_controller #(
       .COLS(COLS)
-  ) R6_CONTROLLER (
+  ) r6_CONTROLLER (
       .clk(clk),
       .rst_n(rst_n),
       .done_i(done_i),
@@ -57,10 +57,10 @@ module MRELBP_CI_R6 #(
 
   );
 
-  R6_sum #(
+  r6_sum #(
       .COLS(COLS),
       .ROWS(ROWS)
-  ) R6_SUM (
+  ) r6_SUM (
       .clk(clk),
       .rst_n(rst_n),
       .cum_en(cum_en),

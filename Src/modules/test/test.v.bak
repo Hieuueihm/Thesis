@@ -8,8 +8,8 @@ module test(input clk,
     wire done_3x3_o;
     wire [7:0] m_3x3_o;
     
-    Median_processing #(.ROWS(30), .COLS(30))
-    MEDIAN_PROCESSING
+    median_processing #(.ROWS(30), .COLS(30))
+    median_PROCESSING
     (
     .clk(clk),
     .rst_n(rst_n),
@@ -29,7 +29,7 @@ module test(input clk,
     
     wire [7:0] data0_3x3_o, data1_3x3_o, data2_3x3_o, data3_3x3_o, data4_3x3_o;
     wire done_buffer_3x3_o;
-    Buffer_4_rows #(.DEPTH(30)) BUFFER_4_ROWS_3X3 (
+    buffer_4_rows #(.DEPTH(30)) BUFFER_4_ROWS_3X3 (
     .clk(clk),
     .rst_n(rst_n),
     .done_i(done_3x3_o),
@@ -44,7 +44,7 @@ module test(input clk,
     
     wire [7:0] data0_o, data1_o, data2_o, data3_o, data4_o;
     wire done_o;
-    Buffer_4_rows #(.DEPTH(30)) BUFFER_4_ROWS (
+    buffer_4_rows #(.DEPTH(30)) BUFFER_4_ROWS (
     .clk(clk),
     .rst_n(rst_n),
     .done_i(done_original_o),

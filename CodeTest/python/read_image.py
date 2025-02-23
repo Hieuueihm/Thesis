@@ -1,18 +1,18 @@
 import cv2
 
 # Đọc ảnh bằng OpenCV
-image_file = "D://Thesis//Data//Ex//test_input.bmp"
+image_file = "D://Thesis//data//Ex//test_input.bmp"
 img = cv2.imread(image_file.rstrip(), cv2.IMREAD_GRAYSCALE)
 
 # Ghi ảnh ra file input_image_read_cv2.txt (mỗi pixel 1 dòng)
-cv2_output_file = "D://Thesis//CodeTest//python//input_image_read_cv2.txt"
+cv2_output_file = "D://Thesis//codetest//python//input_image_read_cv2.txt"
 with open(cv2_output_file, "w") as f:
     for row in img:
         for pixel in row:
             f.write(f"{pixel}\n")
 
 # So sánh với input_image_read.txt
-verilog_output_file = "D://Thesis//CodeTest//python//input_image_read.txt"
+verilog_output_file = "D://Thesis//codetest//python//input_image_read.txt"
 
 with open(cv2_output_file, "r") as f1, open(verilog_output_file, "r") as f2:
     cv2_lines = f1.readlines()

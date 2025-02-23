@@ -31,9 +31,9 @@ module median (
       .grayscale_o(RGB2Gray_grayscale_o),
       .done_o(RGB2Gray_done_o)
   );
-  Median_preparation #(
+  median_preparation #(
       .DEPTH(360)
-  ) MEDIAN_PREAPARATION (
+  ) median_PREAPARATION (
       .clk(clk),
       .rst_n(rst_n),
       .done_i(RGB2Gray_done_o),
@@ -51,7 +51,7 @@ module median (
   );
 
 
-Median_filter_3x3 MEDIAN_FILTER_3X3(
+median_filter_3x3 median_FILTER_3X3(
     .clk(clk),
      .rst_n(rst_n),
      .done_i(prepare_done_o),

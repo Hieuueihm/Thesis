@@ -1,4 +1,4 @@
-module R4_sum #(
+module r4_sum #(
     parameter COLS = 11,
     parameter ROWS = 11
 ) (

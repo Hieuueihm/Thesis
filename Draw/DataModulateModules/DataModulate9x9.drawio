@@ -4,25 +4,25 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="QPa2e-_EbMcNQabbTF7_-1" value="Line_buffer_0" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="QPa2e-_EbMcNQabbTF7_-1" value="line_buffer_0" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="230" y="360" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="QPa2e-_EbMcNQabbTF7_-2" value="Line_buffer_1" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="QPa2e-_EbMcNQabbTF7_-2" value="line_buffer_1" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="230" y="440" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="QPa2e-_EbMcNQabbTF7_-53" value="Line_buffer_2" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="QPa2e-_EbMcNQabbTF7_-53" value="line_buffer_2" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="230" y="520" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="QPa2e-_EbMcNQabbTF7_-60" value="Line_buffer_3" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="QPa2e-_EbMcNQabbTF7_-60" value="line_buffer_3" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="230" y="600" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="QPa2e-_EbMcNQabbTF7_-74" value="Line_buffer_4" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="QPa2e-_EbMcNQabbTF7_-74" value="line_buffer_4" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="230" y="680" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="QPa2e-_EbMcNQabbTF7_-81" value="Line_buffer_5" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="QPa2e-_EbMcNQabbTF7_-81" value="line_buffer_5" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="230" y="760" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="QPa2e-_EbMcNQabbTF7_-88" value="Line_buffer_6" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="QPa2e-_EbMcNQabbTF7_-88" value="line_buffer_6" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="230" y="840" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="vtVKMghq7bhRAIps2ces-1" value="grayscale_i" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -91,7 +91,7 @@
         <mxCell id="vtVKMghq7bhRAIps2ces-15" value="d74" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="880" y="270" width="40" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="vtVKMghq7bhRAIps2ces-16" value="Line_buffer_7" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="vtVKMghq7bhRAIps2ces-16" value="line_buffer_7" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="230" y="920" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="vtVKMghq7bhRAIps2ces-44" value="d73" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">

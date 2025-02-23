@@ -1,4 +1,4 @@
-module Data_modulate_5x5_tb;
+module data_modulate_5x5_tb;
 
   // Parameters for the testbench (set appropriate values for ROWS and COLS)
   parameter ROWS = 3;
@@ -17,7 +17,7 @@ module Data_modulate_5x5_tb;
   wire done_o;
 
   // Instantiate the UUT (Unit Under Test)
-  Data_modulat_5x5 #(
+  data_modulat_5x5 #(
       .ROWS(ROWS),
       .COLS(COLS)
   ) uut (

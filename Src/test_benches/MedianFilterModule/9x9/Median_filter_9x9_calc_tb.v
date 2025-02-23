@@ -1,4 +1,4 @@
-module Median_filter_9x9_calc_tb;
+module median_filter_9x9_calc_tb;
 
   // Inputs
   reg clk;
@@ -17,7 +17,7 @@ module Median_filter_9x9_calc_tb;
   wire done_o;
 
   // Instantiate the Unit Under Test (UUT)
-  Median_filter_9x9_calc uut (
+  median_filter_9x9_calc uut (
       .clk(clk),
       .rst_n(rst_n),
       .done_i(done_i),
@@ -119,7 +119,7 @@ module Median_filter_9x9_calc_tb;
     integer file;
     reg [7:0] value;
     begin
-      file = $fopen("D:\\Thesis\\Src\\test_benches\\MedianFilterModule\\9x9\\matrix.txt", "r");
+      file = $fopen("D:\\Thesis\\Src\\test_benches\\medianFilterModule\\9x9\\matrix.txt", "r");
       if (file == 0) begin
         $display("ERROR: Unable to open file: %s", "matrix.txt");
         $finish;
@@ -242,7 +242,7 @@ module Median_filter_9x9_calc_tb;
 
     // Check the outputs after some time
     #5000;
-    $display("Median: %d", median_o);
+    $display("median: %d", median_o);
     $display("Done: %b", done_o);
 
     // Finish simulation

@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module Median_filter_3x3_calc_tb;
+module median_filter_3x3_calc_tb;
 
   // Testbench Signals
   reg clk;
@@ -10,8 +10,8 @@ module Median_filter_3x3_calc_tb;
   wire [7:0] median_o;
   wire done_o;
 
-  // Instantiate the Median_filter_3x3_calc module
-  Median_filter_3x3_calc uut (
+  // Instantiate the median_filter_3x3_calc module
+  median_filter_3x3_calc uut (
       .clk(clk),
       .rst_n(rst_n),
       .done_i(done_i),
@@ -52,7 +52,7 @@ module Median_filter_3x3_calc_tb;
     // Apply reset
     rst_n = 1;
     #10;
-    rst_n = 0;
+    rst_n  = 0;
     done_i = 1;
     #10;
 
@@ -100,7 +100,7 @@ module Median_filter_3x3_calc_tb;
 
   // Monitor the output to check correctness
   initial begin
-    $monitor("Time: %t | Median Output: %d | Done Output: %b", $time, median_o, done_o);
+    $monitor("Time: %t | median Output: %d | Done Output: %b", $time, median_o, done_o);
   end
 
 endmodule

@@ -1,4 +1,4 @@
-module R6_sum #(
+module r6_sum #(
     parameter COLS = 11,
     parameter ROWS = 11
 ) (

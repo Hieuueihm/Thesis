@@ -15,7 +15,7 @@
 ########################
 
 //Path to a program.
-CMAKE_ADDR2LINE:FILEPATH=C:/msys64/mingw64/bin/addr2line.exe
+CMAKE_ADDr2LINE:FILEPATH=C:/msys64/mingw64/bin/addr2line.exe
 
 //Path to a program.
 CMAKE_AR:FILEPATH=C:/msys64/mingw64/bin/ar.exe
@@ -251,15 +251,15 @@ mrelbp_BINARY_DIR:STATIC=D:/Thesis/build
 mrelbp_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-mrelbp_SOURCE_DIR:STATIC=D:/Thesis/CodeTest/c++
+mrelbp_SOURCE_DIR:STATIC=D:/Thesis/codetest/c++
 
 
 ########################
 # INTERNAL cache entries
 ########################
 
-//ADVANCED property for variable: CMAKE_ADDR2LINE
-CMAKE_ADDR2LINE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_ADDr2LINE
+CMAKE_ADDr2LINE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
 //This is the directory where this CMakeCache.txt was created
@@ -342,7 +342,7 @@ CMAKE_GENERATOR_PLATFORM:INTERNAL=
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
 //Source directory with the top level CMakeLists.txt file for this
 // project
-CMAKE_HOME_DIRECTORY:INTERNAL=D:/Thesis/CodeTest/c++
+CMAKE_HOME_DIRECTORY:INTERNAL=D:/Thesis/codetest/c++
 //ADVANCED property for variable: CMAKE_LINKER
 CMAKE_LINKER-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MAKE_PROGRAM

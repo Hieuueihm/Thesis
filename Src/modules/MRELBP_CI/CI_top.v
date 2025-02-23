@@ -1,4 +1,4 @@
-module CI_top #(
+module ci_top #(
     parameter ROWS = 30,
     parameter COLS = 30
 ) (
@@ -30,7 +30,7 @@ module CI_top #(
   wire buffer_r6_done_o;
   wire buffer_r4_done_o;
   wire buffer_r2_done_o;
-  Buffer_12_rows_ci #(
+  buffer_12_rows_ci #(
       .DEPTH(COLS)
   ) BUFFER_12_ROWS (
       .clk(clk),
@@ -62,10 +62,10 @@ module CI_top #(
 
 
   // // ci calculation
-  MRELBP_CI_R2 #(
+  mrelbp_ci_r2 #(
       .COLS(COLS),
       .ROWS(ROWS)
-  ) R2_TOP (
+  ) r2_TOP (
       .clk(clk),
       .rst_n(rst_n),
       .done_i(buffer_r2_done_o),
@@ -79,10 +79,10 @@ module CI_top #(
       .progress_done_o(progress_done_r2)
   );
 
-  MRELBP_CI_R4 #(
+  mrelbp_ci_r4 #(
       .COLS(COLS),
       .ROWS(ROWS)
-  ) R4_TOP (
+  ) r4_TOP (
       .clk(clk),
       .rst_n(rst_n),
       .done_i(buffer_r4_done_o),
@@ -100,10 +100,10 @@ module CI_top #(
       .progress_done_o(progress_done_r4)
   );
 
-  MRELBP_CI_R6 #(
+  mrelbp_ci_r6 #(
       .COLS(COLS),
       .ROWS(ROWS)
-  ) R6_TOP (
+  ) r6_TOP (
       .clk(clk),
       .rst_n(rst_n),
       .done_i(buffer_r6_done_o),
@@ -129,7 +129,7 @@ module CI_top #(
   // integer file1;
   // always @(posedge clk) begin
   //     if (~rst_n) begin
-  //         file1 = $fopen("D:\\Thesis\\CodeTest\\python\\ci_r4.txt", "w");
+  //         file1 = $fopen("D:\\Thesis\\codetest\\python\\ci_r4.txt", "w");
   //         end else if (done_r4) begin
   //         if (file1) begin
   //             $fwrite(file1, "%d\n", ci_r4_o);

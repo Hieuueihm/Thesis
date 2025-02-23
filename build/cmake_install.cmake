@@ -1,4 +1,4 @@
-# Install script for directory: D:/Thesis/CodeTest/c++
+# Install script for directory: D:/Thesis/codetest/c++
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

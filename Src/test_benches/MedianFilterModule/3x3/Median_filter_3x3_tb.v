@@ -1,15 +1,15 @@
 `timescale 1ns / 1ps  // Define the simulation time resolution
 
-module Median_filter_3x3_tb ();
+module median_filter_3x3_tb ();
 
   // Testbench signals
   reg clk;
   reg rst_n;
   reg [7:0] S1, S2, S3, S4, S5, S6, S7, S8, S9;
-  wire [7:0] median_o;  // Output from Median filter
+  wire [7:0] median_o;  // Output from median filter
 
-  // Instantiate the Median_filter_3x3 module
-  Median_filter_3x3 uut (
+  // Instantiate the median_filter_3x3 module
+  median_filter_3x3 uut (
       .clk(clk),
       .rst_n(rst_n),
       .S1(S1),
@@ -29,22 +29,22 @@ module Median_filter_3x3_tb ();
     #5 clk = ~clk;  // Toggle clock every 5 ns (50% duty cycle)
   end
 
-integer start_time, end_time;
+  integer start_time, end_time;
 
   // Test procedure
   initial begin
     // Initialize signals
     clk = 0;
     rst_n = 0;
-    S1  = 8'd0;
-    S2  = 8'd0;
-    S3  = 8'd0;
-    S4  = 8'd0;
-    S5  = 8'd0;
-    S6  = 8'd0;
-    S7  = 8'd0;
-    S8  = 8'd0;
-    S9  = 8'd0;
+    S1 = 8'd0;
+    S2 = 8'd0;
+    S3 = 8'd0;
+    S4 = 8'd0;
+    S5 = 8'd0;
+    S6 = 8'd0;
+    S7 = 8'd0;
+    S8 = 8'd0;
+    S9 = 8'd0;
 
     // Apply reset
     rst_n = 1;
@@ -69,7 +69,7 @@ integer start_time, end_time;
     #100;  // Delay for some time to simulate the process of calculating the median
 
     // Display the results
-    $display("Time: %0t, Median Output: %d", $time, median_o);
+    $display("Time: %0t, median Output: %d", $time, median_o);
     $stop;
   end
 

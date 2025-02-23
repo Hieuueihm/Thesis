@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module SortAscending9_tb;
+module sort_ascending_9_tb;
 
   // Inputs
   reg [7:0] S1, S2, S3, S4, S5, S6, S7, S8, S9;
@@ -9,7 +9,7 @@ module SortAscending9_tb;
   wire [7:0] min, out2, out3, out4, mid, out6, out7, out8, max;
 
   // Instantiate the Unit Under Test (UUT)
-  SortAscending9 uut (
+  sort_ascending_9 uut (
       .S1  (S1),
       .S2  (S2),
       .S3  (S3),

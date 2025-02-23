@@ -19,8 +19,8 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 `define clk_period 10
-`define WRITE_FILENAME "D:\\Thesis\\Data\\outputs\\sample_res_5x5.bmp"
-`define READ_FILENAME "D:\\Thesis\\Data\\Ex\\sample.bmp"
+`define WRITE_FILENAME "D:\\Thesis\\data\\outputs\\sample_res_5x5.bmp"
+`define READ_FILENAME "D:\\Thesis\\data\\Ex\\sample.bmp"
 
 module median_tb ();
   // Testbench signals

@@ -37,7 +37,7 @@ def bilinear_interpolate(image, x, y, r):
 
 
 
-    # # Interpolation
+    # # interpolation
     interpolated_value = (
         image[x1, y1] * (1 - a) * (1 - b) +
         image[x1, y2] * a * (1 - b) +

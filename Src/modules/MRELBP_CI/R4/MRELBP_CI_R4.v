@@ -1,4 +1,4 @@
-module MRELBP_CI_R4 #(
+module mrelbp_ci_r4 #(
     parameter COLS = 11,
     parameter ROWS = 11
 ) (
@@ -30,9 +30,9 @@ module MRELBP_CI_R4 #(
   wire i_row_eq_max;
 
 
-  R4_controller #(
+  r4_controller #(
       .COLS(COLS)
-  ) R4_CONTROLLER (
+  ) r4_CONTROLLER (
       .clk(clk),
       .rst_n(rst_n),
       .done_i(done_i),
@@ -49,10 +49,10 @@ module MRELBP_CI_R4 #(
 
   );
 
-  R4_sum #(
+  r4_sum #(
       .COLS(COLS),
       .ROWS(ROWS)
-  ) R4_SUM (
+  ) r4_SUM (
       .clk(clk),
       .rst_n(rst_n),
       .cum_en(cum_en),

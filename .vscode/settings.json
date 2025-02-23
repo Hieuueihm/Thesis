@@ -1,5 +1,5 @@
 {
-    "cmake.sourceDirectory": "D:/Thesis/CodeTest/c++",
+    "cmake.sourceDirectory": "D:/Thesis/codetest/c++",
     "files.associations": {
         "iostream": "cpp",
         "array": "cpp",

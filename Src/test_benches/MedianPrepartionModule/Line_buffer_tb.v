@@ -5,7 +5,7 @@
 `define clk_period 10
 
 
-module Line_buffer_tb ();
+module line_buffer_tb ();
 
   reg clk, rst_n, we_i;
   reg [7:0] data_i;
@@ -15,7 +15,7 @@ module Line_buffer_tb ();
 
   initial clk = 1'b1;
   always #(`clk_period / 2) clk = ~clk;
-  Line_buffer #(
+  line_buffer #(
       .DEPTH(5)
   ) uut (
       .clk(clk),
@@ -27,13 +27,13 @@ module Line_buffer_tb ();
   );
   integer i;
   initial begin
-    rst_n = 1'b1;
+    rst_n  = 1'b1;
     data_i = 8'b0;
-    we_i = 1'b0;
+    we_i   = 1'b0;
 
     #(`clk_period);
-    rst_n  = 1'b0;
-    we_i = 1'b1;
+    rst_n = 1'b0;
+    we_i  = 1'b1;
 
     for (i = 1; i < 11; i = i + 1) begin
       data_i = i;

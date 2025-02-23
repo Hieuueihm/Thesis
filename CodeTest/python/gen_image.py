@@ -43,7 +43,7 @@ def process_bmp_data(image_file):
     return grayscale_values
 
 # Thay thế 'input.bmp' và 'output.bmp' bằng đường dẫn thực tế của bạn
-resize_bmp('D:\\Thesis\\CodeTest\\python\\Train\\Dataset\\Outex-TC-00010\\images\\000000.bmp', 'D:\\Thesis\\Data\\Ex\\test_input.bmp')
+resize_bmp('D:\\Thesis\\codetest\\python\\Train\\Dataset\\Outex-TC-00010\\images\\000000.bmp', 'D:\\Thesis\\Data\\Ex\\test_input.bmp')
 grayscale_values = process_bmp_data('D:\\Thesis\\Data\\Ex\\test_input.bmp')
 print(grayscale_values)
 print(len(grayscale_values))

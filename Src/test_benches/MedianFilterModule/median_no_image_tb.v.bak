@@ -38,7 +38,7 @@ module median_no_image_tb;
     integer file;
     reg [7:0] value;
     begin
-      file = $fopen("D:\\Thesis\\Src\\test_benches\\MedianFilterModule\\matrix_5x5.txt", "r");
+      file = $fopen("D:\\Thesis\\Src\\test_benches\\medianFilterModule\\matrix_5x5.txt", "r");
       if (file == 0) begin
         $display("ERROR: Unable to open file: %s", "matrix.txt");
         $finish;

@@ -169,7 +169,7 @@
             <mxPoint x="720" y="740" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="JCHzmeOS0vF9A2jW9Tr--55" value="MRELBP_CI_R2" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="JCHzmeOS0vF9A2jW9Tr--55" value="MRELBP_CI_r2" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="640" y="700" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="JCHzmeOS0vF9A2jW9Tr--56" value="0" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -1579,10 +1579,10 @@
             <mxPoint x="933.75" y="1605" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="vKEK9yMVUVW-WSZtxguk-460" value="R2_sum" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="vKEK9yMVUVW-WSZtxguk-460" value="r2_sum" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-730" y="880" width="120" height="280" as="geometry" />
         </mxCell>
-        <mxCell id="vKEK9yMVUVW-WSZtxguk-461" value="R2_CI" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="vKEK9yMVUVW-WSZtxguk-461" value="r2_CI" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-520" y="890" width="120" height="270" as="geometry" />
         </mxCell>
         <mxCell id="vKEK9yMVUVW-WSZtxguk-467" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.006;entryY=0.144;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" edge="1">

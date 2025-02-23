@@ -1,4 +1,4 @@
-module Buffer_4_rows #(
+module buffer_4_rows #(
     parameter DEPTH = 17
 ) (
     input clk,
@@ -45,7 +45,7 @@ module Buffer_4_rows #(
 
   generate
     for (genvar i = 0; i < 4; i = i + 1) begin : gen_line_buffers
-      Line_buffer #(
+      line_buffer #(
           .DEPTH(DEPTH)
       ) LINE_BUFFER (
           .clk(clk),

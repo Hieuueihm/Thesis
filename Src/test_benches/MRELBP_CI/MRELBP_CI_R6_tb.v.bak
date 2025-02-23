@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module MRELBP_CI_R6_tb();
+module mrelbp_ci_r6_tb();
     
     reg clk;
     reg rst_n;
@@ -13,7 +13,7 @@ module MRELBP_CI_R6_tb();
     wire done_o;
     wire ci_o;
     wire progress_done_o;
-    MRELBP_CI_R6 DUT (.clk(clk), .rst_n(rst_n), .done_i(done_i), .S1(S1), .S2(S2), .S3(S3), .S4(S4), .S5(S5),
+    mrelbp_ci_r6 DUT (.clk(clk), .rst_n(rst_n), .done_i(done_i), .S1(S1), .S2(S2), .S3(S3), .S4(S4), .S5(S5),
     .S6(S6),
     .S7(S7),
     .S8(S8),

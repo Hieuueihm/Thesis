@@ -8,7 +8,7 @@ from itertools import zip_longest
 from sklearn.svm import SVC
 
 from algorithms.AlgorithmInterfaces import ImageProcessorInterface, ImageClassifierInterface
-from data import DatasetManager, ImageUtils
+from data import datasetManager, ImageUtils
 from algorithms import SharedFunctions
 from example import GenerateExamples
 from config import GlobalConfig
@@ -96,7 +96,7 @@ class MedianRobustExtendedLBP(ImageProcessorInterface):
         :param test_image: Boolean to determine if we are evaluating the test image
         :return: MRELBP descriptor histogram
         """
-        if isinstance(image, DatasetManager.Image):
+        if isinstance(image, datasetManager.Image):
             if test_image:
                 image_data = image.test_data
             else:
@@ -104,7 +104,7 @@ class MedianRobustExtendedLBP(ImageProcessorInterface):
         elif isinstance(image, np.ndarray):
             image_data = image
             if self.save_img:
-                raise ValueError('save_img set but passed as ndarray instead of DatasetManager.Image')
+                raise ValueError('save_img set but passed as ndarray instead of datasetManager.Image')
         else:
             raise ValueError('Invalid image_scaled type')
 
@@ -119,9 +119,9 @@ class MedianRobustExtendedLBP(ImageProcessorInterface):
         if self.save_img:
             GenerateExamples.write_image(ImageUtils.convert_float32_image_uint8(image_padded), 'MRELBP', '{}-padded.png'.format(image.name))
             GenerateExamples.write_image(ImageUtils.convert_float32_image_uint8(image_filtered), 'MRELBP', '{}-median-filtered.png'.format(image.name))
-            describe_image = DatasetManager.Image(image_filtered, image.name, None)
+            describe_image = datasetManager.Image(image_filtered, image.name, None)
         else:
-            describe_image = DatasetManager.Image(image_filtered, None, None)
+            describe_image = datasetManager.Image(image_filtered, None, None)
 
         # Return MRELBP descriptor
         return self.calculate_relbp(describe_image)
@@ -146,7 +146,7 @@ class MedianRobustExtendedLBP(ImageProcessorInterface):
 
             if self.save_img:
                 if isinstance(image, np.ndarray):
-                    raise ValueError('save_img set but passed as ndarray instead of DatasetManager.Image')
+                    raise ValueError('save_img set but passed as ndarray instead of datasetManager.Image')
                 else:
                     GenerateExamples.write_image(ImageUtils.convert_float32_image_uint8(relbp_ni), 'MRELBP', '{}-RELBPNI_r-{}_wr-{}.png'.format(image.name, r, w_r))
                     GenerateExamples.write_image(ImageUtils.convert_float32_image_uint8(relbp_rd), 'MRELBP', '{}-RELBPRD_r-{}_wr-{}.png'.format(image.name, r, w_r))
@@ -310,11 +310,11 @@ class MedianRobustExtendedLBPPredictor(ImageClassifierInterface):
     def begin_cross_validation(self) -> Tuple[List[np.array], List[str]]:
         return super().begin_cross_validation()
 
-    def __init__(self, dataset: List[DatasetManager.Image], cross_validator):
+    def __init__(self, dataset: List[datasetManager.Image], cross_validator):
         super().__init__(dataset, cross_validator)
         self.classifier = None
 
-    def train(self, train: List[DatasetManager.Image]):
+    def train(self, train: List[datasetManager.Image]):
         X_train = [img.featurevector for img in train]
         # Convert List[narray] to ndarray
         X_train = np.stack(X_train, axis=0)

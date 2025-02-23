@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module SortAscending7_tb;
+module sort_ascending_7_tb;
 
   // Inputs
   reg clk;
@@ -13,7 +13,7 @@ module SortAscending7_tb;
   wire done_o;
 
   // Instantiate the module under test
-  SortAscending7 uut (
+  sort_ascending_7 uut (
       .clk(clk),
       .rst_n(rst_n),
       .done_i(done_i),

@@ -1,17 +1,17 @@
 `timescale 1ns / 1ps
 
-module Median_preparation_tb ();
+module median_preparation_tb ();
 
   // Parameters
   parameter DEPTH = 2;  // Set the DEPTH parameter
 
-  // Inputs to the Median_preparation module
+  // Inputs to the median_preparation module
   reg clk;
   reg rst_n;
   reg done_i;
   reg [7:0] grayscale_i;
 
-  // Outputs from the Median_preparation module
+  // Outputs from the median_preparation module
   wire [7:0] data0_o;
   wire [7:0] data1_o;
   wire [7:0] data2_o;
@@ -23,8 +23,8 @@ module Median_preparation_tb ();
   wire [7:0] data8_o;
   wire done_o;
 
-  // Instantiate the Median_preparation module
-  Preparation #(
+  // Instantiate the median_preparation module
+  preparation #(
       .DEPTH(DEPTH)
   ) uut (
       .clk(clk),

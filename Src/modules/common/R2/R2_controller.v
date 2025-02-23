@@ -1,4 +1,4 @@
-module R2_controller #(
+module r2_controller #(
     parameter COLS = 7
 ) (
     input clk,
@@ -22,7 +22,7 @@ module R2_controller #(
   parameter START_ROW = 3'b010;
   parameter SUM_EN = 3'b011;
   parameter CUM_EN = 3'b100;
-  parameter FINISH_ALL = 3'b101;
+  parameter FIniSH_ALL = 3'b101;
   parameter DONE = 3'b110;
   always @(posedge clk) begin
     if (~rst_n) begin
@@ -35,12 +35,12 @@ module R2_controller #(
   always @(*) begin
     case (current_state)
       IDLE: next_state = (done_i) ? START : IDLE;
-      START: next_state = (i_row_eq_max) ? FINISH_ALL : (i_start_gt_1 == 1'b1) ? START_ROW : START;
-      START_ROW: next_state = (i_row_eq_max) ? FINISH_ALL : SUM_EN;
-      SUM_EN: next_state = (i_row_eq_max) ? FINISH_ALL : (i_counter > 3) ? CUM_EN : SUM_EN;
+      START: next_state = (i_row_eq_max) ? FIniSH_ALL : (i_start_gt_1 == 1'b1) ? START_ROW : START;
+      START_ROW: next_state = (i_row_eq_max) ? FIniSH_ALL : SUM_EN;
+      SUM_EN: next_state = (i_row_eq_max) ? FIniSH_ALL : (i_counter > 3) ? CUM_EN : SUM_EN;
       CUM_EN:
-      next_state = (i_row_eq_max) ? FINISH_ALL : (i_counter > COLS - 2) ? START_ROW : CUM_EN;
-      FINISH_ALL: next_state = DONE;
+      next_state = (i_row_eq_max) ? FIniSH_ALL : (i_counter > COLS - 2) ? START_ROW : CUM_EN;
+      FIniSH_ALL: next_state = DONE;
     endcase
   end
   always @(*) begin
@@ -73,7 +73,7 @@ module R2_controller #(
         cum_en = 1'b1;
         done_o = 1'b1;
       end
-      FINISH_ALL: begin
+      FIniSH_ALL: begin
         count_en = 1'b0;
         done_o   = 1'b0;
         cum_en   = 1'b0;

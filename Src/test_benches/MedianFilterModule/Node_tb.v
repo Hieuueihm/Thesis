@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module Node_tb;
+module node_tb;
 
 
   reg  [7:0] in1;
@@ -11,7 +11,7 @@ module Node_tb;
   wire [7:0] out2;
 
   // Instantiate the module under test
-  Node uut (
+  node uut (
       .A(in1),
       .B(in2),
       .min_o(out1),

@@ -1,4 +1,4 @@
-module R2_sum #(
+module r2_sum #(
     parameter COLS = 7,
     parameter ROWS = 7
 ) (
