@@ -56,7 +56,7 @@ module SortAscending7 (
   reg p1_done_o;
 
   always @(posedge clk) begin
-    if (!rst_n) begin
+    if (~rst_n) begin
       p1_S6 <= 0;
       p1_S7 <= 0;
       p1_sa1_min <= 0;
@@ -77,7 +77,7 @@ module SortAscending7 (
     end
   end
   always @(posedge clk) begin
-    if (!rst_n) begin
+    if (~rst_n) begin
       p2_S6 <= 0;
       p2_S7 <= 0;
     end else begin
@@ -86,7 +86,7 @@ module SortAscending7 (
     end
   end
   always @(posedge clk) begin
-    if (!rst_n) begin
+    if (~rst_n) begin
       p3_S6 <= 0;
       p3_S7 <= 0;
     end else begin
@@ -95,7 +95,7 @@ module SortAscending7 (
     end
   end
   always @(posedge clk) begin
-    if (!rst_n) begin
+    if (~rst_n) begin
       p4_S6 <= 0;
       p4_S7 <= 0;
     end else begin
@@ -105,7 +105,7 @@ module SortAscending7 (
   end
 
   always @(posedge clk) begin
-    if (!rst_n) begin
+    if (~rst_n) begin
       p1_sa1_min_1  <= 0;
       p1_sa1_out2_1 <= 0;
 
@@ -155,7 +155,7 @@ module SortAscending7 (
   reg [7:0] p2_sa1_min, p2_sa1_out2;
 
   always @(posedge clk) begin
-    if (!rst_n) begin
+    if (~rst_n) begin
       p2_sa1_min  <= 0;
       p2_sa1_out2 <= 0;
       p2_sa2_min  <= 0;
@@ -192,7 +192,7 @@ module SortAscending7 (
   reg [7:0] p3_sa2_out2, p3_sa2_mid, p3_sa2_out4, p3_sa2_max;
 
   always @(posedge clk) begin
-    if (!rst_n) begin
+    if (~rst_n) begin
       p3_sn1_max  <= 0;
       p3_sn1_med  <= 0;
       p3_sn1_min  <= 0;
@@ -232,7 +232,7 @@ module SortAscending7 (
   reg [7:0] p4_sn1_min;
 
   always @(posedge clk) begin
-    if (!rst_n) begin
+    if (~rst_n) begin
       p4_sn2_max  <= 0;
       p4_sn2_med  <= 0;
       p4_sn2_min  <= 0;

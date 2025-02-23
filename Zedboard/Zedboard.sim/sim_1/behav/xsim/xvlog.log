@@ -30,34 +30,34 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Interpolation
 INFO: [VRFC 10-311] analyzing module Interpolation_R_x
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Interpolation_calc
-WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:18]
 WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:24]
 WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:32]
-WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:39]
-WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:45]
+WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:42]
 WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:51]
 WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:59]
-WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:66]
-WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:72]
-WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:78]
+WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:67]
+WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:77]
 WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:86]
-WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:93]
-WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:100]
-WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:106]
-WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:115]
-WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:122]
-WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:128]
-WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:134]
-WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:142]
+WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:94]
+WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:102]
+WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:112]
+WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:121]
+WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:130]
+WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:138]
 WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:149]
-WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:155]
-WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:161]
-WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:169]
-WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:176]
-WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:182]
-WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:188]
-WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:196]
-WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:203]
+WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:158]
+WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:166]
+WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:174]
+WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:184]
+WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:193]
+WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:201]
+WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:209]
+WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:219]
+WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:228]
+WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:236]
+WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:244]
+WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:254]
+WARNING: [VRFC 10-526] concatenation with unsized literal; will interpret as 32 bits [D:/Thesis/Src/modules/InterpolationModule/Interpolation_calc.v:263]
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/OutputModule/Joint_histogram.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Joint_histogram
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/OutputModule/Joint_histogram_controller.v" into library xil_defaultlib
@@ -94,7 +94,7 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/NIRD/NI.v" in
 INFO: [VRFC 10-311] analyzing module NI
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/NIRD/NI_calc.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module NI_calc
-INFO: [VRFC 10-2458] undeclared symbol compare_result, assumed default net type wire [D:/Thesis/Src/modules/NIRD/NI_calc.v:39]
+INFO: [VRFC 10-2458] undeclared symbol compare_result, assumed default net type wire [D:/Thesis/Src/modules/NIRD/NI_calc.v:44]
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/MedianFilterModule/Node.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Node
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/Preparation.v" into library xil_defaultlib
@@ -143,7 +143,7 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/TopModule/Top
 INFO: [VRFC 10-311] analyzing module TopModule_controller
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/TopModule/TopModule_datapath.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module TopModule_datapath
-WARNING: [VRFC 10-1315] redeclaration of ansi port finish is not allowed [D:/Thesis/Src/modules/TopModule/TopModule_datapath.v:19]
+WARNING: [VRFC 10-1315] redeclaration of ansi port finish is not allowed [D:/Thesis/Src/modules/TopModule/TopModule_datapath.v:22]
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/WindowBuffer/11x11/Window_buffer_11x11.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Window_buffer_11x11
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/Buffers/WindowBuffer/11x11/Window_buffer_11x11_controller.v" into library xil_defaultlib

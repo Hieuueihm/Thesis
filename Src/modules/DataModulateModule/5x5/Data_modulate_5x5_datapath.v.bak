@@ -115,7 +115,7 @@ module Data_modulate_5x5_datapath #(parameter ROWS,
     // handle with i rows and i cols
     
     always @(posedge clk) begin
-        if (!rst_n) begin
+        if (~rst_n) begin
             done_reg <= 0;
             end else begin
             if (done_o) begin
@@ -132,7 +132,7 @@ module Data_modulate_5x5_datapath #(parameter ROWS,
     
     
     always @(*) begin
-        if (!rst_n) begin
+        if (~rst_n) begin
             d0_o  <= 0;
             d1_o  <= 0;
             d2_o  <= 0;
@@ -202,7 +202,7 @@ module Data_modulate_5x5_datapath #(parameter ROWS,
     
     
     always @(posedge clk) begin
-        if (!rst_n) begin
+        if (~rst_n) begin
             data0  <= 0;
             data1  <= 0;
             data2  <= 0;

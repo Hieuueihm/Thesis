@@ -57,7 +57,7 @@ module median_tb ();
   // ---------- COPY to result 
 
   always @(posedge clk) begin
-    if (!rst_n) begin
+    if (~rst_n) begin
       j <= 8'd0;
     end else begin
       if (done_o) begin
@@ -153,8 +153,8 @@ module median_tb ();
 
     // writeBMP;
 
-    rst_n    = 1'b1;
-    done_i = 1'b0;
+    rst_n   = 1'b1;
+    done_i  = 1'b0;
 
     red_i   = 8'b0;
     green_i = 8'b0;

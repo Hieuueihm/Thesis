@@ -132,7 +132,7 @@ module Median_filter_7x7_data_modulate #(
   // handle with i rows and i cols
 
   always @(posedge clk) begin
-    if (!rst_n) begin
+    if (~rst_n) begin
       i_row <= 0;
       i_col <= 0;
       done_reg <= 0;
@@ -152,7 +152,7 @@ module Median_filter_7x7_data_modulate #(
 
 
   always @(posedge clk) begin
-    if (!rst_n) begin
+    if (~rst_n) begin
 
       i_counter <= 0;
     end else begin
@@ -167,7 +167,7 @@ module Median_filter_7x7_data_modulate #(
 
 
   always @(*) begin
-    if (!rst_n) begin
+    if (~rst_n) begin
       d0_o  <= 0;
       d1_o  <= 0;
       d2_o  <= 0;
@@ -2718,7 +2718,7 @@ module Median_filter_7x7_data_modulate #(
 
 
   always @(posedge clk) begin
-    if (!rst_n) begin
+    if (~rst_n) begin
       d0_o  <= 0;
       d1_o  <= 0;
       d2_o  <= 0;

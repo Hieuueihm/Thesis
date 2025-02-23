@@ -1,0 +1,7 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"test_top_tb_with_image_time_synth.v" \
+"../../../../../../Src/test_benches/test/test_top_tb_with_image.v" \
+
+# Do not sort compile order
+nosort

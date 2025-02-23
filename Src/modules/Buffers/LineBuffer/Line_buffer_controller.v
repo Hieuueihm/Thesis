@@ -9,15 +9,15 @@ module Line_buffer_controller #(parameter DEPTH = 1024)
     
 
     wire done_i_eq_1 = (done_i == 1)  ? 1 : 0;
+    wire i_counter_eq_max = (i_counter == DEPTH - 1) ? 1 : 0;
+    wire done_and_i_counter = done_i_eq_1 & i_counter_eq_max;
+
     mux_2_1 #(.WIDTH(1)) WR_EN_MUX(
     .a(1'b1),
     .b(1'b0),
     .sel(done_i_eq_1),
     .y(wr_en)
     );
-    wire i_counter_eq_max = (i_counter == DEPTH - 1) ? 1 : 0;
-    wire done_and_i_counter = done_i_eq_1 & i_counter_eq_max;
-    
     
     mux_2_1  #(.WIDTH(1)) RD_EN_MUX(
     .a(1'b1),

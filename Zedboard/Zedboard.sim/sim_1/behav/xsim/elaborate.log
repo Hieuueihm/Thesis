@@ -3,8 +3,8 @@ Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
 Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 61deb73bc94749e4a0d244b96a373ddd --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot test_top_tb_with_image_behav xil_defaultlib.test_top_tb_with_image xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-WARNING: [VRFC 10-278] actual bit length 8 differs from formal bit length 1 for port done_o [D:/Thesis/Src/modules/TopModule/TopModule_datapath.v:35]
-WARNING: [VRFC 10-278] actual bit length 8 differs from formal bit length 1 for port done_original_i [D:/Thesis/Src/modules/TopModule/TopModule_datapath.v:79]
+WARNING: [VRFC 10-278] actual bit length 8 differs from formal bit length 1 for port done_o [D:/Thesis/Src/modules/TopModule/TopModule_datapath.v:42]
+WARNING: [VRFC 10-278] actual bit length 8 differs from formal bit length 1 for port done_original_i [D:/Thesis/Src/modules/TopModule/TopModule_datapath.v:88]
 Completed static elaboration
 Starting simulation data flow analysis
 WARNING: [XSIM 43-4099] "D:/Thesis/Src/modules/TopModule/TopModule.v" Line 1. Module TopModule doesn't have a timescale but at least one module in design has a timescale.
