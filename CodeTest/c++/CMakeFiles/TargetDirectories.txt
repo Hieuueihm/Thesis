@@ -1,3 +1,0 @@
-/home/ms1sm/Documents/Code/Thesis/codetest/c++/CMakeFiles/mrelbp.dir
-/home/ms1sm/Documents/Code/Thesis/codetest/c++/CMakeFiles/edit_cache.dir
-/home/ms1sm/Documents/Code/Thesis/codetest/c++/CMakeFiles/rebuild_cache.dir
