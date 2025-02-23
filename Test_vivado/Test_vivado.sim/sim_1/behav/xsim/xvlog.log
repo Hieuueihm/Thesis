@@ -1,4 +1,0 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/modules/InterpolationModule/bilinear_interpolation.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module bilinear_interpolation
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Thesis/Src/test_benches/InterpolationModule/bilinear_interpolation_tb.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module bilinear_interpolation_tb
