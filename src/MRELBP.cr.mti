@@ -1,0 +1,241 @@
+D:/Thesis/Src/modules/medianFilterModule/7x7/sort_ascending_7.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/medianFilterModule/7x7/sort_ascending_7.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module sort_ascending_7
+
+Top level modules:
+	sort_ascending_7
+
+} {} {}} D:/Thesis/Src/modules/MRELBP_CI/mrelbp_ci_r2/mrelbp_ci_r2_datapath.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/MRELBP_CI/mrelbp_ci_r2/mrelbp_ci_r2_datapath.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module mrelbp_ci_r2_datapath
+
+Top level modules:
+	mrelbp_ci_r2_datapath
+
+} {} {}} D:/Thesis/Src/modules/preparationModule/Linebuffer/line_buffer_datapath.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/preparationModule/Linebuffer/line_buffer_datapath.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module line_buffer_datapath
+
+Top level modules:
+	line_buffer_datapath
+
+} {} {}} D:/Thesis/Src/test_benches/medianFilterModule/7x7/median_filter_7x7_calc_tb.v {1 {vlog -work work -stats=none D:/Thesis/Src/test_benches/medianFilterModule/7x7/median_filter_7x7_calc_tb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module median_filter_7x7_calc_tb
+
+Top level modules:
+	median_filter_7x7_calc_tb
+
+} {} {}} D:/Thesis/Src/modules/dataModulateModule/data_modulate_7x7.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/dataModulateModule/data_modulate_7x7.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module data_modulate_7x7
+
+Top level modules:
+	data_modulate_7x7
+
+} {} {}} D:/Thesis/Src/modules/dataModulateModule/data_modulate_17x17.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/dataModulateModule/data_modulate_17x17.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module data_modulate_17x17
+
+Top level modules:
+	data_modulate_17x17
+
+} {} {}} D:/Thesis/Src/modules/medianFilterModule/9x9/median_filter_9x9.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/medianFilterModule/9x9/median_filter_9x9.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module median_filter_9x9
+
+Top level modules:
+	median_filter_9x9
+
+} {} {}} D:/Thesis/Src/test_benches/medianFilterModule/5x5/sort_ascending_5_tb.v {1 {vlog -work work -stats=none D:/Thesis/Src/test_benches/medianFilterModule/5x5/sort_ascending_5_tb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module sort_ascending_5_tb
+
+Top level modules:
+	sort_ascending_5_tb
+
+} {} {}} D:/Thesis/Src/modules/medianFilterModule/5x5/median_filter_5x5.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/medianFilterModule/5x5/median_filter_5x5.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module median_filter_5x5
+
+Top level modules:
+	median_filter_5x5
+
+} {} {}} D:/Thesis/Src/modules/medianFilterModule/9x9/sort_ascending_9.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/medianFilterModule/9x9/sort_ascending_9.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module sort_ascending_9
+
+Top level modules:
+	sort_ascending_9
+
+} {} {}} D:/Thesis/Src/modules/dataModulateModule/data_modulate_9x9.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/dataModulateModule/data_modulate_9x9.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module data_modulate_9x9
+
+Top level modules:
+	data_modulate_9x9
+
+} {} {}} D:/Thesis/Src/test_benches/MRELBP_CI/mrelbp_ci_r2_tb.v {1 {vlog -work work -stats=none D:/Thesis/Src/test_benches/MRELBP_CI/mrelbp_ci_r2_tb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module mrelbp_ci_r2_tb
+
+Top level modules:
+	mrelbp_ci_r2_tb
+
+} {} {}} D:/Thesis/Src/modules/medianFilterModule/9x9/median_filter_9x9_calc.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/medianFilterModule/9x9/median_filter_9x9_calc.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module median_filter_9x9_calc
+
+Top level modules:
+	median_filter_9x9_calc
+
+} {} {}} D:/Thesis/Src/test_benches/medianFilterModule/median_no_image_tb.v {1 {vlog -work work -stats=none D:/Thesis/Src/test_benches/medianFilterModule/median_no_image_tb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module median_no_image_tb
+
+Top level modules:
+	median_no_image_tb
+
+} {} {}} D:/Thesis/Src/modules/medianFilterModule/sorting_network.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/medianFilterModule/sorting_network.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module sorting_network
+
+Top level modules:
+	sorting_network
+
+} {} {}} D:/Thesis/Src/modules/medianFilterModule/5x5/median_filter_5x5_calc.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/medianFilterModule/5x5/median_filter_5x5_calc.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module median_filter_5x5_calc
+
+Top level modules:
+	median_filter_5x5_calc
+
+} {} {}} D:/Thesis/Src/modules/MRELBP_CI/mrelbp_ci_r2/CI_buffer_r2.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/MRELBP_CI/mrelbp_ci_r2/CI_buffer_r2.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module CI_buffer_r2
+
+Top level modules:
+	CI_buffer_r2
+
+} {} {}} D:/Thesis/Src/test_benches/medianFilterModule/5x5/median_filter_5x5_calc_tb.v {1 {vlog -work work -stats=none D:/Thesis/Src/test_benches/medianFilterModule/5x5/median_filter_5x5_calc_tb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module median_filter_5x5_calc_tb
+
+Top level modules:
+	median_filter_5x5_calc_tb
+
+} {} {}} D:/Thesis/Src/modules/dataModulateModule/data_modulate_3x3.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/dataModulateModule/data_modulate_3x3.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module data_modulate_3x3
+
+Top level modules:
+	data_modulate_3x3
+
+} {} {}} D:/Thesis/Src/modules/MRELBP_CI/mrelbp_ci_r2/mrelbp_ci_r2.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/MRELBP_CI/mrelbp_ci_r2/mrelbp_ci_r2.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module mrelbp_ci_r2
+
+Top level modules:
+	mrelbp_ci_r2
+
+} {} {}} D:/Thesis/Src/modules/medianFilterModule/5x5/sort_ascending_5.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/medianFilterModule/5x5/sort_ascending_5.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module sort_ascending_5
+
+Top level modules:
+	sort_ascending_5
+
+} {} {}} D:/Thesis/Src/modules/preparationModule/line_buffer.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/preparationModule/line_buffer.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module line_buffer
+
+Top level modules:
+	line_buffer
+
+} {} {}} D:/Thesis/Src/test_benches/medianFilterModule/7x7/sort_ascending_7_tb.v {1 {vlog -work work -stats=none D:/Thesis/Src/test_benches/medianFilterModule/7x7/sort_ascending_7_tb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module sort_ascending_7_tb
+
+Top level modules:
+	sort_ascending_7_tb
+
+} {} {}} D:/Thesis/Src/modules/medianFilterModule/median_no_image.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/medianFilterModule/median_no_image.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module median_no_image
+
+Top level modules:
+	median_no_image
+
+} {} {}} D:/Thesis/Src/modules/dataModulateModule/data_modulate_13x13.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/dataModulateModule/data_modulate_13x13.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module data_modulate_13x13
+
+Top level modules:
+	data_modulate_13x13
+
+} {} {}} D:/Thesis/Src/modules/MRELBP_CI/mrelbp_ci_r2/mrelbp_ci_r2_controller.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/MRELBP_CI/mrelbp_ci_r2/mrelbp_ci_r2_controller.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module mrelbp_ci_r2_controller
+
+Top level modules:
+	mrelbp_ci_r2_controller
+
+} {} {}} D:/Thesis/Src/modules/medianFilterModule/3x3/median_filter_3x3.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/medianFilterModule/3x3/median_filter_3x3.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module median_filter_3x3
+
+Top level modules:
+	median_filter_3x3
+
+} {} {}} D:/Thesis/Src/modules/medianFilterModule/7x7/median_filter_7x7.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/medianFilterModule/7x7/median_filter_7x7.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module median_filter_7x7
+
+Top level modules:
+	median_filter_7x7
+
+} {} {}} D:/Thesis/Src/modules/preparationModule/preparation.v {2 {vlog -work work -stats=none D:/Thesis/Src/modules/preparationModule/preparation.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module preparation
+** Warning: D:/Thesis/Src/modules/preparationModule/preparation.v(54): (vlog-2226) The inline genvar declaration for 'i' is only legal in SystemVerilog.
+Use -error for strict enforcement.
+
+Top level modules:
+	preparation
+
+} {} {}} D:/Thesis/Src/modules/medianFilterModule/node.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/medianFilterModule/node.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module node
+
+Top level modules:
+	node
+
+} {} {}} D:/Thesis/Src/modules/preparationModule/Linebuffer/line_buffer_controller.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/preparationModule/Linebuffer/line_buffer_controller.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module line_buffer_controller
+
+Top level modules:
+	line_buffer_controller
+
+} {} {}} D:/Thesis/Src/modules/dataModulateModule/data_modulate_5x5.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/dataModulateModule/data_modulate_5x5.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module data_modulate_5x5
+
+Top level modules:
+	data_modulate_5x5
+
+} {} {}} D:/Thesis/Src/modules/medianFilterModule/3x3/median_filter_3x3_calc.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/medianFilterModule/3x3/median_filter_3x3_calc.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module median_filter_3x3_calc
+
+Top level modules:
+	median_filter_3x3_calc
+
+} {} {}} D:/Thesis/Src/modules/medianFilterModule/7x7/median_filter_7x7_calc.v {1 {vlog -work work -stats=none D:/Thesis/Src/modules/medianFilterModule/7x7/median_filter_7x7_calc.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module median_filter_7x7_calc
+
+Top level modules:
+	median_filter_7x7_calc
+
+} {} {}}
