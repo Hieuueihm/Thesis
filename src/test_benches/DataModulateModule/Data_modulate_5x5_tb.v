@@ -109,7 +109,7 @@ module data_modulate_5x5_tb;
     // For example, testing zero-padding and boundary conditions
 
     // End the simulation
-    #100 $finish;
+    #100 $FINISH;
   end
 
   // Monitor the outputs to check results

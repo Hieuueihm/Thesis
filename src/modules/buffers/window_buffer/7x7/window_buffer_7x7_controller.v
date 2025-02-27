@@ -17,7 +17,7 @@ module window_buffer_7x7_controller (
   parameter COL_OUT = 3'b011;
   parameter END_COL = 3'b100;
   parameter END_COL_2 = 3'b101;
-  parameter FIniSH_ALL = 3'b110;
+  parameter FINISH_ALL = 3'b110;
   parameter DONE = 3'b111;
   always @(posedge clk) begin
     if (~rst_n) begin
@@ -32,12 +32,12 @@ module window_buffer_7x7_controller (
       IDLE: next_state = (done_i) ? START : IDLE;
       START: next_state = START_COL;
       START_COL:
-      next_state = i_row_eq_max ? FIniSH_ALL : (i_col_ge_threshold) ? COL_OUT : START_COL;
-      COL_OUT: next_state = i_row_eq_max ? FIniSH_ALL : (i_col_eq_max) ? END_COL : COL_OUT;
-      END_COL: next_state = i_row_eq_max ? FIniSH_ALL : END_COL_2;
-      END_COL_2: next_state = i_row_eq_max ? FIniSH_ALL : START_COL;
+      next_state = i_row_eq_max ? FINISH_ALL : (i_col_ge_threshold) ? COL_OUT : START_COL;
+      COL_OUT: next_state = i_row_eq_max ? FINISH_ALL : (i_col_eq_max) ? END_COL : COL_OUT;
+      END_COL: next_state = i_row_eq_max ? FINISH_ALL : END_COL_2;
+      END_COL_2: next_state = i_row_eq_max ? FINISH_ALL : START_COL;
 
-      FIniSH_ALL: next_state = DONE;
+      FINISH_ALL: next_state = DONE;
     endcase
   end
   always @(*) begin
@@ -62,7 +62,7 @@ module window_buffer_7x7_controller (
         count_en = 1'b0;
         done_o   = 1'b0;
       end
-      FIniSH_ALL: begin
+      FINISH_ALL: begin
         count_en      = 1'b0;
         done_o        = 1'b0;
         progress_done = 1'b1;

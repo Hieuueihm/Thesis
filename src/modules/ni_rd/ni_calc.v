@@ -7,47 +7,79 @@ module ni_calc #(
     input [23:0] S,
     input [WIDTH - 1:0] sum_i,
     input done_i,
-    output reg done_o,
+    output done_o,
     output bit_o
 );
+
+  reg [23:0] S_reg;
   reg [16+WIDTH - 1:0] scaled_S_r2;
+  reg [16+WIDTH - 1:0] scaled_S_r2_reg;
+
+  shift_registers #(
+      .WIDTH(1),
+      .CYCLE(4)
+  ) shift_registers_done_o (
+      .clk(clk),
+      .rst_n(rst_n),
+      .data_i(done_i),
+      .data_o(done_o)
+  );
+
+
+
+  // Pipeline Stage 1: Register Input
   always @(posedge clk) begin
     if (~rst_n) begin
-      done_o <= 1'b0;
-    end else begin
-      done_o <= done_i;
-
+      S_reg <= 0;
+    end else if (done_i) begin
+      S_reg <= S;
     end
   end
 
-
-
-
+  // Pipeline Stage 2: Perform Multiplication
   always @(posedge clk) begin
     if (~rst_n) begin
       scaled_S_r2 <= 0;
-    end else if (done_i) begin
-      scaled_S_r2 <= S * GAIN;
+    end else begin
+
+      scaled_S_r2 <= S_reg * GAIN;
     end
   end
 
+  // Pipeline Stage 3: Register Output
+  always @(posedge clk) begin
+    if (~rst_n) begin
+      scaled_S_r2_reg <= 0;
+    end else begin
+      scaled_S_r2_reg <= scaled_S_r2;
+    end
+  end
+
+
+
   wire [WIDTH - 1 : 0] sum_delay;
-  register #(
-      .WIDTH(WIDTH)
-  ) DFF_SUM (
+  shift_registers #(
+      .WIDTH(WIDTH),
+      .CYCLE(3)
+  ) shift_registers_sum_i (
       .clk(clk),
       .rst_n(rst_n),
-      .en(done_i),
-      .D(sum_i),
-      .Q(sum_delay)
+      .data_i(sum_i),
+      .data_o(sum_delay)
   );
-  assign compare_result = (scaled_S_r2[16+WIDTH-1 : 16] < sum_delay) ? 1'b0 : 1'b1;
+  wire [WIDTH - 1 : 0] s_r2_check;
+  assign s_r2_check = scaled_S_r2_reg[16+WIDTH-1 : 16];
+  wire compare_result;
+  assign compare_result = (scaled_S_r2_reg[16+WIDTH-1 : 16] < sum_delay) ? 1'b0 : 1'b1;
+  reg registered_bit_o;
+  always @(posedge clk) begin
+    if (~rst_n) begin
+      registered_bit_o <= 0;
+    end else begin
+      registered_bit_o <= compare_result;
+    end
 
-
-  assign bit_o = compare_result;
-
-
-
-
+  end
+  assign bit_o = registered_bit_o;
 
 endmodule

@@ -94,7 +94,7 @@ module median_filter_3x3_calc_tb;
 
 
 
-    // Finish the simulation
+    // FINISH the simulation
     $stop;
   end
 

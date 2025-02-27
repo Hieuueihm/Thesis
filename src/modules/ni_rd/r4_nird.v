@@ -586,92 +586,6 @@ module r4_nird #(
       .bit8_o(bit8_o)
   );
 
-  wire rd_done_delay, rd_progress_done_delay;
-  wire bit1_delay, bit2_delay, bit3_delay, bit4_delay, bit5_delay, bit6_delay, bit7_delay, bit8_delay;
-  dff #(
-      .WIDTH(1)
-  ) SHIFT_rd_DONE (
-      .clk(clk),
-      .rst_n(rst_n),
-      .D(rd_r4_done),
-      .Q(rd_done_delay)
-  );
-
-  dff #(
-      .WIDTH(1)
-  ) SHIFT_rd_PROGRESS_DONE (
-      .clk(clk),
-      .rst_n(rst_n),
-      .D(rd_r4_progress_done),
-      .Q(rd_progress_done_delay)
-  );
-
-  dff #(
-      .WIDTH(1)
-  ) SHIFT_BIT1 (
-      .clk(clk),
-      .rst_n(rst_n),
-      .D(bit1_o),
-      .Q(bit1_delay)
-  );
-  dff #(
-      .WIDTH(1)
-  ) SHIFT_BIT2 (
-      .clk(clk),
-      .rst_n(rst_n),
-      .D(bit2_o),
-      .Q(bit2_delay)
-  );
-  dff #(
-      .WIDTH(1)
-  ) SHIFT_BIT3 (
-      .clk(clk),
-      .rst_n(rst_n),
-      .D(bit3_o),
-      .Q(bit3_delay)
-  );
-
-  dff #(
-      .WIDTH(1)
-  ) SHIFT_BIT4 (
-      .clk(clk),
-      .rst_n(rst_n),
-      .D(bit4_o),
-      .Q(bit4_delay)
-  );
-  dff #(
-      .WIDTH(1)
-  ) SHIFT_BIT5 (
-      .clk(clk),
-      .rst_n(rst_n),
-      .D(bit5_o),
-      .Q(bit5_delay)
-  );
-  dff #(
-      .WIDTH(1)
-  ) SHIFT_BIT6 (
-      .clk(clk),
-      .rst_n(rst_n),
-      .D(bit6_o),
-      .Q(bit6_delay)
-  );
-
-  dff #(
-      .WIDTH(1)
-  ) SHIFT_BIT7 (
-      .clk(clk),
-      .rst_n(rst_n),
-      .D(bit7_o),
-      .Q(bit7_delay)
-  );
-  dff #(
-      .WIDTH(1)
-  ) SHIFT_BIT8 (
-      .clk(clk),
-      .rst_n(rst_n),
-      .D(bit8_o),
-      .Q(bit8_delay)
-  );
 
 
 
@@ -713,26 +627,36 @@ module r4_nird #(
   // wire [7:0] o_test_ni;
   // assign o_test_ni = {bit8_o_ni, bit7_o_ni, bit6_o_ni, bit5_o_ni, bit4_o_ni, bit3_o_ni, bit2_o_ni, bit1_o_ni};
 
-
+  wire [3:0] rd;
+  wire rd_done;
+  wire rd_pd;
   riu2_mapping RIU2_rd (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(rd_done_delay),
-      .progress_done_i(rd_progress_done_delay),
-      .bit1_i(bit1_delay),
-      .bit2_i(bit2_delay),
-      .bit3_i(bit3_delay),
-      .bit4_i(bit4_delay),
-      .bit5_i(bit5_delay),
-      .bit6_i(bit6_delay),
-      .bit7_i(bit7_delay),
-      .bit8_i(bit8_delay),
-      .data_o(rd_o),
-      .done_o(done_o),
-      .progress_done_o(progress_done_o)
+      .done_i(rd_r4_done),
+      .progress_done_i(rd_r4_progress_done),
+      .bit1_i(bit1_o),
+      .bit2_i(bit2_o),
+      .bit3_i(bit3_o),
+      .bit4_i(bit4_o),
+      .bit5_i(bit5_o),
+      .bit6_i(bit6_o),
+      .bit7_i(bit7_o),
+      .bit8_i(bit8_o),
+      .data_o(rd),
+      .done_o(),
+      .progress_done_o()
   );
 
-
+  shift_registers #(
+      .WIDTH(4),
+      .CYCLE(4)
+  ) shift_rd_output (
+      .clk(clk),
+      .rst_n(rst_n),
+      .data_i(rd),
+      .data_o(rd_o)
+  );
   riu2_mapping RIU2_ni (
       .clk(clk),
       .rst_n(rst_n),
@@ -747,9 +671,10 @@ module r4_nird #(
       .bit7_i(bit7_o_ni),
       .bit8_i(bit8_o_ni),
       .data_o(ni_o),
-      .done_o(),
-      .progress_done_o()
+      .done_o(done_o),
+      .progress_done_o(progress_done_o)
   );
+
 
 
 

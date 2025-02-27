@@ -22,7 +22,7 @@ module line_buffer_datapath #(
   always @(posedge clk) begin
     if (~rst_n) begin
       data_o <= 0;
-    end else if (i_counter > DEPTH - 2) begin
+    end else if (rd_en) begin
       data_o <= mem[internal_rd_pointer];
     end else data_o <= 0;
   end
@@ -47,10 +47,17 @@ module line_buffer_datapath #(
       .D(internal_wr_pointer),
       .Q(internal_wr_pointer_plus_1)
   );
-  assign i_counter            = (internal_i_counter_plus_1 > DEPTH - 1) ? i_counter : internal_i_counter_plus_1;
   assign  internal_wr_pointer = (internal_wr_pointer_plus_1 == DEPTH) ? 0 : internal_wr_pointer_plus_1;
 
+  reg [9:0] i_counter_reg;
 
+  always @(posedge clk or negedge rst_n) begin
+    if (!rst_n) i_counter_reg <= 0;
+    else if (internal_i_counter_plus_1 > DEPTH - 1) i_counter_reg <= i_counter_reg;
+    else i_counter_reg <= internal_i_counter_plus_1;
+  end
+
+  assign i_counter = i_counter_reg;
 
   // Write process
   always @(posedge clk) begin

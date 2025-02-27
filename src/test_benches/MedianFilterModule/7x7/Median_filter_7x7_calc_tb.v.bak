@@ -86,7 +86,7 @@ module median_filter_7x7_calc_tb;
       file = $fopen("matrix.txt", "r");
       if (file == 0) begin
         $display("ERROR: Unable to open file: %s", "matrix.txt");
-        $finish;
+        $FINISH;
       end
       for (i = 0; i < 49; i = i + 1) begin
         if (!$feof(file)) begin
@@ -181,7 +181,7 @@ integer i;
     $display("median: %d", median_o);
     $display("Done: %b", done_o);
 
-    // Finish simulation
+    // FINISH simulation
     $stop;
   end
 endmodule

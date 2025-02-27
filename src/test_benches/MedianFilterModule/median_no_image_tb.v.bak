@@ -41,7 +41,7 @@ module median_no_image_tb;
       file = $fopen("D:\\Thesis\\Src\\test_benches\\medianFilterModule\\matrix_5x5.txt", "r");
       if (file == 0) begin
         $display("ERROR: Unable to open file: %s", "matrix.txt");
-        $finish;
+        $FINISH;
       end
       for (i = 0; i < 49; i = i + 1) begin
         if (!$feof(file)) begin
@@ -137,7 +137,7 @@ module median_no_image_tb;
     // Check the outputs after some time
     #1000;
 
-    // Finish simulation
+    // FINISH simulation
     $stop;
   end
 

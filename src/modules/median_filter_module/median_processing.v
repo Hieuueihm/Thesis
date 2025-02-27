@@ -98,53 +98,53 @@ module median_processing #(
       .done_o(done_7x7_o)
   );
 
-  //  integer file_3x3, file_5x5, file_7x7;
+  //   integer file_3x3, file_5x5, file_7x7;
 
-  // initial begin
+  //   initial begin
   //     // Mở file để ghi dữ liệu
   //     file_3x3 = $fopen("D:\\Thesis\\codetest\\python\\median_3x3_verilog.txt", "w");
   //     file_5x5 = $fopen("D:\\Thesis\\codetest\\python\\median_5x5_verilog.txt", "w");
   //     file_7x7 = $fopen("D:\\Thesis\\codetest\\python\\median_7x7_verilog.txt", "w");
 
   //     if (file_3x3 == 0 || file_5x5 == 0 || file_7x7 == 0) begin
-  //         $display("Error: Unable to open one or more files!");
-  //         $stop;
+  //       $display("Error: Unable to open one or more files!");
+  //       $stop;
   //     end
-  // end
-  // reg done_3x3_prev;
-  // reg done_5x5_prev;
-  // reg done_7x7_prev;
-  // always @(posedge clk ) begin
+  //   end
+  //   reg done_3x3_prev;
+  //   reg done_5x5_prev;
+  //   reg done_7x7_prev;
+  //   always @(posedge clk) begin
   //     if (~rst_n) begin
-  //         done_3x3_prev <= 0;
-  //         done_5x5_prev <= 0;
-  //         done_7x7_prev <= 0;
+  //       done_3x3_prev <= 0;
+  //       done_5x5_prev <= 0;
+  //       done_7x7_prev <= 0;
   //     end else begin
-  //         done_3x3_prev <= done_3x3_o;
-  //         done_5x5_prev <= done_5x5_o;
-  //         done_7x7_prev <= done_7x7_o;
+  //       done_3x3_prev <= done_3x3_o;
+  //       done_5x5_prev <= done_5x5_o;
+  //       done_7x7_prev <= done_7x7_o;
   //     end
-  // end
-  // always @(posedge clk) begin
+  //   end
+  //   always @(posedge clk) begin
   //     if (done_3x3_o) begin
-  //         $fwrite(file_3x3, "%d\n", m_3x3_o);
+  //       $fwrite(file_3x3, "%d\n", m_3x3_o);
   //     end
   //     if (done_5x5_o) begin
-  //         $fwrite(file_5x5, "%d\n", m_5x5_o);
+  //       $fwrite(file_5x5, "%d\n", m_5x5_o);
   //     end
   //     if (done_7x7_o) begin
-  //         $fwrite(file_7x7, "%d\n", m_7x7_o);
+  //       $fwrite(file_7x7, "%d\n", m_7x7_o);
   //     end
-  //     if(done_3x3_prev == 1 && done_3x3_o == 0) begin
-  //         $fclose(file_3x3);
+  //     if (done_3x3_prev == 1 && done_3x3_o == 0) begin
+  //       $fclose(file_3x3);
   //     end
-  //     if(done_5x5_prev == 1 && done_5x5_o == 0) begin
-  //         $fclose(file_5x5);
+  //     if (done_5x5_prev == 1 && done_5x5_o == 0) begin
+  //       $fclose(file_5x5);
   //     end
-  //             if(done_7x7_prev == 1 && done_7x7_o == 0) begin
-  //         $fclose(file_7x7);
+  //     if (done_7x7_prev == 1 && done_7x7_o == 0) begin
+  //       $fclose(file_7x7);
   //     end
-  // end
+  //   end
 
 
 endmodule

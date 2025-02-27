@@ -26,7 +26,7 @@ module ci_top #(
   wire [7:0] data6_o;
   wire [7:0] data7_o;
   wire [7:0] data8_o;
-  wire [7:0] data9_o, data10_o, data11_o, data12_o, data13_o, data14_o, data15_o, data16_o;
+  wire [7:0] data9_o, data10_o, data11_o, data12_o;
   wire buffer_r6_done_o;
   wire buffer_r4_done_o;
   wire buffer_r2_done_o;
@@ -126,17 +126,39 @@ module ci_top #(
   );
 
 
-  // integer file1;
+  // integer file1, file2, file3;
   // always @(posedge clk) begin
-  //     if (~rst_n) begin
-  //         file1 = $fopen("D:\\Thesis\\codetest\\python\\ci_r4.txt", "w");
-  //         end else if (done_r4) begin
-  //         if (file1) begin
-  //             $fwrite(file1, "%d\n", ci_r4_o);
-  //         end
-  //         end else if (progress_done_r4) begin
-  //         $fclose(file1);
+  //   if (~rst_n) begin
+  //     file1 = $fopen("D:\\Thesis\\codetest\\python\\ci_r2_verilog.txt", "w");
+  //     file2 = $fopen("D:\\Thesis\\codetest\\python\\ci_r4_verilog.txt", "w");
+  //     file3 = $fopen("D:\\Thesis\\codetest\\python\\ci_r6_verilog.txt", "w");
+  //   end
+  //   if (done_r2) begin
+  //     if (file1) begin
+  //       $fwrite(file1, "%d\n", ci_r2_o);
   //     end
+  //   end
+  //   if (progress_done_r2) begin
+  //     $fclose(file1);
+  //   end
+  //   if (done_r4) begin
+  //     if (file2) begin
+  //       $fwrite(file2, "%d\n", ci_r4_o);
+  //     end
+  //   end
+  //   if (progress_done_r4) begin
+  //     $fclose(file2);
+  //   end
+
+  //   if (done_r6) begin
+  //     if (file3) begin
+  //       $fwrite(file3, "%d\n", ci_r6_o);
+  //     end
+  //   end
+  //   if (progress_done_r6) begin
+  //     $fclose(file3);
+  //   end
+
   // end
 
 endmodule

@@ -1,35 +1,37 @@
-# Function to extract the values from a line and convert them to a tuple of integers
-def extract_values(line):
-    # Remove parentheses and split by commas, then convert to integers
-    return tuple(map(int, line.strip('()').split(',')))
-count199 = 0
-# Open the two files for reading
-with open("ci_ni_rd_data.txt", "r") as file1, open("tuple_ricind.txt", "r") as file2:
-    line_number = 1
-    while True:
-        # Read and process each line from both files
-        line1 = file1.readline().strip()
-        line2 = file2.readline().strip()
+# import cv2
 
-        # If we reach the end of both files, break out of the loop
-        if not line1 and not line2:
-            print("Both files are identical.")
-            break
-        
-        # Extract the numerical values as tuples
-        tuple1 = extract_values(line1)
-        tuple2 = extract_values(line2)
-        value1 = tuple1[0] * 100 + tuple1[1] * 10 + tuple1[2]
-        value2 = tuple2[0] * 100 + tuple2[1] * 10 + tuple2[2]
-        # Compare the tuples
-        if tuple1 != tuple2:
-            print(f"Files differ at line {line_number}:")
-            print(f"File 1: {tuple1}")
-            print(f"File 2: {tuple2}")
+# # Đọc ảnh BMP gốc
+# image = cv2.imread("lena_gray.bmp", cv2.IMREAD_UNCHANGED)
 
-        if value2 == 193:
-            count199 += 1
+# # Resize ảnh xuống 128x128
+# resized_image = cv2.resize(image, (128, 128), interpolation=cv2.INTER_AREA)
 
-        line_number += 1
+# # Lưu ảnh sau khi resize
+# cv2.imwrite("output.bmp", resized_image)
+# #
+# print("Resize hoàn tất, ảnh đã được lưu dưới tên 'output.bmp'")
 
-print(count199)
+# with open("lena_gray.bmp", "rb") as f:
+#     f.seek(10)  # Offset 10 chứa thông tin về vị trí dữ liệu pixel
+#     data_offset = int.from_bytes(f.read(4), byteorder="little")
+
+# print(f"Độ dài header của lena_gray.bmp là {data_offset} bytes")
+
+with open("output.bmp", "rb") as f:
+    data = f.read()
+
+# Tạo file C với dữ liệu dạng decimal
+c_output = "unsigned char imageData[] = {\n"
+c_output += ", ".join(str(byte) for byte in data)  # Xuất số ở dạng thập phân
+c_output += "\n};"
+
+with open("image_data.c", "w") as f:
+    f.write(c_output)
+
+# Tạo file HEX
+hex_output = "\n".join(f"{byte:02X}" for byte in data)  # Dạng HEX, mỗi byte một dòng
+
+with open("image_data.hex", "w") as f:
+    f.write(hex_output)
+
+print("Tệp image_data.c và image_data.hex đã được tạo thành công!")

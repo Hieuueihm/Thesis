@@ -76,7 +76,7 @@ module median_tb ();
       fileId = $fopen(`READ_FILENAME, "rb");
       if (fileId == 0) begin
         $display("OPEN BMP Error!\n");
-        $finish;
+        $FINISH;
       end else begin
         $fread(bmp_data, fileId);
         $fclose(fileId);
@@ -96,12 +96,12 @@ module median_tb ();
         $display("biBitCount  %d!\n", biBitCount);
         if (biBitCount != 24) begin
           $display("%s", "biBitCount need to 24 bit!\n");
-          $finish;
+          $FINISH;
         end
 
         if (bmp_width % 4) begin
           $display("%s", "bmp_width % 4 need to be zero");
-          $finish;
+          $FINISH;
         end
 
         // for (i = bmp_start_pos; i < bmp_size; i = i + 1) begin
@@ -202,7 +202,7 @@ module median_tb ();
     file = $fopen("output.txt", "w");
     if (file == 0) begin
       $display("Error opening file");
-      $finish;
+      $FINISH;
     end
   end
   always @(posedge clk) begin

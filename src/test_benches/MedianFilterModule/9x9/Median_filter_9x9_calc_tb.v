@@ -122,7 +122,7 @@ module median_filter_9x9_calc_tb;
       file = $fopen("D:\\Thesis\\Src\\test_benches\\medianFilterModule\\9x9\\matrix.txt", "r");
       if (file == 0) begin
         $display("ERROR: Unable to open file: %s", "matrix.txt");
-        $finish;
+        $FINISH;
       end
       for (i = 0; i < 81; i = i + 1) begin
         if (!$feof(file)) begin
@@ -245,7 +245,7 @@ module median_filter_9x9_calc_tb;
     $display("median: %d", median_o);
     $display("Done: %b", done_o);
 
-    // Finish simulation
+    // FINISH simulation
     $stop;
   end
 endmodule

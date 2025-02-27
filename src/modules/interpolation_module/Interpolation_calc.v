@@ -8,7 +8,7 @@ module interpolation_calc #(
     B,
     C,
     D,
-    output reg [23:0] data_o
+    output [23:0] data_o
 );
   reg [23:0] r1, r2, r3, r4;
   // r1 = (1-dx) * (1-dy)
@@ -273,41 +273,43 @@ module interpolation_calc #(
 
   reg [23:0] mult_result1, mult_result2, mult_result3, mult_result4;
   reg [23:0] add_result1, add_result2;
-  wire [23:0] r1_mul_a, r2_mul_b, r3_mul_c, r4_mul_d;
-  assign r1_mul_a = r1 * A;
-  assign r2_mul_b = r2 * B;
-  assign r3_mul_c = r3 * C;
-  assign r4_mul_d = r4 * D;
+  reg [23:0] r1_mul_a, r2_mul_b, r3_mul_c, r4_mul_d;
+  reg [23:0] add_12, add_34;
+  reg [23:0] add_result;
 
-  wire [23:0] add_12, add_34;
-  assign add_12 = mult_result1 + mult_result2;
-  assign add_34 = mult_result3 + mult_result4;
-  wire [23:0] add_result;
-  assign add_result = add_result1 + add_result2;
 
   always @(posedge clk) begin
     if (~rst_n) begin
-      mult_result1 <= 24'h0;
-      mult_result2 <= 24'h0;
-      mult_result3 <= 24'h0;
-      mult_result4 <= 24'h0;
-      data_o       <= 0;
-      add_result1  <= 0;
-      add_result2  <= 0;
+      r1_mul_a <= 24'h0;
+      r2_mul_b <= 24'h0;
+      r3_mul_c <= 24'h0;
+      r4_mul_d <= 24'h0;
     end else begin
-      mult_result1 <= r1_mul_a;
-      mult_result2 <= r2_mul_b;
-      mult_result3 <= r3_mul_c;
-      mult_result4 <= r4_mul_d;
-
-      add_result1 <= add_12;
-      add_result2 <= add_34;
-
-      data_o <= add_result;
-
-
-
-
+      r1_mul_a <= r1 * A;
+      r2_mul_b <= r2 * B;
+      r3_mul_c <= r3 * C;
+      r4_mul_d <= r4 * D;
     end
   end
+
+
+  always @(posedge clk) begin
+    if (~rst_n) begin
+      add_12 <= 24'h0;
+      add_34 <= 24'h0;
+    end else begin
+      add_12 <= r1_mul_a + r2_mul_b;
+      add_34 <= r3_mul_c + r4_mul_d;
+    end
+  end
+
+  // Final addition pipeline stage
+  always @(posedge clk) begin
+    if (~rst_n) begin
+      add_result <= 24'h0;
+    end else begin
+      add_result <= add_12 + add_34;
+    end
+  end
+  assign data_o = add_result;
 endmodule

@@ -16,78 +16,78 @@ module r2_controller #(
     output reg progress_done
 );
 
-  reg [2:0] current_state, next_state;
+  reg [2:0] current_state, next_state, prev_state;
   parameter IDLE = 3'b000;
   parameter START = 3'b001;
   parameter START_ROW = 3'b010;
   parameter SUM_EN = 3'b011;
   parameter CUM_EN = 3'b100;
-  parameter FIniSH_ALL = 3'b101;
+  parameter FINISH_ALL = 3'b101;
   parameter DONE = 3'b110;
   always @(posedge clk) begin
     if (~rst_n) begin
       current_state <= IDLE;
+      prev_state <= IDLE;
     end else begin
+      prev_state = current_state;
       current_state <= next_state;
     end
   end
 
   always @(*) begin
+    next_state = current_state;
     case (current_state)
       IDLE: next_state = (done_i) ? START : IDLE;
-      START: next_state = (i_row_eq_max) ? FIniSH_ALL : (i_start_gt_1 == 1'b1) ? START_ROW : START;
-      START_ROW: next_state = (i_row_eq_max) ? FIniSH_ALL : SUM_EN;
-      SUM_EN: next_state = (i_row_eq_max) ? FIniSH_ALL : (i_counter > 3) ? CUM_EN : SUM_EN;
+      START: next_state = (i_row_eq_max) ? FINISH_ALL : (i_start_gt_1 == 1'b1) ? START_ROW : START;
+      START_ROW: next_state = (i_row_eq_max) ? FINISH_ALL : SUM_EN;
+      SUM_EN: next_state = (i_row_eq_max) ? FINISH_ALL : (i_counter > 3) ? CUM_EN : SUM_EN;
       CUM_EN:
-      next_state = (i_row_eq_max) ? FIniSH_ALL : (i_counter > COLS - 2) ? START_ROW : CUM_EN;
-      FIniSH_ALL: next_state = DONE;
+      next_state = (i_row_eq_max) ? FINISH_ALL : (i_counter > COLS - 2) ? START_ROW : CUM_EN;
+      FINISH_ALL: next_state = DONE;
     endcase
   end
+
   always @(*) begin
+    // Giá trị mặc định cho tất cả tín hiệu
+    count_en      = 1'b0;
+    done_o        = 1'b0;
+    cum_en        = 1'b0;
+    ld_en         = 1'b0;
+    sum_en        = 1'b0;
+    start_en      = 1'b0;
+    progress_done = 1'b0;
+
     case (current_state)
       IDLE: begin
-        count_en      = 1'b0;
-        done_o        = 1'b0;
-        cum_en        = 1'b0;
-        ld_en         = 1'b0;
-        sum_en        = 1'b0;
-        start_en      = 1'b0;
-        progress_done = 1'b0;
+        // Giữ nguyên giá trị mặc định
       end
       START: begin
         start_en = 1'b1;
       end
       START_ROW: begin
-        start_en = 1'b0;
         count_en = 1'b1;
         ld_en    = 1'b1;
-        cum_en   = 0;
-        sum_en   = 0;
+        if (prev_state == CUM_EN) begin
+          done_o = 1'b1;
+        end
       end
       SUM_EN: begin
-        sum_en = 1'b1;
-        ld_en  = 1'b0;
-        done_o = 1'b0;
+        count_en = 1'b1;
+        sum_en   = 1'b1;
       end
       CUM_EN: begin
-        cum_en = 1'b1;
-        done_o = 1'b1;
+        count_en = 1'b1;
+        sum_en   = 1'b1;
+        cum_en   = 1'b1;
+        done_o   = 1'b1;
       end
-      FIniSH_ALL: begin
-        count_en = 1'b0;
-        done_o   = 1'b0;
-        cum_en   = 1'b0;
-        ld_en    = 1'b0;
-        sum_en   = 1'b0;
-        start_en = 1'b0;
-
+      FINISH_ALL: begin
         progress_done = 1'b1;
-
       end
       DONE: begin
         progress_done = 1'b0;
       end
     endcase
-
   end
+
 endmodule

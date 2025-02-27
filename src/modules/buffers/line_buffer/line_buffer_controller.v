@@ -12,7 +12,17 @@ module line_buffer_controller #(
 
 
   wire done_i_eq_1 = (done_i == 1) ? 1 : 0;
-  wire i_counter_eq_max = (i_counter == DEPTH - 1) ? 1 : 0;
+  wire i_counter_eq = (i_counter >= (DEPTH / 2) - 1) ? 1 : 0;
+  wire i_counter_eq_max;
+  dff #(
+      .WIDTH(1)
+  ) SHIFT_I_SIGNAL (
+      .clk(clk),
+      .rst_n(rst_n),
+      .D(i_counter_eq),
+      .Q(i_counter_eq_max)
+  );
+
   wire done_and_i_counter = done_i_eq_1 & i_counter_eq_max;
 
   mux_2_1 #(

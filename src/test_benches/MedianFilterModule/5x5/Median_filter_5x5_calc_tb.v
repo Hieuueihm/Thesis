@@ -54,7 +54,7 @@ module median_filter_5x5_calc_tb;
       file = $fopen("D:\\Thesis\\Src\\test_benches\\medianFilterModule\\5x5\\matrix.txt", "r");
       if (file == 0) begin
         $display("ERROR: Unable to open file: %s", "matrix.txt");
-        $finish;
+        $FINISH;
       end
       for (i = 0; i < 51; i = i + 1) begin
         if (!$feof(file)) begin
@@ -147,7 +147,7 @@ module median_filter_5x5_calc_tb;
     $display("median: %d", median_o);
     $display("Done: %b", done_o);
 
-    // Finish simulation
+    // FINISH simulation
     $stop;
   end
 endmodule

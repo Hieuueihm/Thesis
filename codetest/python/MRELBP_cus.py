@@ -6,6 +6,13 @@ import cv2
 from PIL import Image
 import time
 import math
+
+def write_to_filecheck(file, data):
+    with open(file, 'w') as f:
+        for i in range(data.shape[0]):
+            for j in range(data.shape[1]):
+                f.write(str(data[i, j]))
+                f.write("\n")
 def float_to_fixed_point(value, frac_bits=16):
     # Convert a floating point value to fixed-point with 16 fractional bits
     return int(value * (2 ** frac_bits))
@@ -347,6 +354,13 @@ class MRELBP():
         ci_r4, ci_r4_count = self.mrelbp_ci(m_3x3, 4)
         ci_r6, ci_r6_count = self.mrelbp_ci(m_3x3, 6)
         ci_r8, ci_r8_count = self.mrelbp_ci(m_3x3, 8)
+        # with open('m_3x3_readable.txt', 'a') as f:
+        #     for row in m_3x3:
+        #         f.write(' '.join(map(str, row)) + '\n')
+
+        # write_to_filecheck("ci_r2.txt", ci_r2)
+        # write_to_filecheck("ci_r4.txt", ci_r4)
+        # write_to_filecheck("ci_r6.txt", ci_r6)
 
 
 
@@ -355,23 +369,27 @@ class MRELBP():
         NI_r6, RD_r6= self.NI_RD_descriptor(m_5x5, m_7x7, 6)
         # NI_r8, RD_r8= self.NI_RD_descriptor(m_7x7, m_9x9, 8)
 
-        # with open('ni_r2.txt', 'w') as f:
-        #     for i in range(NI_r2.shape[0]):
-        #         for j in range(NI_r2.shape[1]):
-        #             f.write(str(NI_r2[i, j]))
-        #             f.write("\n")
-        # with open('rd_r2.txt', 'w') as f:
-        #     for i in range(RD_r2.shape[0]):
-        #         for j in range(RD_r2.shape[1]):
-        #             f.write(str(RD_r2[i, j]))
-        #             f.write("\n")
-                    
+        # write_to_filecheck("ni_r6.txt", NI_r6)
+        # write_to_filecheck("rd_r6.txt", RD_r6)
+
                     
         
 
         hist_r2 = self.jointHistogram(ci_r2, NI_r2, RD_r2)
         hist_r4 = self.jointHistogram(ci_r4, NI_r4, RD_r4)
         hist_r6 = self.jointHistogram(ci_r6, NI_r6, RD_r6)
+
+
+        with open("histogram_r2.txt", "w") as file:
+            for value in hist_r2:
+                file.write(f"{value}\n")
+
+        with open("histogram_r4.txt", "w") as file:
+            for value in hist_r4:
+                file.write(f"{value}\n")
+        with open("histogram_r6.txt", "w") as file:
+            for value in hist_r6:
+                file.write(f"{value}\n")
 
         with open("histogram_o.txt", "w") as file:
             for value in hist_r2:
@@ -496,7 +514,7 @@ class MRELBP():
                 r1_descriptor = self.getInterNeighbors(image_r1, r1, i, j)
                 r2_descriptor = self.getInterNeighbors(image_r2, r2, i, j)
 
-                # return
+                # # return
                 
 
                 # r1_descriptor_str = str(r1_descriptor)
@@ -507,25 +525,13 @@ class MRELBP():
                 # with open("r2_inter", "a") as file:
                 #     file.write(r2_descriptor_str + "\n")
                 #     file.write("\n")
-                # for i in range(0, 9):
-                #     print(r2_descriptor)
-                # with open("check_ni.txt", "a") as file:
+                # # for i in range(0, 9):
+                # #     print(r2_descriptor)
+                # with open("sum_o.txt", "a") as file:
                 #     file.write(str(sum_r2_patch))
-                #     file.write(" ")
-                #     file.write(r2_descriptor_str)
                 #     file.write('\n')
                 NI[i - r2, j - r2] = self.getNIDescriptor(r2_descriptor, r2, sum_r2_patch)
                 RD[i - r2, j - r2] = self.getRDDescriptor(r2_descriptor, r1_descriptor)
-        # k = 0
-        # for i in range(height - 2 * r2):
-        #     for j in range(width - 2 * r2):
-        #         print(f'{NI[i, j]:08b}')
-        #         print(f'{RD[i, j]:08b}')
-        #         print('\n')
-        #         k += 1
-        #         if k == 20:
-        #             break
-        #     break
         return NI, RD
 
 
@@ -551,7 +557,7 @@ img = cv2.imread(image_file.rstrip(), cv2.IMREAD_GRAYSCALE)
 file_path = "random_matrix.txt"
 
 lbp = MRELBP()
-lbp.MRELBP(img)
+lbp.MRELBP(random_matrix)
 np.savetxt(file_path, random_matrix, fmt='%d')
 
 
@@ -613,10 +619,14 @@ def compare_files(file1, file2):
             print("The files are identical.")
 
 
-# # Example usage
+# Example usage
 file1 = 'histogram_o.txt'
 file2 = 'histogram_verilog.txt'
 compare_files(file1, file2)
+
+# file1 = 'histogram_r6.txt'
+# file2 = 'cinird_r6_verilog.txt'
+# compare_files(file1, file2)
 
 # file1 = 'ni_data.txt'
 # file2 = 'ni_r2.txt'
@@ -637,8 +647,8 @@ compare_files(file1, file2)
 # compare_files(file3, file4)
 
 
-# file3 = 'ci_r2.txt'
-# file4   = 'ci_r2_simu.txt'
+# file3 = 'rd_r6.txt'
+# file4   = 'rd_r6_verilog.txt'
 # compare_files(file3, file4)
 
 

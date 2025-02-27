@@ -55,7 +55,7 @@ module test_r6_tb ();
 
     if (file == 0) begin
       $display("Error: Cannot open file.");
-      $finish;
+      $FINISH;
     end
 
     read_matrix(file);

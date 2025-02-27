@@ -50,7 +50,7 @@ module r2_nird #(
 
   wire [7:0] data0_delay, data1_delay, data2_delay, data3_delay, data4_delay;
   wire done_o_delay;
-  `define DONE_ORIGINAL_DELAY 8
+  `define DONE_ORIGINAL_DELAY 7
 
   shift_registers #(
       .WIDTH(1),
@@ -190,31 +190,116 @@ module r2_nird #(
   wire [23:0] S1_r1, S2_r1, S3_r1, S4_r1, S5_r1, S6_r1, S7_r1, S8_r1;
   wire done_o_r1;
   wire finish_inter;
+  wire [7:0] S6_o_3x3_q, S2_o_3x3_q, S4_o_3x3_q, S8_o_3x3_q, S3_o_3x3_q, S1_o_3x3_q, S7_o_3x3_q, S9_o_3x3_q;
+  wire wdbf_5x5_pd_q;
+  wire wdbf_5x5_done_q;
+
+  dff #(
+      .WIDTH(8)
+  ) DFF_S6_3x3 (
+      .clk(clk),
+      .rst_n(rst_n),
+      .D(S6_o_3x3),
+      .Q(S6_o_3x3_q)
+  );
+  dff #(
+      .WIDTH(8)
+  ) DFF_S2_3x3 (
+      .clk(clk),
+      .rst_n(rst_n),
+      .D(S2_o_3x3),
+      .Q(S2_o_3x3_q)
+  );
+  dff #(
+      .WIDTH(8)
+  ) DFF_S4_3x3 (
+      .clk(clk),
+      .rst_n(rst_n),
+      .D(S4_o_3x3),
+      .Q(S4_o_3x3_q)
+  );
+  dff #(
+      .WIDTH(8)
+  ) DFF_S8_3x3 (
+      .clk(clk),
+      .rst_n(rst_n),
+      .D(S8_o_3x3),
+      .Q(S8_o_3x3_q)
+  );
+  dff #(
+      .WIDTH(8)
+  ) DFF_S3_3x3 (
+      .clk(clk),
+      .rst_n(rst_n),
+      .D(S3_o_3x3),
+      .Q(S3_o_3x3_q)
+  );
+  dff #(
+      .WIDTH(8)
+  ) DFF_S1_3x3 (
+      .clk(clk),
+      .rst_n(rst_n),
+      .D(S1_o_3x3),
+      .Q(S1_o_3x3_q)
+  );
+  dff #(
+      .WIDTH(8)
+  ) DFF_S7_3x3 (
+      .clk(clk),
+      .rst_n(rst_n),
+      .D(S7_o_3x3),
+      .Q(S7_o_3x3_q)
+  );
+  dff #(
+      .WIDTH(8)
+  ) DFF_S9_3x3 (
+      .clk(clk),
+      .rst_n(rst_n),
+      .D(S9_o_3x3),
+      .Q(S9_o_3x3_q)
+  );
+  dff #(
+      .WIDTH(1)
+  ) DFF_WDBF_5x5_PD (
+      .clk(clk),
+      .rst_n(rst_n),
+      .D(window_buffer_5x5_progress_done_o),
+      .Q(wdbf_5x5_pd_q)
+  );
+  dff #(
+      .WIDTH(1)
+  ) DFF_WDBF_5x5_DONE (
+      .clk(clk),
+      .rst_n(rst_n),
+      .D(window_buffer_5x5_done_o),
+      .Q(wdbf_5x5_done_q)
+  );
+
 
   interpolation_R_x #(
       .R(1)
   ) INTERPOLATION_R_1 (
       .clk(clk),
       .rst_n(rst_n),
-      .progress_done_i(window_buffer_5x5_progress_done_o),
-      .done_i(window_buffer_5x5_done_o),
-      .S_0_i(S6_o_3x3),
-      .S_90_i(S2_o_3x3),
-      .S_180_i(S4_o_3x3),
-      .S_270_i(S8_o_3x3),
-      .S_45_i_1(S3_o_3x3),
+      .progress_done_i(wdbf_5x5_pd_q),
+      .done_i(wdbf_5x5_done_q),
+      .S_0_i(S6_o_3x3_q),
+      .S_90_i(S2_o_3x3_q),
+      .S_180_i(S4_o_3x3_q),
+      .S_270_i(S8_o_3x3_q),
+      .S_45_i_1(S3_o_3x3_q),
       .S_45_i_2(),
       .S_45_i_3(),
       .S_45_i_4(),
-      .S_135_i_1(S1_o_3x3),
+      .S_135_i_1(S1_o_3x3_q),
       .S_135_i_2(),
       .S_135_i_3(),
       .S_135_i_4(),
-      .S_225_i_1(S7_o_3x3),
+      .S_225_i_1(S7_o_3x3_q),
       .S_225_i_2(),
       .S_225_i_3(),
       .S_225_i_4(),
-      .S_315_i_1(S9_o_3x3),
+      .S_315_i_1(S9_o_3x3_q),
       .S_315_i_2(),
       .S_315_i_3(),
       .S_315_i_4(),
@@ -373,18 +458,30 @@ module r2_nird #(
       .bit8_o(bit8_o)
   );
 
-  // integer file2;
+  // integer file3, file4;
   // always @(posedge clk) begin
-  //     if (~rst_n) begin
-  //         file2 = $fopen("D:\\Thesis\\codetest\\python\\rd_data_bit.txt", "w");
-  //         end else if (rd_r2_done) begin
-  //         if (file) begin
-  //             $fwrite(file2, "%b\n", {bit8_o, bit7_o, bit6_o, bit5_o, bit4_o, bit3_o, bit2_o, bit1_o});            end
-  //             end else if (rd_r2_progress_done) begin
-  //             $fclose(file2);
-  //         end
-
+  //   if (~rst_n) begin
+  //     file3 = $fopen("D:\\Thesis\\codetest\\python\\rd_r2_bit_verilog.txt", "w");
+  //     file4 = $fopen("D:\\Thesis\\codetest\\python\\ni_r2_bit_verilog.txt", "w");
+  //   end
+  //   if (rd_r2_done) begin
+  //     if (file3) begin
+  //       $fwrite(file3, "%d\n", {bit8_o, bit7_o, bit6_o, bit5_o, bit4_o, bit3_o, bit2_o, bit1_o});
   //     end
+  //   end else if (rd_r2_progress_done) begin
+  //     $fclose(file3);
+  //   end
+  //   if (ni_r2_done) begin
+  //     if (file4) begin
+  //       $fwrite(file4, "%d\n", {bit8_o_ni, bit7_o_ni, bit6_o_ni, bit5_o_ni, bit4_o_ni, bit3_o_ni,
+  //                               bit2_o_ni, bit1_o_ni});
+  //     end
+  //   end else if (ni_r2_progress_done) begin
+  //     $fclose(file4);
+  //   end
+
+  // end
+  wire [3:0] rd;
 
   riu2_mapping RIU2_rd (
       .clk(clk),
@@ -399,12 +496,19 @@ module r2_nird #(
       .bit6_i(bit6_o),
       .bit7_i(bit7_o),
       .bit8_i(bit8_o),
-      .data_o(rd_o),
-      .done_o(done_o),
-      .progress_done_o(progress_done_o)
+      .data_o(rd),
+      .done_o(),
+      .progress_done_o()
   );
-
-
+  shift_registers #(
+      .WIDTH(4),
+      .CYCLE(3)
+  ) shift_rd_output (
+      .clk(clk),
+      .rst_n(rst_n),
+      .data_i(rd),
+      .data_o(rd_o)
+  );
   riu2_mapping RIU2_ni (
       .clk(clk),
       .rst_n(rst_n),
@@ -419,25 +523,25 @@ module r2_nird #(
       .bit7_i(bit7_o_ni),
       .bit8_i(bit8_o_ni),
       .data_o(ni_o),
-      .done_o(),
-      .progress_done_o()
+      .done_o(done_o),
+      .progress_done_o(progress_done_o)
   );
 
 
-  // integer file, file1;
-  // always @(posedge clk) begin
+  //   integer file, file1;
+  //   always @(posedge clk) begin
   //     if (~rst_n) begin
-  //         file = $fopen("D:\\Thesis\\codetest\\python\\rd_data.txt", "w");
-  //         file1 = $fopen("D:\\Thesis\\codetest\\python\\ni_data.txt", "w");
-  //         end else if (done_o) begin
-  //         if (file) begin
-  //             $fwrite(file, "%d\n", rd_o);      
-  //                             $fwrite(file1, "%d\n", ni_o);     
-  //              end
-  //             end else if (progress_done_o) begin
-  //             $fclose(file);
-  //             $fclose(file1);
-  //         end
-
+  //       file  = $fopen("D:\\Thesis\\codetest\\python\\rd_r2_verilog.txt", "w");
+  //       file1 = $fopen("D:\\Thesis\\codetest\\python\\ni_r2_verilog.txt", "w");
+  //     end else if (done_o) begin
+  //       if (file) begin
+  //         $fwrite(file, "%d\n", rd_o);
+  //         $fwrite(file1, "%d\n", ni_o);
+  //       end
+  //     end else if (progress_done_o) begin
+  //       $fclose(file);
+  //       $fclose(file1);
   //     end
+
+  //   end
 endmodule

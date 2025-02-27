@@ -48,6 +48,8 @@ module top_module__datapath #(
       .done_7x7_o(done_m_7x7_o)
   );
 
+
+
   wire ci_r2_o, done_ci_r2, progress_done_ci_r2;
   wire ci_r4_o, done_ci_r4, progress_done_ci_r4;
   wire ci_r6_o, done_ci_r6, progress_done_ci_r6;
@@ -95,7 +97,7 @@ module top_module__datapath #(
   wire ci_r2_delay;
   wire done_ci_r2_delay;
 
-  `define CYCLE_SHIFT_CI_r2 3
+  `define CYCLE_SHIFT_CI_r2 6
 
 
   shift_registers #(
@@ -119,7 +121,7 @@ module top_module__datapath #(
   );
 
 
-
+  wire r2_finish;
 
   joint_histogram joint_r2 (
       .clk(clk),
@@ -131,7 +133,7 @@ module top_module__datapath #(
       .progress_done_i(progress_done_r2_nird),
       .cinird_o(cinird_r2),
       .done_o(r2_valid),
-      .finish()
+      .finish(r2_finish)
   );
 
 
@@ -156,7 +158,7 @@ module top_module__datapath #(
   wire ci_r4_delay;
   wire done_ci_r4_delay;
 
-  `define CYCLE_SHIFT_CI_r4 14
+  `define CYCLE_SHIFT_CI_r4 17
 
 
   shift_registers #(
@@ -179,7 +181,7 @@ module top_module__datapath #(
       .data_o(done_ci_r4_delay)
   );
 
-
+  wire r4_finish;
   joint_histogram joint_r4 (
       .clk(clk),
       .rst_n(rst_n),
@@ -190,7 +192,7 @@ module top_module__datapath #(
       .progress_done_i(progress_done_r4_nird),
       .cinird_o(cinird_r4),
       .done_o(r4_valid),
-      .finish()
+      .finish(r4_finish)
   );
 
 
@@ -216,7 +218,7 @@ module top_module__datapath #(
   wire ci_r6_delay;
   wire done_ci_r6_delay;
 
-  `define CYCLE_SHIFT_CI_r6 39
+  `define CYCLE_SHIFT_CI_r6 42
 
 
   shift_registers #(
@@ -255,6 +257,37 @@ module top_module__datapath #(
       .done_o(r6_valid),
       .finish(finish)
   );
+
+  // integer file, file1, file2;
+  // always @(posedge clk) begin
+  //   if (~rst_n) begin
+  //     file  = $fopen("D:\\Thesis\\codetest\\python\\cinird_r2_verilog.txt", "w");
+  //     file1 = $fopen("D:\\Thesis\\codetest\\python\\cinird_r4_verilog.txt", "w");
+  //     file2 = $fopen("D:\\Thesis\\codetest\\python\\cinird_r6_verilog.txt", "w");
+  //   end
+
+  //   if (r2_valid) begin
+  //     $fwrite(file, "%d\n", cinird_r2);
+  //   end
+  //   if (r2_finish) begin
+  //     $fclose(file);
+  //   end
+
+  //   if (r4_valid) begin
+  //     $fwrite(file1, "%d\n", cinird_r4);
+  //   end
+  //   if (r4_finish) begin
+  //     $fclose(file1);
+  //   end
+
+  //   if (r6_valid) begin
+  //     $fwrite(file2, "%d\n", cinird_r6);
+  //   end
+  //   if (finish) begin
+  //     $fclose(file2);
+  //   end
+
+  // end
 
 
   reg [7:0] write_addr_r2, write_addr_r4, write_addr_r6;

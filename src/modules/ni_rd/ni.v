@@ -16,7 +16,7 @@ module ni #(
     S8_r2,
     input [WIDTH - 1:0] sum_i,
     output done_o,
-    output reg progress_done_o,
+    output progress_done_o,
     output bit1_o,
     bit2_o,
     bit3_o,
@@ -27,14 +27,15 @@ module ni #(
     bit8_o
 );
 
-  always @(posedge clk) begin
-    if (~rst_n) begin
-      progress_done_o <= 1'b0;
-    end else begin
-      progress_done_o <= progress_done_i;
-
-    end
-  end
+  shift_registers #(
+      .WIDTH(1),
+      .CYCLE(4)
+  ) shift_registers_pd_o (
+      .clk(clk),
+      .rst_n(rst_n),
+      .data_i(progress_done_i),
+      .data_o(progress_done_o)
+  );
   ni_calc #(
       .WIDTH(WIDTH),
       .GAIN (GAIN)
