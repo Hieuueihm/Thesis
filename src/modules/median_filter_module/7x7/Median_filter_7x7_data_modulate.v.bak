@@ -13,7 +13,7 @@ module median_filter_7x7_data_modulate #(
     input [7:0] d6_i,
     input [7:0] d7_i,
     input [7:0] d8_i,
-    input done_i,
+    input i_valid,
     output reg [7:0] d0_o,
     output reg [7:0] d1_o,
     output reg [7:0] d2_o,
@@ -63,7 +63,7 @@ module median_filter_7x7_data_modulate #(
     output reg [7:0] d46_o,
     output reg [7:0] d47_o,
     output reg [7:0] d48_o,
-    output done_o
+    output 
 );
   // ----- d0 d1 d2 d3 d4 -----
   // ----- d5 d6 d7 d8 d9 -----
@@ -127,7 +127,7 @@ module median_filter_7x7_data_modulate #(
       data48;
 
   reg done_reg;
-  assign done_o = (i_counter == 4 && done_reg == 0) ? 1 : 0;
+  assign  = (i_counter == 4 && done_reg == 0) ? 1 : 0;
 
   // handle with i rows and i cols
 
@@ -137,7 +137,7 @@ module median_filter_7x7_data_modulate #(
       i_col <= 0;
       done_reg <= 0;
     end else begin
-      if (done_o) begin
+      if () begin
         i_col <= (i_col == COLS - 1) ? 0 : i_col + 1;
 
         if (i_col == COLS - 1) begin
@@ -156,7 +156,7 @@ module median_filter_7x7_data_modulate #(
 
       i_counter <= 0;
     end else begin
-      if (done_i) begin
+      if (i_valid) begin
         i_counter <= (i_counter == 4) ? i_counter : i_counter + 1;
       end
 
@@ -220,7 +220,7 @@ module median_filter_7x7_data_modulate #(
 
     end else begin
       // zero padding
-      if (done_o) begin
+      if () begin
         if (i_row == 0 && i_col == 0) begin
           d0_o  <= 0;
           d1_o  <= 0;
@@ -2771,7 +2771,7 @@ module median_filter_7x7_data_modulate #(
 
     end else begin
       // d7 d6 d5 d4 d3 d2 d1
-      if (done_i) begin
+      if (i_valid) begin
         data0  <= data1;
         data1  <= data2;
         data2  <= data3;

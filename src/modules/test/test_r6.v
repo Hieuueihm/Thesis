@@ -5,10 +5,10 @@ module test_r6 #(
     input clk,
     input rst_n,
     input [7:0] grayscale_i,
-    input done_i
+    input i_valid
 );
 
-  wire done_original_o;
+  wire riginal_o;
   wire [7:0] data_o;
   wire done_3x3_o;
   wire [7:0] m_3x3_o;
@@ -24,9 +24,9 @@ module test_r6 #(
       .clk(clk),
       .rst_n(rst_n),
       .data_i(grayscale_i),
-      .done_i(done_i),
+      .i_valid(i_valid),
       .data_o(data_o),
-      .done_o(done_original_o),
+      .(riginal_o),
       .m_3x3_o(m_3x3_o),
       .done_3x3_o(done_3x3_o),
       .m_5x5_o(m_5x5_o),
@@ -46,7 +46,7 @@ module test_r6 #(
   ) BUFFER_12_ROWS_5x5 (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(done_5x5_o),
+      .i_valid(done_5x5_o),
       .data_i(m_5x5_o),
       .data0_o(data0_5x5_o),
       .data1_o(data1_5x5_o),
@@ -61,7 +61,7 @@ module test_r6 #(
       .data10_o(data10_5x5_o),
       .data11_o(data11_5x5_o),
       .data12_o(data12_5x5_o),
-      .done_o(done_buffer_5x5_o)
+      .(done_buffer_5x5_o)
   );
   wire [7:0] data0_7x7_o, data1_7x7_o, data2_7x7_o, data3_7x7_o;
   wire [7:0] data4_7x7_o;
@@ -74,7 +74,7 @@ module test_r6 #(
   ) BUFFER_8_ROWS_7x7 (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(done_7x7_o),
+      .i_valid(done_7x7_o),
       .data_i(m_7x7_o),
       .data0_o(data0_7x7_o),
       .data1_o(data1_7x7_o),
@@ -89,7 +89,7 @@ module test_r6 #(
       .data10_o(data10_7x7_o),
       .data11_o(data11_7x7_o),
       .data12_o(data12_7x7_o),
-      .done_o(done_buffer_7x7_o)
+      .(done_buffer_7x7_o)
   );
   wire done_buffer_5x5_delay;
   wire[7:0] data0_5x5_delay, data1_5x5_delay, data2_5x5_delay, data3_5x5_delay, data4_5x5_delay, data5_5x5_delay;
@@ -255,7 +255,7 @@ module test_r6 #(
   ) WINDOW_BUFFER_11x11 (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(done_buffer_5x5_delay),
+      .i_valid(done_buffer_5x5_delay),
       .S1_i(data11_5x5_delay),
       .S2_i(data10_5x5_delay),
       .S3_i(data9_5x5_delay),
@@ -388,8 +388,8 @@ module test_r6 #(
       .S119_o(S119_7x7_o),
       .S120_o(S120_7x7_o),
       .S121_o(S121_7x7_o),
-      .done_o(wdbf_11x11_done),
-      .progress_done_o(wdbf_11x11_progress_done)
+      .(wdbf_11x11_done),
+      .progress_(wdbf_11x11_progress_done)
   );
 
 
@@ -421,7 +421,7 @@ module test_r6 #(
   ) WINDOW_BUFFER_13x13 (
       .clk   (clk),
       .rst_n (rst_n),
-      .done_i(done_buffer_7x7_o),
+      .i_valid(done_buffer_7x7_o),
       .S1_i  (data12_7x7_o),
       .S2_i  (data11_7x7_o),
       .S3_i  (data10_7x7_o),
@@ -605,12 +605,12 @@ module test_r6 #(
       .S167_o         (S167_9x9_o),
       .S168_o         (S168_9x9_o),
       .S169_o         (S169_9x9_o),
-      .done_o         (wdbf_13x13_done),
-      .progress_done_o(wdbf_13x13_progress_done)
+      .         (wdbf_13x13_done),
+      .progress_(wdbf_13x13_progress_done)
   );
 
   wire [23:0] S1_r3, S2_r3, S3_r3, S4_r3, S5_r3, S6_r3, S7_r3, S8_r3;
-  wire done_o_r3;
+  wire _r3;
 
   interpolation_R_x #(
       .R(5)
@@ -618,7 +618,7 @@ module test_r6 #(
       .clk(clk),
       .rst_n(rst_n),
       .progress_done_i(wdbf_13x13_progress_done),
-      .done_i(wdbf_13x13_done),
+      .i_valid(wdbf_13x13_done),
       .S_0_i(S66_7x7_o),
       .S_90_i(S6_7x7_o),
       .S_180_i(S56_7x7_o),
@@ -647,11 +647,11 @@ module test_r6 #(
       .S6_o(S6_r3),
       .S7_o(S7_r3),
       .S8_o(S8_r3),
-      .done_o(done_o_r3),
-      .progress_done_o()
+      .(_r3),
+      .progress_()
   );
   wire [23:0] S1_r4, S2_r4, S3_r4, S4_r4, S5_r4, S6_r4, S7_r4, S8_r4;
-  wire done_o_r4;
+  wire _r4;
 
   wire finish_interpolation;
   interpolation_R_x #(
@@ -660,7 +660,7 @@ module test_r6 #(
       .clk(clk),
       .rst_n(rst_n),
       .progress_done_i(wdbf_13x13_progress_done),
-      .done_i(wdbf_13x13_done),
+      .i_valid(wdbf_13x13_done),
       .S_0_i(S91_9x9_o),
       .S_90_i(S7_9x9_o),
       .S_180_i(S79_9x9_o),
@@ -689,15 +689,15 @@ module test_r6 #(
       .S6_o(S6_r4),
       .S7_o(S7_r4),
       .S8_o(S8_r4),
-      .done_o(done_o_r4),
-      .progress_done_o(finish_interpolation)
+      .(_r4),
+      .progress_(finish_interpolation)
   );
 
 
 
 
   wire [15:0] r6_patch_sum;
-  wire patch_sum_done_o;
+  wire patch_sum_;
   wire patch_progress_done;
   r6_patch_sum #(
       .COLS(COLS),
@@ -705,7 +705,7 @@ module test_r6 #(
   ) r6_PATCH_SUM (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(done_buffer_7x7_o),
+      .i_valid(done_buffer_7x7_o),
       .S1(data0_7x7_o),
       .S2(data1_7x7_o),
       .S3(data2_7x7_o),
@@ -720,12 +720,12 @@ module test_r6 #(
       .S12(data11_7x7_o),
       .S13(data12_7x7_o),
       .sum_o(r6_patch_sum),
-      .done_o(patch_sum_done_o),
-      .progress_done_o(patch_progress_done)
+      .(patch_sum_),
+      .progress_(patch_progress_done)
   );
 
   wire [23:0] S1_r4_delay, S2_r4_delay, S3_r4_delay, S4_r4_delay, S5_r4_delay, S6_r4_delay, S7_r4_delay, S8_r4_delay;
-  wire done_o_r4_delay;
+  wire _r4_delay;
   wire finish_interpolation_delay;
   shift_registers #(
       .WIDTH(24),
@@ -806,8 +806,8 @@ module test_r6 #(
   ) SHIFT_DONE_r4 (
       .clk(clk),
       .rst_n(rst_n),
-      .data_i(done_o_r4),
-      .data_o(done_o_r4_delay)
+      .data_i(_r4),
+      .data_o(_r4_delay)
   );
   shift_registers #(
       .WIDTH(1),
@@ -828,7 +828,7 @@ module test_r6 #(
   rd rd_CALC_r4 (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(done_o_r4),
+      .i_valid(_r4),
       .progress_done_i(finish_interpolation),
       .S1_r2(S1_r4),
       .S2_r2(S2_r4),
@@ -846,8 +846,8 @@ module test_r6 #(
       .S6_r1(S6_r3),
       .S7_r1(S7_r3),
       .S8_r1(S8_r3),
-      .done_o(rd_r4_done),
-      .progress_done_o(rd_r4_progress_done),
+      .(rd_r4_done),
+      .progress_(rd_r4_progress_done),
       .bit1_o(bit1_o),
       .bit2_o(bit2_o),
       .bit3_o(bit3_o),
@@ -970,7 +970,7 @@ module test_r6 #(
   ) ni_CALC_r4 (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(done_o_r4_delay),
+      .i_valid(_r4_delay),
       .progress_done_i(finish_interpolation_delay),
       .S1_r2(S1_r4_delay),
       .S2_r2(S2_r4_delay),
@@ -981,8 +981,8 @@ module test_r6 #(
       .S7_r2(S7_r4_delay),
       .S8_r2(S8_r4_delay),
       .sum_i(r6_patch_sum),
-      .done_o(ni_r4_done),
-      .progress_done_o(ni_r4_progress_done),
+      .(ni_r4_done),
+      .progress_(ni_r4_progress_done),
       .bit1_o(bit1_o_ni),
       .bit2_o(bit2_o_ni),
       .bit3_o(bit3_o_ni),
@@ -999,11 +999,11 @@ module test_r6 #(
 
 
   // wire [3:0] data_o_riu;
-  // wire riu_done_o, riu_progress_done;
+  // wire riu_, riu_progress_done;
   // riu2_mapping RIU2(
   // .clk(clk),
   // .rst_n(rst_n),
-  // .done_i(rd_r2_done),
+  // .i_valid(rd_r2_done),
   // .progress_done_i(rd_r2_progress_done),
   // .bit1_i(bit1_o),
   // .bit2_i(bit2_o),
@@ -1014,15 +1014,15 @@ module test_r6 #(
   // .bit7_i(bit7_o),
   // .bit8_i(bit8_o),
   // .data_o(data_o_riu),
-  // .done_o(riu_done_o),
-  // .progress_done_o(riu_progress_done));
+  // .(riu_),
+  // .progress_(riu_progress_done));
 
   // wire [3:0] data_o_riu_ni;
-  // wire riu_done_o_ni, riu_progress_done_ni;
+  // wire riu__ni, riu_progress_done_ni;
   // riu2_mapping RIU2_ni(
   // .clk(clk),
   // .rst_n(rst_n),
-  // .done_i(ni_r2_done),
+  // .i_valid(ni_r2_done),
   // .progress_done_i(ni_r2_progress_done),
   // .bit1_i(bit1_o_ni),
   // .bit2_i(bit2_o_ni),
@@ -1033,6 +1033,6 @@ module test_r6 #(
   // .bit7_i(bit7_o_ni),
   // .bit8_i(bit8_o_ni),
   // .data_o(data_o_riu_ni),
-  // .done_o(riu_done_o_ni),
-  // .progress_done_o(riu_progress_done_ni));
+  // .(riu__ni),
+  // .progress_(riu_progress_done_ni));
 endmodule

@@ -28,6 +28,7 @@ module window_buffer_7x7_controller (
   end
 
   always @(*) begin
+    next_state = current_state;
     case (current_state)
       IDLE: next_state = (done_i) ? START : IDLE;
       START: next_state = START_COL;
@@ -41,32 +42,27 @@ module window_buffer_7x7_controller (
     endcase
   end
   always @(*) begin
+    count_en      = 1'b0;
+    done_o        = 1'b0;
+    progress_done = 1'b0;
     case (current_state)
       IDLE: begin
-        count_en      = 1'b0;
-        done_o        = 1'b0;
-        progress_done = 1'b0;
+
       end
       START_COL: begin
         count_en = 1'b1;
-        done_o   = 1'b0;
       end
       COL_OUT: begin
-        done_o = 1'b1;
-      end
-      END_COL: begin
-        count_en = 1'b0;
+        count_en = 1'b1;
         done_o   = 1'b1;
       end
+      END_COL: begin
+        done_o = 1'b1;
+      end
       END_COL_2: begin
-        count_en = 1'b0;
-        done_o   = 1'b0;
       end
       FINISH_ALL: begin
-        count_en      = 1'b0;
-        done_o        = 1'b0;
         progress_done = 1'b1;
-
       end
       DONE: begin
         progress_done = 1'b0;

@@ -1,6 +1,6 @@
 module median_filter_3x3_calc (input clk,
                                input rst_n,
-                               input done_i,
+                               input i_valid,
                                input [7:0] S1,
                                input [7:0] S2,
                                input [7:0] S3,
@@ -11,7 +11,7 @@ module median_filter_3x3_calc (input clk,
                                input [7:0] S8,
                                input [7:0] S9,
                                output [7:0] median_o,
-                               output done_o);
+                               output o_valid);
     
     wire [7:0] p1_S1, p1_S2, p1_S3;
     wire [7:0] p1_S4, p1_S5, p1_S6;
@@ -94,7 +94,7 @@ module median_filter_3x3_calc (input clk,
     .clk(clk),
     .rst_n(rst_n),
     .en(1'b1),
-    .D(done_i),
+    .D(i_valid),
     .Q(p1_done_i)
     );
     
@@ -312,7 +312,7 @@ module median_filter_3x3_calc (input clk,
     
     
     
-    assign done_o   = p4_done_i;
+    assign o_valid   = p4_done_i;
     assign median_o = p4_median;
     
 endmodule

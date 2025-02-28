@@ -223,7 +223,7 @@
         <mxCell id="Ab2rAUgQnM5hvADi2GFk-56" value="START" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
           <mxGeometry x="551.25" y="355" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="Ab2rAUgQnM5hvADi2GFk-57" value="done_i" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="Ab2rAUgQnM5hvADi2GFk-57" value="i_valid" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="455" y="355" width="97.5" height="30" as="geometry" />
         </mxCell>
         <mxCell id="Ab2rAUgQnM5hvADi2GFk-61" value="FINISH_ALL" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">

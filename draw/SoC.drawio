@@ -79,7 +79,7 @@
             <mxPoint x="150" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Q8wWB-HcS4peFA1Eoi-V-23" value="FINISH" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="Q8wWB-HcS4peFA1Eoi-V-23" value="finish" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="170" y="-60" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="Q8wWB-HcS4peFA1Eoi-V-24" value="READ" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">

@@ -45,7 +45,7 @@ module node_tb;
     in2 = 8'd64;
     #10;  // Test case 5
 
-    // FINISH simulation
+    // Finish simulation
     #10 $stop;
   end
 

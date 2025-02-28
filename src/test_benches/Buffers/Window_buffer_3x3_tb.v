@@ -10,13 +10,13 @@ module window_buffer_3x3_tb ();
   // Inputs
   reg clk;
   reg rst_n;
-  reg done_i;
+  reg i_valid;
   reg [7:0] S1_i, S2_i, S3_i;
 
   // Outputs
   wire [7:0] S1_o, S2_o, S3_o, S4_o, S5_o, S6_o, S7_o, S8_o, S9_o;
-  wire done_o;
-  wire progress_done_o;
+  wire ;
+  wire progress_;
 
   // Instantiate the Unit Under Test (UUT)
   window_buffer_3x3 #(
@@ -25,7 +25,7 @@ module window_buffer_3x3_tb ();
   ) uut (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(done_i),
+      .i_valid(i_valid),
       .S1_i(S1_i),
       .S2_i(S2_i),
       .S3_i(S3_i),
@@ -38,8 +38,8 @@ module window_buffer_3x3_tb ();
       .S7_o(S7_o),
       .S8_o(S8_o),
       .S9_o(S9_o),
-      .done_o(done_o),
-      .progress_done_o(progress_done_o)
+      .(),
+      .progress_(progress_)
   );
 
   // Clock generation
@@ -51,15 +51,15 @@ module window_buffer_3x3_tb ();
     // Initialize Inputs
     clk    = 0;
     rst_n    = 1;
-    done_i = 0;
+    i_valid = 0;
     S1_i   = 0;
     S2_i   = 0;
     S3_i   = 0;
 
     // Reset pulse
     #10;
-    rst_n  = 0;
-    done_i = 1;
+    rst_n   = 0;
+    i_valid = 1;
     // 1 2 3 4 5
     // 1 2 3 4 5
     // 1 2 3 4 5
@@ -73,7 +73,7 @@ module window_buffer_3x3_tb ();
       S3_i = i;
       #10;
     end
-    done_i = 0;
+    i_valid = 0;
 
 
     #50;

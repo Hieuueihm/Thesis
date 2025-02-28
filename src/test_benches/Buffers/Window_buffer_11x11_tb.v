@@ -9,7 +9,7 @@ module window_buffer_11x11_tb ();
   // Inputs
   reg clk;
   reg rst_n;
-  reg done_i;
+  reg i_valid;
   reg [7:0] S1_i, S2_i, S3_i, S4_i, S5_i, S6_i, S7_i, S8_i, S9_i, S10_i, S11_i;
 
   // Outputs
@@ -23,8 +23,8 @@ module window_buffer_11x11_tb ();
   wire [7:0] S82_o, S83_o, S84_o, S85_o, S86_o, S87_o, S88_o, S89_o, S90_o, S91_o, S92_o, S93_o, S94_o, S95_o;
   wire [7:0] S96_o, S97_o, S98_o, S99_o, S100_o, S101_o, S102_o, S103_o, S104_o, S105_o, S106_o, S107_o, S108_o, S109_o;
   wire [7:0] S110_o, S111_o, S112_o, S113_o, S114_o, S115_o, S116_o, S117_o, S118_o, S119_o, S120_o, S121_o;
-  wire done_o;
-  wire progress_done_o;
+  wire ;
+  wire progress_;
 
   // Instantiate the Unit Under Test (UUT)
   window_buffer_11x11 #(
@@ -33,7 +33,7 @@ module window_buffer_11x11_tb ();
   ) inst_window_buffer_11x11 (
       .clk            (clk),
       .rst_n          (rst_n),
-      .done_i         (done_i),
+      .i_valid        (i_valid),
       .S1_i           (S1_i),
       .S2_i           (S2_i),
       .S3_i           (S3_i),
@@ -166,8 +166,8 @@ module window_buffer_11x11_tb ();
       .S119_o         (S119_o),
       .S120_o         (S120_o),
       .S121_o         (S121_o),
-      .done_o         (done_o),
-      .progress_done_o(progress_done_o)
+      .         (),
+      .progress_(progress_)
   );
 
 
@@ -181,7 +181,7 @@ module window_buffer_11x11_tb ();
     // Initialize Inputs
     clk    = 0;
     rst_n    = 1;
-    done_i = 0;
+    i_valid = 0;
     S1_i   = 0;
     S2_i   = 0;
     S3_i   = 0;
@@ -196,8 +196,8 @@ module window_buffer_11x11_tb ();
 
     // Reset pulse
     #10;
-    rst_n  = 0;
-    done_i = 1;
+    rst_n   = 0;
+    i_valid = 1;
 
     // 1 2 3 4 5 6 7 8 9 10 11
     // 1 2 3 4 5 6 7 8 9 10 11
@@ -217,7 +217,7 @@ module window_buffer_11x11_tb ();
       S11_i = i;
       #10;
     end
-    done_i = 0;
+    i_valid = 0;
 
 
     #50;

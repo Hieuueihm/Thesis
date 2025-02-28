@@ -537,7 +537,7 @@ class MRELBP():
 
 
 # Example Usage
-np.random.seed(2)
+np.random.seed(3)
 
 def resize_bmp(input_file, output_file, size=(128, 128)):
     # Mở ảnh BMP ở chế độ grayscale
@@ -557,7 +557,7 @@ img = cv2.imread(image_file.rstrip(), cv2.IMREAD_GRAYSCALE)
 file_path = "random_matrix.txt"
 
 lbp = MRELBP()
-lbp.MRELBP(random_matrix)
+lbp.MRELBP(img)
 np.savetxt(file_path, random_matrix, fmt='%d')
 
 

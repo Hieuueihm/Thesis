@@ -5,19 +5,19 @@ module line_buffer_tb ();
 
   reg clk;
   reg rst_n;
-  reg done_i;
+  reg i_valid;
   reg [7:0] data_i;
   wire [7:0] data_o;
-  wire done_o;
+  wire ;
 
   // Instantiate DUT (Device Under Test)
   line_buffer #(DEPTH) DUT (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(done_i),
+      .i_valid(i_valid),
       .data_i(data_i),
       .data_o(data_o),
-      .done_o(done_o)
+      .()
   );
 
   // Clock generation
@@ -27,7 +27,7 @@ module line_buffer_tb ();
     // Initialize signals
     clk    = 0;
     rst_n    = 1;
-    done_i = 0;
+    i_valid = 0;
     data_i = 0;
 
     // Reset sequence
@@ -36,10 +36,10 @@ module line_buffer_tb ();
     // Write data into the buffer
     repeat (DEPTH) begin
       #10 data_i = data_i + 1;  // Increment input data
-      done_i = 1;
+      i_valid = 1;
     end
 
-    // Stop done_i signal
+    // Stop i_valid signal
 
     // Read data from the buffer
     repeat (DEPTH) begin

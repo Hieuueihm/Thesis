@@ -71,7 +71,7 @@ module buffer_12_rows_ci #(
           .clk(clk),
           .rst_n(rst_n),
           .data_i((i == 0) ? data_i : line_buffer_out[i-1]),
-          .done_i((i == 0) ? (done_i | done_delayed) : line_buffer_done[i-1]),
+          .done_i((i == 0) ? (done_i) : line_buffer_done[i-1]),
           .data_o(line_buffer_out[i]),
           .done_o(line_buffer_done[i])
       );

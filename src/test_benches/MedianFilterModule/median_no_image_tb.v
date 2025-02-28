@@ -2,16 +2,16 @@ module median_no_image_tb;
   reg clk;
   reg rst_n;
   reg [7:0] grayscale_i;
-  reg done_i;
+  reg i_valid;
   wire [7:0] median_o;
-  wire done_o;
+  wire ;
   median_no_image uut (
       .clk(clk),
       .rst_n(rst_n),
       .grayscale_i(grayscale_i),
-      .done_i(done_i),
+      .i_valid(i_valid),
       .median_o(median_o),
-      .done_o(done_o)
+      .()
   );
 
   // Registers for 9x9 matrix
@@ -50,7 +50,7 @@ module median_no_image_tb;
   initial begin
     clk    = 0;
     rst_n    = 0;
-    done_i = 0;
+    i_valid = 0;
 
     // Read the matrix from file
     read_matrix;
@@ -67,12 +67,12 @@ module median_no_image_tb;
 
     // Apply done signal
     #10;
-    done_i = 1;
+    i_valid = 1;
     for (i = 0; i < 81; i = i + 1) begin
       grayscale_i = matrix[i];
       #10;
     end
-    done_i = 0;
+    i_valid = 0;
 
     // Check the outputs after some time
     #10000;

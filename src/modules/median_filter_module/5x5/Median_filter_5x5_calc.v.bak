@@ -1,7 +1,7 @@
 module median_filter_5x5_calc (
     input clk,
     input rst_n,
-    input done_i,
+    input i_valid,
     input [7:0] S1,
     S2,
     S3,
@@ -28,7 +28,7 @@ module median_filter_5x5_calc (
     S24,
     S25,
     output [7:0] median_o,
-    output reg done_o
+    output reg 
 );
 
   reg [7:0]
@@ -113,10 +113,10 @@ module median_filter_5x5_calc (
       p1_S23 <= S23;
       p1_S24 <= S24;
       p1_S25 <= S25;
-      p1_done_i <= done_i;
+      p1_done_i <= i_valid;
     end
   end
-  wire p1_done_o;
+  wire p1_;
   wire [7:0] sa1_max, sa1_out4, sa1_mid, sa1_out2, sa1_min;
   wire [7:0] sa2_max, sa2_out4, sa2_mid, sa2_out2, sa2_min;
   wire [7:0] sa3_max, sa3_out4, sa3_mid, sa3_out2, sa3_min;
@@ -128,8 +128,8 @@ module median_filter_5x5_calc (
   sort_ascending_5 SA1 (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(p1_done_i),
-      .done_o(p1_done_o),
+      .i_valid(p1_done_i),
+      .(p1_),
       .S1(p1_S1),
       .S2(p1_S2),
       .S3(p1_S3),
@@ -144,8 +144,8 @@ module median_filter_5x5_calc (
   sort_ascending_5 SA2 (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(),
-      .done_o(),
+      .i_valid(),
+      .(),
       .S1(p1_S6),
       .S2(p1_S7),
       .S3(p1_S8),
@@ -160,8 +160,8 @@ module median_filter_5x5_calc (
   sort_ascending_5 SA3 (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(),
-      .done_o(),
+      .i_valid(),
+      .(),
       .S1(p1_S11),
       .S2(p1_S12),
       .S3(p1_S13),
@@ -176,8 +176,8 @@ module median_filter_5x5_calc (
   sort_ascending_5 SA4 (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(),
-      .done_o(),
+      .i_valid(),
+      .(),
       .S1(p1_S16),
       .S2(p1_S17),
       .S3(p1_S18),
@@ -192,8 +192,8 @@ module median_filter_5x5_calc (
   sort_ascending_5 SA5 (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(),
-      .done_o(),
+      .i_valid(),
+      .(),
       .S1(p1_S21),
       .S2(p1_S22),
       .S3(p1_S23),
@@ -217,13 +217,13 @@ module median_filter_5x5_calc (
 
 
 
-  wire p2_done_o;
+  wire p2_;
 
   sort_ascending_5 SA6 (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(p1_done_o),
-      .done_o(p2_done_o),
+      .i_valid(p1_),
+      .(p2_),
       .S1(sa1_min),
       .S2(sa2_min),
       .S3(sa3_min),
@@ -238,8 +238,8 @@ module median_filter_5x5_calc (
   sort_ascending_5 SA7 (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(),
-      .done_o(),
+      .i_valid(),
+      .(),
       .S1(sa1_out2),
       .S2(sa2_out2),
       .S3(sa3_out2),
@@ -254,8 +254,8 @@ module median_filter_5x5_calc (
   sort_ascending_5 SA8 (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(),
-      .done_o(),
+      .i_valid(),
+      .(),
       .S1(sa1_mid),
       .S2(sa2_mid),
       .S3(sa3_mid),
@@ -270,8 +270,8 @@ module median_filter_5x5_calc (
   sort_ascending_5 SA9 (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(),
-      .done_o(),
+      .i_valid(),
+      .(),
       .S1(sa1_out4),
       .S2(sa2_out4),
       .S3(sa3_out4),
@@ -286,8 +286,8 @@ module median_filter_5x5_calc (
   sort_ascending_5 SA10 (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(),
-      .done_o(),
+      .i_valid(),
+      .(),
       .S1(sa1_max),
       .S2(sa2_max),
       .S3(sa3_max),
@@ -358,7 +358,7 @@ module median_filter_5x5_calc (
       st2_max <= st1_max;
     end
   end
-  wire p3_done_o;
+  wire p3_;
   // // diag 1
   // p3_S6 <= sa10_min;
   // p3_S7 <= sa9_out2;
@@ -369,8 +369,8 @@ module median_filter_5x5_calc (
   sort_ascending_5 SA11 (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(p2_done_o),
-      .done_o(p3_done_o),
+      .i_valid(p2_),
+      .(p3_),
       .S1(sa10_min),
       .S2(sa9_out2),
       .S3(sa8_mid),
@@ -465,7 +465,7 @@ module median_filter_5x5_calc (
 
 
   wire [7:0] sn6_med;
-  reg p4_done_o;
+  reg p4_;
   reg [7:0] med;
   sorting_network SN6 (
       .S1 (st1_min),
@@ -477,17 +477,17 @@ module median_filter_5x5_calc (
   );
   always @(posedge clk) begin
     if (~rst_n) begin
-      p4_done_o <= 0;
+      p4_ <= 0;
       med <= 0;
     end else begin
-      p4_done_o <= p3_done_o;
+      p4_ <= p3_;
       med <= sn6_med;
     end
   end
 
 
 
-  assign done_o   = p4_done_o;
+  assign    = p4_;
   assign median_o = med;
 
 endmodule

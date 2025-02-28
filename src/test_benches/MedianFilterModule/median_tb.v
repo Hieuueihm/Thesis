@@ -24,10 +24,10 @@
 
 module median_tb ();
   // Testbench signals
-  reg clk, rst_n, done_i;
+  reg clk, rst_n, i_valid;
   reg [7:0] red_i, green_i, blue_i;
   wire [7:0] green_o, blue_o, red_o;
-  wire done_o;
+  wire ;
 
   // Instantiate the DUT (Device Under Test) and pass the parameter
   median uut (
@@ -36,11 +36,11 @@ module median_tb ();
       .red_i(red_i),
       .green_i(green_i),
       .blue_i(blue_i),
-      .done_i(done_i),
+      .i_valid(i_valid),
       .red_o(red_o),
       .green_o(green_o),
       .blue_o(blue_o),
-      .done_o(done_o)
+      .()
   );
   initial clk = 1'b1;
   always #(`clk_period / 2) clk = ~clk;
@@ -60,7 +60,7 @@ module median_tb ();
     if (~rst_n) begin
       j <= 8'd0;
     end else begin
-      if (done_o) begin
+      if () begin
         result[j] <= blue_o;
         result[j+1] <= green_o;
         result[j+2] <= red_o;
@@ -76,7 +76,7 @@ module median_tb ();
       fileId = $fopen(`READ_FILENAME, "rb");
       if (fileId == 0) begin
         $display("OPEN BMP Error!\n");
-        $FINISH;
+        $finish;
       end else begin
         $fread(bmp_data, fileId);
         $fclose(fileId);
@@ -96,12 +96,12 @@ module median_tb ();
         $display("biBitCount  %d!\n", biBitCount);
         if (biBitCount != 24) begin
           $display("%s", "biBitCount need to 24 bit!\n");
-          $FINISH;
+          $finish;
         end
 
         if (bmp_width % 4) begin
           $display("%s", "bmp_width % 4 need to be zero");
-          $FINISH;
+          $finish;
         end
 
         // for (i = bmp_start_pos; i < bmp_size; i = i + 1) begin
@@ -154,7 +154,7 @@ module median_tb ();
     // writeBMP;
 
     rst_n   = 1'b1;
-    done_i  = 1'b0;
+    i_valid = 1'b0;
 
     red_i   = 8'b0;
     green_i = 8'b0;
@@ -173,10 +173,10 @@ module median_tb ();
       green_i = bmp_data[i+1];
       blue_i  = bmp_data[i];
       #(`clk_period);
-      done_i = 1'b1;
+      i_valid = 1'b1;
     end
     #(`clk_period);
-    done_i = 1'b0;
+    i_valid = 1'b0;
     $display("%s", "Write output ~~~\n");
     repeat (9) #(`clk_period);
     writeBMP;
@@ -187,10 +187,10 @@ module median_tb ();
     // red_i   = 8'b0000_0100;
     // green_i = 8'b0000_0010;
     // blue_i  = 8'b0001_0000;
-    // done_i  = 1'b1;
+    // i_valid  = 1'b1;
 
     // #(`clk_period);
-    // done_i = 1'b0;
+    // i_valid = 1'b0;
     // #(`clk_period);
     // $stop;
 
@@ -202,7 +202,7 @@ module median_tb ();
     file = $fopen("output.txt", "w");
     if (file == 0) begin
       $display("Error opening file");
-      $FINISH;
+      $finish;
     end
   end
   always @(posedge clk) begin

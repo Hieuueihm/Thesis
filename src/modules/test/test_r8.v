@@ -5,10 +5,10 @@ module test_r8 #(
     input clk,
     input rst_n,
     input [7:0] grayscale_i,
-    input done_i
+    input i_valid
 );
 
-  wire done_original_o;
+  wire riginal_o;
   wire [7:0] data_o;
   wire done_3x3_o;
   wire [7:0] m_3x3_o;
@@ -26,9 +26,9 @@ module test_r8 #(
       .clk(clk),
       .rst_n(rst_n),
       .data_i(grayscale_i),
-      .done_i(done_i),
+      .i_valid(i_valid),
       .data_o(data_o),
-      .done_o(done_original_o),
+      .(riginal_o),
       .m_3x3_o(m_3x3_o),
       .done_3x3_o(done_3x3_o),
       .m_5x5_o(m_5x5_o),
@@ -49,7 +49,7 @@ module test_r8 #(
   ) BUFFER_16_ROWS_7x7 (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(done_7x7_o),
+      .i_valid(done_7x7_o),
       .data_i(m_7x7_o),
       .data0_o(data0_7x7_o),
       .data1_o(data1_7x7_o),
@@ -68,7 +68,7 @@ module test_r8 #(
       .data14_o(data14_7x7_o),
       .data15_o(data15_7x7_o),
       .data16_o(data16_7x7_o),
-      .done_o(done_buffer_7x7_o)
+      .(done_buffer_7x7_o)
   );
   wire [7:0] data0_9x9_o, data1_9x9_o, data2_9x9_o, data3_9x9_o;
   wire [7:0] data4_9x9_o;
@@ -82,7 +82,7 @@ module test_r8 #(
   ) BUFFER_16_ROWS_9x9 (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(done_9x9_o),
+      .i_valid(done_9x9_o),
       .data_i(m_9x9_o),
       .data0_o(data0_9x9_o),
       .data1_o(data1_9x9_o),
@@ -101,7 +101,7 @@ module test_r8 #(
       .data14_o(data14_9x9_o),
       .data15_o(data15_9x9_o),
       .data16_o(data16_9x9_o),
-      .done_o(done_buffer_9x9_o)
+      .(done_buffer_9x9_o)
   );
   wire done_buffer_7x7_delay;
   wire[7:0] data0_7x7_delay, data1_7x7_delay, data2_7x7_delay, data3_7x7_delay, data4_7x7_delay, data5_7x7_delay;
@@ -315,7 +315,7 @@ module test_r8 #(
   ) inst_window_buffer_15x15_7x7 (
       .clk            (clk),
       .rst_n          (rst_n),
-      .done_i         (done_buffer_7x7_delay),
+      .i_valid        (done_buffer_7x7_delay),
       .S1_i           (data15_7x7_delay),
       .S2_i           (data14_7x7_delay),
       .S3_i           (data13_7x7_delay),
@@ -556,8 +556,8 @@ module test_r8 #(
       .S223_o         (S223_7x7_o),
       .S224_o         (S224_7x7_o),
       .S225_o         (S225_7x7_o),
-      .done_o         (wdbf_15x15_done),
-      .progress_done_o(wdbf_15x15_progress_done)
+      .         (wdbf_15x15_done),
+      .progress_(wdbf_15x15_progress_done)
   );
 
 
@@ -605,7 +605,7 @@ module test_r8 #(
   ) inst_window_buffer_17x17 (
       .clk            (clk),
       .rst_n          (rst_n),
-      .done_i         (done_buffer_9x9_o),
+      .i_valid        (done_buffer_9x9_o),
       .S1_i           (data16_9x9_o),
       .S2_i           (data15_9x9_o),
       .S3_i           (data14_9x9_o),
@@ -912,13 +912,13 @@ module test_r8 #(
       .S287_o         (S287_9x9_o),
       .S288_o         (S288_9x9_o),
       .S289_o         (S289_9x9_o),
-      .done_o         (wdbf_17x17_done),
-      .progress_done_o(wdbf_17x17_progress_done)
+      .         (wdbf_17x17_done),
+      .progress_(wdbf_17x17_progress_done)
   );
 
 
   wire [23:0] S1_r3, S2_r3, S3_r3, S4_r3, S5_r3, S6_r3, S7_r3, S8_r3;
-  wire done_o_r3;
+  wire _r3;
 
   interpolation_R_x #(
       .R(7)
@@ -926,7 +926,7 @@ module test_r8 #(
       .clk(clk),
       .rst_n(rst_n),
       .progress_done_i(wdbf_17x17_progress_done),
-      .done_i(wdbf_17x17_done),
+      .i_valid(wdbf_17x17_done),
       .S_0_i(S120_7x7_o),
       .S_90_i(S8_7x7_o),
       .S_180_i(S106_7x7_o),
@@ -955,11 +955,11 @@ module test_r8 #(
       .S6_o(S6_r3),
       .S7_o(S7_r3),
       .S8_o(S8_r3),
-      .done_o(done_o_r3),
-      .progress_done_o()
+      .(_r3),
+      .progress_()
   );
   wire [23:0] S1_r4, S2_r4, S3_r4, S4_r4, S5_r4, S6_r4, S7_r4, S8_r4;
-  wire done_o_r4;
+  wire _r4;
 
   wire finish_interpolation;
   interpolation_R_x #(
@@ -968,7 +968,7 @@ module test_r8 #(
       .clk(clk),
       .rst_n(rst_n),
       .progress_done_i(wdbf_17x17_progress_done),
-      .done_i(wdbf_17x17_done),
+      .i_valid(wdbf_17x17_done),
       .S_0_i(S153_9x9_o),
       .S_90_i(S9_9x9_o),
       .S_180_i(S137_9x9_o),
@@ -997,15 +997,15 @@ module test_r8 #(
       .S6_o(S6_r4),
       .S7_o(S7_r4),
       .S8_o(S8_r4),
-      .done_o(done_o_r4),
-      .progress_done_o(finish_interpolation)
+      .(_r4),
+      .progress_(finish_interpolation)
   );
 
 
 
 
   wire [16:0] r8_patch_sum;
-  wire patch_sum_done_o;
+  wire patch_sum_;
   wire patch_progress_done;
   R8_patch_sum #(
       .COLS(COLS),
@@ -1013,7 +1013,7 @@ module test_r8 #(
   ) R8_PATCH_SUM (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(done_buffer_9x9_o),
+      .i_valid(done_buffer_9x9_o),
       .S1(data0_9x9_o),
       .S2(data1_9x9_o),
       .S3(data2_9x9_o),
@@ -1032,13 +1032,13 @@ module test_r8 #(
       .S16(data15_9x9_o),
       .S17(data16_9x9_o),
       .sum_o(r8_patch_sum),
-      .done_o(patch_sum_done_o),
-      .progress_done_o(patch_progress_done)
+      .(patch_sum_),
+      .progress_(patch_progress_done)
   );
 
   `define CYCLE_DELAY_MATCH_PATCH_SUM 1
   wire [23:0] S1_r4_delay, S2_r4_delay, S3_r4_delay, S4_r4_delay, S5_r4_delay, S6_r4_delay, S7_r4_delay, S8_r4_delay;
-  wire done_o_r4_delay;
+  wire _r4_delay;
   wire finish_interpolation_delay;
   shift_registers #(
       .WIDTH(24),
@@ -1119,8 +1119,8 @@ module test_r8 #(
   ) SHIFT_DONE_r4 (
       .clk(clk),
       .rst_n(rst_n),
-      .data_i(done_o_r4),
-      .data_o(done_o_r4_delay)
+      .data_i(_r4),
+      .data_o(_r4_delay)
   );
   shift_registers #(
       .WIDTH(1),
@@ -1141,7 +1141,7 @@ module test_r8 #(
   rd rd_CALC_r4 (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(done_o_r4),
+      .i_valid(_r4),
       .progress_done_i(finish_interpolation),
       .S1_r2(S1_r4),
       .S2_r2(S2_r4),
@@ -1159,8 +1159,8 @@ module test_r8 #(
       .S6_r1(S6_r3),
       .S7_r1(S7_r3),
       .S8_r1(S8_r3),
-      .done_o(rd_r4_done),
-      .progress_done_o(rd_r4_progress_done),
+      .(rd_r4_done),
+      .progress_(rd_r4_progress_done),
       .bit1_o(bit1_o),
       .bit2_o(bit2_o),
       .bit3_o(bit3_o),
@@ -1281,7 +1281,7 @@ module test_r8 #(
   ) ni_CALC_r4 (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(done_o_r4_delay),
+      .i_valid(_r4_delay),
       .progress_done_i(finish_interpolation_delay),
       .S1_r2(S1_r4_delay),
       .S2_r2(S2_r4_delay),
@@ -1292,8 +1292,8 @@ module test_r8 #(
       .S7_r2(S7_r4_delay),
       .S8_r2(S8_r4_delay),
       .sum_i(r6_patch_sum),
-      .done_o(ni_r4_done),
-      .progress_done_o(ni_r4_progress_done),
+      .(ni_r4_done),
+      .progress_(ni_r4_progress_done),
       .bit1_o(bit1_o_ni),
       .bit2_o(bit2_o_ni),
       .bit3_o(bit3_o_ni),
@@ -1308,11 +1308,11 @@ module test_r8 #(
 
 
   // // wire [3:0] data_o_riu;
-  // // wire riu_done_o, riu_progress_done;
+  // // wire riu_, riu_progress_done;
   // // riu2_mapping RIU2(
   // // .clk(clk),
   // // .rst_n(rst_n),
-  // // .done_i(rd_r2_done),
+  // // .i_valid(rd_r2_done),
   // // .progress_done_i(rd_r2_progress_done),
   // // .bit1_i(bit1_o),
   // // .bit2_i(bit2_o),
@@ -1323,15 +1323,15 @@ module test_r8 #(
   // // .bit7_i(bit7_o),
   // // .bit8_i(bit8_o),
   // // .data_o(data_o_riu),
-  // // .done_o(riu_done_o),
-  // // .progress_done_o(riu_progress_done));
+  // // .(riu_),
+  // // .progress_(riu_progress_done));
 
   // // wire [3:0] data_o_riu_ni;
-  // // wire riu_done_o_ni, riu_progress_done_ni;
+  // // wire riu__ni, riu_progress_done_ni;
   // // riu2_mapping RIU2_ni(
   // // .clk(clk),
   // // .rst_n(rst_n),
-  // // .done_i(ni_r2_done),
+  // // .i_valid(ni_r2_done),
   // // .progress_done_i(ni_r2_progress_done),
   // // .bit1_i(bit1_o_ni),
   // // .bit2_i(bit2_o_ni),
@@ -1342,6 +1342,6 @@ module test_r8 #(
   // // .bit7_i(bit7_o_ni),
   // // .bit8_i(bit8_o_ni),
   // // .data_o(data_o_riu_ni),
-  // // .done_o(riu_done_o_ni),
-  // // .progress_done_o(riu_progress_done_ni));
+  // // .(riu__ni),
+  // // .progress_(riu_progress_done_ni));
 endmodule

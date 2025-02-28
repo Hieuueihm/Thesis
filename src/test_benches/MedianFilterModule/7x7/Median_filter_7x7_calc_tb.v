@@ -3,7 +3,7 @@ module median_filter_7x7_calc_tb;
   // Inputs
   reg clk;
   reg rst_n;
-  reg done_i;
+  reg i_valid;
   reg [7:0] matrix[0:539];  // Array to hold the 7x7 matrix values
   reg [7:0] S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15;
   reg [7:0] S16, S17, S18, S19, S20, S21, S22, S23, S24, S25, S26, S27, S28, S29;
@@ -12,13 +12,13 @@ module median_filter_7x7_calc_tb;
 
   // Outputs
   wire [7:0] median_o;
-  wire done_o;
+  wire ;
 
   // Instantiate the Unit Under Test (UUT)
   median_filter_7x7_calc uut (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(done_i),
+      .i_valid(i_valid),
       .S1(S1),
       .S2(S2),
       .S3(S3),
@@ -69,7 +69,7 @@ module median_filter_7x7_calc_tb;
       .S48(S48),
       .S49(S49),
       .median_o(median_o),
-      .done_o(done_o)
+      .()
   );
 
   // Clock generation
@@ -86,7 +86,7 @@ module median_filter_7x7_calc_tb;
       file = $fopen("D:\\Thesis\\Src\\test_benches\\medianFilterModule\\7x7\\matrix.txt", "r");
       if (file == 0) begin
         $display("ERROR: Unable to open file: %s", "matrix.txt");
-        $FINISH;
+        $finish;
       end
       for (i = 0; i < 539; i = i + 1) begin
         if (!$feof(file)) begin
@@ -103,14 +103,14 @@ module median_filter_7x7_calc_tb;
     // Initialize Inputs
     clk = 0;
     rst_n = 0;
-    done_i = 0;
+    i_valid = 0;
 
     // Read the matrix from file
     read_matrix;
     #10;
     rst_n = 1;
     #10 rst_n = 0;
-    done_i = 1;
+    i_valid = 1;
 
 
     // Assign matrix values to S1 through S49
@@ -711,14 +711,14 @@ module median_filter_7x7_calc_tb;
     end
 
 
-    #10 done_i = 0;
+    #10 i_valid = 0;
 
     // Check the outputs after some time
     #500;
     $display("median: %d", median_o);
-    $display("Done: %b", done_o);
+    $display("Done: %b", );
 
-    // FINISH simulation
+    // Finish simulation
     $stop;
   end
 endmodule

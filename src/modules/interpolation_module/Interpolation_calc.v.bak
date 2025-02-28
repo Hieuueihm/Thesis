@@ -2,13 +2,13 @@ module interpolation_calc #(parameter R = 2,
                             RADIUS = 45)
                            (input clk,
                             input rst_n,
-                            input done_i,
+                            input i_valid,
                             input [7:0] A,
                             B,
                             C,
                             D,
                             output reg [31:0] data_o,
-                            output reg done_o);
+                            output reg o_valid);
     reg [23:0] r1, r2, r3, r4;
     // r1 = (1-dx) * (1-dy)
     // r2 = dx * (1-dy)
@@ -246,10 +246,10 @@ module interpolation_calc #(parameter R = 2,
         if (~rst_n) begin
             done_shift <= 0;
             end else begin
-            done_shift <= {done_shift[1:0], done_i};
+            done_shift <= {done_shift[1:0], i_valid};
             
         end
     end
     
-    assign done_o = done_shift[2];
+    assign o_valid = done_shift[2];
 endmodule

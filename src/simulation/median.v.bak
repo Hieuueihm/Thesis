@@ -5,19 +5,19 @@ module median (
     input [7:0] green_i,
     input [7:0] blue_i,
 
-    input done_i,
+    input i_valid,
 
     output [7:0] red_o,
     output [7:0] green_o,
     output [7:0] blue_o,
 
-    output done_o
+    output 
 );
   wire [7:0] RGB2Gray_grayscale_o;
-  wire RGB2Gray_done_o;
+  wire RGB2Gray_;
   wire [7:0] d0_o, d1_o, d2_o, d3_o, d4_o, d5_o, d6_o, d7_o, d8_o;
 
-  wire prepare_done_o;
+  wire prepare_;
   wire [7:0] grayscale_med_o;
   wire  grayscale_med_done;
 
@@ -27,16 +27,16 @@ module median (
       .red_i(red_i),
       .green_i(green_i),
       .blue_i(blue_i),
-      .done_i(done_i),
+      .i_valid(i_valid),
       .grayscale_o(RGB2Gray_grayscale_o),
-      .done_o(RGB2Gray_done_o)
+      .(RGB2Gray_)
   );
   median_preparation #(
       .DEPTH(360)
   ) median_PREAPARATION (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(RGB2Gray_done_o),
+      .i_valid(RGB2Gray_),
       .grayscale_i(RGB2Gray_grayscale_o),
       .data0_o(d0_o),
       .data1_o(d1_o),
@@ -47,14 +47,14 @@ module median (
       .data6_o(d6_o),
       .data7_o(d7_o),
       .data8_o(d8_o),
-      .done_o(prepare_done_o)
+      .(prepare_)
   );
 
 
 median_filter_3x3 median_FILTER_3X3(
     .clk(clk),
      .rst_n(rst_n),
-     .done_i(prepare_done_o),
+     .i_valid(prepare_),
      .d0_i(d0_o),  
      .d1_i(d1_o),  
      .d2_i(d2_o),  
@@ -66,17 +66,17 @@ median_filter_3x3 median_FILTER_3X3(
      .d8_i(d8_o),
 
     .median_o(grayscale_med_o),
-    .done_o(grayscale_med_done)
+    .(grayscale_med_done)
 );
  Gray2RGB Gray2RGB (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(grayscale_med_done),
+      .i_valid(grayscale_med_done),
       .grayscale_i(grayscale_med_o),
       .red_o(red_o),
       .green_o(green_o),
       .blue_o(blue_o),
-      .done_o(done_o)
+      .()
   );
 
 

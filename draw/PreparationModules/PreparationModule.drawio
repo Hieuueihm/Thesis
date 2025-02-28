@@ -13,7 +13,7 @@
         <mxCell id="qsAkrHhLrorG7CHm5gj3-4" value="data_i [7:0]" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="290" y="360" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="qsAkrHhLrorG7CHm5gj3-5" value="done_i" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="qsAkrHhLrorG7CHm5gj3-5" value="i_valid" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="290" y="400" width="50" height="30" as="geometry" />
         </mxCell>
         <mxCell id="qsAkrHhLrorG7CHm5gj3-6" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
@@ -43,7 +43,7 @@
             <mxPoint x="280" y="414.5" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qsAkrHhLrorG7CHm5gj3-11" value="done_o" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="qsAkrHhLrorG7CHm5gj3-11" value="o_valid" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="460" y="590" width="50" height="30" as="geometry" />
         </mxCell>
         <mxCell id="qsAkrHhLrorG7CHm5gj3-12" value="data8_o [7:0]" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">

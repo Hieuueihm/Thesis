@@ -1,9 +1,9 @@
 module test(input clk,
             input rst_n,
             input [7:0] grayscale_i,
-            input done_i);
+            input i_valid);
     
-    wire done_original_o;
+    wire riginal_o;
     wire [7:0] data_o;
     wire done_3x3_o;
     wire [7:0] m_3x3_o;
@@ -14,9 +14,9 @@ module test(input clk,
     .clk(clk),
     .rst_n(rst_n),
     .data_i(grayscale_i),
-    .done_i(done_i),
+    .i_valid(i_valid),
     .data_o(data_o),
-    .done(done_original_o),
+    .done(riginal_o),
     .m_3x3_o(m_3x3_o),
     .done_3x3_o(done_3x3_o),
     .m_5x5_o(),
@@ -32,29 +32,29 @@ module test(input clk,
     buffer_4_rows #(.DEPTH(30)) BUFFER_4_ROWS_3X3 (
     .clk(clk),
     .rst_n(rst_n),
-    .done_i(done_3x3_o),
+    .i_valid(done_3x3_o),
     .data_i(m_3x3_o),
     .data0_o(data0_3x3_o),
     .data1_o(data1_3x3_o),
     .data2_o(data2_3x3_o),
     .data3_o(data3_3x3_o),
     .data4_o(data4_3x3_o),
-    .done_o(done_buffer_3x3_o)
+    .(done_buffer_3x3_o)
     );
     
     wire [7:0] data0_o, data1_o, data2_o, data3_o, data4_o;
-    wire done_o;
+    wire ;
     buffer_4_rows #(.DEPTH(30)) BUFFER_4_ROWS (
     .clk(clk),
     .rst_n(rst_n),
-    .done_i(done_original_o),
+    .i_valid(riginal_o),
     .data_i(data_o),
     .data0_o(data0_o),
     .data1_o(data1_o),
     .data2_o(data2_o),
     .data3_o(data3_o),
     .data4_o(data4_o),
-    .done_o(done_o)
+    .()
     );
     
     

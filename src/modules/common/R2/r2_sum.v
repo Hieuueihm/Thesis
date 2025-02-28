@@ -68,7 +68,7 @@ module r2_sum #(
 
   assign i_counter        = (i_counter_eq_max == 1'b1) ? 0 : i_counter_plus_1;
 
-  assign i_row            = (i_counter_eq_max) ? i_row : i_row_plus_1;
+  assign i_row            = i_row_plus_1;
   assign i_row_eq_max     = (i_row_plus_1 == ROWS - 4) ? 1'b1 : 1'b0;
 
 

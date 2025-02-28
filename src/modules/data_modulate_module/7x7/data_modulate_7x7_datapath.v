@@ -157,7 +157,7 @@ module data_modulate_7x7_datapath #(
   );
   assign i_col     = (i_col_plus_1 == COLS) ? 0 : i_col_plus_1;
   assign i_row     = (i_row_plus_1 == ROWS) ? 0 : i_row_plus_1;
-  assign i_counter = (i_counter_plus_1 == 5) ? i_counter : i_counter_plus_1;
+  assign i_counter = (i_counter_plus_1 == 5) ? 4 : i_counter_plus_1;
   // handle with i rows and i cols
 
   always @(posedge clk) begin

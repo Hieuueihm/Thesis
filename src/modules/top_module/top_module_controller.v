@@ -7,7 +7,7 @@ module top_module__controller (
     output reg o_intr,
     output reg read_en
 );
-  parameter IDLE = 2'b00, PROCESS = 2'b01, READ = 2'b10, FIniSH = 2'b11;
+  parameter IDLE = 2'b00, PROCESS = 2'b01, READ = 2'b10, FINISH = 2'b11;
   reg [1:0] current_state, next_state;
 
   always @(posedge clk) begin
@@ -15,19 +15,21 @@ module top_module__controller (
     else current_state <= next_state;
   end
   always @(*) begin
+    next_state = current_state;
     case (current_state)
       IDLE:    next_state = (start_i) ? PROCESS : IDLE;
       PROCESS: next_state = (finish_i) ? READ : PROCESS;
-      READ:    next_state = (read_finish) ? FIniSH : READ;
-      FIniSH:  next_state = IDLE;
+      READ:    next_state = (read_finish) ? FINISH : READ;
+      FINISH:  next_state = IDLE;
 
     endcase
   end
   always @(*) begin
+    read_en = 1'b0;
+    o_intr  = 1'b0;
     case (current_state)
       IDLE: begin
-        read_en <= 0;
-        o_intr  <= 0;
+
       end
       PROCESS: begin
       end
@@ -35,7 +37,7 @@ module top_module__controller (
         read_en <= 1'b1;
       end
 
-      FIniSH: begin
+      FINISH: begin
         read_en <= 1'b0;
         o_intr  <= 1'b1;
       end

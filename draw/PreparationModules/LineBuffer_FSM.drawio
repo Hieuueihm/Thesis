@@ -19,7 +19,7 @@
             <mxPoint x="390" y="400" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="RWctR8MDuskukS0d0tIQ-6" value="done_i &amp;amp;&amp;amp; i_counter == DEPTH" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="RWctR8MDuskukS0d0tIQ-6" value="i_valid &amp;amp;&amp;amp; i_counter == DEPTH" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="270" y="370" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="RWctR8MDuskukS0d0tIQ-7" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.4;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="RWctR8MDuskukS0d0tIQ-3" target="RWctR8MDuskukS0d0tIQ-4">
@@ -34,7 +34,7 @@
             <mxPoint x="190" y="500" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="RWctR8MDuskukS0d0tIQ-9" value="!done_i" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="RWctR8MDuskukS0d0tIQ-9" value="!i_valid" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="395" y="480" width="60" height="30" as="geometry" />
         </mxCell>
       </root>

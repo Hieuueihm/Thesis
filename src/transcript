@@ -82,7 +82,7 @@ vsim -gui work.median_no_image_tb
 # Loading work.line_buffer_datapath
 # ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fscanf'.
 #    Time: 0 ps  Iteration: 0  Region: /median_no_image_tb/read_matrix File: D:/Thesis/Src/test_benches/medianFilterModule/median_no_image_tb.v Line: 45
-# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'done_o'.
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port ''.
 #    Time: 0 ps  Iteration: 0  Instance: /median_no_image_tb/uut/median_FILTER_5x5/median_9x9_CALC/SA10 File: D:/Thesis/Src/modules/medianFilterModule/9x9/median_filter_9x9_calc.v Line: 653
 # Error loading design
 # End time: 23:44:51 on Dec 10,2024, Elapsed time: 0:00:00

@@ -10,12 +10,12 @@ module joint_histogram_tb ();
   reg ci_i;
   reg [3:0] ni_i;
   reg [3:0] rd_i;
-  reg done_i;
+  reg i_valid;
   reg progress_done_i;
 
   // Outputs from the DUT
   wire [15:0] cinird_o;
-  wire done_o;
+  wire ;
   wire finish;
 
   // Instantiate the DUT
@@ -25,10 +25,10 @@ module joint_histogram_tb ();
       .ci_i(ci_i),
       .ni_i(ni_i),
       .rd_i(rd_i),
-      .done_i(done_i),
+      .i_valid(i_valid),
       .progress_done_i(progress_done_i),
       .cinird_o(cinird_o),
-      .done_o(done_o),
+      .(),
       .finish(finish)
   );
 
@@ -44,16 +44,16 @@ module joint_histogram_tb ();
     ci_i            = 0;
     ni_i            = 0;
     rd_i            = 0;
-    done_i          = 0;
+    i_valid         = 0;
     progress_done_i = 0;
 
     #20;
-    rst_n  = 0;
-    done_i = 1;
+    rst_n = 0;
+    i_valid = 1;
 
-    ci_i   = 1;
-    ni_i   = 4'd2;
-    rd_i   = 4'd0;
+    ci_i = 1;
+    ni_i = 4'd2;
+    rd_i = 4'd0;
 
     #10;
     ci_i = 0;
@@ -62,7 +62,7 @@ module joint_histogram_tb ();
 
     #10;
     progress_done_i = 1;
-    done_i          = 0;
+    i_valid         = 0;
     #10;
     progress_done_i = 0;  // Deassert progress_done_i
 
@@ -75,8 +75,8 @@ module joint_histogram_tb ();
 
   // Monitor outputs
   initial begin
-    $monitor("Time: %0t | ci_i: %b | ni_i: %h | rd_i: %b | done_o: %b | finish: %b | cinird_o: %h",
-             $time, ci_i, ni_i, rd_i, done_o, finish, cinird_o);
+    $monitor("Time: %0t | ci_i: %b | ni_i: %h | rd_i: %b | : %b | finish: %b | cinird_o: %h",
+             $time, ci_i, ni_i, rd_i, , finish, cinird_o);
   end
 
 

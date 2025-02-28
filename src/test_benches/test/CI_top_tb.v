@@ -27,7 +27,7 @@ module ci_top_tb ();
   reg clk;
   reg rst_n;
   reg [7:0] grayscale_i;
-  reg done_i;
+  reg i_valid;
   wire [15:0] r2_bit_one_o;
   wire [15:0] r2_bit_zero_o;
   wire done_r2;
@@ -48,7 +48,7 @@ module ci_top_tb ();
       .clk(clk),
       .rst_n(rst_n),
       .grayscale_i(grayscale_i),
-      .done_i(done_i),
+      .i_valid(i_valid),
       .r2_bit_one_o(r2_bit_one_o),
       .r2_bit_zero_o(r2_bit_zero_o),
       .done_r2(done_r2),
@@ -76,7 +76,7 @@ module ci_top_tb ();
     // Initialize clock and reset
     clk         <= 1'b0;
     rst_n       <= 1'b1;
-    done_i      <= 1'b0;
+    i_valid     <= 1'b0;
     grayscale_i <= 8'b0;
     file = $fopen("D:\\Thesis\\Src\\test_benches\\test\\random_matrix.txt", "r");
 
@@ -92,8 +92,8 @@ module ci_top_tb ();
 
     // Reset release after some delay
     #(`clk_period * 2);
-    rst_n  <= 1'b0;
-    done_i <= 1'b1;
+    rst_n   <= 1'b0;
+    i_valid <= 1'b1;
 
     // Initialize the matrix with given data
     // Example: Assign values (can be automated or read from a file)
@@ -105,7 +105,7 @@ module ci_top_tb ();
         #(`clk_period);
       end
     end
-    done_i <= 1'b0;
+    i_valid <= 1'b0;
     wait (done_r2);
     #(`clk_period * 5);
 

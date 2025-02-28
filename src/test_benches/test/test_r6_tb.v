@@ -27,13 +27,13 @@ module test_r6_tb ();
   reg clk;
   reg rst_n;
   reg [7:0] grayscale_i;
-  reg done_i;
+  reg i_valid;
 
   test_r6 DUT (
       .clk(clk),
       .rst_n(rst_n),
       .grayscale_i(grayscale_i),
-      .done_i(done_i)
+      .i_valid(i_valid)
   );
 
   initial begin
@@ -49,13 +49,13 @@ module test_r6_tb ();
     // Initialize clock and reset
     clk         <= 1'b0;
     rst_n       <= 1'b1;
-    done_i      <= 1'b0;
+    i_valid     <= 1'b0;
     grayscale_i <= 8'b0;
     file = $fopen("D:\\Thesis\\Src\\test_benches\\test\\random_matrix.txt", "r");
 
     if (file == 0) begin
       $display("Error: Cannot open file.");
-      $FINISH;
+      $finish;
     end
 
     read_matrix(file);
@@ -65,8 +65,8 @@ module test_r6_tb ();
 
     // Reset release after some delay
     #(`clk_period * 2);
-    rst_n  <= 1'b0;
-    done_i <= 1'b1;
+    rst_n   <= 1'b0;
+    i_valid <= 1'b1;
 
     // Initialize the matrix with given data
     // Example: Assign values (can be automated or read from a file)
@@ -78,7 +78,7 @@ module test_r6_tb ();
         #(`clk_period);
       end
     end
-    done_i <= 1'b0;
+    i_valid <= 1'b0;
     #(`clk_period * 1000);
 
     $stop;  // End simulation

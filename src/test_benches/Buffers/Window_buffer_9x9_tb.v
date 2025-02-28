@@ -9,7 +9,7 @@ module window_buffer_9x9_tb ();
   // Inputs
   reg clk;
   reg rst_n;
-  reg done_i;
+  reg i_valid;
   reg [7:0] S1_i, S2_i, S3_i, S4_i, S5_i, S6_i, S7_i, S8_i, S9_i;
 
   // Outputs
@@ -20,8 +20,8 @@ module window_buffer_9x9_tb ();
   wire [7:0] S50_o, S51_o, S52_o, S53_o, S54_o, S55_o, S56_o, S57_o, S58_o, S59_o, S60_o;
   wire [7:0] S61_o, S62_o, S63_o, S64_o, S65_o, S66_o, S67_o, S68_o, S69_o, S70_o;
   wire [7:0] S71_o, S72_o, S73_o, S74_o, S75_o, S76_o, S77_o, S78_o, S79_o, S80_o, S81_o;
-  wire done_o;
-  wire progress_done_o;
+  wire ;
+  wire progress_;
 
   // Instantiate the Unit Under Test (UUT)
   window_buffer_9x9 #(
@@ -30,7 +30,7 @@ module window_buffer_9x9_tb ();
   ) inst_window_buffer_9x9 (
       .clk            (clk),
       .rst_n          (rst_n),
-      .done_i         (done_i),
+      .i_valid        (i_valid),
       .S1_i           (S1_i),
       .S2_i           (S2_i),
       .S3_i           (S3_i),
@@ -121,8 +121,8 @@ module window_buffer_9x9_tb ();
       .S79_o          (S79_o),
       .S80_o          (S80_o),
       .S81_o          (S81_o),
-      .done_o         (done_o),
-      .progress_done_o(progress_done_o)
+      .         (),
+      .progress_(progress_)
   );
 
 
@@ -135,7 +135,7 @@ module window_buffer_9x9_tb ();
     // Initialize Inputs
     clk    = 0;
     rst_n    = 1;
-    done_i = 0;
+    i_valid = 0;
     S1_i   = 0;
     S2_i   = 0;
     S3_i   = 0;
@@ -148,8 +148,8 @@ module window_buffer_9x9_tb ();
 
     // Reset pulse
     #10;
-    rst_n  = 0;
-    done_i = 1;
+    rst_n   = 0;
+    i_valid = 1;
 
     // 1 2 3 4 5 6 7 8 9 10 11
     // 1 2 3 4 5 6 7 8 9 10 11
@@ -167,7 +167,7 @@ module window_buffer_9x9_tb ();
       S9_i = i;
       #10;
     end
-    done_i = 0;
+    i_valid = 0;
 
 
     #50;

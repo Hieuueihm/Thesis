@@ -49,7 +49,7 @@ module line_buffer_tb;
     // Wait for some time to read data
     #1000;
 
-    // FINISH simulation
+    // Finish simulation
     $stop;
   end
 

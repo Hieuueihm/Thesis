@@ -127,10 +127,10 @@
             <mxPoint x="1890" y="619.83" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="d4XZ7zzqm2FDq9BQY2AR-23" value="done_i &amp;amp; ~data_i" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="d4XZ7zzqm2FDq9BQY2AR-23" value="i_valid &amp;amp; ~data_i" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="1680" y="590" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="d4XZ7zzqm2FDq9BQY2AR-24" value="done_i &amp;amp; data_i" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="d4XZ7zzqm2FDq9BQY2AR-24" value="i_valid &amp;amp; data_i" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="1910" y="590" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="d4XZ7zzqm2FDq9BQY2AR-25" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="d4XZ7zzqm2FDq9BQY2AR-17">

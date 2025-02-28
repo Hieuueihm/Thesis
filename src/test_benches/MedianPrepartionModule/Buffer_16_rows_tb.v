@@ -8,7 +8,7 @@ module buffer_16_rows_tb ();
   // Inputs to the median_preparation module
   reg clk;
   reg rst_n;
-  reg done_i;
+  reg i_valid;
   reg [7:0] grayscale_i;
 
   // Outputs from the median_preparation module
@@ -22,7 +22,7 @@ module buffer_16_rows_tb ();
   wire [7:0] data7_o;
   wire [7:0] data8_o;
   wire [7:0] data9_o, data10_o, data11_o, data12_o, data13_o, data14_o, data15_o, data16_o;
-  wire done_o;
+  wire ;
 
   // Instantiate the median_preparation module
   buffer_16_rows #(
@@ -30,7 +30,7 @@ module buffer_16_rows_tb ();
   ) uut (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(done_i),
+      .i_valid(i_valid),
       .data_i(grayscale_i),
       .data0_o(data0_o),
       .data1_o(data1_o),
@@ -49,7 +49,7 @@ module buffer_16_rows_tb ();
       .data14_o(data14_o),
       .data15_o(data15_o),
       .data16_o(data16_o),
-      .done_o(done_o)
+      .()
   );
 
   // Clock generation (50 MHz clock)
@@ -62,7 +62,7 @@ module buffer_16_rows_tb ();
     // Initialize signals
     clk         = 0;
     rst_n       = 0;
-    done_i      = 0;
+    i_valid     = 0;
     grayscale_i = 0;
 
     // Apply reset
@@ -72,10 +72,10 @@ module buffer_16_rows_tb ();
     #10;
 
     for (grayscale_i = 1; grayscale_i < 290; grayscale_i = grayscale_i + 1) begin
-      done_i = 1;
+      i_valid = 1;
       #10;
     end
-    done_i = 0;
+    i_valid = 0;
 
     #1000;
 

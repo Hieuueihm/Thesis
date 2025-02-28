@@ -14,7 +14,7 @@ module joint_histogram_controller (
     COUNTING = 3'b001,
     START_READ = 3'b010,
     READING = 3'b011,
-    FIniSH = 3'b100;
+    FINISH = 3'b100;
   reg [2:0] current_state, next_state;
 
   always @(posedge clk) begin
@@ -22,29 +22,30 @@ module joint_histogram_controller (
     else current_state <= next_state;
   end
   always @(*) begin
+    next_state = current_state;
     case (current_state)
       IDLE:       next_state = (done_i) ? COUNTING : IDLE;
       COUNTING:   next_state = (progress_done_i) ? START_READ : COUNTING;
       START_READ: next_state = READING;
-      READING:    next_state = (done_read) ? FIniSH : READING;
-      FIniSH:     next_state = IDLE;
+      READING:    next_state = (done_read) ? FINISH : READING;
+      FINISH:     next_state = IDLE;
 
     endcase
   end
   always @(*) begin
+    done_o   = 0;
+    finish   = 0;
+    count_en = 0;
+    read_en  = 0;
+
     case (current_state)
       IDLE: begin
-        done_o   = 0;
-        finish   = 0;
-        count_en = 0;
-        read_en  = 0;
       end
       COUNTING: begin
         count_en = 1;
       end
       START_READ: begin
-        count_en = 0;
-        read_en  = 1;
+        read_en = 1;
       end
 
       READING: begin
@@ -52,11 +53,8 @@ module joint_histogram_controller (
         read_en = 1;
       end
 
-      FIniSH: begin
-        finish   = 1;
-        done_o   = 0;
-        read_en  = 0;
-        count_en = 0;
+      FINISH: begin
+        finish = 1;
 
       end
     endcase

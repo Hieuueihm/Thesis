@@ -5,19 +5,19 @@ module sort_ascending_5_tb;
   // Inputs
   reg clk;
   reg rst_n;
-  reg done_i;
+  reg i_valid;
   reg [7:0] S1, S2, S3, S4, S5;
 
   // Outputs
   wire [7:0] min, out2, mid, out4, max;
-  wire done_o;
+  wire ;
 
   // Instantiate the module under test
   sort_ascending_5 uut (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(done_i),
-      .done_o(done_o),
+      .i_valid(i_valid),
+      .(),
       .S1(S1),
       .S2(S2),
       .S3(S3),
@@ -40,7 +40,7 @@ module sort_ascending_5_tb;
   initial begin
     // Initialize inputs
     rst_n = 1;
-    done_i = 0;
+    i_valid = 0;
     S1 = 0;
     S2 = 0;
     S3 = 0;
@@ -57,7 +57,7 @@ module sort_ascending_5_tb;
     S3 = 8'd35;
     S4 = 8'd9;
     S5 = 8'd18;
-    done_i = 1;
+    i_valid = 1;
     #10;
 
 
@@ -68,10 +68,10 @@ module sort_ascending_5_tb;
     S4 = 8'd20;
     S5 = 8'd10;
     #10;
-    done_i = 0;
+    i_valid = 0;
 
     // // Wait for the result
-    // wait (done_o);
+    // wait ();
     // #10;
     // $display("Test Case 2:");
     // $display("min = %d, out2 = %d, mid = %d, out4 = %d, max = %d", min, out2, mid, out4, max);

@@ -9,7 +9,7 @@ module window_buffer_7x7_tb ();
   // Inputs
   reg clk;
   reg rst_n;
-  reg done_i;
+  reg i_valid;
   reg [7:0] S1_i, S2_i, S3_i, S4_i, S5_i, S6_i, S7_i;
 
   // Outputs
@@ -17,8 +17,8 @@ module window_buffer_7x7_tb ();
   wire [7:0] S14_o, S15_o, S16_o, S17_o, S18_o, S19_o, S20_o, S21_o, S22_o, S23_o, S24_o, S25_o;
   wire [7:0] S26_o, S27_o, S28_o, S29_o, S30_o, S31_o, S32_o, S33_o, S34_o, S35_o, S36_o, S37_o, S38_o, S39_o;
   wire [7:0] S40_o, S41_o, S42_o, S43_o, S44_o, S45_o, S46_o, S47_o, S48_o, S49_o;
-  wire done_o;
-  wire progress_done_o;
+  wire ;
+  wire progress_;
 
   // Instantiate the Unit Under Test (UUT)
   window_buffer_7x7 #(
@@ -27,7 +27,7 @@ module window_buffer_7x7_tb ();
   ) uut (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(done_i),
+      .i_valid(i_valid),
       .S1_i(S1_i),
       .S2_i(S2_i),
       .S3_i(S3_i),
@@ -84,8 +84,8 @@ module window_buffer_7x7_tb ();
       .S47_o(S47_o),
       .S48_o(S48_o),
       .S49_o(S49_o),
-      .done_o(done_o),
-      .progress_done_o(progress_done_o)
+      .(),
+      .progress_(progress_)
   );
 
   // Clock generation
@@ -97,15 +97,15 @@ module window_buffer_7x7_tb ();
     // Initialize Inputs
     clk    = 0;
     rst_n    = 1;
-    done_i = 0;
+    i_valid = 0;
     S1_i   = 0;
     S2_i   = 0;
     S3_i   = 0;
 
     // Reset pulse
     #10;
-    rst_n  = 0;
-    done_i = 1;
+    rst_n   = 0;
+    i_valid = 1;
 
     // 1 2 3 4 5 6 7 8 9
     // 1 2 3 4 5 6 7 8 9
@@ -121,7 +121,7 @@ module window_buffer_7x7_tb ();
       S7_i = i;
       #10;
     end
-    done_i = 0;
+    i_valid = 0;
 
 
     #50;

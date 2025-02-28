@@ -1,6 +1,6 @@
 module median_filter_7x7_calc (input clk,
                                input rst_n,
-                               input done_i,
+                               input i_valid,
                                input [7:0] S1,
                                S2,
                                S3,
@@ -51,7 +51,7 @@ module median_filter_7x7_calc (input clk,
                                S48,
                                S49,
                                output [7:0] median_o,
-                               output done_o);
+                               output );
     
     reg [7:0]
     p1_S1,
@@ -207,7 +207,7 @@ module median_filter_7x7_calc (input clk,
             p1_S47    <= S47;
             p1_S48    <= S48;
             p1_S49    <= S49;
-            p1_done_i <= done_i;
+            p1_done_i <= i_valid;
         end
     end
     
@@ -225,8 +225,8 @@ module median_filter_7x7_calc (input clk,
     sort_ascending_7 SA1 (
     .clk(clk),
     .rst_n(rst_n),
-    .done_i(p1_done_i),
-    .done_o(p2_done_i),
+    .i_valid(p1_done_i),
+    .(p2_done_i),
     .S1(p1_S1),
     .S2(p1_S2),
     .S3(p1_S3),
@@ -245,8 +245,8 @@ module median_filter_7x7_calc (input clk,
     sort_ascending_7 SA2 (
     .clk(clk),
     .rst_n(rst_n),
-    .done_i(),
-    .done_o(),
+    .i_valid(),
+    .(),
     .S1(p1_S8),
     .S2(p1_S9),
     .S3(p1_S10),
@@ -265,8 +265,8 @@ module median_filter_7x7_calc (input clk,
     sort_ascending_7 SA3 (
     .clk(clk),
     .rst_n(rst_n),
-    .done_i(),
-    .done_o(),
+    .i_valid(),
+    .(),
     .S1(p1_S15),
     .S2(p1_S16),
     .S3(p1_S17),
@@ -285,8 +285,8 @@ module median_filter_7x7_calc (input clk,
     sort_ascending_7 SA4 (
     .clk(clk),
     .rst_n(rst_n),
-    .done_i(p1_done_i),
-    .done_o(),
+    .i_valid(p1_done_i),
+    .(),
     .S1(p1_S22),
     .S2(p1_S23),
     .S3(p1_S24),
@@ -305,8 +305,8 @@ module median_filter_7x7_calc (input clk,
     sort_ascending_7 SA5 (
     .clk(clk),
     .rst_n(rst_n),
-    .done_i(),
-    .done_o(),
+    .i_valid(),
+    .(),
     .S1(p1_S29),
     .S2(p1_S30),
     .S3(p1_S31),
@@ -325,8 +325,8 @@ module median_filter_7x7_calc (input clk,
     sort_ascending_7 SA6 (
     .clk(clk),
     .rst_n(rst_n),
-    .done_i(),
-    .done_o(),
+    .i_valid(),
+    .(),
     .S1(p1_S36),
     .S2(p1_S37),
     .S3(p1_S38),
@@ -345,8 +345,8 @@ module median_filter_7x7_calc (input clk,
     sort_ascending_7 SA7 (
     .clk(clk),
     .rst_n(rst_n),
-    .done_i(),
-    .done_o(),
+    .i_valid(),
+    .(),
     .S1(p1_S43),
     .S2(p1_S44),
     .S3(p1_S45),
@@ -515,8 +515,8 @@ module median_filter_7x7_calc (input clk,
     sort_ascending_7 SA8 (
     .clk(clk),
     .rst_n(rst_n),
-    .done_i(p2_done_i_delay),
-    .done_o(p3_done_i),
+    .i_valid(p2_done_i_delay),
+    .(p3_done_i),
     .S1(p2_sa8_S1),
     .S2(p2_sa8_S2),
     .S3(p2_sa8_S3),
@@ -535,8 +535,8 @@ module median_filter_7x7_calc (input clk,
     sort_ascending_7 SA9 (
     .clk(clk),
     .rst_n(rst_n),
-    .done_i(),
-    .done_o(),
+    .i_valid(),
+    .(),
     .S1(p2_sa9_S1),
     .S2(p2_sa9_S2),
     .S3(p2_sa9_S3),
@@ -555,8 +555,8 @@ module median_filter_7x7_calc (input clk,
     sort_ascending_7 SA10 (
     .clk(clk),
     .rst_n(rst_n),
-    .done_i(),
-    .done_o(),
+    .i_valid(),
+    .(),
     .S1(p2_sa10_S1),
     .S2(p2_sa10_S2),
     .S3(p2_sa10_S3),
@@ -575,8 +575,8 @@ module median_filter_7x7_calc (input clk,
     sort_ascending_7 SA11 (
     .clk(clk),
     .rst_n(rst_n),
-    .done_i(),
-    .done_o(),
+    .i_valid(),
+    .(),
     .S1(p2_sa11_S1),
     .S2(p2_sa11_S2),
     .S3(p2_sa11_S3),
@@ -595,8 +595,8 @@ module median_filter_7x7_calc (input clk,
     sort_ascending_7 SA12 (
     .clk(clk),
     .rst_n(rst_n),
-    .done_i(),
-    .done_o(),
+    .i_valid(),
+    .(),
     .S1(p2_sa12_S1),
     .S2(p2_sa12_S2),
     .S3(p2_sa12_S3),
@@ -615,8 +615,8 @@ module median_filter_7x7_calc (input clk,
     sort_ascending_7 SA13 (
     .clk(clk),
     .rst_n(rst_n),
-    .done_i(),
-    .done_o(),
+    .i_valid(),
+    .(),
     .S1(p2_sa13_S1),
     .S2(p2_sa13_S2),
     .S3(p2_sa13_S3),
@@ -635,8 +635,8 @@ module median_filter_7x7_calc (input clk,
     sort_ascending_7 SA14 (
     .clk(clk),
     .rst_n(rst_n),
-    .done_i(),
-    .done_o(),
+    .i_valid(),
+    .(),
     .S1(p2_sa14_S1),
     .S2(p2_sa14_S2),
     .S3(p2_sa14_S3),
@@ -835,7 +835,7 @@ module median_filter_7x7_calc (input clk,
     p3_S24,
     p3_S25;
     
-    reg p4_done_o;
+    reg p4_;
     always @(posedge clk) begin
         if (~rst_n) begin
             p3_S1  <= 0;
@@ -864,7 +864,7 @@ module median_filter_7x7_calc (input clk,
             p3_S24 <= 0;
             p3_S25 <= 0;
             
-            p4_done_o <= 0;
+            p4_ <= 0;
             end else begin
             
             p3_S1 <= p3_sa13_S1;
@@ -899,13 +899,13 @@ module median_filter_7x7_calc (input clk,
             p3_S25 <= p3_sa9_S7;
             
             
-            p4_done_o <= p3_done_i_delay;
+            p4_ <= p3_done_i_delay;
         end
     end
     median_filter_5x5_calc CALC75 (
     .clk(clk),
     .rst_n(rst_n),
-    .done_i(p4_done_o),
+    .i_valid(p4_),
     .S1(p3_S1),
     .S2(p3_S2),
     .S3(p3_S3),
@@ -932,7 +932,7 @@ module median_filter_7x7_calc (input clk,
     .S24(p3_S24),
     .S25(p3_S25),
     .median_o(median_o),
-    .done_o(done_o)
+    .()
     );
     
     

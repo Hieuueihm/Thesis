@@ -57,7 +57,7 @@ module data_modulate_3x3_datapath #(
   );
   assign i_col     = (i_col_plus_1 == COLS) ? 0 : i_col_plus_1;
   assign i_row     = (i_row_plus_1 == ROWS) ? 0 : i_row_plus_1;
-  assign i_counter = (i_counter_plus_1 == 3) ? i_counter : i_counter_plus_1;
+  assign i_counter = (i_counter_plus_1 == 3) ? 2 : i_counter_plus_1;
   always @(posedge clk) begin
     if (~rst_n) begin
       done_reg <= 0;

@@ -10,7 +10,7 @@ module line_buffer_tb ();
   reg clk, rst_n, we_i;
   reg [7:0] data_i;
   wire [7:0] data_o;
-  wire done_o;
+  wire ;
 
 
   initial clk = 1'b1;
@@ -20,10 +20,10 @@ module line_buffer_tb ();
   ) uut (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(we_i),
+      .i_valid(we_i),
       .data_i(data_i),
       .data_o(data_o),
-      .done_o(done_o)
+      .()
   );
   integer i;
   initial begin

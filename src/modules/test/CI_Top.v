@@ -5,7 +5,7 @@ module ci_top #(
     input clk,
     input rst_n,
     input [7:0] grayscale_i,
-    input done_i,
+    input i_valid,
     output [15:0] r2_bit_one_o,
     output [15:0] r2_bit_zero_o,
     output done_r2,
@@ -22,14 +22,14 @@ module ci_top #(
 
 
   wire [7:0] d0_o, d1_o, d2_o, d3_o, d4_o, d5_o, d6_o, d7_o, d8_o;
-  wire prepare_done_o;
+  wire prepare_;
   // preparation == buffer
   preparation #(
       .DEPTH(COLS)
   ) median_PREPARATION (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(done_i),
+      .i_valid(i_valid),
       .data_i(grayscale_i),
       .data0_o(d0_o),
       .data1_o(d1_o),
@@ -40,10 +40,10 @@ module ci_top #(
       .data6_o(d6_o),
       .data7_o(d7_o),
       .data8_o(d8_o),
-      .done_o(prepare_done_o)
+      .(prepare_)
   );
   // median = datamodulat + calc
-  wire median_done_o;
+  wire median_;
   wire [7:0] median_o;
   median_filter_3x3 #(
       .ROWS(ROWS),
@@ -51,7 +51,7 @@ module ci_top #(
   ) median_FILTER_3x3 (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(prepare_done_o),
+      .i_valid(prepare_),
       .d0_i(d0_o),
       .d1_i(d1_o),
       .d2_i(d2_o),
@@ -62,7 +62,7 @@ module ci_top #(
       .d7_i(d7_o),
       .d8_i(d8_o),
       .median_o(median_o),
-      .done_o(median_done_o)
+      .(median_)
   );
   // buffer 16 rows;
   wire [7:0] data0_o;
@@ -75,13 +75,13 @@ module ci_top #(
   wire [7:0] data7_o;
   wire [7:0] data8_o;
   wire [7:0] data9_o, data10_o, data11_o, data12_o, data13_o, data14_o, data15_o, data16_o;
-  wire buffer_16_done_o;
+  wire buffer_16_;
   buffer_16_rows #(
       .DEPTH(COLS)
   ) BUFFER_16_ROWS (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(median_done_o),
+      .i_valid(median_),
       .data_i(median_o),
       .data0_o(data0_o),
       .data1_o(data1_o),
@@ -100,7 +100,7 @@ module ci_top #(
       .data14_o(data14_o),
       .data15_o(data15_o),
       .data16_o(data16_o),
-      .done_o(buffer_16_done_o)
+      .(buffer_16_)
   );
 
 
@@ -112,13 +112,13 @@ module ci_top #(
   // (
   // .clk(clk),
   // .rst_n(rst_n),
-  // .done_i(buffer_16_done_o),
+  // .i_valid(buffer_16_),
   // .S1(data12_o),
   // .S2(data13_o),
   // .S3(data14_o),
   // .S4(data15_o),
   // .S5(data16_o),
-  // .done_o(done_r2),
+  // .(done_r2),
   // .bit_one_o(r2_bit_one_o),
   // .bit_zero_o(r2_bit_zero_o));
 
@@ -128,7 +128,7 @@ module ci_top #(
   // (
   // .clk(clk),
   // .rst_n(rst_n),
-  // .done_i(buffer_16_done_o),
+  // .i_valid(buffer_16_),
   // .S1(data8_o),
   // .S2(data9_o),
   // .S3(data10_o),
@@ -138,7 +138,7 @@ module ci_top #(
   // .S7(data14_o),
   // .S8(data15_o),
   // .S9(data16_o),
-  // .done_o(done_r4),
+  // .(done_r4),
   // .bit_one_o(r4_bit_one_o),
   // .bit_zero_o(r4_bit_zero_o));
 
@@ -148,7 +148,7 @@ module ci_top #(
   // (
   // .clk(clk),
   // .rst_n(rst_n),
-  // .done_i(buffer_16_done_o),
+  // .i_valid(buffer_16_),
   // .S1(data4_o),
   // .S2(data5_o),
   // .S3(data6_o),
@@ -162,7 +162,7 @@ module ci_top #(
   // .S11(data14_o),
   // .S12(data15_o),
   // .S13(data16_o),
-  // .done_o(done_r6),
+  // .(done_r6),
   // .bit_one_o(r6_bit_one_o),
   // .bit_zero_o(r6_bit_zero_o));
 
@@ -172,7 +172,7 @@ module ci_top #(
   // (
   // .clk(clk),
   // .rst_n(rst_n),
-  // .done_i(buffer_16_done_o),
+  // .i_valid(buffer_16_),
   // .S1(data0_o),
   // .S2(data1_o),
   // .S3(data2_o),
@@ -190,7 +190,7 @@ module ci_top #(
   // .S15(data14_o),
   // .S16(data15_o),
   // .S17(data16_o),
-  // .done_o(done_R8),
+  // .(done_R8),
   // .bit_one_o(R8_bit_one_o),
   // .bit_zero_o(R8_bit_zero_o));
 
