@@ -11,22 +11,10 @@ module line_buffer_datapath #(
     output [7:0] data_o,
     output [9:0] i_counter
 );
-  reg [7:0] mem[0:DEPTH - 1];
   wire [9:0] internal_wr_pointer;
   wire [9:0] internal_wr_pointer_plus_1;
   wire [9:0] internal_rd_pointer, internal_rd_pointer_plus_1;
   wire [9:0] internal_i_counter_plus_1;
-
-  // assign data_o = (i_counter == DEPTH) ? mem[internal_rd_pointer] : 8'bzz;
-
-  // always @(posedge clk) begin
-  //   if (~rst_n) begin
-  //     data_o <= 0;
-  //   end else if (rd_en) begin
-  //     data_o <= mem[internal_rd_pointer];
-  //   end else data_o <= 0;
-  // end
-
 
   plus_1 #(
       .WIDTH(10)
@@ -48,8 +36,6 @@ module line_buffer_datapath #(
       .D(i_counter),
       .Q(internal_i_counter_plus_1)
   );
-
-
   reg [9:0] i_counter_reg;
 
   always @(posedge clk) begin

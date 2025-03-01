@@ -332,8 +332,8 @@ class MRELBP():
         #             f.write(str(m_7x7[i, j]))
         #             f.write("\n")
                     
-        # with open('output_5x5_test.txt', 'w') as f:
-        #     for row in image:
+        # with open('median_3x3_view.txt', 'w') as f:
+        #     for row in m_3x3:
         #         f.write(' '.join(map(str, row)) + '\n')
 
         #     f.write('\n') 
@@ -557,7 +557,7 @@ img = cv2.imread(image_file.rstrip(), cv2.IMREAD_GRAYSCALE)
 file_path = "random_matrix.txt"
 
 lbp = MRELBP()
-lbp.MRELBP(img)
+lbp.MRELBP(random_matrix)
 np.savetxt(file_path, random_matrix, fmt='%d')
 
 

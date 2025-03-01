@@ -13,27 +13,6 @@ module buffer_4_rows #(
     output done_o
 );
 
-
-  reg [9:0] counter;
-  reg done_extended;
-
-  // delay done_i
-  always @(posedge clk) begin
-    if (~rst_n) begin
-      counter       <= 0;
-      done_extended <= 0;
-    end else if (done_i) begin
-      counter       <= 0;
-      done_extended <= 1;
-    end else if (done_extended && counter < DEPTH) begin
-      counter       <= counter + 1;
-      done_extended <= 1;
-    end else begin
-      counter       <= 0;
-      done_extended <= 0;
-    end
-  end
-  wire done_delayed = done_extended;
   wire [7:0] line_buffer_out[3:0];
   wire line_buffer_done[4:0];
   assign done_o  = line_buffer_done[3];  // line buffer 7 done

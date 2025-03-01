@@ -17,26 +17,7 @@ module preparation #(
     output done_o
 );
 
-  reg [9:0] counter;
-  reg done_extended;
 
-  // delay done_i
-  always @(posedge clk or posedge rst_n) begin
-    if (~rst_n) begin
-      counter       <= 0;
-      done_extended <= 0;
-    end else if (done_i) begin
-      counter       <= 0;
-      done_extended <= 1;
-    end else if (done_extended && counter < DEPTH) begin
-      counter       <= counter + 1;
-      done_extended <= 1;
-    end else begin
-      counter       <= 0;
-      done_extended <= 0;
-    end
-  end
-  wire done_delayed = done_extended;
 
   wire [7:0] line_buffer_out[7:0];
   wire line_buffer_done[7:0];
@@ -58,7 +39,7 @@ module preparation #(
           .clk(clk),
           .rst_n(rst_n),
           .data_i((i == 0) ? data_i : line_buffer_out[i-1]),
-          .done_i((i == 0) ? (done_i | done_delayed) : line_buffer_done[i-1]),
+          .done_i((i == 0) ? (done_i) : line_buffer_done[i-1]),
           .data_o(line_buffer_out[i]),
           .done_o(line_buffer_done[i])
       );

@@ -12,7 +12,7 @@ module data_modulate_3x3_datapath #(parameter ROWS,
                                     input [7:0] d7_i,
                                     input [7:0] d8_i,
                                     input start,
-                                    input o_valid,
+                                    input done_o,
                                     output reg [7:0] d0_o,
                                     output reg [7:0] d1_o,
                                     output reg [7:0] d2_o,
@@ -34,7 +34,7 @@ module data_modulate_3x3_datapath #(parameter ROWS,
     (
     .rst_n(rst_n),
     .clk(clk),
-    .en(o_valid),
+    .en(done_o),
     .D(i_col),
     .Q(i_col_plus_1)
     );
@@ -44,7 +44,7 @@ module data_modulate_3x3_datapath #(parameter ROWS,
     ROW_PLUS (
     .rst_n(rst_n),
     .clk(clk),
-    .en(o_valid && (i_col == COLS - 1)),
+    .en(done_o && (i_col == COLS - 1)),
     .D(i_row),
     .Q(i_row_plus_1)
     );
@@ -65,7 +65,7 @@ module data_modulate_3x3_datapath #(parameter ROWS,
         if (~rst_n) begin
             done_reg <= 0;
             end else begin
-            if (o_valid) begin
+            if (done_o) begin
                 if (i_col == COLS - 1) begin
                     if (i_row == ROWS - 1) begin
                         done_reg <= 1;
@@ -89,7 +89,7 @@ module data_modulate_3x3_datapath #(parameter ROWS,
             d8_o <= 0;
             
             end else begin
-            if (o_valid) begin
+            if (done_o) begin
                 d0_o <= (i_row < 1 || i_col < 1)    ? 0 : data0;
                 d1_o <= (i_row < 1)    ? 0 : data1;
                 d2_o < = (i_row < 1 || i_col == COLS - 1) ? 0 : data2;

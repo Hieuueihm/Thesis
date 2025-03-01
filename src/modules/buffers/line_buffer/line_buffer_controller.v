@@ -11,8 +11,8 @@ module line_buffer_controller #(
 );  // Done output signal
 
 
-  wire done_i_eq_1 = (done_i == 1) ? 1 : 0;
   wire i_counter_eq = (i_counter >= (DEPTH / 2) - 1) ? 1 : 0;
+
   wire i_counter_eq_max;
   dff #(
       .WIDTH(1)
@@ -23,44 +23,51 @@ module line_buffer_controller #(
       .Q(i_counter_eq_max)
   );
 
-  wire done_and_i_counter = done_i_eq_1 & i_counter_eq_max;
+  wire done_and_i_counter = done_i & i_counter_eq_max;
 
-  mux_2_1 #(
-      .WIDTH(1)
-  ) WR_EN_MUX (
-      .a  (1'b1),
-      .b  (1'b0),
-      .sel(done_i_eq_1),
-      .y  (wr_en)
-  );
+  assign wr_en = done_i;
 
-  mux_2_1 #(
-      .WIDTH(1)
-  ) rd_EN_MUX (
-      .a  (1'b1),
-      .b  (1'b0),
-      .sel(done_and_i_counter),
-      .y  (rd_en)
-  );
-  wire done_o_mux;
-  mux_2_1 #(
-      .WIDTH(1)
-  ) DONE_O_MUX (
-      .a  (1'b1),
-      .b  (1'b0),
-      .sel(i_counter_eq_max),
-      .y  (done_o_mux)
-  );
 
+  wire done_o_mux_delay;
   dff #(
       .WIDTH(1)
   ) SHIFT_DONE (
       .clk(clk),
       .rst_n(rst_n),
-      .D(done_o_mux),
-      .Q(done_o)
+      .D(done_and_i_counter),
+      .Q(done_o_mux_delay)
   );
 
+  reg [9:0] counter;
+  reg done_extended;
+
+  // delay done_i
+  always @(posedge clk or posedge rst_n) begin
+    if (~rst_n) begin
+      counter       <= 0;
+      done_extended <= 0;
+    end else if (done_and_i_counter) begin
+      counter       <= 0;
+      done_extended <= 1;
+    end else if (done_extended && counter < DEPTH - 2) begin
+      counter       <= counter + 1;
+      done_extended <= 1;
+    end else begin
+      counter       <= 0;
+      done_extended <= 0;
+    end
+  end
+
+  assign done_o_p = done_and_i_counter | done_extended;
+  dff #(
+      .WIDTH(1)
+  ) SHIFT_DONE_O (
+      .clk(clk),
+      .rst_n(rst_n),
+      .D(done_o_p),
+      .Q(done_o)
+  );
+  assign rd_en = done_and_i_counter | done_extended;
 
 
 endmodule
