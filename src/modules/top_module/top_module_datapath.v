@@ -7,7 +7,7 @@ module top_module__datapath #(
     input [7:0] grayscale_i,
     input i_valid,
     input read_en,
-    output [15:0] histogram_o,
+    output [31:0] histogram_o,
     output reg read_finish,
     output reg o_valid,
     output finish
@@ -371,7 +371,7 @@ module top_module__datapath #(
     end
   end
 
-  assign histogram_o = data_out;
+  assign histogram_o = {16'b0, data_out};
 
 
 

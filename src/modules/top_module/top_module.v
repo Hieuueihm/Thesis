@@ -10,7 +10,7 @@ module top_module #(
     input i_valid,
     output o_data_ready,
     // master interface 
-    output [15:0] histogram_o,
+    output [31:0] histogram_o,
     output o_valid,
     input i_data_ready,
     // interrupt
@@ -24,7 +24,7 @@ module top_module #(
   wire finish;
   wire read_finish;
   wire read_en;
-  wire [15:0] histogram;
+  wire [31:0] histogram;
   wire o_histogram_valid;
   wire o_intr_o;
   top_module__controller inst_top_module__controller (

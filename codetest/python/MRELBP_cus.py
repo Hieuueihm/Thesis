@@ -555,9 +555,10 @@ np.savetxt("D:\\Thesis\src\\test_benches\\test\\random_matrix.txt", random_matri
 image_file = "D://Thesis//data//inputs//test_input.bmp"
 img = cv2.imread(image_file.rstrip(), cv2.IMREAD_GRAYSCALE)
 file_path = "random_matrix.txt"
+write_to_filecheck("D:\\Thesis\codetest\\python\\img.txt", img)
 
 lbp = MRELBP()
-lbp.MRELBP(random_matrix)
+lbp.MRELBP(img)
 np.savetxt(file_path, random_matrix, fmt='%d')
 
 
@@ -620,8 +621,11 @@ def compare_files(file1, file2):
 
 
 # Example usage
+# file1 = 'histogram_o.txt'
+# file2 = 'histogram_verilog.txt'
+# compare_files(file1, file2)
 file1 = 'histogram_o.txt'
-file2 = 'histogram_verilog.txt'
+file2 = 'histogram_data.txt'
 compare_files(file1, file2)
 
 # file1 = 'histogram_r6.txt'

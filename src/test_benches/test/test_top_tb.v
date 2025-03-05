@@ -31,7 +31,7 @@ module test_top_tb ();
   reg i_data_ready;
 
 
-  wire [15:0] histogram_o;
+  wire [31:0] histogram_o;
   wire o_valid;
   wire o_intr;
   wire o_data_ready;

@@ -14,7 +14,7 @@ module test_top_tb_with_image ();
   reg start_i;
   reg i_data_ready;
 
-  wire [15:0] histogram_o;
+  wire [31:0] histogram_o;
   wire o_valid;
   wire o_intr;
   wire o_data_ready;
@@ -66,7 +66,32 @@ module test_top_tb_with_image ();
       end
     end
   endtask
+  task writeBMPtoText;
+    integer file_txt;
+    integer k;
+    begin
+      file_txt = $fopen("D:\\Thesis\\codetest\\python\\inputbmp.txt",
+                        "w");  // Mở file ở chế độ ghi
 
+      if (file_txt == 0) begin
+        $display("Error opening output.txt for writing!");
+        $finish;
+      end
+
+      // Ghi toàn bộ dữ liệu BMP vào file (bao gồm header và pixel)
+      for (k = 0; k < bmp_start_pos; k = k + 1) begin
+        $fwrite(file_txt, "%02x\n", bmp_data[k]);  // Ghi từng byte dưới dạng hex
+      end
+      for (k = bmp_start_pos; k < bmp_size; k = k + 1) begin
+        $fwrite(file_txt, "%02x\n",
+                img_out[k-bmp_start_pos]);  // Ghi từng byte dưới dạng hex
+      end
+
+      $fclose(file_txt);
+      $display("BMP data written to output.txt successfully!");
+    end
+  endtask
+  integer file_out_1;
   initial begin
     rst_n        = 1'b0;
     start_i      = 1'b0;
@@ -75,13 +100,19 @@ module test_top_tb_with_image ();
     i_data_ready = 1'b0;
 
     file_out     = $fopen("D:\\Thesis\\codetest\\python\\histogram_verilog.txt", "w");
+    file_out_1   = $fopen("D:\\Thesis\\codetest\\python\\histogram_verilog_1.txt", "w");
 
     if (file_out == 0) begin
       $display("Error: Could not open output files.");
       $finish;
     end
+    if (file_out_1 == 0) begin
+      $display("Error: Could not open output files.");
+      $finish;
+    end
 
     readBMP;
+    writeBMPtoText;
     $display("BMP Read Complete!");
 
     #(`clk_period * 3);
@@ -89,8 +120,9 @@ module test_top_tb_with_image ();
     #(`clk_period);
     start_i = 1'b1;
     i_data_ready = 1'b1;
-    #(`clk_period);
+    #(`clk_period * 10);
     start_i = 1'b0;
+    #(`clk_period * 10);
     i_valid = 1'b1;
 
     // Gửi dữ liệu ảnh vào thiết bị xử lý
@@ -105,6 +137,25 @@ module test_top_tb_with_image ();
     $fclose(file_out);
     $display("Processing Complete!");
     #(`clk_period * 10);
+    #(`clk_period);
+    start_i = 1'b1;
+    #(`clk_period * 10);
+    start_i = 1'b0;
+    #(`clk_period * 10);
+    i_valid = 1'b1;
+    for (i = 0; i < bmp_width * bmp_height; i = i + 1) begin
+      grayscale_i = img_out[i];
+      #(`clk_period);
+    end
+
+    #(`clk_period);
+    i_valid = 1'b0;
+    wait (o_intr);
+    $fclose(file_out_1);
+    #(`clk_period * 10);
+
+
+
     $stop;
   end
 
@@ -130,6 +181,7 @@ module test_top_tb_with_image ();
   end
   always @(posedge clk) begin
     if (o_valid) $fwrite(file_out, "%d\n", histogram_o);
+    if (o_valid) $fwrite(file_out_1, "%d\n", histogram_o);
 
   end
 endmodule
