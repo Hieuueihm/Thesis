@@ -21,7 +21,7 @@ module data_modulate_3x3 #(
 );
 
   wire [2:0] i_counter;
-  wire done_reg, start;
+  wire start;
   wire o_en;
 
   data_modulate_3x3_controller CONTROLLER_3X3 (
@@ -29,7 +29,6 @@ module data_modulate_3x3 #(
       .clk(clk),
       .done_i(done_i),
       .i_counter(i_counter),
-      .done_reg(done_reg),
       .o_en(o_en),
       .done_o(done_o),
       .start(start)
@@ -45,6 +44,7 @@ module data_modulate_3x3 #(
       .d0_i(d0_i),
       .d1_i(d1_i),
       .d2_i(d2_i),
+      .done_o(done_o),
       .start(start),
       .o_en(o_en),
       .d0_o(d0_o),
@@ -56,7 +56,6 @@ module data_modulate_3x3 #(
       .d6_o(d6_o),
       .d7_o(d7_o),
       .d8_o(d8_o),
-      .done_reg(done_reg),
       .i_counter(i_counter)
   );
 

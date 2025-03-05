@@ -37,18 +37,70 @@ module data_modulate_5x5_datapath #(
     output reg [7:0] d23_o,
     output reg [7:0] d24_o,
     output reg done_reg,
-    output [2:0] i_counter
+    output reg [2:0] i_counter,
+    input done_o
 );
 
-  // ----- d0 d1 d2 d3 d4 -----
-  // ----- d5 d6 d7 d8 d9 -----
-  // ----- d10 d11 d12 d13 d13 -----;
-  // ----- d15 d16 d17 d18 d19 -----;
-  // ----- d20 d21 d22 d23 d24 -----;
 
-  wire [9:0] i_row, i_col;
-  wire [9:0] i_col_plus_1, i_row_plus_1;
-  wire [2:0] i_counter_plus_1;
+  // ----- d20 d21 d22 d23 d24 -----;
+  reg  done_o_prev;
+  wire done_o_negedge;
+  always @(posedge clk) begin
+    if (~rst_n) begin
+      done_o_prev <= 0;
+    end else begin
+      done_o_prev <= done_o;
+    end
+  end
+
+  assign done_o_negedge = (done_o_prev == 1 & done_o == 0) ? 1'b1 : 1'b0;
+  reg [9:0] i_row, i_col;
+
+  wire i_col_eq_max = (i_col == COLS - 1) ? 1 : 0;
+  wire i_row_eq_max = (i_row == ROWS - 1) ? 1 : 0;
+
+  always @(posedge clk) begin
+    if (~rst_n) begin
+      i_col <= 0;
+    end else if (done_o_negedge) begin
+      i_col <= 0;
+    end else if (i_col_eq_max) begin
+      i_col <= 0;
+    end else if (o_en) begin
+      i_col <= i_col + 1;
+    end
+
+  end
+
+  always @(posedge clk) begin
+    if (~rst_n) begin
+      i_row <= 0;
+    end else if (done_o_negedge) begin
+      i_row <= 0;
+    end else if (i_row == ROWS) begin
+      i_row <= 0;
+    end else if (o_en & i_col_eq_max) begin
+      i_row <= i_row + 1;
+    end
+
+  end
+
+  always @(posedge clk) begin
+    if (~rst_n) begin
+      i_counter <= 0;
+    end else if (done_o_negedge) begin
+      i_counter <= 0;
+
+    end else if (i_col_eq_max & i_row_eq_max) begin
+      i_counter <= 0;
+    end else if (i_counter == 3) begin
+      i_counter <= i_counter;
+    end else if (start) begin
+      i_counter <= i_counter + 1;
+    end
+  end
+
+  // handle with i rows and i cols
 
 
   reg [7:0]
@@ -77,55 +129,6 @@ module data_modulate_5x5_datapath #(
       data22,
       data23,
       data24;
-
-  plus_1 #(
-      .WIDTH(10)
-  ) COL_PLUS (
-      .rst_n(rst_n),
-      .clk(clk),
-      .en(o_en),
-      .D(i_col),
-      .Q(i_col_plus_1)
-  );
-
-  plus_1 #(
-      .WIDTH(10)
-  ) ROW_PLUS (
-      .rst_n(rst_n),
-      .clk(clk),
-      .en(o_en && (i_col == COLS - 1)),
-      .D(i_row),
-      .Q(i_row_plus_1)
-  );
-
-  plus_1 #(
-      .WIDTH(3)
-  ) COUNTER_I (
-      .rst_n(rst_n),
-      .clk(clk),
-      .en(start),
-      .D(i_counter),
-      .Q(i_counter_plus_1)
-  );
-  assign i_col     = (i_col_plus_1 == COLS) ? 0 : i_col_plus_1;
-  assign i_row     = (i_row_plus_1 == ROWS) ? 0 : i_row_plus_1;
-  assign i_counter = (i_counter_plus_1 == 4) ? 3 : i_counter_plus_1;
-  // handle with i rows and i cols
-
-  always @(posedge clk) begin
-    if (~rst_n) begin
-      done_reg <= 0;
-    end else begin
-      if (o_en) begin
-        if (i_col == COLS - 1) begin
-          if (i_row == ROWS - 1) begin
-            done_reg <= 1;
-          end
-
-        end
-      end
-    end
-  end
 
   wire i_row_lt_2 = (i_row < 2) ? 1 : 0;
   wire i_row_lt_1 = (i_row < 1) ? 1 : 0;

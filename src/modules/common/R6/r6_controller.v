@@ -64,6 +64,7 @@ module r6_controller #(
       CUM_EN:
       next_state = (i_row_eq_max) ? FINISH_ALL : (i_counter > COLS - 2) ? START_ROW : CUM_EN;
       FINISH_ALL: next_state = DONE;
+      DONE: next_state = IDLE;
     endcase
   end
   always @(*) begin

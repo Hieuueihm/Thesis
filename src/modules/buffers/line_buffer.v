@@ -33,6 +33,7 @@ module line_buffer #(
   ) datapath_inst (
       .clk(clk),
       .rst_n(rst_n),
+      .done_o(done_o),
       .data_i(data_i),
       .wr_en(wr_en),
       .rd_en(rd_en),

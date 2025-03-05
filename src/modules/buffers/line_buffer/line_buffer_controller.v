@@ -11,7 +11,7 @@ module line_buffer_controller #(
 );  // Done output signal
 
 
-  wire i_counter_eq = (i_counter >= (DEPTH / 2) - 1) ? 1 : 0;
+  wire i_counter_eq = (i_counter < DEPTH - 2) ? 0 : 1;
 
   wire i_counter_eq_max;
   dff #(

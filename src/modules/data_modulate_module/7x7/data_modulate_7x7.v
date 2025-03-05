@@ -64,7 +64,7 @@ module data_modulate_7x7 #(
     output done_o
 );
 
-  wire start, done_reg;
+  wire start;
   wire [2:0] i_counter;
   wire o_en;
   data_modulate_7x7_controller CONTROLLER_7X7 (
@@ -72,7 +72,6 @@ module data_modulate_7x7 #(
       .rst_n(rst_n),
       .done_i(done_i),
       .i_counter(i_counter),
-      .done_reg(done_reg),
       .done_o(done_o),
       .o_en(o_en),
       .start(start)
@@ -143,8 +142,8 @@ module data_modulate_7x7 #(
       .d46_o(d46_o),
       .d47_o(d47_o),
       .d48_o(d48_o),
-      .done_reg(done_reg),
-      .i_counter(i_counter)
+      .i_counter(i_counter),
+      .done_o(done_o)
   );
 
 endmodule

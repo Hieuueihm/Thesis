@@ -137,6 +137,8 @@ module test_top_tb_with_image ();
     $fclose(file_out);
     $display("Processing Complete!");
     #(`clk_period * 10);
+    $stop;
+
     #(`clk_period);
     start_i = 1'b1;
     #(`clk_period * 10);

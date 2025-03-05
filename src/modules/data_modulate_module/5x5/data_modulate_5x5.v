@@ -37,7 +37,7 @@ module data_modulate_5x5 #(
     output [7:0] d24_o,
     output done_o
 );
-  wire done_reg, start;
+  wire start;
   wire [2:0] i_counter;
   wire o_en;
   data_modulate_5x5_controller CONTROLLER_5X5 (
@@ -45,7 +45,6 @@ module data_modulate_5x5 #(
       .clk(clk),
       .done_i(done_i),
       .i_counter(i_counter),
-      .done_reg(done_reg),
       .done_o(done_o),
       .o_en(o_en),
       .start(start)
@@ -90,8 +89,8 @@ module data_modulate_5x5 #(
       .d22_o(d22_o),
       .d23_o(d23_o),
       .d24_o(d24_o),
-      .done_reg(done_reg),
-      .i_counter(i_counter)
+      .i_counter(i_counter),
+      .done_o(done_o)
   );
 
 endmodule
