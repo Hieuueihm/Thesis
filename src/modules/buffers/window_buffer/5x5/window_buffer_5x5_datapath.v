@@ -83,35 +83,7 @@ module window_buffer_5x5_datapath #(
   assign i_row_eq_max = (i_row == ROWS - 4) ? 1'b1 : 1'b0;
 
 
-  // wire [9:0] i_counter_plus_1;
 
-  // wire [9:0] i_row_plus_1;
-  // wire [9:0] i_row, i_counter;
-  // plus_1 #(
-  //     .WIDTH(10)
-  // ) COUNTER_PLUS (
-  //     .rst_n(rst_n),
-  //     .clk(clk),
-  //     .en(count_en),
-  //     .D(i_counter),
-  //     .Q(i_counter_plus_1)
-  // );
-  // plus_1 #(
-  //     .WIDTH(10)
-  // ) ROW_PLUS (
-  //     .rst_n(rst_n),
-  //     .clk(clk),
-  //     .en(i_col_eq_max),
-  //     .D(i_row),
-  //     .Q(i_row_plus_1)
-  // );
-
-  // assign i_col_ge_threshold = (i_counter_plus_1 > 2) ? 1'b1 : 1'b0;
-  // assign i_col_eq_max       = (i_counter_plus_1 == COLS - 2) ? 1'b1 : 1'b0;
-  // assign i_counter          = (i_col_eq_max == 1'b1) ? 0 : i_counter_plus_1;
-
-  // assign i_row              = i_row_plus_1;
-  // assign i_row_eq_max       = (i_row_plus_1 == ROWS - 4) ? 1'b1 : 1'b0;
 
 
 

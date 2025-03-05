@@ -36,6 +36,8 @@ module window_buffer_13x13_controller (
       COL_OUT: next_state = i_row_eq_max ? FINISH_ALL : (i_col_eq_max) ? END_COL : COL_OUT;
       END_COL: next_state = i_row_eq_max ? FINISH_ALL : START_COL;
       FINISH_ALL: next_state = DONE;
+      DONE: next_state = IDLE;
+
     endcase
   end
   always @(*) begin

@@ -27,11 +27,12 @@ module top_module #(
   wire [31:0] histogram;
   wire o_histogram_valid;
   wire o_intr_o;
+  wire start_en;
   top_module__controller inst_top_module__controller (
       .clk        (clk),
       .rst_n      (rst_n),
       .finish_i   (finish),
-      .start_i    (start_i),
+      .start_en   (start_en),
       .read_finish(read_finish),
       .o_intr     (o_intr_o),
       .read_en    (read_en)
@@ -44,6 +45,8 @@ module top_module #(
       .rst_n      (rst_n),
       .grayscale_i(grayscale_i),
       .i_valid    (i_valid),
+      .start_i    (start_i),
+      .start_en   (start_en),
       .read_en    (read_en),
       .histogram_o(histogram),
       .o_valid    (o_histogram_valid),

@@ -7,11 +7,25 @@ module top_module__datapath #(
     input [7:0] grayscale_i,
     input i_valid,
     input read_en,
+    input start_i,
     output [31:0] histogram_o,
     output reg read_finish,
     output reg o_valid,
-    output finish
+    output finish,
+    output start_en
 );
+  wire start_i_negedge;
+  reg  start_i_prev;
+  always @(posedge clk) begin
+    if (~rst_n) begin
+      start_i_prev <= 0;
+    end else begin
+      start_i_prev <= start_i;
+    end
+  end
+  assign start_i_negedge = (start_i_prev == 1 & start_i == 0) ? 1'b1 : 1'b0;
+  assign start_en = start_i_negedge;
+
 
 
 
@@ -301,6 +315,11 @@ module top_module__datapath #(
       write_addr_r2 <= 0;
       write_addr_r4 <= 0;
       write_addr_r6 <= 0;
+    end else if (start_en) begin
+
+      write_addr_r2 <= 0;
+      write_addr_r4 <= 0;
+      write_addr_r6 <= 0;
     end else begin
       if (r2_valid) begin
         ram_r2[write_addr_r2] <= cinird_r2;
@@ -321,6 +340,12 @@ module top_module__datapath #(
 
   always @(posedge clk) begin
     if (~rst_n) begin
+      read_addr   <= 0;
+      read_stage  <= 3'b00;
+      data_out    <= 0;
+      o_valid     <= 0;
+      read_finish <= 0;
+    end else if (start_en) begin
       read_addr   <= 0;
       read_stage  <= 3'b00;
       data_out    <= 0;

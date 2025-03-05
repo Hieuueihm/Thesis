@@ -35,7 +35,8 @@ module joint_histogram (
       .count_en(count_en),
       .read_en(read_en),
       .cinird_o(cinird_o),
-      .done_read(done_read)
+      .done_read(done_read),
+      .finish(finish)
   );
 
 

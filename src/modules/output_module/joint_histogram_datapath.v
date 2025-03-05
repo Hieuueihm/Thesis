@@ -8,8 +8,20 @@ module joint_histogram_datapath (
     input count_en,
     input read_en,
     output [15:0] cinird_o,
-    output reg done_read
+    output reg done_read,
+    input finish
 );
+  wire finish_negedege;
+  reg  finish_prev;
+  always @(posedge clk) begin
+    if (~rst_n) begin
+      finish_prev <= 0;
+    end else begin
+      finish_prev <= finish;
+    end
+  end
+  assign finish_negedege = (finish_prev == 1 & finish == 0) ? 1'b1 : 1'b0;
+
   wire [7:0] ci_scale;
   assign ci_scale = (ci_i << 6) + (ci_i << 5) + (ci_i << 2);
   wire [7:0] ni_scale;
@@ -45,6 +57,13 @@ module joint_histogram_datapath (
   reg [7:0] read_index;
   always @(posedge clk) begin
     if (~rst_n) begin
+      for (i = 0; i < 200; i = i + 1) begin
+        register_array[i] <= 0;
+      end
+      output_value <= 0;
+      read_index   <= 0;
+      done_read    <= 0;
+    end else if (finish_negedege) begin
       for (i = 0; i < 200; i = i + 1) begin
         register_array[i] <= 0;
       end
