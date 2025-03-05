@@ -16,7 +16,6 @@ module window_buffer_13x13_controller (
   parameter START_COL = 3'b010;
   parameter COL_OUT = 3'b011;
   parameter END_COL = 3'b100;
-  parameter END_COL_2 = 3'b101;
   parameter FINISH_ALL = 3'b110;
   parameter DONE = 3'b111;
   always @(posedge clk) begin
@@ -35,9 +34,7 @@ module window_buffer_13x13_controller (
       START_COL:
       next_state = i_row_eq_max ? FINISH_ALL : (i_col_ge_threshold) ? COL_OUT : START_COL;
       COL_OUT: next_state = i_row_eq_max ? FINISH_ALL : (i_col_eq_max) ? END_COL : COL_OUT;
-      END_COL: next_state = i_row_eq_max ? FINISH_ALL : END_COL_2;
-      END_COL_2: next_state = i_row_eq_max ? FINISH_ALL : START_COL;
-
+      END_COL: next_state = i_row_eq_max ? FINISH_ALL : START_COL;
       FINISH_ALL: next_state = DONE;
     endcase
   end
@@ -58,8 +55,6 @@ module window_buffer_13x13_controller (
       end
       END_COL: begin
         done_o = 1'b1;
-      end
-      END_COL_2: begin
       end
       FINISH_ALL: begin
         progress_done = 1'b1;

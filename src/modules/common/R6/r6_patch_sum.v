@@ -81,7 +81,8 @@ module r6_patch_sum #(
       .i_start_gt_2(i_start_gt_2),
       .i_row_eq_max(i_row_eq_max),
       .central_value(central_value),
-      .start_en(start_en)
+      .start_en(start_en),
+      .progress_done_o(progress_done_o)
 
 
   );

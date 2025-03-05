@@ -25,9 +25,10 @@ module buffer_12_rows_ci #(
 
   wire [7:0] line_buffer_out[11:0];
   wire line_buffer_done[11:0];
-  assign done_r6_o = line_buffer_done[11];  // line buffer 7 done
-  assign done_r2_o = line_buffer_done[3];
-  assign done_r4_o = line_buffer_done[7];
+  assign done_r6_o = line_buffer_done[11] & done_i;  // line buffer 7 done
+  assign done_r2_o = line_buffer_done[3] & done_i;
+  assign done_r4_o = line_buffer_done[7] & done_i;
+
   assign data0_o   = data_i;
   assign data1_o   = line_buffer_out[0];
   assign data2_o   = line_buffer_out[1];

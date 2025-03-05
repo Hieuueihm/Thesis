@@ -91,7 +91,8 @@ module window_buffer_5x5 #(
       .S24_o(S24_o),
       .S25_o(S25_o),
       .i_col_eq_max(i_col_eq_max),
-      .i_col_ge_threshold(i_col_ge_threshold)
+      .i_col_ge_threshold(i_col_ge_threshold),
+      .progress_done(progress_done_o)
   );
 
 endmodule

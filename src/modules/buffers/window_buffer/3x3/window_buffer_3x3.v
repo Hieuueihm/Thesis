@@ -55,6 +55,7 @@ module window_buffer_3x3 #(
       .S8_o(S8_o),
       .S9_o(S9_o),
       .i_col_eq_max(i_col_eq_max),
+      .progress_done(progress_done_o),
       .i_col_ge_threshold(i_col_ge_threshold)
   );
 

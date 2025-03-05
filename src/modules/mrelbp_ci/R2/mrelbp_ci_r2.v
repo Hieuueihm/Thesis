@@ -64,7 +64,8 @@ module mrelbp_ci_r2 #(
       .i_row_eq_max(i_row_eq_max),
       .i_start_gt_1(i_start_gt_1),
       .central_value(central_value),
-      .start_en(start_en)
+      .start_en(start_en),
+      .progress_done_o(progress_done_o)
 
 
   );

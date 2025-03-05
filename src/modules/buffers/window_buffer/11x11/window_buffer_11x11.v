@@ -295,7 +295,8 @@ module window_buffer_11x11 #(
       .S120_o            (S120_o),
       .S121_o            (S121_o),
       .i_col_eq_max      (i_col_eq_max),
-      .i_col_ge_threshold(i_col_ge_threshold)
+      .i_col_ge_threshold(i_col_ge_threshold),
+      .progress_done     (progress_done_o)
   );
 
 endmodule

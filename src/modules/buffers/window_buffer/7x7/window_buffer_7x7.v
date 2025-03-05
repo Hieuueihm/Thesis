@@ -143,7 +143,8 @@ module window_buffer_7x7 #(
       .S48_o(S48_o),
       .S49_o(S49_o),
       .i_col_eq_max(i_col_eq_max),
-      .i_col_ge_threshold(i_col_ge_threshold)
+      .i_col_ge_threshold(i_col_ge_threshold),
+      .progress_done(progress_done_o)
   );
 
 endmodule

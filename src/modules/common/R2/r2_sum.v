@@ -16,61 +16,67 @@ module r2_sum #(
     S5,
     output [12:0] sum_o,
     output i_row_eq_max,
-    output [9:0] i_counter,
+    output reg [9:0] i_counter,
     output [7:0] central_value,
-    output i_start_gt_1
+    output i_start_gt_1,
+    input progress_done_o
 );
+  reg  progress_done_prev;
+  wire progress_done_negedge;
+  always @(posedge clk) begin
+    if (~rst_n) begin
+      progress_done_prev <= 0;
+    end else begin
+      progress_done_prev <= progress_done_o;
+    end
+  end
+  assign progress_done_negedge = (progress_done_prev == 1 & progress_done_o == 0) ? 1'b1 : 1'b0;
+
+  reg [1:0] i_start;
+
+  always @(posedge clk) begin
+    if (~rst_n) begin
+      i_start <= 0;
+    end else if (progress_done_negedge) begin
+      i_start <= 0;
+    end else if (start_en) begin
+      i_start <= i_start + 1;
+    end
+  end
+
+  // );
+  assign i_start_gt_1 = (i_start > 1) ? 1'b1 : 1'b0;
 
 
-
-  wire [9:0] i_counter_plus_1;
-  wire [1:0] i_start;
-  wire [1:0] i_start_plus_1;
-  wire [9:0] i_row_plus_1;
-  wire [9:0] i_row;
   wire i_counter_eq_max;
+  assign i_counter_eq_max = (i_counter == COLS - 1) ? 1'b1 : 1'b0;
 
-  plus_1 #(
-      .WIDTH(2)
-  ) I_START_PLUS (
-      .rst_n(rst_n),
-      .clk(clk),
-      .en(start_en),
-      .D(i_start),
-      .Q(i_start_plus_1)
-  );
-  assign i_start_gt_1 = (i_start_plus_1 > 1) ? 1'b1 : 1'b0;
-  assign i_start      = (i_start_plus_1 == 3) ? 0 : i_start_plus_1;
+  always @(posedge clk) begin
+    if (~rst_n) begin
+      i_counter <= 0;
+    end else if (progress_done_negedge) begin
+      i_counter <= 0;
+    end else if (i_counter_eq_max) begin
+      i_counter <= 0;
+    end else if (count_en) begin
+      i_counter <= i_counter + 1;
+    end
+  end
+
+  reg [9:0] i_row;
+  always @(posedge clk) begin
+    if (~rst_n) begin
+      i_row <= 0;
+    end else if (progress_done_negedge) begin
+      i_row <= 0;
+    end else if (i_counter_eq_max) begin
+      i_row <= i_row + 1;
+    end
+  end
 
 
 
-  plus_1 #(
-      .WIDTH(10)
-  ) COUNTER_PLUS (
-      .rst_n(rst_n),
-      .clk(clk),
-      .en(count_en),
-      .D(i_counter),
-      .Q(i_counter_plus_1)
-  );
-
-  plus_1 #(
-      .WIDTH(10)
-  ) ROW_PLUS (
-      .rst_n(rst_n),
-      .clk(clk),
-      .en(i_counter_eq_max),
-      .D(i_row),
-      .Q(i_row_plus_1)
-  );
-
-  assign i_counter_eq_max = (i_counter_plus_1 == COLS) ? 1'b1 : 1'b0;
-
-  assign i_counter        = (i_counter_eq_max == 1'b1) ? 0 : i_counter_plus_1;
-
-  assign i_row            = i_row_plus_1;
-  assign i_row_eq_max     = (i_row_plus_1 == ROWS - 4) ? 1'b1 : 1'b0;
-
+  assign i_row_eq_max = (i_row == ROWS - 4) ? 1'b1 : 1'b0;
 
 
   reg [7:0] st1_S1, st1_S2, st1_S3, st1_S4, st1_S5;

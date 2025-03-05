@@ -22,6 +22,7 @@ module r2_patch_sum #(
   wire start_en;
   wire [7:0] central_value;
   wire i_row_eq_max;
+  wire finish;
 
   r2_controller #(
       .COLS(COLS)
@@ -38,9 +39,9 @@ module r2_patch_sum #(
       .count_en(count_en),
       .i_row_eq_max(i_row_eq_max),
       .start_en(start_en),
-      .progress_done(progress_done_o)
-
+      .progress_done(finish)
   );
+  assign progress_done_o = finish;
 
   r2_sum #(
       .COLS(COLS),
@@ -62,7 +63,8 @@ module r2_patch_sum #(
       .i_row_eq_max(i_row_eq_max),
       .i_start_gt_1(i_start_gt_1),
       .central_value(central_value),
-      .start_en(start_en)
+      .start_en(start_en),
+      .progress_done_o(finish)
 
 
   );

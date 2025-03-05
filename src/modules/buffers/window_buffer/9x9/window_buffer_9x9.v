@@ -211,7 +211,8 @@ module window_buffer_9x9 #(
       .S80_o(S80_o),
       .S81_o(S81_o),
       .i_col_eq_max(i_col_eq_max),
-      .i_col_ge_threshold(i_col_ge_threshold)
+      .i_col_ge_threshold(i_col_ge_threshold),
+      .progress_done(progress_done_o)
   );
 
 endmodule

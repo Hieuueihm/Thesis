@@ -384,7 +384,8 @@ module window_buffer_13x13 #(
       .S168_o            (S168_o),
       .S169_o            (S169_o),
       .i_col_eq_max      (i_col_eq_max),
-      .i_col_ge_threshold(i_col_ge_threshold)
+      .i_col_ge_threshold(i_col_ge_threshold),
+      .progress_done     (progress_done_o)
   );
 
   window_buffer_13x13_controller inst_window_buffer_13x13_controller (

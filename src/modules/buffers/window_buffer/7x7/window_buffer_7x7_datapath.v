@@ -63,39 +63,48 @@ module window_buffer_7x7_datapath #(
     S48_o,
     S49_o,
     output i_col_eq_max,
-    output i_col_ge_threshold
+    output i_col_ge_threshold,
+    input progress_done
 );
+  reg  progress_done_prev;
+  wire progress_done_negedge;
+  always @(posedge clk) begin
+    if (~rst_n) begin
+      progress_done_prev <= 0;
+    end else begin
+      progress_done_prev <= progress_done;
+    end
+  end
+  assign progress_done_negedge = (progress_done_prev == 1 & progress_done == 0) ? 1'b1 : 1'b0;
+  reg [9:0] i_counter;
+  reg [9:0] i_row;
 
-  wire [9:0] i_counter_plus_1;
+  always @(posedge clk) begin
+    if (~rst_n) begin
+      i_counter <= 0;
+    end else if (progress_done_negedge) begin
+      i_counter <= 0;
+    end else if (count_en) begin
+      i_counter <= i_counter + 1;
+    end
+    if (i_col_eq_max) begin
+      i_counter <= 0;
+    end
+  end
+  assign i_col_eq_max = (i_counter == COLS - 2) ? 1'b1 : 1'b0;
+  assign i_col_ge_threshold = (i_counter > 4) ? 1'b1 : 1'b0;
 
-  wire [9:0] i_row_plus_1;
-  wire [9:0] i_row, i_counter;
-  plus_1 #(
-      .WIDTH(10)
-  ) COUNTER_PLUS (
-      .rst_n(rst_n),
-      .clk(clk),
-      .en(count_en),
-      .D(i_counter),
-      .Q(i_counter_plus_1)
-  );
-  plus_1 #(
-      .WIDTH(10)
-  ) ROW_PLUS (
-      .rst_n(rst_n),
-      .clk(clk),
-      .en(i_col_eq_max),
-      .D(i_row),
-      .Q(i_row_plus_1)
-  );
 
-  assign i_col_ge_threshold = (i_counter_plus_1 > 4) ? 1'b1 : 1'b0;
-  assign i_col_eq_max       = (i_counter_plus_1 == COLS - 2) ? 1'b1 : 1'b0;
-  assign i_counter          = (i_col_eq_max == 1'b1) ? 0 : i_counter_plus_1;
-
-  assign i_row              = i_row_plus_1;
-  assign i_row_eq_max       = (i_row_plus_1 == ROWS - 6) ? 1'b1 : 1'b0;
-
+  always @(posedge clk) begin
+    if (~rst_n) begin
+      i_row <= 0;
+    end else if (progress_done_negedge) begin
+      i_row <= 0;
+    end else if (i_col_eq_max) begin
+      i_row <= i_row + 1;
+    end
+  end
+  assign i_row_eq_max = (i_row == ROWS - 6) ? 1'b1 : 1'b0;
 
   reg [7:0] S1_delay;
   reg [7:0] S2_delay;

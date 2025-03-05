@@ -15,7 +15,7 @@ module buffer_4_rows #(
 
   wire [7:0] line_buffer_out[3:0];
   wire line_buffer_done[4:0];
-  assign done_o  = line_buffer_done[3];  // line buffer 7 done
+  assign done_o  = line_buffer_done[3] & done_i;  // line buffer 7 done
   assign data0_o = data_i;
   assign data1_o = line_buffer_out[0];
   assign data2_o = line_buffer_out[1];
