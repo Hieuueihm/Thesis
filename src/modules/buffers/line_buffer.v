@@ -9,8 +9,7 @@ module line_buffer #(
     output done_o
 );
   wire rd_en, wr_en;
-  wire [9:0] wr_pointer;
-  wire [9:0] rd_pointer;
+
   wire [9:0] i_counter;
 
 

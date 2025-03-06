@@ -111,7 +111,7 @@ module top_module__datapath #(
   wire ci_r2_delay;
   wire done_ci_r2_delay;
 
-  `define CYCLE_SHIFT_CI_r2 6
+  `define CYCLE_SHIFT_CI_r2 7
 
 
   shift_registers #(
@@ -316,7 +316,6 @@ module top_module__datapath #(
       write_addr_r4 <= 0;
       write_addr_r6 <= 0;
     end else if (start_en) begin
-
       write_addr_r2 <= 0;
       write_addr_r4 <= 0;
       write_addr_r6 <= 0;

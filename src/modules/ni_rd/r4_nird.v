@@ -430,99 +430,6 @@ module r4_nird #(
       .progress_done_o(finish_interpolation)
   );
 
-  wire done_inter_r4_delay;
-  wire finish_inter_r4_delay;
-  wire [23:0] S1_r4_delay, S2_r4_delay, S3_r4_delay, S4_r4_delay, S5_r4_delay, S6_r4_delay, S7_r4_delay, S8_r4_delay;
-
-  dff #(
-      .WIDTH(1)
-  ) SHIFT_FIniSH_DFF (
-      .clk(clk),
-      .rst_n(rst_n),
-      .D(finish_interpolation),
-      .Q(finish_inter_r4_delay)
-  );
-  dff #(
-      .WIDTH(1)
-  ) SHIFT_DONE_r4_O (
-      .clk(clk),
-      .rst_n(rst_n),
-      .D(done_o_r4),
-      .Q(done_inter_r4_delay)
-  );
-
-  dff #(
-      .WIDTH(24)
-  ) SHIFT_S1_r4 (
-      .clk(clk),
-      .rst_n(rst_n),
-      .D(S1_r4),
-      .Q(S1_r4_delay)
-  );
-
-  dff #(
-      .WIDTH(24)
-  ) SHIFT_S2_r4 (
-      .clk(clk),
-      .rst_n(rst_n),
-      .D(S2_r4),
-      .Q(S2_r4_delay)
-  );
-
-  dff #(
-      .WIDTH(24)
-  ) SHIFT_S3_r4 (
-      .clk(clk),
-      .rst_n(rst_n),
-      .D(S3_r4),
-      .Q(S3_r4_delay)
-  );
-  dff #(
-      .WIDTH(24)
-  ) SHIFT_S4_r4 (
-      .clk(clk),
-      .rst_n(rst_n),
-      .D(S4_r4),
-      .Q(S4_r4_delay)
-  );
-
-  dff #(
-      .WIDTH(24)
-  ) SHIFT_S5_r4 (
-      .clk(clk),
-      .rst_n(rst_n),
-      .D(S5_r4),
-      .Q(S5_r4_delay)
-  );
-  dff #(
-      .WIDTH(24)
-  ) SHIFT_S6_r4 (
-      .clk(clk),
-      .rst_n(rst_n),
-      .D(S6_r4),
-      .Q(S6_r4_delay)
-  );
-  dff #(
-      .WIDTH(24)
-  ) SHIFT_S7_r4 (
-      .clk(clk),
-      .rst_n(rst_n),
-      .D(S7_r4),
-      .Q(S7_r4_delay)
-  );
-
-  dff #(
-      .WIDTH(24)
-  ) SHIFT_S8_r4 (
-      .clk(clk),
-      .rst_n(rst_n),
-      .D(S8_r4),
-      .Q(S8_r4_delay)
-  );
-
-
-
-
 
 
 
@@ -602,16 +509,16 @@ module r4_nird #(
   ) ni_CALC_r4 (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(done_inter_r4_delay),
-      .progress_done_i(finish_inter_r4_delay),
-      .S1_r2(S1_r4_delay),
-      .S2_r2(S2_r4_delay),
-      .S3_r2(S3_r4_delay),
-      .S4_r2(S4_r4_delay),
-      .S5_r2(S5_r4_delay),
-      .S6_r2(S6_r4_delay),
-      .S7_r2(S7_r4_delay),
-      .S8_r2(S8_r4_delay),
+      .done_i(done_o_r4),
+      .progress_done_i(finish_interpolation),
+      .S1_r2(S1_r4),
+      .S2_r2(S2_r4),
+      .S3_r2(S3_r4),
+      .S4_r2(S4_r4),
+      .S5_r2(S5_r4),
+      .S6_r2(S6_r4),
+      .S7_r2(S7_r4),
+      .S8_r2(S8_r4),
       .sum_i(r4_patch_sum),
       .done_o(ni_r4_done),
       .progress_done_o(ni_r4_progress_done),
@@ -650,7 +557,7 @@ module r4_nird #(
 
   shift_registers #(
       .WIDTH(4),
-      .CYCLE(4)
+      .CYCLE(3)
   ) shift_rd_output (
       .clk(clk),
       .rst_n(rst_n),
@@ -677,5 +584,32 @@ module r4_nird #(
 
 
 
+
+  //   integer file, file1;
+  //   integer count;
+  //   always @(posedge clk) begin
+  //     if (~rst_n) begin
+  //       file  = $fopen("D:\\Thesis\\codetest\\python\\rd_r4_verilog.txt", "w");
+  //       file1 = $fopen("D:\\Thesis\\codetest\\python\\ni_r4_verilog.txt", "w");
+  //       count = 0;
+  //     end else if (done_o) begin
+  //       if (file) begin
+  //         $fwrite(file, "%d\n", rd_o);
+  //         $fwrite(file1, "%d\n", ni_o);
+  //         $fflush(file);
+  //         $fflush(file1);
+  //       end
+  //     end
+  //     if (progress_done_o && count == 0) begin
+  //       count = count + 1;
+  //       $fwrite(file1, "end\n");
+  //       $fwrite(file, "end\n");
+
+  //     end else if (progress_done_o && count == 1) begin
+  //       $fclose(file);
+  //       $fclose(file1);
+  //     end
+
+  //   end
 
 endmodule

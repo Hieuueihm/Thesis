@@ -277,7 +277,20 @@ module interpolation_calc #(
   reg [23:0] add_12, add_34;
   reg [23:0] add_result;
 
-
+  reg [23:0] A_q, B_q, C_q, D_q;
+  always @(posedge clk) begin
+    if (~rst_n) begin
+      A_q <= 24'h0;
+      B_q <= 24'h0;
+      C_q <= 24'h0;
+      D_q <= 24'h0;
+    end else begin
+      A_q <= A;
+      B_q <= B;
+      C_q <= C;
+      D_q <= D;
+    end
+  end
   always @(posedge clk) begin
     if (~rst_n) begin
       r1_mul_a <= 24'h0;
@@ -285,10 +298,10 @@ module interpolation_calc #(
       r3_mul_c <= 24'h0;
       r4_mul_d <= 24'h0;
     end else begin
-      r1_mul_a <= r1 * A;
-      r2_mul_b <= r2 * B;
-      r3_mul_c <= r3 * C;
-      r4_mul_d <= r4 * D;
+      r1_mul_a <= r1 * A_q;
+      r2_mul_b <= r2 * B_q;
+      r3_mul_c <= r3 * C_q;
+      r4_mul_d <= r4 * D_q;
     end
   end
 

@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 `define clk_period 10
 `define half_clk_period 5
-`define SIZE 30
+`define SIZE 128
 module test_top_tb ();
   reg [7:0] matrix[0:`SIZE-1][0:`SIZE-1];
 
@@ -78,8 +78,8 @@ module test_top_tb ();
       $finish;
     end
 
-    file_out  = $fopen("D:\\Thesis\\codetest\\python\\histogram_verilog.txt", "w");
-    file_out1 = $fopen("D:\\Thesis\\codetest\\python\\histogram_verilog_1.txt", "w");
+    file_out = $fopen("D:\\Thesis\\codetest\\python\\histogram_verilog.txt", "w");
+    // file_out1 = $fopen("D:\\Thesis\\codetest\\python\\histogram_verilog_1.txt", "w");
     if (file_out == 0) begin
       $display("Error: Could not open output files.");
       $finish;
@@ -99,6 +99,7 @@ module test_top_tb ();
     start_i <= 1'b1;
     #(`clk_period);
     start_i <= 1'b0;
+    #(`clk_period * 5);
     i_valid <= 1'b1;
 
     for (row = 0; row < `SIZE; row = row + 1) begin
@@ -109,47 +110,39 @@ module test_top_tb ();
     end
     i_valid <= 1'b0;
 
-    wait (o_intr);
+    @(posedge o_intr);
+    #(`clk_period * 10);
 
+
+    #(`clk_period);
+    start_i <= 1'b1;
+    #(`clk_period);
+    start_i <= 1'b0;
+    #(`clk_period * 5);
+    i_valid <= 1'b1;
+
+    for (row = 0; row < `SIZE; row = row + 1) begin
+      for (col = 0; col < `SIZE; col = col + 1) begin
+        grayscale_i <= matrix[row][col];
+        #(`clk_period);
+      end
+    end
+    i_valid <= 1'b0;
+    @(posedge o_intr);
+    // $fclose(file_out1);
     $fclose(file_out);
 
-    #(`clk_period);
-    start_i <= 1'b1;
-    #(`clk_period);
-    start_i <= 1'b0;
-    i_valid <= 1'b1;
-
-    for (row = 0; row < `SIZE; row = row + 1) begin
-      for (col = 0; col < `SIZE; col = col + 1) begin
-        grayscale_i <= matrix[row][col];
-        #(`clk_period);
-      end
-    end
-    i_valid <= 1'b0;
-    wait (o_intr);
-
-    #(`clk_period);
-    start_i <= 1'b1;
-    #(`clk_period);
-    start_i <= 1'b0;
-    i_valid <= 1'b1;
-
-    for (row = 0; row < `SIZE; row = row + 1) begin
-      for (col = 0; col < `SIZE; col = col + 1) begin
-        grayscale_i <= matrix[row][col];
-        #(`clk_period);
-      end
-    end
-    i_valid <= 1'b0;
-    wait (o_intr);
-    $fclose(file_out1);
 
     #100;
     $stop;
   end
 
   always @(posedge clk) begin
-    if (o_valid) $fwrite(file_out, "%d\n", histogram_o);
-    if (o_valid) $fwrite(file_out1, "%d\n", histogram_o);
+    if (o_valid) begin
+      $fwrite(file_out, "%d\n", histogram_o);
+      $fflush(file_out);
+
+    end
+    // if (o_valid) $fwrite(file_out1, "%d\n", histogram_o);
   end
 endmodule

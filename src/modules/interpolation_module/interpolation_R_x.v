@@ -1,3 +1,4 @@
+
 module interpolation_R_x #(
     parameter R = 2
 ) (
@@ -50,10 +51,10 @@ module interpolation_R_x #(
 
   generate
     if (R == 1) begin : R1_LOGIC
-      reg [7:0] S2_shift_1, S2_shift_2, S2_shift_3;
-      reg [7:0] S4_shift_1, S4_shift_2, S4_shift_3;
-      reg [7:0] S6_shift_1, S6_shift_2, S6_shift_3;
-      reg [7:0] S8_shift_1, S8_shift_2, S8_shift_3;
+      reg [7:0] S2_shift_1, S2_shift_2, S2_shift_3, S2_shift_4;
+      reg [7:0] S4_shift_1, S4_shift_2, S4_shift_3, S4_shift_4;
+      reg [7:0] S6_shift_1, S6_shift_2, S6_shift_3, S6_shift_4;
+      reg [7:0] S8_shift_1, S8_shift_2, S8_shift_3, S8_shift_4;
 
 
       // S1 = S_0_i
@@ -75,9 +76,10 @@ module interpolation_R_x #(
           S2_shift_1 <= S_45_i_1;
           S2_shift_2 <= S2_shift_1;
           S2_shift_3 <= S2_shift_2;
+          S2_shift_4 <= S2_shift_3;
         end
       end
-      assign S2_o = {S2_shift_3, 16'b0};
+      assign S2_o = {S2_shift_4, 16'b0};
 
       // Shift logic for S4
       always @(posedge clk) begin
@@ -89,9 +91,10 @@ module interpolation_R_x #(
           S4_shift_1 <= S_135_i_1;
           S4_shift_2 <= S4_shift_1;
           S4_shift_3 <= S4_shift_2;
+          S4_shift_4 <= S4_shift_3;
         end
       end
-      assign S4_o = {S4_shift_3, 16'b0};
+      assign S4_o = {S4_shift_4, 16'b0};
 
       // Shift logic for S6
       always @(posedge clk) begin
@@ -103,9 +106,11 @@ module interpolation_R_x #(
           S6_shift_1 <= S_225_i_1;
           S6_shift_2 <= S6_shift_1;
           S6_shift_3 <= S6_shift_2;
+          S6_shift_4 <= S6_shift_3;
+
         end
       end
-      assign S6_o = {S6_shift_3, 16'b0};
+      assign S6_o = {S6_shift_4, 16'b0};
 
 
       // Shift logic for S8
@@ -118,9 +123,10 @@ module interpolation_R_x #(
           S8_shift_1 <= S_315_i_1;
           S8_shift_2 <= S8_shift_1;
           S8_shift_3 <= S8_shift_2;
+          S8_shift_4 <= S8_shift_3;
         end
       end
-      assign S8_o = {S8_shift_3, 16'b0};
+      assign S8_o = {S8_shift_4, 16'b0};
 
 
     end else if (R > 1) begin
@@ -185,34 +191,34 @@ module interpolation_R_x #(
     end
   endgenerate
 
-  reg [2:0] done_shift;
+  reg [3:0] done_shift;
   always @(posedge clk) begin
     if (~rst_n) begin
       done_shift <= 0;
     end else begin
-      done_shift <= {done_shift[1:0], done_i};
+      done_shift <= {done_shift[2:0], done_i};
 
     end
   end
 
-  assign done_o = done_shift[2];
+  assign done_o = done_shift[3];
 
-  reg [2:0] progress_shift;
+  reg [3:0] progress_shift;
   always @(posedge clk) begin
     if (~rst_n) begin
       progress_shift <= 0;
     end else begin
-      progress_shift <= {progress_shift[1:0], progress_done_i};
+      progress_shift <= {progress_shift[2:0], progress_done_i};
 
     end
   end
 
-  assign progress_done_o = progress_shift[2];
+  assign progress_done_o = progress_shift[3];
 
-  reg [7:0] S1_shift_1, S1_shift_2, S1_shift_3;
-  reg [7:0] S3_shift_1, S3_shift_2, S3_shift_3;
-  reg [7:0] S5_shift_1, S5_shift_2, S5_shift_3;
-  reg [7:0] S7_shift_1, S7_shift_2, S7_shift_3;
+  reg [7:0] S1_shift_1, S1_shift_2, S1_shift_3, S1_shift_4;
+  reg [7:0] S3_shift_1, S3_shift_2, S3_shift_3, S3_shift_4;
+  reg [7:0] S5_shift_1, S5_shift_2, S5_shift_3, S5_shift_4;
+  reg [7:0] S7_shift_1, S7_shift_2, S7_shift_3, S7_shift_4;
   always @(posedge clk) begin
     if (~rst_n) begin
       S1_shift_1 <= 0;
@@ -222,9 +228,10 @@ module interpolation_R_x #(
       S1_shift_1 <= S_0_i;
       S1_shift_2 <= S1_shift_1;
       S1_shift_3 <= S1_shift_2;
+      S1_shift_4 <= S1_shift_3;
     end
   end
-  assign S1_o = {S1_shift_3, 16'b0};
+  assign S1_o = {S1_shift_4, 16'b0};
   always @(posedge clk) begin
     if (~rst_n) begin
       S3_shift_1 <= 0;
@@ -234,9 +241,10 @@ module interpolation_R_x #(
       S3_shift_1 <= S_90_i;
       S3_shift_2 <= S3_shift_1;
       S3_shift_3 <= S3_shift_2;
+      S3_shift_4 <= S3_shift_3;
     end
   end
-  assign S3_o = {S3_shift_3, 16'b0};
+  assign S3_o = {S3_shift_4, 16'b0};
 
   always @(posedge clk) begin
     if (~rst_n) begin
@@ -247,9 +255,10 @@ module interpolation_R_x #(
       S5_shift_1 <= S_180_i;
       S5_shift_2 <= S5_shift_1;
       S5_shift_3 <= S5_shift_2;
+      S5_shift_4 <= S5_shift_3;
     end
   end
-  assign S5_o = {S5_shift_3, 16'b0};
+  assign S5_o = {S5_shift_4, 16'b0};
 
   always @(posedge clk) begin
     if (~rst_n) begin
@@ -260,7 +269,8 @@ module interpolation_R_x #(
       S7_shift_1 <= S_270_i;
       S7_shift_2 <= S7_shift_1;
       S7_shift_3 <= S7_shift_2;
+      S7_shift_4 <= S7_shift_3;
     end
   end
-  assign S7_o = {S7_shift_3, 16'b0};
+  assign S7_o = {S7_shift_4, 16'b0};
 endmodule

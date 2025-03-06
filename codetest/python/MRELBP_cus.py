@@ -315,22 +315,22 @@ class MRELBP():
     def MRELBP(self, image):
         start_time = time.time()
         m_3x3, m_5x5, m_7x7, m_9x9 = self.median_processing(image)
-        with open('median_3x3.txt', 'w') as f:
-            for i in range(m_3x3.shape[0]):
-                for j in range(m_3x3.shape[1]):
-                    f.write(str(m_3x3[i, j]))
-                    f.write("\n")
+        # with open('median_3x3.txt', 'w') as f:
+        #     for i in range(m_3x3.shape[0]):
+        #         for j in range(m_3x3.shape[1]):
+        #             f.write(str(m_3x3[i, j]))
+        #             f.write("\n")
 
-        with open('median_5x5.txt', 'w') as f:
-            for i in range(m_5x5.shape[0]):
-                for j in range(m_5x5.shape[1]):
-                    f.write(str(m_5x5[i, j]))
-                    f.write("\n")
-        with open('median_7x7.txt', 'w') as f:
-            for i in range(m_7x7.shape[0]):
-                for j in range(m_7x7.shape[1]):
-                    f.write(str(m_7x7[i, j]))
-                    f.write("\n")
+        # with open('median_5x5.txt', 'w') as f:
+        #     for i in range(m_5x5.shape[0]):
+        #         for j in range(m_5x5.shape[1]):
+        #             f.write(str(m_5x5[i, j]))
+        #             f.write("\n")
+        # with open('median_7x7.txt', 'w') as f:
+        #     for i in range(m_7x7.shape[0]):
+        #         for j in range(m_7x7.shape[1]):
+        #             f.write(str(m_7x7[i, j]))
+        #             f.write("\n")
                     
         # with open('median_3x3_view.txt', 'w') as f:
         #     for row in m_3x3:
@@ -372,6 +372,14 @@ class MRELBP():
         # write_to_filecheck("ni_r6.txt", NI_r6)
         # write_to_filecheck("rd_r6.txt", RD_r6)
 
+        # write_to_filecheck("ni_r4.txt", NI_r4)
+        # write_to_filecheck("rd_r4.txt", RD_r4)
+
+
+        # write_to_filecheck("ni_r2.txt", NI_r2)
+        # write_to_filecheck("rd_r2.txt", RD_r2)
+
+
                     
         
 
@@ -380,16 +388,16 @@ class MRELBP():
         hist_r6 = self.jointHistogram(ci_r6, NI_r6, RD_r6)
 
 
-        with open("histogram_r2.txt", "w") as file:
-            for value in hist_r2:
-                file.write(f"{value}\n")
+        # with open("histogram_r2.txt", "w") as file:
+        #     for value in hist_r2:
+        #         file.write(f"{value}\n")
 
-        with open("histogram_r4.txt", "w") as file:
-            for value in hist_r4:
-                file.write(f"{value}\n")
-        with open("histogram_r6.txt", "w") as file:
-            for value in hist_r6:
-                file.write(f"{value}\n")
+        # with open("histogram_r4.txt", "w") as file:
+        #     for value in hist_r4:
+        #         file.write(f"{value}\n")
+        # with open("histogram_r6.txt", "w") as file:
+        #     for value in hist_r6:
+        #         file.write(f"{value}\n")
 
         with open("histogram_o.txt", "w") as file:
             for value in hist_r2:
@@ -537,7 +545,7 @@ class MRELBP():
 
 
 # Example Usage
-np.random.seed(3)
+np.random.seed(6)
 
 def resize_bmp(input_file, output_file, size=(128, 128)):
     # Mở ảnh BMP ở chế độ grayscale
@@ -549,7 +557,7 @@ def resize_bmp(input_file, output_file, size=(128, 128)):
     cv2.imwrite(output_file, img_resized)
     print(f"Ảnh đã được lưu tại {output_file}")
 resize_bmp('D:\\Thesis\\codetest\\python\\Train\\Dataset\\Outex-TC-00010\\images\\000005.bmp', 'D:\\Thesis\\data\\inputs\\test_input.bmp')
-random_matrix = np.random.randint(0, 256, size=(30, 30), dtype=np.uint8)
+random_matrix = np.random.randint(0, 256, size=(128, 128), dtype=np.uint8)
 np.savetxt("D:\\Thesis\src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
 
 image_file = "D://Thesis//data//inputs//test_input.bmp"
@@ -624,9 +632,9 @@ def compare_files(file1, file2):
 file1 = 'histogram_o.txt'
 file2 = 'histogram_verilog.txt'
 compare_files(file1, file2)
-file1 = 'histogram_o.txt'
-file2 = 'histogram_verilog_1.txt'
-compare_files(file1, file2)
+# file1 = 'histogram_o.txt'
+# file2 = 'histogram_verilog_1.txt'
+# compare_files(file1, file2)
 
 # file1 = 'histogram_r6.txt'
 # file2 = 'cinird_r6_verilog.txt'
@@ -637,8 +645,8 @@ compare_files(file1, file2)
 # compare_files(file1, file2)
 
 
-# file1 = 'rd_data.txt'
-# file2 = 'rd_r2.txt'
+# file1 = 'rd_r6_verilog.txt'
+# file2 = 'rd_r6.txt'
 # compare_files(file1, file2)
 
 

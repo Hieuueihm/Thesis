@@ -100,13 +100,8 @@ module test_top_tb_with_image ();
     i_data_ready = 1'b0;
 
     file_out     = $fopen("D:\\Thesis\\codetest\\python\\histogram_verilog.txt", "w");
-    file_out_1   = $fopen("D:\\Thesis\\codetest\\python\\histogram_verilog_1.txt", "w");
 
     if (file_out == 0) begin
-      $display("Error: Could not open output files.");
-      $finish;
-    end
-    if (file_out_1 == 0) begin
       $display("Error: Could not open output files.");
       $finish;
     end
@@ -124,39 +119,34 @@ module test_top_tb_with_image ();
     start_i = 1'b0;
     #(`clk_period * 10);
     i_valid = 1'b1;
-
     // Gửi dữ liệu ảnh vào thiết bị xử lý
     for (i = 0; i < bmp_width * bmp_height; i = i + 1) begin
       grayscale_i = img_out[i];
       #(`clk_period);
     end
-
-    #(`clk_period);
     i_valid = 1'b0;
-    wait (o_intr);
-    $fclose(file_out);
-    $display("Processing Complete!");
-    #(`clk_period * 10);
-    $stop;
+    @(posedge o_intr);
 
-    #(`clk_period);
+
+    // $stop;
+    #(`clk_period * 10);
     start_i = 1'b1;
+    i_data_ready = 1'b1;
     #(`clk_period * 10);
     start_i = 1'b0;
     #(`clk_period * 10);
+
     i_valid = 1'b1;
+    // Gửi dữ liệu ảnh vào thiết bị xử lý
     for (i = 0; i < bmp_width * bmp_height; i = i + 1) begin
       grayscale_i = img_out[i];
       #(`clk_period);
     end
-
-    #(`clk_period);
     i_valid = 1'b0;
-    wait (o_intr);
-    $fclose(file_out_1);
-    #(`clk_period * 10);
-
-
+    @(posedge o_intr);
+    $fclose(file_out);
+    $display("Processing Complete!");
+    #100;
 
     $stop;
   end
@@ -182,8 +172,9 @@ module test_top_tb_with_image ();
     forever #5 clk = ~clk;
   end
   always @(posedge clk) begin
-    if (o_valid) $fwrite(file_out, "%d\n", histogram_o);
-    if (o_valid) $fwrite(file_out_1, "%d\n", histogram_o);
-
+    if (o_valid) begin
+      $fwrite(file_out, "%d\n", histogram_o);
+      $fflush(file_out);
+    end
   end
 endmodule

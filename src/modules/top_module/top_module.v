@@ -35,7 +35,8 @@ module top_module #(
       .start_en   (start_en),
       .read_finish(read_finish),
       .o_intr     (o_intr_o),
-      .read_en    (read_en)
+      .read_en    (read_en),
+      .start_i    (start_i)
   );
   top_module__datapath #(
       .COLS(COLS),
@@ -55,8 +56,8 @@ module top_module #(
   );
 
   output_buffer_ip OB (
-      .wr_rst_busy  (),                   // output wire wr_rst_busy
-      .rd_rst_busy  (),                   // output wire rd_rst_busy
+      .wr_rst_busy  (),
+      .rd_rst_busy  (),
       .s_aclk       (clk),
       .s_aresetn    (rst_n),
       // s_axis

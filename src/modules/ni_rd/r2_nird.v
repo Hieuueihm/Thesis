@@ -356,7 +356,31 @@ module r2_nird #(
       .done_o(done_o_r2),
       .progress_done_o(finish_inter)
   );
+  //   integer file;
+  //   always @(posedge clk) begin
+  //     if (~rst_n) begin
+  //       file = $fopen("D:\\Thesis\\codetest\\python\\interpolation_r2_a.txt", "w");
 
+  //     end else if (done_o_r2) begin
+  //       $fwrite(file, "%x %x %x %x %x %x %x %x\n", S8_r2, S7_r2, S6_r2, S5_r2, S4_r2, S3_r2, S2_r2,
+  //               S1_r2);
+  //     end else if (finish_inter) begin
+  //       $fclose(file);
+  //     end
+  //   end
+
+  //   integer file1;
+  //   always @(posedge clk) begin
+  //     if (~rst_n) begin
+  //       file1 = $fopen("D:\\Thesis\\codetest\\python\\interpolation_r1_a.txt", "w");
+
+  //     end else if (done_o_r2) begin
+  //       $fwrite(file1, "%x %x %x %x %x %x %x %x\n", S8_r1, S7_r1, S6_r1, S5_r1, S4_r1, S3_r1, S2_r1,
+  //               S1_r1);
+  //     end else if (finish_inter) begin
+  //       $fclose(file1);
+  //     end
+  //   end
 
 
   wire [12:0] sum_o_patch_sum;
@@ -378,6 +402,15 @@ module r2_nird #(
       .done_o(patch_sum_done_o),
       .progress_done_o(progress_patch_done)
   );
+  wire [12:0] sum_o_patch_sum_delay;
+  dff #(
+      .WIDTH(13)
+  ) DFF_SUM_O_PATCH_SUM (
+      .clk(clk),
+      .rst_n(rst_n),
+      .D(sum_o_patch_sum),
+      .Q(sum_o_patch_sum_delay)
+  );
 
   wire ni_r2_done, ni_r2_progress_done, bit1_o_ni, bit2_o_ni, bit3_o_ni,
     bit4_o_ni, bit5_o_ni, bit6_o_ni, bit7_o_ni, bit8_o_ni;
@@ -397,7 +430,7 @@ module r2_nird #(
       .S6_r2(S6_r2),
       .S7_r2(S7_r2),
       .S8_r2(S8_r2),
-      .sum_i(sum_o_patch_sum),
+      .sum_i(sum_o_patch_sum_delay),
       .done_o(ni_r2_done),
       .progress_done_o(ni_r2_progress_done),
       .bit1_o(bit1_o_ni),
@@ -527,21 +560,31 @@ module r2_nird #(
       .progress_done_o(progress_done_o)
   );
 
-
   //   integer file, file1;
+  //   integer count;
   //   always @(posedge clk) begin
   //     if (~rst_n) begin
   //       file  = $fopen("D:\\Thesis\\codetest\\python\\rd_r2_verilog.txt", "w");
   //       file1 = $fopen("D:\\Thesis\\codetest\\python\\ni_r2_verilog.txt", "w");
+  //       count = 0;
   //     end else if (done_o) begin
   //       if (file) begin
   //         $fwrite(file, "%d\n", rd_o);
   //         $fwrite(file1, "%d\n", ni_o);
+  //         $fflush(file);
+  //         $fflush(file1);
   //       end
-  //     end else if (progress_done_o) begin
+  //     end
+  //     if (progress_done_o && count == 0) begin
+  //       count = count + 1;
+  //       $fwrite(file1, "end\n");
+  //       $fwrite(file, "end\n");
+
+  //     end else if (progress_done_o && count == 1) begin
   //       $fclose(file);
   //       $fclose(file1);
   //     end
 
   //   end
+
 endmodule
