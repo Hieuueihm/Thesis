@@ -112,6 +112,7 @@ module test_top_tb ();
 
     @(posedge o_intr);
     #(`clk_period * 10);
+    #10000;
 
 
     #(`clk_period);

@@ -1,13 +1,14 @@
+
+
 module data_modulate_3x3_datapath #(
     parameter ROWS = 5,
     parameter COLS = 5
 ) (
     input            clk,
     input            rst_n,
-    input      [7:0] d0_i,       // 99
-    input      [7:0] d1_i,       // 8
-    input      [7:0] d2_i,       // 7
-    input            start,
+    input      [7:0] d0_i,        // 99
+    input      [7:0] d1_i,        // 8
+    input      [7:0] d2_i,        // 7
     input            o_en,
     output reg [7:0] d0_o,
     output reg [7:0] d1_o,
@@ -18,23 +19,16 @@ module data_modulate_3x3_datapath #(
     output reg [7:0] d6_o,
     output reg [7:0] d7_o,
     output reg [7:0] d8_o,
-    output reg [2:0] i_counter,
-    input            done_o
+    output           finish_en,
+    output           padding_fi,
+    input            count_en,
+    input            reset_en,
+    input            load_en
 );
 
-  reg  done_o_prev;
-  wire done_o_negedge;
-  always @(posedge clk) begin
-    if (~rst_n) begin
-      done_o_prev <= 0;
-    end else begin
-      done_o_prev <= done_o;
-    end
-  end
 
-  assign done_o_negedge = (done_o_prev == 1 & done_o == 0) ? 1'b1 : 1'b0;
-  reg [9:0] i_row, i_col;
   reg [7:0] data0, data1, data2, data3, data4, data5, data6, data7, data8;
+  reg [9:0] i_row, i_col;
 
 
   wire i_row_lt_1 = (i_row < 1) ? 1 : 0;
@@ -42,10 +36,12 @@ module data_modulate_3x3_datapath #(
   wire i_col_eq_max = (i_col == COLS - 1) ? 1 : 0;
   wire i_row_eq_max = (i_row == ROWS - 1) ? 1 : 0;
 
+
+
   always @(posedge clk) begin
     if (~rst_n) begin
       i_col <= 0;
-    end else if (done_o_negedge) begin
+    end else if (reset_en) begin
       i_col <= 0;
     end else if (i_col_eq_max) begin
       i_col <= 0;
@@ -58,7 +54,7 @@ module data_modulate_3x3_datapath #(
   always @(posedge clk) begin
     if (~rst_n) begin
       i_row <= 0;
-    end else if (done_o_negedge) begin
+    end else if (reset_en) begin
       i_row <= 0;
     end else if (i_row == ROWS) begin
       i_row <= 0;
@@ -67,21 +63,21 @@ module data_modulate_3x3_datapath #(
     end
 
   end
-
+  reg [2:0] i_counter;
   always @(posedge clk) begin
     if (~rst_n) begin
       i_counter <= 0;
-    end else if (done_o_negedge) begin
-      i_counter <= 0;
-
-    end else if (i_col_eq_max & i_row_eq_max) begin
-      i_counter <= 0;
-    end else if (i_counter == 2) begin
-      i_counter <= i_counter;
-    end else if (start) begin
+    end else if (count_en) begin
       i_counter <= i_counter + 1;
+    end else begin
+      i_counter <= 0;
     end
   end
+  assign padding_fi = (i_counter == 0) ? 1 : 0;
+  assign finish_en  = (i_col_eq_max & i_row_eq_max) ? 1'b1 : 1'b0;
+
+
+
 
 
 
@@ -138,7 +134,7 @@ module data_modulate_3x3_datapath #(
       // 5 
       // 6 
     end else begin
-      if (start) begin
+      if (load_en) begin
         data0 <= data1;
         data1 <= data2;
         data2 <= d2_i;

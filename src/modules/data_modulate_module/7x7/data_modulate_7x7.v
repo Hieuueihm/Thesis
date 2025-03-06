@@ -64,19 +64,26 @@ module data_modulate_7x7 #(
     output done_o
 );
 
-  wire start;
-  wire [2:0] i_counter;
+  wire finish_en;
   wire o_en;
-  data_modulate_7x7_controller CONTROLLER_7X7 (
-      .clk(clk),
-      .rst_n(rst_n),
-      .done_i(done_i),
-      .i_counter(i_counter),
-      .done_o(done_o),
-      .o_en(o_en),
-      .start(start)
-  );
+  wire count_en;
+  wire reset_en;
+  wire padding_fi;
+  wire load_en;
 
+  data_modulate_5x5_controller CONTROLLER_7x7 (
+      .rst_n(rst_n),
+      .clk(clk),
+      .done_i(done_i),
+      .padding_fi(padding_fi),
+      .finish_en(finish_en),
+      .o_en(o_en),
+      .o_valid(done_o),
+      .count_en(count_en),
+      .reset_en(reset_en),
+      .load_en(load_en)
+
+  );
   data_modulate_7x7_datapath #(
       .ROWS(ROWS),
       .COLS(COLS)
@@ -91,7 +98,6 @@ module data_modulate_7x7 #(
       .d4_i(d4_i),
       .d5_i(d5_i),
       .d6_i(d6_i),
-      .start(start),
       .o_en(o_en),
       .d0_o(d0_o),
       .d1_o(d1_o),
@@ -142,8 +148,11 @@ module data_modulate_7x7 #(
       .d46_o(d46_o),
       .d47_o(d47_o),
       .d48_o(d48_o),
-      .i_counter(i_counter),
-      .done_o(done_o)
+      .finish_en(finish_en),
+      .padding_fi(padding_fi),
+      .count_en(count_en),
+      .reset_en(reset_en),
+      .load_en(load_en)
   );
 
 endmodule

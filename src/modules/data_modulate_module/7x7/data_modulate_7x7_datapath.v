@@ -2,17 +2,16 @@ module data_modulate_7x7_datapath #(
     parameter ROWS = 7,
     parameter COLS = 7
 ) (
-    input clk,
-    input rst_n,
-    input [7:0] d0_i,
-    input [7:0] d1_i,
-    input [7:0] d2_i,
-    input [7:0] d3_i,
-    input [7:0] d4_i,
-    input [7:0] d5_i,
-    input [7:0] d6_i,
-    input start,
-    input o_en,
+    input            clk,
+    input            rst_n,
+    input      [7:0] d0_i,
+    input      [7:0] d1_i,
+    input      [7:0] d2_i,
+    input      [7:0] d3_i,
+    input      [7:0] d4_i,
+    input      [7:0] d5_i,
+    input      [7:0] d6_i,
+    input            o_en,
     output reg [7:0] d0_o,
     output reg [7:0] d1_o,
     output reg [7:0] d2_o,
@@ -62,30 +61,22 @@ module data_modulate_7x7_datapath #(
     output reg [7:0] d46_o,
     output reg [7:0] d47_o,
     output reg [7:0] d48_o,
-    output reg done_reg,
-    output reg [2:0] i_counter,
-    input done_o
+    output           finish_en,
+    output           padding_fi,
+    input            count_en,
+    input            reset_en,
+    input            load_en
 );
-  reg  done_o_prev;
-  wire done_o_negedge;
-  always @(posedge clk) begin
-    if (~rst_n) begin
-      done_o_prev <= 0;
-    end else begin
-      done_o_prev <= done_o;
-    end
-  end
-
-  assign done_o_negedge = (done_o_prev == 1 & done_o == 0) ? 1'b1 : 1'b0;
   reg [9:0] i_row, i_col;
 
   wire i_col_eq_max = (i_col == COLS - 1) ? 1 : 0;
   wire i_row_eq_max = (i_row == ROWS - 1) ? 1 : 0;
 
+
   always @(posedge clk) begin
     if (~rst_n) begin
       i_col <= 0;
-    end else if (done_o_negedge) begin
+    end else if (reset_en) begin
       i_col <= 0;
     end else if (i_col_eq_max) begin
       i_col <= 0;
@@ -98,7 +89,7 @@ module data_modulate_7x7_datapath #(
   always @(posedge clk) begin
     if (~rst_n) begin
       i_row <= 0;
-    end else if (done_o_negedge) begin
+    end else if (reset_en) begin
       i_row <= 0;
     end else if (i_row == ROWS) begin
       i_row <= 0;
@@ -107,22 +98,18 @@ module data_modulate_7x7_datapath #(
     end
 
   end
-
+  reg [2:0] i_counter;
   always @(posedge clk) begin
     if (~rst_n) begin
       i_counter <= 0;
-    end else if (done_o_negedge) begin
-      i_counter <= 0;
-
-    end else if (i_col_eq_max & i_row_eq_max) begin
-      i_counter <= 0;
-    end else if (i_counter == 4) begin
-      i_counter <= i_counter;
-    end else if (start) begin
+    end else if (count_en) begin
       i_counter <= i_counter + 1;
+    end else begin
+      i_counter <= 0;
     end
   end
-
+  assign padding_fi = (i_counter == 2) ? 1 : 0;
+  assign finish_en  = (i_col_eq_max & i_row_eq_max) ? 1'b1 : 1'b0;
 
   reg [7:0]
       data0,
@@ -367,7 +354,7 @@ module data_modulate_7x7_datapath #(
 
     end else begin
       // d7 d6 d5 d4 d3 d2 d1
-      if (start) begin
+      if (load_en) begin
         data0  <= data1;
         data1  <= data2;
         data2  <= data3;

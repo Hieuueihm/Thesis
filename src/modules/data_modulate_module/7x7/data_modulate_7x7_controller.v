@@ -2,22 +2,75 @@ module data_modulate_7x7_controller (
     input rst_n,
     input clk,
     input done_i,
-    input [2:0] i_counter,  // 8
-    output done_o,
+    input padding_fi,
+    input finish_en,
+    output o_valid,
     output o_en,
-    output start
+    output reg count_en,
+    output reg reset_en,
+    output load_en
 );
-  wire o_en_r = (i_counter == 4) ? 1 : 0;
-  assign o_en = o_en_r;
+
+  parameter IDLE = 2'b00;
+  parameter START = 2'b01;
+  parameter DATA = 2'b10;
+  parameter DONE = 2'b11;
+  reg [2:0] current_state, next_state;
+  always @(posedge clk) begin
+    if (~rst_n) begin
+      current_state <= IDLE;
+    end else begin
+      current_state <= next_state;
+    end
+  end
+
+  always @(*) begin
+    next_state = current_state;
+    case (current_state)
+      IDLE:  next_state = (done_i) ? START : IDLE;
+      START: next_state = (padding_fi) ? DATA : START;
+      DATA:  next_state = (finish_en) ? DONE : DATA;
+      DONE:  next_state = IDLE;
+
+    endcase
+  end
+  reg output_en;
+  assign o_en = output_en;
   dff #(
       .WIDTH(1)
   ) DFF_DONE (
       .clk(clk),
       .rst_n(rst_n),
-      .D(o_en_r),
-      .Q(done_o)
+      .D(output_en),
+      .Q(o_valid)
   );
-  assign start = done_i;
+  reg load_en_q;
+  assign load_en = done_i | load_en_q;
+  always @(*) begin
+    output_en = 0;
+    count_en  = 0;
+    reset_en  = 0;
+    load_en_q = 0;
+    case (current_state)
+      IDLE: begin
+      end
+      START: begin
+        count_en  = 1'b1;
+        reset_en  = 1'b1;
+        load_en_q = 1'b1;
+      end
+      DATA: begin
+        output_en = 1'b1;
+        load_en_q = 1'b1;
+      end
+      DONE: begin
+
+      end
+
+    endcase
+  end
+
+
 
 
 endmodule

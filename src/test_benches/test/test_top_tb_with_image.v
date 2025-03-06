@@ -5,6 +5,8 @@
 `define READ_FILENAME "D:\\Thesis\\data\\inputs\\test_input.bmp"
 `define OUTPUT_TEXTFILE "D://Thesis//codetest//python//input_image_read.txt"
 `define clk_period 10
+`define half_clk_period 5
+
 module test_top_tb_with_image ();
 
   reg clk;
@@ -127,16 +129,18 @@ module test_top_tb_with_image ();
     i_valid = 1'b0;
     @(posedge o_intr);
 
+    @(posedge o_intr);
+    #(`clk_period * 10);
+    #1000;
 
-    // $stop;
-    #(`clk_period * 10);
-    start_i = 1'b1;
-    i_data_ready = 1'b1;
-    #(`clk_period * 10);
-    start_i = 1'b0;
-    #(`clk_period * 10);
 
-    i_valid = 1'b1;
+    #(`clk_period);
+    start_i <= 1'b1;
+    #(`clk_period);
+    start_i <= 1'b0;
+    #(`clk_period * 5);
+    i_valid <= 1'b1;
+
     // Gửi dữ liệu ảnh vào thiết bị xử lý
     for (i = 0; i < bmp_width * bmp_height; i = i + 1) begin
       grayscale_i = img_out[i];
@@ -169,8 +173,9 @@ module test_top_tb_with_image ();
 
   initial begin
     clk = 1'b0;
-    forever #5 clk = ~clk;
   end
+  always #(`half_clk_period) clk = ~clk;
+
   always @(posedge clk) begin
     if (o_valid) begin
       $fwrite(file_out, "%d\n", histogram_o);

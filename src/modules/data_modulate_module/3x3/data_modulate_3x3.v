@@ -1,3 +1,4 @@
+
 module data_modulate_3x3 #(
     parameter ROWS = 5,
     parameter COLS = 5
@@ -20,21 +21,26 @@ module data_modulate_3x3 #(
     output done_o
 );
 
-  wire [2:0] i_counter;
-  wire start;
+  wire finish_en;
   wire o_en;
+  wire count_en;
+  wire reset_en;
+  wire padding_fi;
+  wire load_en;
 
   data_modulate_3x3_controller CONTROLLER_3X3 (
       .rst_n(rst_n),
       .clk(clk),
       .done_i(done_i),
-      .i_counter(i_counter),
+      .padding_fi(padding_fi),
+      .finish_en(finish_en),
       .o_en(o_en),
-      .done_o(done_o),
-      .start(start)
+      .o_valid(done_o),
+      .count_en(count_en),
+      .reset_en(reset_en),
+      .load_en(load_en)
 
   );
-
   data_modulate_3x3_datapath #(
       .ROWS(ROWS),
       .COLS(COLS)
@@ -44,8 +50,6 @@ module data_modulate_3x3 #(
       .d0_i(d0_i),
       .d1_i(d1_i),
       .d2_i(d2_i),
-      .done_o(done_o),
-      .start(start),
       .o_en(o_en),
       .d0_o(d0_o),
       .d1_o(d1_o),
@@ -56,7 +60,11 @@ module data_modulate_3x3 #(
       .d6_o(d6_o),
       .d7_o(d7_o),
       .d8_o(d8_o),
-      .i_counter(i_counter)
+      .finish_en(finish_en),
+      .padding_fi(padding_fi),
+      .count_en(count_en),
+      .reset_en(reset_en),
+      .load_en(load_en)
   );
 
 
