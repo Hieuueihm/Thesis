@@ -48,26 +48,30 @@ class MRELBP():
         # r = 2 -> window_size = 5
         window_size = 2 * in_r + 1
 
-        width, height = image.shape
-        out = np.zeros((width - 2 * in_r, height - 2 * in_r), dtype=np.uint8)
+        height, width = image.shape
+        # print(height, width)
+        out = np.zeros((height - 2 * in_r, width - 2 * in_r), dtype=np.uint8)
 
         x = int(in_r /  2)
-        sum_o = np.zeros((width - 2 * in_r, height - 2 * in_r))
+        sum_o = np.zeros((height - 2 * in_r, width - 2 * in_r))
 
-        pixel_central =  np.zeros((width - 2 * in_r, height - 2 * in_r))
-        muy_arr_central = np.zeros((width - 2 * in_r, height - 2 * in_r))
+        pixel_central =  np.zeros((height - 2 * in_r, width - 2 * in_r))
+        # muy_arr_central = np.zeros((width - 2 * in_r, height - 2 * in_r))
 
-        coup = np.zeros((width - 2 * in_r, height - 2 * in_r), dtype=object)
+        # coup = np.zeros((width - 2 * in_r, height - 2 * in_r), dtype=object)
 
 
-        for i in range(0,height - 2 * in_r):
-            for j in range(0,width - 2 * in_r):
-                area = image[i : i + 2 * in_r +1, j :j +  2 * in_r+1]
+        for i in range(0,height - 2 * in_r ):
+            for j in range(0,width - 2 * in_r ):
+                area = image[i : i +window_size, j :j +  window_size]
                 # print(image[i + x][j + x])
                 # print(area)
+                # print(i, j)
+
                 sum_o[i, j] = np.sum(area)
                 # muy = np.mean(area)
-                pixel_central[i, j] = image[i + 2 * x][j + 2 * x]
+                pixel_central[i, j] = image[i + in_r, j + in_r]
+                # pixel_central[i, j] = image[i + 2 * x][j + 2 * x]
                 scale_value = pixel_central[i, j] * ((2*in_r + 1)**2)
 
                 # if scale_value == sum_o[i, j]:
@@ -282,7 +286,7 @@ class MRELBP():
         #         for j in range(RD.shape[1]):
         #             rd_bin = format(RD[i, j], '08b')  # 8-bit binary for RD
                     # f.write(f'{rd_bin}\n')
-        NI_width, NI_height = NI.shape
+        NI_height, NI_width = NI.shape
         for i in range(0, NI_height):
             for j in range(0, NI_width):
                 NI_transitions = self.checkU2(np.uint8(NI[i, j]))
@@ -372,8 +376,8 @@ class MRELBP():
         # write_to_filecheck("ni_r6.txt", NI_r6)
         # write_to_filecheck("rd_r6.txt", RD_r6)
 
-        # write_to_filecheck("ni_r4.txt", NI_r4)
-        # write_to_filecheck("rd_r4.txt", RD_r4)
+        write_to_filecheck("ni_r4.txt", NI_r4)
+        write_to_filecheck("rd_r4.txt", RD_r4)
 
 
         write_to_filecheck("ni_r2.txt", NI_r2)
@@ -505,9 +509,9 @@ class MRELBP():
         return S
 
     def getNI_RD(self, image_r1, image_r2, r2):
-        width, height = image_r2.shape
-        NI = np.zeros((width - 2 * r2, height - 2 * r2), dtype = np.uint8)
-        RD = np.zeros((width - 2 * r2, height - 2 * r2), dtype = np.uint8)
+        height, width = image_r2.shape
+        NI = np.zeros((height - 2 * r2, width - 2 * r2), dtype = np.uint8)
+        RD = np.zeros((height - 2 * r2, width - 2 * r2), dtype = np.uint8)
         r1 = r2 - 1
         # print(r1, r2)
 
@@ -545,7 +549,7 @@ class MRELBP():
 
 
 # Example Usage
-np.random.seed(8)
+np.random.seed(10)
 
 size = 128
 
@@ -568,7 +572,7 @@ file_path = "random_matrix.txt"
 write_to_filecheck("D:\\Thesis\codetest\\python\\img.txt", img)
 
 lbp = MRELBP()
-lbp.MRELBP(img)
+lbp.MRELBP(random_matrix)
 np.savetxt(file_path, random_matrix, fmt='%d')
 
 

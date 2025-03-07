@@ -23,7 +23,7 @@ module buffer_8_rows #(
   wire line_buffer_o_start[7:0];
   wire line_buffer_o_finish[7:0];
 
-  assign done_o  = line_buffer_o_valid[7];  // line buffer 7 done
+  assign done_o  = line_buffer_o_start[7];  // line buffer 7 done
   assign data0_o = data_i;
   assign data1_o = line_buffer_out[0];
   assign data2_o = line_buffer_out[1];

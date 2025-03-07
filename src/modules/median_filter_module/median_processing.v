@@ -40,43 +40,43 @@ module median_processing #(
   assign data_o = d3_o;
   assign done_o = done_original_o;
 
-  integer fileint;
+  //   integer fileint;
 
-  initial begin
-    // Mở file để ghi dữ liệu
-    fileint = $fopen("D:\\Thesis\\codetest\\python\\input_verilog.txt", "w");
-    if (fileint == 0) begin
-      $display("Error: Unable to open one or more files!");
-      $stop;
-    end
-  end
-  reg done_prev;
+  //   initial begin
+  //     // Mở file để ghi dữ liệu
+  //     fileint = $fopen("D:\\Thesis\\codetest\\python\\input_verilog.txt", "w");
+  //     if (fileint == 0) begin
+  //       $display("Error: Unable to open one or more files!");
+  //       $stop;
+  //     end
+  //   end
+  //   reg done_prev;
 
-  integer count1;
-  always @(posedge clk) begin
-    if (~rst_n) begin
-      done_prev <= 0;
-      count1 = 0;
-    end else begin
-      done_prev <= prepare_done_o;
-    end
-  end
-  assign negedege = (done_prev == 1 && prepare_done_o == 0) ? 1'b1 : 1'b0;
-  always @(posedge clk) begin
-    if (prepare_done_o) begin
-      $fwrite(fileint, "%d %d %d %d %d %d %d\n", d0_o, d1_o, d2_o, d3_o, d4_o, d5_o, d6_o);
-      $fflush(fileint);
+  //   integer count1;
+  //   always @(posedge clk) begin
+  //     if (~rst_n) begin
+  //       done_prev <= 0;
+  //       count1 = 0;
+  //     end else begin
+  //       done_prev <= prepare_done_o;
+  //     end
+  //   end
+  //   assign negedege = (done_prev == 1 && prepare_done_o == 0) ? 1'b1 : 1'b0;
+  //   always @(posedge clk) begin
+  //     if (prepare_done_o) begin
+  //       $fwrite(fileint, "%d %d %d %d %d %d %d\n", d0_o, d1_o, d2_o, d3_o, d4_o, d5_o, d6_o);
+  //       $fflush(fileint);
 
-    end
+  //     end
 
-    if (negedege) begin
-      count1 = count1 + 1;
-      $fwrite(fileint, "end1\n");
-      $fflush(fileint);
-    end else if (negedege && count1 == 1) begin
-      $fclose(fileint);
-    end
-  end
+  //     if (negedege) begin
+  //       count1 = count1 + 1;
+  //       $fwrite(fileint, "end1\n");
+  //       $fflush(fileint);
+  //     end else if (negedege && count1 == 1) begin
+  //       $fclose(fileint);
+  //     end
+  //   end
 
 
 
@@ -140,72 +140,72 @@ module median_processing #(
       .done_o(done_7x7_o)
   );
 
-  integer file_3x3, file_5x5, file_7x7;
+  //   integer file_3x3, file_5x5, file_7x7;
 
-  initial begin
-    // Mở file để ghi dữ liệu
-    file_3x3 = $fopen("D:\\Thesis\\codetest\\python\\median_3x3_verilog.txt", "w");
-    file_5x5 = $fopen("D:\\Thesis\\codetest\\python\\median_5x5_verilog.txt", "w");
-    file_7x7 = $fopen("D:\\Thesis\\codetest\\python\\median_7x7_verilog.txt", "w");
+  //   initial begin
+  //     // Mở file để ghi dữ liệu
+  //     file_3x3 = $fopen("D:\\Thesis\\codetest\\python\\median_3x3_verilog.txt", "w");
+  //     file_5x5 = $fopen("D:\\Thesis\\codetest\\python\\median_5x5_verilog.txt", "w");
+  //     file_7x7 = $fopen("D:\\Thesis\\codetest\\python\\median_7x7_verilog.txt", "w");
 
-    if (file_3x3 == 0 || file_5x5 == 0 || file_7x7 == 0) begin
-      $display("Error: Unable to open one or more files!");
-      $stop;
-    end
-  end
-  reg done_3x3_prev;
-  reg done_5x5_prev;
-  reg done_7x7_prev;
-  integer count;
-  always @(posedge clk) begin
-    if (~rst_n) begin
-      done_3x3_prev <= 0;
-      done_5x5_prev <= 0;
-      done_7x7_prev <= 0;
-      count = 0;
-    end else begin
-      done_3x3_prev <= done_3x3_o;
-      done_5x5_prev <= done_5x5_o;
-      done_7x7_prev <= done_7x7_o;
-    end
-  end
+  //     if (file_3x3 == 0 || file_5x5 == 0 || file_7x7 == 0) begin
+  //       $display("Error: Unable to open one or more files!");
+  //       $stop;
+  //     end
+  //   end
+  //   reg done_3x3_prev;
+  //   reg done_5x5_prev;
+  //   reg done_7x7_prev;
+  //   integer count;
+  //   always @(posedge clk) begin
+  //     if (~rst_n) begin
+  //       done_3x3_prev <= 0;
+  //       done_5x5_prev <= 0;
+  //       done_7x7_prev <= 0;
+  //       count = 0;
+  //     end else begin
+  //       done_3x3_prev <= done_3x3_o;
+  //       done_5x5_prev <= done_5x5_o;
+  //       done_7x7_prev <= done_7x7_o;
+  //     end
+  //   end
 
-  always @(posedge clk) begin
-    if (done_3x3_o) begin
-      $fwrite(file_3x3, "%d\n", m_3x3_o);
-      $fflush(file_3x3);
-    end
-    if (done_5x5_o) begin
-      $fwrite(file_5x5, "%d\n", m_5x5_o);
-      $fflush(file_5x5);
-    end
-    if (done_7x7_o) begin
-      $fwrite(file_7x7, "%d\n", m_7x7_o);
-      $fflush(file_7x7);
+  //   always @(posedge clk) begin
+  //     if (done_3x3_o) begin
+  //       $fwrite(file_3x3, "%d\n", m_3x3_o);
+  //       $fflush(file_3x3);
+  //     end
+  //     if (done_5x5_o) begin
+  //       $fwrite(file_5x5, "%d\n", m_5x5_o);
+  //       $fflush(file_5x5);
+  //     end
+  //     if (done_7x7_o) begin
+  //       $fwrite(file_7x7, "%d\n", m_7x7_o);
+  //       $fflush(file_7x7);
 
-    end
-    if (done_3x3_prev == 1 && done_3x3_o == 0) begin
-      count = count + 1;
-      $fwrite(file_3x3, "end\n");
+  //     end
+  //     if (done_3x3_prev == 1 && done_3x3_o == 0) begin
+  //       count = count + 1;
+  //       $fwrite(file_3x3, "end\n");
 
-    end else if (done_3x3_prev == 1 && done_3x3_o == 0 && count == 3) begin
-      $fclose(file_3x3);
-    end
-    if (done_5x5_prev == 1 && done_5x5_o == 0) begin
-      count = count + 1;
-      $fwrite(file_5x5, "end\n");
+  //     end else if (done_3x3_prev == 1 && done_3x3_o == 0 && count == 3) begin
+  //       $fclose(file_3x3);
+  //     end
+  //     if (done_5x5_prev == 1 && done_5x5_o == 0) begin
+  //       count = count + 1;
+  //       $fwrite(file_5x5, "end\n");
 
-    end else if (done_5x5_prev == 1 && done_5x5_o == 0 && count == 3) begin
-      $fclose(file_5x5);
-    end
-    if (done_7x7_prev == 1 && done_7x7_o == 0) begin
-      count = count + 1;
-      $fwrite(file_7x7, "end\n");
+  //     end else if (done_5x5_prev == 1 && done_5x5_o == 0 && count == 3) begin
+  //       $fclose(file_5x5);
+  //     end
+  //     if (done_7x7_prev == 1 && done_7x7_o == 0) begin
+  //       count = count + 1;
+  //       $fwrite(file_7x7, "end\n");
 
-    end else if (done_7x7_prev == 1 && done_7x7_o == 0 && count == 3) begin
-      $fclose(file_7x7);
-    end
-  end
+  //     end else if (done_7x7_prev == 1 && done_7x7_o == 0 && count == 3) begin
+  //       $fclose(file_7x7);
+  //     end
+  //   end
 
 
 endmodule

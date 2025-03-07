@@ -111,8 +111,6 @@ module test_top_tb ();
     i_valid <= 1'b0;
 
     @(posedge o_intr);
-    #(`clk_period * 10);
-    #10000;
 
 
     #(`clk_period);
