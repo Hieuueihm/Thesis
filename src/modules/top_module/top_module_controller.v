@@ -4,7 +4,6 @@ module top_module__controller (
     input finish_i,
     input start_en,
     input read_finish,
-    input start_i,
     output reg o_intr,
     output reg read_en
 );
@@ -20,7 +19,7 @@ module top_module__controller (
   always @(*) begin
     next_state = current_state;
     case (current_state)
-      IDLE:    next_state = (start_i) ? PROCESS : IDLE;
+      IDLE:    next_state = (start_en) ? PROCESS : IDLE;
       PROCESS: next_state = (finish_i) ? READ : PROCESS;
       READ:    next_state = (read_finish) ? FINISH : READ;
       FINISH:  next_state = IDLE;

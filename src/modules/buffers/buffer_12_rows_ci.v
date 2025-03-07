@@ -22,12 +22,13 @@ module buffer_12_rows_ci #(
     output done_r4_o,
     output done_r2_o
 );
-
   wire [7:0] line_buffer_out[11:0];
-  wire line_buffer_done[11:0];
-  assign done_r6_o = line_buffer_done[11] & line_buffer_done[2] & done_i;  // line buffer 7 done
-  assign done_r2_o = line_buffer_done[3] & line_buffer_done[2] & done_i;
-  assign done_r4_o = line_buffer_done[7] & line_buffer_done[2] & done_i;
+  wire line_buffer_o_valid[11:0];
+  wire line_buffer_o_start[11:0];
+  wire line_buffer_o_finish[11:0];
+  assign done_r6_o = line_buffer_o_start[11];  // line buffer 7 done
+  assign done_r2_o = line_buffer_o_start[3];
+  assign done_r4_o = line_buffer_o_start[7];
 
   assign data0_o   = data_i;
   assign data1_o   = line_buffer_out[0];
@@ -51,9 +52,11 @@ module buffer_12_rows_ci #(
           .clk(clk),
           .rst_n(rst_n),
           .data_i((i == 0) ? data_i : line_buffer_out[i-1]),
-          .done_i((i == 0) ? (done_i) : line_buffer_done[i-1]),
+          .done_i((i == 0) ? (done_i) : line_buffer_o_valid[i-1]),
           .data_o(line_buffer_out[i]),
-          .done_o(line_buffer_done[i])
+          .o_start(line_buffer_o_start[i]),
+          .o_valid(line_buffer_o_valid[i]),
+          .o_finish(line_buffer_o_finish[i])
       );
     end
   endgenerate

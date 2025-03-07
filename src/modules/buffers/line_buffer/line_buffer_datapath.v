@@ -1,5 +1,4 @@
 
-
 module line_buffer_datapath #(
     parameter DEPTH = 1024
 ) (
@@ -7,62 +6,72 @@ module line_buffer_datapath #(
     input rst_n,
     input wr_en,
     input rd_en,
+    input reset_en,
     input [7:0] data_i,
     output [7:0] data_o,
-    output reg [9:0] i_counter,
-    input done_o
+    output first_done,
+    output last_done
 );
 
-  reg  done_o_prev;
-  wire done_o_negedge;
-  always @(posedge clk) begin
-    if (~rst_n) begin
-      done_o_prev <= 0;
-    end else begin
-      done_o_prev <= done_o;
-    end
-  end
+  reg [ 9:0] wr_pointer;
+  reg [ 9:0] rd_pointer;
+  reg [31:0] count_num_inp;
+  reg [31:0] count_num_oup;
 
-  assign done_o_negedge = (done_o_prev == 1 & done_o == 0) ? 1'b1 : 1'b0;
-  reg [9:0] internal_wr_pointer;
-  reg [9:0] internal_rd_pointer;
   always @(posedge clk) begin
     if (~rst_n) begin
-      internal_wr_pointer <= 0;
-    end else if (done_o_negedge) begin
-      internal_wr_pointer <= 0;
+      count_num_inp <= 0;
+    end else if (reset_en) begin
+      count_num_inp <= 0;
     end else if (wr_en) begin
-      internal_wr_pointer <= internal_wr_pointer + 1;
-    end
-    if (internal_wr_pointer == DEPTH - 1) begin
-      internal_wr_pointer <= 0;
-    end
-  end
-  always @(posedge clk) begin
-    if (~rst_n) begin
-      i_counter <= 0;
-    end else if (done_o_negedge) begin
-      i_counter <= 0;
-    end else if (wr_en & (i_counter < DEPTH - 2)) begin
-      i_counter <= i_counter + 1;
+      count_num_inp <= count_num_inp + 1;
     end
 
   end
 
-
   always @(posedge clk) begin
     if (~rst_n) begin
-      internal_rd_pointer <= 0;
-    end else if (done_o_negedge) begin
-      internal_rd_pointer <= 0;
+      count_num_oup <= 0;
+    end else if (reset_en) begin
+      count_num_oup <= 0;
     end else if (rd_en) begin
-      internal_rd_pointer <= internal_rd_pointer + 1;
+      count_num_oup <= count_num_oup + 1;
     end
-    if (internal_rd_pointer == DEPTH - 1) begin
-      internal_rd_pointer <= 0;
+  end
+
+  assign first_done = (count_num_inp == DEPTH - 2) ? 1'b1 : 1'b0;
+  assign last_done  = (count_num_oup == count_num_inp) ? 1'b1 : 1'b0;
+
+  always @(posedge clk) begin
+    if (~rst_n) begin
+      wr_pointer <= 0;
+    end else if (reset_en) begin
+      wr_pointer <= 0;
+    end else if (wr_en) begin
+      wr_pointer <= wr_pointer + 1;
+    end
+    if (wr_pointer == DEPTH - 1) begin
+      wr_pointer <= 0;
+    end
+  end
+
+
+  always @(posedge clk) begin
+    if (~rst_n) begin
+      rd_pointer <= 0;
+    end else if (reset_en) begin
+      rd_pointer <= 0;
+    end else if (rd_en) begin
+      rd_pointer <= rd_pointer + 1;
+    end
+    if (rd_pointer == DEPTH - 1) begin
+      rd_pointer <= 0;
     end
 
   end
+
+
+
 
 
 
@@ -72,8 +81,8 @@ module line_buffer_datapath #(
   ) memory_inst (
       .clk(clk),
       .rst_n(rst_n),
-      .r_addr(internal_rd_pointer),
-      .w_addr(internal_wr_pointer),
+      .r_addr(rd_pointer),
+      .w_addr(wr_pointer),
       .ren(rd_en),
       .wren(wr_en),
       .w_data(data_i),

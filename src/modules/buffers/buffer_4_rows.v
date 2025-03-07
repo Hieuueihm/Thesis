@@ -14,8 +14,11 @@ module buffer_4_rows #(
 );
 
   wire [7:0] line_buffer_out[3:0];
-  wire line_buffer_done[4:0];
-  assign done_o  = line_buffer_done[3] & line_buffer_done[2] & done_i;  // line buffer 7 done
+  wire line_buffer_o_valid[3:0];
+  wire line_buffer_o_start[3:0];
+  wire line_buffer_o_finish[3:0];
+
+  assign done_o  = line_buffer_o_start[3];  // line buffer 7 done
   assign data0_o = data_i;
   assign data1_o = line_buffer_out[0];
   assign data2_o = line_buffer_out[1];
@@ -30,9 +33,11 @@ module buffer_4_rows #(
           .clk(clk),
           .rst_n(rst_n),
           .data_i((i == 0) ? data_i : line_buffer_out[i-1]),
-          .done_i((i == 0) ? (done_i) : line_buffer_done[i-1]),
+          .done_i((i == 0) ? (done_i) : line_buffer_o_valid[i-1]),
           .data_o(line_buffer_out[i]),
-          .done_o(line_buffer_done[i])
+          .o_start(line_buffer_o_start[i]),
+          .o_valid(line_buffer_o_valid[i]),
+          .o_finish(line_buffer_o_finish[i])
       );
     end
   endgenerate

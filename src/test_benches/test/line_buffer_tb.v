@@ -9,18 +9,24 @@ module line_buffer_tb;
   reg done_i;
   reg [7:0] data_i;
   wire [7:0] data_o;
-  wire done_o;
+  wire o_valid;
+  wire o_start;
+  wire o_finish;
 
   // Instantiate the DUT (Device Under Test)
+
   line_buffer #(
-      .DEPTH(14)
+      .DEPTH(20)
   ) dut (
       .clk(clk),
       .rst_n(rst_n),
       .done_i(done_i),
       .data_i(data_i),
       .data_o(data_o),
-      .done_o(done_o)
+      .o_start(o_start),
+      .o_valid(o_valid),
+      .o_finish(o_finish)
+
   );
 
   // Clock generation
@@ -37,7 +43,7 @@ module line_buffer_tb;
     #20 rst_n = 1;
 
     // Write data into the buffer
-    for (i = 0; i < 30; i = i + 1) begin
+    for (i = 0; i < 60; i = i + 1) begin
       data_i = i + 1;
       done_i = 1;
       #10;  // Wait for a clock cycle
@@ -53,8 +59,5 @@ module line_buffer_tb;
     $stop;
   end
 
-  // Monitor output
-  initial begin
-    $monitor("Time = %0t, data_i = %d, data_o = %d, done_o = %b", $time, data_i, data_o, done_o);
-  end
+
 endmodule

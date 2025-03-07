@@ -35,8 +35,7 @@ module top_module #(
       .start_en   (start_en),
       .read_finish(read_finish),
       .o_intr     (o_intr_o),
-      .read_en    (read_en),
-      .start_i    (start_i)
+      .read_en    (read_en)
   );
   top_module__datapath #(
       .COLS(COLS),

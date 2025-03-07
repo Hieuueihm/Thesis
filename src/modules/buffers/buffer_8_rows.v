@@ -18,10 +18,12 @@ module buffer_8_rows #(
 );
 
 
-
   wire [7:0] line_buffer_out[7:0];
-  wire line_buffer_done[7:0];
-  assign done_o  = line_buffer_done[7] & line_buffer_done[2] & done_i;  // line buffer 7 done
+  wire line_buffer_o_valid[7:0];
+  wire line_buffer_o_start[7:0];
+  wire line_buffer_o_finish[7:0];
+
+  assign done_o  = line_buffer_o_valid[7];  // line buffer 7 done
   assign data0_o = data_i;
   assign data1_o = line_buffer_out[0];
   assign data2_o = line_buffer_out[1];
@@ -40,9 +42,11 @@ module buffer_8_rows #(
           .clk(clk),
           .rst_n(rst_n),
           .data_i((i == 0) ? data_i : line_buffer_out[i-1]),
-          .done_i((i == 0) ? (done_i) : line_buffer_done[i-1]),
+          .done_i((i == 0) ? (done_i) : line_buffer_o_valid[i-1]),
           .data_o(line_buffer_out[i]),
-          .done_o(line_buffer_done[i])
+          .o_start(line_buffer_o_start[i]),
+          .o_valid(line_buffer_o_valid[i]),
+          .o_finish(line_buffer_o_finish[i])
       );
     end
   endgenerate

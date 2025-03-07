@@ -315,22 +315,22 @@ class MRELBP():
     def MRELBP(self, image):
         start_time = time.time()
         m_3x3, m_5x5, m_7x7, m_9x9 = self.median_processing(image)
-        # with open('median_3x3.txt', 'w') as f:
-        #     for i in range(m_3x3.shape[0]):
-        #         for j in range(m_3x3.shape[1]):
-        #             f.write(str(m_3x3[i, j]))
-        #             f.write("\n")
+        with open('median_3x3.txt', 'w') as f:
+            for i in range(m_3x3.shape[0]):
+                for j in range(m_3x3.shape[1]):
+                    f.write(str(m_3x3[i, j]))
+                    f.write("\n")
 
-        # with open('median_5x5.txt', 'w') as f:
-        #     for i in range(m_5x5.shape[0]):
-        #         for j in range(m_5x5.shape[1]):
-        #             f.write(str(m_5x5[i, j]))
-        #             f.write("\n")
-        # with open('median_7x7.txt', 'w') as f:
-        #     for i in range(m_7x7.shape[0]):
-        #         for j in range(m_7x7.shape[1]):
-        #             f.write(str(m_7x7[i, j]))
-        #             f.write("\n")
+        with open('median_5x5.txt', 'w') as f:
+            for i in range(m_5x5.shape[0]):
+                for j in range(m_5x5.shape[1]):
+                    f.write(str(m_5x5[i, j]))
+                    f.write("\n")
+        with open('median_7x7.txt', 'w') as f:
+            for i in range(m_7x7.shape[0]):
+                for j in range(m_7x7.shape[1]):
+                    f.write(str(m_7x7[i, j]))
+                    f.write("\n")
                     
         # with open('median_3x3_view.txt', 'w') as f:
         #     for row in m_3x3:
@@ -376,8 +376,8 @@ class MRELBP():
         # write_to_filecheck("rd_r4.txt", RD_r4)
 
 
-        # write_to_filecheck("ni_r2.txt", NI_r2)
-        # write_to_filecheck("rd_r2.txt", RD_r2)
+        write_to_filecheck("ni_r2.txt", NI_r2)
+        write_to_filecheck("rd_r2.txt", RD_r2)
 
 
                     
@@ -558,7 +558,7 @@ def resize_bmp(input_file, output_file, size=(128, 128)):
     # Ghi ảnh đã thay đổi kích thước ra file BMP khác
     cv2.imwrite(output_file, img_resized)
     print(f"Ảnh đã được lưu tại {output_file}")
-resize_bmp('D:\\Thesis\\codetest\\python\\Train\\Dataset\\Outex-TC-00010\\images\\000005.bmp', 'D:\\Thesis\\data\\inputs\\test_input.bmp')
+# resize_bmp('D:\\Thesis\\codetest\\python\\Train\\Dataset\\Outex-TC-00010\\images\\000005.bmp', 'D:\\Thesis\\data\\inputs\\test_input.bmp')
 random_matrix = np.random.randint(0, 256, size=(size, size), dtype=np.uint8)
 np.savetxt("D:\\Thesis\src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
 
@@ -568,7 +568,7 @@ file_path = "random_matrix.txt"
 write_to_filecheck("D:\\Thesis\codetest\\python\\img.txt", img)
 
 lbp = MRELBP()
-lbp.MRELBP(random_matrix)
+lbp.MRELBP(img)
 np.savetxt(file_path, random_matrix, fmt='%d')
 
 
@@ -647,8 +647,8 @@ compare_files(file1, file2)
 # compare_files(file1, file2)
 
 
-# file1 = 'rd_r6_verilog.txt'
-# file2 = 'rd_r6.txt'
+# file1 = 'rd_r2_verilog.txt'
+# file2 = 'rd_r2.txt'
 # compare_files(file1, file2)
 
 
