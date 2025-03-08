@@ -273,7 +273,7 @@ module interpolation_calc #(
 
   reg [23:0] mult_result1, mult_result2, mult_result3, mult_result4;
   reg [23:0] add_result1, add_result2;
-  (* use_dsp = "yes" *) reg [23:0] r1_mul_a, r2_mul_b, r3_mul_c, r4_mul_d;
+  reg [23:0] r1_mul_a, r2_mul_b, r3_mul_c, r4_mul_d;
   reg [23:0] add_12, add_34;
   reg [23:0] add_result;
 

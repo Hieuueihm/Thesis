@@ -142,6 +142,7 @@ module window_buffer_11x11 #(
 );
   wire i_row_eq_max, i_col_eq_max, i_col_ge_threshold;
   wire count_en;
+  wire reset_en;
   window_buffer_11x11_controller inst_window_buffer_11x11_controller (
       .clk               (clk),
       .rst_n             (rst_n),
@@ -151,7 +152,8 @@ module window_buffer_11x11 #(
       .i_col_ge_threshold(i_col_ge_threshold),
       .count_en          (count_en),
       .progress_done     (progress_done_o),
-      .done_o            (done_o)
+      .done_o            (done_o),
+      .reset_en          (reset_en)
   );
 
   window_buffer_11x11_datapath #(
@@ -296,7 +298,7 @@ module window_buffer_11x11 #(
       .S121_o            (S121_o),
       .i_col_eq_max      (i_col_eq_max),
       .i_col_ge_threshold(i_col_ge_threshold),
-      .progress_done     (progress_done_o)
+      .reset_en          (reset_en)
   );
 
 endmodule

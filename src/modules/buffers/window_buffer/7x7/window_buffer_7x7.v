@@ -66,6 +66,7 @@ module window_buffer_7x7 #(
 );
   wire i_row_eq_max, i_col_eq_max, i_col_ge_threshold;
   wire count_en;
+  wire reset_en;
   window_buffer_7x7_controller WINDOW_BUFFER_7X7_CONTROLLER (
       .clk(clk),
       .rst_n(rst_n),
@@ -75,7 +76,8 @@ module window_buffer_7x7 #(
       .i_col_ge_threshold(i_col_ge_threshold),
       .count_en(count_en),
       .progress_done(progress_done_o),
-      .done_o(done_o)
+      .done_o(done_o),
+      .reset_en(reset_en)
   );
 
   window_buffer_7x7_datapath #(
@@ -144,7 +146,7 @@ module window_buffer_7x7 #(
       .S49_o(S49_o),
       .i_col_eq_max(i_col_eq_max),
       .i_col_ge_threshold(i_col_ge_threshold),
-      .progress_done(progress_done_o)
+      .reset_en(reset_en)
   );
 
 endmodule

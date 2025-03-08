@@ -19,25 +19,16 @@ module r2_sum #(
     output reg [9:0] i_counter,
     output [7:0] central_value,
     output i_start_gt_1,
-    input progress_done_o
+    input reset_en
 );
-  reg  progress_done_prev;
-  wire progress_done_negedge;
-  always @(posedge clk) begin
-    if (~rst_n) begin
-      progress_done_prev <= 0;
-    end else begin
-      progress_done_prev <= progress_done_o;
-    end
-  end
-  assign progress_done_negedge = (progress_done_prev == 1 & progress_done_o == 0) ? 1'b1 : 1'b0;
+
 
   reg [1:0] i_start;
 
   always @(posedge clk) begin
     if (~rst_n) begin
       i_start <= 0;
-    end else if (progress_done_negedge) begin
+    end else if (reset_en) begin
       i_start <= 0;
     end else if (start_en) begin
       i_start <= i_start + 1;
@@ -54,7 +45,7 @@ module r2_sum #(
   always @(posedge clk) begin
     if (~rst_n) begin
       i_counter <= 0;
-    end else if (progress_done_negedge) begin
+    end else if (reset_en) begin
       i_counter <= 0;
     end else if (i_counter_eq_max) begin
       i_counter <= 0;
@@ -67,7 +58,7 @@ module r2_sum #(
   always @(posedge clk) begin
     if (~rst_n) begin
       i_row <= 0;
-    end else if (progress_done_negedge) begin
+    end else if (reset_en) begin
       i_row <= 0;
     end else if (i_counter_eq_max) begin
       i_row <= i_row + 1;

@@ -38,27 +38,18 @@ module window_buffer_5x5_datapath #(
     S25_o,
     output i_col_eq_max,
     output i_col_ge_threshold,
-    input progress_done
+    input reset_en
 
 );
 
-  reg  progress_done_prev;
-  wire progress_done_negedge;
-  always @(posedge clk) begin
-    if (~rst_n) begin
-      progress_done_prev <= 0;
-    end else begin
-      progress_done_prev <= progress_done;
-    end
-  end
-  assign progress_done_negedge = (progress_done_prev == 1 & progress_done == 0) ? 1'b1 : 1'b0;
+
   reg [9:0] i_counter;
   reg [9:0] i_row;
 
   always @(posedge clk) begin
     if (~rst_n) begin
       i_counter <= 0;
-    end else if (progress_done_negedge) begin
+    end else if (reset_en) begin
       i_counter <= 0;
     end else if (count_en) begin
       i_counter <= i_counter + 1;
@@ -74,7 +65,7 @@ module window_buffer_5x5_datapath #(
   always @(posedge clk) begin
     if (~rst_n) begin
       i_row <= 0;
-    end else if (progress_done_negedge) begin
+    end else if (reset_en) begin
       i_row <= 0;
     end else if (i_col_eq_max) begin
       i_row <= i_row + 1;

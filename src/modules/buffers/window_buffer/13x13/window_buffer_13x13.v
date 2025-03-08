@@ -192,6 +192,7 @@ module window_buffer_13x13 #(
 );
   wire i_row_eq_max, i_col_eq_max, i_col_ge_threshold;
   wire count_en;
+  wire reset_en;
 
   window_buffer_13x13_datapath #(
       .COLS(COLS),
@@ -385,7 +386,7 @@ module window_buffer_13x13 #(
       .S169_o            (S169_o),
       .i_col_eq_max      (i_col_eq_max),
       .i_col_ge_threshold(i_col_ge_threshold),
-      .progress_done     (progress_done_o)
+      .reset_en          (reset_en)
   );
 
   window_buffer_13x13_controller inst_window_buffer_13x13_controller (
@@ -397,7 +398,8 @@ module window_buffer_13x13 #(
       .i_col_ge_threshold(i_col_ge_threshold),
       .count_en          (count_en),
       .progress_done     (progress_done_o),
-      .done_o            (done_o)
+      .done_o            (done_o),
+      .reset_en          (reset_en)
   );
 
 

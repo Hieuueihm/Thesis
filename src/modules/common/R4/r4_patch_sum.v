@@ -26,6 +26,7 @@ module r4_patch_sum #(
   wire start_en;
   wire [7:0] central_value;
   wire i_row_eq_max;
+  wire reset_en;
   r4_controller #(
       .COLS(COLS)
   ) r4_CONTROLLER (
@@ -41,7 +42,8 @@ module r4_patch_sum #(
       .count_en(count_en),
       .i_row_eq_max(i_row_eq_max),
       .start_en(start_en),
-      .progress_done(progress_done_o)
+      .progress_done(progress_done_o),
+      .reset_en(reset_en)
 
   );
 
@@ -70,7 +72,7 @@ module r4_patch_sum #(
       .i_start_gt_2(i_start_gt_2),
       .central_value(central_value),
       .start_en(start_en),
-      .progress_done_o(progress_done_o)
+      .reset_en(reset_en)
 
 
   );

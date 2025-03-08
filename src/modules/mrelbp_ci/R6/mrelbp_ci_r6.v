@@ -35,6 +35,7 @@ module mrelbp_ci_r6 #(
   wire [15:0] sum_o;
   wire [7:0] central_value;
   wire i_row_eq_max;
+  wire reset_en;
 
 
 
@@ -53,7 +54,8 @@ module mrelbp_ci_r6 #(
       .count_en(count_en),
       .start_en(start_en),
       .i_row_eq_max(i_row_eq_max),
-      .progress_done(progress_done_o)
+      .progress_done(progress_done_o),
+      .reset_en(reset_en)
 
   );
 
@@ -86,7 +88,7 @@ module mrelbp_ci_r6 #(
       .i_row_eq_max(i_row_eq_max),
       .central_value(central_value),
       .start_en(start_en),
-      .progress_done_o(progress_done_o)
+      .reset_en(reset_en)
 
 
   );

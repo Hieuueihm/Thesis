@@ -20,6 +20,7 @@ module median_processing #(
   wire [7:0] d0_o, d1_o, d2_o, d3_o, d4_o, d5_o, d6_o;
   wire prepare_done_o;
   wire done_original_o;
+
   preparation_6 #(
       .DEPTH(COLS)
   ) median_PREPARATION (
@@ -39,7 +40,6 @@ module median_processing #(
   );
   assign data_o = d3_o;
   assign done_o = done_original_o;
-
   //   integer fileint;
 
   //   initial begin

@@ -40,6 +40,7 @@ module window_buffer_5x5 #(
 );
   wire i_row_eq_max, i_col_eq_max, i_col_ge_threshold;
   wire count_en;
+  wire reset_en;
   window_buffer_5x5_controller WINDOW_BUFFER_5X5_CONTROLLER (
       .clk(clk),
       .rst_n(rst_n),
@@ -49,7 +50,8 @@ module window_buffer_5x5 #(
       .i_col_ge_threshold(i_col_ge_threshold),
       .count_en(count_en),
       .progress_done(progress_done_o),
-      .done_o(done_o)
+      .done_o(done_o),
+      .reset_en(reset_en)
   );
 
   window_buffer_5x5_datapath #(
@@ -92,7 +94,7 @@ module window_buffer_5x5 #(
       .S25_o(S25_o),
       .i_col_eq_max(i_col_eq_max),
       .i_col_ge_threshold(i_col_ge_threshold),
-      .progress_done(progress_done_o)
+      .reset_en(reset_en)
   );
 
 endmodule

@@ -22,6 +22,7 @@ module window_buffer_3x3 #(
 );
   wire i_row_eq_max, i_col_eq_max, i_col_ge_threshold;
   wire count_en;
+  wire reset_en;
   window_buffer_3x3_controller WINDOW_BUFFER_3X3_CONTROLLER (
       .clk(clk),
       .rst_n(rst_n),
@@ -31,7 +32,8 @@ module window_buffer_3x3 #(
       .i_col_ge_threshold(i_col_ge_threshold),
       .count_en(count_en),
       .progress_done(progress_done_o),
-      .done_o(done_o)
+      .done_o(done_o),
+      .reset_en(reset_en)
   );
 
   window_buffer_3x3_datapath #(
@@ -55,7 +57,7 @@ module window_buffer_3x3 #(
       .S8_o(S8_o),
       .S9_o(S9_o),
       .i_col_eq_max(i_col_eq_max),
-      .progress_done(progress_done_o),
+      .reset_en(reset_en),
       .i_col_ge_threshold(i_col_ge_threshold)
   );
 

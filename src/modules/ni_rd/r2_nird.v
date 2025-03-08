@@ -560,31 +560,31 @@ module r2_nird #(
       .progress_done_o(progress_done_o)
   );
 
-  integer file, file1;
-  integer count;
-  always @(posedge clk) begin
-    if (~rst_n) begin
-      file  = $fopen("D:\\Thesis\\codetest\\python\\rd_r2_verilog.txt", "w");
-      file1 = $fopen("D:\\Thesis\\codetest\\python\\ni_r2_verilog.txt", "w");
-      count = 0;
-    end else if (done_o) begin
-      if (file) begin
-        $fwrite(file, "%d\n", rd_o);
-        $fwrite(file1, "%d\n", ni_o);
-        $fflush(file);
-        $fflush(file1);
-      end
-    end
-    if (progress_done_o && count == 0) begin
-      count = count + 1;
-      $fwrite(file1, "end\n");
-      $fwrite(file, "end\n");
+  //   integer file, file1;
+  //   integer count;
+  //   always @(posedge clk) begin
+  //     if (~rst_n) begin
+  //       file  = $fopen("D:\\Thesis\\codetest\\python\\rd_r2_verilog.txt", "w");
+  //       file1 = $fopen("D:\\Thesis\\codetest\\python\\ni_r2_verilog.txt", "w");
+  //       count = 0;
+  //     end else if (done_o) begin
+  //       if (file) begin
+  //         $fwrite(file, "%d\n", rd_o);
+  //         $fwrite(file1, "%d\n", ni_o);
+  //         $fflush(file);
+  //         $fflush(file1);
+  //       end
+  //     end
+  //     if (progress_done_o && count == 0) begin
+  //       count = count + 1;
+  //       $fwrite(file1, "end\n");
+  //       $fwrite(file, "end\n");
 
-    end else if (progress_done_o && count == 1) begin
-      $fclose(file);
-      $fclose(file1);
-    end
+  //     end else if (progress_done_o && count == 1) begin
+  //       $fclose(file);
+  //       $fclose(file1);
+  //     end
 
-  end
+  //   end
 
 endmodule

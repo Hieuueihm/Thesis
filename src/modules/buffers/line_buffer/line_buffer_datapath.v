@@ -13,10 +13,10 @@ module line_buffer_datapath #(
     output last_done
 );
 
-  reg [ 9:0] wr_pointer;
-  reg [ 9:0] rd_pointer;
-  reg [31:0] count_num_inp;
-  reg [31:0] count_num_oup;
+  (* use_carry_chain = "yes" *)reg [ 9:0] wr_pointer;
+  (* use_carry_chain = "yes" *)reg [ 9:0] rd_pointer;
+  (* use_carry_chain = "yes" *)reg [31:0] count_num_inp;
+  (* use_carry_chain = "yes" *)reg [31:0] count_num_oup;
 
   always @(posedge clk) begin
     if (~rst_n) begin

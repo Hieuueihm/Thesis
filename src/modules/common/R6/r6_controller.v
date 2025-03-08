@@ -13,7 +13,8 @@ module r6_controller #(
     output reg count_en,
     output reg start_en,
     output reg ld_en,
-    output reg progress_done
+    output reg progress_done,
+    output reg reset_en
 );
   // i_col = 0 -> done_o = 0
   // reg [9:0] counter;
@@ -76,6 +77,7 @@ module r6_controller #(
     sum_en        = 1'b0;
     start_en      = 1'b0;
     progress_done = 1'b0;
+    reset_en      = 1'b0;
 
     case (current_state)
       IDLE: begin
@@ -103,6 +105,7 @@ module r6_controller #(
       end
       FINISH_ALL: begin
         progress_done = 1'b1;
+        reset_en = 1'b1;
       end
       DONE: begin
         progress_done = 1'b0;

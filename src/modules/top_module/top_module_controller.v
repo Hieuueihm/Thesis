@@ -36,12 +36,12 @@ module top_module__controller (
       PROCESS: begin
       end
       READ: begin
-        read_en <= 1'b1;
+        read_en = 1'b1;
       end
 
       FINISH: begin
-        read_en <= 1'b0;
-        o_intr  <= 1'b1;
+        read_en = 1'b0;
+        o_intr  = 1'b1;
       end
 
 

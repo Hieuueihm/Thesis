@@ -195,10 +195,7 @@ module riu2_mapping (
       .result(sumall_)
   );
 
-  assign gt = (sum_all) > 2 ? 1'b1 : 1'b0;
-  wire [3:0] mux1;
-  assign mux1   = (gt == 1'b1) ? 4'd9 : sumall_;
-  assign data_o = mux1;
+  assign data_o = (sum_all) > 2 ? 4'd9 : sumall_;
 
   dff #(
       .WIDTH(1)

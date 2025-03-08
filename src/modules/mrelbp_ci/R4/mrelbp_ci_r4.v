@@ -28,6 +28,7 @@ module mrelbp_ci_r4 #(
   wire [14:0] sum_o;
   wire [7:0] central_value;
   wire i_row_eq_max;
+  wire reset_en;
 
 
   r4_controller #(
@@ -45,7 +46,8 @@ module mrelbp_ci_r4 #(
       .count_en(count_en),
       .i_row_eq_max(i_row_eq_max),
       .start_en(start_en),
-      .progress_done(progress_done_o)
+      .progress_done(progress_done_o),
+      .reset_en(reset_en)
 
   );
 
@@ -74,7 +76,7 @@ module mrelbp_ci_r4 #(
       .i_start_gt_2(i_start_gt_2),
       .central_value(central_value),
       .start_en(start_en),
-      .progress_done_o(progress_done_o)
+      .reset_en(reset_en)
 
 
   );

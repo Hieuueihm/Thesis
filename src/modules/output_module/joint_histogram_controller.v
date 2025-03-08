@@ -7,7 +7,8 @@ module joint_histogram_controller (
     output reg done_o,
     output reg finish,
     output reg count_en,
-    output reg read_en
+    output reg read_en,
+    output reg reset_en
 );
 
   parameter IDLE = 3'b000,
@@ -37,6 +38,7 @@ module joint_histogram_controller (
     finish   = 0;
     count_en = 0;
     read_en  = 0;
+    reset_en = 0;
 
     case (current_state)
       IDLE: begin
@@ -54,7 +56,8 @@ module joint_histogram_controller (
       end
 
       FINISH: begin
-        finish = 1;
+        finish   = 1;
+        reset_en = 1;
 
       end
     endcase

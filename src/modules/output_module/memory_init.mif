@@ -1,0 +1,11 @@
+DEPTH = 256;          -- Số ô nhớ
+WIDTH = 8;           -- Độ rộng của mỗi ô nhớ
+ADDRESS_RADIX = HEX;  -- Hệ cơ số địa chỉ
+DATA_RADIX = HEX;     -- Hệ cơ số dữ liệu
+CONTENT BEGIN
+  00 : 0000;
+  01 : 0000;
+  02 : 0000;
+  ...
+  FF : 0000;
+END;

@@ -12,7 +12,7 @@ module sum_cumulative #(
 );
 
   wire [WIDTH2-1:0] sum_next;
-  wire [WIDTH2-1:0] mux_a_out;
+  (* use_carry_chain = "yes" *)wire [WIDTH2-1:0] mux_a_out;
 
   assign mux_a_out = en ? (sum_out + data_in1 + data_in2) : sum_out;
 

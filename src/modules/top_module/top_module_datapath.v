@@ -272,43 +272,12 @@ module top_module__datapath #(
       .finish(finish)
   );
 
-  // integer file, file1, file2;
-  // always @(posedge clk) begin
-  //   if (~rst_n) begin
-  //     file  = $fopen("D:\\Thesis\\codetest\\python\\cinird_r2_verilog.txt", "w");
-  //     file1 = $fopen("D:\\Thesis\\codetest\\python\\cinird_r4_verilog.txt", "w");
-  //     file2 = $fopen("D:\\Thesis\\codetest\\python\\cinird_r6_verilog.txt", "w");
-  //   end
-
-  //   if (r2_valid) begin
-  //     $fwrite(file, "%d\n", cinird_r2);
-  //   end
-  //   if (r2_finish) begin
-  //     $fclose(file);
-  //   end
-
-  //   if (r4_valid) begin
-  //     $fwrite(file1, "%d\n", cinird_r4);
-  //   end
-  //   if (r4_finish) begin
-  //     $fclose(file1);
-  //   end
-
-  //   if (r6_valid) begin
-  //     $fwrite(file2, "%d\n", cinird_r6);
-  //   end
-  //   if (finish) begin
-  //     $fclose(file2);
-  //   end
-
-  // end
-
 
   reg [7:0] write_addr_r2, write_addr_r4, write_addr_r6;
-  reg [9:0] read_addr;
-  reg [15:0] ram_r2[0:199];
-  reg [15:0] ram_r4[0:199];
-  reg [15:0] ram_r6[0:199];
+  reg [7:0] read_addr;
+  (* ram_style = "block" *) reg [15:0] ram_r2[0:199];
+  (* ram_style = "block" *) reg [15:0] ram_r4[0:199];
+  (* ram_style = "block" *) reg [15:0] ram_r6[0:199];
 
   always @(posedge clk) begin
     if (~rst_n) begin

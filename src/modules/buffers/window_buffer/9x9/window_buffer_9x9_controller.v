@@ -7,7 +7,8 @@ module window_buffer_9x9_controller (
     input i_col_ge_threshold,
     output reg count_en,
     output reg progress_done,
-    output reg done_o
+    output reg done_o,
+    output reg reset_en
 );
 
   reg [2:0] current_state, next_state;
@@ -45,6 +46,7 @@ module window_buffer_9x9_controller (
     count_en      = 1'b0;
     done_o        = 1'b0;
     progress_done = 1'b0;
+    reset_en      = 1'b0;
     case (current_state)
       IDLE: begin
 
@@ -61,6 +63,8 @@ module window_buffer_9x9_controller (
       end
       FINISH_ALL: begin
         progress_done = 1'b1;
+        reset_en = 1'b1;
+
       end
       DONE: begin
         progress_done = 1'b0;

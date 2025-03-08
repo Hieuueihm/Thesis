@@ -33,6 +33,7 @@ module r6_patch_sum #(
   wire start_en;
   wire [7:0] central_value;
   wire i_row_eq_max;
+  wire reset_en;
 
   r6_controller #(
       .COLS(COLS)
@@ -49,7 +50,8 @@ module r6_patch_sum #(
       .count_en(count_en),
       .start_en(start_en),
       .i_row_eq_max(i_row_eq_max),
-      .progress_done(progress_done_o)
+      .progress_done(progress_done_o),
+      .reset_en(reset_en)
 
   );
 
@@ -82,7 +84,7 @@ module r6_patch_sum #(
       .i_row_eq_max(i_row_eq_max),
       .central_value(central_value),
       .start_en(start_en),
-      .progress_done_o(progress_done_o)
+      .reset_en(reset_en)
 
 
   );
