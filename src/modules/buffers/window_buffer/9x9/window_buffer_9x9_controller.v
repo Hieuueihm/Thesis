@@ -32,13 +32,11 @@ module window_buffer_9x9_controller (
     case (current_state)
       IDLE: next_state = (done_i) ? START : IDLE;
       START: next_state = START_COL;
-      START_COL:
-      next_state = i_row_eq_max ? FINISH_ALL : (i_col_ge_threshold) ? COL_OUT : START_COL;
-      COL_OUT: next_state = i_row_eq_max ? FINISH_ALL : (i_col_eq_max) ? END_COL : COL_OUT;
+      START_COL: next_state = (i_col_ge_threshold) ? COL_OUT : START_COL;
+      COL_OUT: next_state = (i_col_eq_max) ? END_COL : COL_OUT;
       END_COL: next_state = i_row_eq_max ? FINISH_ALL : START_COL;
 
-      FINISH_ALL: next_state = DONE;
-      DONE: next_state = IDLE;
+      FINISH_ALL: next_state = IDLE;
 
     endcase
   end
@@ -65,9 +63,6 @@ module window_buffer_9x9_controller (
         progress_done = 1'b1;
         reset_en = 1'b1;
 
-      end
-      DONE: begin
-        progress_done = 1'b0;
       end
     endcase
 

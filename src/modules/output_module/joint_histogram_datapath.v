@@ -9,7 +9,8 @@ module joint_histogram_datapath (
     input read_en,
     output [15:0] cinird_o,
     output reg done_read,
-    input reset_en
+    input reset_en,
+    output reset_done
 );
 
 
@@ -42,38 +43,31 @@ module joint_histogram_datapath (
 
   assign counter_value = ci_delay + ni_delay + rd_delay;
 
-  reg [15:0] register_array[0:199];
-  integer i;
+  (* ram_style = "block" *)reg [15:0] register_array[0:199];
+  reg [ 7:0] reset_index;
   reg [15:0] output_value;
-  reg [7:0] read_index;
+  reg [ 7:0] read_index;
+  assign reset_done = (reset_index == 200) ? 1'b1 : 1'b0;
   always @(posedge clk) begin
     if (~rst_n) begin
-      for (i = 0; i < 200; i = i + 1) begin
-        register_array[i] <= 0;
-      end
+      reset_index <= 0;
       output_value <= 0;
       read_index   <= 0;
       done_read    <= 0;
     end else if (reset_en) begin
-      for (i = 0; i < 200; i = i + 1) begin
-        register_array[i] <= 0;
-      end
+      reset_index <= 0;
       output_value <= 0;
       read_index   <= 0;
       done_read    <= 0;
+    end else if (reset_index < 200) begin
+      register_array[reset_index] <= 0;
+      reset_index <= reset_index + 1;
     end else if (count_en && done_delay) begin
       register_array[counter_value] <= register_array[counter_value] + 1;
     end else if (read_en) begin
       output_value <= register_array[read_index];
       read_index   <= read_index + 1;
-      if (read_index > 198) begin
-        done_read <= 1'b1;
-      end else begin
-        done_read <= 1'b0;
-      end
-    end else begin
-      output_value <= 0;
-      done_read    <= 0;
+      done_read    <= (read_index > 197);
     end
   end
   assign cinird_o = output_value;

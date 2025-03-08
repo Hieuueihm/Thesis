@@ -43,7 +43,6 @@ module r6_controller #(
   parameter SUM_EN = 3'b011;
   parameter CUM_EN = 3'b100;
   parameter FINISH_ALL = 3'b101;
-  parameter DONE = 3'b110;
   always @(posedge clk) begin
     if (~rst_n) begin
       current_state <= IDLE;
@@ -59,13 +58,12 @@ module r6_controller #(
 
     case (current_state)
       IDLE: next_state = (done_i) ? START : IDLE;
-      START: next_state = (i_row_eq_max) ? FINISH_ALL : (i_start_gt_2 == 1'b1) ? START_ROW : START;
-      START_ROW: next_state = (i_row_eq_max) ? FINISH_ALL : SUM_EN;
-      SUM_EN: next_state = (i_row_eq_max) ? FINISH_ALL : (i_counter > 11) ? CUM_EN : SUM_EN;
+      START: next_state = (i_start_gt_2 == 1'b1) ? START_ROW : START;
+      START_ROW: next_state = SUM_EN;
+      SUM_EN: next_state = (i_counter > 11) ? CUM_EN : SUM_EN;
       CUM_EN:
       next_state = (i_row_eq_max) ? FINISH_ALL : (i_counter > COLS - 2) ? START_ROW : CUM_EN;
-      FINISH_ALL: next_state = DONE;
-      DONE: next_state = IDLE;
+      FINISH_ALL: next_state = IDLE;
     endcase
   end
   always @(*) begin
@@ -107,9 +105,7 @@ module r6_controller #(
         progress_done = 1'b1;
         reset_en = 1'b1;
       end
-      DONE: begin
-        progress_done = 1'b0;
-      end
+
     endcase
   end
 

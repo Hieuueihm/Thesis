@@ -5,8 +5,8 @@ module joint_histogram (
     input [3:0] ni_i,
     input [3:0] rd_i,
     input done_i,
-    input progress_done_i,
     output [15:0] cinird_o,
+    input read_en,
     output done_o,
     output finish
 );
@@ -14,17 +14,18 @@ module joint_histogram (
   wire done_read;
   wire count_en, read_en;
   wire reset_en;
+  wire reset_done;
   joint_histogram_controller joint_CONTROLLER (
       .clk(clk),
       .rst_n(rst_n),
       .done_i(done_i),
-      .progress_done_i(progress_done_i),
       .done_read(done_read),
       .done_o(done_o),
       .finish(finish),
       .count_en(count_en),
       .read_en(read_en),
-      .reset_en(reset_en)
+      .reset_en(reset_en),
+      .reset_done(reset_done)
   );
 
   joint_histogram_datapath joint_DATAPATH (
@@ -38,7 +39,8 @@ module joint_histogram (
       .read_en(read_en),
       .cinird_o(cinird_o),
       .done_read(done_read),
-      .reset_en(reset_en)
+      .reset_en(reset_en),
+      .reset_done(reset_done)
   );
 
 

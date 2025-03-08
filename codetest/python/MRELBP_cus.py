@@ -551,7 +551,7 @@ class MRELBP():
 # Example Usage
 np.random.seed(10)
 
-size = 30
+size = 128
 
 def resize_bmp(input_file, output_file, size=(128, 128)):
     # Mở ảnh BMP ở chế độ grayscale

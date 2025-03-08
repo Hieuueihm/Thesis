@@ -37,7 +37,8 @@ module top_module__datapath #(
 
 
 
-  wire [7:0] done_original_o, data_original_o;
+  wire [7:0] data_original_o;
+  wire done_original_o;
   wire [7:0] m_3x3_o;
   wire done_m_3x3_o;
   wire [7:0] m_5x5_o;
@@ -67,7 +68,7 @@ module top_module__datapath #(
   wire ci_r2_o, done_ci_r2, progress_done_ci_r2;
   wire ci_r4_o, done_ci_r4, progress_done_ci_r4;
   wire ci_r6_o, done_ci_r6, progress_done_ci_r6;
-
+  reg read_r2_en, read_r4_en, read_r6_en;
 
   ci_top #(
       .ROWS(ROWS),
@@ -144,7 +145,7 @@ module top_module__datapath #(
       .ni_i(ni_r2_o),
       .rd_i(rd_r2_o),
       .done_i(done_r2_nird),
-      .progress_done_i(progress_done_r2_nird),
+      .read_en(read_r2_en),
       .cinird_o(cinird_r2),
       .done_o(r2_valid),
       .finish(r2_finish)
@@ -203,7 +204,7 @@ module top_module__datapath #(
       .ni_i(ni_r4_o),
       .rd_i(rd_r4_o),
       .done_i(done_r4_nird),
-      .progress_done_i(progress_done_r4_nird),
+      .read_en(read_r4_en),
       .cinird_o(cinird_r4),
       .done_o(r4_valid),
       .finish(r4_finish)
@@ -226,7 +227,7 @@ module top_module__datapath #(
       .rd_o(rd_r6_o),
       .ni_o(ni_r6_o),
       .done_o(done_r6_nird),
-      .progress_done_o(progress_done_r6_nird)
+      .progress_done_o(finish)
   );
 
   wire ci_r6_delay;
@@ -257,7 +258,7 @@ module top_module__datapath #(
 
 
 
-
+  wire r6_finish;
 
   joint_histogram joint_r6 (
       .clk(clk),
@@ -266,89 +267,59 @@ module top_module__datapath #(
       .ni_i(ni_r6_o),
       .rd_i(rd_r6_o),
       .done_i(done_r6_nird),
-      .progress_done_i(progress_done_r6_nird),
+      .read_en(read_r6_en),
       .cinird_o(cinird_r6),
       .done_o(r6_valid),
-      .finish(finish)
+      .finish(r6_finish)
   );
 
-
-  reg [7:0] write_addr_r2, write_addr_r4, write_addr_r6;
-  reg [7:0] read_addr;
-  (* ram_style = "block" *) reg [15:0] ram_r2[0:199];
-  (* ram_style = "block" *) reg [15:0] ram_r4[0:199];
-  (* ram_style = "block" *) reg [15:0] ram_r6[0:199];
-
-  always @(posedge clk) begin
-    if (~rst_n) begin
-      write_addr_r2 <= 0;
-      write_addr_r4 <= 0;
-      write_addr_r6 <= 0;
-    end else if (start_en) begin
-      write_addr_r2 <= 0;
-      write_addr_r4 <= 0;
-      write_addr_r6 <= 0;
-    end else begin
-      if (r2_valid) begin
-        ram_r2[write_addr_r2] <= cinird_r2;
-        write_addr_r2         <= write_addr_r2 + 1;
-      end
-      if (r4_valid) begin
-        ram_r4[write_addr_r4] <= cinird_r4;
-        write_addr_r4         <= write_addr_r4 + 1;
-      end
-      if (r6_valid) begin
-        ram_r6[write_addr_r6] <= cinird_r6;
-        write_addr_r6         <= write_addr_r6 + 1;
-      end
-    end
-  end
   reg [15:0] data_out;
   reg [ 2:0] read_stage;
 
   always @(posedge clk) begin
     if (~rst_n) begin
-      read_addr   <= 0;
       read_stage  <= 3'b00;
       data_out    <= 0;
       o_valid     <= 0;
       read_finish <= 0;
+      read_r2_en  <= 1'b0;
+      read_r4_en  <= 1'b0;
+      read_r6_en  <= 1'b0;
     end else if (start_en) begin
-      read_addr   <= 0;
       read_stage  <= 3'b00;
       data_out    <= 0;
       o_valid     <= 0;
       read_finish <= 0;
+      read_r2_en  <= 1'b0;
+      read_r4_en  <= 1'b0;
+      read_r6_en  <= 1'b0;
     end else if (read_en) begin
       case (read_stage)
         3'b000: begin
-          o_valid  <= 1'b1;
-          data_out <= ram_r2[read_addr];
-          if (read_addr == 199) begin
+          o_valid <= r2_valid;
+          read_r2_en <= 1'b1;
+          data_out <= cinird_r2;
+          if (r2_finish == 1'b1) begin
             read_stage <= 3'b001;
-            read_addr  <= 0;
-          end else begin
-            read_addr <= read_addr + 1;
+            read_r2_en <= 1'b0;
           end
         end
         3'b001: begin
-
-          o_valid  <= 1'b1;
-          data_out <= ram_r4[read_addr];
-          if (read_addr == 199) begin
+          o_valid <= r4_valid;
+          read_r4_en <= 1'b1;
+          data_out <= cinird_r4;
+          if (r4_finish == 1'b1) begin
             read_stage <= 3'b010;
-            read_addr  <= 0;
-          end else begin
-            read_addr <= read_addr + 1;
+            read_r4_en <= 1'b0;
           end
         end
         3'b010: begin
-          o_valid  <= 1'b1;
-          data_out <= ram_r6[read_addr];
-          if (read_addr == 199) begin
+          o_valid <= r6_valid;
+          read_r6_en <= 1'b1;
+          data_out <= cinird_r6;
+          if (r6_finish == 1'b1) begin
             read_stage <= 3'b011;
-          end else begin
-            read_addr <= read_addr + 1;
+            read_r6_en <= 1'b0;
           end
         end
         3'b011: begin
