@@ -72,7 +72,7 @@ module top_module #(
 
       .axis_prog_full(axis_prog_full)
   );
-  wire o_intr_q;
+  wire o_intr_q, o_intr_q1, o_intr_q2;
   register #(
       .WIDTH(1)
   ) register_o_intr (
@@ -81,13 +81,29 @@ module top_module #(
       .D(o_intr_o),
       .Q(o_intr_q)
   );
-
   register #(
       .WIDTH(1)
-  ) register_o_intr_q1 (
+  ) register_o_intr_2 (
       .clk(clk),
       .rst_n(rst_n),
       .D(o_intr_q),
+      .Q(o_intr_q1)
+  );
+  register #(
+      .WIDTH(1)
+  ) register_o_intr_3 (
+      .clk(clk),
+      .rst_n(rst_n),
+      .D(o_intr_q1),
+      .Q(o_intr_q2)
+  );
+
+  register #(
+      .WIDTH(1)
+  ) register_o_intr_4 (
+      .clk(clk),
+      .rst_n(rst_n),
+      .D(o_intr_q2),
       .Q(o_intr)
   );
   //   integer file;

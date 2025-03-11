@@ -129,18 +129,17 @@ s32 dma_init(){
 	myDmaConfig = XAxiDma_LookupConfigBaseAddr(XPAR_AXI_DMA_0_BASEADDR);
 	return XAxiDma_CfgInitialize(&myDma, myDmaConfig);
 }
-s32 intr_init(){
+
+s32 intr_enable(u8 priority, intr_trigger_e trigger_type){
+    s32 status;
 	myIntrConfig = XScuGic_LookupConfig(XPAR_PS7_SCUGIC_0_DEVICE_ID);
 	if (myIntrConfig ==NULL) {
 	        xil_printf("Interrupt controller lookup failed\n");
 	        return XST_FAILURE;
 	    }
-	return XScuGic_CfgInitialize(&myIntr, myIntrConfig, myIntrConfig -> CpuBaseAddress);
-}
+	status = XScuGic_CfgInitialize(&myIntr, myIntrConfig, myIntrConfig -> CpuBaseAddress);
 
-s32 intr_enable(u8 priority, intr_trigger_e trigger_type){
-    s32 status;
-    if(intr_init() != XST_SUCCESS) {
+    if(status != XST_SUCCESS) {
 			print("Interrupt initialization failed...\n");
 			return -1;
 	}
