@@ -73,18 +73,18 @@ module top_module #(
       .axis_prog_full(axis_prog_full)
   );
   wire o_intr_q;
-  dff #(
+  register #(
       .WIDTH(1)
-  ) dff_o_intr (
+  ) register_o_intr (
       .clk(clk),
       .rst_n(rst_n),
       .D(o_intr_o),
       .Q(o_intr_q)
   );
 
-  dff #(
+  register #(
       .WIDTH(1)
-  ) dff_o_intr_q1 (
+  ) register_o_intr_q1 (
       .clk(clk),
       .rst_n(rst_n),
       .D(o_intr_q),

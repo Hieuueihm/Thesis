@@ -570,7 +570,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/common/dff.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/common/register.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -902,7 +902,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../Thesis/Src/modules/common/dff.v</spirit:name>
+        <spirit:name>../Thesis/Src/modules/common/register.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>

@@ -1,9 +1,10 @@
-module register #(
+module register_en #(
     parameter WIDTH = 8
 )  //  
 (
     input clk,
     input rst_n,
+    input en,
     input [WIDTH - 1:0] D,
     output [WIDTH - 1:0] Q
 );
@@ -12,7 +13,7 @@ module register #(
   always @(posedge clk) begin
     if (~rst_n) begin
       data_out <= 0;
-    end else begin
+    end else if (en) begin
       data_out <= D;
     end
   end

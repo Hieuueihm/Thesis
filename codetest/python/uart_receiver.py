@@ -19,6 +19,7 @@ def receive_histogram():
             data = ser.read(4)
             
             if len(data) == 4:  # Ensure we received all 4 bytes
+                print(data)
                 value = struct.unpack('<I', data)[0]  # '<I' for little-endian 32-bit unsigned int
                 histogram.append(value)
                 f.write(f"{value}\n")  # Write each value to the file with a newline

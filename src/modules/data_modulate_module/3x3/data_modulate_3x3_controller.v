@@ -37,9 +37,9 @@ module data_modulate_3x3_controller (
   end
   reg output_en;
   assign o_en = output_en;
-  dff #(
+  register #(
       .WIDTH(1)
-  ) DFF_DONE (
+  ) register_DONE (
       .clk(clk),
       .rst_n(rst_n),
       .D(output_en),

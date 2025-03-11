@@ -453,7 +453,7 @@ module test_r4 #(
   wire done_inter_r4_delay;
   wire finish_inter_r4_delay;
   wire [23:0] S1_r4_delay, S2_r4_delay, S3_r4_delay, S4_r4_delay, S5_r4_delay, S6_r4_delay, S7_r4_delay, S8_r4_delay;
-  dff #(
+  register #(
       .WIDTH(1)
   ) SHIFT_FIniSH_REGISTER (
       .clk(clk),
@@ -462,7 +462,7 @@ module test_r4 #(
       .D(finish_interpolation),
       .Q(finish_inter_r4_delay)
   );
-  dff #(
+  register #(
       .WIDTH(1)
   ) SHIFT_DONE_r4_O (
       .clk(clk),
@@ -472,7 +472,7 @@ module test_r4 #(
       .Q(done_inter_r4_delay)
   );
 
-  dff #(
+  register #(
       .WIDTH(24)
   ) SHIFT_S1_r4 (
       .clk(clk),
@@ -482,7 +482,7 @@ module test_r4 #(
       .Q(S1_r4_delay)
   );
 
-  dff #(
+  register #(
       .WIDTH(24)
   ) SHIFT_S2_r4 (
       .clk(clk),
@@ -492,7 +492,7 @@ module test_r4 #(
       .Q(S2_r4_delay)
   );
 
-  dff #(
+  register #(
       .WIDTH(24)
   ) SHIFT_S3_r4 (
       .clk(clk),
@@ -501,7 +501,7 @@ module test_r4 #(
       .D(S3_r4),
       .Q(S3_r4_delay)
   );
-  dff #(
+  register #(
       .WIDTH(24)
   ) SHIFT_S4_r4 (
       .clk(clk),
@@ -511,7 +511,7 @@ module test_r4 #(
       .Q(S4_r4_delay)
   );
 
-  dff #(
+  register #(
       .WIDTH(24)
   ) SHIFT_S5_r4 (
       .clk(clk),
@@ -520,7 +520,7 @@ module test_r4 #(
       .D(S5_r4),
       .Q(S5_r4_delay)
   );
-  dff #(
+  register #(
       .WIDTH(24)
   ) SHIFT_S6_r4 (
       .clk(clk),
@@ -529,7 +529,7 @@ module test_r4 #(
       .D(S6_r4),
       .Q(S6_r4_delay)
   );
-  dff #(
+  register #(
       .WIDTH(24)
   ) SHIFT_S7_r4 (
       .clk(clk),
@@ -539,7 +539,7 @@ module test_r4 #(
       .Q(S7_r4_delay)
   );
 
-  dff #(
+  register #(
       .WIDTH(24)
   ) SHIFT_S8_r4 (
       .clk(clk),
@@ -622,7 +622,7 @@ module test_r4 #(
   wire rd_done_delay, rd_progress_done_delay;
   wire bit1_delay, bit2_delay, bit3_delay, bit4_delay, bit5_delay, bit6_delay, bit7_delay, bit8_delay;
 
-  dff #(
+  register #(
       .WIDTH(1)
   ) SHIFT_FIniSH_REGISTER (
       .clk(clk),
@@ -631,7 +631,7 @@ module test_r4 #(
       .D(finish_interpolation),
       .Q(finish_inter_r4_delay)
   );
-  dff #(
+  register #(
       .WIDTH(1)
   ) SHIFT_DONE_r4_O (
       .clk(clk),
@@ -641,7 +641,7 @@ module test_r4 #(
       .Q(done_inter_r4_delay)
   );
 
-  dff #(
+  register #(
       .WIDTH(24)
   ) SHIFT_S1_r4 (
       .clk(clk),
@@ -651,7 +651,7 @@ module test_r4 #(
       .Q(S1_r4_delay)
   );
 
-  dff #(
+  register #(
       .WIDTH(24)
   ) SHIFT_S2_r4 (
       .clk(clk),
@@ -661,7 +661,7 @@ module test_r4 #(
       .Q(S2_r4_delay)
   );
 
-  dff #(
+  register #(
       .WIDTH(24)
   ) SHIFT_S3_r4 (
       .clk(clk),
@@ -670,7 +670,7 @@ module test_r4 #(
       .D(S3_r4),
       .Q(S3_r4_delay)
   );
-  dff #(
+  register #(
       .WIDTH(24)
   ) SHIFT_S4_r4 (
       .clk(clk),
@@ -680,7 +680,7 @@ module test_r4 #(
       .Q(S4_r4_delay)
   );
 
-  dff #(
+  register #(
       .WIDTH(24)
   ) SHIFT_S5_r4 (
       .clk(clk),
@@ -689,7 +689,7 @@ module test_r4 #(
       .D(S5_r4),
       .Q(S5_r4_delay)
   );
-  dff #(
+  register #(
       .WIDTH(24)
   ) SHIFT_S6_r4 (
       .clk(clk),
@@ -698,7 +698,7 @@ module test_r4 #(
       .D(S6_r4),
       .Q(S6_r4_delay)
   );
-  dff #(
+  register #(
       .WIDTH(24)
   ) SHIFT_S7_r4 (
       .clk(clk),
@@ -708,7 +708,7 @@ module test_r4 #(
       .Q(S7_r4_delay)
   );
 
-  dff #(
+  register #(
       .WIDTH(24)
   ) SHIFT_S8_r4 (
       .clk(clk),

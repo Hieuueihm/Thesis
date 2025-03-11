@@ -194,81 +194,81 @@ module r2_nird #(
   wire wdbf_5x5_pd_q;
   wire wdbf_5x5_done_q;
 
-  dff #(
+  register #(
       .WIDTH(8)
-  ) DFF_S6_3x3 (
+  ) register_S6_3x3 (
       .clk(clk),
       .rst_n(rst_n),
       .D(S6_o_3x3),
       .Q(S6_o_3x3_q)
   );
-  dff #(
+  register #(
       .WIDTH(8)
-  ) DFF_S2_3x3 (
+  ) register_S2_3x3 (
       .clk(clk),
       .rst_n(rst_n),
       .D(S2_o_3x3),
       .Q(S2_o_3x3_q)
   );
-  dff #(
+  register #(
       .WIDTH(8)
-  ) DFF_S4_3x3 (
+  ) register_S4_3x3 (
       .clk(clk),
       .rst_n(rst_n),
       .D(S4_o_3x3),
       .Q(S4_o_3x3_q)
   );
-  dff #(
+  register #(
       .WIDTH(8)
-  ) DFF_S8_3x3 (
+  ) register_S8_3x3 (
       .clk(clk),
       .rst_n(rst_n),
       .D(S8_o_3x3),
       .Q(S8_o_3x3_q)
   );
-  dff #(
+  register #(
       .WIDTH(8)
-  ) DFF_S3_3x3 (
+  ) register_S3_3x3 (
       .clk(clk),
       .rst_n(rst_n),
       .D(S3_o_3x3),
       .Q(S3_o_3x3_q)
   );
-  dff #(
+  register #(
       .WIDTH(8)
-  ) DFF_S1_3x3 (
+  ) register_S1_3x3 (
       .clk(clk),
       .rst_n(rst_n),
       .D(S1_o_3x3),
       .Q(S1_o_3x3_q)
   );
-  dff #(
+  register #(
       .WIDTH(8)
-  ) DFF_S7_3x3 (
+  ) register_S7_3x3 (
       .clk(clk),
       .rst_n(rst_n),
       .D(S7_o_3x3),
       .Q(S7_o_3x3_q)
   );
-  dff #(
+  register #(
       .WIDTH(8)
-  ) DFF_S9_3x3 (
+  ) register_S9_3x3 (
       .clk(clk),
       .rst_n(rst_n),
       .D(S9_o_3x3),
       .Q(S9_o_3x3_q)
   );
-  dff #(
+  register #(
       .WIDTH(1)
-  ) DFF_WDBF_5x5_PD (
+  ) register_WDBF_5x5_PD (
       .clk(clk),
       .rst_n(rst_n),
       .D(window_buffer_5x5_progress_done_o),
       .Q(wdbf_5x5_pd_q)
   );
-  dff #(
+  register #(
       .WIDTH(1)
-  ) DFF_WDBF_5x5_DONE (
+  ) register_WDBF_5x5_DONE (
       .clk(clk),
       .rst_n(rst_n),
       .D(window_buffer_5x5_done_o),
@@ -403,9 +403,9 @@ module r2_nird #(
       .progress_done_o(progress_patch_done)
   );
   wire [12:0] sum_o_patch_sum_delay;
-  dff #(
+  register #(
       .WIDTH(13)
-  ) DFF_SUM_O_PATCH_SUM (
+  ) register_SUM_O_PATCH_SUM (
       .clk(clk),
       .rst_n(rst_n),
       .D(sum_o_patch_sum),

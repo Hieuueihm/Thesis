@@ -12,7 +12,7 @@ module sum #(
 
   (* use_carry_chain = "yes" *) wire [WIDTH:0] sum;
   assign sum = a + b;
-  register #(
+  register_en #(
       .WIDTH(WIDTH + 1)
   ) SUM_R (
       .clk(clk),

@@ -562,7 +562,7 @@ def resize_bmp(input_file, output_file, size=(128, 128)):
     # Ghi ảnh đã thay đổi kích thước ra file BMP khác
     cv2.imwrite(output_file, img_resized)
     print(f"Ảnh đã được lưu tại {output_file}")
-# resize_bmp('D:\\Thesis\\codetest\\python\\Train\\Dataset\\Outex-TC-00010\\images\\000005.bmp', 'D:\\Thesis\\data\\inputs\\test_input.bmp')
+resize_bmp('D:\\Thesis\\codetest\\python\\Train\\Dataset\\Outex-TC-00010\\images\\000005.bmp', 'D:\\Thesis\\data\\inputs\\test_input.bmp')
 random_matrix = np.random.randint(0, 256, size=(size, size), dtype=np.uint8)
 np.savetxt("D:\\Thesis\src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
 
@@ -571,8 +571,22 @@ img = cv2.imread(image_file.rstrip(), cv2.IMREAD_GRAYSCALE)
 file_path = "random_matrix.txt"
 write_to_filecheck("D:\\Thesis\codetest\\python\\img.txt", img)
 
+img_data = img.flatten()
+# Chuyển thành định dạng mảng unsigned char trong C
+output_path = "img_ddr.txt"
+with open(output_path, "w") as f:
+    f.write("unsigned char imageData[] = {\n    ")
+    
+    # Xuất từng giá trị, cách nhau bởi dấu phẩy
+    for i, value in enumerate(img_data):
+        f.write(f"{value}, ")
+        if (i + 1) % 16 == 0:  # Xuống dòng sau mỗi 16 phần tử
+            f.write("\n    ")
+
+    f.write("\n};\n")
+# print(len(img_data))
 lbp = MRELBP()
-lbp.MRELBP(random_matrix)
+lbp.MRELBP(img)
 np.savetxt(file_path, random_matrix, fmt='%d')
 
 
@@ -638,9 +652,9 @@ def compare_files(file1, file2):
 file1 = 'histogram_o.txt'
 file2 = 'histogram_verilog.txt'
 compare_files(file1, file2)
-# file1 = 'histogram_o.txt'
-# file2 = 'histogram_verilog_1.txt'
-# compare_files(file1, file2)
+file1 = 'histogram_o.txt'
+file2 = 'histogram_data.txt'
+compare_files(file1, file2)
 
 # file1 = 'histogram_r6.txt'
 # file2 = 'cinird_r6_verilog.txt'

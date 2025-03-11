@@ -69,9 +69,9 @@ module riu2_mapping (
   );
 
   wire st1_done;
-  dff #(
+  register #(
       .WIDTH(1)
-  ) DONE_DFF1 (
+  ) DONE_register1 (
       .clk(clk),
       .rst_n(rst_n),
       .D(done_i),
@@ -99,9 +99,9 @@ module riu2_mapping (
       .result(sum_34)
   );
   wire st2_done;
-  dff #(
+  register #(
       .WIDTH(1)
-  ) DFF_DONE2 (
+  ) register_DONE2 (
       .clk(clk),
       .rst_n(rst_n),
       .D(st1_done),
@@ -197,9 +197,9 @@ module riu2_mapping (
 
   assign data_o = (sum_all) > 2 ? 4'd9 : sumall_;
 
-  dff #(
+  register #(
       .WIDTH(1)
-  ) DFF_DONE3 (
+  ) register_DONE3 (
       .clk(clk),
       .rst_n(rst_n),
       .D(st2_done),

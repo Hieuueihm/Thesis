@@ -31,7 +31,7 @@ module joint_histogram_datapath (
     end
   end
   wire done_delay;
-  dff #(
+  register #(
       .WIDTH(1)
   ) DONE_I_DELAY (
       .clk(clk),
@@ -43,7 +43,7 @@ module joint_histogram_datapath (
 
   assign counter_value = ci_delay + ni_delay + rd_delay;
 
-  (* ram_style = "block" *)reg [15:0] register_array[0:199];
+  reg [15:0] register_array[0:199];
   reg [ 7:0] reset_index;
   reg [15:0] output_value;
   reg [ 7:0] read_index;
