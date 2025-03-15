@@ -7,8 +7,7 @@ module data_modulate_7x7_controller (
     output o_valid,
     output o_en,
     output reg count_en,
-    output reg reset_en,
-    output load_en
+    output reg reset_en
 );
 
   parameter IDLE = 2'b00;
@@ -44,24 +43,20 @@ module data_modulate_7x7_controller (
       .D(output_en),
       .Q(o_valid)
   );
-  reg load_en_q;
-  assign load_en = done_i | load_en_q;
+
   always @(*) begin
     output_en = 0;
     count_en  = 0;
     reset_en  = 0;
-    load_en_q = 0;
     case (current_state)
       IDLE: begin
       end
       START: begin
-        count_en  = 1'b1;
-        reset_en  = 1'b1;
-        load_en_q = 1'b1;
+        count_en = 1'b1;
+        reset_en = 1'b1;
       end
       DATA: begin
         output_en = 1'b1;
-        load_en_q = 1'b1;
       end
       DONE: begin
 

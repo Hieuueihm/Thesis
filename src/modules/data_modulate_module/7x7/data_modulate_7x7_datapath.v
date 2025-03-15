@@ -64,8 +64,7 @@ module data_modulate_7x7_datapath #(
     output           finish_en,
     output           padding_fi,
     input            count_en,
-    input            reset_en,
-    input            load_en
+    input            reset_en
 );
   reg [9:0] i_row, i_col;
 
@@ -234,29 +233,29 @@ module data_modulate_7x7_datapath #(
       // zero padding
       if (o_en) begin
 
-        d0_o  <= (i_row_lt_3 || i_col_lt_3) ? 0 : data0;
-        d1_o  <= (i_row_lt_3 || i_col_lt_2) ? 0 : data1;
-        d2_o  <= (i_row_lt_3 || i_col_lt_1) ? 0 : data2;
+        d0_o  <= (i_row_lt_3 | i_col_lt_3) ? 0 : data0;
+        d1_o  <= (i_row_lt_3 | i_col_lt_2) ? 0 : data1;
+        d2_o  <= (i_row_lt_3 | i_col_lt_1) ? 0 : data2;
         d3_o  <= (i_row_lt_3) ? 0 : data3;
-        d4_o  <= (i_row_lt_3 || i_col_gt_col_2) ? 0 : data4;
-        d5_o  <= (i_row_lt_3 || i_col_gt_col_3) ? 0 : data5;
-        d6_o  <= (i_row_lt_3 || i_col_gt_col_4) ? 0 : data6;
+        d4_o  <= (i_row_lt_3 | i_col_gt_col_2) ? 0 : data4;
+        d5_o  <= (i_row_lt_3 | i_col_gt_col_3) ? 0 : data5;
+        d6_o  <= (i_row_lt_3 | i_col_gt_col_4) ? 0 : data6;
 
-        d7_o  <= (i_row_lt_2 || i_col_lt_3) ? 0 : data7;
-        d8_o  <= (i_row_lt_2 || i_col_lt_2) ? 0 : data8;
-        d9_o  <= (i_row_lt_2 || i_col_lt_1) ? 0 : data9;
+        d7_o  <= (i_row_lt_2 | i_col_lt_3) ? 0 : data7;
+        d8_o  <= (i_row_lt_2 | i_col_lt_2) ? 0 : data8;
+        d9_o  <= (i_row_lt_2 | i_col_lt_1) ? 0 : data9;
         d10_o <= (i_row_lt_2) ? 0 : data10;
-        d11_o <= (i_row_lt_2 || i_col_gt_col_2) ? 0 : data11;
-        d12_o <= (i_row_lt_2 || i_col_gt_col_3) ? 0 : data12;
-        d13_o <= (i_row_lt_2 || i_col_gt_col_4) ? 0 : data13;
+        d11_o <= (i_row_lt_2 | i_col_gt_col_2) ? 0 : data11;
+        d12_o <= (i_row_lt_2 | i_col_gt_col_3) ? 0 : data12;
+        d13_o <= (i_row_lt_2 | i_col_gt_col_4) ? 0 : data13;
 
-        d14_o <= (i_row_lt_1 || i_col_lt_3) ? 0 : data14;
-        d15_o <= (i_row_lt_1 || i_col_lt_2) ? 0 : data15;
-        d16_o <= (i_row_lt_1 || i_col_lt_1) ? 0 : data16;
+        d14_o <= (i_row_lt_1 | i_col_lt_3) ? 0 : data14;
+        d15_o <= (i_row_lt_1 | i_col_lt_2) ? 0 : data15;
+        d16_o <= (i_row_lt_1 | i_col_lt_1) ? 0 : data16;
         d17_o <= (i_row_lt_1) ? 0 : data17;
-        d18_o <= (i_row_lt_1 || i_col_gt_col_2) ? 0 : data18;
-        d19_o <= (i_row_lt_1 || i_col_gt_col_3) ? 0 : data19;
-        d20_o <= (i_row_lt_1 || i_col_gt_col_4) ? 0 : data20;
+        d18_o <= (i_row_lt_1 | i_col_gt_col_2) ? 0 : data18;
+        d19_o <= (i_row_lt_1 | i_col_gt_col_3) ? 0 : data19;
+        d20_o <= (i_row_lt_1 | i_col_gt_col_4) ? 0 : data20;
 
         d21_o <= (i_col_lt_3) ? 0 : data21;
         d22_o <= (i_col_lt_2) ? 0 : data22;
@@ -267,29 +266,29 @@ module data_modulate_7x7_datapath #(
         d27_o <= (i_col_gt_col_4) ? 0 : data27;
 
 
-        d28_o <= (i_row_gt_row_2 || i_col_lt_3) ? 0 : data28;
-        d29_o <= (i_row_gt_row_2 || i_col_lt_2) ? 0 : data29;
-        d30_o <= (i_row_gt_row_2 || i_col_lt_1) ? 0 : data30;
+        d28_o <= (i_row_gt_row_2 | i_col_lt_3) ? 0 : data28;
+        d29_o <= (i_row_gt_row_2 | i_col_lt_2) ? 0 : data29;
+        d30_o <= (i_row_gt_row_2 | i_col_lt_1) ? 0 : data30;
         d31_o <= (i_row_gt_row_2) ? 0 : data31;
-        d32_o <= (i_row_gt_row_2 || i_col_gt_col_2) ? 0 : data32;
-        d33_o <= (i_row_gt_row_2 || i_col_gt_col_3) ? 0 : data33;
-        d34_o <= (i_row_gt_row_2 || i_col_gt_col_4) ? 0 : data34;
+        d32_o <= (i_row_gt_row_2 | i_col_gt_col_2) ? 0 : data32;
+        d33_o <= (i_row_gt_row_2 | i_col_gt_col_3) ? 0 : data33;
+        d34_o <= (i_row_gt_row_2 | i_col_gt_col_4) ? 0 : data34;
 
-        d35_o <= (i_row_gt_row_3 || i_col_lt_3) ? 0 : data35;
-        d36_o <= (i_row_gt_row_3 || i_col_lt_2) ? 0 : data36;
-        d37_o <= (i_row_gt_row_3 || i_col_lt_1) ? 0 : data37;
+        d35_o <= (i_row_gt_row_3 | i_col_lt_3) ? 0 : data35;
+        d36_o <= (i_row_gt_row_3 | i_col_lt_2) ? 0 : data36;
+        d37_o <= (i_row_gt_row_3 | i_col_lt_1) ? 0 : data37;
         d38_o <= (i_row_gt_row_3) ? 0 : data38;
-        d39_o <= (i_row_gt_row_3 || i_col_gt_col_2) ? 0 : data39;
-        d40_o <= (i_row_gt_row_3 || i_col_gt_col_3) ? 0 : data40;
-        d41_o <= (i_row_gt_row_3 || i_col_gt_col_4) ? 0 : data41;
+        d39_o <= (i_row_gt_row_3 | i_col_gt_col_2) ? 0 : data39;
+        d40_o <= (i_row_gt_row_3 | i_col_gt_col_3) ? 0 : data40;
+        d41_o <= (i_row_gt_row_3 | i_col_gt_col_4) ? 0 : data41;
 
-        d42_o <= (i_row_gt_row_4 || i_col_lt_3) ? 0 : data42;
-        d43_o <= (i_row_gt_row_4 || i_col_lt_2) ? 0 : data43;
-        d44_o <= (i_row_gt_row_4 || i_col_lt_1) ? 0 : data44;
+        d42_o <= (i_row_gt_row_4 | i_col_lt_3) ? 0 : data42;
+        d43_o <= (i_row_gt_row_4 | i_col_lt_2) ? 0 : data43;
+        d44_o <= (i_row_gt_row_4 | i_col_lt_1) ? 0 : data44;
         d45_o <= (i_row_gt_row_4) ? 0 : data45;
-        d46_o <= (i_row_gt_row_4 || i_col_gt_col_2) ? 0 : data46;
-        d47_o <= (i_row_gt_row_4 || i_col_gt_col_3) ? 0 : data47;
-        d48_o <= (i_row_gt_row_4 || i_col_gt_col_4) ? 0 : data48;
+        d46_o <= (i_row_gt_row_4 | i_col_gt_col_2) ? 0 : data46;
+        d47_o <= (i_row_gt_row_4 | i_col_gt_col_3) ? 0 : data47;
+        d48_o <= (i_row_gt_row_4 | i_col_gt_col_4) ? 0 : data48;
 
 
       end
@@ -354,66 +353,64 @@ module data_modulate_7x7_datapath #(
 
     end else begin
       // d7 d6 d5 d4 d3 d2 d1
-      if (load_en) begin
-        data0  <= data1;
-        data1  <= data2;
-        data2  <= data3;
-        data3  <= data4;
-        data4  <= data5;
-        data5  <= data6;
-        data6  <= d6_i;
+      data0  <= data1;
+      data1  <= data2;
+      data2  <= data3;
+      data3  <= data4;
+      data4  <= data5;
+      data5  <= data6;
+      data6  <= d6_i;
 
 
-        data7  <= data8;
-        data8  <= data9;
-        data9  <= data10;
-        data10 <= data11;
-        data11 <= data12;
-        data12 <= data13;
-        data13 <= d5_i;
+      data7  <= data8;
+      data8  <= data9;
+      data9  <= data10;
+      data10 <= data11;
+      data11 <= data12;
+      data12 <= data13;
+      data13 <= d5_i;
 
-        data14 <= data15;
-        data15 <= data16;
-        data16 <= data17;
-        data17 <= data18;
-        data18 <= data19;
-        data19 <= data20;
-        data20 <= d4_i;
+      data14 <= data15;
+      data15 <= data16;
+      data16 <= data17;
+      data17 <= data18;
+      data18 <= data19;
+      data19 <= data20;
+      data20 <= d4_i;
 
-        data21 <= data22;
-        data22 <= data23;
-        data23 <= data24;
-        data24 <= data25;
-        data25 <= data26;
-        data26 <= data27;
-        data27 <= d3_i;
-
-
-        data28 <= data29;
-        data29 <= data30;
-        data30 <= data31;
-        data31 <= data32;
-        data32 <= data33;
-        data33 <= data34;
-        data34 <= d2_i;
+      data21 <= data22;
+      data22 <= data23;
+      data23 <= data24;
+      data24 <= data25;
+      data25 <= data26;
+      data26 <= data27;
+      data27 <= d3_i;
 
 
-        data35 <= data36;
-        data36 <= data37;
-        data37 <= data38;
-        data38 <= data39;
-        data39 <= data40;
-        data40 <= data41;
-        data41 <= d1_i;
+      data28 <= data29;
+      data29 <= data30;
+      data30 <= data31;
+      data31 <= data32;
+      data32 <= data33;
+      data33 <= data34;
+      data34 <= d2_i;
 
-        data42 <= data43;
-        data43 <= data44;
-        data44 <= data45;
-        data45 <= data46;
-        data46 <= data47;
-        data47 <= data48;
-        data48 <= d0_i;
-      end
+
+      data35 <= data36;
+      data36 <= data37;
+      data37 <= data38;
+      data38 <= data39;
+      data39 <= data40;
+      data40 <= data41;
+      data41 <= d1_i;
+
+      data42 <= data43;
+      data43 <= data44;
+      data44 <= data45;
+      data45 <= data46;
+      data46 <= data47;
+      data47 <= data48;
+      data48 <= d0_i;
 
     end
   end

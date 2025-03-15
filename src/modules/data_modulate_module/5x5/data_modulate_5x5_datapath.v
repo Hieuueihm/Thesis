@@ -38,8 +38,7 @@ module data_modulate_5x5_datapath #(
     output           finish_en,
     output           padding_fi,
     input            count_en,
-    input            reset_en,
-    input            load_en
+    input            reset_en
 );
   reg [9:0] i_row, i_col;
 
@@ -156,17 +155,17 @@ module data_modulate_5x5_datapath #(
       // zero padding
       if (o_en) begin
 
-        d0_o  <= (i_row_lt_2 || i_col_lt_2) ? 0 : data0;
-        d1_o  <= (i_row_lt_2 || i_col_lt_1) ? 0 : data1;
+        d0_o  <= (i_row_lt_2 | i_col_lt_2) ? 0 : data0;
+        d1_o  <= (i_row_lt_2 | i_col_lt_1) ? 0 : data1;
         d2_o  <= (i_row_lt_2) ? 0 : data2;
-        d3_o  <= (i_row_lt_2 || i_col_gt_col_2) ? 0 : data3;
-        d4_o  <= (i_row_lt_2 || i_col_gt_col_3) ? 0 : data4;
+        d3_o  <= (i_row_lt_2 | i_col_gt_col_2) ? 0 : data3;
+        d4_o  <= (i_row_lt_2 | i_col_gt_col_3) ? 0 : data4;
 
-        d5_o  <= (i_row_lt_1 || i_col_lt_2) ? 0 : data5;
-        d6_o  <= (i_row_lt_1 || i_col_lt_1) ? 0 : data6;
+        d5_o  <= (i_row_lt_1 | i_col_lt_2) ? 0 : data5;
+        d6_o  <= (i_row_lt_1 | i_col_lt_1) ? 0 : data6;
         d7_o  <= (i_row_lt_1) ? 0 : data7;
-        d8_o  <= (i_row_lt_1 || i_col_gt_col_2) ? 0 : data8;
-        d9_o  <= (i_row_lt_1 || i_col_gt_col_3) ? 0 : data9;
+        d8_o  <= (i_row_lt_1 | i_col_gt_col_2) ? 0 : data8;
+        d9_o  <= (i_row_lt_1 | i_col_gt_col_3) ? 0 : data9;
 
         d10_o <= (i_col_lt_2) ? 0 : data10;
         d11_o <= (i_col_lt_1) ? 0 : data11;
@@ -174,17 +173,17 @@ module data_modulate_5x5_datapath #(
         d13_o <= (i_col_gt_col_2) ? 0 : data13;
         d14_o <= (i_col_gt_col_3) ? 0 : data14;
 
-        d15_o <= (i_row_gt_row_2 || i_col_lt_2) ? 0 : data15;
-        d16_o <= (i_row_gt_row_2 || i_col_lt_1) ? 0 : data16;
+        d15_o <= (i_row_gt_row_2 | i_col_lt_2) ? 0 : data15;
+        d16_o <= (i_row_gt_row_2 | i_col_lt_1) ? 0 : data16;
         d17_o <= (i_row_gt_row_2) ? 0 : data17;
-        d18_o <= (i_row_gt_row_2 || i_col_gt_col_2) ? 0 : data18;
-        d19_o <= (i_row_gt_row_2 || i_col_gt_col_3) ? 0 : data19;
+        d18_o <= (i_row_gt_row_2 | i_col_gt_col_2) ? 0 : data18;
+        d19_o <= (i_row_gt_row_2 | i_col_gt_col_3) ? 0 : data19;
 
-        d20_o <= (i_row_gt_row_3 || i_col_lt_2) ? 0 : data20;
-        d21_o <= (i_row_gt_row_3 || i_col_lt_1) ? 0 : data21;
+        d20_o <= (i_row_gt_row_3 | i_col_lt_2) ? 0 : data20;
+        d21_o <= (i_row_gt_row_3 | i_col_lt_1) ? 0 : data21;
         d22_o <= (i_row_gt_row_3) ? 0 : data22;
-        d23_o <= (i_row_gt_row_3 || i_col_gt_col_2) ? 0 : data23;
-        d24_o <= (i_row_gt_row_3 || i_col_gt_col_3) ? 0 : data24;
+        d23_o <= (i_row_gt_row_3 | i_col_gt_col_2) ? 0 : data23;
+        d24_o <= (i_row_gt_row_3 | i_col_gt_col_3) ? 0 : data24;
 
 
 
@@ -226,34 +225,32 @@ module data_modulate_5x5_datapath #(
       data24 <= 0;
     end else begin
       // d6 d5 d4 d3 d2
-      if (load_en) begin
-        data0  <= data1;
-        data1  <= data2;
-        data2  <= data3;
-        data3  <= data4;
-        data4  <= d4_i;
-        data5  <= data6;
-        data6  <= data7;
-        data7  <= data8;
-        data8  <= data9;
-        data9  <= d3_i;
-        data10 <= data11;
-        data11 <= data12;
-        data12 <= data13;
-        data13 <= data14;
-        data14 <= d2_i;
-        data15 <= data16;
-        data16 <= data17;
-        data17 <= data18;
-        data18 <= data19;
-        data19 <= d1_i;
-        data20 <= data21;
-        data21 <= data22;
-        data22 <= data23;
-        data23 <= data24;
-        data24 <= d0_i;
+      data0  <= data1;
+      data1  <= data2;
+      data2  <= data3;
+      data3  <= data4;
+      data4  <= d4_i;
+      data5  <= data6;
+      data6  <= data7;
+      data7  <= data8;
+      data8  <= data9;
+      data9  <= d3_i;
+      data10 <= data11;
+      data11 <= data12;
+      data12 <= data13;
+      data13 <= data14;
+      data14 <= d2_i;
+      data15 <= data16;
+      data16 <= data17;
+      data17 <= data18;
+      data18 <= data19;
+      data19 <= d1_i;
+      data20 <= data21;
+      data21 <= data22;
+      data22 <= data23;
+      data23 <= data24;
+      data24 <= d0_i;
 
-      end
 
     end
 

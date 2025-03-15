@@ -42,8 +42,6 @@ module data_modulate_5x5 #(
   wire count_en;
   wire reset_en;
   wire padding_fi;
-  wire load_en;
-
   data_modulate_5x5_controller CONTROLLER_5X5 (
       .rst_n(rst_n),
       .clk(clk),
@@ -53,9 +51,7 @@ module data_modulate_5x5 #(
       .o_en(o_en),
       .o_valid(done_o),
       .count_en(count_en),
-      .reset_en(reset_en),
-      .load_en(load_en)
-
+      .reset_en(reset_en)
   );
   data_modulate_5x5_datapath #(
       .COLS(COLS),
@@ -97,8 +93,7 @@ module data_modulate_5x5 #(
       .finish_en(finish_en),
       .padding_fi(padding_fi),
       .count_en(count_en),
-      .reset_en(reset_en),
-      .load_en(load_en)
+      .reset_en(reset_en)
   );
 
 endmodule

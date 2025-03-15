@@ -69,9 +69,7 @@ module data_modulate_7x7 #(
   wire count_en;
   wire reset_en;
   wire padding_fi;
-  wire load_en;
-
-  data_modulate_5x5_controller CONTROLLER_7x7 (
+  data_modulate_7x7_controller CONTROLLER_7x7 (
       .rst_n(rst_n),
       .clk(clk),
       .done_i(done_i),
@@ -80,9 +78,7 @@ module data_modulate_7x7 #(
       .o_en(o_en),
       .o_valid(done_o),
       .count_en(count_en),
-      .reset_en(reset_en),
-      .load_en(load_en)
-
+      .reset_en(reset_en)
   );
   data_modulate_7x7_datapath #(
       .ROWS(ROWS),
@@ -151,8 +147,7 @@ module data_modulate_7x7 #(
       .finish_en(finish_en),
       .padding_fi(padding_fi),
       .count_en(count_en),
-      .reset_en(reset_en),
-      .load_en(load_en)
+      .reset_en(reset_en)
   );
 
 endmodule

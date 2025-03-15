@@ -22,8 +22,7 @@ module data_modulate_3x3_datapath #(
     output           finish_en,
     output           padding_fi,
     input            count_en,
-    input            reset_en,
-    input            load_en
+    input            reset_en
 );
 
 
@@ -134,25 +133,23 @@ module data_modulate_3x3_datapath #(
       // 5 
       // 6 
     end else begin
-      if (load_en) begin
-        data0 <= data1;
-        data1 <= data2;
-        data2 <= d2_i;
+      data0 <= data1;
+      data1 <= data2;
+      data2 <= d2_i;
 
 
-        data3 <= data4;
-        data4 <= data5;
-        data5 <= d1_i;
+      data3 <= data4;
+      data4 <= data5;
+      data5 <= d1_i;
 
 
-        data6 <= data7;
-        data7 <= data8;
-        data8 <= d0_i;
-
-      end
+      data6 <= data7;
+      data7 <= data8;
+      data8 <= d0_i;
 
     end
 
-
   end
+
+
 endmodule

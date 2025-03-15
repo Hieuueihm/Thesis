@@ -26,7 +26,6 @@ module data_modulate_3x3 #(
   wire count_en;
   wire reset_en;
   wire padding_fi;
-  wire load_en;
 
   data_modulate_3x3_controller CONTROLLER_3X3 (
       .rst_n(rst_n),
@@ -37,9 +36,7 @@ module data_modulate_3x3 #(
       .o_en(o_en),
       .o_valid(done_o),
       .count_en(count_en),
-      .reset_en(reset_en),
-      .load_en(load_en)
-
+      .reset_en(reset_en)
   );
   data_modulate_3x3_datapath #(
       .ROWS(ROWS),
@@ -63,8 +60,7 @@ module data_modulate_3x3 #(
       .finish_en(finish_en),
       .padding_fi(padding_fi),
       .count_en(count_en),
-      .reset_en(reset_en),
-      .load_en(load_en)
+      .reset_en(reset_en)
   );
 
 
