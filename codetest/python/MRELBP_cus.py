@@ -28,6 +28,7 @@ class MRELBP():
         self.p = p
         self.w_c = w_c
         self.w_r = w_r
+        self.count = 0
         # step :
         #   RGB2Gray
         #   Median
@@ -52,13 +53,10 @@ class MRELBP():
         # print(height, width)
         out = np.zeros((height - 2 * in_r, width - 2 * in_r), dtype=np.uint8)
 
-        x = int(in_r /  2)
         sum_o = np.zeros((height - 2 * in_r, width - 2 * in_r))
 
         pixel_central =  np.zeros((height - 2 * in_r, width - 2 * in_r))
-        # muy_arr_central = np.zeros((width - 2 * in_r, height - 2 * in_r))
-
-        # coup = np.zeros((width - 2 * in_r, height - 2 * in_r), dtype=object)
+  
 
 
         for i in range(0,height - 2 * in_r ):
@@ -78,35 +76,14 @@ class MRELBP():
                 #     print(i, j)
 
                 out[i,j] =  (scale_value >= sum_o[i, j])
-                # coup[i, j] =  (sum_o[i, j], scale_value, out[i, j], pixel_central[i, j])
-        # print(out)
-        # coup_array = np.array([[f"({np.uint16(t[0])}, {np.uint16(t[1])}, {np.uint8(t[2])}, {np.uint8(t[3])}) " for t in row] for row in coup])
 
-        # np.savetxt("out.txt", out, fmt='%d')
-        # np.savetxt("pixel_central.txt", pixel_central, fmt='%d')
-        # np.savetxt("muy_arr_central.txt", muy_arr_central, fmt='%d')
-        # np.savetxt("diff.txt", pixel_central - muy_arr_central, fmt='%d')
-        # np.savetxt("coup.txt", coup_array, fmt='%s')
         centre_hist = np.array([np.sum(out == 1), np.sum(out == 0)], dtype=np.int32)
+        # np.savetxt("sum", sum_o, fmt='%d')
+        # np.savetxt("central", pixel_central, fmt='%d')
+
         return out, centre_hist
 
-    # def CI_test(self, image):
-    #     m_3x3, m_5x5, m_7x7, m_9x9 = self.median_processing(image)
-
-    #     # np.savetxt("matrix_3x3_o", m_3x3, fmt='%d')
-
-
-    #     hist_r2, sum_r2 = self.mrelbp_ci(m_3x3, 2)
-    #     hist_r4, sum_r4 = self.mrelbp_ci(m_3x3, 4)
-    #     hist_r6, sum_r6 = self.mrelbp_ci(m_3x3, 6)
-    #     hist_r8, sum_r8 = self.mrelbp_ci(m_3x3, 8)
-
-        # print(hist_r8)
-
-
-        # print(hist_r2, hist_r4, hist_r6, hist_r8)
-        # np.savetxt("sum_8.txt", sum_r8, fmt='%d')
-
+   
     def getinterpolation(self, image, x, y, r):
         x1 = int(np.floor(x))
         x2 = int(np.ceil(x))
@@ -206,7 +183,10 @@ class MRELBP():
             image[x2, y1] * r3_ +
             image[x2, y2] * r4_
         )
+        
+
         # print(image[x1, y1], image[x1, y2], image[x2, y1], image[x2, y2])
+        # print(r1_, r2_, r3_, r4_)
         return interpolated_value
         
     def jointHistogram(self, ci, ni, rd):
@@ -222,9 +202,15 @@ class MRELBP():
 
     def getNIDescriptor(self, NI, r, sum):
         ni_des = 0
+        self.count = self.count + 1
+        # if(self.count <100):
+        #     print(sum)
+
         for index in range(1, 9):
             scale_value = NI[index] * ((2 * r + 1) ** 2)
-            # print(scale_value)
+            # if(self.count < 100):
+            #     print(scale_value)
+            
             if scale_value >= sum:
                 ni_des  = ni_des + 2**(index - 1)
         return ni_des
@@ -354,27 +340,32 @@ class MRELBP():
         #         f.write(' '.join(map(str, row)) + '\n')
         # r = 2
         ci_r2, ci_r2_count = self.mrelbp_ci(m_3x3, 2)
+        print(ci_r2.shape)
         # print(ci_r2)
         ci_r4, ci_r4_count = self.mrelbp_ci(m_3x3, 4)
+        print(ci_r4.shape)
+
         ci_r6, ci_r6_count = self.mrelbp_ci(m_3x3, 6)
-        ci_r8, ci_r8_count = self.mrelbp_ci(m_3x3, 8)
+        print(ci_r6.shape)
+
+        # ci_r8, ci_r8_count = self.mrelbp_ci(m_3x3, 8)
         # with open('m_3x3_readable.txt', 'a') as f:
         #     for row in m_3x3:
         #         f.write(' '.join(map(str, row)) + '\n')
 
-        # write_to_filecheck("ci_r2.txt", ci_r2)
-        # write_to_filecheck("ci_r4.txt", ci_r4)
-        # write_to_filecheck("ci_r6.txt", ci_r6)
+        write_to_filecheck("ci_r2.txt", ci_r2)
+        write_to_filecheck("ci_r4.txt", ci_r4)
+        write_to_filecheck("ci_r6.txt", ci_r6)
 
 
 
         NI_r2, RD_r2= self.NI_RD_descriptor(image, m_3x3, 2)
         NI_r4, RD_r4= self.NI_RD_descriptor(m_3x3, m_5x5, 4)
         NI_r6, RD_r6= self.NI_RD_descriptor(m_5x5, m_7x7, 6)
-        # NI_r8, RD_r8= self.NI_RD_descriptor(m_7x7, m_9x9, 8)
+        # # NI_r8, RD_r8= self.NI_RD_descriptor(m_7x7, m_9x9, 8)
 
-        # write_to_filecheck("ni_r6.txt", NI_r6)
-        # write_to_filecheck("rd_r6.txt", RD_r6)
+        write_to_filecheck("ni_r6.txt", NI_r6)
+        write_to_filecheck("rd_r6.txt", RD_r6)
 
         write_to_filecheck("ni_r4.txt", NI_r4)
         write_to_filecheck("rd_r4.txt", RD_r4)
@@ -521,29 +512,34 @@ class MRELBP():
                 area = image_r2[i - r2  : i  + r2 + 1 , j  - r2 :j + r2 + 1]
                 sum_r2_patch = np.sum(area)
                 # print(area)
-
                 # k += 1
                 r1_descriptor = self.getInterNeighbors(image_r1, r1, i, j)
                 r2_descriptor = self.getInterNeighbors(image_r2, r2, i, j)
-
                 # # return
-                
-
                 # r1_descriptor_str = str(r1_descriptor)
                 # with open("r1_inter", "a") as file:
                 #     file.write(r1_descriptor_str + "\n")
-
                 # r2_descriptor_str = str(r2_descriptor)
                 # with open("r2_inter", "a") as file:
                 #     file.write(r2_descriptor_str + "\n")
                 #     file.write("\n")
-                # # for i in range(0, 9):
-                # #     print(r2_descriptor)
+
+
+                # with open("r1_inter", "a") as file:
+                #     file.write(" ".join(f"0x{int(val):08X}" for val in r1_descriptor) + "\n")
+
+                # with open("r2_inter", "a") as file:
+                #     file.write(" ".join(f"0x{int(val):08X}" for val in r2_descriptor) + "\n\n")
+               
+                # for i in range(0, 9):
+                #     print(r2_descriptor)
                 # with open("sum_o.txt", "a") as file:
                 #     file.write(str(sum_r2_patch))
                 #     file.write('\n')
                 NI[i - r2, j - r2] = self.getNIDescriptor(r2_descriptor, r2, sum_r2_patch)
                 RD[i - r2, j - r2] = self.getRDDescriptor(r2_descriptor, r1_descriptor)
+
+                # write_to_filecheck("ni_r2_val.txt", NI)
         return NI, RD
 
 
@@ -565,7 +561,14 @@ def resize_bmp(input_file, output_file, size=(128, 128)):
 resize_bmp('D:\\Thesis\\codetest\\python\\Train\\Dataset\\Outex-TC-00010\\images\\000005.bmp', 'D:\\Thesis\\data\\inputs\\test_input.bmp')
 random_matrix = np.random.randint(0, 256, size=(size, size), dtype=np.uint8)
 np.savetxt("D:\\Thesis\src\\test_benches\\test\\random_matrix.txt", random_matrix, fmt='%d')
+c_array = ", ".join(map(str, random_matrix.flatten()))
+c_code = f"unsigned char arr[] = {{ {c_array} }};"
+with open("random_matrix.h", "w") as f:
+    f.write("#ifndef RANDOM_MATRIX_H\n#define RANDOM_MATRIX_H\n\n")
+    f.write(c_code + "\n\n")
+    f.write("#endif // RANDOM_MATRIX_H\n")
 
+print("File 'random_matrix.h' đã được tạo.")
 image_file = "D://Thesis//data//inputs//test_input.bmp"
 img = cv2.imread(image_file.rstrip(), cv2.IMREAD_GRAYSCALE)
 file_path = "random_matrix.txt"
@@ -649,9 +652,9 @@ def compare_files(file1, file2):
 
 
 # Example usage
-file1 = 'histogram_o.txt'
-file2 = 'histogram_verilog.txt'
-compare_files(file1, file2)
+# file1 = 'histogram_o.txt'
+# file2 = 'histogram_verilog.txt'
+# compare_files(file1, file2)
 # file1 = 'histogram_o.txt'
 # file2 = 'histogram_data.txt'
 # compare_files(file1, file2)
@@ -660,20 +663,75 @@ compare_files(file1, file2)
 # file2 = 'cinird_r6_verilog.txt'
 # compare_files(file1, file2)
 
-# file1 = 'ni_data.txt'
-# file2 = 'ni_r2.txt'
+
+
+
+
+
+file1 = 'histogram_hls.txt'
+file2 = 'histogram_o.txt'
+compare_files(file1, file2)
+
+# file1 = 'rd_r4_hls.txt'
+# file2 = 'rd_r4.txt'
+# compare_files(file1, file2)
+
+# file1 = 'm_3x3_hls.txt'
+# file2 = 'median_3x3.txt'
+# compare_files(file1, file2)
+
+# file1 = 'm_5x5_hls.txt'
+# file2 = 'median_5x5.txt'
+# compare_files(file1, file2)
+
+# file1 = 'm_7x7_hls.txt'
+# file2 = 'median_7x7.txt'
+# compare_files(file1, file2)
+
+# file1 = 'ci_r2_hls.txt'
+# file2 = 'ci_r2.txt'
 # compare_files(file1, file2)
 
 
-# file1 = 'rd_r2_verilog.txt'
+# file1 = 'ci_r4_hls.txt'
+# file2 = 'ci_r4.txt'
+# compare_files(file1, file2)
+
+
+# file1 = 'ci_r6_hls.txt'
+# file2 = 'ci_r6.txt'
+# compare_files(file1, file2)
+
+
+# file1 = 'rd_r2_hls.txt'
 # file2 = 'rd_r2.txt'
 # compare_files(file1, file2)
 
 
+# file3 = 'ni_r2.txt'
+# file4   = 'ni_r2_hls.txt'
+# compare_files(file3, file4)
+# file3 = 'ni_r4.txt'
+# file4   = 'ni_r4_hls.txt'
+# compare_files(file3, file4)
 # file3 = 'rd_r4.txt'
-# file4   = 'rd_data_r4.txt'
+# file4   = 'rd_r4_hls.txt'
 # compare_files(file3, file4)
 
+
+# file3 = 'ni_r6.txt'
+# file4   = 'ni_r6_hls.txt'
+# compare_files(file3, file4)
+# file3 = 'rd_r6.txt'
+# file4   = 'rd_r6_hls.txt'
+# compare_files(file3, file4)
+# file3 = 'ni_r6.txt'
+# file4   = 'ni_r6_hls.txt'
+# compare_files(file3, file4)
+
+# file3 = 'rd_r6.txt'
+# file4   = 'rd_r6_hls.txt'
+# compare_files(file3, file4)
 # file3 = 'ci_r8.txt'
 # file4   = 'ni_r8.txt'
 # compare_files(file3, file4)
