@@ -76,9 +76,7 @@ class generator;
       end
     end
     @(wait_);
-
     tr.display("GEN DONE");
-
     ->done;
   endtask
 endclass

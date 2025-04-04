@@ -61,6 +61,7 @@ for i in range(1, 10):
             f.write(str(res[i]) + "\n")
 
     if(run_vivado_script()):
+        print("compare file!")
         if(compare_files("histogram_o.txt", "histogram_layered_test.txt") == False):
             diff += 1
             print("Difference found in test case", i)

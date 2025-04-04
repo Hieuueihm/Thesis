@@ -1,0 +1,61 @@
+@startuml
+clock   "clk"   as clk with period 10
+binary  "reset_n"  as reset_n
+binary "start_i" as start_i
+binary "i_data_ready" as i_data_ready
+binary "i_valid" as i_valid
+concise "grayscale_i" as grayscale_i
+concise "histogram_o" as histogram_o
+binary "o_valid" as o_valid
+binary "o_data_ready" as o_data_ready
+binary "o_intr" as o_intr
+
+
+concise "state" as stat
+
+@0
+reset_n is 0
+i_data_ready is 1
+o_data_ready is 1
+stat is IDLE
+grayscale_i  is 0
+histogram_o is 0
+o_valid is 0
+o_intr is 0
+@20
+reset_n is 1
+@30
+start_i is 1
+@50 
+i_valid is 1
+start_i is 0
+grayscale_i is value
+
+@60
+stat is PROCESS
+
+
+@100 
+grayscale_i is 0
+i_valid is 0
+
+@120 
+stat is READ
+@130
+histogram_o is value
+o_valid is 1
+
+@190
+stat is FINISH
+o_valid is 0
+@200
+o_intr is 1
+
+@210
+o_intr is 0
+
+start_i@50 -> stat@60
+stat@120->o_valid@130
+stat@190->o_intr@200
+
+@enduml
