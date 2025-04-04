@@ -57,8 +57,6 @@ module top_module #(
   );
 
   output_buffer_ip OB (
-      .wr_rst_busy  (),
-      .rd_rst_busy  (),
       .s_aclk       (clk),
       .s_aresetn    (rst_n),
       // s_axis

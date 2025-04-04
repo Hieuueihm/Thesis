@@ -79,6 +79,7 @@ int main()
 	set_start_i(1);
 	usleep(1);
 	set_start_i(0);
+	
 	Xil_DCacheFlush();
 	status = XAxiDma_SimpleTransfer(&myDma,(u8*)&imageData[HEADER_SIZE],IMAGE_SIZE * sizeof(u8),XAXIDMA_DMA_TO_DEVICE);
 	if(status != XST_SUCCESS){

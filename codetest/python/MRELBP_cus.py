@@ -668,7 +668,7 @@ def compare_files(file1, file2):
 
 
 
-file1 = 'histogram_hls.txt'
+file1 = 'histogram_layered_test.txt'
 file2 = 'histogram_o.txt'
 compare_files(file1, file2)
 
