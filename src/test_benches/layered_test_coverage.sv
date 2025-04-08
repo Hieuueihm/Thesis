@@ -92,6 +92,7 @@ class driver;
   mailbox #(transaction) mbx;
   virtual top_if vif;
   transaction tr;
+  event done;
 
   function new(mailbox#(transaction) mbx);
     this.mbx = mbx;
@@ -114,15 +115,14 @@ class driver;
       vif.start_i <= 1;
       @(posedge vif.clk);
       vif.start_i <= 0;
-
       for (int i = 0; i < 128 * 128; i++) begin
         mbx.get(tr);
         vif.grayscale_i <= tr.grayscale;
         vif.i_valid <= tr.i_valid;  // luôn là 1
         @(posedge vif.clk);
       end
-
       vif.i_valid <= 0;
+      @(done);
     end
   endtask
 endclass
@@ -242,6 +242,7 @@ class environment;
 
     gen.wait_ = this.done;
     mon.done = this.done;
+    drv.done = this.done;
 
     gen.done = this.genDone;
     mon.count = gen.no;

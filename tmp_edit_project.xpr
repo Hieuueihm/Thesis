@@ -6,7 +6,7 @@
 <Project Version="7" Minor="38" Path="d:/thesis/tmp_edit_project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="319eff4e94cb4ae8b978353fcfc64016"/>
+    <Option Name="Id" Val="2d21ef4e8b254a3ba3e0527d7e9bd62c"/>
     <Option Name="Part" Val="xczu7ev-ffvc1156-2-e"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -61,6 +61,765 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/../Thesis/src/smartconnect_v1_0/sc_util_v1_0_3_structs.svh">
+        <FileInfo SFType="SVerilog">
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/smartconnect_v1_0/sc_util_v1_0_3_structs.svh">
+        <FileInfo SFType="SVerilog">
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="UsedIn" Val="ipstatic"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/smartconnect_v1_0/sc_node_v1_0_9_t_reqsend.svh">
+        <FileInfo SFType="SVerilog">
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/smartconnect_v1_0/sc_node_v1_0_9_t_reqsend.svh">
+        <FileInfo SFType="SVerilog">
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="UsedIn" Val="ipstatic"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbs_v1_0_2/xsdbs_v1_0_2_in.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbs_v1_0_2/xsdbs_v1_0_2_i2x.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0/xsdbm_v3_0_0_sl_prt_map.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0/xsdbm_v3_0_0_in.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0/xsdbm_v3_0_0_id_vec_map.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0/xsdbm_v3_0_0_id_map.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0/xsdbm_v3_0_0_icn.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0/xsdbm_v3_0_0_i2x.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0/xsdbm_v3_0_0_bsid_vec_ports.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0/xsdbm_v3_0_0_bsid_ports.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0/xsdbm_v3_0_0_bs_vec.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0/xsdbm_v3_0_0_bs_ports.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0/xsdbm_v3_0_0_bs_ext.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0/xsdbm_v3_0_0_bs_core_vec.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0/xsdbm_v3_0_0_bs_core_ext.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0/xsdbm_v3_0_0_bs_core.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0/xsdbm_v3_0_0_bs.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/smartconnect_v1_0/sc_util_v1_0_3_constants.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/smartconnect_v1_0/sc_util_v1_0_3_constants.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="UsedIn" Val="ipstatic"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/ltlib_v1_0_0/ltlib_v1_0_0_ver.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/ltlib_v1_0_0/ltlib_v1_0_0_lib_fn.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/ila_v6_2_7/ila_v6_2_7_ila_ver.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/ila_v6_2_7/ila_v6_2_7_ila_param.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/ila_v6_2_7/ila_v6_2_7_ila_lparam.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/ila_v6_2_7/ila_v6_2_7_ila_lib_fn.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/ila_v6_2_7/ila_v6_2_7_ila_in.vh">
+        <FileInfo>
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xlconstant_v1_1_5/xlconstant_v1_1_vl_rfs.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/smartconnect_v1_0/sc_util_v1_0_vl_rfs.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/gigantic_mux/gigantic_mux_v1_0_cntr.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/design_1_system_ila_0_0.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/design_1_axi_smc_0.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_f60c_ila_lib_0.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_f60c_g_inst_0_gigantic_mux.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_f60c_g_inst_0.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_wsw_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_swn_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_srn_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_sbn_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_sawn_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_sarn_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_s01tr_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_s01sic_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_s01mmu_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_s01a2s_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_s00tr_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_s00sic_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_s00mmu_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_s00a2s_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_rsw_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_one_0.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_m00wn_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_m00s2a_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_m00rn_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_m00e_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_m00bn_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_m00awn_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_m00arn_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_bsw_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_awsw_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_arsw_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/xlconstant_v1_1_5/xlconstant_v1_1_vl_rfs.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="UsedIn" Val="ipstatic"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/gigantic_mux/gigantic_mux_v1_0_cntr.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="UsedIn" Val="ipstatic"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/design_1_system_ila_0_0.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/design_1_axi_smc_0.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_f60c_ila_lib_0.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_f60c_g_inst_0_gigantic_mux.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_f60c_g_inst_0.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_wsw_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_swn_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_srn_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_sbn_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_sawn_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_sarn_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_s01tr_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_s01sic_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_s01mmu_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_s01a2s_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_s00tr_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_s00sic_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_s00mmu_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_s00a2s_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_rsw_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_one_0.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_m00wn_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_m00s2a_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_m00rn_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_m00e_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_m00bn_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_m00awn_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_m00arn_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_bsw_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_awsw_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_arsw_0.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/proc_sys_reset_v5_0_12/proc_sys_reset_v5_0_vh_rfs.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="UsedIn" Val="ipstatic"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/smartconnect_v1_0/sc_transaction_regulator_v1_0_vl_rfs.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="UsedIn" Val="ipstatic"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/smartconnect_v1_0/sc_switchboard_v1_0_vl_rfs.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="UsedIn" Val="ipstatic"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/smartconnect_v1_0/sc_si_converter_v1_0_vl_rfs.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="UsedIn" Val="ipstatic"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/smartconnect_v1_0/sc_sc2axi_v1_0_vl_rfs.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="UsedIn" Val="ipstatic"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/smartconnect_v1_0/sc_node_v1_0_vl_rfs.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="UsedIn" Val="ipstatic"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/smartconnect_v1_0/sc_mmu_v1_0_vl_rfs.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="UsedIn" Val="ipstatic"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/smartconnect_v1_0/sc_exit_v1_0_vl_rfs.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="UsedIn" Val="ipstatic"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/smartconnect_v1_0/sc_axi2sc_v1_0_vl_rfs.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="UsedIn" Val="ipstatic"/>
+        </FileInfo>
+      </File>
       <File Path="$PPRDIR/../Thesis/src/output_buffer_ip/output_buffer_ip.xci">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -68,8 +827,390 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/../Thesis/src/design_1_xbar_0/design_1_xbar_0.xci">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/lib_cdc_v1_0_2/lib_cdc_v1_0_rfs.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_psr_aclk_0.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/smartconnect_v1_0/sc_util_v1_0_vl_rfs.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="UsedIn" Val="ipstatic"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/smartconnect_v1_0/sc_axi2sc_v1_0_vl_rfs.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/smartconnect_v1_0/sc_exit_v1_0_vl_rfs.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/smartconnect_v1_0/sc_mmu_v1_0_vl_rfs.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/smartconnect_v1_0/sc_node_v1_0_vl_rfs.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/smartconnect_v1_0/sc_sc2axi_v1_0_vl_rfs.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/smartconnect_v1_0/sc_si_converter_v1_0_vl_rfs.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/smartconnect_v1_0/sc_switchboard_v1_0_vl_rfs.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/smartconnect_v1_0/sc_transaction_regulator_v1_0_vl_rfs.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/lib_cdc_v1_0_2/lib_cdc_v1_0_rfs.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="UsedIn" Val="ipstatic"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/proc_sys_reset_v5_0_12/proc_sys_reset_v5_0_vh_rfs.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_psr_aclk_0.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/blk_mem_gen_v8_3_6/blk_mem_gen_v8_3_vhsyn_rfs.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/fifo_generator_v13_1_4/fifo_generator_v13_1_vhsyn_rfs.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/sc_util_v1_0_3_constants.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="UsedIn" Val="ipstatic"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/sc_util_v1_0_3_structs.svh">
+        <FileInfo SFType="SVerilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="UsedIn" Val="ipstatic"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/sc_node_v1_0_9_t_reqsend.svh">
+        <FileInfo SFType="SVerilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="UsedIn" Val="ipstatic"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/ltlib_v1_0_0/ltlib_v1_0_vl_rfs.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbs_v1_0_2/xsdbs_v1_0_vl_rfs.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0/xsdbm_v3_0_vl_rfs.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/ila_v6_2_7/ila_v6_2_syn_rfs.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/mux_core.txt"/>
+      <File Path="$PPRDIR/../Thesis/src/ltlib_v1_0_0_ver.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/ltlib_v1_0_0_lib_fn.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbs_v1_0_2_i2x.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbs_v1_0_2_in.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0_i2x.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0_in.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0_icn.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0_bs.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0_bs_ext.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0_bs_core.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0_bs_core_ext.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0_bs_ports.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0_bsid_ports.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0_bsid_vec_ports.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0_bs_vec.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0_bs_core_vec.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0_sl_prt_map.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0_id_map.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/xsdbm_v3_0_0_id_vec_map.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/ila_v6_2_7_ila_ver.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/ila_v6_2_7_ila_in.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/ila_v6_2_7_ila_param.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/ila_v6_2_7_ila_lparam.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/ila_v6_2_7_ila_lib_fn.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_f60c.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
       <File Path="$PPRDIR/../Thesis/src/modules/interpolation_module/Interpolation_calc.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -77,6 +1218,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/buffer_12_rows.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -84,6 +1226,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/buffer_12_rows_ci.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -91,6 +1234,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/buffer_4_rows.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -98,6 +1242,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/buffer_8_rows.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -105,6 +1250,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/mrelbp_ci/ci_top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -112,6 +1258,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/data_modulate_module/3x3/data_modulate_3x3.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -119,6 +1266,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/data_modulate_module/3x3/data_modulate_3x3_controller.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -126,6 +1274,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/data_modulate_module/3x3/data_modulate_3x3_datapath.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -133,6 +1282,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/data_modulate_module/5x5/data_modulate_5x5.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -140,6 +1290,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/data_modulate_module/5x5/data_modulate_5x5_controller.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -147,6 +1298,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/data_modulate_module/5x5/data_modulate_5x5_datapath.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -154,6 +1306,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/data_modulate_module/7x7/data_modulate_7x7.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -161,6 +1314,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/data_modulate_module/7x7/data_modulate_7x7_controller.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -168,6 +1322,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/data_modulate_module/7x7/data_modulate_7x7_datapath.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -175,6 +1330,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/interpolation_module/interpolation_R_x.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -182,6 +1338,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/output_module/joint_histogram.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -189,6 +1346,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/output_module/joint_histogram_controller.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -196,6 +1354,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/output_module/joint_histogram_datapath.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -203,6 +1362,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/line_buffer.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -210,6 +1370,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/line_buffer/line_buffer_controller.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -217,6 +1378,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/line_buffer/line_buffer_datapath.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -224,6 +1386,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/median_filter_module/3x3/median_filter_3x3.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -231,6 +1394,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/median_filter_module/3x3/median_filter_3x3_calc.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -238,6 +1402,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/median_filter_module/5x5/median_filter_5x5.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -245,6 +1410,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/median_filter_module/5x5/median_filter_5x5_calc.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -252,6 +1418,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/median_filter_module/7x7/median_filter_7x7.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -259,6 +1426,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/median_filter_module/7x7/median_filter_7x7_calc.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -266,6 +1434,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/median_filter_module/median_processing.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -273,6 +1442,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/common/memory.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -280,6 +1450,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/mrelbp_ci/R2/mrelbp_ci_r2.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -287,6 +1458,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/mrelbp_ci/R4/mrelbp_ci_r4.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -294,6 +1466,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/mrelbp_ci/R6/mrelbp_ci_r6.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -301,6 +1474,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/ni_rd/ni.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -308,6 +1482,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/ni_rd/ni_calc.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -315,6 +1490,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/median_filter_module/node.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -322,6 +1498,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/preparation_6.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -329,6 +1506,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/common/R2/r2_controller.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -336,6 +1514,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/ni_rd/r2_nird.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -343,6 +1522,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/common/R2/r2_patch_sum.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -350,6 +1530,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/common/R2/r2_sum.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -357,6 +1538,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/common/R4/r4_controller.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -364,6 +1546,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/ni_rd/r4_nird.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -371,6 +1554,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/common/R4/r4_patch_sum.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -378,6 +1562,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/common/R4/r4_sum.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -385,6 +1570,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/common/R6/r6_controller.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -392,6 +1578,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/ni_rd/r6_nird.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -399,6 +1586,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/common/R6/r6_patch_sum.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -406,6 +1594,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/common/R6/r6_sum.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -413,6 +1602,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/ni_rd/rd.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -420,6 +1610,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/ni_rd/rd_calc.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -427,6 +1618,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/common/register.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -434,6 +1626,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/common/register_en.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -441,6 +1634,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/ni_rd/riu2_mapping.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -448,6 +1642,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/common/shift_registers.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -455,6 +1650,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/median_filter_module/5x5/sort_ascending_5.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -462,6 +1658,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/median_filter_module/7x7/sort_ascending_7.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -469,6 +1666,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/median_filter_module/sorting_network.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -476,6 +1674,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/common/sum.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -483,6 +1682,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/common/sum_cumulative.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -490,6 +1690,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/top_module/top_module_controller.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -497,6 +1698,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/top_module/top_module_datapath.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -504,6 +1706,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/window_buffer/11x11/window_buffer_11x11.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -511,6 +1714,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/window_buffer/11x11/window_buffer_11x11_controller.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -518,6 +1722,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/window_buffer/11x11/window_buffer_11x11_datapath.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -525,6 +1730,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/window_buffer/13x13/window_buffer_13x13.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -532,6 +1738,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/window_buffer/13x13/window_buffer_13x13_controller.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -539,6 +1746,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/window_buffer/13x13/window_buffer_13x13_datapath.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -546,6 +1754,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/window_buffer/3x3/window_buffer_3x3.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -553,6 +1762,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/window_buffer/3x3/window_buffer_3x3_controller.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -560,6 +1770,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/window_buffer/3x3/window_buffer_3x3_datapath.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -567,6 +1778,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/window_buffer/5x5/window_buffer_5x5.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -574,6 +1786,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/window_buffer/5x5/window_buffer_5x5_controller.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -581,6 +1794,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/window_buffer/5x5/window_buffer_5x5_datapath.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -588,6 +1802,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/window_buffer/7x7/window_buffer_7x7.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -595,6 +1810,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/window_buffer/7x7/window_buffer_7x7_controller.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -602,6 +1818,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/window_buffer/7x7/window_buffer_7x7_datapath.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -609,6 +1826,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/window_buffer/9x9/window_buffer_9x9.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -616,6 +1834,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/window_buffer/9x9/window_buffer_9x9_controller.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -623,6 +1842,7 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/buffers/window_buffer/9x9/window_buffer_9x9_datapath.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -630,9 +1850,68 @@
       </File>
       <File Path="$PPRDIR/../Thesis/src/modules/top_module/top_module.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/xlconstant_v1_1_5/xlconstant_v1_1.h">
+        <FileInfo SFType="SystemC">
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3_one_0.h">
+        <FileInfo SFType="SystemC">
+          <Attr Name="IsGlobalInclude" Val="1"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/sc_util_v1_0_3_constants.vh">
+        <FileInfo SFType="Verilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="UsedIn" Val="ipstatic"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/sc_util_v1_0_3_structs.svh">
+        <FileInfo SFType="SVerilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="UsedIn" Val="ipstatic"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/sc_node_v1_0_9_t_reqsend.svh">
+        <FileInfo SFType="SVerilog">
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="UsedIn" Val="ipstatic"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/bd_afc3.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/mux_core.txt"/>
+      <File Path="$PPRDIR/../Thesis/sim/bd_f60c.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
         </FileInfo>
       </File>
       <File Path="$PPRDIR/../Thesis/sim/output_buffer_ip/output_buffer_ip.xci">
@@ -641,6 +1920,15 @@
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/sim/design_1_xbar_0/design_1_xbar_0.xci">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
         </FileInfo>
       </File>
       <File Path="$PPRDIR/../Thesis/component.xml">
@@ -654,6 +1942,220 @@
     </FileSet>
     <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
       <Filter Type="Constrs"/>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_s00a2s_0_ooc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="out_of_context"/>
+          <Attr Name="ScopedToRef" Val="bd_afc3_s00a2s_0"/>
+          <Attr Name="ScopedToCell" Val="inst"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_s01a2s_0_ooc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="out_of_context"/>
+          <Attr Name="ScopedToRef" Val="bd_afc3_s01a2s_0"/>
+          <Attr Name="ScopedToCell" Val="inst"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_m00s2a_0_ooc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="out_of_context"/>
+          <Attr Name="ScopedToRef" Val="bd_afc3_m00s2a_0"/>
+          <Attr Name="ScopedToCell" Val="inst"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_m00arn_0_ooc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="out_of_context"/>
+          <Attr Name="ScopedToRef" Val="bd_afc3_m00arn_0"/>
+          <Attr Name="ScopedToCell" Val="inst"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_m00rn_0_ooc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="out_of_context"/>
+          <Attr Name="ScopedToRef" Val="bd_afc3_m00rn_0"/>
+          <Attr Name="ScopedToCell" Val="inst"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_m00awn_0_ooc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="out_of_context"/>
+          <Attr Name="ScopedToRef" Val="bd_afc3_m00awn_0"/>
+          <Attr Name="ScopedToCell" Val="inst"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_m00wn_0_ooc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="out_of_context"/>
+          <Attr Name="ScopedToRef" Val="bd_afc3_m00wn_0"/>
+          <Attr Name="ScopedToCell" Val="inst"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_m00bn_0_ooc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="out_of_context"/>
+          <Attr Name="ScopedToRef" Val="bd_afc3_m00bn_0"/>
+          <Attr Name="ScopedToCell" Val="inst"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_sawn_0_ooc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="out_of_context"/>
+          <Attr Name="ScopedToRef" Val="bd_afc3_sawn_0"/>
+          <Attr Name="ScopedToCell" Val="inst"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_swn_0_ooc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="out_of_context"/>
+          <Attr Name="ScopedToRef" Val="bd_afc3_swn_0"/>
+          <Attr Name="ScopedToCell" Val="inst"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_sbn_0_ooc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="out_of_context"/>
+          <Attr Name="ScopedToRef" Val="bd_afc3_sbn_0"/>
+          <Attr Name="ScopedToCell" Val="inst"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_sarn_0_ooc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="out_of_context"/>
+          <Attr Name="ScopedToRef" Val="bd_afc3_sarn_0"/>
+          <Attr Name="ScopedToCell" Val="inst"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_srn_0_ooc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="out_of_context"/>
+          <Attr Name="ScopedToRef" Val="bd_afc3_srn_0"/>
+          <Attr Name="ScopedToCell" Val="inst"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_arsw_0_ooc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="out_of_context"/>
+          <Attr Name="ScopedToRef" Val="bd_afc3_arsw_0"/>
+          <Attr Name="ScopedToCell" Val="inst"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_rsw_0_ooc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="out_of_context"/>
+          <Attr Name="ScopedToRef" Val="bd_afc3_rsw_0"/>
+          <Attr Name="ScopedToCell" Val="inst"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_awsw_0_ooc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="out_of_context"/>
+          <Attr Name="ScopedToRef" Val="bd_afc3_awsw_0"/>
+          <Attr Name="ScopedToCell" Val="inst"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_wsw_0_ooc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="out_of_context"/>
+          <Attr Name="ScopedToRef" Val="bd_afc3_wsw_0"/>
+          <Attr Name="ScopedToCell" Val="inst"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_bsw_0_ooc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="out_of_context"/>
+          <Attr Name="ScopedToRef" Val="bd_afc3_bsw_0"/>
+          <Attr Name="ScopedToCell" Val="inst"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_afc3_psr_aclk_0.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="ScopedToRef" Val="bd_afc3_psr_aclk_0"/>
+          <Attr Name="ScopedToCell" Val="U0"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/ooc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="out_of_context"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/ila.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="ScopedToRef" Val="bd_f60c_ila_lib_0"/>
+          <Attr Name="ScopedToCell" Val="inst"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_f60c_ila_lib_0_ooc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="out_of_context"/>
+          <Attr Name="ScopedToRef" Val="bd_f60c_ila_lib_0"/>
+          <Attr Name="ScopedToCell" Val="inst"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/bd_f60c_ooc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="out_of_context"/>
+          <Attr Name="ScopedToRef" Val="bd_f60c"/>
+          <Attr Name="ProcessingOrder" Val="EARLY"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/design_1_system_ila_0_0_ooc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="out_of_context"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Thesis/src/ila_impl.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="ConstrsType" Val="XDC"/>
       </Config>
@@ -661,6 +2163,7 @@
     <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1">
       <File Path="$PPRDIR/../Thesis/src/test_benches/layered_test_coverage.sv">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="simulation"/>
           <Attr Name="UsedIn" Val="testbench"/>
         </FileInfo>

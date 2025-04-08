@@ -84,6 +84,7 @@ class driver;
   mailbox #(transaction) mbx;
   virtual top_if vif;
   transaction tr;
+  event done;
 
   function new(mailbox#(transaction) mbx);
     this.mbx = mbx;
@@ -115,6 +116,7 @@ class driver;
       end
 
       vif.i_valid <= 0;
+      @(done);
     end
   endtask
 endclass
@@ -218,6 +220,7 @@ class environment;
 
     gen.wait_ = this.done;
     mon.done = this.done;
+    drv.done = this.done;
 
     gen.done = this.genDone;
 
