@@ -15,7 +15,7 @@ module data_modulate_3x3_controller (
   parameter START = 2'b01;
   parameter DATA = 2'b10;
   parameter DONE = 2'b11;
-  reg [2:0] current_state, next_state;
+  reg [1:0] current_state, next_state;
   always @(posedge clk) begin
     if (~rst_n) begin
       current_state <= IDLE;
@@ -25,12 +25,13 @@ module data_modulate_3x3_controller (
   end
 
   always @(*) begin
-    next_state = current_state;
+    // next_state = current_state;
     case (current_state)
-      IDLE:  next_state = (done_i) ? START : IDLE;
+      IDLE: next_state = (done_i) ? START : IDLE;
       START: next_state = (padding_fi) ? DATA : START;
-      DATA:  next_state = (finish_en) ? DONE : DATA;
-      DONE:  next_state = IDLE;
+      DATA: next_state = (finish_en) ? DONE : DATA;
+      DONE: next_state = IDLE;
+      default: next_state = IDLE;
 
     endcase
   end
@@ -60,6 +61,11 @@ module data_modulate_3x3_controller (
       end
       DONE: begin
 
+      end
+      default: begin
+        output_en = 1'b0;
+        count_en  = 1'b0;
+        reset_en  = 1'b0;
       end
 
     endcase

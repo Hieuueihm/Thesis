@@ -1,16 +1,16 @@
 module line_buffer_controller #(
-    parameter DEPTH = 1024
+    parameter DEPTH = 128
 ) (
-    input  clk,         // Clock input
-    input  rst_n,       // Reset input
-    input  done_i,      // Done signal when operation is complete
-    input  first_done,
-    input  last_done,
+    input      clk,         // Clock input
+    input      rst_n,       // Reset input
+    input      done_i,      // Done signal when operation is complete
+    input      first_done,
+    input      last_done,
     // for datapath
-    output wr_en,       // Write enable signal
+    output     wr_en,       // Write enable signal
     output reg rd_en,       // Read enable signal
     output reg reset_en,
-  // for next buff
+    // for next buff
     output reg o_valid,
     output reg o_start,
     output reg o_finish
@@ -35,12 +35,13 @@ module line_buffer_controller #(
   always @(*) begin
     next_state = current_state;
     case (current_state)
-      IDLE:  next_state = (done_i) ? START : IDLE;
+      IDLE: next_state = (done_i) ? START : IDLE;
       START: next_state = (first_done) ? FIRST_READ : START;
-      FIRST_READ: next_state =  READ1;
-      READ1:  next_state =  READ2;
-      READ2:  next_state = (last_done) ? DONE : READ2;
-      DONE:  next_state = IDLE;
+      FIRST_READ: next_state = READ1;
+      READ1: next_state = READ2;
+      READ2: next_state = (last_done) ? DONE : READ2;
+      DONE: next_state = IDLE;
+      default: next_state = IDLE;
     endcase
   end
 
@@ -62,17 +63,24 @@ module line_buffer_controller #(
         rd_en = 1'b1;
       end
       READ1: begin
-        rd_en = 1'b1;
+        rd_en   = 1'b1;
         o_valid = 1'b1;
         o_start = 1'b1;
       end
       READ2: begin
-        rd_en = 1'b1;
+        rd_en   = 1'b1;
         o_valid = 1'b1;
       end
       DONE: begin
         reset_en = 1'b1;
         o_finish = 1'b1;
+      end
+      default: begin
+        rd_en = 1'b0;
+        o_valid = 1'b0;
+        o_start = 1'b0;
+        o_finish = 1'b0;
+        reset_en = 1'b0;
       end
     endcase
   end

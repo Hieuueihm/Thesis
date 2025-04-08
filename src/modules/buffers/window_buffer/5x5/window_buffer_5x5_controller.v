@@ -18,7 +18,6 @@ module window_buffer_5x5_controller (
   parameter COL_OUT = 3'b011;
   parameter END_COL = 3'b100;
   parameter FINISH_ALL = 3'b110;
-  parameter DONE = 3'b111;
   always @(posedge clk) begin
     if (~rst_n) begin
       current_state <= IDLE;
@@ -28,7 +27,6 @@ module window_buffer_5x5_controller (
   end
 
   always @(*) begin
-    next_state = current_state;
     case (current_state)
       IDLE: next_state = (done_i) ? START : IDLE;
       START: next_state = START_COL;
@@ -36,6 +34,7 @@ module window_buffer_5x5_controller (
       COL_OUT: next_state = (i_col_eq_max) ? END_COL : COL_OUT;
       END_COL: next_state = i_row_eq_max ? FINISH_ALL : START_COL;
       FINISH_ALL: next_state = IDLE;
+      default: next_state = IDLE;
     endcase
   end
   always @(*) begin
@@ -61,6 +60,12 @@ module window_buffer_5x5_controller (
         progress_done = 1'b1;
         reset_en = 1'b1;
 
+      end
+      default: begin
+        count_en      = 1'b0;
+        done_o        = 1'b0;
+        reset_en      = 1'b0;
+        progress_done = 1'b0;
       end
     endcase
 

@@ -2,25 +2,25 @@ module mrelbp_ci_r6 #(
     parameter COLS = 15,
     parameter ROWS = 15
 ) (
-    input        clk,
-    input        rst_n,
-    input        done_i,
-    input  [7:0] S1,
-    input  [7:0] S2,
-    input  [7:0] S3,
-    input  [7:0] S4,
-    input  [7:0] S5,
-    input  [7:0] S6,
-    input  [7:0] S7,
-    input  [7:0] S8,
-    input  [7:0] S9,
-    input  [7:0] S10,
-    input  [7:0] S11,
-    input  [7:0] S12,
-    input  [7:0] S13,
-    output       ci_o,            // 0 or 1
-    output       done_o,
-    output       progress_done_o
+    input            clk,
+    input            rst_n,
+    input            done_i,
+    input      [7:0] S1,
+    input      [7:0] S2,
+    input      [7:0] S3,
+    input      [7:0] S4,
+    input      [7:0] S5,
+    input      [7:0] S6,
+    input      [7:0] S7,
+    input      [7:0] S8,
+    input      [7:0] S9,
+    input      [7:0] S10,
+    input      [7:0] S11,
+    input      [7:0] S12,
+    input      [7:0] S13,
+    output           ci_o,            // 0 or 1
+    output           done_o,
+    output reg       progress_done_o
 );
 
 
@@ -38,7 +38,7 @@ module mrelbp_ci_r6 #(
   wire reset_en;
 
 
-
+  wire pd;
   r6_controller #(
       .COLS(COLS)
   ) r6_CONTROLLER (
@@ -54,7 +54,7 @@ module mrelbp_ci_r6 #(
       .count_en(count_en),
       .start_en(start_en),
       .i_row_eq_max(i_row_eq_max),
-      .progress_done(progress_done_o),
+      .progress_done(pd),
       .reset_en(reset_en)
 
   );
@@ -98,13 +98,15 @@ module mrelbp_ci_r6 #(
   reg [15:0] sum_o_delay;
   always @(posedge clk) begin
     if (~rst_n) begin
-      done_scale  <= 0;
+      done_scale <= 0;
       scale_value <= 0;
       sum_o_delay <= 0;
+      progress_done_o <= 0;
     end else begin
-      done_scale  <= done_o_sum;
+      done_scale <= done_o_sum;
       scale_value <= central_value * 169;
       sum_o_delay <= sum_o;
+      progress_done_o <= pd;
     end
   end
 

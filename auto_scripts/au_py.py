@@ -6,8 +6,6 @@ import subprocess
 lbp = MRELBP()
 def compare_files(file1, file2):
     with open(file1, 'r') as f1, open(file2, 'r') as f2:
-        line_number = 1
-        mismatch_found = False
         while True:
             line1 = f1.readline().strip()
             line2 = f2.readline().strip()
@@ -25,11 +23,10 @@ def compare_files(file1, file2):
             
 
             if int_line1 != int_line2:
-                mismatch_found = True
                 return False
     return True
 
-def generate_input(file_name, size = 128, num = 1):
+def generate_input( size = 128, num = 1):
     np.random.seed(num)
     random_matrix = np.random.randint(0, 256, size=(size, size), dtype=np.uint8)
     return random_matrix
@@ -48,8 +45,8 @@ def run_vivado_script():
 
 
 diff = 0
-for i in range(1, 10):
-    random_matrix = generate_input("random_matrix.txt", 128, i)
+for i in range(1, 100):
+    random_matrix = generate_input( 128, i)
     # print(random_matrix)
     np.savetxt("D:\\Thesis\\auto_scripts\\random_matrix.txt", random_matrix, fmt='%d')
 
@@ -65,8 +62,5 @@ for i in range(1, 10):
         if(compare_files("histogram_o.txt", "histogram_layered_test.txt") == False):
             diff += 1
             print("Difference found in test case", i)
-
-
-print(diff)
 
 

@@ -1,6 +1,6 @@
 module window_buffer_3x3_datapath #(
-    parameter COLS = 5,
-    parameter ROWS = 5
+    parameter COLS = 128,
+    parameter ROWS = 128
 ) (
     input clk,
     input rst_n,

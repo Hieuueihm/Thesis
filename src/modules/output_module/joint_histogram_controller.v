@@ -26,6 +26,7 @@ module joint_histogram_controller (
       COUNTING: next_state = (read_en) ? READING : COUNTING;
       READING:  next_state = (done_read) ? FINISH : READING;
       FINISH:   next_state = IDLE;
+      default:  next_state = IDLE;
 
     endcase
   end
@@ -53,6 +54,12 @@ module joint_histogram_controller (
         finish   = 1;
         reset_en = 1;
 
+      end
+      default: begin
+        done_o   = 0;
+        finish   = 0;
+        count_en = 0;
+        reset_en = 0;
       end
     endcase
 

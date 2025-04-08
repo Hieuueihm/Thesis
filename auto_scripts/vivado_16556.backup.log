@@ -1,0 +1,55 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Fri Apr  4 17:24:45 2025
+# Process ID: 16556
+# Current directory: D:/Thesis/auto_scripts
+# Command line: vivado.exe -mode batch -source D:\\Thesis\\auto_scripts\\vi.tcl
+# Log file: D:/Thesis/auto_scripts/vivado.log
+# Journal file: D:/Thesis/auto_scripts\vivado.jou
+#-----------------------------------------------------------
+source {D:\\Thesis\\auto_scripts\\vi.tcl}
+# open_project "D:/Xilinx_Vivado/mrelbp_final/mrelbp_final.xpr"
+Scanning sources...
+Finished scanning sources
+# launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/Xilinx_Vivado/mrelbp_final/mrelbp_final.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'top_module_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/Xilinx_Vivado/mrelbp_final/mrelbp_final.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj top_module_tb_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/Xilinx_Vivado/mrelbp_final/mrelbp_final.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto b23f9ca916184c398faaf9ec50e69ca0 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot top_module_tb_behav xil_defaultlib.top_module_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/Xilinx_Vivado/mrelbp_final/mrelbp_final.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "top_module_tb_behav -key {Behavioral:sim_1:Functional:top_module_tb} -tclbatch {top_module_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source top_module_tb.tcl
+## current_wave_config
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'top_module_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 324.719 ; gain = 23.348
+# run -all
+[MON] : grayscale=0 valid=0 => hist=0 valid=0
+[GEN DONE] : grayscale=18 valid=1 => hist=0 valid=0
+$finish called at time : 174395 ns : File "D:/Thesis/src/test_benches/layered_test.sv" Line 241
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:21 . Memory (MB): peak = 324.719 ; gain = 0.000
+# wait_on_run sim_1
+ERROR: [Common 17-162] Invalid option value specified for '-run'.
+INFO: [Common 17-206] Exiting Vivado at Fri Apr  4 17:25:17 2025...

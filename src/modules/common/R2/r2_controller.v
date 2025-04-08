@@ -35,7 +35,7 @@ module r2_controller #(
   end
 
   always @(*) begin
-    next_state = current_state;
+    // next_state = current_state;
     case (current_state)
       IDLE: next_state = (done_i) ? START : IDLE;
       START: next_state = (i_start_gt_1 == 1'b1) ? START_ROW : START;
@@ -44,6 +44,7 @@ module r2_controller #(
       CUM_EN:
       next_state = (i_row_eq_max) ? FINISH_ALL : (i_counter > COLS - 2) ? START_ROW : CUM_EN;
       FINISH_ALL: next_state = IDLE;
+      default: next_state = IDLE;
     endcase
   end
 
@@ -85,6 +86,18 @@ module r2_controller #(
       FINISH_ALL: begin
         progress_done = 1'b1;
         reset_en = 1'b1;
+        done_o = 1'b0;
+      end
+      default: begin
+        // Giữ nguyên giá trị mặc định
+        count_en      = 1'b0;
+        done_o        = 1'b0;
+        cum_en        = 1'b0;
+        ld_en         = 1'b0;
+        sum_en        = 1'b0;
+        start_en      = 1'b0;
+        progress_done = 1'b0;
+        reset_en      = 1'b0;
       end
     endcase
   end

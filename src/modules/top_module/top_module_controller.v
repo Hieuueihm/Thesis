@@ -23,6 +23,7 @@ module top_module__controller (
       PROCESS: next_state = (finish_i) ? READ : PROCESS;
       READ:    next_state = (read_finish) ? FINISH : READ;
       FINISH:  next_state = IDLE;
+      default: next_state = IDLE;
 
     endcase
   end
@@ -42,6 +43,10 @@ module top_module__controller (
       FINISH: begin
         read_en = 1'b0;
         o_intr  = 1'b1;
+      end
+      default: begin
+        read_en = 1'b0;
+        o_intr  = 1'b0;
       end
 
 

@@ -17,9 +17,11 @@ module top_module #(
     output o_intr
 );
 
-  assign o_data_ready = 1'b1;
+
 
   wire axis_prog_full;
+  assign o_data_ready = ~axis_prog_full;
+
 
   wire finish;
   wire read_finish;
@@ -54,10 +56,54 @@ module top_module #(
       .read_finish(read_finish)
   );
 
+  output_buffer_ip OB (
+      .s_aclk       (clk),
+      .s_aresetn    (rst_n),
+      // s_axis
+      .s_axis_tvalid(o_histogram_valid),
+      .s_axis_tready(),
+      .s_axis_tdata (histogram),
+      // m_axis
+      .m_axis_tvalid(o_valid),            // output wire m_axis_tvalid
+      .m_axis_tready(i_data_ready),       // input wire m_axis_tready
+      .m_axis_tdata (histogram_o),
 
-  assign histogram_o = histogram;
-  assign o_intr = o_intr_o;
-  assign o_valid = o_histogram_valid;
+      .axis_prog_full(axis_prog_full)
+  );
+  wire o_intr_q, o_intr_q1, o_intr_q2;
+  register #(
+      .WIDTH(1)
+  ) register_o_intr (
+      .clk(clk),
+      .rst_n(rst_n),
+      .D(o_intr_o),
+      .Q(o_intr_q)
+  );
+  register #(
+      .WIDTH(1)
+  ) register_o_intr_2 (
+      .clk(clk),
+      .rst_n(rst_n),
+      .D(o_intr_q),
+      .Q(o_intr_q1)
+  );
+  register #(
+      .WIDTH(1)
+  ) register_o_intr_3 (
+      .clk(clk),
+      .rst_n(rst_n),
+      .D(o_intr_q1),
+      .Q(o_intr_q2)
+  );
+
+  register #(
+      .WIDTH(1)
+  ) register_o_intr_4 (
+      .clk(clk),
+      .rst_n(rst_n),
+      .D(o_intr_q2),
+      .Q(o_intr)
+  );
   //   integer file;
   //   always @(posedge clk) begin
   //     if (~rst_n) begin
@@ -71,4 +117,3 @@ module top_module #(
 
 
 endmodule
-

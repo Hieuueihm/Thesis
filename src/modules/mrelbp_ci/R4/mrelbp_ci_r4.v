@@ -15,7 +15,7 @@ module mrelbp_ci_r4 #(
     S8,
     S9,
     output ci_o,
-    output progress_done_o,
+    output reg progress_done_o,
     output done_o
 );
 
@@ -30,7 +30,7 @@ module mrelbp_ci_r4 #(
   wire i_row_eq_max;
   wire reset_en;
 
-
+  wire pd;
   r4_controller #(
       .COLS(COLS)
   ) r4_CONTROLLER (
@@ -46,7 +46,7 @@ module mrelbp_ci_r4 #(
       .count_en(count_en),
       .i_row_eq_max(i_row_eq_max),
       .start_en(start_en),
-      .progress_done(progress_done_o),
+      .progress_done(pd),
       .reset_en(reset_en)
 
   );
@@ -86,13 +86,15 @@ module mrelbp_ci_r4 #(
   reg [14:0] sum_o_delay;
   always @(posedge clk) begin
     if (~rst_n) begin
-      done_scale  <= 0;
+      done_scale <= 0;
       scale_value <= 0;
+      progress_done_o <= 0;
       sum_o_delay <= 0;
     end else begin
-      done_scale  <= done_o_sum;
+      done_scale <= done_o_sum;
       scale_value <= central_value * 81;
       sum_o_delay <= sum_o;
+      progress_done_o <= pd;
     end
   end
 

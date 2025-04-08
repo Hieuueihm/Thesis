@@ -1,0 +1,27 @@
+{ signal: [
+  { name: "clk", wave: 'P.............' },
+  {name: "reset_n", wave: '01............'},
+  {name: 'start_i', wave: '0.10..........', node: '..a'},
+  [ 's_axis',
+  {name: "o_data_ready", wave:'1.............'},
+   {name: "i_valid", wave:'0..1...0......', node:'...b...f'},
+  {name: "grayscale_i", wave:'0..3...0......', data: 'data'}
+],
+  ['m_axis',
+   {name: 'i_data_ready', wave: '1.............'},
+   {name: 'o_valid', wave: '0.......1...0.', node: '........c...d'},
+   {name: 'histogram_o', wave: '0.......5...0.', data: 'data'}
+  ],
+  {name: 'o_intr', wave: '0...........10', node :'.............e'}
+
+
+],
+ edge: [
+   "a~>b start",
+   "d~>e end",
+   "c<~>d valid",
+   "b<~>f valid"
+ 	
+ ]
+
+}
