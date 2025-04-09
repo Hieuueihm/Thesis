@@ -15,7 +15,6 @@
 #define FILE_SIZE IMAGE_SIZE + HEADER_SIZE
 
 
-s32 uart_init(void);
 s32 dma_init(void);
 s32 intr_init(void);
 s32 gpio_init(void);
@@ -51,13 +50,8 @@ int main()
 
 //	done = 0;
 	XTime start, end;
-	u32 histogram[600] __attribute__((aligned(64)));
+	u32 histogram[600] __attribute__((aligned(32)));
 	s32 status;
-	status = uart_init();
-	if(status != XST_SUCCESS ){
-		print("UART initialization failed...\n");
-		return -1;
-	}
 	status = dma_init();
 	if(status != XST_SUCCESS) {
 		print("DMA initialization failed...\n");
@@ -83,7 +77,7 @@ int main()
 	set_start_i(0);
 	XTime_GetTime(&start);
 	Xil_DCacheFlush();
-	status = XAxiDma_SimpleTransfer(&myDma,(u8)imageData[HEADER_SIZE],IMAGE_SIZE * sizeof(u8),XAXIDMA_DMA_TO_DEVICE);
+	status = XAxiDma_SimpleTransfer(&myDma,(u8*)&imageData[HEADER_SIZE],IMAGE_SIZE * sizeof(u8),XAXIDMA_DMA_TO_DEVICE);
 	if(status != XST_SUCCESS){
 		print("PS -> PL transfer failed\n");
 		return -1;
@@ -93,13 +87,24 @@ int main()
 		print("PL -> PS transfer failed\n");
 		return -1;
 	}
+//	print("ttesst1\n");
+	 status = checkHalted(XPAR_AXI_DMA_0_BASEADDR,0x4);
+	    while(status != 1){
+	    	status = checkHalted(XPAR_AXI_DMA_0_BASEADDR,0x4);
+	    }
+	    status = checkHalted(XPAR_AXI_DMA_0_BASEADDR,0x34);
+	    while(status != 1){
+	    	status = checkHalted(XPAR_AXI_DMA_0_BASEADDR,0x34);
+	    }
 
-//	while(!done){}
-	while(XAxiDma_Busy(&myDma, XAXIDMA_DEVICE_TO_DMA)){};
 	 XTime_GetTime(&end);
-
-	 printf("PROCESSING time %f us \n", (end-start) * 1000000.0/COUNTS_PER_SECOND);
+		Xil_DCacheFlushRange((UINTPTR)histogram,  600 * sizeof(u32));
+		Xil_DCacheInvalidateRange((UINTPTR)histogram,  600 * sizeof(u32));
+//	 printf("PROCESSING time %f us \n", (end-start) * 1000000.0/COUNTS_PER_SECOND);
 	sendHistogramData(histogram);
+//	 for(int i = 500; i< 600; i++){
+//		 xil_printf("%d\n", histogram[i]);
+//	 }
 
 
 
@@ -108,27 +113,18 @@ int main()
     return 0;
 }
 void sendHistogramData(u32 histogram[]) {
-    for (int i = 0; i < 600; i++) {
-        uint32_t value = histogram[i];
-//       xil_printf("%d ", histogram[i]);
-        uint8_t bytes[4];
-
-        bytes[0] = (value >> 0) & 0xFF;
-        bytes[1] = (value >> 8) & 0xFF;
-        bytes[2] = (value >> 16) & 0xFF;
-        bytes[3] = (value >> 24) & 0xFF;
-
-                // Send all 4 bytes
-        XUartPs_Send(&myUart, bytes, 4);
-        usleep(2000);
-    }
+	 for (int i = 0; i < 600; i++) {
+	        xil_printf("%c%c%c%c",
+	            (histogram[i] >> 0) & 0xFF,
+	            (histogram[i] >> 8) & 0xFF,
+	            (histogram[i] >> 16) & 0xFF,
+	            (histogram[i] >> 24) & 0xFF
+	        );
+	        usleep(2000);
+	    }
 
 }
 
-s32 uart_init(){
-	myUartConfig = XUartPs_LookupConfig(XPAR_PSU_UART_0_DEVICE_ID);
-	return XUartPs_CfgInitialize(&myUart, myUartConfig, myUartConfig -> BaseAddress);
-}
 
 s32 dma_init(){
 	myDmaConfig = XAxiDma_LookupConfigBaseAddr(XPAR_AXI_DMA_0_BASEADDR);

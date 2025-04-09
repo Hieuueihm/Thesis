@@ -12,7 +12,7 @@ module joint_histogram (
 );
 
   wire done_read;
-  wire count_en, read_en;
+  wire count_en;
   wire reset_en;
   wire reset_done;
   joint_histogram_controller joint_CONTROLLER (

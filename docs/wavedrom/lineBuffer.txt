@@ -1,12 +1,15 @@
 { signal: [
   { name: "clk", wave: 'P.............' },
   {name: "reset_n", wave: '01............'},
+  ["input", 
   {name: "i_valid", wave: '0.1.....0.....'},
   {name: 'data_i', wave: '0.7.....0.....', data: 'data'},
+   ], ["output", 
   {name: 'data_o', wave: '0...7.....0...', data: 'data'},
   {name: 'o_valid', wave: '0...1.....0...', node: '....a.....b'},
   {name: 'o_start', wave: '0...10........', node: '....cd.....'},
   {name: 'o_finish', wave: '0.........10..', node: '..........ef..'}
+       ]
  
 
 ],

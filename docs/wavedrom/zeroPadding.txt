@@ -1,21 +1,24 @@
 { signal: [
   { name: "clk", wave: 'P................' },
   {name: "reset_n", wave: '01...............'},
-  {name: "i_valid", wave: '0.1.....0........'},
-  {name: 'd0_i', wave: '0.7.....0........', data: 'data'},
-  {name: 'd1_i', wave: '0.7.....0........', data: 'data'},
-  {name: '...'},
-  {name: 'd0_o', wave: '0..4.....0.......', data: 'data'},
-  {name: 'd1_o', wave: '0..4.....0.......', data: 'data'},
-  {name: '...'},
-  {name: 'o_valid', wave: '0..1.....0.......', node :'...c.....d'}
+  ["input",
+  {name: "i_valid", wave: '0.1......0.......', node :'..b......a'},
+   {name: "d0_i", wave: '0.3......0.......', data: "data"},
+  {name: 'd1_i', wave :'0.3......0.......', data: 'data'},
+   {name: '...'}
+   ], ["output",
+  {name : 'd0_o', wave: '0..6........0....', data: 'data'},
+   {name : 'd1_o', wave: '0..6........0....', data: 'data'},
+       {name: "..."},
+
+  {name: 'o_valid', wave: '0..1........0....', node :'...c........d'},
+       ]
  
 
 ],
  edge: [
-  "e~->a",
-   "e~->c",
-   "g~->d",
+  "a->b valid" ,
+   "d~->e",
    "c<~>d valid"
  	
  ]

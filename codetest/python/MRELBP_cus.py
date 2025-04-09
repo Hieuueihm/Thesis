@@ -589,7 +589,7 @@ with open(output_path, "w") as f:
     f.write("\n};\n")
 # print(len(img_data))
 lbp = MRELBP()
-lbp.MRELBP(random_matrix)
+# lbp.MRELBP(random_matrix)
 np.savetxt(file_path, random_matrix, fmt='%d')
 
 
@@ -668,8 +668,12 @@ def compare_files(file1, file2):
 
 
 
-file1 = 'histogram_layered_test.txt'
-file2 = 'histogram_o.txt'
+# file1 = 'histogram_layered_test.txt'
+# file2 = 'histogram_o.txt'
+# compare_files(file1, file2)
+
+file1 = 'histogram_verilog.txt'
+file2 = 'histogram_data.txt'
 compare_files(file1, file2)
 
 # file1 = 'rd_r4_hls.txt'

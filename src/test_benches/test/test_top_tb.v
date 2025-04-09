@@ -72,7 +72,7 @@ module test_top_tb ();
     i_data_ready = 1'b0;
 
     start_i <= 0;
-    file = $fopen("D:\\Thesis\\Src\\test_benches\\test\\random_matrix.txt", "r");
+    file = $fopen("D:\\Thesis\\Src\\test_benches\\test\\img.txt", "r");
     if (file == 0) begin
       $display("Error: Cannot open file.");
       $finish;

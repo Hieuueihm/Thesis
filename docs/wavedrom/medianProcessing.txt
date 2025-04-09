@@ -1,8 +1,10 @@
 { signal: [
   { name: "clk", wave: 'P.............' },
   {name: "reset_n", wave: '01............'},
+  ["input", 
   {name: "data_i", wave:'0.7....0......', data: 'data'},
   {name: 'i_valid', wave: '0.1....0......'},
+  ], ["output", 
   {name: 'data_o', wave: '0..8....0.....', data: 'data'},
   {name: 'o_valid', wave: '0..1....0.....', node: '...a....b'},
     {name: 'm_3x3_o', wave: '0...7....0....', data: 'median_3x3'},
@@ -12,6 +14,7 @@
   ,
     {name: 'm_7x7_o', wave: '0.....5....0..', data: 'median_7x7'},
   {name: 'o_7x7_valid', wave: '0.....1....0..', node: '......g....h'}
+      ]
 ]
  ,
  edge: [

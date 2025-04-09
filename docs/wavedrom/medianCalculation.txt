@@ -1,0 +1,23 @@
+{ signal: [
+  { name: "clk", wave: 'P................' },
+  {name: "reset_n", wave: '01...............'},
+  ["input", 
+  {name: "i_valid", wave: '0.1.....0........'},
+  {name: 'S0_i', wave :'0.3.....0........', data: 'data'},
+  {name: 'S1_i', wave: '0.3.....0........', data: 'data'},
+  {name : '...'},
+   ], ["output", 
+  {name: 'median_o', wave: '0.......4.....0..', data :'median_value'},
+  {name: 'o_valid', wave: '0.......1.....0..', node :'........c.....d'}
+ ]
+
+],
+ edge: [
+  "e~->a",
+   "e~->c",
+   "g~->d",
+   "c<~>d valid"
+ 	
+ ]
+
+}

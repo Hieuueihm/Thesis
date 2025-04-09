@@ -245,6 +245,7 @@ module sort_ascending_7 (
       p4_sn2_max  <= sn2_max;
       p4_sn2_med  <= sn2_med;
       p4_sn2_min  <= sn2_min;
+
       p4_done_o   <= p3_done_o;
       p4_sa2_mid  <= p3_sa2_mid;
       p4_sa2_out4 <= p3_sa2_out4;

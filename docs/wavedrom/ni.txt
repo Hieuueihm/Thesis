@@ -1,0 +1,24 @@
+{ signal: [
+  { name: "clk", wave: 'P................' },
+  {name: "reset_n", wave: '01...............'},
+  ["input",
+  {name: "i_valid", wave: '0.1......0.......', node :'.........a'},
+  {name: "i_finish", wave: '0........10......', node :'.........b'},
+  {name: 'sum_i', wave: '0.6......0.......', data: 'sum'},
+  {name: 'S1_r -> S8_r', wave :'0.3......0.......', data: 'data'},
+   ], ["output",
+  {name : 'bit1_o -> bit8_o', wave: '0..7........0....', data: 'bit'},
+  {name: 'o_valid', wave: '0..1........0....', node :'...c........d'},
+  {name: 'o_finish', wave:'0...........10...', node : '............e'}
+       ]
+ 
+
+],
+ edge: [
+  "a->b",
+   "d~->e",
+   "c<~>d valid"
+ 	
+ ]
+
+}
