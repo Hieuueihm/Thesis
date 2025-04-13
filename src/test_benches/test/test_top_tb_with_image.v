@@ -3,7 +3,7 @@
 `define SIZE 128
 `define WRITE_FILENAME "D:\\Thesis\\data\\outputs\\test_output.bmp"
 `define READ_FILENAME "D:\\Thesis\\data\\inputs\\test_input.bmp"
-`define OUTPUT_TEXTFILE "D://Thesis//codetest//python//input_image_read.txt"
+`define OUTPUT_TEXTFILE "D:\\Thesis\\codetest\\python\\input_image_read.txt"
 `define clk_period 10
 `define half_clk_period 5
 
@@ -34,12 +34,14 @@ module test_top_tb_with_image ();
 
   task readBMP;
     integer fileId;
+    integer fileId1;
     begin
       fileId = $fopen(`READ_FILENAME, "rb");
       if (fileId == 0) begin
         $display("OPEN BMP Error!\n");
         $finish;
       end
+      fileId1 = $fopen("D:\\Thesis\\codetest\\python\\img_data_origin", "w");
 
       $fread(bmp_data, fileId);
       $fclose(fileId);
@@ -57,6 +59,10 @@ module test_top_tb_with_image ();
                bmp_height, bmp_start_pos, row_size);
 
       // �?�?c dữ liệu ảnh từ BMP theo bottom-up
+      for (i = 0; i < 128 * 128 + bmp_start_pos; i = i + 1) begin
+        $fwrite(fileId1, "%d\n", bmp_data[i]);
+      end
+      $fclose(fileId1);
       pixel_index = 0;
       for (i = 0; i < bmp_height; i = i + 1) begin
         start = bmp_start_pos + (bmp_height - 1 - i) * row_size;  // Lật ảnh

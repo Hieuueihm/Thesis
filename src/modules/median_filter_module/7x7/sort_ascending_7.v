@@ -226,55 +226,64 @@ module sort_ascending_7 (
       .min(sn2_min)
   );
 
-  reg [7:0] p4_sn2_max, p4_sn2_med, p4_sn2_min;
-  reg p4_done_o;
-  reg [7:0] p4_sa2_mid, p4_sa2_out4, p4_sa2_max;
-  reg [7:0] p4_sn1_min;
+  // reg [7:0] p4_sn2_max, p4_sn2_med, p4_sn2_min;
+  // reg p4_done_o;
+  // reg [7:0] p4_sa2_mid, p4_sa2_out4, p4_sa2_max;
+  // reg [7:0] p4_sn1_min;
 
-  always @(posedge clk) begin
-    if (~rst_n) begin
-      p4_sn2_max  <= 0;
-      p4_sn2_med  <= 0;
-      p4_sn2_min  <= 0;
-      p4_done_o   <= 0;
-      p4_sa2_mid  <= 0;
-      p4_sa2_out4 <= 0;
-      p4_sa2_max  <= 0;
-      p4_sn1_min  <= 0;
-    end else begin
-      p4_sn2_max  <= sn2_max;
-      p4_sn2_med  <= sn2_med;
-      p4_sn2_min  <= sn2_min;
+  // always @(posedge clk) begin
+  //   if (~rst_n) begin
+  //     p4_sn2_max  <= 0;
+  //     p4_sn2_med  <= 0;
+  //     p4_sn2_min  <= 0;
+  //     p4_done_o   <= 0;
+  //     p4_sa2_mid  <= 0;
+  //     p4_sa2_out4 <= 0;
+  //     p4_sa2_max  <= 0;
+  //     p4_sn1_min  <= 0;
+  //   end else begin
+  //     p4_sn2_max  <= sn2_max;
+  //     p4_sn2_med  <= sn2_med;
+  //     p4_sn2_min  <= sn2_min;
 
-      p4_done_o   <= p3_done_o;
-      p4_sa2_mid  <= p3_sa2_mid;
-      p4_sa2_out4 <= p3_sa2_out4;
-      p4_sa2_max  <= p3_sa2_max;
-      p4_sn1_min  <= p3_sn1_min;
+  //     p4_done_o   <= p3_done_o;
+  //     p4_sa2_mid  <= p3_sa2_mid;
+  //     p4_sa2_out4 <= p3_sa2_out4;
+  //     p4_sa2_max  <= p3_sa2_max;
+  //     p4_sn1_min  <= p3_sn1_min;
 
-    end
-  end
+  //   end
+  // end
 
-  sorting_network SN3 (
-      .S1 (p4_sn1_min),
-      .S2 (p4_sn2_med),
-      .S3 (p4_sn2_min),
-      .max(out3),
-      .med(out2),
-      .min(min)
-  );
-
+  // sorting_network SN3 (
+  //     .S1 (p4_sn1_min),
+  //     .S2 (p4_sn2_med),
+  //     .S3 (p4_sn2_min),
+  //     .max(out3),
+  //     .med(out2),
+  //     .min(min)
+  // );
+  // assign mid = p4_sn2_max;
+  // assign out5 = p4_sa2_mid;
+  // assign out6 = p4_sa2_out4;
+  // assign max = p4_sa2_max;
+  // assign done_o = p4_done_o;
 
   // sn2_max -> mid
   // sa2_mid -> out5
   // sa2_out4 -> out6
   // sa2_max -> max
 
-  assign mid = p4_sn2_max;
-  assign out5 = p4_sa2_mid;
-  assign out6 = p4_sa2_out4;
-  assign max = p4_sa2_max;
-  assign done_o = p4_done_o;
+
+  assign min = p3_sn1_min;
+  assign out2 = sn2_min;
+  assign out3 = sn2_med;
+
+  assign mid = sn2_max;
+  assign out5 = p3_sa2_mid;
+  assign out6 = p3_sa2_out4;
+  assign max = p3_sa2_max;
+  assign done_o = p3_done_o;
 
 
 endmodule

@@ -808,129 +808,139 @@ module median_filter_7x7_calc (
       .med(),
       .min(lower_right_min)
   );
-  reg [7:0]
-      p3_S1,
-      p3_S2,
-      p3_S3,
-      p3_S4,
-      p3_S5,
-      p3_S6,
-      p3_S7,
-      p3_S8,
-      p3_S9,
-      p3_S10,
-      p3_S11,
-      p3_S12,
-      p3_S13,
-      p3_S14,
-      p3_S15,
-      p3_S16,
-      p3_S17,
-      p3_S18,
-      p3_S19,
-      p3_S20,
-      p3_S21,
-      p3_S22,
-      p3_S23,
-      p3_S24,
-      p3_S25;
+  // reg [7:0]
+  //     p3_S1,
+  //     p3_S2,
+  //     p3_S3,
+  //     p3_S4,
+  //     p3_S5,
+  //     p3_S6,
+  //     p3_S7,
+  //     p3_S8,
+  //     p3_S9,
+  //     p3_S10,
+  //     p3_S11,
+  //     p3_S12,
+  //     p3_S13,
+  //     p3_S14,
+  //     p3_S15,
+  //     p3_S16,
+  //     p3_S17,
+  //     p3_S18,
+  //     p3_S19,
+  //     p3_S20,
+  //     p3_S21,
+  //     p3_S22,
+  //     p3_S23,
+  //     p3_S24,
+  //     p3_S25;
 
-  reg p4_done_o;
-  always @(posedge clk) begin
-    if (~rst_n) begin
-      p3_S1 <= 0;
-      p3_S2 <= 0;
-      p3_S3 <= 0;
-      p3_S4 <= 0;
-      p3_S5 <= 0;
-      p3_S6 <= 0;
-      p3_S7 <= 0;
-      p3_S8 <= 0;
-      p3_S9 <= 0;
-      p3_S10 <= 0;
-      p3_S11 <= 0;
-      p3_S12 <= 0;
-      p3_S13 <= 0;
-      p3_S14 <= 0;
-      p3_S15 <= 0;
-      p3_S16 <= 0;
-      p3_S17 <= 0;
-      p3_S18 <= 0;
-      p3_S19 <= 0;
-      p3_S20 <= 0;
-      p3_S21 <= 0;
-      p3_S22 <= 0;
-      p3_S23 <= 0;
-      p3_S24 <= 0;
-      p3_S25 <= 0;
+  // reg p4_done_o;
+  // always @(posedge clk) begin
+  //   if (~rst_n) begin
+  //     p3_S1 <= 0;
+  //     p3_S2 <= 0;
+  //     p3_S3 <= 0;
+  //     p3_S4 <= 0;
+  //     p3_S5 <= 0;
+  //     p3_S6 <= 0;
+  //     p3_S7 <= 0;
+  //     p3_S8 <= 0;
+  //     p3_S9 <= 0;
+  //     p3_S10 <= 0;
+  //     p3_S11 <= 0;
+  //     p3_S12 <= 0;
+  //     p3_S13 <= 0;
+  //     p3_S14 <= 0;
+  //     p3_S15 <= 0;
+  //     p3_S16 <= 0;
+  //     p3_S17 <= 0;
+  //     p3_S18 <= 0;
+  //     p3_S19 <= 0;
+  //     p3_S20 <= 0;
+  //     p3_S21 <= 0;
+  //     p3_S22 <= 0;
+  //     p3_S23 <= 0;
+  //     p3_S24 <= 0;
+  //     p3_S25 <= 0;
 
-      p4_done_o <= 0;
-    end else begin
+  //     p4_done_o <= 0;
+  //   end else begin
 
-      p3_S1 <= p3_sa13_S1;
-      p3_S2 <= p3_sa14_S1;
-      p3_S3 <= p3_sa12_S2;
-      p3_S4 <= p3_sa13_S2;
-      p3_S5 <= p3_sa14_S2;
+  //     p3_S1 <= p3_sa13_S1;
+  //     p3_S2 <= p3_sa14_S1;
+  //     p3_S3 <= p3_sa12_S2;
+  //     p3_S4 <= p3_sa13_S2;
+  //     p3_S5 <= p3_sa14_S2;
 
-      p3_S6 <= upper_left_max;
-      p3_S7 <= p3_sa11_S3;
-      p3_S8 <= p3_sa12_S3;
-      p3_S9 <= p3_sa13_S3;
-      p3_S10 <= p3_sa14_S3;
+  //     p3_S6 <= upper_left_max;
+  //     p3_S7 <= p3_sa11_S3;
+  //     p3_S8 <= p3_sa12_S3;
+  //     p3_S9 <= p3_sa13_S3;
+  //     p3_S10 <= p3_sa14_S3;
 
-      p3_S11 <= p3_sa9_S4;
-      p3_S12 <= p3_sa10_S4;
-      p3_S13 <= p3_sa11_S4;
-      p3_S14 <= p3_sa12_S4;
-      p3_S15 <= p3_sa13_S4;
-
-
-      p3_S16 <= p3_sa8_S5;
-      p3_S17 <= p3_sa9_S5;
-      p3_S18 <= p3_sa10_S5;
-      p3_S19 <= p3_sa11_S5;
-      p3_S20 <= lower_right_min;
-
-      p3_S21 <= p3_sa8_S6;
-      p3_S22 <= p3_sa9_S6;
-      p3_S23 <= p3_sa10_S6;
-      p3_S24 <= p3_sa8_S7;
-      p3_S25 <= p3_sa9_S7;
+  //     p3_S11 <= p3_sa9_S4;
+  //     p3_S12 <= p3_sa10_S4;
+  //     p3_S13 <= p3_sa11_S4;
+  //     p3_S14 <= p3_sa12_S4;
+  //     p3_S15 <= p3_sa13_S4;
 
 
-      p4_done_o <= p3_done_i_delay;
-    end
-  end
+  //     p3_S16 <= p3_sa8_S5;
+  //     p3_S17 <= p3_sa9_S5;
+  //     p3_S18 <= p3_sa10_S5;
+  //     p3_S19 <= p3_sa11_S5;
+  //     p3_S20 <= lower_right_min;
+
+  //     p3_S21 <= p3_sa8_S6;
+  //     p3_S22 <= p3_sa9_S6;
+  //     p3_S23 <= p3_sa10_S6;
+  //     p3_S24 <= p3_sa8_S7;
+  //     p3_S25 <= p3_sa9_S7;
+
+
+  //     p4_done_o <= p3_done_i_delay;
+  //   end
+  // end
+
+
+
+
+
+
+
+
+
+
   median_filter_5x5_calc CALC75 (
       .clk(clk),
       .rst_n(rst_n),
-      .done_i(p4_done_o),
-      .S1(p3_S1),
-      .S2(p3_S2),
-      .S3(p3_S3),
-      .S4(p3_S4),
-      .S5(p3_S5),
-      .S6(p3_S6),
-      .S7(p3_S7),
-      .S8(p3_S8),
-      .S9(p3_S9),
-      .S10(p3_S10),
-      .S11(p3_S11),
-      .S12(p3_S12),
-      .S13(p3_S13),
-      .S14(p3_S14),
-      .S15(p3_S15),
-      .S16(p3_S16),
-      .S17(p3_S17),
-      .S18(p3_S18),
-      .S19(p3_S19),
-      .S20(p3_S20),
-      .S21(p3_S21),
-      .S22(p3_S22),
-      .S23(p3_S23),
-      .S24(p3_S24),
-      .S25(p3_S25),
+      .done_i(p3_done_i_delay),
+      .S1(p3_sa13_S1),
+      .S2(p3_sa14_S1),
+      .S3(p3_sa12_S2),
+      .S4(p3_sa13_S2),
+      .S5(p3_sa14_S2),
+      .S6(upper_left_max),
+      .S7(p3_sa11_S3),
+      .S8(p3_sa12_S3),
+      .S9(p3_sa13_S3),
+      .S10(p3_sa14_S3),
+      .S11(p3_sa9_S4),
+      .S12(p3_sa10_S4),
+      .S13(p3_sa11_S4),
+      .S14(p3_sa12_S4),
+      .S15(p3_sa13_S4),
+      .S16(p3_sa8_S5),
+      .S17(p3_sa9_S5),
+      .S18(p3_sa10_S5),
+      .S19(p3_sa11_S5),
+      .S20(lower_right_min),
+      .S21(p3_sa8_S6),
+      .S22(p3_sa9_S6),
+      .S23(p3_sa10_S6),
+      .S24(p3_sa8_S7),
+      .S25(p3_sa9_S7),
       .median_o(median_o),
       .done_o(done_o)
   );

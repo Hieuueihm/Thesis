@@ -233,7 +233,7 @@ module top_module__datapath #(
   wire ci_r6_delay;
   wire done_ci_r6_delay;
 
-  `define CYCLE_SHIFT_CI_r6 42
+  `define CYCLE_SHIFT_CI_r6 39
 
 
   shift_registers #(

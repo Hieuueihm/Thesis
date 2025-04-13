@@ -139,6 +139,8 @@ class monitor;
   int count;
   int val;
   int error;
+  int flag;
+
 
   function new(mailbox#(transaction) mbx);
     this.mbx = mbx;
@@ -156,6 +158,7 @@ class monitor;
         idx++;
 
         if (idx == 600) begin
+            flag = 0;
 
           tr = new();
           tr.display("MON");
@@ -176,12 +179,16 @@ class monitor;
             void'($fscanf(file_id, "%d\n", val));
             if (val != hist_bins[i]) begin
               error++;
+              flag = 1;
               $display("Error: histogram[%0d] = %0d != %0d", i, hist_bins[i], val);
               break;
             end
             //     $fwrite(file_id, "%0d\n", hist_bins[i]);
           end
+          if(flag == 0) begin
           $display("same: %d\n", count);
+
+          end
 
           $fclose(file_id);
           ->done;

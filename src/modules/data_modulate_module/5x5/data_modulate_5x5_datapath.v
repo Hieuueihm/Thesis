@@ -82,7 +82,7 @@ module data_modulate_5x5_datapath #(
     end
   end
   assign padding_fi = (i_counter == 1) ? 1 : 0;
-  assign finish_en  = (i_col_eq_max & i_row_eq_max) ? 1'b1 : 1'b0;
+  assign finish_en  = (i_col_eq_max & i_row_eq_max);
 
 
   reg [7:0]
@@ -230,6 +230,7 @@ module data_modulate_5x5_datapath #(
       data2  <= data3;
       data3  <= data4;
       data4  <= d4_i;
+
       data5  <= data6;
       data6  <= data7;
       data7  <= data8;

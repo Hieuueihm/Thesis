@@ -74,7 +74,7 @@ module r6_nird #(
   wire [7:0] data6_5x5_delay, data7_5x5_delay, data8_5x5_delay;
   wire [7:0] data9_5x5_delay, data10_5x5_delay, data11_5x5_delay, data12_5x5_delay;
 
-  `define CYCLE_DELAY 26
+  `define CYCLE_DELAY 23
 
   shift_registers #(
       .WIDTH(1),

@@ -108,7 +108,7 @@ module data_modulate_7x7_datapath #(
     end
   end
   assign padding_fi = (i_counter == 2) ? 1 : 0;
-  assign finish_en  = (i_col_eq_max & i_row_eq_max) ? 1'b1 : 1'b0;
+  assign finish_en  = (i_col_eq_max & i_row_eq_max);
 
   reg [7:0]
       data0,

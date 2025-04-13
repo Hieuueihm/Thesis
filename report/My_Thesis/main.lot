@@ -1,0 +1,32 @@
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {1.1}{\ignorespaces Các phương pháp trích xuất đặc trưng}}{6}{table.caption.17}%
+\contentsline {table}{\numberline {1.2}{\ignorespaces Một vài biến thể của LBP}}{11}{table.caption.22}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Các yêu cầu phi chức năng cho thiết kế}}{17}{table.caption.29}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Danh sách các tham số của mô đun MRELBP }}{19}{table.caption.33}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces Danh sách các tín hiệu của giao diện mô đun MRELBP}}{19}{table.caption.34}%
+\contentsline {table}{\numberline {2.4}{\ignorespaces Tham số của mô đun MedianProcessing}}{21}{table.caption.37}%
+\contentsline {table}{\numberline {2.5}{\ignorespaces Danh sách các tín hiệu của mô đun MedianProcessing}}{21}{table.caption.38}%
+\contentsline {table}{\numberline {2.6}{\ignorespaces Danh sách các tham số của mô đun LineBuffer }}{23}{table.caption.41}%
+\contentsline {table}{\numberline {2.7}{\ignorespaces Danh sách các tín hiệu của giao diện mô đun LineBuffer}}{23}{table.caption.42}%
+\contentsline {table}{\numberline {2.8}{\ignorespaces Danh sách các tham số của mô đun ZeroPadding }}{24}{table.caption.45}%
+\contentsline {table}{\numberline {2.9}{\ignorespaces Danh sách các tín hiệu của giao diện mô đun LineBuffer}}{25}{table.caption.46}%
+\contentsline {table}{\numberline {2.10}{\ignorespaces Danh sách các tham số của mô đun MedianCalculation}}{25}{table.caption.48}%
+\contentsline {table}{\numberline {2.11}{\ignorespaces Danh sách các tín hiệu của giao diện mô đun MedianCalculation}}{26}{table.caption.49}%
+\contentsline {table}{\numberline {2.12}{\ignorespaces Tham số của mô đun CI}}{26}{table.caption.51}%
+\contentsline {table}{\numberline {2.13}{\ignorespaces Danh sách các tín hiệu của mô đun CI}}{26}{table.caption.52}%
+\contentsline {table}{\numberline {2.14}{\ignorespaces Tham số của mô đun MRELBP\_CI}}{28}{table.caption.55}%
+\contentsline {table}{\numberline {2.15}{\ignorespaces Danh sách các tín hiệu của mô đun MRELBP\_CI}}{28}{table.caption.56}%
+\contentsline {table}{\numberline {2.16}{\ignorespaces Tham số của mô đun NIRD}}{29}{table.caption.58}%
+\contentsline {table}{\numberline {2.17}{\ignorespaces Danh sách các tín hiệu của mô đun NIRD}}{29}{table.caption.59}%
+\contentsline {table}{\numberline {2.18}{\ignorespaces Tham số của mô đun Interpolation}}{30}{table.caption.62}%
+\contentsline {table}{\numberline {2.19}{\ignorespaces Danh sách các tín hiệu của mô đun Interpolation}}{31}{table.caption.63}%
+\contentsline {table}{\numberline {2.20}{\ignorespaces Tham số của mô đun NI}}{32}{table.caption.64}%
+\contentsline {table}{\numberline {2.21}{\ignorespaces Danh sách các tín hiệu của mô đun NI}}{32}{table.caption.65}%
+\contentsline {table}{\numberline {2.22}{\ignorespaces Danh sách các tín hiệu của mô đun RD}}{33}{table.caption.67}%
+\contentsline {table}{\numberline {2.23}{\ignorespaces Danh sách các tín hiệu của mô đun RIU2}}{34}{table.caption.69}%
+\contentsline {table}{\numberline {2.24}{\ignorespaces Danh sách các tín hiệu của mô đun JointHistogram}}{35}{table.caption.72}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Bảng điều kiện cho dữ liệu đầu ra ứng với cửa sổ 5x5}}{42}{table.caption.82}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Bảng điều kiện cho dữ liệu đầu ra ứng với cửa sổ 7x7}}{46}{table.3.2}%
+\contentsfinish 

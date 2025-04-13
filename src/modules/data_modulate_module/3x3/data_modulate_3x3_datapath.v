@@ -72,8 +72,8 @@ module data_modulate_3x3_datapath #(
       i_counter <= 0;
     end
   end
-  assign padding_fi = (i_counter == 0) ? 1 : 0;
-  assign finish_en  = (i_col_eq_max & i_row_eq_max) ? 1'b1 : 1'b0;
+  assign padding_fi = ~|i_counter;
+  assign finish_en  = i_col_eq_max & i_row_eq_max;
 
 
 

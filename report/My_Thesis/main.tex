@@ -1,0 +1,293 @@
+\documentclass[a4paper,12pt,oneside]{book}%extreport
+\usepackage{times} 
+% \usepackage{multibib}
+\usepackage{lipsum}
+\usepackage{appendix}
+\usepackage[shortlabels]{enumitem}
+\usepackage{booktabs}
+\usepackage{rotating} % Rotating table
+\usepackage{hhline}
+\usepackage{colortbl}
+\usepackage{afterpage}
+\usepackage{mathtools} %Fixes/improves amsmath
+\usepackage{setspace}
+\usepackage[utf8]{vietnam} 
+\usepackage{amstext, amsmath,latexsym,amsbsy,amssymb, amssymb,amsthm,amsfonts,multicol, nccmath}
+\usepackage[left=3cm,right=2cm,top=2.5cm,bottom=3cm,footskip=40pt]{geometry}
+\usepackage{pdflscape}
+\usepackage{apacite}
+\usepackage{tikz}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usetikzlibrary{calc}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{array,color,colortbl}
+\setcounter{secnumdepth}{4}
+
+\usepackage{longtable}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+
+
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!20]
+\tikzstyle{decision} = [diamond, minimum width=2cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+
+
+ %\usepackage[square,numbers]{natbib}
+\usepackage[square, comma, numbers, sort&compress]{natbib}
+\setlength{\parindent}{1cm}
+\usepackage{color}
+\usepackage{indentfirst}
+\usepackage{exscale,eucal}
+\usepackage{fancyhdr}
+\usepackage{fncychap}
+\usepackage[chapter]{algorithm}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{algpseudocode}
+\usepackage{tabularx,multicol,multirow,longtable}
+\usepackage{etoolbox}
+\usepackage{tikz}	\usetikzlibrary{calc,arrows,decorations.pathmorphing,backgrounds,positioning,fit,shapes,decorations.shapes, shapes.geometric, decorations.pathreplacing, decorations.text}
+ 
+	\tikzstyle{block} = [draw,rectangle,thick,minimum height=2em,minimum width=2em,drop shadow,fill=blue!50]
+	\tikzstyle{sum} = [draw,circle,inner sep=0mm,minimum size=2mm]
+	\tikzstyle{connector} = [->,thick]
+	\tikzstyle{line} = [very thick]
+	\tikzstyle{branch} = [circle,inner sep=0pt,minimum size=1mm,fill=black,draw=black]
+	\tikzstyle{axes} = [->,>=stealth',semithick]
+	\tikzstyle{important line} = [very thick,draw=red]
+	\tikzstyle{important text} = [rounded corners,fill=red!10,inner sep=1ex]
+\usepackage{circuitikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\usepackage[numbers]{natbib}
+\usepackage{titlesec}
+\usepackage[labelsep=period]{caption}
+\usepackage{subfigure}
+\DeclareCaptionFormat{myformat}{\fontsize{13}{15}\selectfont#1#2#3}
+\captionsetup{format=myformat}
+\usepackage{titletoc}
+\titlelabel{\thetitle.\,\,}
+\titleformat{\chapter}[display] 
+  {\fontsize{14}{16}\selectfont\bfseries\centering}
+  {\MakeUppercase{\chaptertitlename}\ \thechapter}{0pt}{\fontsize{14}{16}\selectfont\MakeUppercase}
+\titlespacing{\chapter}{0pt}{0pt}{40pt} 
+\titleformat*{\section}{\fontsize{14}{14}\selectfont\bfseries}
+\titleformat*{\subsection}{\fontsize{14}{14}\selectfont\bfseries\slshape}
+\titleformat*{\subsubsection}{\fontsize{14}{14}\slshape}
+\titleformat*{\paragraph}{\large\bfseries}
+\titleformat*{\subparagraph}{\large\bfseries}
+\graphicspath {{figures/}}
+
+\titlespacing\section{0pt}{6pt plus 4pt minus 2pt}{1pt plus 2pt minus 2pt} 
+\titlespacing\subsection{0pt}{6pt plus 4pt minus 2pt}{1pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsubsection{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+\usepackage[subfigure]{tocloft} 
+
+\cftsetpnumwidth{20pt}
+\titlecontents{chapter}
+  [0pt]
+  {}
+  {\fontsize{13.5}{14}\selectfont\MakeUppercase{\chaptername}\ \thecontentslabel.\,\,}
+  {}
+  {\cftdotfill{\cftdotsep}\contentspage} 
+	\renewcommand{\cftsecaftersnum}{.}%
+	\renewcommand{\cftsubsecaftersnum}{.}%
+
+\usetikzlibrary{calc}
+\newtheorem{definition}{\bf Định nghĩa}[chapter]
+\newtheorem{theorem}{\bf Định lý}[chapter]
+\newtheorem{lemma}{\bf Bổ đề}[chapter]
+
+\renewcommand{\cftfigfont}{Hình~}
+\renewcommand{\cfttabfont}{Bảng~ }
+\floatname{algorithm}{Thuật toán}
+\makeatletter
+\renewcommand\@biblabel[1]{[#1]}
+\renewcommand\harvardyearleft{\unskip~(}
+\renewcommand\harvardyearright{\unskip )}
+\makeatother
+\renewcommand{\baselinestretch}{1.4}
+\flushbottom
+\renewcommand*{\bibfont}{\fontsize{13}{16}\selectfont}
+
+\usepackage[hidelinks, unicode]{hyperref}
+
+\begin{document}
+\fontsize{13}{15.5}\selectfont
+
+\pagestyle{empty}
+\input{cover/Biangoai}
+\newpage
+\pagestyle{plain}
+\pagenumbering{gobble}
+\input{cover/Biatrong}
+\newpage
+\def\baselinestretch{1.3}
+\pagestyle{plain}
+\pagenumbering{gobble}
+\input{cover/loicamdoan}
+\newpage
+\input{cover/loicamon} 
+\newpage
+\input{cover/tomtat}
+\newpage
+\pagenumbering{roman}
+
+
+\setlength{\parindent}{1cm}
+\setlength{\parskip}{0.6ex}
+
+\fontsize{13}{16}\selectfont
+\renewcommand{\contentsname}{\vspace{-70pt}\centerline{\fontsize{14}{16}\selectfont\MakeUppercase{Mục lục}}}
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Mục lục}
+\tableofcontents
+\clearpage
+\input{cover/tomtat}
+\newpage
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Danh mục hình vẽ}
+\renewcommand{\listfigurename}{\vspace{-70pt}\centerline{\fontsize{14}{16}\selectfont{\MakeUppercase{Danh mục   hình vẽ}}}}
+\listoffigures
+\fontsize{13}{16}\selectfont
+\newpage
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Danh mục bảng biểu}
+\renewcommand{\listtablename}{\vspace{-70pt}\centerline{\fontsize{14}{16}\selectfont{\MakeUppercase{Danh mục bảng biểu}}}}
+\listoftables
+\fontsize{13}{16}\selectfont
+\newpage
+
+\pagenumbering{arabic}
+\pagestyle{plain}
+
+\input{chapter/Chap0_Introduction}
+\newpage
+\input{chapter/Chap1_Background}
+\newpage
+\input{chapter/Chap2_Specification}
+\newpage
+\input{chapter/Chap3_RTL}
+\newpage
+
+
+
+
+\def\baselinestretch{1}
+\vspace{-2cm}
+\renewcommand{\bibname}{Tài liệu tham khảo}
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{{TÀI LIỆU THAM KHẢO}}
+\renewcommand{\refname}{Literary works}
+\begin{thebibliography}{xx}
+	\section*{Tiếng Việt}
+	\vspace{0.3cm}
+	\harvarditem{Quỳnh}{2015}{Quynh2015}
+	Trần Thị Thúy Quỳnh , {\em {Nghi{\^{e}}n cứu
+			n{\^{a}}ng cao hiệu năng của hệ t{\`{i}}m phương sử dụng anten
+			kh{\^{o}}ng tầm pha trong m{\^{o}}i trường c{\'{a}}c nguồn t{\'{i}}n
+			hiệu tương quan}}, Luận án tiến sĩ, 2015, tr.~19--23.
+	\vspace{0.5cm}	
+	\section*{Tiếng Anh}	
+	
+	\harvarditem{Li Liu, Songyang Lao, Paul W. Fieguth, Yulan Guo, Xiaogang Wang, Matti Pietikäinen}{2016}{Liu2016}
+	Li Liu, Songyang Lao, Paul W. Fieguth, Yulan Guo, Xiaogang Wang, Matti Pietikäinen, ''Median Robust Extended Local Binary Pattern for Texture Classification'', {\em IEEE Transactions on Image Processing}, 2016.
+	\harvarditem{ Li Liu, Songyang Lao, Paul W. Fieguth, Yulan Guo, Xiaogang Wang, Matti Pietikäinen}{2017}{Liu2017}
+	Li Liu, Songyang Lao, Paul W. Fieguth, Yulan Guo, Xiaogang Wang, Matti Pietikäinen, ''Local binary features for texture classification: Taxonomy and experimental study'', {\em Pattern Recognition Volumne 62}, 2017.
+	\harvarditem{AIMARKET}{2025}{AIMARKET}
+	enjamin Stratton  , ``AI Industry Growth Statistics: Exploring Key Metrics Driving Growth of AI (updated for 2025)'', 2025.
+	\newline{[Online]. Available: $https://bluetree.digital/ai-industry-growth-metrics$}
+	
+	\harvarditem{mckinsey}{2022}{mckinsey}
+	``The state of AI in 2022—and a half decade in review'', 2022.
+	\newline{[Online]. Available: $https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-in-2022-and-a-half-decade-in-review$}
+	
+	\harvarditem{aiaccelerator}{2023}{aiaccelerator}
+	''AI Accelerator Market Size, Share \& Trends Analysis Report By AI Accelerator Types (GPUs, TPUs), By Technology Integration, By End-use (IT \& Telecom, Automotive), By Region, And Segment Forecasts, 2024 - 2030'', 2023.
+	\newline{[Online]. Available: $https://www.grandviewresearch.com/industry-analysis/ai-accelerator-market-report$}
+	
+	\harvarditem{apriorit}{2018}{apriorit}
+	``FPGAs for Artificial Intelligence: Possibilities, Pros, and Cons'', 2018.
+	\newline{[Online]. Available: $https://www.apriorit.com/dev-blog/586-fpgas-for-ai$}
+	
+	
+	
+	\harvarditem{Gaurav Kumar, Pradeep Kumar Bhatia} 
+	{2014}{featureImgprocessing}
+	Gaurav Kumar, Pradeep Kumar Bhatia
+	, ''A Detailed Review of Feature Extraction in Image Processing Systems'', {\em 2014 Fourth International Conference on Advanced Computing \& Communication Tecnologies}, 2014.
+	
+	\harvarditem{April Khademi; Sridhar Krishnan} 
+	{2008}{medicalImage}
+	April Khademi; Sridhar Krishnan
+	, ''Medical image texture analysis: A case study with small bowel, retinal and mammogram images'', {\em 2008 Canadian Conference on Electrical and Computer Engineering}, 2008.
+	
+	\harvarditem{Rodrigo da Silva Ferreira; Andrea Britto Mattos; Emilio Vital Brazil; Renato Cerqueira; Marco Ferraz; Sérgio Cersosimo} 
+	{2016}{textureBasedTechniques}
+	Rodrigo da Silva Ferreira; Andrea Britto Mattos; Emilio Vital Brazil; Renato Cerqueira; Marco Ferraz; Sérgio Cersosimo
+	, ''Multi-scale Evaluation of Texture Features for Salt Dome Detection'', {\em 2016 IEEE International Symposium on Multimedia (ISM)}, 2016.
+	
+	\harvarditem{Monika Jhuria; Ashwani Kumar; Rushikesh Borse} 
+	{2013}{smartFarming}
+	Monika Jhuria; Ashwani Kumar; Rushikesh Borse
+	, ''Image processing for smart farming: Detection of disease and fruit grading'', {\em 2013 IEEE Second International Conference on Image Information Processing (ICIIP-2013)}, 2013.
+	
+	
+	\harvarditem{Mohammad Reza Keyvanpour, Shokofeh Vahidiansadegh, Zahra Mirzakhani} 
+	{2021}{analyticOfTexture}
+	Mohammad Reza Keyvanpour, Shokofeh Vahidiansadegh, Zahra Mirzakhani
+	, ''An analytical review of texture feature extraction approaches'', {\em International Journal of Computer Applications in Technology }, 2021.
+	
+	\harvarditem{T. Ojala, M. Pietikäinen, and D. Harwood } 
+	{1994}{firstLBP}
+	T. Ojala, M. Pietikäinen, and D. Harwood 
+	, ''Performance evaluation of texture measures with classification based on Kullback discrimination of distributions'', {\em  Proceedings of the 12th IAPR International Conference on Pattern Recognition }, 1994.
+	
+	\harvarditem{Larry S. Davis} 
+	{1981}{polarograms}
+	Larry S. Davis
+	, ''Polarograms: A new tool for image texture analysis'', {\em  Pattern Recognition Volume 13, Issue 3, pages 219-223}, 1981.
+	
+	\harvarditem{T. Ojala, M. Pietikainen, T. Maenpaa} 
+	{2002}{Ojala}
+	T. Ojala, M. Pietikainen, T. Maenpaa
+	, ''Multiresolution gray-scale and rotation invariant texture classification with local binary patterns'', {\em  IEEE Transactions on Pattern Analysis and Machine Intelligence Volume 24, Issue 7 }, 2002.
+	
+	
+	\harvarditem{Di Huang, Caifeng Shan, Mohsen Ardabilian, Yunhong Wang, Liming Chen} 
+	{2011}{lbpVariantSurvey}
+	Di Huang, Caifeng Shan, Mohsen Ardabilian, Yunhong Wang, Liming Chen
+	, ''Local Binary Patterns and Its Application to Facial Image Analysis: A Survey'', {\em  IEEE Transactions on Systems, Man, and Cybernetics, Part C (Applications and Reviews) Volume 41, Issue 6 }, 2011.
+	
+	
+	\harvarditem{Yanjun Zhang, Mengnan Wang} 
+	{2020}{realTimeTexture}
+	Yanjun Zhang, Mengnan Wang
+	, ''Real-Time Texture Extraction Based on the Improved Median Robust Extended Local Binary Pattern'', {\em  ICCPR 2020: 2020 9th International Conference on Computing and Pattern Recognition }, 2020.
+	
+	 	
+	\harvarditem{Rasheed}{2017}{rasheed2017}
+	Rasheed, A.H., ''FPGA-based optimized systolic design for median filtering algorithms'', {\em International Journal of Applied Engineering Research}, 2017.
+	
+	\harvarditem{P. Kolte, R. Smith,  W. Su}{1999}{altivec}
+	P. Kolte, R. Smith,  W. Su, ''A fast median filter using AltiVec'', {\em  Proceedings 1999 IEEE International Conference on Computer Design: VLSI in Computers and Processors (Cat. No.99CB37040)}, 1999.
+	
+		\harvarditem{Vineet Kumar1, Abhijit Asati1, Anu Gupta1}{2017}{llmf}
+	Vineet Kumar1, Abhijit Asati1, Anu Gupta1, ''Low-latency median filter core for hardware implementation of 5×5 median filtering'', {\em  2017, IET Image Processing}, 2017.
+	
+	
+\end{thebibliography}
+
+\end{document}
