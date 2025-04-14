@@ -1,6 +1,6 @@
 module interpolation_calc #(
     parameter R = 2,
-    RADIUS = 45
+    ANGLE = 45
 ) (
     input clk,
     input rst_n,
@@ -18,7 +18,7 @@ module interpolation_calc #(
   always @(posedge clk) begin
     if (~rst_n) begin
       case ({
-        RADIUS, R
+        ANGLE, R
       })
         {
           45, 2

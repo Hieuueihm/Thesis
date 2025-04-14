@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.11)  13 APR 2025 18:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.11)  14 APR 2025 11:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -935,6 +935,41 @@ Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
 \c@LT@chunks=\count342
 \LT@p@ftn=\toks51
 )
+(C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/latex/diagbox\diagbox.sty
+Package: diagbox 2020/02/09 v2.3 Making table heads with diagonal lines
+
+(C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/latex/pict2e\pict2e.sty
+Package: pict2e 2020/09/30 v0.4b Improved picture commands (HjG,RN,JT)
+
+(C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/latex/pict2e\pict2e.cfg
+File: pict2e.cfg 2016/02/05 v0.1u pict2e configuration for teTeX/TeXLive
+)
+Package pict2e Info: Driver file: pdftex.def on input line 112.
+Package pict2e Info: Driver file for pict2e: p2e-pdftex.def on input line 114.
+
+(C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/latex/pict2e\p2e-pdftex.def
+File: p2e-pdftex.def 2016/02/05 v0.1u Driver-dependant file (RN,HjG,JT)
+)
+\pIIe@GRAPH=\toks52
+\@arclen=\dimen309
+\@arcrad=\dimen310
+\pIIe@tempdima=\dimen311
+\pIIe@tempdimb=\dimen312
+\pIIe@tempdimc=\dimen313
+\pIIe@tempdimd=\dimen314
+\pIIe@tempdime=\dimen315
+\pIIe@tempdimf=\dimen316
+)
+\diagbox@boxa=\box124
+\diagbox@boxb=\box125
+\diagbox@boxm=\box126
+\diagbox@wd=\dimen317
+\diagbox@ht=\dimen318
+\diagbox@insepl=\dimen319
+\diagbox@insepr=\dimen320
+\diagbox@outsepl=\dimen321
+\diagbox@outsepr=\dimen322
+)
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibraryshapes.geometric.code.tex
 File: tikzlibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -946,10 +981,10 @@ File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
 aryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowinset=\dimen309
-\pgfarrowlength=\dimen310
-\pgfarrowwidth=\dimen311
-\pgfarrowlinewidth=\dimen312
+\pgfarrowinset=\dimen323
+\pgfarrowlength=\dimen324
+\pgfarrowwidth=\dimen325
+\pgfarrowlinewidth=\dimen326
 )
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibrarypositioning.code.tex
@@ -974,7 +1009,7 @@ LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
 (Font)                  OMX/cmex/m/n --> OMX/cmex/m/n on input line 57.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/cmex/m/n --> OMX/cmex/m/n on input line 57.
-\big@size=\dimen313
+\big@size=\dimen327
 )
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\eucal.sty
 Package: eucal 2009/06/22 v3.00 Euler Script fonts
@@ -998,7 +1033,7 @@ Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 \f@nch@widthL=\skip91
 \f@nch@widthC=\skip92
 \f@nch@widthR=\skip93
-\@temptokenb=\toks52
+\@temptokenb=\toks53
 )
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/latex/fncychap\fncychap.sty
 Package: fncychap 2007/07/30 v1.34 LaTeX package (Revised chapters)
@@ -1017,12 +1052,12 @@ nment
  (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count344
-\float@exts=\toks53
-\float@box=\box124
-\@float@everytoks=\toks54
-\@floatcapt=\box125
+\float@exts=\toks54
+\float@box=\box127
+\@float@everytoks=\toks55
+\@floatcapt=\box128
 )
-\@float@every@algorithm=\toks55
+\@float@every@algorithm=\toks56
 \c@algorithm=\count345
 )
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
@@ -1030,7 +1065,7 @@ Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
 \multirow@colwidth=\skip101
 \multirow@cntb=\count346
 \multirow@dima=\skip102
-\bigstrutjot=\dimen314
+\bigstrutjot=\dimen328
 )
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/latex/algorithmicx\algpseudoc
 ode.sty
@@ -1064,7 +1099,7 @@ File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
 aryarrows.code.tex
 File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\arrowsize=\dimen315
+\arrowsize=\dimen329
 ))
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibrarydecorations.pathmorphing.code.tex
@@ -1072,24 +1107,24 @@ z/libraries\tikzlibrarydecorations.pathmorphing.code.tex
 z/libraries\tikzlibrarydecorations.code.tex
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
 decorations.code.tex
-\pgfdecoratedcompleteddistance=\dimen316
-\pgfdecoratedremainingdistance=\dimen317
-\pgfdecoratedinputsegmentcompleteddistance=\dimen318
-\pgfdecoratedinputsegmentremainingdistance=\dimen319
-\pgf@decorate@distancetomove=\dimen320
+\pgfdecoratedcompleteddistance=\dimen330
+\pgfdecoratedremainingdistance=\dimen331
+\pgfdecoratedinputsegmentcompleteddistance=\dimen332
+\pgfdecoratedinputsegmentremainingdistance=\dimen333
+\pgf@decorate@distancetomove=\dimen334
 \pgf@decorate@repeatstate=\count355
-\pgfdecorationsegmentamplitude=\dimen321
-\pgfdecorationsegmentlength=\dimen322
+\pgfdecorationsegmentamplitude=\dimen335
+\pgfdecorationsegmentlength=\dimen336
 )
-\tikz@lib@dec@box=\box126
+\tikz@lib@dec@box=\box129
 )
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/decorat
 ions\pgflibrarydecorations.pathmorphing.code.tex))
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibrarybackgrounds.code.tex
 File: tikzlibrarybackgrounds.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@layerbox@background=\box127
-\pgf@layerboxsaved@background=\box128
+\pgf@layerbox@background=\box130
+\pgf@layerboxsaved@background=\box131
 )
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibraryfit.code.tex
@@ -1134,26 +1169,26 @@ File: tikzlibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
 pgflibraryshapes.multipart.code.tex
 File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodepartlowerbox=\box129
-\pgfnodeparttwobox=\box130
-\pgfnodepartthreebox=\box131
-\pgfnodepartfourbox=\box132
-\pgfnodeparttwentybox=\box133
-\pgfnodepartnineteenbox=\box134
-\pgfnodeparteighteenbox=\box135
-\pgfnodepartseventeenbox=\box136
-\pgfnodepartsixteenbox=\box137
-\pgfnodepartfifteenbox=\box138
-\pgfnodepartfourteenbox=\box139
-\pgfnodepartthirteenbox=\box140
-\pgfnodeparttwelvebox=\box141
-\pgfnodepartelevenbox=\box142
-\pgfnodeparttenbox=\box143
-\pgfnodepartninebox=\box144
-\pgfnodeparteightbox=\box145
-\pgfnodepartsevenbox=\box146
-\pgfnodepartsixbox=\box147
-\pgfnodepartfivebox=\box148
+\pgfnodepartlowerbox=\box132
+\pgfnodeparttwobox=\box133
+\pgfnodepartthreebox=\box134
+\pgfnodepartfourbox=\box135
+\pgfnodeparttwentybox=\box136
+\pgfnodepartnineteenbox=\box137
+\pgfnodeparteighteenbox=\box138
+\pgfnodepartseventeenbox=\box139
+\pgfnodepartsixteenbox=\box140
+\pgfnodepartfifteenbox=\box141
+\pgfnodepartfourteenbox=\box142
+\pgfnodepartthirteenbox=\box143
+\pgfnodeparttwelvebox=\box144
+\pgfnodepartelevenbox=\box145
+\pgfnodeparttenbox=\box146
+\pgfnodepartninebox=\box147
+\pgfnodeparteightbox=\box148
+\pgfnodepartsevenbox=\box149
+\pgfnodepartsixbox=\box150
+\pgfnodepartfivebox=\box151
 )))
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibrarydecorations.shapes.code.tex
@@ -1167,9 +1202,9 @@ ions\pgflibrarydecorations.pathreplacing.code.tex))
 z/libraries\tikzlibrarydecorations.text.code.tex
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/decorat
 ions\pgflibrarydecorations.text.code.tex
-\pgf@lib@dec@text@box=\box149
+\pgf@lib@dec@text@box=\box152
 )
-\tikz@lib@dec@te@box=\box150
+\tikz@lib@dec@te@box=\box153
 )
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/latex/circuitikz\circuitikz.s
 ty
@@ -1187,18 +1222,18 @@ File: pgfmodulebending.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
 nonlineartransformations.code.tex
 File: pgfmodulenonlineartransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgftransformnonlinearflatness=\dimen323
+\pgftransformnonlinearflatness=\dimen337
 )
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
 arycurvilinear.code.tex
 File: pgflibrarycurvilinear.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@curvilinear@time@a=\dimen324
-\pgf@curvilinear@length@a=\dimen325
-\pgf@curvilinear@length@b=\dimen326
-\pgf@curvilinear@length@c=\dimen327
-\pgf@curvilinear@length@d=\dimen328
+\pgf@curvilinear@time@a=\dimen338
+\pgf@curvilinear@length@a=\dimen339
+\pgf@curvilinear@length@b=\dimen340
+\pgf@curvilinear@length@c=\dimen341
+\pgf@curvilinear@length@d=\dimen342
 )
-\pgf@arrows@the@rigidity=\dimen329
+\pgf@arrows@the@rigidity=\dimen343
 ))
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibraryfpu.code.tex
@@ -1209,21 +1244,21 @@ fines.tex
 \pgf@circ@count@a=\count356
 \pgf@circ@count@b=\count357
 \pgf@circ@count@c=\count358
-\pgf@circ@res@up=\dimen330
-\pgf@circ@res@down=\dimen331
-\pgf@circ@res@zero=\dimen332
-\pgf@circ@res@left=\dimen333
-\pgf@circ@res@right=\dimen334
-\pgf@circ@res@other=\dimen335
-\pgf@circ@res@step=\dimen336
-\pgf@circ@res@temp=\dimen337
-\pgf@circ@Rlen=\dimen338
-\pgf@circ@scaled@Rlen=\dimen339
-\pgfstartlinewidth=\dimen340
+\pgf@circ@res@up=\dimen344
+\pgf@circ@res@down=\dimen345
+\pgf@circ@res@zero=\dimen346
+\pgf@circ@res@left=\dimen347
+\pgf@circ@res@right=\dimen348
+\pgf@circ@res@other=\dimen349
+\pgf@circ@res@step=\dimen350
+\pgf@circ@res@temp=\dimen351
+\pgf@circ@Rlen=\dimen352
+\pgf@circ@scaled@Rlen=\dimen353
+\pgfstartlinewidth=\dimen354
 )
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircuti
 ls.tex
-\ctikz@scratchbox=\box151
+\ctikz@scratchbox=\box154
 )
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircpat
 h.tex)
@@ -1245,7 +1280,7 @@ tipoles.tex)
 el.tex)
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircvol
 tage.tex
-\pgfcirc@labelshift=\dimen341
+\pgfcirc@labelshift=\dimen355
 )
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcirccur
 rent.tex)
@@ -1260,10 +1295,10 @@ Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
 e.tex
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotscore
 .code.tex
-\t@pgfplots@toka=\toks56
-\t@pgfplots@tokb=\toks57
-\t@pgfplots@tokc=\toks58
-\pgfplots@tmpa=\dimen342
+\t@pgfplots@toka=\toks57
+\t@pgfplots@tokb=\toks58
+\t@pgfplots@tokc=\toks59
+\pgfplots@tmpa=\dimen356
 \c@pgfplots@coordindex=\count360
 \c@pgfplots@scanlineindex=\count361
 
@@ -1274,9 +1309,9 @@ slibrary.code.tex)
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/oldpgfcompat
 ib\pgfplotsoldpgfsupp_loader.code.tex
 Package pgfplots: loading complementary utilities for your pgf version...
-\t@pgf@toka=\toks59
-\t@pgf@tokb=\toks60
-\t@pgf@tokc=\toks61
+\t@pgf@toka=\toks60
+\t@pgf@tokb=\toks61
+\t@pgf@tokc=\toks62
 
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/oldpgfcompat
 ib\pgfplotsoldpgfsupp_pgfutil-common-lists.tex))
@@ -1295,7 +1330,7 @@ e\pgfplotsmatrix.code.tex)
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/numtable\pgf
 plotstableshared.code.tex
 \c@pgfplotstable@counta=\count363
-\t@pgfplotstable@a=\toks62
+\t@pgfplotstable@a=\toks63
 )
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructur
 e\pgfplotsdeque.code.tex)
@@ -1338,12 +1373,12 @@ hs.code.tex)
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\tikzlib
 rarypgfplots.contourlua.code.tex)
 \pgfplots@numplots=\count365
-\pgfplots@xmin@reg=\dimen343
-\pgfplots@xmax@reg=\dimen344
-\pgfplots@ymin@reg=\dimen345
-\pgfplots@ymax@reg=\dimen346
-\pgfplots@zmin@reg=\dimen347
-\pgfplots@zmax@reg=\dimen348
+\pgfplots@xmin@reg=\dimen357
+\pgfplots@xmax@reg=\dimen358
+\pgfplots@ymin@reg=\dimen359
+\pgfplots@ymax@reg=\dimen360
+\pgfplots@zmin@reg=\dimen361
+\pgfplots@zmax@reg=\dimen362
 )
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibraryplotmarks.code.tex
@@ -1355,29 +1390,29 @@ File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )))
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
 Package: titlesec 2025/01/04 v2.17 Sectioning titles
-\ttl@box=\box152
+\ttl@box=\box155
 \beforetitleunit=\skip106
 \aftertitleunit=\skip107
-\ttl@plus=\dimen349
-\ttl@minus=\dimen350
-\ttl@toksa=\toks63
-\titlewidth=\dimen351
-\titlewidthlast=\dimen352
-\titlewidthfirst=\dimen353
+\ttl@plus=\dimen363
+\ttl@minus=\dimen364
+\ttl@toksa=\toks64
+\titlewidth=\dimen365
+\titlewidthlast=\dimen366
+\titlewidthfirst=\dimen367
 )
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
 
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen354
-\captionmargin=\dimen355
-\caption@leftmargin=\dimen356
-\caption@rightmargin=\dimen357
-\caption@width=\dimen358
-\caption@indent=\dimen359
-\caption@parindent=\dimen360
-\caption@hangindent=\dimen361
+\caption@tempdima=\dimen368
+\captionmargin=\dimen369
+\caption@leftmargin=\dimen370
+\caption@rightmargin=\dimen371
+\caption@width=\dimen372
+\caption@indent=\dimen373
+\caption@parindent=\dimen374
+\caption@hangindent=\dimen375
 Package caption Info: Standard document class detected.
 )
 \c@caption@flags=\count366
@@ -1394,9 +1429,9 @@ Package caption Info: rotating package is loaded.
 Package: subfigure 2002/07/30 v2.1.4 subfigure package
 \subfigtopskip=\skip108
 \subfigcapskip=\skip109
-\subfigcaptopadj=\dimen362
+\subfigcaptopadj=\dimen376
 \subfigbottomskip=\skip110
-\subfigcapmargin=\dimen363
+\subfigcapmargin=\dimen377
 \subfiglabelskip=\skip111
 \c@subfigure=\count368
 \c@lofdepth=\count369
@@ -1413,7 +1448,7 @@ Package: subfigure 2002/07/30 v2.1.4 subfigure package
 )
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titletoc.sty
 Package: titletoc 2025/01/04 v2.17 TOC entries
-\ttl@leftsep=\dimen364
+\ttl@leftsep=\dimen378
 )
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/latex/tocloft\tocloft.sty
 Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
@@ -1516,7 +1551,7 @@ ty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\@linkdim=\dimen365
+\@linkdim=\dimen379
 \Hy@linkcounter=\count376
 \Hy@pagecounter=\count377
  (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
@@ -1547,7 +1582,7 @@ Package hyperref Info: Bookmarks ON on input line 4424.
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4763.
-\XeTeXLinkMargin=\dimen366
+\XeTeXLinkMargin=\dimen380
 
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -1558,8 +1593,8 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
 \Fld@menulength=\count380
-\Field@Width=\dimen367
-\Fld@charsize=\dimen368
+\Field@Width=\dimen381
+\Fld@charsize=\dimen382
 Package hyperref Info: Hyper figures OFF on input line 6042.
 Package hyperref Info: Link nesting OFF on input line 6047.
 Package hyperref Info: Hyper index ON on input line 6050.
@@ -1603,47 +1638,47 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 123.
-LaTeX Font Info:    ... okay on input line 123.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 123.
-LaTeX Font Info:    ... okay on input line 123.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 123.
-LaTeX Font Info:    ... okay on input line 123.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 123.
-LaTeX Font Info:    ... okay on input line 123.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 123.
-LaTeX Font Info:    ... okay on input line 123.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 123.
-LaTeX Font Info:    ... okay on input line 123.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 123.
-LaTeX Font Info:    ... okay on input line 123.
-LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 123.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 125.
 LaTeX Font Info:    Trying to load font information for T5+cmr on input line 12
-3.
+5.
 
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmr.fd
 File: t5cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 123.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 123.
-LaTeX Font Info:    ... okay on input line 123.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 123.
-LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
 
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count386
-\scratchdimen=\dimen369
-\scratchbox=\box153
+\scratchdimen=\dimen383
+\scratchbox=\box156
 \nofMPsegments=\count387
 \nofMParguments=\count388
-\everyMPshowfont=\toks64
+\everyMPshowfont=\toks65
 \MPscratchCnt=\count389
-\MPscratchDim=\dimen370
+\MPscratchDim=\dimen384
 \MPnumerator=\count390
 \makeMPintoPDFobject=\count391
-\everyMPtoPDFconversion=\toks65
+\everyMPtoPDFconversion=\toks66
 )
 (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -1702,13 +1737,13 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: subfigure package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 123.
+Package hyperref Info: Link coloring OFF on input line 125.
 (main.out) (main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
  (cover/Biangoai.tex
-<figures/UET_logo.jpg, id=170, 411.5375pt x 411.5375pt>
+<figures/UET_logo.jpg, id=198, 411.5375pt x 411.5375pt>
 File: figures/UET_logo.jpg Graphic file (type jpg)
 <use figures/UET_logo.jpg>
 Package pdftex.def Info: figures/UET_logo.jpg  used on input line 20.
@@ -1789,7 +1824,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.137 \newpage
+l.139 \newpage
                [1
 
 
@@ -1800,7 +1835,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.139 \newpage
+l.141 \newpage
                [2
 
 
@@ -1811,7 +1846,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.141 \newpage
+l.143 \newpage
                [3
 
 
@@ -1847,15 +1882,20 @@ LaTeX Font Info:    External font `cmex7' loaded for size
 
 
 
-[5] (main.lot)
-\tf@lot=\write7
-\openout7 = `main.lot'.
+[5] (main.lot
+Underfull \vbox (badness 1975) has occurred while \output is active []
 
 
 
 [6
 
-] (chapter/Chap0_Introduction.tex
+])
+\tf@lot=\write7
+\openout7 = `main.lot'.
+
+
+
+[7] (chapter/Chap0_Introduction.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1881,7 +1921,7 @@ Ch\uhorn \ohorn ng 1.
 
 
 ]
-<figures/image1.png, id=474, 1102.1175pt x 600.2425pt>
+<figures/image1.png, id=534, 1102.1175pt x 600.2425pt>
 File: figures/image1.png Graphic file (type png)
 <use figures/image1.png>
 Package pdftex.def Info: figures/image1.png  used on input line 20.
@@ -1921,12 +1961,12 @@ Overfull \hbox (19.5472pt too wide) in paragraph at lines 36--49
 
 
 [6]
-<figures/lbp_oper.png, id=498, 579.66562pt x 228.855pt>
+<figures/lbp_oper.png, id=558, 579.66562pt x 228.855pt>
 File: figures/lbp_oper.png Graphic file (type png)
 <use figures/lbp_oper.png>
 Package pdftex.def Info: figures/lbp_oper.png  used on input line 70.
 (pdftex.def)             Requested size: 455.24411pt x 179.73187pt.
-<figures/lbpCircularSymmetric.png, id=501, 573.342pt x 132.495pt>
+<figures/lbpCircularSymmetric.png, id=561, 573.342pt x 132.495pt>
 File: figures/lbpCircularSymmetric.png Graphic file (type png)
 <use figures/lbpCircularSymmetric.png>
 Package pdftex.def Info: figures/lbpCircularSymmetric.png  used on input line 7
@@ -1939,7 +1979,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 [7 <./figures/lbp_oper.png>]
-<figures/lbpRotation.png, id=520, 654.94687pt x 276.28218pt>
+<figures/lbpRotation.png, id=581, 654.94687pt x 276.28218pt>
 File: figures/lbpRotation.png Graphic file (type png)
 <use figures/lbpRotation.png>
 Package pdftex.def Info: figures/lbpRotation.png  used on input line 93.
@@ -1951,7 +1991,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 [8 <./figures/lbpCircularSymmetric.png>]
-<figures/lbpU.png, id=531, 435.87843pt x 342.5297pt>
+<figures/lbpU.png, id=591, 435.87843pt x 342.5297pt>
 File: figures/lbpU.png Graphic file (type png)
 <use figures/lbpU.png>
 Package pdftex.def Info: figures/lbpU.png  used on input line 117.
@@ -1986,7 +2026,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 [9 <./figures/lbpRotation.png>]
-<figures/elbpARelbp.png, id=545, 762.59906pt x 255.95625pt>
+<figures/elbpARelbp.png, id=605, 762.59906pt x 255.95625pt>
 File: figures/elbpARelbp.png Graphic file (type png)
 <use figures/elbpARelbp.png>
 Package pdftex.def Info: figures/elbpARelbp.png  used on input line 156.
@@ -2005,7 +2045,7 @@ LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <6.5> not available
 
 
 [11]
-<figures/fsm.png, id=573, 714.41907pt x 268.00125pt>
+<figures/fsm.png, id=633, 714.41907pt x 268.00125pt>
 File: figures/fsm.png Graphic file (type png)
 <use figures/fsm.png>
 Package pdftex.def Info: figures/fsm.png  used on input line 207.
@@ -2013,12 +2053,12 @@ Package pdftex.def Info: figures/fsm.png  used on input line 207.
 
 
 [12]
-<figures/pipeline1.png, id=583, 457.71pt x 146.04562pt>
+<figures/pipeline1.png, id=643, 457.71pt x 146.04562pt>
 File: figures/pipeline1.png Graphic file (type png)
 <use figures/pipeline1.png>
 Package pdftex.def Info: figures/pipeline1.png  used on input line 226.
 (pdftex.def)             Requested size: 455.24411pt x 145.26527pt.
-<figures/pipeline2.png, id=584, 511.9125pt x 143.03438pt>
+<figures/pipeline2.png, id=644, 511.9125pt x 143.03438pt>
 File: figures/pipeline2.png Graphic file (type png)
 <use figures/pipeline2.png>
 Package pdftex.def Info: figures/pipeline2.png  used on input line 232.
@@ -2026,7 +2066,7 @@ Package pdftex.def Info: figures/pipeline2.png  used on input line 232.
 
 
 [13 <./figures/fsm.png>]
-<figures/axi4.png, id=591, 595.47469pt x 247.67531pt>
+<figures/axi4.png, id=652, 595.47469pt x 247.67531pt>
 File: figures/axi4.png Graphic file (type png)
 <use figures/axi4.png>
 Package pdftex.def Info: figures/axi4.png  used on input line 244.
@@ -2047,7 +2087,7 @@ Overfull \hbox (17.72816pt too wide) in paragraph at lines 67--73
 $[]$ 
  []
 
-<figures/ciOptimize.png, id=609, 2449.15pt x 1212.53pt>
+<figures/ciOptimize.png, id=669, 2449.15pt x 1212.53pt>
 File: figures/ciOptimize.png Graphic file (type png)
 <use figures/ciOptimize.png>
 Package pdftex.def Info: figures/ciOptimize.png  used on input line 76.
@@ -2058,12 +2098,12 @@ Package pdftex.def Info: figures/ciOptimize.png  used on input line 76.
 
 
 ]
-<figures/histogramStep.png, id=622, 683.55376pt x 231.86626pt>
+<figures/histogramStep.png, id=682, 683.55376pt x 231.86626pt>
 File: figures/histogramStep.png Graphic file (type png)
 <use figures/histogramStep.png>
 Package pdftex.def Info: figures/histogramStep.png  used on input line 87.
 (pdftex.def)             Requested size: 455.24411pt x 154.42616pt.
-<figures/fullArch.png, id=625, 2698.08pt x 967.615pt>
+<figures/fullArch.png, id=685, 2698.08pt x 967.615pt>
 File: figures/fullArch.png Graphic file (type png)
 <use figures/fullArch.png>
 Package pdftex.def Info: figures/fullArch.png  used on input line 95.
@@ -2093,13 +2133,13 @@ Overfull \hbox (20.34718pt too wide) in paragraph at lines 131--157
  [][] 
  []
 
-<figures/mrelbpArchitecture.png, id=644, 2890.8pt x 2047.65pt>
+<figures/mrelbpArchitecture.png, id=704, 2890.8pt x 2047.65pt>
 File: figures/mrelbpArchitecture.png Graphic file (type png)
 <use figures/mrelbpArchitecture.png>
 Package pdftex.def Info: figures/mrelbpArchitecture.png  used on input line 165
 .
 (pdftex.def)             Requested size: 455.24411pt x 322.44409pt.
-<figures/mrelbp.png, id=645, 722.7pt x 301.125pt>
+<figures/mrelbp.png, id=705, 722.7pt x 301.125pt>
 File: figures/mrelbp.png Graphic file (type png)
 <use figures/mrelbp.png>
 Package pdftex.def Info: figures/mrelbp.png  used on input line 174.
@@ -2121,7 +2161,7 @@ Overfull \hbox (20.34718pt too wide) in paragraph at lines 206--237
  [][] 
  []
 
-<figures/medianProcessing.png, id=658, 722.7pt x 361.35pt>
+<figures/medianProcessing.png, id=718, 722.7pt x 361.35pt>
 File: figures/medianProcessing.png Graphic file (type png)
 <use figures/medianProcessing.png>
 Package pdftex.def Info: figures/medianProcessing.png  used on input line 243.
@@ -2129,7 +2169,7 @@ Package pdftex.def Info: figures/medianProcessing.png  used on input line 243.
 
 
 [21 <./figures/medianProcessing.png>]
-<figures/buffer6RowsAr.png, id=665, 1630.09pt x 1650.165pt>
+<figures/buffer6RowsAr.png, id=725, 1630.09pt x 1650.165pt>
 File: figures/buffer6RowsAr.png Graphic file (type png)
 <use figures/buffer6RowsAr.png>
 Package pdftex.def Info: figures/buffer6RowsAr.png  used on input line 252.
@@ -2147,12 +2187,12 @@ Overfull \hbox (20.34718pt too wide) in paragraph at lines 277--299
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/lineBuffer.png, id=666, 682.55pt x 240.9pt>
+<figures/lineBuffer.png, id=726, 682.55pt x 240.9pt>
 File: figures/lineBuffer.png Graphic file (type png)
 <use figures/lineBuffer.png>
 Package pdftex.def Info: figures/lineBuffer.png  used on input line 304.
 (pdftex.def)             Requested size: 455.24411pt x 160.67801pt.
-<figures/Buffer6Rows.png, id=667, 803.0pt x 361.35pt>
+<figures/Buffer6Rows.png, id=727, 803.0pt x 361.35pt>
 File: figures/Buffer6Rows.png Graphic file (type png)
 <use figures/Buffer6Rows.png>
 Package pdftex.def Info: figures/Buffer6Rows.png  used on input line 310.
@@ -2175,7 +2215,7 @@ Overfull \hbox (20.34718pt too wide) in paragraph at lines 342--369
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/zeroPadding.png, id=675, 803.0pt x 301.125pt>
+<figures/zeroPadding.png, id=735, 803.0pt x 301.125pt>
 File: figures/zeroPadding.png Graphic file (type png)
 <use figures/zeroPadding.png>
 Package pdftex.def Info: figures/zeroPadding.png  used on input line 375.
@@ -2195,7 +2235,7 @@ Overfull \hbox (20.34718pt too wide) in paragraph at lines 404--427
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/medianCalculation.png, id=683, 823.075pt x 240.9pt>
+<figures/medianCalculation.png, id=743, 823.075pt x 240.9pt>
 File: figures/medianCalculation.png Graphic file (type png)
 <use figures/medianCalculation.png>
 Package pdftex.def Info: figures/medianCalculation.png  used on input line 433.
@@ -2211,7 +2251,7 @@ Overfull \hbox (20.34718pt too wide) in paragraph at lines 461--492
  [][] 
  []
 
-<figures/ci.png, id=686, 1104.125pt x 391.4625pt>
+<figures/ci.png, id=746, 1104.125pt x 391.4625pt>
 File: figures/ci.png Graphic file (type png)
 <use figures/ci.png>
 Package pdftex.def Info: figures/ci.png  used on input line 498.
@@ -2219,7 +2259,7 @@ Package pdftex.def Info: figures/ci.png  used on input line 498.
 
 
 [24 <./figures/Buffer6Rows.png> <./figures/zeroPadding.png>]
-<figures/ciArch.png, id=695, 2609.75pt x 1328.965pt>
+<figures/ciArch.png, id=755, 2609.75pt x 1328.965pt>
 File: figures/ciArch.png Graphic file (type png)
 <use figures/ciArch.png>
 Package pdftex.def Info: figures/ciArch.png  used on input line 507.
@@ -2241,7 +2281,7 @@ Overfull \hbox (33.79984pt too wide) in paragraph at lines 536--567
  [][] 
  []
 
-<figures/mrelbpCI.png, id=709, 803.0pt x 271.0125pt>
+<figures/mrelbpCI.png, id=769, 803.0pt x 271.0125pt>
 File: figures/mrelbpCI.png Graphic file (type png)
 <use figures/mrelbpCI.png>
 Package pdftex.def Info: figures/mrelbpCI.png  used on input line 572.
@@ -2260,12 +2300,12 @@ Overfull \hbox (20.34718pt too wide) in paragraph at lines 601--628
  [][] 
  []
 
-<figures/nirdArch.png, id=726, 3131.7pt x 1288.815pt>
+<figures/nirdArch.png, id=786, 3131.7pt x 1288.815pt>
 File: figures/nirdArch.png Graphic file (type png)
 <use figures/nirdArch.png>
 Package pdftex.def Info: figures/nirdArch.png  used on input line 634.
 (pdftex.def)             Requested size: 455.24411pt x 187.33553pt.
-<figures/nird.png, id=727, 823.075pt x 301.125pt>
+<figures/nird.png, id=787, 823.075pt x 301.125pt>
 File: figures/nird.png Graphic file (type png)
 <use figures/nird.png>
 Package pdftex.def Info: figures/nird.png  used on input line 640.
@@ -2273,27 +2313,24 @@ Package pdftex.def Info: figures/nird.png  used on input line 640.
 
 
 [29]
-Overfull \hbox (8.3472pt too wide) in paragraph at lines 651--660
+Overfull \hbox (8.3472pt too wide) in paragraph at lines 651--662
  [][] 
  []
 
 
-Overfull \hbox (20.34718pt too wide) in paragraph at lines 666--726
+Overfull \hbox (20.34718pt too wide) in paragraph at lines 668--728
  [][] 
  []
-
-
-Underfull \vbox (badness 8132) has occurred while \output is active []
 
 
 
 [30 <./figures/nirdArch.png> <./figures/nird.png>]
-Overfull \hbox (8.3472pt too wide) in paragraph at lines 746--757
+Overfull \hbox (8.3472pt too wide) in paragraph at lines 748--759
  [][] 
  []
 
 
-Overfull \hbox (20.34718pt too wide) in paragraph at lines 763--787
+Overfull \hbox (20.34718pt too wide) in paragraph at lines 765--789
  [][] 
  []
 
@@ -2303,45 +2340,45 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 [31]
-<figures/ni.png, id=745, 843.15pt x 271.0125pt>
+<figures/ni.png, id=806, 843.15pt x 271.0125pt>
 File: figures/ni.png Graphic file (type png)
 <use figures/ni.png>
-Package pdftex.def Info: figures/ni.png  used on input line 793.
+Package pdftex.def Info: figures/ni.png  used on input line 795.
 (pdftex.def)             Requested size: 455.24411pt x 146.33215pt.
 
-Overfull \hbox (20.34718pt too wide) in paragraph at lines 803--827
+Overfull \hbox (20.34718pt too wide) in paragraph at lines 805--829
  [][] 
  []
 
 
 
 [32 <./figures/ni.png>]
-<figures/rd.png, id=753, 843.15pt x 271.0125pt>
+<figures/rd.png, id=813, 843.15pt x 271.0125pt>
 File: figures/rd.png Graphic file (type png)
 <use figures/rd.png>
-Package pdftex.def Info: figures/rd.png  used on input line 832.
+Package pdftex.def Info: figures/rd.png  used on input line 834.
 (pdftex.def)             Requested size: 455.24411pt x 146.33215pt.
 
 
 [33 <./figures/rd.png>]
-Overfull \hbox (20.34718pt too wide) in paragraph at lines 842--864
+Overfull \hbox (20.34718pt too wide) in paragraph at lines 844--866
  [][] 
  []
 
-<figures/riu2.png, id=761, 843.15pt x 240.9pt>
+<figures/riu2.png, id=821, 843.15pt x 240.9pt>
 File: figures/riu2.png Graphic file (type png)
 <use figures/riu2.png>
-Package pdftex.def Info: figures/riu2.png  used on input line 869.
+Package pdftex.def Info: figures/riu2.png  used on input line 871.
 (pdftex.def)             Requested size: 455.24411pt x 130.07303pt.
-<figures/jointHistogram.png, id=762, 843.15pt x 301.125pt>
+<figures/jointHistogram.png, id=822, 843.15pt x 301.125pt>
 File: figures/jointHistogram.png Graphic file (type png)
 <use figures/jointHistogram.png>
-Package pdftex.def Info: figures/jointHistogram.png  used on input line 877.
+Package pdftex.def Info: figures/jointHistogram.png  used on input line 879.
 (pdftex.def)             Requested size: 455.24411pt x 162.59128pt.
 
 
 [34 <./figures/riu2.png> <./figures/jointHistogram.png>]
-Overfull \hbox (20.34718pt too wide) in paragraph at lines 889--916
+Overfull \hbox (20.34718pt too wide) in paragraph at lines 891--918
  [][] 
  []
 
@@ -2349,208 +2386,244 @@ Overfull \hbox (20.34718pt too wide) in paragraph at lines 889--916
 
 [35] (chapter/Chap3_RTL.tex
 Ch\uhorn \ohorn ng 3.
-<figures/commonSymbol.png, id=776, 2131.965pt x 445.665pt>
+<figures/commonSymbol.png, id=836, 2131.965pt x 445.665pt>
 File: figures/commonSymbol.png Graphic file (type png)
 <use figures/commonSymbol.png>
 Package pdftex.def Info: figures/commonSymbol.png  used on input line 10.
 (pdftex.def)             Requested size: 455.24411pt x 95.16327pt.
-<figures/lineBuffArchitecture.png, id=779, 4179.615pt x 2862.695pt>
-File: figures/lineBuffArchitecture.png Graphic file (type png)
-<use figures/lineBuffArchitecture.png>
-Package pdftex.def Info: figures/lineBuffArchitecture.png  used on input line 2
-7.
-(pdftex.def)             Requested size: 455.24411pt x 311.79607pt.
-<figures/lineBufferTrans.png, id=780, 1850.915pt x 1457.445pt>
-File: figures/lineBufferTrans.png Graphic file (type png)
-<use figures/lineBufferTrans.png>
-Package pdftex.def Info: figures/lineBufferTrans.png  used on input line 35.
-(pdftex.def)             Requested size: 364.19667pt x 286.76921pt.
+<figures/boxSym.png, id=837, 1650.165pt x 887.315pt>
+File: figures/boxSym.png Graphic file (type png)
+<use figures/boxSym.png>
+Package pdftex.def Info: figures/boxSym.png  used on input line 16.
+(pdftex.def)             Requested size: 318.66948pt x 171.34007pt.
 
 
 [36
 
 
- <./figures/commonSymbol.png>]
+ <./figures/commonSymbol.png> <./figures/boxSym.png>]
+<figures/lineBuffArchitecture.png, id=847, 4179.615pt x 2862.695pt>
+File: figures/lineBuffArchitecture.png Graphic file (type png)
+<use figures/lineBuffArchitecture.png>
+Package pdftex.def Info: figures/lineBuffArchitecture.png  used on input line 3
+3.
+(pdftex.def)             Requested size: 455.24411pt x 311.79607pt.
+<figures/lineBufferTrans.png, id=848, 1770.615pt x 1377.145pt>
+File: figures/lineBufferTrans.png Graphic file (type png)
+<use figures/lineBufferTrans.png>
+Package pdftex.def Info: figures/lineBufferTrans.png  used on input line 41.
+(pdftex.def)             Requested size: 364.19667pt x 283.26216pt.
 
-LaTeX Warning: Text page 37 contains only floats.
 
-
-
-[37 <./figures/lineBuffArchitecture.png> <./figures/lineBufferTrans.png>]
-<figures/zeroPaddingTrans.png, id=794, 1469.49pt x 1128.215pt>
+[37 <./figures/lineBuffArchitecture.png>]
+<figures/zeroPaddingTrans.png, id=857, 1469.49pt x 1276.77pt>
 File: figures/zeroPaddingTrans.png Graphic file (type png)
 <use figures/zeroPaddingTrans.png>
-Package pdftex.def Info: figures/zeroPaddingTrans.png  used on input line 46.
-(pdftex.def)             Requested size: 318.66948pt x 244.66174pt.
-<figures/zero3x3Architecture1.png, id=798, 3998.94pt x 2613.765pt>
+Package pdftex.def Info: figures/zeroPaddingTrans.png  used on input line 56.
+(pdftex.def)             Requested size: 273.14923pt x 237.3287pt.
+<figures/zero3x3Architecture1.png, id=860, 3998.94pt x 2613.765pt>
 File: figures/zero3x3Architecture1.png Graphic file (type png)
 <use figures/zero3x3Architecture1.png>
-Package pdftex.def Info: figures/zero3x3Architecture1.png  used on input line 5
+Package pdftex.def Info: figures/zero3x3Architecture1.png  used on input line 6
 6.
 (pdftex.def)             Requested size: 455.24411pt x 297.52562pt.
-<figures/zero3x3Architecture2.png, id=799, 4296.05pt x 1971.365pt>
+<figures/zero3x3Architecture2.png, id=861, 4296.05pt x 1971.365pt>
 File: figures/zero3x3Architecture2.png Graphic file (type png)
 <use figures/zero3x3Architecture2.png>
-Package pdftex.def Info: figures/zero3x3Architecture2.png  used on input line 6
+Package pdftex.def Info: figures/zero3x3Architecture2.png  used on input line 7
 3.
 (pdftex.def)             Requested size: 455.24411pt x 208.87947pt.
-
-
-[38 <./figures/zeroPaddingTrans.png>]
-
-[39 <./figures/zero3x3Architecture1.png> <./figures/zero3x3Architecture2.png>]
-<figures/zero5x5Architecture1.png, id=816, 4259.915pt x 3127.685pt>
+<figures/zero5x5Architecture1.png, id=864, 4259.915pt x 3127.685pt>
 File: figures/zero5x5Architecture1.png Graphic file (type png)
 <use figures/zero5x5Architecture1.png>
-Package pdftex.def Info: figures/zero5x5Architecture1.png  used on input line 7
-8.
-(pdftex.def)             Requested size: 455.24411pt x 334.21515pt.
-<figures/zero5x5Architecture2.png, id=817, 1686.3pt x 2453.165pt>
-File: figures/zero5x5Architecture2.png Graphic file (type png)
-<use figures/zero5x5Architecture2.png>
-Package pdftex.def Info: figures/zero5x5Architecture2.png  used on input line 8
-5.
-(pdftex.def)             Requested size: 455.24411pt x 662.25111pt.
+Package pdftex.def Info: figures/zero5x5Architecture1.png  used on input line 8
+6.
+(pdftex.def)             Requested size: 409.71692pt x 300.80795pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1490) has occurred while \output is active []
 
 
 
-[40
-
- <./figures/zero5x5Architecture1.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[38 <./figures/lineBufferTrans.png>]
+Underfull \vbox (badness 1173) has occurred while \output is active []
 
 
 
-[41 <./figures/zero5x5Architecture2.png>]
-<figures/zero7x7Architecture1.png, id=829, 4420.515pt x 3818.265pt>
+[39 <./figures/zeroPaddingTrans.png> <./figures/zero3x3Architecture1.png>]
+
+[40 <./figures/zero3x3Architecture2.png> <./figures/zero5x5Architecture1.png>]
+
+[41]
+<figures/zero7x7Architecture1.png, id=890, 4420.515pt x 3818.265pt>
 File: figures/zero7x7Architecture1.png Graphic file (type png)
 <use figures/zero7x7Architecture1.png>
 Package pdftex.def Info: figures/zero7x7Architecture1.png  used on input line 1
-30.
+55.
 (pdftex.def)             Requested size: 455.24411pt x 393.20995pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[42]
-<figures/zero7x7Architecture2.png, id=834, 1967.35pt x 2854.665pt>
-File: figures/zero7x7Architecture2.png Graphic file (type png)
-<use figures/zero7x7Architecture2.png>
-Package pdftex.def Info: figures/zero7x7Architecture2.png  used on input line 1
-36.
-(pdftex.def)             Requested size: 455.24411pt x 660.56654pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[43 <./figures/zero7x7Architecture1.png>]
-Overfull \hbox (9.14719pt too wide) in alignment at lines 143--148
+Overfull \hbox (9.14719pt too wide) in alignment at lines 161--166
  [] [] [] 
  []
 
 
-Overfull \hbox (9.14719pt too wide) in alignment at lines 148--154
+Overfull \hbox (9.14719pt too wide) in alignment at lines 166--172
  [] [] [] 
  []
 
 
-Overfull \hbox (9.14719pt too wide) in alignment at lines 154--207
+Overfull \hbox (9.14719pt too wide) in alignment at lines 172--225
  [] [] [] 
  []
 
+[42 <./figures/zero7x7Architecture1.png>] [43]
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[44 <./figures/zero7x7Architecture2.png>] [45]
-
-[46]
+[44]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 220.
-<figures/sortingEx3.png, id=859, 279.444pt x 77.69025pt>
+put line 238.
+<figures/sortingEx3.png, id=911, 279.444pt x 77.69025pt>
 File: figures/sortingEx3.png Graphic file (type png)
 <use figures/sortingEx3.png>
-Package pdftex.def Info: figures/sortingEx3.png  used on input line 246.
+Package pdftex.def Info: figures/sortingEx3.png  used on input line 264.
 (pdftex.def)             Requested size: 218.51521pt x 60.75223pt.
-<figures/node.png, id=862, 1124.2pt x 831.105pt>
+<figures/node.png, id=914, 1124.2pt x 831.105pt>
 File: figures/node.png Graphic file (type png)
 <use figures/node.png>
-Package pdftex.def Info: figures/node.png  used on input line 253.
+Package pdftex.def Info: figures/node.png  used on input line 271.
 (pdftex.def)             Requested size: 218.51521pt x 161.53853pt.
-<figures/median3x3Exampel.png, id=865, 2212.265pt x 1373.13pt>
+<figures/median3x3Exampel.png, id=917, 2212.265pt x 1373.13pt>
 File: figures/median3x3Exampel.png Graphic file (type png)
 <use figures/median3x3Exampel.png>
-Package pdftex.def Info: figures/median3x3Exampel.png  used on input line 263.
+Package pdftex.def Info: figures/median3x3Exampel.png  used on input line 281.
 (pdftex.def)             Requested size: 273.14923pt x 169.52464pt.
-<figures/median3x3RTL.png, id=866, 2850.65pt x 1710.39pt>
+<figures/median3x3RTL.png, id=918, 2850.65pt x 1710.39pt>
 File: figures/median3x3RTL.png Graphic file (type png)
 <use figures/median3x3RTL.png>
-Package pdftex.def Info: figures/median3x3RTL.png  used on input line 269.
+Package pdftex.def Info: figures/median3x3RTL.png  used on input line 287.
 (pdftex.def)             Requested size: 455.24411pt x 273.14603pt.
 
 
-[47 <./figures/sortingEx3.png> <./figures/node.png>]
-
-[48 <./figures/median3x3Exampel.png> <./figures/median3x3RTL.png>]
-<figures/median5x5Example.png, id=884, 368.577pt x 257.16075pt>
+[45 <./figures/sortingEx3.png> <./figures/node.png>]
+<figures/median5x5Example.png, id=931, 368.577pt x 257.16075pt>
 File: figures/median5x5Example.png Graphic file (type png)
 <use figures/median5x5Example.png>
-Package pdftex.def Info: figures/median5x5Example.png  used on input line 280.
+Package pdftex.def Info: figures/median5x5Example.png  used on input line 298.
 (pdftex.def)             Requested size: 364.19667pt x 254.11119pt.
-<figures/sortAscending5x5Ex.png, id=887, 1606.0pt x 967.615pt>
+
+
+[46 <./figures/median3x3Exampel.png> <./figures/median3x3RTL.png>]
+<figures/sortAscending5x5Ex.png, id=941, 1606.0pt x 967.615pt>
 File: figures/sortAscending5x5Ex.png Graphic file (type png)
 <use figures/sortAscending5x5Ex.png>
-Package pdftex.def Info: figures/sortAscending5x5Ex.png  used on input line 287
+Package pdftex.def Info: figures/sortAscending5x5Ex.png  used on input line 305
 .
 (pdftex.def)             Requested size: 364.19667pt x 219.43144pt.
-<figures/sortAscending5x5RTL.png, id=888, 2890.8pt x 1373.13pt>
+<figures/sortAscending5x5RTL.png, id=942, 2810.5pt x 1369.115pt>
 File: figures/sortAscending5x5RTL.png Graphic file (type png)
 <use figures/sortAscending5x5RTL.png>
-Package pdftex.def Info: figures/sortAscending5x5RTL.png  used on input line 29
-4.
-(pdftex.def)             Requested size: 455.24411pt x 216.22722pt.
-<figures/median7x7Example.png, id=892, 4139.465pt x 2802.47pt>
+Package pdftex.def Info: figures/sortAscending5x5RTL.png  used on input line 31
+2.
+(pdftex.def)             Requested size: 455.24411pt x 221.75781pt.
+
+
+[47 <./figures/median5x5Example.png> <./figures/sortAscending5x5Ex.png>]
+<figures/median7x7Example.png, id=952, 4139.465pt x 2802.47pt>
 File: figures/median7x7Example.png Graphic file (type png)
 <use figures/median7x7Example.png>
-Package pdftex.def Info: figures/median7x7Example.png  used on input line 304.
+Package pdftex.def Info: figures/median7x7Example.png  used on input line 352.
 (pdftex.def)             Requested size: 455.24411pt x 308.18713pt.
+<figures/sortAscending7x7Ex.png, id=953, 2164.085pt x 1248.665pt>
+File: figures/sortAscending7x7Ex.png Graphic file (type png)
+<use figures/sortAscending7x7Ex.png>
+Package pdftex.def Info: figures/sortAscending7x7Ex.png  used on input line 358
+.
+(pdftex.def)             Requested size: 364.19667pt x 210.13629pt.
 
 
-[49 <./figures/median5x5Example.png> <./figures/sortAscending5x5Ex.png>])
+[48 <./figures/sortAscending5x5RTL.png>]
 
-[50 <./figures/sortAscending5x5RTL.png>]
+[49 <./figures/median7x7Example.png> <./figures/sortAscending7x7Ex.png>]
+<figures/slidingWindowPrincipla.png, id=967, 1236.62pt x 1300.86pt>
+File: figures/slidingWindowPrincipla.png Graphic file (type png)
+<use figures/slidingWindowPrincipla.png>
+Package pdftex.def Info: figures/slidingWindowPrincipla.png  used on input line
+ 373.
+(pdftex.def)             Requested size: 218.51521pt x 229.85721pt.
+<figures/sumCumRTL.png, id=968, 1589.94pt x 1120.185pt>
+File: figures/sumCumRTL.png Graphic file (type png)
+<use figures/sumCumRTL.png>
+Package pdftex.def Info: figures/sumCumRTL.png  used on input line 380.
+(pdftex.def)             Requested size: 218.51521pt x 153.95326pt.
 
-[51 <./figures/median7x7Example.png>]
-Overfull \hbox (6.79779pt too wide) in paragraph at lines 214--216
+Underfull \hbox (badness 6510) in paragraph at lines 381--381
+[]\T5/ptm/m/n/13 H¼nh 3.20. |Ki¸n tróc cõa mæ ^^_un
+ []
+
+<figures/patchSumTrans.png, id=970, 1862.96pt x 1248.665pt>
+File: figures/patchSumTrans.png Graphic file (type png)
+<use figures/patchSumTrans.png>
+Package pdftex.def Info: figures/patchSumTrans.png  used on input line 394.
+(pdftex.def)             Requested size: 364.19667pt x 244.10791pt.
+
+
+[50 <./figures/slidingWindowPrincipla.png> <./figures/sumCumRTL.png>]
+<figures/patchSumRTL.png, id=986, 3296.315pt x 2413.015pt>
+File: figures/patchSumRTL.png Graphic file (type png)
+<use figures/patchSumRTL.png>
+Package pdftex.def Info: figures/patchSumRTL.png  used on input line 422.
+(pdftex.def)             Requested size: 455.24411pt x 333.25417pt.
+<figures/patchSumRTL_2.png, id=987, 2653.915pt x 1393.205pt>
+File: figures/patchSumRTL_2.png Graphic file (type png)
+<use figures/patchSumRTL_2.png>
+Package pdftex.def Info: figures/patchSumRTL_2.png  used on input line 428.
+(pdftex.def)             Requested size: 455.24411pt x 238.96758pt.
+
+
+[51 <./figures/patchSumTrans.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[52 <./figures/patchSumRTL.png> <./figures/patchSumRTL_2.png>]
+<figures/interpolationRTL.png, id=1001, 2951.025pt x 1810.765pt>
+File: figures/interpolationRTL.png Graphic file (type png)
+<use figures/interpolationRTL.png>
+Package pdftex.def Info: figures/interpolationRTL.png  used on input line 439.
+(pdftex.def)             Requested size: 455.24411pt x 279.33943pt.
+<figures/riu2RTL.png, id=1003, 2766.335pt x 2754.29pt>
+File: figures/riu2RTL.png Graphic file (type png)
+<use figures/riu2RTL.png>
+Package pdftex.def Info: figures/riu2RTL.png  used on input line 447.
+(pdftex.def)             Requested size: 455.24411pt x 453.26149pt.
+
+
+[53 <./figures/interpolationRTL.png>])
+
+[54 <./figures/riu2RTL.png>]
+Overfull \hbox (6.79779pt too wide) in paragraph at lines 207--209
 \T5/ptm/m/n/13 [Online]. Avail-able: $\OML/cmm/m/it/12 https \OT1/cmr/m/n/12 : 
 \OML/cmm/m/it/12 ==www:mckinsey:com=capabilities=quantumblack=our \OMS/cmsy/m/n
 /12 ^^@
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 218--220
+Underfull \hbox (badness 10000) in paragraph at lines 211--213
 \T5/ptm/m/n/13 [Online]. Avail-able: $\OML/cmm/m/it/12 https \OT1/cmr/m/n/12 : 
 \OML/cmm/m/it/12 ==www:grandviewresearch:com=industry \OMS/cmsy/m/n/12 ^^@
  []
 
 
 
-[52
+[55
 
 
 ]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 2
-88.
+81.
  (C:\Users\gbmhi\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 
-[53{C:/Users/gbmhi/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
+[56{C:/Users/gbmhi/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
 (main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
@@ -2562,16 +2635,16 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 49151AC63F21F0CA86486ED9C53CF2C1;7124.
+(rerunfilecheck)             Checksum: 0421C363950E668CD6A0BA5E8F365991;8288.
  ) 
 Here is how much of TeX's memory you used:
- 59694 strings out of 473522
- 1500965 string characters out of 5714609
- 2340130 words of memory out of 5000000
- 81836 multiletter control sequences out of 15000+600000
+ 60063 strings out of 473522
+ 1507790 string characters out of 5714609
+ 2350213 words of memory out of 5000000
+ 82171 multiletter control sequences out of 15000+600000
  620994 words of font info for 97 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,19n,110p,1780b,608s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,20n,110p,1780b,610s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/gbmhi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx12.pfb><C:/Users/gbmhi/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmex10.pfb><C:/Users/gbmhi/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -2595,9 +2668,9 @@ ms/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/gbmhi/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/vntex/urwvn/utmr8v.pfb><C:/Users/gbmhi/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/vntex/urwvn/utmr8v.pfb><C:/Users/gbmhi/AppData/Local/Pr
 ograms/MiKTeX/fonts/type1/vntex/urwvn/utmri8v.pfb>
-Output written on main.pdf (64 pages, 6181726 bytes).
+Output written on main.pdf (68 pages, 6977815 bytes).
 PDF statistics:
- 1065 PDF objects out of 1200 (max. 8388607)
- 235 named destinations out of 1000 (max. 500000)
- 586 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1172 PDF objects out of 1200 (max. 8388607)
+ 256 named destinations out of 1000 (max. 500000)
+ 677 words of extra memory for PDF output out of 10000 (max. 10000000)
 

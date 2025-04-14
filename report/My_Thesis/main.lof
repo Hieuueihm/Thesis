@@ -32,21 +32,28 @@
 \contentsline {figure}{\numberline {2.20}{\ignorespaces Biểu đồ sóng của mô đun JointHistogram}}{34}{figure.caption.71}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Định nghĩa các ký hiệu được sử dụng khi mô tả kiến trúc RTL}}{36}{figure.caption.74}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Mô tả RTL của mô đun LineBuffer}}{37}{figure.caption.75}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Sơ đồ chuyển trạng thái của mô đun LineBuffer}}{37}{figure.caption.76}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Sơ đồ chuyển trạng thái của mô đun ZeroPadding}}{38}{figure.caption.77}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Mô tả RTL (1) của mô đun ZeroPadding ứng với cửa sổ 3x3}}{39}{figure.caption.78}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Mô tả RTL (2) của mô đun ZeroPadding ứng với cửa sổ 3x3}}{39}{figure.caption.79}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Mô tả RTL (1) của mô đun ZeroPadding ứng với cửa sổ 5x5}}{40}{figure.caption.80}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Mô tả RTL (2) của mô đun ZeroPadding ứng với cửa sổ 5x5}}{41}{figure.caption.81}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Mô tả RTL (1) của mô đun ZeroPadding ứng với cử sổ 7x7}}{43}{figure.caption.83}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Mô tả RTL (2) của mô đun ZeroPadding ứng với cử sổ 7x7}}{44}{figure.caption.84}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Mô tả về mạng sắp xếp với 3 phần tử \cite {altivec}}}{47}{figure.caption.85}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Mô tả cấu trúc bộ so sánh và hoán đổi}}{47}{figure.caption.85}%
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Thực hiện và ví dụ của tìm trung vị của cửa sổ 3x3}}{48}{figure.caption.86}%
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Thực hiện và ví dụ của tìm trung vị của cửa sổ 3x3}}{48}{figure.caption.87}%
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Thực hiện và ví dụ của tìm trung vị của cửa sổ 5x5 \cite {llmf}}}{49}{figure.caption.88}%
-\contentsline {figure}{\numberline {3.16}{\ignorespaces Xây dựng bộ sắp xếp 5 phần tử dựa trên bộ sắp xếp 3}}{49}{figure.caption.89}%
-\contentsline {figure}{\numberline {3.17}{\ignorespaces Kiến trúc của bộ sắp xếp tăng dần 5x5}}{50}{figure.caption.90}%
-\contentsline {figure}{\numberline {3.18}{\ignorespaces Thực hiện và ví dụ của tìm trung vị của cửa sổ 7x7}}{51}{figure.caption.91}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Định nghĩa các tín hiệu ra vào một mô đun}}{36}{figure.caption.75}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Mô tả RTL của mô đun LineBuffer}}{37}{figure.caption.76}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Sơ đồ chuyển trạng thái của mô đun LineBuffer}}{38}{figure.caption.77}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Sơ đồ chuyển trạng thái của mô đun ZeroPadding}}{39}{figure.caption.78}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Mô tả RTL (1) của mô đun ZeroPadding ứng với cửa sổ 3x3}}{39}{figure.caption.79}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Mô tả RTL (2) của mô đun ZeroPadding ứng với cửa sổ 3x3}}{40}{figure.caption.80}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Mô tả RTL của mô đun ZeroPadding ứng với cửa sổ 5x5}}{40}{figure.caption.81}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Mô tả RTL của mô đun ZeroPadding ứng với cử sổ 7x7}}{42}{figure.caption.84}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Mô tả về mạng sắp xếp với 3 phần tử \cite {altivec}}}{45}{figure.caption.85}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Mô tả cấu trúc bộ so sánh và hoán đổi}}{45}{figure.caption.85}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Thực hiện và ví dụ của tìm trung vị của cửa sổ 3x3}}{46}{figure.caption.86}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Thực hiện và ví dụ của tìm trung vị của cửa sổ 3x3}}{46}{figure.caption.87}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Thực hiện và ví dụ của tìm trung vị của cửa sổ 5x5 \cite {llmf}}}{47}{figure.caption.88}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Xây dựng bộ sắp xếp 5 phần tử dựa trên bộ sắp xếp 3}}{47}{figure.caption.89}%
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Kiến trúc của bộ sắp xếp tăng dần 5 phần tử}}{48}{figure.caption.90}%
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Thực hiện và ví dụ của tìm trung vị của cửa sổ 7x7}}{49}{figure.caption.92}%
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Xây dựng bộ sắp xếp 7 phần tử dựa trên bộ sắp xếp 5 và bộ sắp xếp 3}}{49}{figure.caption.93}%
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Ví dụ về nguyên lý cửa kỹ thuật cửa sổ trượt}}{50}{figure.caption.94}%
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Kiến trúc của mô đun sum\_cum}}{50}{figure.caption.94}%
+\contentsline {figure}{\numberline {3.21}{\ignorespaces Sơ đồ chuyển trạng thái của mô đun PatchSum}}{51}{figure.caption.95}%
+\contentsline {figure}{\numberline {3.22}{\ignorespaces Kiến trúc RTL (1) của mô đun PatchSum}}{52}{figure.caption.97}%
+\contentsline {figure}{\numberline {3.23}{\ignorespaces Kiến trúc RTL (2) của mô đun PatchSum với r = 2}}{52}{figure.caption.98}%
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Kiến trúc RTL của môn đun Interpolation}}{53}{figure.caption.99}%
+\contentsline {figure}{\numberline {3.25}{\ignorespaces Kiến trúc RTL của mô đun RIU2}}{54}{figure.caption.100}%
 \contentsfinish 

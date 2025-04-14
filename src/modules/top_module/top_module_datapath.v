@@ -23,7 +23,7 @@ module top_module__datapath #(
       start_i_prev <= start_i;
     end
   end
-  assign start_i_negedge = (start_i_prev == 1 & start_i == 0) ? 1'b1 : 1'b0;
+  assign start_i_negedge = (start_i_prev == 1 & start_i == 0);
   assign start_en = start_i_negedge;
 
 

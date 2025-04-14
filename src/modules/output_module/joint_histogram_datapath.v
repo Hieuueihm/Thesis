@@ -7,8 +7,8 @@ module joint_histogram_datapath (
     input [3:0] rd_i,
     input count_en,
     input read_en,
-    output [15:0] cinird_o,
-    output reg done_read,
+    output reg [15:0] cinird_o,
+    output done_read,
     input reset_en,
     output reset_done
 );
@@ -43,34 +43,51 @@ module joint_histogram_datapath (
 
   assign counter_value = ci_delay + ni_delay + rd_delay;
 
-  reg [15:0] register_array[0:199];
-  reg [ 7:0] reset_index;
-  reg [15:0] output_value;
-  reg [ 7:0] read_index;
-  assign reset_done = (reset_index == 200) ? 1'b1 : 1'b0;
+  reg [7:0] reset_index;
+  reg [7:0] read_index;
+  assign reset_index_lt_200 = (reset_index < 200);
+  wire w_data_en;
+  assign w_data_en  = (reset_index_lt_200 | (count_en & done_delay));
+  assign reset_done = (reset_index == 200);
+  wire [15:0] w_data;
+  wire [15:0] r_data;
+  assign done_read = read_index > 198;
   always @(posedge clk) begin
     if (~rst_n) begin
       reset_index <= 0;
-      output_value <= 0;
-      read_index   <= 0;
-      done_read    <= 0;
+      read_index  <= 0;
     end else if (reset_en) begin
       reset_index <= 0;
-      output_value <= 0;
-      read_index   <= 0;
-      done_read    <= 0;
-    end else if (reset_index < 200) begin
-      register_array[reset_index] <= 0;
+      read_index  <= 0;
+    end else if (reset_index_lt_200) begin
       reset_index <= reset_index + 1;
-    end else if (count_en && done_delay) begin
-      register_array[counter_value] <= register_array[counter_value] + 1;
     end else if (read_en) begin
-      output_value <= register_array[read_index];
-      read_index   <= read_index + 1;
-      done_read    <= (read_index > 197);
+      read_index <= read_index + 1;
+      // done_read  <= (read_index > 197);
     end
   end
-  assign cinird_o = output_value;
+  assign w_data = (reset_index_lt_200) ? 0 : (r_data + 1);
+  memory_1 #(
+      .DEPTH(200),
+      .DATA_SIZE(16)
+  ) mem (
+      .clk(clk),
+      .rst_n(rst_n),
+      .ren(read_en | (count_en & done_delay)),
+      .wren(w_data_en),
+      .r_addr(read_en ? read_index : counter_value),
+      .w_addr(reset_index_lt_200 ? reset_index : counter_value),
+      .w_data(reset_index_lt_200 ? 0 : w_data),
+      .r_data(r_data)
+  );
+  always @(posedge clk) begin
+    if (~rst_n) begin
+      cinird_o <= 0;
+    end else if (read_en) begin
+      cinird_o <= r_data;
+    end else cinird_o <= 0;
+
+  end
 
   // integer file;
   // always @(posedge clk) begin

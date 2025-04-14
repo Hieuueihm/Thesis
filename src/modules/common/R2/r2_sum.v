@@ -36,11 +36,11 @@ module r2_sum #(
   end
 
   // );
-  assign i_start_gt_1 = (i_start > 1) ? 1'b1 : 1'b0;
+  assign i_start_gt_1 = (i_start > 1);
 
 
   wire i_counter_eq_max;
-  assign i_counter_eq_max = (i_counter == COLS - 1) ? 1'b1 : 1'b0;
+  assign i_counter_eq_max = (i_counter == COLS - 1);
 
   always @(posedge clk) begin
     if (~rst_n) begin
@@ -67,7 +67,7 @@ module r2_sum #(
 
 
 
-  assign i_row_eq_max = (i_row == ROWS - 4) ? 1'b1 : 1'b0;
+  assign i_row_eq_max = (i_row == ROWS - 4);
 
 
   reg [7:0] st1_S1, st1_S2, st1_S3, st1_S4, st1_S5;

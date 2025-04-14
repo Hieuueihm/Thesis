@@ -77,7 +77,8 @@ module line_buffer_datapath #(
 
 
   memory #(
-      .DEPTH(DEPTH)
+      .DEPTH(DEPTH),
+      .DATA_SIZE(8)
   ) memory_inst (
       .clk(clk),
       .rst_n(rst_n),

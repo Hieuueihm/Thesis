@@ -158,9 +158,9 @@ class monitor;
         idx++;
 
         if (idx == 600) begin
-            flag = 0;
+          flag = 0;
 
-          tr = new();
+          tr   = new();
           tr.display("MON");
           foreach (hist_bins[i])
           tr.histogram[i] = hist_bins[i];  // Assuming histogram is now an array in transaction
@@ -185,11 +185,9 @@ class monitor;
             end
             //     $fwrite(file_id, "%0d\n", hist_bins[i]);
           end
-          if(flag == 0) begin
-          $display("same: %d\n", count);
-
+          if (flag == 0) begin
+            $display("same: %d\n", count);
           end
-
           $fclose(file_id);
           ->done;
           idx = 0;
@@ -200,6 +198,7 @@ class monitor;
         mbx.put(tr);
       end
     end
+
   endtask
 
 endclass
@@ -253,7 +252,7 @@ class environment;
 
     gen.done = this.genDone;
     mon.count = gen.no;
-    mon.error = error;
+    error = mon.error;
 
   endfunction
 
@@ -272,6 +271,14 @@ class environment;
 
   task post_test();
     wait (gen.done.triggered);
+    error = mon.error;
+    if (error > 0) begin
+      $display("Error: %d errors found in histogram.", error);
+    end else begin
+      $display("All histograms are correct.");
+    end
+    $stop;
+
   endtask
 
   task run();

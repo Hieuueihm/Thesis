@@ -1,17 +1,18 @@
 module memory #(
-    parameter DEPTH = 1024
+    parameter DEPTH = 1024,
+    parameter DATA_SIZE = 8
 ) (
     input clk,
     input rst_n,
     input ren,
     input wren,
-    input [9:0] r_addr,
-    input [9:0] w_addr,
-    input [7:0] w_data,
-    output reg [7:0] r_data  // ✅ Change to reg for synchronous output
+    input [$clog2(DEPTH)-1:0] r_addr,
+    input [$clog2(DEPTH)-1:0] w_addr,
+    input [DATA_SIZE-1 :0] w_data,
+    output reg [DATA_SIZE- 1:0] r_data  
 );
 
-  (* ram_style = "block" *) reg [7:0] mem[0:DEPTH - 1];
+  (* ram_style = "block" *) reg [DATA_SIZE - 1:0] mem[0:DEPTH - 1];
 
   always @(posedge clk) begin
     if (wren) begin

@@ -10,7 +10,7 @@ module interpolation_calc_tb ();
   wire [23:0] data_o;
   interpolation_calc #(
       .R(4),
-      .RADIUS(45)
+      .ANGLE(45)
   ) uut (
       .clk(clk),
       .rst_n(rst_n),

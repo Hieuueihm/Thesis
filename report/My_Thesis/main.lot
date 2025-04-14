@@ -10,7 +10,7 @@
 \contentsline {table}{\numberline {2.6}{\ignorespaces Danh sách các tham số của mô đun LineBuffer }}{23}{table.caption.41}%
 \contentsline {table}{\numberline {2.7}{\ignorespaces Danh sách các tín hiệu của giao diện mô đun LineBuffer}}{23}{table.caption.42}%
 \contentsline {table}{\numberline {2.8}{\ignorespaces Danh sách các tham số của mô đun ZeroPadding }}{24}{table.caption.45}%
-\contentsline {table}{\numberline {2.9}{\ignorespaces Danh sách các tín hiệu của giao diện mô đun LineBuffer}}{25}{table.caption.46}%
+\contentsline {table}{\numberline {2.9}{\ignorespaces Danh sách các tín hiệu của giao diện mô đun ZeroPadding}}{25}{table.caption.46}%
 \contentsline {table}{\numberline {2.10}{\ignorespaces Danh sách các tham số của mô đun MedianCalculation}}{25}{table.caption.48}%
 \contentsline {table}{\numberline {2.11}{\ignorespaces Danh sách các tín hiệu của giao diện mô đun MedianCalculation}}{26}{table.caption.49}%
 \contentsline {table}{\numberline {2.12}{\ignorespaces Tham số của mô đun CI}}{26}{table.caption.51}%
@@ -27,6 +27,9 @@
 \contentsline {table}{\numberline {2.23}{\ignorespaces Danh sách các tín hiệu của mô đun RIU2}}{34}{table.caption.69}%
 \contentsline {table}{\numberline {2.24}{\ignorespaces Danh sách các tín hiệu của mô đun JointHistogram}}{35}{table.caption.72}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Bảng điều kiện cho dữ liệu đầu ra ứng với cửa sổ 5x5}}{42}{table.caption.82}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces Bảng điều kiện cho dữ liệu đầu ra ứng với cửa sổ 7x7}}{46}{table.3.2}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Bảng điều kiện cho dữ liệu đầu ra ứng với cửa sổ 5x5}}{41}{table.caption.82}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Số chu kỳ thực hiện của các mô đun ZeroPadding}}{42}{table.caption.83}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Bảng điều kiện cho dữ liệu đầu ra ứng với cửa sổ 7x7}}{44}{table.3.3}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces Số chu kỳ thực hiện của các mô đun mô đun sắp xếp và mô đun MedianCalculation}}{48}{table.caption.91}%
+\contentsline {table}{\numberline {3.5}{\ignorespaces Bảng điều kiện cho mô tả hình \ref {fig:patchSumRTL}}}{51}{table.caption.96}%
 \contentsfinish 

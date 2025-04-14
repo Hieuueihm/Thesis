@@ -134,7 +134,7 @@ module interpolation_R_x #(
 
       interpolation_calc #(
           .R(R),
-          .RADIUS(45)
+          .ANGLE(45)
       ) INTER_r2_45 (
           .clk(clk),
           .rst_n(rst_n),
@@ -147,7 +147,7 @@ module interpolation_R_x #(
 
       interpolation_calc #(
           .R(R),
-          .RADIUS(135)
+          .ANGLE(135)
       ) INTER_r2_135 (
           .clk(clk),
           .rst_n(rst_n),
@@ -162,7 +162,7 @@ module interpolation_R_x #(
 
       interpolation_calc #(
           .R(R),
-          .RADIUS(225)
+          .ANGLE(225)
       ) INTER_r2_225 (
           .clk(clk),
           .rst_n(rst_n),
@@ -176,7 +176,7 @@ module interpolation_R_x #(
 
       interpolation_calc #(
           .R(R),
-          .RADIUS(315)
+          .ANGLE(315)
       ) INTER_r2_315 (
           .clk(clk),
           .rst_n(rst_n),

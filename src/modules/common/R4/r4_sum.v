@@ -42,11 +42,11 @@ module r4_sum #(
   end
 
   // );
-  assign i_start_gt_2 = (i_start > 2) ? 1'b1 : 1'b0;
+  assign i_start_gt_2 = (i_start > 2);
 
 
   wire i_counter_eq_max;
-  assign i_counter_eq_max = (i_counter == COLS - 1) ? 1'b1 : 1'b0;
+  assign i_counter_eq_max = (i_counter == COLS - 1);
 
   always @(posedge clk) begin
     if (~rst_n) begin
@@ -72,7 +72,7 @@ module r4_sum #(
   end
 
 
-  assign i_row_eq_max = (i_row == ROWS - 8) ? 1'b1 : 1'b0;
+  assign i_row_eq_max = (i_row == ROWS - 8);
 
 
 
