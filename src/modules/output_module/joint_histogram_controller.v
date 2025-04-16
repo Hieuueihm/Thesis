@@ -30,9 +30,10 @@ module joint_histogram_controller (
 
     endcase
   end
+  reg done, fin;
   always @(*) begin
-    done_o   = 0;
-    finish   = 0;
+    done = 0;
+    fin = 0;
     count_en = 0;
     reset_en = 0;
 
@@ -46,23 +47,31 @@ module joint_histogram_controller (
         count_en = 1;
       end
       READING: begin
-        done_o = 1;
+        done = 1;
       end
 
       FINISH: begin
-        done_o   = 1'b1;
-        finish   = 1;
+        fin = 1;
         reset_en = 1;
 
       end
       default: begin
-        done_o   = 0;
-        finish   = 0;
+        done = 0;
+        fin = 0;
         count_en = 0;
         reset_en = 0;
       end
     endcase
 
+  end
+  always @(posedge clk) begin
+    if (~rst_n) begin
+      done_o <= 0;
+      finish <= 0;
+    end else begin
+      done_o <= done;
+      finish <= fin;
+    end
   end
 
 

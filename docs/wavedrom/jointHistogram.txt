@@ -11,7 +11,7 @@
    ["output", 
     {name : 'cinird_o', wave: '0.......7.....0...', data: 'cinird'},
   {name: 'o_valid', wave: '0.......1.....0...', node :'........c.....d'},
-  {name: 'o_finish', wave:'0............10.', node : '.............e'}
+  {name: 'o_finish', wave:'0.............10..', node : '..............e'}
 ]
 ],
  edge: [

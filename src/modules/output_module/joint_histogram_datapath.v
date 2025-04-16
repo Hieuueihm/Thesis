@@ -51,7 +51,15 @@ module joint_histogram_datapath (
   assign reset_done = (reset_index == 200);
   wire [15:0] w_data;
   wire [15:0] r_data;
-  assign done_read = read_index > 198;
+  assign done_read = read_index == 199;
+  reg read_en_d;
+  always @(posedge clk) begin
+    if (~rst_n) begin
+      read_en_d <= 0;
+    end else begin
+      read_en_d <= read_en;
+    end
+  end
   always @(posedge clk) begin
     if (~rst_n) begin
       reset_index <= 0;
@@ -61,9 +69,11 @@ module joint_histogram_datapath (
       read_index  <= 0;
     end else if (reset_index_lt_200) begin
       reset_index <= reset_index + 1;
-    end else if (read_en) begin
-      read_index <= read_index + 1;
-      // done_read  <= (read_index > 197);
+    end else if (read_en_d) begin
+      if (read_index < 199) begin
+        read_index <= read_index + 1;
+
+      end
     end
   end
   assign w_data = (reset_index_lt_200) ? 0 : (r_data + 1);
@@ -73,13 +83,14 @@ module joint_histogram_datapath (
   ) mem (
       .clk(clk),
       .rst_n(rst_n),
-      .ren(read_en | (count_en & done_delay)),
+      .ren(read_en_d | (count_en & done_delay)),
       .wren(w_data_en),
-      .r_addr(read_en ? read_index : counter_value),
+      .r_addr(read_en_d ? read_index : counter_value),
       .w_addr(reset_index_lt_200 ? reset_index : counter_value),
       .w_data(reset_index_lt_200 ? 0 : w_data),
       .r_data(r_data)
   );
+
   always @(posedge clk) begin
     if (~rst_n) begin
       cinird_o <= 0;

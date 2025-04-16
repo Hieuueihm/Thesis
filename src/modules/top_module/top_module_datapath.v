@@ -92,7 +92,7 @@ module top_module__datapath #(
 
 
   wire [3:0] ni_r2_o, rd_r2_o;
-  wire done_r2_nird, progress_done_r2_nird;
+  wire done_r2_nird;
   r2_nird #(
       .COLS(COLS),
       .ROWS(ROWS)
@@ -106,7 +106,7 @@ module top_module__datapath #(
       .ni_o(ni_r2_o),
       .rd_o(rd_r2_o),
       .done_o(done_r2_nird),
-      .progress_done_o(progress_done_r2_nird)
+      .progress_done_o(finish)
   );
 
   wire ci_r2_delay;
@@ -227,7 +227,7 @@ module top_module__datapath #(
       .rd_o(rd_r6_o),
       .ni_o(ni_r6_o),
       .done_o(done_r6_nird),
-      .progress_done_o(finish)
+      .progress_done_o(progress_done_r6_nird)
   );
 
   wire ci_r6_delay;
@@ -274,62 +274,109 @@ module top_module__datapath #(
   );
 
   reg [15:0] data_out;
-  reg [ 2:0] read_stage;
+  // reg [ 2:0] read_stage;
 
+
+  reg [ 1:0] read_stage;
+  always @(posedge clk or negedge rst_n) begin
+    if (!rst_n) read_stage <= 2'b00;
+    else if (read_en) begin
+      case (read_stage)
+        2'b00: begin
+          if (r2_finish == 1'b1) read_stage <= 2'b01;
+        end
+        2'b01: begin
+          if (r4_finish == 1'b1) read_stage <= 2'b10;
+        end
+        2'b10: begin
+          if (r6_finish == 1'b1) read_stage <= 2'b11;
+        end
+        2'b11: begin
+          if (r6_finish == 1'b1) read_stage <= 2'b00;
+        end
+        default: begin
+          read_stage <= 2'b00;
+        end
+      endcase
+    end
+  end
+
+  always @(*) begin
+    read_r2_en  = 1'b0;
+    read_r4_en  = 1'b0;
+    read_r6_en  = 1'b0;
+    read_finish = 1'b0;
+    if (read_en) begin
+      case (read_stage)
+        2'b00: begin
+          read_r2_en = 1'b1;
+          if (r2_finish == 1'b1) begin
+            read_r2_en = 1'b0;
+          end
+        end
+        2'b01: begin
+          read_r4_en = 1'b1;
+          if (r4_finish == 1'b1) begin
+            read_r4_en = 1'b0;
+          end
+        end
+        2'b10: begin
+          read_r6_en = 1'b1;
+          if (r6_finish == 1'b1) begin
+            read_r6_en = 1'b0;
+          end
+        end
+        2'b11: begin
+          read_r6_en  = 1'b0;
+          read_finish = 1'b1;
+
+        end
+        default: begin
+          read_r2_en = 1'b0;
+          read_r4_en = 1'b0;
+          read_r6_en = 1'b0;
+        end
+      endcase
+    end else begin
+      read_r2_en  = 1'b0;
+      read_r4_en  = 1'b0;
+      read_r6_en  = 1'b0;
+      read_finish = 1'b0;
+    end
+
+
+  end
+
+  // optimize after
   always @(posedge clk) begin
     if (~rst_n) begin
-      read_stage  <= 3'b00;
-      data_out    <= 0;
-      o_valid     <= 0;
-      read_finish <= 0;
-      read_r2_en  <= 1'b0;
-      read_r4_en  <= 1'b0;
-      read_r6_en  <= 1'b0;
+      data_out <= 0;
+      o_valid  <= 0;
     end else if (start_en) begin
-      read_stage  <= 3'b00;
-      data_out    <= 0;
-      o_valid     <= 0;
-      read_finish <= 0;
-      read_r2_en  <= 1'b0;
-      read_r4_en  <= 1'b0;
-      read_r6_en  <= 1'b0;
+      data_out <= 0;
+      o_valid  <= 0;
     end else if (read_en) begin
       case (read_stage)
-        3'b000: begin
-          o_valid <= r2_valid;
-          read_r2_en <= 1'b1;
+        2'b00: begin
+          o_valid  <= r2_valid;
           data_out <= cinird_r2;
-          if (r2_finish == 1'b1) begin
-            read_stage <= 3'b001;
-            read_r2_en <= 1'b0;
-          end
         end
-        3'b001: begin
-          o_valid <= r4_valid;
-          read_r4_en <= 1'b1;
+        2'b01: begin
+          o_valid  <= r4_valid;
           data_out <= cinird_r4;
-          if (r4_finish == 1'b1) begin
-            read_stage <= 3'b010;
-            read_r4_en <= 1'b0;
-          end
         end
-        3'b010: begin
-          o_valid <= r6_valid;
-          read_r6_en <= 1'b1;
+        2'b10: begin
+          o_valid  <= r6_valid;
           data_out <= cinird_r6;
-          if (r6_finish == 1'b1) begin
-            read_stage <= 3'b011;
-            read_r6_en <= 1'b0;
-          end
+
         end
-        3'b011: begin
-          o_valid     <= 1'b0;
-          read_finish <= 1'b1;
-          read_stage  <= 3'b100;
+        2'b11: begin
+          o_valid  <= 1'b0;
+          data_out <= 0;
         end
-        3'b100: begin
-          read_stage  <= 3'b000;
-          read_finish <= 1'b0;
+        default: begin
+          o_valid  <= 1'b0;
+          data_out <= 0;
         end
       endcase
     end

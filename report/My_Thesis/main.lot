@@ -32,4 +32,6 @@
 \contentsline {table}{\numberline {3.3}{\ignorespaces Bảng điều kiện cho dữ liệu đầu ra ứng với cửa sổ 7x7}}{44}{table.3.3}%
 \contentsline {table}{\numberline {3.4}{\ignorespaces Số chu kỳ thực hiện của các mô đun mô đun sắp xếp và mô đun MedianCalculation}}{48}{table.caption.91}%
 \contentsline {table}{\numberline {3.5}{\ignorespaces Bảng điều kiện cho mô tả hình \ref {fig:patchSumRTL}}}{51}{table.caption.96}%
+\contentsline {table}{\numberline {3.6}{\ignorespaces Số chu kỳ thực hiện của các mô đun ZeroPadding}}{57}{table.caption.105}%
+\addvspace {10\p@ }
 \contentsfinish 

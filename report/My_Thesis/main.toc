@@ -62,5 +62,8 @@
 \contentsline {subsection}{\numberline {3.3.1}Mô đun Interpolation}{53}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}Mô đun RIU2}{53}{subsection.3.3.2}%
 \contentsline {section}{\numberline {3.4}Mô đun JointHistogram}{54}{section.3.4}%
-\contentsline {chapter}{{TÀI LIỆU THAM KHẢO}}{55}{section*.101}%
+\contentsline {section}{\numberline {3.5}Mô đun MRELBP}{56}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Tính toán thời gian hoạt động của toàn bộ mô đun}{57}{section.3.6}%
+\contentsline {chapter}{\numberline {4}MÔ PHỎNG VÀ KIỂM THỬ}{59}{chapter.4}%
+\contentsline {chapter}{{TÀI LIỆU THAM KHẢO}}{60}{section*.107}%
 \contentsfinish 

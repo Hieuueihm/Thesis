@@ -56,4 +56,10 @@
 \contentsline {figure}{\numberline {3.23}{\ignorespaces Kiến trúc RTL (2) của mô đun PatchSum với r = 2}}{52}{figure.caption.98}%
 \contentsline {figure}{\numberline {3.24}{\ignorespaces Kiến trúc RTL của môn đun Interpolation}}{53}{figure.caption.99}%
 \contentsline {figure}{\numberline {3.25}{\ignorespaces Kiến trúc RTL của mô đun RIU2}}{54}{figure.caption.100}%
+\contentsline {figure}{\numberline {3.26}{\ignorespaces Kiến trúc RTL của mô đun JointHistogram}}{55}{figure.caption.101}%
+\contentsline {figure}{\numberline {3.27}{\ignorespaces Sơ đồ chuyển trạng thái của mô đun JointHistogram}}{55}{figure.caption.102}%
+\contentsline {figure}{\numberline {3.28}{\ignorespaces Sơ đồ chuyển trạng thái của mô đun MRELBP}}{56}{figure.caption.103}%
+\contentsline {figure}{\numberline {3.29}{\ignorespaces Mô tả các tín hiệu yêu cầu đọc dữ liệu (1) của mô đun MRELBP}}{56}{figure.caption.103}%
+\contentsline {figure}{\numberline {3.30}{\ignorespaces Mô tả các tín hiệu yêu cầu đọc dữ liệu (2) của mô đun MRELBP}}{57}{figure.caption.104}%
+\addvspace {10\p@ }
 \contentsfinish 

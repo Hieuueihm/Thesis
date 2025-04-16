@@ -2,8 +2,10 @@
 `define clk_period 10
 `define half_clk_period 5
 `define SIZE 128
+`define COLS `SIZE
+`define ROWS `SIZE
 module test_top_tb ();
-  reg [7:0] matrix[0:`SIZE-1][0:`SIZE-1];
+  reg [7:0] matrix[0:`ROWS-1][0:`COLS-1];
 
   task read_matrix;
     input integer file_id;
@@ -11,8 +13,8 @@ module test_top_tb ();
     integer i, j;
 
     begin
-      for (i = 0; i < `SIZE; i = i + 1) begin
-        for (j = 0; j < `SIZE; j = j + 1) begin
+      for (i = 0; i < `ROWS; i = i + 1) begin
+        for (j = 0; j < `COLS; j = j + 1) begin
           if (!$fscanf(file_id, "%d", temp_value)) begin
             $display("Error: Not enough data in the file.");
             disable read_matrix;
@@ -39,8 +41,8 @@ module test_top_tb ();
 
 
   top_module #(
-      .COLS(`SIZE),
-      .ROWS(`SIZE)
+      .COLS(`COLS),
+      .ROWS(`ROWS)
   ) DUT (
       .clk(clk),
       .rst_n(rst_n),
@@ -102,8 +104,8 @@ module test_top_tb ();
     #(`clk_period * 5);
     i_valid <= 1'b1;
 
-    for (row = 0; row < `SIZE; row = row + 1) begin
-      for (col = 0; col < `SIZE; col = col + 1) begin
+    for (row = 0; row < `ROWS; row = row + 1) begin
+      for (col = 0; col < `COLS; col = col + 1) begin
         grayscale_i <= matrix[row][col];
         #(`clk_period);
       end
@@ -120,8 +122,8 @@ module test_top_tb ();
     #(`clk_period * 5);
     i_valid <= 1'b1;
 
-    for (row = 0; row < `SIZE; row = row + 1) begin
-      for (col = 0; col < `SIZE; col = col + 1) begin
+    for (row = 0; row < `ROWS; row = row + 1) begin
+      for (col = 0; col < `COLS; col = col + 1) begin
         grayscale_i <= matrix[row][col];
         #(`clk_period);
       end
