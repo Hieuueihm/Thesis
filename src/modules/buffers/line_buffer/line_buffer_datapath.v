@@ -47,12 +47,12 @@ module line_buffer_datapath #(
       wr_pointer <= 0;
     end else if (reset_en) begin
       wr_pointer <= 0;
+    end else if (wr_pointer == DEPTH - 1) begin
+      wr_pointer <= 0;
     end else if (wr_en) begin
       wr_pointer <= wr_pointer + 1;
     end
-    if (wr_pointer == DEPTH - 1) begin
-      wr_pointer <= 0;
-    end
+
   end
 
 
@@ -61,12 +61,12 @@ module line_buffer_datapath #(
       rd_pointer <= 0;
     end else if (reset_en) begin
       rd_pointer <= 0;
+    end else if (rd_pointer == DEPTH - 1) begin
+      rd_pointer <= 0;
     end else if (rd_en) begin
       rd_pointer <= rd_pointer + 1;
     end
-    if (rd_pointer == DEPTH - 1) begin
-      rd_pointer <= 0;
-    end
+
 
   end
 

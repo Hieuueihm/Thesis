@@ -292,7 +292,7 @@ module top_module__datapath #(
           if (r6_finish == 1'b1) read_stage <= 2'b11;
         end
         2'b11: begin
-          if (r6_finish == 1'b1) read_stage <= 2'b00;
+          read_stage <= 2'b00;
         end
         default: begin
           read_stage <= 2'b00;
@@ -329,7 +329,6 @@ module top_module__datapath #(
         2'b11: begin
           read_r6_en  = 1'b0;
           read_finish = 1'b1;
-
         end
         default: begin
           read_r2_en = 1'b0;
@@ -368,7 +367,6 @@ module top_module__datapath #(
         2'b10: begin
           o_valid  <= r6_valid;
           data_out <= cinird_r6;
-
         end
         2'b11: begin
           o_valid  <= 1'b0;
