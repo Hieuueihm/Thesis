@@ -1,0 +1,998 @@
+interface zero_padding_5x5_if (
+    input logic clk,
+    rst_n
+);
+  logic done_i, done_o;
+  logic [7:0] d0_i, d1_i, d2_i, d3_i, d4_i;
+  logic [7:0] d0_o;
+  logic [7:0] d1_o;
+  logic [7:0] d2_o;
+  logic [7:0] d3_o;
+  logic [7:0] d4_o;
+  logic [7:0] d5_o;
+  logic [7:0] d6_o;
+  logic [7:0] d7_o;
+  logic [7:0] d8_o;
+  logic [7:0] d9_o;
+  logic [7:0] d10_o;
+  logic [7:0] d11_o;
+  logic [7:0] d12_o;
+  logic [7:0] d13_o;
+  logic [7:0] d14_o;
+  logic [7:0] d15_o;
+  logic [7:0] d16_o;
+  logic [7:0] d17_o;
+  logic [7:0] d18_o;
+  logic [7:0] d19_o;
+  logic [7:0] d20_o;
+  logic [7:0] d21_o;
+  logic [7:0] d22_o;
+  logic [7:0] d23_o;
+  logic [7:0] d24_o;
+endinterface
+
+class zero_padding_5x5_cv;
+  virtual interface zero_padding_5x5_if vif;
+  int template_id;
+  bit match_value;
+
+  logic [7:0] d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12;
+  logic [7:0] d13, d14, d15, d16, d17, d18, d19, d20, d21, d22, d23, d24;
+  logic [7:0] dx1, dx2, dx3, dx4, dx5;
+  logic i_en;
+
+
+  covergroup cg_check_data_i_valid;
+    option.per_instance = 1;
+    coverpoint vif.d0_i {bins value = {[0 : 255]};}
+    coverpoint vif.d1_i {bins value = {[0 : 255]};}
+    coverpoint vif.d2_i {bins value = {[0 : 255]};}
+    coverpoint vif.d3_i {bins value = {[0 : 255]};}
+    coverpoint vif.d4_i {bins value = {[0 : 255]};}
+  endgroup
+
+  covergroup cg_check_data_o_valid;
+    option.per_instance = 1;
+    coverpoint vif.d0_o {bins value = {[0 : 255]};}
+    coverpoint vif.d1_o {bins value = {[0 : 255]};}
+    coverpoint vif.d2_o {bins value = {[0 : 255]};}
+    coverpoint vif.d3_o {bins value = {[0 : 255]};}
+    coverpoint vif.d4_o {bins value = {[0 : 255]};}
+    coverpoint vif.d5_o {bins value = {[0 : 255]};}
+    coverpoint vif.d6_o {bins value = {[0 : 255]};}
+    coverpoint vif.d7_o {bins value = {[0 : 255]};}
+    coverpoint vif.d8_o {bins value = {[0 : 255]};}
+    coverpoint vif.d9_o {bins value = {[0 : 255]};}
+    coverpoint vif.d10_o {bins value = {[0 : 255]};}
+    coverpoint vif.d11_o {bins value = {[0 : 255]};}
+    coverpoint vif.d12_o {bins value = {[0 : 255]};}
+    coverpoint vif.d13_o {bins value = {[0 : 255]};}
+    coverpoint vif.d14_o {bins value = {[0 : 255]};}
+    coverpoint vif.d15_o {bins value = {[0 : 255]};}
+    coverpoint vif.d16_o {bins value = {[0 : 255]};}
+    coverpoint vif.d17_o {bins value = {[0 : 255]};}
+    coverpoint vif.d18_o {bins value = {[0 : 255]};}
+    coverpoint vif.d19_o {bins value = {[0 : 255]};}
+    coverpoint vif.d20_o {bins value = {[0 : 255]};}
+    coverpoint vif.d21_o {bins value = {[0 : 255]};}
+    coverpoint vif.d22_o {bins value = {[0 : 255]};}
+    coverpoint vif.d23_o {bins value = {[0 : 255]};}
+    coverpoint vif.d24_o {bins value = {[0 : 255]};}
+
+  endgroup
+  covergroup cg_zero_match_template;
+    option.per_instance = 1;
+
+    coverpoint template_id {bins template = {[0 : 24]};}
+  endgroup
+
+  covergroup cg_zero_match_trans_template;
+    option.per_instance = 1;
+    coverpoint template_id {
+      bins seq_012[] = (0 => 1 => 2);
+      bins seq_22[] = (2 => 2);
+      bins seq_234[] = (2 => 3 => 4);
+      bins seq_45[] = (4 => 5);
+      bins seq_567[] = (5 => 6 => 7);
+      bins seq_77[] = (7 => 7);
+      bins seq_789[] = (7 => 8 => 9);
+      bins seq_910[] = (9 => 10);
+      bins seq_101112[] = (10 => 11 => 12);
+      bins seq_1212[] = (12 => 12);
+      bins seq_121314[] = (12 => 13 => 14);
+      bins seq_1415[] = (14 => 15);
+      bins seq_151617[] = (15 => 16 => 17);
+      bins seq_1717[] = (17 => 17);
+      bins seq_171819[] = (17 => 18 => 19);
+      bins seq_1920[] = (19 => 20);
+      bins seq_202122[] = (20 => 21 => 22);
+      bins seq_2222[] = (22 => 22);
+      bins seq_222324[] = (22 => 23 => 24);
+
+
+    }
+
+  endgroup
+
+  covergroup cg_match_value;
+    option.per_instance = 1;
+    coverpoint match_value {bins match = {1};}
+  endgroup
+
+
+  function new(virtual interface zero_padding_5x5_if vif);
+    this.vif = vif;
+    cg_check_data_i_valid = new();
+    cg_check_data_o_valid = new();
+    cg_zero_match_template = new();
+    cg_zero_match_trans_template = new();
+    cg_match_value = new();
+  endfunction
+  task monitor();
+    forever begin
+      @(posedge vif.clk);
+      match_value = 0;
+      // if (!vif.rst_n) $display("time=%0t\n", $time);
+      i_en = vif.done_i | vif.done_o;
+      if (i_en == 1) begin
+        cg_check_data_i_valid.sample();
+        dx1 <= vif.d4_i;
+        dx2 <= vif.d3_i;
+        dx3 <= vif.d2_i;
+        dx4 <= vif.d1_i;
+        dx5 <= vif.d0_i;
+
+        d4  <= dx1;
+        d9  <= dx2;
+        d14 <= dx3;
+        d19 <= dx4;
+        d24 <= dx5;
+
+        d3  <= d4;
+        d2  <= d3;
+        d1  <= d2;
+        d0  <= d1;
+
+        d8  <= d9;
+        d7  <= d8;
+        d6  <= d7;
+        d5  <= d6;
+
+        d13 <= d14;
+        d12 <= d13;
+        d11 <= d12;
+        d10 <= d11;
+
+        d18 <= d19;
+        d17 <= d18;
+        d16 <= d17;
+        d15 <= d16;
+
+        d23 <= d24;
+        d22 <= d23;
+        d21 <= d22;
+        d20 <= d21;
+
+      end
+      if (vif.done_o) begin
+
+        template_id = get_template_id();
+
+        cg_zero_match_template.sample();
+        cg_check_data_o_valid.sample();
+        cg_zero_match_trans_template.sample();
+
+        if (
+        d0 == vif.d0_o &&
+        d1 == vif.d1_o &&
+        d2 == vif.d2_o &&
+        d3 == vif.d3_o &&
+        d4 == vif.d4_o &&
+        d5 == vif.d5_o &&
+        d6 == vif.d6_o &&
+        d7 == vif.d7_o &&
+        d8 == vif.d8_o &&
+        d9 == vif.d9_o &&
+        d10 == vif.d10_o &&
+        d11 == vif.d11_o &&
+        d12 == vif.d12_o &&
+        d13 == vif.d13_o &&
+        d14 == vif.d14_o &&
+        d15 == vif.d15_o &&
+        d16 == vif.d16_o &&
+        d17 == vif.d17_o &&
+        d18 == vif.d18_o &&
+        d19 == vif.d19_o &&
+        d20 == vif.d20_o &&
+        d21 == vif.d21_o &&
+        d22 == vif.d22_o &&
+        d23 == vif.d23_o &&
+        d24 == vif.d24_o
+        ) begin
+          match_value = 1;
+          cg_match_value.sample();
+
+        end
+
+      end
+    end
+  endtask
+  function void report();
+    real cov_i, cov_o, cov_match, cov_trans, cov_match_val;
+    real avg_cov;
+
+    cov_i = cg_check_data_i_valid.get_coverage();
+    cov_o = cg_check_data_o_valid.get_coverage();
+    cov_match = cg_zero_match_template.get_coverage();
+    cov_trans = cg_zero_match_trans_template.get_coverage();
+    cov_match_val = cg_match_value.get_coverage();
+
+    avg_cov = (cov_i + cov_o + cov_match + cov_trans + cov_match_val) / 5.0;
+
+    $display("ZeroPadding 5x5 Coverage Input:   %0.2f%%", cov_i);
+    $display("ZeroPadding 5x5 Coverage Output:  %0.2f%%", cov_o);
+    $display("ZeroPadding 5x5 Coverage Match:   %0.2f%%", cov_match);
+    $display("ZeroPadding 5x5 Coverage Trans:   %0.2f%%", cov_trans);
+    $display("ZeroPadding 5x5 Coverage Match Value:   %0.2f%%", cov_match_val);
+    $display("=====================================");
+    $display("ZeroPadding 5x5 Average Module Coverage: %0.2f%%", avg_cov);
+  endfunction
+
+  function int get_template_id();
+    // Template 0 - Center (0,0)
+    if (
+      vif.d0_o == 0 &&
+      vif.d1_o == 0 &&
+      vif.d2_o == 0 &&
+      vif.d3_o == 0 &&
+      vif.d4_o == 0 &&
+      vif.d5_o == 0 &&
+      vif.d6_o == 0 &&
+      vif.d7_o == 0 &&
+      vif.d8_o == 0 &&
+      vif.d9_o == 0 &&
+      vif.d10_o == 0 &&
+      vif.d11_o == 0 &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o inside {[0:255]} &&
+      vif.d14_o inside {[0:255]} &&
+      vif.d15_o == 0 &&
+      vif.d16_o == 0 &&
+      vif.d17_o inside {[0:255]} &&
+      vif.d18_o inside {[0:255]} &&
+      vif.d19_o inside {[0:255]} &&
+      vif.d20_o == 0 &&
+      vif.d21_o == 0 &&
+      vif.d22_o inside {[0:255]} &&
+      vif.d23_o inside {[0:255]} &&
+      vif.d24_o inside {[0:255]}
+  )
+      return 0;
+
+    // Template 4 - Center (0,6)
+    if (
+      vif.d0_o == 0 &&
+      vif.d1_o == 0 &&
+      vif.d2_o == 0 &&
+      vif.d3_o == 0 &&
+      vif.d4_o == 0 &&
+      vif.d5_o == 0 &&
+      vif.d6_o == 0 &&
+      vif.d7_o == 0 &&
+      vif.d8_o == 0 &&
+      vif.d9_o == 0 &&
+      vif.d10_o inside {[0:255]} &&
+      vif.d11_o inside {[0:255]} &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o == 0 &&
+      vif.d14_o == 0 &&
+      vif.d15_o inside {[0:255]} &&
+      vif.d16_o inside {[0:255]} &&
+      vif.d17_o inside {[0:255]} &&
+      vif.d18_o == 0 &&
+      vif.d19_o == 0 &&
+      vif.d20_o inside {[0:255]} &&
+      vif.d21_o inside {[0:255]} &&
+      vif.d22_o inside {[0:255]} &&
+      vif.d23_o == 0 &&
+      vif.d24_o == 0
+  )
+      return 4;
+
+    // Template 20 - Center (6,0)
+    if (
+      vif.d0_o == 0 &&
+      vif.d1_o == 0 &&
+      vif.d2_o inside {[0:255]} &&
+      vif.d3_o inside {[0:255]} &&
+      vif.d4_o inside {[0:255]} &&
+      vif.d5_o == 0 &&
+      vif.d6_o == 0 &&
+      vif.d7_o inside {[0:255]} &&
+      vif.d8_o inside {[0:255]} &&
+      vif.d9_o inside {[0:255]} &&
+      vif.d10_o == 0 &&
+      vif.d11_o == 0 &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o inside {[0:255]} &&
+      vif.d14_o inside {[0:255]} &&
+      vif.d15_o == 0 &&
+      vif.d16_o == 0 &&
+      vif.d17_o == 0 &&
+      vif.d18_o == 0 &&
+      vif.d19_o == 0 &&
+      vif.d20_o == 0 &&
+      vif.d21_o == 0 &&
+      vif.d22_o == 0 &&
+      vif.d23_o == 0 &&
+      vif.d24_o == 0
+  )
+      return 20;
+
+    // Template 24 - Center (6,6)
+    if (
+      vif.d0_o inside {[0:255]} &&
+      vif.d1_o inside {[0:255]} &&
+      vif.d2_o inside {[0:255]} &&
+      vif.d3_o == 0 &&
+      vif.d4_o == 0 &&
+      vif.d5_o inside {[0:255]} &&
+      vif.d6_o inside {[0:255]} &&
+      vif.d7_o inside {[0:255]} &&
+      vif.d8_o == 0 &&
+      vif.d9_o == 0 &&
+      vif.d10_o inside {[0:255]} &&
+      vif.d11_o inside {[0:255]} &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o == 0 &&
+      vif.d14_o == 0 &&
+      vif.d15_o == 0 &&
+      vif.d16_o == 0 &&
+      vif.d17_o == 0 &&
+      vif.d18_o == 0 &&
+      vif.d19_o == 0 &&
+      vif.d20_o == 0 &&
+      vif.d21_o == 0 &&
+      vif.d22_o == 0 &&
+      vif.d23_o == 0 &&
+      vif.d24_o == 0
+  )
+      return 24;
+
+    // Template 1 - Center (0,1)
+    if (
+      vif.d0_o == 0 &&
+      vif.d1_o == 0 &&
+      vif.d2_o == 0 &&
+      vif.d3_o == 0 &&
+      vif.d4_o == 0 &&
+      vif.d5_o == 0 &&
+      vif.d6_o == 0 &&
+      vif.d7_o == 0 &&
+      vif.d8_o == 0 &&
+      vif.d9_o == 0 &&
+      vif.d10_o == 0 &&
+      vif.d11_o inside {[0:255]} &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o inside {[0:255]} &&
+      vif.d14_o inside {[0:255]} &&
+      vif.d15_o == 0 &&
+      vif.d16_o inside {[0:255]} &&
+      vif.d17_o inside {[0:255]} &&
+      vif.d18_o inside {[0:255]} &&
+      vif.d19_o inside {[0:255]} &&
+      vif.d20_o == 0 &&
+      vif.d21_o inside {[0:255]} &&
+      vif.d22_o inside {[0:255]} &&
+      vif.d23_o inside {[0:255]} &&
+      vif.d24_o inside {[0:255]}
+  )
+      return 1;
+
+    // Template 3 - Center (0,5)
+    if (
+      vif.d0_o == 0 &&
+      vif.d1_o == 0 &&
+      vif.d2_o == 0 &&
+      vif.d3_o == 0 &&
+      vif.d4_o == 0 &&
+      vif.d5_o == 0 &&
+      vif.d6_o == 0 &&
+      vif.d7_o == 0 &&
+      vif.d8_o == 0 &&
+      vif.d9_o == 0 &&
+      vif.d10_o inside {[0:255]} &&
+      vif.d11_o inside {[0:255]} &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o inside {[0:255]} &&
+      vif.d14_o == 0 &&
+      vif.d15_o inside {[0:255]} &&
+      vif.d16_o inside {[0:255]} &&
+      vif.d17_o inside {[0:255]} &&
+      vif.d18_o inside {[0:255]} &&
+      vif.d19_o == 0 &&
+      vif.d20_o inside {[0:255]} &&
+      vif.d21_o inside {[0:255]} &&
+      vif.d22_o inside {[0:255]} &&
+      vif.d23_o inside {[0:255]} &&
+      vif.d24_o == 0
+  )
+      return 3;
+
+    // Template 5 - Center (1,0)
+    if (
+      vif.d0_o == 0 &&
+      vif.d1_o == 0 &&
+      vif.d2_o == 0 &&
+      vif.d3_o == 0 &&
+      vif.d4_o == 0 &&
+      vif.d5_o == 0 &&
+      vif.d6_o == 0 &&
+      vif.d7_o inside {[0:255]} &&
+      vif.d8_o inside {[0:255]} &&
+      vif.d9_o inside {[0:255]} &&
+      vif.d10_o == 0 &&
+      vif.d11_o == 0 &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o inside {[0:255]} &&
+      vif.d14_o inside {[0:255]} &&
+      vif.d15_o == 0 &&
+      vif.d16_o == 0 &&
+      vif.d17_o inside {[0:255]} &&
+      vif.d18_o inside {[0:255]} &&
+      vif.d19_o inside {[0:255]} &&
+      vif.d20_o == 0 &&
+      vif.d21_o == 0 &&
+      vif.d22_o inside {[0:255]} &&
+      vif.d23_o inside {[0:255]} &&
+      vif.d24_o inside {[0:255]}
+  )
+      return 5;
+
+    // Template 9 - Center (1,6)
+    if (
+      vif.d0_o == 0 &&
+      vif.d1_o == 0 &&
+      vif.d2_o == 0 &&
+      vif.d3_o == 0 &&
+      vif.d4_o == 0 &&
+      vif.d5_o inside {[0:255]} &&
+      vif.d6_o inside {[0:255]} &&
+      vif.d7_o inside {[0:255]} &&
+      vif.d8_o == 0 &&
+      vif.d9_o == 0 &&
+      vif.d10_o inside {[0:255]} &&
+      vif.d11_o inside {[0:255]} &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o == 0 &&
+      vif.d14_o == 0 &&
+      vif.d15_o inside {[0:255]} &&
+      vif.d16_o inside {[0:255]} &&
+      vif.d17_o inside {[0:255]} &&
+      vif.d18_o == 0 &&
+      vif.d19_o == 0 &&
+      vif.d20_o inside {[0:255]} &&
+      vif.d21_o inside {[0:255]} &&
+      vif.d22_o inside {[0:255]} &&
+      vif.d23_o == 0 &&
+      vif.d24_o == 0
+  )
+      return 9;
+
+    // Template 15 - Center (5,0)
+    if (
+      vif.d0_o == 0 &&
+      vif.d1_o == 0 &&
+      vif.d2_o inside {[0:255]} &&
+      vif.d3_o inside {[0:255]} &&
+      vif.d4_o inside {[0:255]} &&
+      vif.d5_o == 0 &&
+      vif.d6_o == 0 &&
+      vif.d7_o inside {[0:255]} &&
+      vif.d8_o inside {[0:255]} &&
+      vif.d9_o inside {[0:255]} &&
+      vif.d10_o == 0 &&
+      vif.d11_o == 0 &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o inside {[0:255]} &&
+      vif.d14_o inside {[0:255]} &&
+      vif.d15_o == 0 &&
+      vif.d16_o == 0 &&
+      vif.d17_o inside {[0:255]} &&
+      vif.d18_o inside {[0:255]} &&
+      vif.d19_o inside {[0:255]} &&
+      vif.d20_o == 0 &&
+      vif.d21_o == 0 &&
+      vif.d22_o == 0 &&
+      vif.d23_o == 0 &&
+      vif.d24_o == 0
+  )
+      return 15;
+
+    // Template 19 - Center (5,6)
+    if (
+      vif.d0_o inside {[0:255]} &&
+      vif.d1_o inside {[0:255]} &&
+      vif.d2_o inside {[0:255]} &&
+      vif.d3_o == 0 &&
+      vif.d4_o == 0 &&
+      vif.d5_o inside {[0:255]} &&
+      vif.d6_o inside {[0:255]} &&
+      vif.d7_o inside {[0:255]} &&
+      vif.d8_o == 0 &&
+      vif.d9_o == 0 &&
+      vif.d10_o inside {[0:255]} &&
+      vif.d11_o inside {[0:255]} &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o == 0 &&
+      vif.d14_o == 0 &&
+      vif.d15_o inside {[0:255]} &&
+      vif.d16_o inside {[0:255]} &&
+      vif.d17_o inside {[0:255]} &&
+      vif.d18_o == 0 &&
+      vif.d19_o == 0 &&
+      vif.d20_o == 0 &&
+      vif.d21_o == 0 &&
+      vif.d22_o == 0 &&
+      vif.d23_o == 0 &&
+      vif.d24_o == 0
+  )
+      return 19;
+
+    // Template 21 - Center (6,1)
+    if (
+      vif.d0_o == 0 &&
+      vif.d1_o inside {[0:255]} &&
+      vif.d2_o inside {[0:255]} &&
+      vif.d3_o inside {[0:255]} &&
+      vif.d4_o inside {[0:255]} &&
+      vif.d5_o == 0 &&
+      vif.d6_o inside {[0:255]} &&
+      vif.d7_o inside {[0:255]} &&
+      vif.d8_o inside {[0:255]} &&
+      vif.d9_o inside {[0:255]} &&
+      vif.d10_o == 0 &&
+      vif.d11_o inside {[0:255]} &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o inside {[0:255]} &&
+      vif.d14_o inside {[0:255]} &&
+      vif.d15_o == 0 &&
+      vif.d16_o == 0 &&
+      vif.d17_o == 0 &&
+      vif.d18_o == 0 &&
+      vif.d19_o == 0 &&
+      vif.d20_o == 0 &&
+      vif.d21_o == 0 &&
+      vif.d22_o == 0 &&
+      vif.d23_o == 0 &&
+      vif.d24_o == 0
+  )
+      return 21;
+
+    // Template 23 - Center (6,5)
+    if (
+      vif.d0_o inside {[0:255]} &&
+      vif.d1_o inside {[0:255]} &&
+      vif.d2_o inside {[0:255]} &&
+      vif.d3_o inside {[0:255]} &&
+      vif.d4_o == 0 &&
+      vif.d5_o inside {[0:255]} &&
+      vif.d6_o inside {[0:255]} &&
+      vif.d7_o inside {[0:255]} &&
+      vif.d8_o inside {[0:255]} &&
+      vif.d9_o == 0 &&
+      vif.d10_o inside {[0:255]} &&
+      vif.d11_o inside {[0:255]} &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o inside {[0:255]} &&
+      vif.d14_o == 0 &&
+      vif.d15_o == 0 &&
+      vif.d16_o == 0 &&
+      vif.d17_o == 0 &&
+      vif.d18_o == 0 &&
+      vif.d19_o == 0 &&
+      vif.d20_o == 0 &&
+      vif.d21_o == 0 &&
+      vif.d22_o == 0 &&
+      vif.d23_o == 0 &&
+      vif.d24_o == 0
+  )
+      return 23;
+
+    // Template 2 - Center (0,2)
+    if (
+      vif.d0_o == 0 &&
+      vif.d1_o == 0 &&
+      vif.d2_o == 0 &&
+      vif.d3_o == 0 &&
+      vif.d4_o == 0 &&
+      vif.d5_o == 0 &&
+      vif.d6_o == 0 &&
+      vif.d7_o == 0 &&
+      vif.d8_o == 0 &&
+      vif.d9_o == 0 &&
+      vif.d10_o inside {[0:255]} &&
+      vif.d11_o inside {[0:255]} &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o inside {[0:255]} &&
+      vif.d14_o inside {[0:255]} &&
+      vif.d15_o inside {[0:255]} &&
+      vif.d16_o inside {[0:255]} &&
+      vif.d17_o inside {[0:255]} &&
+      vif.d18_o inside {[0:255]} &&
+      vif.d19_o inside {[0:255]} &&
+      vif.d20_o inside {[0:255]} &&
+      vif.d21_o inside {[0:255]} &&
+      vif.d22_o inside {[0:255]} &&
+      vif.d23_o inside {[0:255]} &&
+      vif.d24_o inside {[0:255]}
+  )
+      return 2;
+
+    // Template 10 - Center (2,0)
+    if (
+      vif.d0_o == 0 &&
+      vif.d1_o == 0 &&
+      vif.d2_o inside {[0:255]} &&
+      vif.d3_o inside {[0:255]} &&
+      vif.d4_o inside {[0:255]} &&
+      vif.d5_o == 0 &&
+      vif.d6_o == 0 &&
+      vif.d7_o inside {[0:255]} &&
+      vif.d8_o inside {[0:255]} &&
+      vif.d9_o inside {[0:255]} &&
+      vif.d10_o == 0 &&
+      vif.d11_o == 0 &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o inside {[0:255]} &&
+      vif.d14_o inside {[0:255]} &&
+      vif.d15_o == 0 &&
+      vif.d16_o == 0 &&
+      vif.d17_o inside {[0:255]} &&
+      vif.d18_o inside {[0:255]} &&
+      vif.d19_o inside {[0:255]} &&
+      vif.d20_o == 0 &&
+      vif.d21_o == 0 &&
+      vif.d22_o inside {[0:255]} &&
+      vif.d23_o inside {[0:255]} &&
+      vif.d24_o inside {[0:255]}
+  )
+      return 10;
+
+    // Template 14 - Center (2,6)
+    if (
+      vif.d0_o inside {[0:255]} &&
+      vif.d1_o inside {[0:255]} &&
+      vif.d2_o inside {[0:255]} &&
+      vif.d3_o == 0 &&
+      vif.d4_o == 0 &&
+      vif.d5_o inside {[0:255]} &&
+      vif.d6_o inside {[0:255]} &&
+      vif.d7_o inside {[0:255]} &&
+      vif.d8_o == 0 &&
+      vif.d9_o == 0 &&
+      vif.d10_o inside {[0:255]} &&
+      vif.d11_o inside {[0:255]} &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o == 0 &&
+      vif.d14_o == 0 &&
+      vif.d15_o inside {[0:255]} &&
+      vif.d16_o inside {[0:255]} &&
+      vif.d17_o inside {[0:255]} &&
+      vif.d18_o == 0 &&
+      vif.d19_o == 0 &&
+      vif.d20_o inside {[0:255]} &&
+      vif.d21_o inside {[0:255]} &&
+      vif.d22_o inside {[0:255]} &&
+      vif.d23_o == 0 &&
+      vif.d24_o == 0
+  )
+      return 14;
+
+    // Template 22 - Center (6,2)
+    if (
+      vif.d0_o inside {[0:255]} &&
+      vif.d1_o inside {[0:255]} &&
+      vif.d2_o inside {[0:255]} &&
+      vif.d3_o inside {[0:255]} &&
+      vif.d4_o inside {[0:255]} &&
+      vif.d5_o inside {[0:255]} &&
+      vif.d6_o inside {[0:255]} &&
+      vif.d7_o inside {[0:255]} &&
+      vif.d8_o inside {[0:255]} &&
+      vif.d9_o inside {[0:255]} &&
+      vif.d10_o inside {[0:255]} &&
+      vif.d11_o inside {[0:255]} &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o inside {[0:255]} &&
+      vif.d14_o inside {[0:255]} &&
+      vif.d15_o == 0 &&
+      vif.d16_o == 0 &&
+      vif.d17_o == 0 &&
+      vif.d18_o == 0 &&
+      vif.d19_o == 0 &&
+      vif.d20_o == 0 &&
+      vif.d21_o == 0 &&
+      vif.d22_o == 0 &&
+      vif.d23_o == 0 &&
+      vif.d24_o == 0
+  )
+      return 22;
+
+    // Template 6 - Center (1,1)
+    if (
+      vif.d0_o == 0 &&
+      vif.d1_o == 0 &&
+      vif.d2_o == 0 &&
+      vif.d3_o == 0 &&
+      vif.d4_o == 0 &&
+      vif.d5_o == 0 &&
+      vif.d6_o inside {[0:255]} &&
+      vif.d7_o inside {[0:255]} &&
+      vif.d8_o inside {[0:255]} &&
+      vif.d9_o inside {[0:255]} &&
+      vif.d10_o == 0 &&
+      vif.d11_o inside {[0:255]} &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o inside {[0:255]} &&
+      vif.d14_o inside {[0:255]} &&
+      vif.d15_o == 0 &&
+      vif.d16_o inside {[0:255]} &&
+      vif.d17_o inside {[0:255]} &&
+      vif.d18_o inside {[0:255]} &&
+      vif.d19_o inside {[0:255]} &&
+      vif.d20_o == 0 &&
+      vif.d21_o inside {[0:255]} &&
+      vif.d22_o inside {[0:255]} &&
+      vif.d23_o inside {[0:255]} &&
+      vif.d24_o inside {[0:255]}
+  )
+      return 6;
+
+    // Template 8 - Center (1,5)
+    if (
+      vif.d0_o == 0 &&
+      vif.d1_o == 0 &&
+      vif.d2_o == 0 &&
+      vif.d3_o == 0 &&
+      vif.d4_o == 0 &&
+      vif.d5_o inside {[0:255]} &&
+      vif.d6_o inside {[0:255]} &&
+      vif.d7_o inside {[0:255]} &&
+      vif.d8_o inside {[0:255]} &&
+      vif.d9_o == 0 &&
+      vif.d10_o inside {[0:255]} &&
+      vif.d11_o inside {[0:255]} &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o inside {[0:255]} &&
+      vif.d14_o == 0 &&
+      vif.d15_o inside {[0:255]} &&
+      vif.d16_o inside {[0:255]} &&
+      vif.d17_o inside {[0:255]} &&
+      vif.d18_o inside {[0:255]} &&
+      vif.d19_o == 0 &&
+      vif.d20_o inside {[0:255]} &&
+      vif.d21_o inside {[0:255]} &&
+      vif.d22_o inside {[0:255]} &&
+      vif.d23_o inside {[0:255]} &&
+      vif.d24_o == 0
+  )
+      return 8;
+
+    // Template 16 - Center (5,1)
+    if (
+      vif.d0_o == 0 &&
+      vif.d1_o inside {[0:255]} &&
+      vif.d2_o inside {[0:255]} &&
+      vif.d3_o inside {[0:255]} &&
+      vif.d4_o inside {[0:255]} &&
+      vif.d5_o == 0 &&
+      vif.d6_o inside {[0:255]} &&
+      vif.d7_o inside {[0:255]} &&
+      vif.d8_o inside {[0:255]} &&
+      vif.d9_o inside {[0:255]} &&
+      vif.d10_o == 0 &&
+      vif.d11_o inside {[0:255]} &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o inside {[0:255]} &&
+      vif.d14_o inside {[0:255]} &&
+      vif.d15_o == 0 &&
+      vif.d16_o inside {[0:255]} &&
+      vif.d17_o inside {[0:255]} &&
+      vif.d18_o inside {[0:255]} &&
+      vif.d19_o inside {[0:255]} &&
+      vif.d20_o == 0 &&
+      vif.d21_o == 0 &&
+      vif.d22_o == 0 &&
+      vif.d23_o == 0 &&
+      vif.d24_o == 0
+  )
+      return 16;
+
+    // Template 18 - Center (5,5)
+    if (
+      vif.d0_o inside {[0:255]} &&
+      vif.d1_o inside {[0:255]} &&
+      vif.d2_o inside {[0:255]} &&
+      vif.d3_o inside {[0:255]} &&
+      vif.d4_o == 0 &&
+      vif.d5_o inside {[0:255]} &&
+      vif.d6_o inside {[0:255]} &&
+      vif.d7_o inside {[0:255]} &&
+      vif.d8_o inside {[0:255]} &&
+      vif.d9_o == 0 &&
+      vif.d10_o inside {[0:255]} &&
+      vif.d11_o inside {[0:255]} &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o inside {[0:255]} &&
+      vif.d14_o == 0 &&
+      vif.d15_o inside {[0:255]} &&
+      vif.d16_o inside {[0:255]} &&
+      vif.d17_o inside {[0:255]} &&
+      vif.d18_o inside {[0:255]} &&
+      vif.d19_o == 0 &&
+      vif.d20_o == 0 &&
+      vif.d21_o == 0 &&
+      vif.d22_o == 0 &&
+      vif.d23_o == 0 &&
+      vif.d24_o == 0
+  )
+      return 18;
+
+    // Template 7 - Center (1,2)
+    if (
+      vif.d0_o == 0 &&
+      vif.d1_o == 0 &&
+      vif.d2_o == 0 &&
+      vif.d3_o == 0 &&
+      vif.d4_o == 0 &&
+      vif.d5_o inside {[0:255]} &&
+      vif.d6_o inside {[0:255]} &&
+      vif.d7_o inside {[0:255]} &&
+      vif.d8_o inside {[0:255]} &&
+      vif.d9_o inside {[0:255]} &&
+      vif.d10_o inside {[0:255]} &&
+      vif.d11_o inside {[0:255]} &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o inside {[0:255]} &&
+      vif.d14_o inside {[0:255]} &&
+      vif.d15_o inside {[0:255]} &&
+      vif.d16_o inside {[0:255]} &&
+      vif.d17_o inside {[0:255]} &&
+      vif.d18_o inside {[0:255]} &&
+      vif.d19_o inside {[0:255]} &&
+      vif.d20_o inside {[0:255]} &&
+      vif.d21_o inside {[0:255]} &&
+      vif.d22_o inside {[0:255]} &&
+      vif.d23_o inside {[0:255]} &&
+      vif.d24_o inside {[0:255]}
+  )
+      return 7;
+
+    // Template 11 - Center (2,1)
+    if (
+      vif.d0_o == 0 &&
+      vif.d1_o inside {[0:255]} &&
+      vif.d2_o inside {[0:255]} &&
+      vif.d3_o inside {[0:255]} &&
+      vif.d4_o inside {[0:255]} &&
+      vif.d5_o == 0 &&
+      vif.d6_o inside {[0:255]} &&
+      vif.d7_o inside {[0:255]} &&
+      vif.d8_o inside {[0:255]} &&
+      vif.d9_o inside {[0:255]} &&
+      vif.d10_o == 0 &&
+      vif.d11_o inside {[0:255]} &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o inside {[0:255]} &&
+      vif.d14_o inside {[0:255]} &&
+      vif.d15_o == 0 &&
+      vif.d16_o inside {[0:255]} &&
+      vif.d17_o inside {[0:255]} &&
+      vif.d18_o inside {[0:255]} &&
+      vif.d19_o inside {[0:255]} &&
+      vif.d20_o == 0 &&
+      vif.d21_o inside {[0:255]} &&
+      vif.d22_o inside {[0:255]} &&
+      vif.d23_o inside {[0:255]} &&
+      vif.d24_o inside {[0:255]}
+  )
+      return 11;
+
+    // Template 13 - Center (2,5)
+    if (
+      vif.d0_o inside {[0:255]} &&
+      vif.d1_o inside {[0:255]} &&
+      vif.d2_o inside {[0:255]} &&
+      vif.d3_o inside {[0:255]} &&
+      vif.d4_o == 0 &&
+      vif.d5_o inside {[0:255]} &&
+      vif.d6_o inside {[0:255]} &&
+      vif.d7_o inside {[0:255]} &&
+      vif.d8_o inside {[0:255]} &&
+      vif.d9_o == 0 &&
+      vif.d10_o inside {[0:255]} &&
+      vif.d11_o inside {[0:255]} &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o inside {[0:255]} &&
+      vif.d14_o == 0 &&
+      vif.d15_o inside {[0:255]} &&
+      vif.d16_o inside {[0:255]} &&
+      vif.d17_o inside {[0:255]} &&
+      vif.d18_o inside {[0:255]} &&
+      vif.d19_o == 0 &&
+      vif.d20_o inside {[0:255]} &&
+      vif.d21_o inside {[0:255]} &&
+      vif.d22_o inside {[0:255]} &&
+      vif.d23_o inside {[0:255]} &&
+      vif.d24_o == 0
+  )
+      return 13;
+
+    // Template 17 - Center (5,2)
+    if (
+      vif.d0_o inside {[0:255]} &&
+      vif.d1_o inside {[0:255]} &&
+      vif.d2_o inside {[0:255]} &&
+      vif.d3_o inside {[0:255]} &&
+      vif.d4_o inside {[0:255]} &&
+      vif.d5_o inside {[0:255]} &&
+      vif.d6_o inside {[0:255]} &&
+      vif.d7_o inside {[0:255]} &&
+      vif.d8_o inside {[0:255]} &&
+      vif.d9_o inside {[0:255]} &&
+      vif.d10_o inside {[0:255]} &&
+      vif.d11_o inside {[0:255]} &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o inside {[0:255]} &&
+      vif.d14_o inside {[0:255]} &&
+      vif.d15_o inside {[0:255]} &&
+      vif.d16_o inside {[0:255]} &&
+      vif.d17_o inside {[0:255]} &&
+      vif.d18_o inside {[0:255]} &&
+      vif.d19_o inside {[0:255]} &&
+      vif.d20_o == 0 &&
+      vif.d21_o == 0 &&
+      vif.d22_o == 0 &&
+      vif.d23_o == 0 &&
+      vif.d24_o == 0
+  )
+      return 17;
+
+    // Template 12 - Center (2,2)
+    if (
+      vif.d0_o inside {[0:255]} &&
+      vif.d1_o inside {[0:255]} &&
+      vif.d2_o inside {[0:255]} &&
+      vif.d3_o inside {[0:255]} &&
+      vif.d4_o inside {[0:255]} &&
+      vif.d5_o inside {[0:255]} &&
+      vif.d6_o inside {[0:255]} &&
+      vif.d7_o inside {[0:255]} &&
+      vif.d8_o inside {[0:255]} &&
+      vif.d9_o inside {[0:255]} &&
+      vif.d10_o inside {[0:255]} &&
+      vif.d11_o inside {[0:255]} &&
+      vif.d12_o inside {[0:255]} &&
+      vif.d13_o inside {[0:255]} &&
+      vif.d14_o inside {[0:255]} &&
+      vif.d15_o inside {[0:255]} &&
+      vif.d16_o inside {[0:255]} &&
+      vif.d17_o inside {[0:255]} &&
+      vif.d18_o inside {[0:255]} &&
+      vif.d19_o inside {[0:255]} &&
+      vif.d20_o inside {[0:255]} &&
+      vif.d21_o inside {[0:255]} &&
+      vif.d22_o inside {[0:255]} &&
+      vif.d23_o inside {[0:255]} &&
+      vif.d24_o inside {[0:255]}
+  )
+      return 12;
+
+    else return -1;
+  endfunction
+
+
+
+
+endclass

@@ -65,5 +65,14 @@
 \contentsline {section}{\numberline {3.5}Mô đun MRELBP}{56}{section.3.5}%
 \contentsline {section}{\numberline {3.6}Tính toán thời gian hoạt động của toàn bộ mô đun}{57}{section.3.6}%
 \contentsline {chapter}{\numberline {4}MÔ PHỎNG VÀ KIỂM THỬ}{59}{chapter.4}%
-\contentsline {chapter}{{TÀI LIỆU THAM KHẢO}}{60}{section*.107}%
+\contentsline {section}{\numberline {4.1}Cơ sở lý thuyết kiểm thử}{59}{section.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.0.1}Lý thuyết về độ bao phủ}{59}{subsubsection.4.1.0.1}%
+\contentsline {subsubsection}{\numberline {4.1.0.2}Các phương pháp kiểm thử}{59}{subsubsection.4.1.0.2}%
+\contentsline {section}{\numberline {4.2}Phương pháp xây dựng kiểm thử}{60}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Đánh giá kết quả kiểm thử}{62}{section.4.3}%
+\contentsline {chapter}{\numberline {5}THỰC THI VÀ ĐÁNH GIÁ}{63}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Thông tin về board ZCU016 Ultrascale}{63}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Xây dựng hệ thống SoC}{63}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Đánh giá thực tế}{63}{section.5.3}%
+\contentsline {chapter}{{TÀI LIỆU THAM KHẢO}}{64}{section*.111}%
 \contentsfinish 

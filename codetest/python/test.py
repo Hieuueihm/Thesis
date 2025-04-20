@@ -1,49 +1,109 @@
-lut = [
-    [(0x006A, 0x0096, 0x0096, 0x006A), (0x006A, 0x006A, 0x0096, 0x0096), (0x0096, 0x006A, 0x006A, 0x0096), (0x0096, 0x0096, 0x006A, 0x006A)],
-    [(0x001F, 0x00E1, 0x00E1, 0x001F), (0x001F, 0x001F, 0x00E1, 0x00E1), (0x00E1, 0x001F, 0x001F, 0x00E1), (0x00E1, 0x00E1, 0x001F, 0x001F)],
-    [(0x00D4, 0x002C, 0x002C, 0x00D4), (0x00D4, 0x00D4, 0x002C, 0x002C), (0x002C, 0x00D4, 0x00D4, 0x002C), (0x002C, 0x002C, 0x00D4, 0x00D4)],
-    [(0x0089, 0x0077, 0x0077, 0x0089), (0x0089, 0x0089, 0x0077, 0x0077), (0x0077, 0x0089, 0x0089, 0x0077), (0x0077, 0x0077, 0x0089, 0x0089)],
-    [(0x003E, 0x00C2, 0x00C2, 0x003E), (0x003E, 0x003E, 0x00C2, 0x00C2), (0x00C2, 0x003E, 0x003E, 0x00C2), (0x00C2, 0x00C2, 0x003E, 0x003E)],
-    [(0x00F4, 0x000C, 0x000C, 0x00F4), (0x00F4, 0x00F4, 0x000C, 0x000C), (0x000C, 0x00F4, 0x00F4, 0x000C), (0x000C, 0x000C, 0x00F4, 0x00F4)],
-    [(0x00A8, 0x0058, 0x0058, 0x00A8), (0x00A8, 0x00A8, 0x0058, 0x0058), (0x0058, 0x00A8, 0x00A8, 0x0058), (0x0058, 0x0058, 0x00A8, 0x00A8)]
-]
-
-# Hàm tính các sản phẩm (A * B), (A * C), (A * D), (C * D) cho mỗi cặp trong lut[x][y]
-def calculate_products(lut):
-    results = []
+def generate_template_logic(input_size, window_size, var_prefix="vif.d", suffix="_o"):
+    pad = window_size // 2
+    output_size = input_size  # giữ nguyên size sau padding
+    template_id = 0
+    template_list = []
+    unique_templates = {}
     
-    for x in range(len(lut)):
-        for y in range(len(lut[x])):
-            A, B, C, D = lut[x][y]
-            
-            product_ab = A * B
-            product_bc = B * C
-            product_ad = A * D
-            product_cd = C * D
-            
-            results.append({
-                'lut_index': (x, y),
-                '1-dx': A,
-                '1-dy': B,
-                'dx': C,
-                'dy': D,
-                '1-dx*1-dy': product_ab,
-                '1-dy*x': product_bc,
-                '1-dx*y': product_ad,
-                'x*y': product_cd
-            })
-    
-    return results
+    for i in range(output_size):
+        for j in range(output_size):
+            logic_lines = []
+            pattern_signature = []  # lưu thông tin kiểu padding/valid tại mỗi pixel
 
-# Tính toán các sản phẩm
-products = calculate_products(lut)
-def to_32bit_hex(value):
-    return f"0x{value & 0xFFFFFFFF:08X}"
+            for di in range(-pad, pad + 1):
+                for dj in range(-pad, pad + 1):
+                    ni = i + di
+                    nj = j + dj
+                    index = (di + pad) * window_size + (dj + pad)
+                    var_name = f"{var_prefix}{index}{suffix}"
+                    if ni < 0 or ni >= input_size or nj < 0 or nj >= input_size:
+                        logic_lines.append(f"{var_name} == 0")
+                        pattern_signature.append('0')  # zero padding
+                    else:
+                        logic_lines.append(f"{var_name} inside {{[0:255]}}")
+                        pattern_signature.append('x')  # valid pixel
 
-# In kết quả dưới dạng 32-bit
-for product in products:
-    print(f"lut[{product['lut_index'][0]}][{product['lut_index'][1]}]:")
-    print(f"1-dx = {to_32bit_hex(product['1-dx'])}, 1-dy = {to_32bit_hex(product['1-dy'])}, dx = {to_32bit_hex(product['dx'])}, dy = {to_32bit_hex(product['dy'])}")
-    print(f"1-dx*1-dy = {to_32bit_hex(product['1-dx*1-dy'])}, 1-dy*x= {to_32bit_hex(product['1-dy*x'])}, 1-dx*y = {to_32bit_hex(product['1-dx*y'])}, x*y = {to_32bit_hex(product['x*y'])}")
-    print()
+            # Convert pattern_signature to string for uniqueness
+            pattern_str = ''.join(pattern_signature)
+
+            if pattern_str not in unique_templates:
+                # First time this pattern appears
+                unique_templates[pattern_str] = template_id
+
+                template_code = f"// Template {template_id} - Center ({i},{j})\n"
+                template_code += "if (\n    " + " &&\n    ".join(logic_lines) + f"\n) return {template_id};\n"
+                template_list.append(template_code)
+
+                template_id += 1
+
+    # Print out the final function
+    with open("template_logic.sv", "w") as f:
+        f.write("function int get_template_id();\n")
+        for template in template_list:
+            f.write(template)
+        f.write("else return -1;\nendfunction")
+    # print("function int get_template_id();")
+    # for template in template_list:
+    #     print(template)
+    # print("else return -1;\nendfunction")
+
+generate_template_logic(input_size=9, window_size=7)
+
+
+
+# sort from 0 zero count max -> zero count min
+def generate_template_logic(input_size, window_size, var_prefix="vif.d", suffix="_o"):
+    pad = window_size // 2
+    output_size = input_size
+    template_id = 0
+    templates = []
+    unique_patterns = {}
+
+    for i in range(output_size):
+        for j in range(output_size):
+            logic_lines = []
+            pattern_signature = []
+            zero_count = 0
+
+            for di in range(-pad, pad + 1):
+                for dj in range(-pad, pad + 1):
+                    ni = i + di
+                    nj = j + dj
+                    index = (di + pad) * window_size + (dj + pad)
+                    var_name = f"{var_prefix}{index}{suffix}"
+                    if ni < 0 or ni >= input_size or nj < 0 or nj >= input_size:
+                        logic_lines.append(f"{var_name} == 0")
+                        pattern_signature.append('0')
+                        zero_count += 1
+                    else:
+                        logic_lines.append(f"{var_name} inside {{[0:255]}}")
+                        pattern_signature.append('x')
+
+            pattern_str = ''.join(pattern_signature)
+
+            if pattern_str not in unique_patterns:
+                unique_patterns[pattern_str] = template_id
+                templates.append({
+                    "id": template_id,
+                    "i": i,
+                    "j": j,
+                    "zero_count": zero_count,
+                    "logic": logic_lines
+                })
+                template_id += 1
+
+    # Sort templates by number of '== 0' descending (for readability), keep ID fixed
+    templates.sort(key=lambda x: -x["zero_count"])
+
+    # Print function
+    print("function int get_template_id();")
+    for tmpl in templates:
+        print(f"  // Template {tmpl['id']} - Center ({tmpl['i']},{tmpl['j']})")
+        print("  if (")
+        print("      " + " &&\n      ".join(tmpl["logic"]))
+        print(f"  ) return {tmpl['id']};\n")
+    print("  else return -1;\nendfunction")
+
+# Example usage:
+generate_template_logic(input_size=7, window_size=5)
 
