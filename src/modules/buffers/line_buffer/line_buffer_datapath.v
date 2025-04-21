@@ -39,8 +39,8 @@ module line_buffer_datapath #(
     end
   end
 
-  assign first_done = (count_num_inp == DEPTH - 2) ? 1'b1 : 1'b0;
-  assign last_done  = (count_num_oup == count_num_inp) ? 1'b1 : 1'b0;
+  assign first_done = (count_num_inp == DEPTH - 2);
+  assign last_done  = (count_num_oup == count_num_inp);
 
   always @(posedge clk) begin
     if (~rst_n) begin

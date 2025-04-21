@@ -160,8 +160,8 @@ module window_buffer_11x11_datapath #(
       i_counter <= 0;
     end
   end
-  assign i_col_eq_max = (i_counter == COLS - 2) ? 1'b1 : 1'b0;
-  assign i_col_ge_threshold = (i_counter > 8) ? 1'b1 : 1'b0;
+  assign i_col_eq_max = (i_counter == COLS - 2);
+  assign i_col_ge_threshold = (i_counter > 8);
 
 
   always @(posedge clk) begin
@@ -173,7 +173,7 @@ module window_buffer_11x11_datapath #(
       i_row <= i_row + 1;
     end
   end
-  assign i_row_eq_max = (i_row == ROWS - 10) ? 1'b1 : 1'b0;
+  assign i_row_eq_max = (i_row == ROWS - 10);
 
 
 

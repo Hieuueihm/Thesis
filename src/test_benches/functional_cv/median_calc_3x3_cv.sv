@@ -20,31 +20,48 @@ endinterface
 
 class median_calc_3x3_cv;
   virtual interface median_calc_3x3_if vif;
-  bit match_value;
+  int match_cnt;
   logic [7:0] median_fifo[$];
   logic [7:0] m;
 
-  covergroup cg_check_data_i_valid;
+  covergroup cg_check_data_i_valid @(posedge vif.clk);
     option.per_instance = 1;
-    coverpoint vif.S1 {bins value = {[0 : 255]};}
-    coverpoint vif.S2 {bins value = {[0 : 255]};}
-    coverpoint vif.S3 {bins value = {[0 : 255]};}
-    coverpoint vif.S4 {bins value = {[0 : 255]};}
-    coverpoint vif.S5 {bins value = {[0 : 255]};}
-    coverpoint vif.S6 {bins value = {[0 : 255]};}
-    coverpoint vif.S7 {bins value = {[0 : 255]};}
-    coverpoint vif.S8 {bins value = {[0 : 255]};}
-    coverpoint vif.S9 {bins value = {[0 : 255]};}
+    S1_cp: coverpoint vif.S1 {bins all_values[] = {[0 : 255]};}
+    S2_cp: coverpoint vif.S2 {bins all_values[] = {[0 : 255]};}
+    S3_cp: coverpoint vif.S3 {bins all_values[] = {[0 : 255]};}
+    S4_cp: coverpoint vif.S4 {bins all_values[] = {[0 : 255]};}
+    S5_cp: coverpoint vif.S5 {bins all_values[] = {[0 : 255]};}
+    S6_cp: coverpoint vif.S6 {bins all_values[] = {[0 : 255]};}
+    S7_cp: coverpoint vif.S7 {bins all_values[] = {[0 : 255]};}
+    S8_cp: coverpoint vif.S8 {bins all_values[] = {[0 : 255]};}
+    S9_cp: coverpoint vif.S9 {bins all_values[] = {[0 : 255]};}
+
+
+    done_i_cp: coverpoint vif.done_i {bins value = {1};}
+
+    cross done_i_cp, S1_cp;
+    cross done_i_cp, S2_cp;
+    cross done_i_cp, S3_cp;
+    cross done_i_cp, S4_cp;
+    cross done_i_cp, S5_cp;
+    cross done_i_cp, S6_cp;
+    cross done_i_cp, S7_cp;
+    cross done_i_cp, S8_cp;
+    cross done_i_cp, S9_cp;
   endgroup
 
-  covergroup cg_check_data_o_valid;
+  covergroup cg_check_data_o_valid @(posedge vif.clk);
     option.per_instance = 1;
-    coverpoint vif.median_o {bins value = {[0 : 255]};}
+    median_o_cp: coverpoint vif.median_o {bins all_values[] = {[0 : 255]};}
+    done_o_cp: coverpoint vif.done_o {bins value = {1};}
+
+
+    cross done_o_cp, median_o_cp;
 
   endgroup
-  covergroup cg_match_data;
+  covergroup cg_match_data @(posedge vif.clk);
     option.per_instance = 1;
-    coverpoint match_value {bins match = {1};}
+    coverpoint match_cnt {bins match[] = {[0 : 128 * 128 - 1]};}
   endgroup
 
 
@@ -57,10 +74,18 @@ class median_calc_3x3_cv;
     cg_check_data_o_valid = new();
     cg_match_data = new();
   endfunction
+  logic done_o_prev;
   task monitor();
     forever begin
       @(posedge vif.clk);
-      match_value = 0;
+      if (~vif.rst_n) begin
+        median_fifo.delete();
+        match_cnt = 0;
+      end
+      if (done_o_prev == 1 && vif.done_o == 0) begin
+        match_cnt = 0;
+        median_fifo.delete();
+      end
       // if (!vif.rst_n) $display("time=%0t\n", $time);
       if (vif.done_i) begin
         cg_check_data_i_valid.sample();
@@ -70,16 +95,16 @@ class median_calc_3x3_cv;
         median_fifo.push_back(m);
       end
       if (vif.done_o) begin
-        cg_check_data_o_valid.sample();
+        done_o_prev <= vif.done_o;
         if (median_fifo.size() > 0) begin
           if (vif.median_o == median_fifo[0]) begin
-            match_value = 1;
-            cg_match_data.sample();
+            match_cnt++;
           end else begin
             $display("Median value mismatch: expected %0d, got %0d", median_fifo[0], vif.median_o);
           end
           median_fifo.pop_front();
         end
+
       end
     end
   endtask

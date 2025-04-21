@@ -110,7 +110,7 @@ module mrelbp_ci_r6 #(
     end
   end
 
-  assign ci_o   = (scale_value < sum_o_delay) ? 1'b0 : 1'b1;
+  assign ci_o   = ~(scale_value < sum_o_delay);
   assign done_o = done_scale;
 
 endmodule

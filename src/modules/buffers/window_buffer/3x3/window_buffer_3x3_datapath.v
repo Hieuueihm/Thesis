@@ -36,7 +36,7 @@ module window_buffer_3x3_datapath #(
       i_counter <= i_counter + 1;
     end
   end
-  assign i_col_eq_max = (i_counter == COLS - 2) ? 1'b1 : 1'b0;
+  assign i_col_eq_max = (i_counter == COLS - 2);
 
 
   reg [9:0] i_row;
@@ -49,8 +49,8 @@ module window_buffer_3x3_datapath #(
       i_row <= i_row + 1;
     end
   end
-  assign i_col_ge_threshold = (i_counter > 0) ? 1'b1 : 1'b0;
-  assign i_row_eq_max       = (i_row == ROWS - 3) ? 1'b1 : 1'b0;
+  assign i_col_ge_threshold = (i_counter > 0);
+  assign i_row_eq_max       = (i_row == ROWS - 3);
 
 
   reg [7:0] S1_delay;

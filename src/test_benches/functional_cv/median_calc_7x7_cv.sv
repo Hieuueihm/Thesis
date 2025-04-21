@@ -60,72 +60,127 @@ endinterface
 
 class median_calc_7x7_cv;
   virtual interface median_calc_7x7_if vif;
-  bit match_value;
+  bit match_cnt;
   logic [7:0] median_fifo[$];
   logic [7:0] m;
 
-  covergroup cg_check_data_i_valid;
+  covergroup cg_check_data_i_valid @(posedge vif.clk);
     option.per_instance = 1;
-    coverpoint vif.S1 {bins value = {[0 : 255]};}
-    coverpoint vif.S2 {bins value = {[0 : 255]};}
-    coverpoint vif.S3 {bins value = {[0 : 255]};}
-    coverpoint vif.S4 {bins value = {[0 : 255]};}
-    coverpoint vif.S5 {bins value = {[0 : 255]};}
-    coverpoint vif.S6 {bins value = {[0 : 255]};}
-    coverpoint vif.S7 {bins value = {[0 : 255]};}
-    coverpoint vif.S8 {bins value = {[0 : 255]};}
-    coverpoint vif.S9 {bins value = {[0 : 255]};}
-    coverpoint vif.S10 {bins value = {[0 : 255]};}
-    coverpoint vif.S11 {bins value = {[0 : 255]};}
-    coverpoint vif.S12 {bins value = {[0 : 255]};}
-    coverpoint vif.S13 {bins value = {[0 : 255]};}
-    coverpoint vif.S14 {bins value = {[0 : 255]};}
-    coverpoint vif.S15 {bins value = {[0 : 255]};}
-    coverpoint vif.S16 {bins value = {[0 : 255]};}
-    coverpoint vif.S17 {bins value = {[0 : 255]};}
-    coverpoint vif.S18 {bins value = {[0 : 255]};}
-    coverpoint vif.S19 {bins value = {[0 : 255]};}
-    coverpoint vif.S20 {bins value = {[0 : 255]};}
-    coverpoint vif.S21 {bins value = {[0 : 255]};}
-    coverpoint vif.S22 {bins value = {[0 : 255]};}
-    coverpoint vif.S23 {bins value = {[0 : 255]};}
-    coverpoint vif.S24 {bins value = {[0 : 255]};}
-    coverpoint vif.S25 {bins value = {[0 : 255]};}
-    coverpoint vif.S26 {bins value = {[0 : 255]};}
-    coverpoint vif.S27 {bins value = {[0 : 255]};}
-    coverpoint vif.S28 {bins value = {[0 : 255]};}
-    coverpoint vif.S29 {bins value = {[0 : 255]};}
-    coverpoint vif.S30 {bins value = {[0 : 255]};}
-    coverpoint vif.S31 {bins value = {[0 : 255]};}
-    coverpoint vif.S32 {bins value = {[0 : 255]};}
-    coverpoint vif.S33 {bins value = {[0 : 255]};}
-    coverpoint vif.S34 {bins value = {[0 : 255]};}
-    coverpoint vif.S35 {bins value = {[0 : 255]};}
-    coverpoint vif.S36 {bins value = {[0 : 255]};}
-    coverpoint vif.S37 {bins value = {[0 : 255]};}
-    coverpoint vif.S38 {bins value = {[0 : 255]};}
-    coverpoint vif.S39 {bins value = {[0 : 255]};}
-    coverpoint vif.S40 {bins value = {[0 : 255]};}
-    coverpoint vif.S41 {bins value = {[0 : 255]};}
-    coverpoint vif.S42 {bins value = {[0 : 255]};}
-    coverpoint vif.S43 {bins value = {[0 : 255]};}
-    coverpoint vif.S44 {bins value = {[0 : 255]};}
-    coverpoint vif.S45 {bins value = {[0 : 255]};}
-    coverpoint vif.S46 {bins value = {[0 : 255]};}
-    coverpoint vif.S47 {bins value = {[0 : 255]};}
-    coverpoint vif.S48 {bins value = {[0 : 255]};}
-    coverpoint vif.S49 {bins value = {[0 : 255]};}
+    S1_cp: coverpoint vif.S1 {bins value[] = {[0 : 255]};}
+    S2_cp: coverpoint vif.S2 {bins value[] = {[0 : 255]};}
+    S3_cp: coverpoint vif.S3 {bins value[] = {[0 : 255]};}
+    S4_cp: coverpoint vif.S4 {bins value[] = {[0 : 255]};}
+    S5_cp: coverpoint vif.S5 {bins value[] = {[0 : 255]};}
+    S6_cp: coverpoint vif.S6 {bins value[] = {[0 : 255]};}
+    S7_cp: coverpoint vif.S7 {bins value[] = {[0 : 255]};}
+    S8_cp: coverpoint vif.S8 {bins value[] = {[0 : 255]};}
+    S9_cp: coverpoint vif.S9 {bins value[] = {[0 : 255]};}
+    S10_cp: coverpoint vif.S10 {bins value[] = {[0 : 255]};}
+    S11_cp: coverpoint vif.S11 {bins value[] = {[0 : 255]};}
+    S12_cp: coverpoint vif.S12 {bins value[] = {[0 : 255]};}
+    S13_cp: coverpoint vif.S13 {bins value[] = {[0 : 255]};}
+    S14_cp: coverpoint vif.S14 {bins value[] = {[0 : 255]};}
+    S15_cp: coverpoint vif.S15 {bins value[] = {[0 : 255]};}
+    S16_cp: coverpoint vif.S16 {bins value[] = {[0 : 255]};}
+    S17_cp: coverpoint vif.S17 {bins value[] = {[0 : 255]};}
+    S18_cp: coverpoint vif.S18 {bins value[] = {[0 : 255]};}
+    S19_cp: coverpoint vif.S19 {bins value[] = {[0 : 255]};}
+    S20_cp: coverpoint vif.S20 {bins value[] = {[0 : 255]};}
+    S21_cp: coverpoint vif.S21 {bins value[] = {[0 : 255]};}
+    S22_cp: coverpoint vif.S22 {bins value[] = {[0 : 255]};}
+    S23_cp: coverpoint vif.S23 {bins value[] = {[0 : 255]};}
+    S24_cp: coverpoint vif.S24 {bins value[] = {[0 : 255]};}
+    S25_cp: coverpoint vif.S25 {bins value[] = {[0 : 255]};}
+    S26_cp: coverpoint vif.S26 {bins value[] = {[0 : 255]};}
+    S27_cp: coverpoint vif.S27 {bins value[] = {[0 : 255]};}
+    S28_cp: coverpoint vif.S28 {bins value[] = {[0 : 255]};}
+    S29_cp: coverpoint vif.S29 {bins value[] = {[0 : 255]};}
+    S30_cp: coverpoint vif.S30 {bins value[] = {[0 : 255]};}
+    S31_cp: coverpoint vif.S31 {bins value[] = {[0 : 255]};}
+    S32_cp: coverpoint vif.S32 {bins value[] = {[0 : 255]};}
+    S33_cp: coverpoint vif.S33 {bins value[] = {[0 : 255]};}
+    S34_cp: coverpoint vif.S34 {bins value[] = {[0 : 255]};}
+    S35_cp: coverpoint vif.S35 {bins value[] = {[0 : 255]};}
+    S36_cp: coverpoint vif.S36 {bins value[] = {[0 : 255]};}
+    S37_cp: coverpoint vif.S37 {bins value[] = {[0 : 255]};}
+    S38_cp: coverpoint vif.S38 {bins value[] = {[0 : 255]};}
+    S39_cp: coverpoint vif.S39 {bins value[] = {[0 : 255]};}
+    S40_cp: coverpoint vif.S40 {bins value[] = {[0 : 255]};}
+    S41_cp: coverpoint vif.S41 {bins value[] = {[0 : 255]};}
+    S42_cp: coverpoint vif.S42 {bins value[] = {[0 : 255]};}
+    S43_cp: coverpoint vif.S43 {bins value[] = {[0 : 255]};}
+    S44_cp: coverpoint vif.S44 {bins value[] = {[0 : 255]};}
+    S45_cp: coverpoint vif.S45 {bins value[] = {[0 : 255]};}
+    S46_cp: coverpoint vif.S46 {bins value[] = {[0 : 255]};}
+    S47_cp: coverpoint vif.S47 {bins value[] = {[0 : 255]};}
+    S48_cp: coverpoint vif.S48 {bins value[] = {[0 : 255]};}
+    S49_cp: coverpoint vif.S49 {bins value[] = {[0 : 255]};}
+
+    done_i_cp: coverpoint vif.done_i {bins value = {1};}
+
+    cross done_i_cp, S1_cp;
+
+    cross done_i_cp, S2_cp;
+    cross done_i_cp, S3_cp;
+    cross done_i_cp, S4_cp;
+    cross done_i_cp, S5_cp;
+    cross done_i_cp, S6_cp;
+    cross done_i_cp, S7_cp;
+    cross done_i_cp, S8_cp;
+    cross done_i_cp, S9_cp;
+    cross done_i_cp, S10_cp;
+    cross done_i_cp, S11_cp;
+    cross done_i_cp, S12_cp;
+    cross done_i_cp, S13_cp;
+    cross done_i_cp, S14_cp;
+    cross done_i_cp, S15_cp;
+    cross done_i_cp, S16_cp;
+    cross done_i_cp, S17_cp;
+    cross done_i_cp, S18_cp;
+    cross done_i_cp, S19_cp;
+    cross done_i_cp, S20_cp;
+    cross done_i_cp, S21_cp;
+    cross done_i_cp, S22_cp;
+    cross done_i_cp, S23_cp;
+    cross done_i_cp, S24_cp;
+    cross done_i_cp, S25_cp;
+    cross done_i_cp, S26_cp;
+    cross done_i_cp, S27_cp;
+    cross done_i_cp, S28_cp;
+    cross done_i_cp, S29_cp;
+    cross done_i_cp, S30_cp;
+    cross done_i_cp, S31_cp;
+    cross done_i_cp, S32_cp;
+    cross done_i_cp, S33_cp;
+    cross done_i_cp, S34_cp;
+    cross done_i_cp, S35_cp;
+    cross done_i_cp, S36_cp;
+    cross done_i_cp, S37_cp;
+    cross done_i_cp, S38_cp;
+    cross done_i_cp, S39_cp;
+    cross done_i_cp, S40_cp;
+    cross done_i_cp, S41_cp;
+    cross done_i_cp, S42_cp;
+    cross done_i_cp, S43_cp;
+    cross done_i_cp, S44_cp;
+    cross done_i_cp, S45_cp;
+    cross done_i_cp, S46_cp;
+    cross done_i_cp, S47_cp;
+    cross done_i_cp, S48_cp;
+    cross done_i_cp, S49_cp;
 
   endgroup
 
-  covergroup cg_check_data_o_valid;
+  covergroup cg_check_data_o_valid @(posedge vif.clk);
     option.per_instance = 1;
-    coverpoint vif.median_o {bins value = {[0 : 255]};}
+    data_o_cp: coverpoint vif.median_o {bins value[] = {[0 : 255]};}
+    done_o_cp: coverpoint vif.done_o {bins value = {1};}
+    cross done_o_cp, data_o_cp;
 
   endgroup
-  covergroup cg_match_data;
+  covergroup cg_match_data @(posedge vif.clk);
     option.per_instance = 1;
-    coverpoint match_value {bins match = {1};}
+    coverpoint match_cnt {bins match[] = {[0 : (128 * 128) - 1]};}
   endgroup
 
 
@@ -138,13 +193,21 @@ class median_calc_7x7_cv;
     cg_check_data_o_valid = new();
     cg_match_data = new();
   endfunction
+
+  logic done_o_prev;
+
   task monitor();
     forever begin
       @(posedge vif.clk);
-      match_value = 0;
-      // if (!vif.rst_n) $display("time=%0t\n", $time);
+      if (~vif.rst_n) begin
+        median_fifo.delete();
+        match_cnt = 0;
+      end
+      if (done_o_prev == 1 && vif.done_o == 0) begin
+        match_cnt = 0;
+        median_fifo.delete();
+      end
       if (vif.done_i) begin
-        cg_check_data_i_valid.sample();
         m = calculate_median(
             vif.S1,
             vif.S2,
@@ -196,20 +259,19 @@ class median_calc_7x7_cv;
             vif.S48,
             vif.S49
         );
-
         median_fifo.push_back(m);
       end
       if (vif.done_o) begin
-        cg_check_data_o_valid.sample();
+        done_o_prev <= vif.done_o;
         if (median_fifo.size() > 0) begin
           if (vif.median_o == median_fifo[0]) begin
-            match_value = 1;
-            cg_match_data.sample();
+            match_cnt++;
           end else begin
             $display("Median value mismatch: expected %0d, got %0d", median_fifo[0], vif.median_o);
           end
           median_fifo.pop_front();
         end
+
       end
     end
   endtask

@@ -8,14 +8,16 @@ module data_modulate_5x5_controller (
     output o_valid,
     output o_en,
     output reg count_en,
-    output reg reset_en
+    output reg reset_en,
+    output reg [1:0] current_state,
+    next_state
+
 );
 
   parameter IDLE = 2'b00;
   parameter START = 2'b01;
   parameter DATA = 2'b10;
   parameter DONE = 2'b11;
-  reg [1:0] current_state, next_state;
   always @(posedge clk) begin
     if (~rst_n) begin
       current_state <= IDLE;

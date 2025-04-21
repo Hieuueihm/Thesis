@@ -13,7 +13,9 @@ module line_buffer_controller #(
     // for next buff
     output reg o_valid,
     output reg o_start,
-    output reg o_finish
+    output reg o_finish,
+    output reg [2:0] current_state, next_state
+
 );
 
   parameter IDLE = 3'b000;
@@ -22,7 +24,6 @@ module line_buffer_controller #(
   parameter READ1 = 3'b011;
   parameter READ2 = 3'b100;
   parameter DONE = 3'b101;
-  reg [2:0] current_state, next_state;
 
   always @(posedge clk) begin
     if (~rst_n) begin

@@ -15,6 +15,7 @@ module test_top_tb ();
   `include "median_calc_3x3_cv.sv"
   `include "median_calc_5x5_cv.sv"
   `include "median_calc_7x7_cv.sv"
+  `include "mrelbp_ci_r2_cv.sv"
 
   task read_matrix;
     input integer file_id;
@@ -86,6 +87,7 @@ module test_top_tb ();
   assign vif.o_valid = DUT.inst_top_module__datapath.median_PROCESSING.median_PREPARATION.gen_line_buffers[0].LINE_BUFFER.o_valid;
   assign vif.o_start = DUT.inst_top_module__datapath.median_PROCESSING.median_PREPARATION.gen_line_buffers[0].LINE_BUFFER.o_start;
   assign vif.o_finish = DUT.inst_top_module__datapath.median_PROCESSING.median_PREPARATION.gen_line_buffers[0].LINE_BUFFER.o_finish;
+  assign vif.current_state = DUT.inst_top_module__datapath.median_PROCESSING.median_PREPARATION.gen_line_buffers[0].LINE_BUFFER.controller_inst.current_state;
 
   line_buffer_cv lb_cv = new(vif);
 
@@ -115,7 +117,7 @@ module test_top_tb ();
   assign z_vif.d6_o   = DUT.inst_top_module__datapath.median_PROCESSING.median_FILTER_3x3.median_3X3_DATA_MODULATE.d6_o;
   assign z_vif.d7_o   = DUT.inst_top_module__datapath.median_PROCESSING.median_FILTER_3x3.median_3X3_DATA_MODULATE.d7_o;
   assign z_vif.d8_o   = DUT.inst_top_module__datapath.median_PROCESSING.median_FILTER_3x3.median_3X3_DATA_MODULATE.d8_o;
-
+  assign z_vif.current_state = DUT.inst_top_module__datapath.median_PROCESSING.median_FILTER_3x3.median_3X3_DATA_MODULATE.CONTROLLER_3X3.current_state;
   zero_padding_3x3_cv zero_3x3_cv = new(z_vif);
 
   zero_padding_5x5_if z5_vif (
@@ -129,6 +131,7 @@ module test_top_tb ();
   assign z5_vif.d2_i   = DUT.inst_top_module__datapath.median_PROCESSING.median_FILTER_5x5.median_5x5_DATA_MODULATE.d2_i;
   assign z5_vif.d3_i   = DUT.inst_top_module__datapath.median_PROCESSING.median_FILTER_5x5.median_5x5_DATA_MODULATE.d3_i;
   assign z5_vif.d4_i   = DUT.inst_top_module__datapath.median_PROCESSING.median_FILTER_5x5.median_5x5_DATA_MODULATE.d4_i;
+
   assign z5_vif.d0_o   = DUT.inst_top_module__datapath.median_PROCESSING.median_FILTER_5x5.median_5x5_DATA_MODULATE.d0_o;
   assign z5_vif.d1_o   = DUT.inst_top_module__datapath.median_PROCESSING.median_FILTER_5x5.median_5x5_DATA_MODULATE.d1_o;
   assign z5_vif.d2_o   = DUT.inst_top_module__datapath.median_PROCESSING.median_FILTER_5x5.median_5x5_DATA_MODULATE.d2_o;
@@ -154,6 +157,8 @@ module test_top_tb ();
   assign z5_vif.d22_o  = DUT.inst_top_module__datapath.median_PROCESSING.median_FILTER_5x5.median_5x5_DATA_MODULATE.d22_o;
   assign z5_vif.d23_o  = DUT.inst_top_module__datapath.median_PROCESSING.median_FILTER_5x5.median_5x5_DATA_MODULATE.d23_o;
   assign z5_vif.d24_o  = DUT.inst_top_module__datapath.median_PROCESSING.median_FILTER_5x5.median_5x5_DATA_MODULATE.d24_o;
+
+  assign z5_vif.current_state = DUT.inst_top_module__datapath.median_PROCESSING.median_FILTER_5x5.median_5x5_DATA_MODULATE.CONTROLLER_5X5.current_state;
 
 
   zero_padding_5x5_cv zero_5x5_cv = new(z5_vif);
@@ -221,6 +226,8 @@ module test_top_tb ();
   assign z7_vif.d46_o  = DUT.inst_top_module__datapath.median_PROCESSING.median_FILTER_7x7.median_7x7_DATA_MODULATE.d46_o;
   assign z7_vif.d47_o  = DUT.inst_top_module__datapath.median_PROCESSING.median_FILTER_7x7.median_7x7_DATA_MODULATE.d47_o;
   assign z7_vif.d48_o  = DUT.inst_top_module__datapath.median_PROCESSING.median_FILTER_7x7.median_7x7_DATA_MODULATE.d48_o;
+
+  assign z7_vif.current_state = DUT.inst_top_module__datapath.median_PROCESSING.median_FILTER_7x7.median_7x7_DATA_MODULATE.CONTROLLER_7x7.current_state;
 
 
   zero_padding_7x7_cv zero_7x7_cv = new(z7_vif);
@@ -341,6 +348,23 @@ module test_top_tb ();
 
   median_calc_7x7_cv median_7x7_cv = new(m7_vif);
 
+  mrelbp_ci_r2_if ci_r2_if (
+      clk,
+      rst_n
+  );
+  assign ci_r2_if.done_i = DUT.inst_top_module__datapath.ci_top.r2_TOP.done_i;
+  assign ci_r2_if.done_o = DUT.inst_top_module__datapath.ci_top.r2_TOP.done_o;
+  assign ci_r2_if.S1    = DUT.inst_top_module__datapath.ci_top.r2_TOP.S1;
+  assign ci_r2_if.S2    = DUT.inst_top_module__datapath.ci_top.r2_TOP.S2;
+  assign ci_r2_if.S3    = DUT.inst_top_module__datapath.ci_top.r2_TOP.S3;
+  assign ci_r2_if.S4    = DUT.inst_top_module__datapath.ci_top.r2_TOP.S4;
+  assign ci_r2_if.S5    = DUT.inst_top_module__datapath.ci_top.r2_TOP.S5;
+  assign ci_r2_if.progress_done_o = DUT.inst_top_module__datapath.ci_top.r2_TOP.progress_done_o;
+  assign ci_r2_if.ci_o   = DUT.inst_top_module__datapath.ci_top.r2_TOP.ci_o;
+
+  mrelbp_ci_r2_cv ci_r2_cv = new(ci_r2_if);
+
+
 
 
 
@@ -362,6 +386,7 @@ module test_top_tb ();
       median_3x3_cv.monitor();
       median_5x5_cv.monitor();
       median_7x7_cv.monitor();
+      ci_r2_cv.monitor();
     join_none
   end
 
@@ -435,7 +460,7 @@ module test_top_tb ();
     median_3x3_cv.report();
     median_5x5_cv.report();
     median_7x7_cv.report();
-
+    ci_r2_cv.report();
     #100;
     $stop;
   end

@@ -33,7 +33,7 @@ module top_module__datapath #(
 
   wire [15:0] cinird_r2, cinird_r4, cinird_r6;
   wire r2_valid, r4_valid, r6_valid;
-  wire finish;
+
 
 
 

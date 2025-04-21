@@ -29,61 +29,96 @@ interface zero_padding_5x5_if (
   logic [7:0] d22_o;
   logic [7:0] d23_o;
   logic [7:0] d24_o;
+  logic [1:0] current_state;
 endinterface
 
 class zero_padding_5x5_cv;
   virtual interface zero_padding_5x5_if vif;
   int template_id;
-  bit match_value;
+  int match_cnt;
 
   logic [7:0] d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12;
   logic [7:0] d13, d14, d15, d16, d17, d18, d19, d20, d21, d22, d23, d24;
   logic [7:0] dx1, dx2, dx3, dx4, dx5;
-  logic i_en;
 
 
-  covergroup cg_check_data_i_valid;
+  covergroup cg_check_data_i_valid @(posedge vif.clk);
     option.per_instance = 1;
-    coverpoint vif.d0_i {bins value = {[0 : 255]};}
-    coverpoint vif.d1_i {bins value = {[0 : 255]};}
-    coverpoint vif.d2_i {bins value = {[0 : 255]};}
-    coverpoint vif.d3_i {bins value = {[0 : 255]};}
-    coverpoint vif.d4_i {bins value = {[0 : 255]};}
+    d0_cp: coverpoint vif.d0_i {bins value[] = {[0 : 255]};}
+    d1_cp: coverpoint vif.d1_i {bins value[] = {[0 : 255]};}
+    d2_cp: coverpoint vif.d2_i {bins value[] = {[0 : 255]};}
+    d3_cp: coverpoint vif.d3_i {bins value[] = {[0 : 255]};}
+    d4_cp: coverpoint vif.d4_i {bins value[] = {[0 : 255]};}
+
+    done_i_cp: coverpoint i_en {bins value = {1};}
+    cross d0_cp, done_i_cp;
+    cross d1_cp, done_i_cp;
+    cross d2_cp, done_i_cp;
+    cross d3_cp, done_i_cp;
+    cross d4_cp, done_i_cp;
   endgroup
 
-  covergroup cg_check_data_o_valid;
+  covergroup cg_check_data_o_valid @(posedge vif.clk);
     option.per_instance = 1;
-    coverpoint vif.d0_o {bins value = {[0 : 255]};}
-    coverpoint vif.d1_o {bins value = {[0 : 255]};}
-    coverpoint vif.d2_o {bins value = {[0 : 255]};}
-    coverpoint vif.d3_o {bins value = {[0 : 255]};}
-    coverpoint vif.d4_o {bins value = {[0 : 255]};}
-    coverpoint vif.d5_o {bins value = {[0 : 255]};}
-    coverpoint vif.d6_o {bins value = {[0 : 255]};}
-    coverpoint vif.d7_o {bins value = {[0 : 255]};}
-    coverpoint vif.d8_o {bins value = {[0 : 255]};}
-    coverpoint vif.d9_o {bins value = {[0 : 255]};}
-    coverpoint vif.d10_o {bins value = {[0 : 255]};}
-    coverpoint vif.d11_o {bins value = {[0 : 255]};}
-    coverpoint vif.d12_o {bins value = {[0 : 255]};}
-    coverpoint vif.d13_o {bins value = {[0 : 255]};}
-    coverpoint vif.d14_o {bins value = {[0 : 255]};}
-    coverpoint vif.d15_o {bins value = {[0 : 255]};}
-    coverpoint vif.d16_o {bins value = {[0 : 255]};}
-    coverpoint vif.d17_o {bins value = {[0 : 255]};}
-    coverpoint vif.d18_o {bins value = {[0 : 255]};}
-    coverpoint vif.d19_o {bins value = {[0 : 255]};}
-    coverpoint vif.d20_o {bins value = {[0 : 255]};}
-    coverpoint vif.d21_o {bins value = {[0 : 255]};}
-    coverpoint vif.d22_o {bins value = {[0 : 255]};}
-    coverpoint vif.d23_o {bins value = {[0 : 255]};}
-    coverpoint vif.d24_o {bins value = {[0 : 255]};}
+    d0_cp: coverpoint vif.d0_o {bins value[] = {[0 : 255]};}
+    d1_cp: coverpoint vif.d1_o {bins value[] = {[0 : 255]};}
+    d2_cp: coverpoint vif.d2_o {bins value[] = {[0 : 255]};}
+    d3_cp: coverpoint vif.d3_o {bins value[] = {[0 : 255]};}
+    d4_cp: coverpoint vif.d4_o {bins value[] = {[0 : 255]};}
+    d5_cp: coverpoint vif.d5_o {bins value[] = {[0 : 255]};}
+    d6_cp: coverpoint vif.d6_o {bins value[] = {[0 : 255]};}
+    d7_cp: coverpoint vif.d7_o {bins value[] = {[0 : 255]};}
+    d8_cp: coverpoint vif.d8_o {bins value[] = {[0 : 255]};}
+    d9_cp: coverpoint vif.d9_o {bins value[] = {[0 : 255]};}
+    d10_cp: coverpoint vif.d10_o {bins value[] = {[0 : 255]};}
+    d11_cp: coverpoint vif.d11_o {bins value[] = {[0 : 255]};}
+    d12_cp: coverpoint vif.d12_o {bins value[] = {[0 : 255]};}
+    d13_cp: coverpoint vif.d13_o {bins value[] = {[0 : 255]};}
+    d14_cp: coverpoint vif.d14_o {bins value[] = {[0 : 255]};}
+    d15_cp: coverpoint vif.d15_o {bins value[] = {[0 : 255]};}
+    d16_cp: coverpoint vif.d16_o {bins value[] = {[0 : 255]};}
+    d17_cp: coverpoint vif.d17_o {bins value[] = {[0 : 255]};}
+    d18_cp: coverpoint vif.d18_o {bins value[] = {[0 : 255]};}
+    d19_cp: coverpoint vif.d19_o {bins value[] = {[0 : 255]};}
+    d20_cp: coverpoint vif.d20_o {bins value[] = {[0 : 255]};}
+    d21_cp: coverpoint vif.d21_o {bins value[] = {[0 : 255]};}
+    d22_cp: coverpoint vif.d22_o {bins value[] = {[0 : 255]};}
+    d23_cp: coverpoint vif.d23_o {bins value[] = {[0 : 255]};}
+    d24_cp: coverpoint vif.d24_o {bins value[] = {[0 : 255]};}
+
+    done_o_cp: coverpoint vif.done_o {bins value = {1};}
+    cross d0_cp, done_o_cp;
+    cross d1_cp, done_o_cp;
+    cross d2_cp, done_o_cp;
+    cross d3_cp, done_o_cp;
+    cross d4_cp, done_o_cp;
+    cross d5_cp, done_o_cp;
+    cross d6_cp, done_o_cp;
+    cross d7_cp, done_o_cp;
+    cross d8_cp, done_o_cp;
+    cross d9_cp, done_o_cp;
+    cross d10_cp, done_o_cp;
+    cross d11_cp, done_o_cp;
+    cross d12_cp, done_o_cp;
+    cross d13_cp, done_o_cp;
+    cross d14_cp, done_o_cp;
+    cross d15_cp, done_o_cp;
+    cross d16_cp, done_o_cp;
+    cross d17_cp, done_o_cp;
+    cross d18_cp, done_o_cp;
+    cross d19_cp, done_o_cp;
+    cross d20_cp, done_o_cp;
+    cross d21_cp, done_o_cp;
+    cross d22_cp, done_o_cp;
+    cross d23_cp, done_o_cp;
+    cross d24_cp, done_o_cp;
+
 
   endgroup
   covergroup cg_zero_match_template;
     option.per_instance = 1;
 
-    coverpoint template_id {bins template = {[0 : 24]};}
+    coverpoint template_id {bins template[] = {[0 : 24]};}
   endgroup
 
   covergroup cg_zero_match_trans_template;
@@ -113,10 +148,21 @@ class zero_padding_5x5_cv;
     }
 
   endgroup
+  covergroup cg_fsm_check @(posedge vif.clk);
+    option.per_instance = 1;
+    coverpoint vif.current_state {
+      bins state_00[] = (0 => 0);
+      bins state_01[] = (0 => 1);
+      bins state_11[] = (1 => 1);
+      bins state_12[] = (1 => 2);
+      bins state_22[] = (2 => 2);
+      bins state_230[] = (2 => 3 => 0);
+    }
 
+  endgroup
   covergroup cg_match_value;
     option.per_instance = 1;
-    coverpoint match_value {bins match = {1};}
+    coverpoint match_cnt {bins match[] = {[0 : 15624]};}
   endgroup
 
 
@@ -127,20 +173,35 @@ class zero_padding_5x5_cv;
     cg_zero_match_template = new();
     cg_zero_match_trans_template = new();
     cg_match_value = new();
+    cg_fsm_check = new();
   endfunction
+  logic done_o_prev;
+
+  int i = 0;
+  logic i_en;
+
   task monitor();
     forever begin
       @(posedge vif.clk);
-      match_value = 0;
-      // if (!vif.rst_n) $display("time=%0t\n", $time);
-      i_en = vif.done_i | vif.done_o;
+      if (~vif.rst_n) begin
+        match_cnt = 0;
+      end
+      if (vif.done_i) begin
+        $display("abc");
+        i_en = 1;
+      end
+      if (done_o_prev == 1 && vif.done_o == 0) begin
+        match_cnt = 0;
+        i_en = 0;
+      end
       if (i_en == 1) begin
-        cg_check_data_i_valid.sample();
         dx1 <= vif.d4_i;
         dx2 <= vif.d3_i;
         dx3 <= vif.d2_i;
         dx4 <= vif.d1_i;
         dx5 <= vif.d0_i;
+
+
 
         d4  <= dx1;
         d9  <= dx2;
@@ -172,15 +233,22 @@ class zero_padding_5x5_cv;
         d22 <= d23;
         d21 <= d22;
         d20 <= d21;
+        // if (i < 3) begin
+        //   $display(" inp %d %d %d %d %d\n", vif.d4_i, vif.d3_i, vif.d2_i, vif.d1_i, vif.d0_i);
+        // end
 
       end
       if (vif.done_o) begin
+        done_o_prev <= vif.done_o;
 
         template_id = get_template_id();
-
         cg_zero_match_template.sample();
-        cg_check_data_o_valid.sample();
         cg_zero_match_trans_template.sample();
+        // if (i < 3) begin
+        //   i++;
+        //   $display(" match %d %d %d %d %d\n", d4, d9, d14, d19, d24);
+        // end
+
 
         if (
         d0 == vif.d0_o &&
@@ -209,16 +277,16 @@ class zero_padding_5x5_cv;
         d23 == vif.d23_o &&
         d24 == vif.d24_o
         ) begin
-          match_value = 1;
-          cg_match_value.sample();
-
+          match_cnt++;
         end
+        cg_match_value.sample();
+
 
       end
     end
   endtask
   function void report();
-    real cov_i, cov_o, cov_match, cov_trans, cov_match_val;
+    real cov_i, cov_o, cov_match, cov_trans, cov_match_val, cov_fsm;
     real avg_cov;
 
     cov_i = cg_check_data_i_valid.get_coverage();
@@ -226,14 +294,15 @@ class zero_padding_5x5_cv;
     cov_match = cg_zero_match_template.get_coverage();
     cov_trans = cg_zero_match_trans_template.get_coverage();
     cov_match_val = cg_match_value.get_coverage();
-
-    avg_cov = (cov_i + cov_o + cov_match + cov_trans + cov_match_val) / 5.0;
+    cov_fsm = cg_fsm_check.get_coverage();
+    avg_cov = (cov_i + cov_o + cov_match + cov_trans + cov_match_val + cov_fsm) / 6.0;
 
     $display("ZeroPadding 5x5 Coverage Input:   %0.2f%%", cov_i);
     $display("ZeroPadding 5x5 Coverage Output:  %0.2f%%", cov_o);
     $display("ZeroPadding 5x5 Coverage Match:   %0.2f%%", cov_match);
     $display("ZeroPadding 5x5 Coverage Trans:   %0.2f%%", cov_trans);
     $display("ZeroPadding 5x5 Coverage Match Value:   %0.2f%%", cov_match_val);
+    $display("ZeroPadding 5x5 Coverage FSM:   %0.2f%%", cov_fsm);
     $display("=====================================");
     $display("ZeroPadding 5x5 Average Module Coverage: %0.2f%%", avg_cov);
   endfunction

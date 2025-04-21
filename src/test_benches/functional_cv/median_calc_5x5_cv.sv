@@ -36,48 +36,81 @@ endinterface
 
 class median_calc_5x5_cv;
   virtual interface median_calc_5x5_if vif;
-  bit match_value;
+  int match_cnt;
   logic [7:0] median_fifo[$];
   logic [7:0] m;
 
-  covergroup cg_check_data_i_valid;
+  covergroup cg_check_data_i_valid @(posedge vif.clk);
     option.per_instance = 1;
-    coverpoint vif.S1 {bins value = {[0 : 255]};}
-    coverpoint vif.S2 {bins value = {[0 : 255]};}
-    coverpoint vif.S3 {bins value = {[0 : 255]};}
-    coverpoint vif.S4 {bins value = {[0 : 255]};}
-    coverpoint vif.S5 {bins value = {[0 : 255]};}
-    coverpoint vif.S6 {bins value = {[0 : 255]};}
-    coverpoint vif.S7 {bins value = {[0 : 255]};}
-    coverpoint vif.S8 {bins value = {[0 : 255]};}
-    coverpoint vif.S9 {bins value = {[0 : 255]};}
-    coverpoint vif.S10 {bins value = {[0 : 255]};}
-    coverpoint vif.S11 {bins value = {[0 : 255]};}
-    coverpoint vif.S12 {bins value = {[0 : 255]};}
-    coverpoint vif.S13 {bins value = {[0 : 255]};}
-    coverpoint vif.S14 {bins value = {[0 : 255]};}
-    coverpoint vif.S15 {bins value = {[0 : 255]};}
-    coverpoint vif.S16 {bins value = {[0 : 255]};}
-    coverpoint vif.S17 {bins value = {[0 : 255]};}
-    coverpoint vif.S18 {bins value = {[0 : 255]};}
-    coverpoint vif.S19 {bins value = {[0 : 255]};}
-    coverpoint vif.S20 {bins value = {[0 : 255]};}
-    coverpoint vif.S21 {bins value = {[0 : 255]};}
-    coverpoint vif.S22 {bins value = {[0 : 255]};}
-    coverpoint vif.S23 {bins value = {[0 : 255]};}
-    coverpoint vif.S24 {bins value = {[0 : 255]};}
-    coverpoint vif.S25 {bins value = {[0 : 255]};}
+    S1_cp: coverpoint vif.S1 {bins value[] = {[0 : 255]};}
+    S2_cp: coverpoint vif.S2 {bins value[] = {[0 : 255]};}
+    S3_cp: coverpoint vif.S3 {bins value[] = {[0 : 255]};}
+    S4_cp: coverpoint vif.S4 {bins value[] = {[0 : 255]};}
+    S5_cp: coverpoint vif.S5 {bins value[] = {[0 : 255]};}
+    S6_cp: coverpoint vif.S6 {bins value[] = {[0 : 255]};}
+    S7_cp: coverpoint vif.S7 {bins value[] = {[0 : 255]};}
+    S8_cp: coverpoint vif.S8 {bins value[] = {[0 : 255]};}
+    S9_cp: coverpoint vif.S9 {bins value[] = {[0 : 255]};}
+    S10_cp: coverpoint vif.S10 {bins value[] = {[0 : 255]};}
+    S11_cp: coverpoint vif.S11 {bins value[] = {[0 : 255]};}
+    S12_cp: coverpoint vif.S12 {bins value[] = {[0 : 255]};}
+    S13_cp: coverpoint vif.S13 {bins value[] = {[0 : 255]};}
+    S14_cp: coverpoint vif.S14 {bins value[] = {[0 : 255]};}
+    S15_cp: coverpoint vif.S15 {bins value[] = {[0 : 255]};}
+    S16_cp: coverpoint vif.S16 {bins value[] = {[0 : 255]};}
+    S17_cp: coverpoint vif.S17 {bins value[] = {[0 : 255]};}
+    S18_cp: coverpoint vif.S18 {bins value[] = {[0 : 255]};}
+    S19_cp: coverpoint vif.S19 {bins value[] = {[0 : 255]};}
+    S20_cp: coverpoint vif.S20 {bins value[] = {[0 : 255]};}
+    S21_cp: coverpoint vif.S21 {bins value[] = {[0 : 255]};}
+    S22_cp: coverpoint vif.S22 {bins value[] = {[0 : 255]};}
+    S23_cp: coverpoint vif.S23 {bins value[] = {[0 : 255]};}
+    S24_cp: coverpoint vif.S24 {bins value[] = {[0 : 255]};}
+    S25_cp: coverpoint vif.S25 {bins value[] = {[0 : 255]};}
+
+    done_i_cp: coverpoint vif.done_i {bins value = {1};}
+
+    cross done_i_cp, S1_cp;
+    cross done_i_cp, S2_cp;
+    cross done_i_cp, S3_cp;
+    cross done_i_cp, S4_cp;
+    cross done_i_cp, S5_cp;
+    cross done_i_cp, S6_cp;
+    cross done_i_cp, S7_cp;
+    cross done_i_cp, S8_cp;
+    cross done_i_cp, S9_cp;
+    cross done_i_cp, S10_cp;
+    cross done_i_cp, S11_cp;
+    cross done_i_cp, S12_cp;
+    cross done_i_cp, S13_cp;
+    cross done_i_cp, S14_cp;
+    cross done_i_cp, S15_cp;
+    cross done_i_cp, S16_cp;
+    cross done_i_cp, S17_cp;
+    cross done_i_cp, S18_cp;
+    cross done_i_cp, S19_cp;
+    cross done_i_cp, S20_cp;
+    cross done_i_cp, S21_cp;
+    cross done_i_cp, S22_cp;
+    cross done_i_cp, S23_cp;
+    cross done_i_cp, S24_cp;
+    cross done_i_cp, S25_cp;
+
+
+
 
   endgroup
 
-  covergroup cg_check_data_o_valid;
+  covergroup cg_check_data_o_valid @(posedge vif.clk);
     option.per_instance = 1;
-    coverpoint vif.median_o {bins value = {[0 : 255]};}
+    data_o_cp: coverpoint vif.median_o {bins value[] = {[0 : 255]};}
+    done_o_cp: coverpoint vif.done_o {bins value = {1};}
+    cross done_o_cp, data_o_cp;
 
   endgroup
-  covergroup cg_match_data;
+  covergroup cg_match_data @(posedge vif.clk);
     option.per_instance = 1;
-    coverpoint match_value {bins match = {1};}
+    coverpoint match_cnt {bins match[] = {[0 : 128 * 128 - 1]};}
   endgroup
 
 
@@ -90,13 +123,21 @@ class median_calc_5x5_cv;
     cg_check_data_o_valid = new();
     cg_match_data = new();
   endfunction
+
+  logic done_o_prev;
+
   task monitor();
     forever begin
       @(posedge vif.clk);
-      match_value = 0;
-      // if (!vif.rst_n) $display("time=%0t\n", $time);
+      if (~vif.rst_n) begin
+        median_fifo.delete();
+        match_cnt = 0;
+      end
+      if (done_o_prev == 1 && vif.done_o == 0) begin
+        match_cnt = 0;
+        median_fifo.delete();
+      end
       if (vif.done_i) begin
-        cg_check_data_i_valid.sample();
         m = calculate_median(
             vif.S1,
             vif.S2,
@@ -128,16 +169,16 @@ class median_calc_5x5_cv;
         median_fifo.push_back(m);
       end
       if (vif.done_o) begin
-        cg_check_data_o_valid.sample();
+        done_o_prev <= vif.done_o;
         if (median_fifo.size() > 0) begin
           if (vif.median_o == median_fifo[0]) begin
-            match_value = 1;
-            cg_match_data.sample();
+            match_cnt++;
           end else begin
             $display("Median value mismatch: expected %0d, got %0d", median_fifo[0], vif.median_o);
           end
           median_fifo.pop_front();
         end
+
       end
     end
   endtask
