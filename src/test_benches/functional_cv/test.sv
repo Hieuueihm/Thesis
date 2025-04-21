@@ -16,6 +16,8 @@ module test_top_tb ();
   `include "median_calc_5x5_cv.sv"
   `include "median_calc_7x7_cv.sv"
   `include "mrelbp_ci_r2_cv.sv"
+  `include "mrelbp_ci_r4_cv.sv"
+  `include "mrelbp_ci_r6_cv.sv"
 
   task read_matrix;
     input integer file_id;
@@ -354,15 +356,62 @@ module test_top_tb ();
   );
   assign ci_r2_if.done_i = DUT.inst_top_module__datapath.ci_top.r2_TOP.done_i;
   assign ci_r2_if.done_o = DUT.inst_top_module__datapath.ci_top.r2_TOP.done_o;
-  assign ci_r2_if.S1    = DUT.inst_top_module__datapath.ci_top.r2_TOP.S1;
-  assign ci_r2_if.S2    = DUT.inst_top_module__datapath.ci_top.r2_TOP.S2;
-  assign ci_r2_if.S3    = DUT.inst_top_module__datapath.ci_top.r2_TOP.S3;
-  assign ci_r2_if.S4    = DUT.inst_top_module__datapath.ci_top.r2_TOP.S4;
-  assign ci_r2_if.S5    = DUT.inst_top_module__datapath.ci_top.r2_TOP.S5;
+  assign ci_r2_if.S1 = DUT.inst_top_module__datapath.ci_top.r2_TOP.S1;
+  assign ci_r2_if.S2 = DUT.inst_top_module__datapath.ci_top.r2_TOP.S2;
+  assign ci_r2_if.S3 = DUT.inst_top_module__datapath.ci_top.r2_TOP.S3;
+  assign ci_r2_if.S4 = DUT.inst_top_module__datapath.ci_top.r2_TOP.S4;
+  assign ci_r2_if.S5 = DUT.inst_top_module__datapath.ci_top.r2_TOP.S5;
   assign ci_r2_if.progress_done_o = DUT.inst_top_module__datapath.ci_top.r2_TOP.progress_done_o;
-  assign ci_r2_if.ci_o   = DUT.inst_top_module__datapath.ci_top.r2_TOP.ci_o;
+  assign ci_r2_if.ci_o = DUT.inst_top_module__datapath.ci_top.r2_TOP.ci_o;
+  assign ci_r2_if.current_state = DUT.inst_top_module__datapath.ci_top.r2_TOP.r2_CONTROLLER.current_state;
 
   mrelbp_ci_r2_cv ci_r2_cv = new(ci_r2_if);
+
+
+  mrelbp_ci_r4_if ci_r4_if (
+      clk,
+      rst_n
+  );
+  assign ci_r4_if.done_i = DUT.inst_top_module__datapath.ci_top.r4_TOP.done_i;
+  assign ci_r4_if.done_o = DUT.inst_top_module__datapath.ci_top.r4_TOP.done_o;
+  assign ci_r4_if.S1 = DUT.inst_top_module__datapath.ci_top.r4_TOP.S1;
+  assign ci_r4_if.S2 = DUT.inst_top_module__datapath.ci_top.r4_TOP.S2;
+  assign ci_r4_if.S3 = DUT.inst_top_module__datapath.ci_top.r4_TOP.S3;
+  assign ci_r4_if.S4 = DUT.inst_top_module__datapath.ci_top.r4_TOP.S4;
+  assign ci_r4_if.S5 = DUT.inst_top_module__datapath.ci_top.r4_TOP.S5;
+  assign ci_r4_if.S6 = DUT.inst_top_module__datapath.ci_top.r4_TOP.S6;
+  assign ci_r4_if.S7 = DUT.inst_top_module__datapath.ci_top.r4_TOP.S7;
+  assign ci_r4_if.S8 = DUT.inst_top_module__datapath.ci_top.r4_TOP.S8;
+  assign ci_r4_if.S9 = DUT.inst_top_module__datapath.ci_top.r4_TOP.S9;
+  assign ci_r4_if.progress_done_o = DUT.inst_top_module__datapath.ci_top.r4_TOP.progress_done_o;
+  assign ci_r4_if.ci_o = DUT.inst_top_module__datapath.ci_top.r4_TOP.ci_o;
+  assign ci_r4_if.current_state = DUT.inst_top_module__datapath.ci_top.r4_TOP.r4_CONTROLLER.current_state;
+
+  mrelbp_ci_r4_cv ci_r4_cv = new(ci_r4_if);
+
+
+  mrelbp_ci_r6_if ci_r6_if (
+      clk,
+      rst_n
+  );
+  assign ci_r6_if.done_i = DUT.inst_top_module__datapath.ci_top.r6_TOP.done_i;
+  assign ci_r6_if.done_o = DUT.inst_top_module__datapath.ci_top.r6_TOP.done_o;
+  assign ci_r6_if.S1 = DUT.inst_top_module__datapath.ci_top.r6_TOP.S1;
+  assign ci_r6_if.S2 = DUT.inst_top_module__datapath.ci_top.r6_TOP.S2;
+  assign ci_r6_if.S3 = DUT.inst_top_module__datapath.ci_top.r6_TOP.S3;
+  assign ci_r6_if.S4 = DUT.inst_top_module__datapath.ci_top.r6_TOP.S4;
+  assign ci_r6_if.S5 = DUT.inst_top_module__datapath.ci_top.r6_TOP.S5;
+  assign ci_r6_if.S6 = DUT.inst_top_module__datapath.ci_top.r6_TOP.S6;
+  assign ci_r6_if.S7 = DUT.inst_top_module__datapath.ci_top.r6_TOP.S7;
+  assign ci_r6_if.S8 = DUT.inst_top_module__datapath.ci_top.r6_TOP.S8;
+  assign ci_r6_if.S9 = DUT.inst_top_module__datapath.ci_top.r6_TOP.S9;
+  assign ci_r6_if.S10 = DUT.inst_top_module__datapath.ci_top.r6_TOP.S10;
+  assign ci_r6_if.S11 = DUT.inst_top_module__datapath.ci_top.r6_TOP.S11;
+  assign ci_r6_if.progress_done_o = DUT.inst_top_module__datapath.ci_top.r6_TOP.progress_done_o;
+  assign ci_r6_if.ci_o = DUT.inst_top_module__datapath.ci_top.r6_TOP.ci_o;
+  assign ci_r6_if.current_state = DUT.inst_top_module__datapath.ci_top.r6_TOP.r6_CONTROLLER.current_state;
+
+  mrelbp_ci_r6_cv ci_r6_cv = new(ci_r6_if);
 
 
 
@@ -387,6 +436,8 @@ module test_top_tb ();
       median_5x5_cv.monitor();
       median_7x7_cv.monitor();
       ci_r2_cv.monitor();
+      ci_r4_cv.monitor();
+      ci_r6_cv.monitor();
     join_none
   end
 
@@ -461,6 +512,8 @@ module test_top_tb ();
     median_5x5_cv.report();
     median_7x7_cv.report();
     ci_r2_cv.report();
+    ci_r4_cv.report();
+    ci_r6_cv.report();
     #100;
     $stop;
   end

@@ -187,7 +187,6 @@ class zero_padding_5x5_cv;
         match_cnt = 0;
       end
       if (vif.done_i) begin
-        $display("abc");
         i_en = 1;
       end
       if (done_o_prev == 1 && vif.done_o == 0) begin

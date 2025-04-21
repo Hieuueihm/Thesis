@@ -56,7 +56,6 @@ module mrelbp_ci_r6 #(
       .i_row_eq_max(i_row_eq_max),
       .progress_done(pd),
       .reset_en(reset_en)
-
   );
 
   r6_sum #(

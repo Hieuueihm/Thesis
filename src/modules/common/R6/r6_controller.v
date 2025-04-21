@@ -14,7 +14,9 @@ module r6_controller #(
     output reg start_en,
     output reg ld_en,
     output reg progress_done,
-    output reg reset_en
+    output reg reset_en,
+    output reg [2:0] current_state
+
 );
   // i_col = 0 -> done_o = 0
   // reg [9:0] counter;
@@ -36,7 +38,7 @@ module r6_controller #(
   // end
   // assign  done_i = (done_i | done_extended);
 
-  reg [2:0] current_state, next_state, prev_state;
+  reg [2:0] next_state, prev_state;
   parameter IDLE = 3'b000;
   parameter START = 3'b001;
   parameter START_ROW = 3'b010;

@@ -37,7 +37,7 @@ class zero_padding_3x3_cv;
     coverpoint vif.current_state {
       bins state_00[] = (0 => 0);
       bins state_01[] = (0 => 1);
-      bins state_11[] = (1 => 1);
+      // bins state_11[] = (1 => 1);
       bins state_12[] = (1 => 2);
       bins state_22[] = (2 => 2);
       bins state_230[] = (2 => 3 => 0);

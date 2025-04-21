@@ -1,23 +1,23 @@
 module line_buffer_controller #(
     parameter DEPTH = 128
 ) (
-    input      clk,         // Clock input
-    input      rst_n,       // Reset input
-    input      done_i,      // Done signal when operation is complete
-    input      first_done,
-    input      last_done,
+    input            clk,           // Clock input
+    input            rst_n,         // Reset input
+    input            done_i,        // Done signal when operation is complete
+    input            first_done,
+    input            last_done,
     // for datapath
-    output     wr_en,       // Write enable signal
-    output reg rd_en,       // Read enable signal
-    output reg reset_en,
+    output           wr_en,         // Write enable signal
+    output reg       rd_en,         // Read enable signal
+    output reg       reset_en,
     // for next buff
-    output reg o_valid,
-    output reg o_start,
-    output reg o_finish,
-    output reg [2:0] current_state, next_state
+    output reg       o_valid,
+    output reg       o_start,
+    output reg       o_finish,
+    output reg [2:0] current_state
 
 );
-
+  reg [2:0] next_state;
   parameter IDLE = 3'b000;
   parameter START = 3'b001;
   parameter FIRST_READ = 3'b010;

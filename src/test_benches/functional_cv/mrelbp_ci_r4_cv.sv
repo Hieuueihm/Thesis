@@ -1,4 +1,4 @@
-interface mrelbp_ci_r2_if (
+interface mrelbp_ci_r4_if (
     input logic clk,
     rst_n
 );
@@ -8,6 +8,10 @@ interface mrelbp_ci_r2_if (
   logic [7:0] S3;
   logic [7:0] S4;
   logic [7:0] S5;
+  logic [7:0] S6;
+  logic [7:0] S7;
+  logic [7:0] S8;
+  logic [7:0] S9;
   logic ci_o;
   logic progress_done_o;
   logic [2:0] current_state;
@@ -16,8 +20,8 @@ interface mrelbp_ci_r2_if (
 endinterface
 
 
-class mrelbp_ci_r2_cv;
-  virtual interface mrelbp_ci_r2_if vif;
+class mrelbp_ci_r4_cv;
+  virtual interface mrelbp_ci_r4_if vif;
   logic i_en;
 
 
@@ -29,6 +33,10 @@ class mrelbp_ci_r2_cv;
     S3_cp: coverpoint vif.S3 {bins all_values[] = {[0 : 255]};}
     S4_cp: coverpoint vif.S4 {bins all_values[] = {[0 : 255]};}
     S5_cp: coverpoint vif.S5 {bins all_values[] = {[0 : 255]};}
+    S6_cp: coverpoint vif.S6 {bins all_values[] = {[0 : 255]};}
+    S7_cp: coverpoint vif.S7 {bins all_values[] = {[0 : 255]};}
+    S8_cp: coverpoint vif.S8 {bins all_values[] = {[0 : 255]};}
+    S9_cp: coverpoint vif.S9 {bins all_values[] = {[0 : 255]};}
 
     done_i_cp: coverpoint i_en {bins value = {1};}
 
@@ -37,6 +45,10 @@ class mrelbp_ci_r2_cv;
     cross S3_cp, done_i_cp;
     cross S4_cp, done_i_cp;
     cross S5_cp, done_i_cp;
+    cross S6_cp, done_i_cp;
+    cross S7_cp, done_i_cp;
+    cross S8_cp, done_i_cp;
+    cross S9_cp, done_i_cp;
 
 
   endgroup
@@ -74,7 +86,7 @@ class mrelbp_ci_r2_cv;
 
 
 
-  function new(virtual interface mrelbp_ci_r2_if vif);
+  function new(virtual interface mrelbp_ci_r4_if vif);
     this.vif = vif;
     cg_check_data_i_valid = new();
     cg_fsm_check = new();
@@ -102,11 +114,11 @@ class mrelbp_ci_r2_cv;
 
     avg_cov = (cov_i + cov_fsm + cov_sig) / 3.0;
 
-    $display("CI r2 Coverage Input:   %0.2f%%", cov_i);
-    $display("CI r2 Coverage FSM:   %0.2f%%", cov_fsm);
-    $display("CI r2 Coverage Signal:   %0.2f%%", cov_sig);
+    $display("CI r4 Coverage Input:   %0.2f%%", cov_i);
+    $display("CI r4 Coverage FSM:   %0.2f%%", cov_fsm);
+    $display("CI r4 Coverage Signal:   %0.2f%%", cov_sig);
     $display("=====================================");
-    $display("CI r2 Average Module Coverage: %0.2f%%", avg_cov);
+    $display("CI r4 Average Module Coverage: %0.2f%%", avg_cov);
   endfunction
 
 

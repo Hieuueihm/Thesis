@@ -48,7 +48,6 @@ module mrelbp_ci_r4 #(
       .start_en(start_en),
       .progress_done(pd),
       .reset_en(reset_en)
-
   );
 
   r4_sum #(

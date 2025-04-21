@@ -8,11 +8,10 @@ module data_modulate_7x7_controller (
     output o_en,
     output reg count_en,
     output reg reset_en,
-    output reg [1:0] current_state,
-    next_state
+    output reg [1:0] current_state
 
 );
-
+  reg [1:0] next_state;
   parameter IDLE = 2'b00;
   parameter START = 2'b01;
   parameter DATA = 2'b10;
