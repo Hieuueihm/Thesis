@@ -59,7 +59,7 @@ class median_calc_3x3_cv;
     cross done_o_cp, median_o_cp;
 
   endgroup
-  covergroup cg_match_data @(posedge vif.clk);
+  covergroup cg_match_data;
     option.per_instance = 1;
     coverpoint match_cnt {bins match[] = {[0 : 128 * 128 - 1]};}
   endgroup
@@ -99,16 +99,14 @@ class median_calc_3x3_cv;
         if (median_fifo.size() > 0) begin
           if (vif.median_o == median_fifo[0]) begin
             match_cnt++;
-          end else begin
-            $display("Median value mismatch: expected %0d, got %0d", median_fifo[0], vif.median_o);
           end
           median_fifo.pop_front();
         end
-
+        cg_match_data.sample();
       end
     end
   endtask
-  function void report();
+  function real report();
     real cov_i, cov_o, cov_match;
     real avg_cov;
 
@@ -117,12 +115,15 @@ class median_calc_3x3_cv;
     cov_match = cg_match_data.get_coverage();
 
     avg_cov = (cov_i + cov_o + cov_match) / 3.0;
-
+    $display("=====================================");
     $display("MedianCalc 3x3 Coverage Input:   %0.2f%%", cov_i);
     $display("MedianCalc 3x3 Coverage Output:  %0.2f%%", cov_o);
     $display("MedianCalc 3x3 Coverage Match:   %0.2f%%", cov_match);
     $display("=====================================");
     $display("MedianCalc 3x3 Average Module Coverage: %0.2f%%", avg_cov);
+    $display("=====================================");
+
+    return avg_cov;
   endfunction
 
   function logic [7:0] calculate_median(logic [7:0] S1, S2, S3, S4, S5, S6, S7, S8, S9);

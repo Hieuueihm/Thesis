@@ -132,12 +132,7 @@ class monitor;
   event done;
 
   function new(mailbox#(transaction) mbx);
-    file_id = $fopen("D:\\Thesis\\auto_scripts\\histogram_layered_test.txt",
-                     "w");  // Mở file để ghi kết quả
-    if (file_id == 0) begin
-      $display("Error: Unable to open file.");
-      $finish;
-    end
+
     this.mbx = mbx;
   endfunction
 
@@ -152,13 +147,18 @@ class monitor;
         idx++;
 
         if (idx == 600) begin
-
           tr = new();
           tr.display("MON");
           foreach (hist_bins[i])
           tr.histogram[i] = hist_bins[i];  // Assuming histogram is now an array in transaction
           tr.o_valid = 1;
           mbx.put(tr);
+          file_id = $fopen("D:\\Thesis\\auto_scripts\\histogram_layered_test.txt",
+                           "w");  // Mở file để ghi kết quả
+          if (file_id == 0) begin
+            $display("Error: Unable to open file.");
+            $finish;
+          end
           foreach (hist_bins[i]) begin
             $fwrite(file_id, "%0d\n", hist_bins[i]);
           end

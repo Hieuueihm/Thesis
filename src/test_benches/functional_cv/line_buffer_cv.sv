@@ -120,7 +120,7 @@ class line_buffer_cv;
   endtask
 
 
-  function void report();
+  function real report();
     real cov_i, cov_o, cov_match, cov_start, cov_fsm;
     real avg_cov;
 
@@ -131,14 +131,18 @@ class line_buffer_cv;
     cov_fsm   = cg_fsm_check.get_coverage();
 
     avg_cov   = (cov_i + cov_o + cov_match + cov_start + cov_fsm) / 5.0;
+    $display("======================================================");
 
     $display("Coverage Input:   %0.2f%%", cov_i);
     $display("Coverage Output:  %0.2f%%", cov_o);
     $display("Coverage Match:   %0.2f%%", cov_match);
     $display("Coverage Start:   %0.2f%%", cov_start);
     $display("Coverage FSM:     %0.2f%%", cov_fsm);
-    $display("=====================================");
+    $display("======================================================");
     $display("Average Module Coverage: %0.2f%%", avg_cov);
+    $display("======================================================");
+
+    return avg_cov;
   endfunction
 
 

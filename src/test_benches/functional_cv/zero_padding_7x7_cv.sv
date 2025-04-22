@@ -428,7 +428,7 @@ begin
     end
   endtask
 
-  function void report();
+  function real report();
     real cov_i, cov_o, cov_match, cov_trans, cov_match_val, cov_fsm;
     real avg_cov;
 
@@ -440,6 +440,7 @@ begin
     cov_fsm = cg_fsm_check.get_coverage();
 
     avg_cov = (cov_i + cov_o + cov_match + cov_trans + cov_match_val + cov_fsm) / 6.0;
+    $display("======================================================");
 
     $display("ZeroPadding 7x7 Coverage Input:   %0.2f%%", cov_i);
     $display("ZeroPadding 7x7 Coverage Output:  %0.2f%%", cov_o);
@@ -447,8 +448,10 @@ begin
     $display("ZeroPadding 7x7 Coverage Trans:   %0.2f%%", cov_trans);
     $display("ZeroPadding 7x7 Coverage Match Value:   %0.2f%%", cov_match_val);
     $display("ZeroPadding 7x7 Coverage FSM:   %0.2f%%", cov_fsm);
-    $display("=====================================");
+    $display("======================================================");
     $display("ZeroPadding 7x7 Average Module Coverage: %0.2f%%", avg_cov);
+    $display("======================================================");
+    return avg_cov;
   endfunction
 
   function int get_template_id();

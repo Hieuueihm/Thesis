@@ -14,11 +14,15 @@ module r4_controller #(
     output reg start_en,
     output reg ld_en,
     output reg progress_done,
-    output reg reset_en,
+    output reg reset_en
+    `ifdef SIMULATION
+    ,
     output reg [2:0] current_state
-
+`endif 
 );
-
+  `ifdef SYNTHESIS
+    reg [2:0] current_state;
+  `endif 
 
   reg [2:0] next_state, prev_state;
   parameter IDLE = 3'b000;

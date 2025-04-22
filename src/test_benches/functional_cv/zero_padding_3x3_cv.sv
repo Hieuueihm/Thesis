@@ -146,7 +146,7 @@ class zero_padding_3x3_cv;
       end
     end
   endtask
-  function void report();
+  function real report();
     real cov_i, cov_o, cov_match, cov_trans, cov_match_val, cov_fsm;
     real avg_cov;
 
@@ -158,6 +158,7 @@ class zero_padding_3x3_cv;
     cov_fsm = cg_fsm_check.get_coverage();
 
     avg_cov = (cov_i + cov_o + cov_match + cov_trans + cov_match_val + cov_fsm) / 6.0;
+    $display("======================================================");
 
     $display("ZeroPadding 3x3 Coverage Input:   %0.2f%%", cov_i);
     $display("ZeroPadding 3x3 Coverage Output:  %0.2f%%", cov_o);
@@ -165,8 +166,10 @@ class zero_padding_3x3_cv;
     $display("ZeroPadding 3x3 Coverage Trans:   %0.2f%%", cov_trans);
     $display("ZeroPadding 3x3 Coverage Match Value:   %0.2f%%", cov_match_val);
     $display("ZeroPadding 3x3 Coverage FSM:   %0.2f%%", cov_fsm);
-    $display("=====================================");
+    $display("======================================================");
     $display("ZeroPadding 3x3 Average Module Coverage: %0.2f%%", avg_cov);
+    $display("======================================================");
+
   endfunction
 
 

@@ -104,7 +104,7 @@ class mrelbp_ci_r4_cv;
 
     end
   endtask
-  function void report();
+  function real report();
     real cov_i, cov_fsm, cov_sig;
     real avg_cov;
 
@@ -113,12 +113,15 @@ class mrelbp_ci_r4_cv;
     cov_sig = cg_check_finish.get_coverage();
 
     avg_cov = (cov_i + cov_fsm + cov_sig) / 3.0;
+    $display("======================================================");
 
     $display("CI r4 Coverage Input:   %0.2f%%", cov_i);
     $display("CI r4 Coverage FSM:   %0.2f%%", cov_fsm);
     $display("CI r4 Coverage Signal:   %0.2f%%", cov_sig);
-    $display("=====================================");
+    $display("======================================================");
     $display("CI r4 Average Module Coverage: %0.2f%%", avg_cov);
+    $display("======================================================");
+    return avg_cov;
   endfunction
 
 

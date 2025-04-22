@@ -13,10 +13,15 @@ module line_buffer_controller #(
     // for next buff
     output reg       o_valid,
     output reg       o_start,
-    output reg       o_finish,
+    output reg       o_finish
+`ifdef SIMULATION
+    ,
     output reg [2:0] current_state
-
+`endif
 );
+  `ifdef SYNTHESIS
+    reg [2:0] current_state;
+  `endif 
   reg [2:0] next_state;
   parameter IDLE = 3'b000;
   parameter START = 3'b001;

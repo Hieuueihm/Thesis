@@ -14,29 +14,15 @@ module r6_controller #(
     output reg start_en,
     output reg ld_en,
     output reg progress_done,
-    output reg reset_en,
+    output reg reset_en
+   `ifdef SIMULATION
+    ,
     output reg [2:0] current_state
-
+`endif 
 );
-  // i_col = 0 -> done_o = 0
-  // reg [9:0] counter;
-  // reg done_extended;
-  // always @(posedge clk or posedge rst_n) begin
-  //     if (~rst_n) begin
-  //         counter       <= 0;
-  //         done_extended <= 0;
-  //         end else if (done_i) begin
-  //         counter       <= 0;
-  //         done_extended <= 1;
-  //         end else if (done_extended && counter < COLS) begin
-  //         counter       <= counter + 1;
-  //         done_extended <= 1;
-  //         end else begin
-  //         counter       <= 0;
-  //         done_extended <= 0;
-  //     end
-  // end
-  // assign  done_i = (done_i | done_extended);
+  `ifdef SYNTHESIS
+    reg [2:0] current_state;
+  `endif 
 
   reg [2:0] next_state, prev_state;
   parameter IDLE = 3'b000;

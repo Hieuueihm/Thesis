@@ -45,8 +45,8 @@ def run_vivado_script():
 
 
 diff = 0
-for i in range(1, 100):
-    random_matrix = generate_input( 128, i)
+for j in range(1, 100):
+    random_matrix = generate_input( 128, j)
     # print(random_matrix)
     np.savetxt("D:\\Thesis\\auto_scripts\\random_matrix.txt", random_matrix, fmt='%d')
 
@@ -61,6 +61,6 @@ for i in range(1, 100):
         print("compare file!")
         if(compare_files("histogram_o.txt", "histogram_layered_test.txt") == False):
             diff += 1
-            print("Difference found in test case", i)
+            print("Difference found in test case", j)
 
 

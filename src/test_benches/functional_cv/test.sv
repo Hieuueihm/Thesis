@@ -19,6 +19,14 @@ module test_top_tb ();
   `include "mrelbp_ci_r4_cv.sv"
   `include "mrelbp_ci_r6_cv.sv"
 
+  `include "nird_r2_cv.sv"
+  `include "nird_r4_cv.sv"
+  // `include "nird_r6_cv.sv "
+
+  `include "joint_r2_cv.sv"
+  `include "joint_r4_cv.sv"
+  `include "joint_r6_cv.sv"
+
   task read_matrix;
     input integer file_id;
     reg [7:0] temp_value;
@@ -414,6 +422,122 @@ module test_top_tb ();
   mrelbp_ci_r6_cv ci_r6_cv = new(ci_r6_if);
 
 
+  nird_r2_if r2_nird_if (
+      clk,
+      rst_n
+  );
+  assign r2_nird_if.done_o = DUT.inst_top_module__datapath.r2_ni_rd.done_o;
+  assign r2_nird_if.progress_done_o = DUT.inst_top_module__datapath.r2_ni_rd.progress_done_o;
+  assign r2_nird_if.data_r1 = DUT.inst_top_module__datapath.r2_ni_rd.m_3x3_i;
+  assign r2_nird_if.r1_valid = DUT.inst_top_module__datapath.r2_ni_rd.done_m_3x3_i;
+  assign r2_nird_if.data_r2 = DUT.inst_top_module__datapath.r2_ni_rd.data_original_i;
+  assign r2_nird_if.r2_valid = DUT.inst_top_module__datapath.r2_ni_rd.done_original_i;
+
+  assign r2_nird_if.ni_o = DUT.inst_top_module__datapath.r2_ni_rd.ni_o;
+  assign r2_nird_if.rd_o = DUT.inst_top_module__datapath.r2_ni_rd.rd_o;
+
+  nird_r2_cv nird_r2_ins = new(r2_nird_if);
+
+
+  nird_r4_if r4_nird_if (
+      clk,
+      rst_n
+  );
+  assign r4_nird_if.done_o = DUT.inst_top_module__datapath.r4_ni_rd.done_o;
+  assign r4_nird_if.progress_done_o = DUT.inst_top_module__datapath.r4_ni_rd.progress_done_o;
+  assign r4_nird_if.data_r1 = DUT.inst_top_module__datapath.r4_ni_rd.m_5x5_i;
+  assign r4_nird_if.r1_valid = DUT.inst_top_module__datapath.r4_ni_rd.done_m_5x5_i;
+  assign r4_nird_if.data_r2 = DUT.inst_top_module__datapath.r4_ni_rd.m_3x3_i;
+  assign r4_nird_if.r2_valid = DUT.inst_top_module__datapath.r4_ni_rd.done_m_3x3_i;
+  assign r4_nird_if.ni_o = DUT.inst_top_module__datapath.r4_ni_rd.ni_o;
+  assign r4_nird_if.rd_o = DUT.inst_top_module__datapath.r4_ni_rd.rd_o;
+
+
+  nird_r4_cv nird_r4_ins = new(r4_nird_if);
+
+
+
+  // nird_r6_if r6_nird_if (
+  //     clk,
+  //     rst_n
+  // );
+  // assign r6_nird_if.done_o = DUT.inst_top_module__datapath.r6_ni_rd.done_o;
+  // assign r6_nird_if.progress_done_o = DUT.inst_top_module__datapath.r6_ni_rd.progress_done_o;
+  // assign r6_nird_if.data_r1 = DUT.inst_top_module__datapath.r6_ni_rd.m_7x7_i;
+  // assign r6_nird_if.r1_valid = DUT.inst_top_module__datapath.r6_ni_rd.done_m_7x7_i;
+  // assign r6_nird_if.data_r2 = DUT.inst_top_module__datapath.r6_ni_rd.m_5x5_i;
+  // assign r6_nird_if.r2_valid = DUT.inst_top_module__datapath.r6_ni_rd.done_m_5x5_i;
+
+  // assign r6_nird_if.ni_o = DUT.inst_top_module__datapath.r6_ni_rd.ni_o;
+  // assign r6_nird_if.rd_o = DUT.inst_top_module__datapath.r6_ni_rd.rd_o;
+
+
+  // nird_r6_cv nird_r6_ins = new(r6_nird_if);
+
+
+  joint_r2_if j_r2_if (
+      clk,
+      rst_n
+  );
+
+  assign j_r2_if.done_i = DUT.inst_top_module__datapath.joint_r2.done_i;
+  assign j_r2_if.done_o = DUT.inst_top_module__datapath.joint_r2.done_o;
+  assign j_r2_if.ci_i = DUT.inst_top_module__datapath.joint_r2.ci_i;
+  assign j_r2_if.ni_i = DUT.inst_top_module__datapath.joint_r2.ni_i;
+  assign j_r2_if.rd_i = DUT.inst_top_module__datapath.joint_r2.rd_i;
+  assign j_r2_if.finish = DUT.inst_top_module__datapath.joint_r2.finish;
+  assign j_r2_if.cinird_o = DUT.inst_top_module__datapath.joint_r2.cinird_o;
+  assign j_r2_if.read_en = DUT.inst_top_module__datapath.joint_r2.read_en;
+  assign j_r2_if.current_state = DUT.inst_top_module__datapath.joint_r2.joint_CONTROLLER.current_state;
+
+
+  joint_r2_cv j_r2_cv = new(j_r2_if, "joint r2");
+
+
+  joint_r4_if j_r4_if (
+      clk,
+      rst_n
+  );
+
+  assign j_r4_if.done_o = DUT.inst_top_module__datapath.joint_r4.done_o;
+  assign j_r4_if.done_i = DUT.inst_top_module__datapath.joint_r4.done_i;
+  assign j_r4_if.ci_i = DUT.inst_top_module__datapath.joint_r4.ci_i;
+  assign j_r4_if.ni_i = DUT.inst_top_module__datapath.joint_r4.ni_i;
+  assign j_r4_if.rd_i = DUT.inst_top_module__datapath.joint_r4.rd_i;
+  assign j_r4_if.finish = DUT.inst_top_module__datapath.joint_r4.finish;
+  assign j_r4_if.cinird_o = DUT.inst_top_module__datapath.joint_r4.cinird_o;
+  assign j_r4_if.read_en = DUT.inst_top_module__datapath.joint_r4.read_en;
+  assign j_r4_if.current_state = DUT.inst_top_module__datapath.joint_r4.joint_CONTROLLER.current_state;
+
+
+  joint_r4_cv j_r4_cv = new(j_r4_if, "joint r4");
+
+
+
+
+
+  joint_r6_if j_r6_if (
+      clk,
+      rst_n
+  );
+
+  assign j_r6_if.done_o = DUT.inst_top_module__datapath.joint_r6.done_o;
+  assign j_r6_if.done_i = DUT.inst_top_module__datapath.joint_r6.done_i;
+  assign j_r6_if.ci_i = DUT.inst_top_module__datapath.joint_r6.ci_i;
+  assign j_r6_if.ni_i = DUT.inst_top_module__datapath.joint_r6.ni_i;
+  assign j_r6_if.rd_i = DUT.inst_top_module__datapath.joint_r6.rd_i;
+  assign j_r6_if.finish = DUT.inst_top_module__datapath.joint_r6.finish;
+  assign j_r6_if.cinird_o = DUT.inst_top_module__datapath.joint_r6.cinird_o;
+  assign j_r6_if.read_en = DUT.inst_top_module__datapath.joint_r6.read_en;
+  assign j_r6_if.current_state = DUT.inst_top_module__datapath.joint_r6.joint_CONTROLLER.current_state;
+
+
+  joint_r6_cv j_r6_cv = new(j_r6_if, "joint r6");
+
+
+
+
+
 
 
 
@@ -429,6 +553,7 @@ module test_top_tb ();
   end
   initial begin
     fork
+      lb_cv.monitor();
       zero_3x3_cv.monitor();
       zero_5x5_cv.monitor();
       zero_7x7_cv.monitor();
@@ -438,14 +563,15 @@ module test_top_tb ();
       ci_r2_cv.monitor();
       ci_r4_cv.monitor();
       ci_r6_cv.monitor();
+      nird_r2_ins.monitor();
+      nird_r4_ins.monitor();
+      // nird_r6_ins.monitor();
+      j_r2_cv.monitor();
+      j_r4_cv.monitor();
+      j_r6_cv.monitor();
     join_none
   end
 
-  initial begin
-    fork
-      lb_cv.monitor();
-    join_none
-  end
 
   always #(`half_clk_period) clk = ~clk;
 
@@ -514,6 +640,12 @@ module test_top_tb ();
     ci_r2_cv.report();
     ci_r4_cv.report();
     ci_r6_cv.report();
+    nird_r2_ins.report("r2");
+    nird_r4_ins.report("r4");
+    // nird_r6_ins.report("r6");
+    j_r2_cv.report("r2");
+    j_r4_cv.report("r4");
+    j_r6_cv.report("r6");
     #100;
     $stop;
   end

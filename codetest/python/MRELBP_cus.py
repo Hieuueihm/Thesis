@@ -672,9 +672,7 @@ def compare_files(file1, file2):
 # file2 = 'histogram_o.txt'
 # compare_files(file1, file2)
 
-file1 = 'histogram_verilog.txt'
-file2 = 'histogram_o.txt'
-compare_files(file1, file2)
+
 
 # file1 = 'rd_r4_hls.txt'
 # file2 = 'rd_r4.txt'
@@ -733,9 +731,6 @@ compare_files(file1, file2)
 # file4   = 'ni_r6_verilog.txt'
 # compare_files(file3, file4)
 
-# file3 = 'rd_r6.txt'
-# file4   = 'rd_r6_verilog.txt'
-# compare_files(file3, file4)
 # file3 = 'ci_r8.txt'
 # file4   = 'ni_r8.txt'
 # compare_files(file3, file4)
@@ -750,6 +745,21 @@ compare_files(file1, file2)
 # file4   = 'median_3x3.txt'
 # compare_files(file3, file4)
 
+# file3 = 'ni_r2.txt'
+# file4   = 'ni_r2_verilog.txt'
+# compare_files(file3, file4)
+
+# file3 = 'rd_r2.txt'
+# file4   = 'rd_r2_verilog.txt'
+# compare_files(file3, file4)
+
+# file3 = 'ci_r2.txt'
+# file4   = 'ci_r2_verilog.txt'
+# compare_files(file3, file4)
+
+file1 = 'histogram_verilog.txt'
+file2 = 'histogram_o.txt'
+compare_files(file1, file2)
 # file3 = 'median_5x5_verilog.txt'
 # file4   = 'median_5x5.txt'
 # compare_files(file3, file4)

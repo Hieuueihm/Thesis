@@ -8,11 +8,19 @@ module joint_histogram_controller (
     output reg finish,
     output reg count_en,
     output reg reset_en,
-    input reset_done
+    input reset_done  
+    `ifdef SIMULATION 
+    ,
+    output reg [2:0] current_state
+    `endif
+
 );
+`ifdef SYNTHESIS
+  reg [2:0] current_state;
+`endif
 
   parameter RESET = 3'b000, IDLE = 3'b001, COUNTING = 3'b010, READING = 3'b011, FINISH = 3'b100;
-  reg [2:0] current_state, next_state;
+  reg [2:0] next_state;
 
   always @(posedge clk) begin
     if (~rst_n) current_state <= RESET;
