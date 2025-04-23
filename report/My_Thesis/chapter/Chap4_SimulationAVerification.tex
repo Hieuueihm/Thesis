@@ -22,8 +22,8 @@ Vậy để có thể kiểm tra được toàn bộ thiết kế một cách đ
 \label{fig:verificationEva}
 \end{figure}
 
-\section{Phương pháp xây dựng kiểm thử}
-Hình \ref{fig;testComponents} mô tả các thành phần cơ bản của một bộ kiểm tra, bao gồm testbench sẽ sinh ra các kích thích đầu vào và sau đó thu thập các dữ liệu đầu ra.
+\section{Phương pháp xây dựng kiểm thử và kết quả}
+Hình \ref{fig:testComponents} mô tả các thành phần cơ bản của một bộ kiểm tra, bao gồm testbench sẽ sinh ra các kích thích đầu vào và sau đó thu thập các dữ liệu đầu ra.
 Trong khi thiết kế, kỹ sư sẽ cần kiểm tra ngay lập tức chức năng của một hoặc nhiều mô đun để đảm bảo tính chính xác một cách chưa đầy đủ, tức là kiểm tra mô đun đó đã hoạt động đúng tính năng mong muốn hay chưa, tuy nhiên có thể có những trường hợp ngoại lệ mà kỹ sư có thể không nghĩ đến. Do đó, thường thì kỹ sư sẽ kiểm tra bằng cách tạo ra các bộ kiểm thử với kích thích sinh trực tiếp để tiết kiệm về mặt thời gian. Do đó, đối với các mô đun nhỏ, sinh viên sẽ tự đưa ra các bộ kích thích trực tiếp và sau đó kiểm tra kết quả với đầu ra đã có trước. 
 
 \begin{figure}[!ht]
@@ -33,26 +33,45 @@ Trong khi thiết kế, kỹ sư sẽ cần kiểm tra ngay lập tức chức n
 	\label{fig:testComponents}
 \end{figure}
 
-Tuy nhiên, khi cần kiểm tra tính đúng đắn của toàn bộ thiết kế, sinh viên sẽ sử dụng một thiết kế kiểm tra gọi là kiểm tra lớp (layered test-bench) được viết bằng ngôn ngữ SystemVerilog. Bộ kiểm thử lớp này có vẻ sẽ phức tạp hơn so với thiết kế trực tiếp, tuy nhiên thực tế nó sẽ giúp quản lý các công việc một cách dễ dàng hơn bằng cách chia mã nguồn thành các thành phần nhỏ hơn. Hình \ref{fig:layeredLayer} mô tả các lớp của bộ kiểm tra lớp và hình \ref{fig:layeredTestbench} mô tả các đầy đủ các thành phần của bộ kiểm tra lớp.
-
+Tuy nhiên, để kiểm tra tự động với những đầu vào ngẫu nhiên đồng thời đánh giá về độ bao phủ của bộ kiểm tra, sinh viên đã định nghĩa ra một bộ kiểm thử có kiến trúc được mô tả tại hình \ref{fig:myLayeredtb}. \textit{Lưu ý: Ngôn ngữ sử dụng để xây dựng bộ kiểm tra phân tầng là SystemVerilog}. Về cơ bản, bộ kiểm tra này sẽ gồm các lớp thực hiện các chức năng riêng biệt theo một kịch bản đã định nghĩa trước. Đầu tiên là lớp Transaction, lớp này sẽ định nghĩa ra các giao dịch, càng ràng buộc để tạo dữ liệu đầu và đồng thời đưa ra các phương thức để sao chép. Lớp Generator sẽ có nhiệm vụ thực hiện việc sinh ra các dữ liệu đầu vào và sau khi sinh xong hết, nó sẽ có một lời gọi hệ thống để chạy 1 bộ tính toán ra dữ liệu mong muốn ở bên ngoài bộ kiểm tra. Dữ liệu được sinh ra sẽ được đẩy xuống lớp Driver qua một cách vận chuyển gọi là mailbox. Đây là các để chuyển dữ liệu qua 2 lớp của ngôn ngữ SystemVerilog. Lớp Driver sẽ thực hiện hai phương thức chính là \textbf{reset} và \textbf{run}. Trong đó reset giúp khởi động lại toàn bộ hệ thống, còn run sẽ thực hiện đưa dữ liệu đó vào DUT để thực hiện tính toán. Lớp Monitor sẽ liên tục giám sát DUT, nếu đã có dữ liệu đầu ra, lớp này sẽ bắt lại nó, sau đó đưa vào lớp Scoreboard. Lớp Scoreboard sẽ đọc dữ liệu mong muốn và dữ liệu thực tế, so sánh và đưa ra đánh giá. Trong lúc tất cả các lớp khác đang hoạt động, lớp đánh giá độ bao phủ về mặt chức năng cũng đồng thời đánh giá các trường hợp. Sau khi đã kiểm tra hết số lượng kiểm thử đã định nghĩa, một báo cáo về độ bao phủ về mặt chức năng sẽ được đưa ra. Các event là một kiểu dữ liệu của SystemVerilog dùng để chờ hoặc kích hoạt nhằm đảm bảo kịch bản sẽ hoạt động chính xác theo trình tự.
 \begin{figure}[!ht]
 	\centering
-	\begin{minipage}[t]{0.48\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{figures/layeredTestbench.png}
-		\caption{Các thành phần của bộ kiểm tra lớp}
-		\label{fig:layeredTestbench}
-	\end{minipage}
-	\hfill
-	\begin{minipage}[t]{0.48\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{figures/layeredLayer.png}
-		\caption{Các lớp của bộ kiểm tra lớp}
-		\label{fig:layeredLayer}
-	\end{minipage}
+	\includegraphics[width=\linewidth]{figures/myLayeredtb.png}
+	\caption{Bộ kiểm tra phân tầng}
+	\label{fig:myLayeredtb}
 \end{figure}
 
-Ở lớp dưới cùng là lớp tín hiệu, lớp này sẽ bao gồm các tín hiệu được kết nối với testbench. Lớp phía trên ngay nó là lớp lệnh. Các tín hiêu vào của DUT được điều khiển bởi các lệnh. Các dữ liệu đầu ra của DUT sẽ được bộ giám sát thu được và chuyển chúng thành các lệnh. Lớp chức năng sẽ nhận được các phiên từ các lớp cao hơn và chuyển chúng thành các lệnh riêng biệt hoặc các phiên. Các lệnh này cũng sẽ được gửi tới bộ scoreboard để dự đoán kết quả và bộ kiểm tra sẽ ....
+Để đánh giá về độ bao phủ về mặt chức năng, kỹ sư cần đưa ra các điểm cần bao phủ. Đối với ngôn ngữ SystemVerilog, ngôn ngữ hỗ trợ các tính năng sau giúp đánh giá độ bao phủ:
+\begin{itemize}
+	\item Coverpoint - điểm bao phủ: là điểm mà sẽ thực hiện đánh giá bao phủ, thực chất điểm ở đây là các tín hiệu hoặc các biến
+	\item Covergroup - nhóm bao phủ: là tập hợp các điểm bao phủ sẽ được lấy mẫu
+	\item Bins định nghĩa ra các trường hợp mà coverpoint sẽ cần xảy ra, nếu coverpoint xuất hiện giá trị được định nghĩa trong bins thì coi như là "hit" nếu không xuất hiện bất cứ lần nào thì là "miss"
+	\item Cross: có thể gộp 2 hoặc nhiều coverpoint theo các tổ hợp có thể xảy ra với cross, ví dụ nếu định nghĩa coverpoint tín hiệu i\_valid, thì có thể cross i\_valid và dữ liệu để đánh giá xem trường hợp khi giá trị đầu vào là hợp lệ thì dữ liệu có hợp lệ hay không.
+	\item Covergroup.get\_coverage(): sẽ đưa ra tỉ lệ hit trên tổng sổ các trường hợp có thể xảy ra của các coverpoint được định nghĩa trong covergroup đó.
+\end{itemize}
+Sinh viên đã định nghĩa ra một vài trường hợp để đánh giá độ bao phủ về mặt chức năng được mô tả trong bảng \ref{tab:myFC}. Ngoài một vài các trường hợp được định nghĩa ở trong bảng thì một vài mô đun sẽ có các trường hợp đánh giá riêng phù hợp cho mô đun đó, ví dụ với mô đun ZeroPadding thì sẽ cần đánh giá xem các trường hợp chuyển cửa sổ đệm có theo trình tự hay không.
 
-\section{Đánh giá kết quả kiểm thử}
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.3}
+	\begin{tabular}{|p{4cm} p{4cm} p{6cm}|}
+		\hline
+		\rowcolor{gray!30}
+		\textbf{Tên chức năng} & \textbf{Mô tả}  & Ví dụ  \\
+		\hline
+		Dữ liệu đầu vào và ra & Đánh giá dữ liệu vào có đủ hết trường hợp ứng với số bit của dữ liệu hay không & 8 bit có xuất hiện đủ 256 giá trị hay không
+		\\ \hline
+		Đánh giá chuyển trạng thái & Đánh giá xem có chuyển hết các trạng thái đã định nghĩa hay không & Trạng thái đảm bảo chuyển từ \textit{READ->DONE->IDLE} trong 3 chu kỳ liên tiếp
+	
+		\\ \hline
+		Đánh giá điều kiện tín hiệu & Đánh giá xem tín hiệu có hoạt động đúng như mô tả trong đặc tả hay không & Tín hiệu o\_valid chuyển từ 1->0 đồng thời tín hiệu o\_finish chuyển từ 0->1 trong 2 chu kỳ liên tiếp và phải đồng thời
+		\\ \hline
+	\end{tabular}
+	\caption{Các yếu tố để dánh giá độ bao phủ chức năng}
+	\label{tab:myFC}
+\end{table}
+
+\textbf{Kết quả: } Với các ràng buộc đưa ra cùng với các điểm cần bao phủ, bộ kiểm tra đã đạt được độ bao phủ 89.33\%. 
+
+
 

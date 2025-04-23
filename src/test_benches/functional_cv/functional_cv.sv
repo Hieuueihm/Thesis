@@ -798,7 +798,7 @@ top_if intf (clk);
   initial begin
     avg_cov = 0;
     env = new(intf);
-    env.gen.count = 2;
+    env.gen.count = 50;
     intf.i_data_ready <= 1;  // always ready to receive histogram
     env.run();
 

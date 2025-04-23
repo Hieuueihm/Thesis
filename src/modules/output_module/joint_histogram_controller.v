@@ -33,7 +33,7 @@ module joint_histogram_controller (
       IDLE:     next_state = (done_i) ? COUNTING : IDLE;
       COUNTING: next_state = (read_en) ? READING : COUNTING;
       READING:  next_state = (done_read) ? FINISH : READING;
-      FINISH:   next_state = IDLE;
+      FINISH:   next_state = RESET;
       default:  next_state = IDLE;
 
     endcase

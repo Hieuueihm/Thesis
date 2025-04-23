@@ -126,45 +126,45 @@ module ci_top #(
   );
 
 
-  integer file1, file2, file3;
-  integer count;
-  always @(posedge clk) begin
-    if (~rst_n) begin
-      count = 0;
-      file1 = $fopen("D:\\Thesis\\codetest\\python\\ci_r2_verilog.txt", "w");
-      file2 = $fopen("D:\\Thesis\\codetest\\python\\ci_r4_verilog.txt", "w");
-      file3 = $fopen("D:\\Thesis\\codetest\\python\\ci_r6_verilog.txt", "w");
-    end
-    if (done_r2) begin
-      if (file1) begin
-        $fwrite(file1, "%d\n", ci_r2_o);
-      end
-    end
-    if (progress_done_r2) begin
-      $fclose(file1);
-    end
-    if (done_r4) begin
-      if (file2) begin
-        $fwrite(file2, "%d\n", ci_r4_o);
-      end
-    end
-    if (progress_done_r4) begin
-      $fclose(file2);
-    end
+  //   integer file1, file2, file3;
+  //   integer count;
+  //   always @(posedge clk) begin
+  //     if (~rst_n) begin
+  //       count = 0;
+  //       file1 = $fopen("D:\\Thesis\\codetest\\python\\ci_r2_verilog.txt", "w");
+  //       file2 = $fopen("D:\\Thesis\\codetest\\python\\ci_r4_verilog.txt", "w");
+  //       file3 = $fopen("D:\\Thesis\\codetest\\python\\ci_r6_verilog.txt", "w");
+  //     end
+  //     if (done_r2) begin
+  //       if (file1) begin
+  //         $fwrite(file1, "%d\n", ci_r2_o);
+  //       end
+  //     end
+  //     if (progress_done_r2) begin
+  //       $fclose(file1);
+  //     end
+  //     if (done_r4) begin
+  //       if (file2) begin
+  //         $fwrite(file2, "%d\n", ci_r4_o);
+  //       end
+  //     end
+  //     if (progress_done_r4) begin
+  //       $fclose(file2);
+  //     end
 
-    if (done_r6) begin
-      if (file3) begin
-        $fwrite(file3, "%d\n", ci_r6_o);
-        $fflush(file3);
-      end
-    end
-    if (progress_done_r6 && count == 0) begin
-      count = count + 1;
-      $fwrite(file3, "end\n");
-    end else if (progress_done_r6 && count == 1) begin
-      $fclose(file3);
-    end
+  //     if (done_r6) begin
+  //       if (file3) begin
+  //         $fwrite(file3, "%d\n", ci_r6_o);
+  //         $fflush(file3);
+  //       end
+  //     end
+  //     if (progress_done_r6 && count == 0) begin
+  //       count = count + 1;
+  //       $fwrite(file3, "end\n");
+  //     end else if (progress_done_r6 && count == 1) begin
+  //       $fclose(file3);
+  //     end
 
-  end
+  //   end
 
 endmodule

@@ -115,13 +115,13 @@ class median_calc_3x3_cv;
     cov_match = cg_match_data.get_coverage();
 
     avg_cov = (cov_i + cov_o + cov_match) / 3.0;
-    $display("=====================================");
+    $display("======================================================");
     $display("MedianCalc 3x3 Coverage Input:   %0.2f%%", cov_i);
     $display("MedianCalc 3x3 Coverage Output:  %0.2f%%", cov_o);
     $display("MedianCalc 3x3 Coverage Match:   %0.2f%%", cov_match);
-    $display("=====================================");
+    $display("======================================================");
     $display("MedianCalc 3x3 Average Module Coverage: %0.2f%%", avg_cov);
-    $display("=====================================");
+    $display("======================================================");
 
     return avg_cov;
   endfunction

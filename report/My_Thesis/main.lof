@@ -64,7 +64,10 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Biểu đồ phân tích thời gian và độ bao phủ của các bộ kiểm thử}}{60}{figure.caption.107}%
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Các thành phần cơ bản của một bộ kiểm tra}}{61}{figure.caption.108}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Các thành phần của bộ kiểm tra lớp}}{61}{figure.caption.109}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Các lớp của bộ kiểm tra lớp}}{61}{figure.caption.109}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Bộ kiểm tra phân tầng}}{62}{figure.caption.109}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Bo mạch ZCU106 UltraScale+MPSoC}}{64}{figure.caption.112}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Sơ đồ khối hệ thống SoC}}{65}{figure.caption.113}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Thông số định thời của IP}}{66}{figure.caption.115}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Công suất tiêu thụ năng lượng của IP}}{66}{figure.caption.116}%
 \contentsfinish 
