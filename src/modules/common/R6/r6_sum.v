@@ -1,6 +1,7 @@
 module r6_sum #(
     parameter COLS = 11,
-    parameter ROWS = 11
+    parameter ROWS = 11,
+    parameter USE_CENTRAL_VALUE = 1
 ) (
     input clk,
     input rst_n,
@@ -311,22 +312,29 @@ module r6_sum #(
       .sum_out(sum_o)
   );
 
-  // central value
-  reg [7:0] central[0:10];
-  always @(posedge clk) begin
-    if (~rst_n) begin
-      for (i = 0; i < 11; i = i + 1) begin
-        central[i] <= 0;
-      end
+  generate
+    if (USE_CENTRAL_VALUE) begin
+      reg [7:0] central[0:10];
+      always @(posedge clk) begin
+        if (~rst_n) begin
+          for (i = 0; i < 11; i = i + 1) begin
+            central[i] <= 0;
+          end
 
-    end else begin
-      central[0] <= st1_S7;
-      for (i = 0; i < 10; i = i + 1) begin
-        central[i+1] <= central[i];
+        end else begin
+          central[0] <= st1_S7;
+          for (i = 0; i < 10; i = i + 1) begin
+            central[i+1] <= central[i];
+          end
+        end
       end
+      assign central_value = central[10];
+    end else begin
+      assign central_value = 8'b0;
     end
-  end
-  assign central_value = central[10];
+
+  endgenerate
+
 
 
 endmodule

@@ -46,7 +46,8 @@ module r2_patch_sum #(
 
   r2_sum #(
       .COLS(COLS),
-      .ROWS(ROWS)
+      .ROWS(ROWS),
+      .USE_CENTRAL_VALUE(0)
   ) r2_SUM (
       .clk(clk),
       .rst_n(rst_n),

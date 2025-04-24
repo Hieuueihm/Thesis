@@ -57,7 +57,8 @@ module r6_patch_sum #(
 
   r6_sum #(
       .COLS(COLS),
-      .ROWS(ROWS)
+      .ROWS(ROWS),
+      .USE_CENTRAL_VALUE(0)
   ) r6_SUM (
       .clk(clk),
       .rst_n(rst_n),

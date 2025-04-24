@@ -1,0 +1,8 @@
+[
+{
+  "directory": "D:/Thesis/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/mrelbp.dir/includes_CXX.rsp -g -std=gnu++14 -o CMakeFiles\\mrelbp.dir\\mrelbp.cpp.obj -c D:\\Thesis\\codetest\\c++\\mrelbp.cpp",
+  "file": "D:/Thesis/codetest/c++/mrelbp.cpp",
+  "output": "CMakeFiles/mrelbp.dir/mrelbp.cpp.obj"
+}
+]

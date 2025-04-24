@@ -1,6 +1,7 @@
 module r2_sum #(
     parameter COLS = 7,
-    parameter ROWS = 7
+    parameter ROWS = 7,
+    parameter USE_CENTRAL_VALUE = 1
 ) (
     input clk,
     input rst_n,
@@ -193,27 +194,33 @@ module r2_sum #(
       .sum_out(sum_o)
   );
 
-  // central value
-  reg [7:0] central_1, central_2, central_3, central_4, central_5, central_6;
-  always @(posedge clk) begin
-    if (~rst_n) begin
-      central_1 <= 0;
-      central_2 <= 0;
-      central_3 <= 0;
-      central_4 <= 0;
-      central_5 <= 0;
-      central_6 <= 0;
+  generate
+    if (USE_CENTRAL_VALUE) begin
+      reg [7:0] central_1, central_2, central_3, central_4, central_5, central_6;
+      always @(posedge clk) begin
+        if (reset_en) begin
+          central_1 <= 0;
+          central_2 <= 0;
+          central_3 <= 0;
+          central_4 <= 0;
+          central_5 <= 0;
+          central_6 <= 0;
+        end else begin
+          central_1 <= st1_S3;
+          central_2 <= central_1;
+          central_3 <= central_2;
+          central_4 <= central_3;
+          central_5 <= central_4;
+          central_6 <= central_5;
+        end
+      end
 
+      assign central_value = central_6;
     end else begin
-      central_1 <= st1_S3;
-      central_2 <= central_1;
-      central_3 <= central_2;
-      central_4 <= central_3;
-      central_5 <= central_4;
-      central_6 <= central_5;
+      assign central_value = 8'b0;
     end
-  end
-  assign central_value = central_6;
+  endgenerate
+
 
 
 endmodule

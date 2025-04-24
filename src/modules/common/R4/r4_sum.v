@@ -1,6 +1,7 @@
 module r4_sum #(
     parameter COLS = 11,
-    parameter ROWS = 11
+    parameter ROWS = 11,
+    parameter USE_CENTRAL_VALUE = 1
 ) (
     input clk,
     input rst_n,
@@ -254,21 +255,29 @@ module r4_sum #(
   );
 
   // central value
-  reg [7:0] central[0:8];
-  always @(posedge clk) begin
-    if (~rst_n) begin
-      for (i = 0; i < 9; i = i + 1) begin
-        central[i] <= 0;
-      end
+  generate
+    if (USE_CENTRAL_VALUE) begin
+      reg [7:0] central[0:8];
+      always @(posedge clk) begin
+        if (~rst_n) begin
+          for (i = 0; i < 9; i = i + 1) begin
+            central[i] <= 0;
+          end
 
-    end else begin
-      central[0] <= st1_S5;
-      for (i = 0; i < 8; i = i + 1) begin
-        central[i+1] <= central[i];
+        end else begin
+          central[0] <= st1_S5;
+          for (i = 0; i < 8; i = i + 1) begin
+            central[i+1] <= central[i];
+          end
+        end
       end
+      assign central_value = central[8];
+    end else begin
+      assign central_value = 8'b0;
     end
-  end
-  assign central_value = central[8];
+
+  endgenerate
+
 
 
 endmodule

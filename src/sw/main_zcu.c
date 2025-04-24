@@ -59,7 +59,7 @@ void myISR(void *CallBackRef){
 }
 #endif
 
-void sendHistogramData();
+void sendHistogramData(u32 histogram[]);
 int main()
 {
 
