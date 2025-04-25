@@ -66,7 +66,7 @@ class generator;
     int ret;
     repeat (count) begin
       tr = new();
-      fd = $fopen("D:\\Thesis\\auto_scripts\\generation\\generated_inps.txt", "w");
+      fd = $fopen("D:\\Thesis\\auto_scripts\\fc\\generated_inps.txt", "w");
       if (fd == 0) begin
         $display("Error: Unable to open generated inp file.");
         $finish;
@@ -81,7 +81,7 @@ class generator;
 
       end
       $fclose(fd);
-      $system("D:\\Thesis\\auto_scripts\\generation\\script.bat");
+      $system("D:\\Thesis\\auto_scripts\\fc\\script.bat");
       if (ret != 0) begin
         $display("Python script failed to run!");
         $finish;
@@ -189,7 +189,7 @@ class scoreboard;
     forever begin
       @(mon_done);
       mbx.get(pkt);
-      file_id = $fopen("D:\\Thesis\\auto_scripts\\generation\\generated_oups.txt", "r");
+      file_id = $fopen("D:\\Thesis\\auto_scripts\\fc\\generated_oups.txt", "r");
       if (file_id == 0) begin
         $display("Error: Unable to open generated oup file.");
         $finish;

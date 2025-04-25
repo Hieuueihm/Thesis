@@ -2,7 +2,7 @@ import numpy as np
 import os
 import cv2
 
-from MRELBP import MRELBP
+from MRELBP_op import MRELBP
 import time
 
 lbp = MRELBP()
@@ -22,7 +22,7 @@ end = time.time()
 print(f"Time taken: {end - start:.6f} seconds")
 
 # res = lbp.MRELBP(random_matrix)
-with open("histogram_py.txt", "w") as f:
+with open("histogram_py_op.txt", "w") as f:
     for i in range(0, 600):
         f.write(str(res[i]) + "\n")
 

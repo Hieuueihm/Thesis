@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/mrelbp.dir/mrelbp.cpp.obj"
-  "CMakeFiles/mrelbp.dir/mrelbp.cpp.obj.d"
+  "CMakeFiles/mrelbp.dir/main.cpp.obj"
+  "CMakeFiles/mrelbp.dir/main.cpp.obj.d"
   "libmrelbp.dll.a"
-  "mrelbp.exe"
-  "mrelbp.exe.manifest"
+  "mrelbp.cp312-win_amd64.pyd"
+  "mrelbp.cp312-win_amd64.pyd.manifest"
   "mrelbp.pdb"
 )
 

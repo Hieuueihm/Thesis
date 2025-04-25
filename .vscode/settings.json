@@ -1,5 +1,5 @@
 {
-    "cmake.sourceDirectory": "D:/Thesis/codetest/c++",
+    "cmake.sourceDirectory": "D:/Thesis/src/mrelbp_cpp",
     "files.associations": {
         "iostream": "cpp",
         "array": "cpp",
