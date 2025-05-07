@@ -1,0 +1,104 @@
+\pagenumbering{gobble}
+\begin{center}
+	\textbf{ĐẠI HỌC QUỐC GIA HÀ NỘI}
+	
+	\textbf{TRƯỜNG ĐẠI HỌC CÔNG NGHỆ}
+\end{center}
+
+
+
+\begin{center}
+	\textbf{TÓM TẮT ĐỒ ÁN TỐT NGHIỆP}
+	
+	\textbf{NGHIÊN CỨU THIẾT KẾ LÕI IP SỬ DỤNG THUẬT TOÁN MRELBP (MEDIAN ROBUST EXTENDED LOCAL BINARY PATTERN)}
+\end{center}
+
+
+\noindent Sinh viên: Nguyễn Minh Hiếu\\
+Giảng viên hướng dẫn: TS. Nguyễn Kiêm Hùng
+\\
+
+\fontsize{12}{12}\selectfont{
+	\noindent\textbf{Tóm tắt:}
+	Đồ án thực hiện thiết kế ở mức RTL một bộ trích xuất đặc trưng dựa trên thuật toán MRELBP (Median Robust Extended Local Binary Pattern). Phương pháp MRELBP được lựa chọn do khắc phục được hạn chế của LBP truyền thống trong việc nhận diện cấu trúc vĩ mô và tính nhạy với nhiễu. Việc thiết kế phần cứng chuyên biệt giúp tăng tốc xử lý trích xuất đặc trưng, đáp ứng với các yêu cầu cho hệ thống thời gian thực. Hệ thống SoC được triển khai trên nền tảng phần cứng ZCU106 Ultrascale và đánh giá độ chính xác bằng tập dữ liệu Outex-TC với ảnh kích thước 128x128. Kết quả kiểm thử đạt được độ bao phủ chức năng ở mức 98\% với 1000 trường hợp kiểm thử ngẫu nhiên. Kết quả thực thi cho thấy thời gian trích xuất đặc trưng nhanh gấp khoảng 1700 lần phiên bản xử lý bằng phần mềm với ngôn ngữ C++, độ chính xác với các tinh chỉnh với phiên bản phần cứng không thay đổi nhiều so với các phiên bản phần mềm. 
+	
+	\vspace{0.5cm}
+	\noindent\textit{\textbf{Từ khóa:}} \textit{LBP, MRELBP, ZCU106, Line Buffer, Window Buffer, RTL, SoC.}
+}
+
+\noindent\rule{\linewidth}{0.5pt} % Gạch ngang
+
+\vspace{0.5em} % Khoảng cách nhỏ phía dưới gạch (tùy chỉnh)
+\noindent\textbf{I. \hspace{0.5em} Tổng quan nghiên cứu} 
+\noindent\\Các thuật toán truyền thống như LBP (Local Binary Pattern) tuy đơn giản và dễ triển khai nhưng hạn chế trong việc mô tả các cấu trúc vĩ mô và không ổn định khi gặp nhiễu. Để khắc phục nhược điểm đó, thuật toán MRELBP (Median Robust Extended Local Binary Pattern) đã được đề xuất với cải tiến về mặt cấu trúc và khả năng chịu nhiễu tốt hơn.
+
+Tuy nhiên việc triển khai các thuật toán MRELBP trên nền tảng phần mềm truyền thống thường không đáp ứng được các yêu cầu cho các bài toán xử lý thời gian thực. Vì vậy, việc thiết kế một phần cứng chuyên biệt để tăng tốc thực hiện trích xuất đặc trưng là một hướng đi tiềm năng. Nghiên cứu trong đồ án này tập trung vào việc thực hiện thuật toán MRELBP ở mức RTL, đóng gói thành IP và sau đó xây dựng hệ thống SoC, sử dụng nền tảng ZCU106 của Xilinx để kiểm chứng và đánh giá. 
+
+\noindent\rule{\linewidth}{0.5pt} % Gạch ngang
+
+\vspace{0.5em} % Khoảng cách nhỏ phía dưới gạch (tùy chỉnh)
+\noindent\textbf{II. \hspace{0.5em} Phương pháp nghiên cứu} 
+
+
+\begin{itemize}
+	\item \textbf{Nghiên cứu tài liệu:} Tìm hiểu cơ sở lý thuyết của thuật toán MRELBP, cấu trúc và đặc điểm của các kỹ thuật trích xuất đặc trưng dựa trên LBP, cũng như các cải tiến gần đây trong lĩnh vực xử lý ảnh và thiết kế phần cứng.
+	
+	\item \textbf{Phân tích và thiết kế hệ thống:} Xác định yêu cầu hệ thống, phân tách chức năng, xây dựng kiến trúc RTL cho khối IP thực hiện thuật toán MRELBP, bao gồm các mô-đun như Line Buffer, Window Buffer và khối xử lý logic trung tâm.
+	
+	\item \textbf{Mô phỏng và kiểm thử:} Sử dụng môi trường mô phỏng để kiểm tra chức năng và độ bao phủ của từng khối trong hệ thống. Áp dụng kiểm thử ngẫu nhiên và theo luồng dữ liệu thực tế nhằm đảm bảo tính đúng đắn.
+	
+	\item \textbf{Tổng hợp và triển khai trên FPGA:} Ánh xạ thiết kế RTL lên nền tảng phần cứng ZCU106, đánh giá tài nguyên sử dụng, tần số hoạt động và khả năng xử lý thời gian thực.
+	
+	\item \textbf{So sánh hiệu năng:} Đánh giá và so sánh kết quả của phiên bản phần cứng với phần mềm C++ dựa trên thời gian thực thi và độ chính xác nhận dạng.
+\end{itemize}
+
+\noindent\rule{\linewidth}{0.5pt} % Gạch ngang
+
+\vspace{0.5em} % Khoảng cách nhỏ phía dưới gạch (tùy chỉnh)
+\noindent\textbf{III. \hspace{0.5em} Thiết kế hệ thống}
+
+Hệ thống được thiết kế dựa trên kiến trúc SoC với sự kết hợp giữa phần lập trình (PS) và phần lập trình lại (PL) của Zynq Ultrascale+. Lõi IP thực hiện thuật toán MRELBP được xây dựng ở mức RTL và tích hợp vào PL, trong khi các tác vụ điều khiển, truyền dữ liệu và đánh giá kết quả được thực hiện ở PS.
+
+\begin{itemize}
+	\item \textbf{Kiến trúc tổng thể:} Hệ thống gồm các khối chính: DMA truyền dữ liệu ảnh từ PS sang PL, lõi IP MRELBP xử lý dữ liệu ảnh trong PL, và DMA truyền kết quả về lại PS. Lõi IP bao gồm các khối phụ: Line Buffer, Window Buffer, khối xử lý Median, và khối tính toán mã LBP mở rộng.
+	
+	\item \textbf{Thiết kế RTL:} Các mô-đun được thiết kế bằng ngôn ngữ Verilog. Thiết kế đảm bảo hoạt động theo pipeline để đạt hiệu suất cao, đồng thời đảm bảo đồng bộ hóa dữ liệu đầu vào và đầu ra theo chuẩn AXI4-Stream.
+	
+	\item \textbf{Truyền dữ liệu:} Sử dụng AXI DMA để truyền ảnh đầu vào và nhận kết quả đầu ra. Giao diện AXI4-Stream giúp xử lý tuần tự, phù hợp với luồng ảnh liên tục.
+	
+	\item \textbf{Tổng hợp và tích hợp:} Hệ thống được tổng hợp và tích hợp trên nền tảng ZCU106 sử dụng Vivado Design Suite.
+	
+	\item \textbf{Kiểm thử:} Các mô-đun được kiểm thử đơn lẻ bằng testbench và sau đó kiểm thử hệ thống tích hợp hoàn chỉnh thông qua dữ liệu sinh ngẫu nhiên, đánh giá về độ bao phủ của thiết kế. 
+\end{itemize}
+
+\noindent\rule{\linewidth}{0.5pt} % Gạch ngang
+
+\vspace{0.5em} % Khoảng cách nhỏ phía dưới gạch (tùy chỉnh)
+\noindent\textbf{IV. \hspace{0.5em} Kết quả thực thi và đánh giá}
+
+
+Kết quả sau khi thực thi cho thấy bộ tăng tốc có tốc độ nhanh gấp 1700 so với phiên bản bằng phần mềm. Kết quả của phần cứng được sử dụng để huấn luyện với các mô hình học máy truyền thống như SVM, Naive Bayes cho kết quả gần như tương tự với phiên bản gốc của thuật toán. Nhược điểm của thiết kế là mức năng lượng tiêu thụ vẫn còn tương đối lớn.
+
+
+\textbf{\textit{Hướng phát triển: }} Tối ưu thiết kế để tăng tần số hoạt động, giảm năng lượng tiêu thụ. 
+
+\noindent\rule{\linewidth}{0.5pt} % Gạch ngang
+
+\vspace{0.5em} % Khoảng cách nhỏ phía dưới gạch (tùy chỉnh)
+\noindent\textbf{\hspace{0.5em} Kết luận tổng quan}
+
+Đề tài đã thiết kế được lõi IP trích xuất đặc trưng sử dụng thuật toán MRELBP đáp ứng được các yêu cầu về tài nguyên sử dụng, tần số hoạt động. Xây dựng được bộ kiểm thử tự động, đánh giá về độ bao phủ chức năng của thiết kế. Hệ thống SoC kiểm chứng được khả năng hoạt động và tích hợp của IP. Với những kết quả đạt được và định hướng phát triển trong tương lai, có thể chuyển thiết kế này thành IC sử dụng trong các mạch cần tăng tốc trích xuất đặc trưng. 
+
+
+\noindent\rule{\linewidth}{0.5pt} % Gạch ngang
+
+\vspace{0.5em} % Khoảng cách nhỏ phía dưới gạch (tùy chỉnh)
+\noindent\textbf{\hspace{0.5em} Tài liệu tham khảo quan trọng}
+	\harvarditem{Li Liu, Songyang Lao, Paul W. Fieguth, Yulan Guo, Xiaogang Wang, Matti Pietikäinen}{2016}{Liu2016}
+Li Liu, Songyang Lao, Paul W. Fieguth, Yulan Guo, Xiaogang Wang, Matti Pietikäinen, ''Median Robust Extended Local Binary Pattern for Texture Classification'', {\em IEEE Transactions on Image Processing}, 2016.
+\harvarditem{ Li Liu, Songyang Lao, Paul W. Fieguth, Yulan Guo, Xiaogang Wang, Matti Pietikäinen}{2017}{Liu2017}
+Li Liu, Songyang Lao, Paul W. Fieguth, Yulan Guo, Xiaogang Wang, Matti Pietikäinen, ''Local binary features for texture classification: Taxonomy and experimental study'', {\em Pattern Recognition Volumne 62}, 2017.
+	\harvarditem{T. Ojala, M. Pietikainen, T. Maenpaa} 
+{2002}{Ojala}
+T. Ojala, M. Pietikainen, T. Maenpaa
+, ''Multiresolution gray-scale and rotation invariant texture classification with local binary patterns'', {\em  IEEE Transactions on Pattern Analysis and Machine Intelligence Volume 24, Issue 7 }, 2002.

@@ -1,0 +1,34 @@
+/home/hieu/Thesis/src/modules/buffers/window_buffer/3x3/window_buffer_3x3_datapath.v {1 {vlog -work work -vopt -stats=none /home/hieu/Thesis/src/modules/buffers/window_buffer/3x3/window_buffer_3x3_datapath.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module window_buffer_3x3_datapath
+
+Top level modules:
+	window_buffer_3x3_datapath
+
+} {} {}} /home/hieu/Thesis/src/modules/buffers/window_buffer/3x3/window_buffer_3x3_controller.v {1 {vlog -work work -vopt -stats=none /home/hieu/Thesis/src/modules/buffers/window_buffer/3x3/window_buffer_3x3_controller.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module window_buffer_3x3_controller
+
+Top level modules:
+	window_buffer_3x3_controller
+
+} {} {}} /home/hieu/Thesis/src/modules/buffers/window_buffer/3x3/window_buffer_3x3.v {1 {vlog -work work -vopt -stats=none /home/hieu/Thesis/src/modules/buffers/window_buffer/3x3/window_buffer_3x3.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module window_buffer_3x3
+
+Top level modules:
+	window_buffer_3x3
+
+} {} {}} /home/hieu/Thesis/src/modules/buffers/line_buffer/line_buffer_datapath.v {1 {vlog -work work -vopt -stats=none /home/hieu/Thesis/src/modules/buffers/line_buffer/line_buffer_datapath.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module line_buffer_datapath
+
+Top level modules:
+	line_buffer_datapath
+
+} {} {}} /home/hieu/Thesis/src/modules/buffers/line_buffer/line_buffer_controller.v {0 {vlog -work work -vopt -stats=none /home/hieu/Thesis/src/modules/buffers/line_buffer/line_buffer_controller.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module line_buffer_controller
+** Error: /home/hieu/Thesis/src/modules/buffers/line_buffer/line_buffer_controller.v(35): (vlog-2730) Undefined variable: 'current_state'.
+
+} {4.0 5.0} {}}

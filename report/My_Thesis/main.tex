@@ -125,6 +125,8 @@
 \begin{document}
 \fontsize{13}{15.5}\selectfont
 
+\input{chapter/ChapNeg_Summary.tex}
+\newpage
 \pagestyle{empty}
 \input{cover/Biangoai}
 \newpage
@@ -153,9 +155,46 @@
 \phantomsection
 \addcontentsline{toc}{chapter}{Mục lục}
 \tableofcontents
+% ---------------- Danh mục từ viết tắt ----------------
 \clearpage
-\input{cover/tomtat}
-\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Danh mục từ viết tắt}
+\renewcommand{\chaptername}{}
+\begin{center}
+	\vspace*{-40pt}
+	{\fontsize{14}{16}\selectfont\MakeUppercase{Danh mục từ viết tắt}}
+\end{center}
+\vspace{10pt}
+\begin{center}
+	\begin{tabular}{|c|c|l|}
+		\hline
+		\textbf{STT} & \textbf{Ký hiệu viết tắt} & \textbf{Tên chữ đầy đủ} \\
+		\hline
+		1 & RTL & Register Transfer Level \\
+		2 & IP & Intellectual Propterty \\
+		3 & FGPA & Field Programmable Gate Array \\
+		4 & SoC & System on Chip \\
+		5 & LUT & Look Up Table \\
+		6 & HDL & Hardware Description Language \\
+		7 & PS & Processing System \\
+		8 & PL & Programmable Logic \\
+		9 & LBP & Local Binary Pattern \\
+		10 & MRELBP & Median Robust Extended LBP \\
+		11 & SVM & Support Vector Machine \\
+		12 & KNN & K-Nearest Neighbor \\
+		13 & ELBP & Extended Local Binary Pattern \\ 
+		14 & CNN & Convolutional Neural Network \\ 
+		15 & ILA & Integrated Logic Analyzer
+	\\	16 & MRF & Markov Random Field
+	\\
+		\hline
+	\end{tabular}
+\end{center}
+\vspace{20pt}
+\fontsize{13}{16}\selectfont
+% ------------------------------------------------------
+-
+
 \clearpage
 \phantomsection
 \addcontentsline{toc}{chapter}{Danh mục hình vẽ}
@@ -284,7 +323,8 @@
 	
 		\harvarditem{Vineet Kumar1, Abhijit Asati1, Anu Gupta1}{2017}{llmf}
 	Vineet Kumar1, Abhijit Asati1, Anu Gupta1, ''Low-latency median filter core for hardware implementation of 5×5 median filtering'', {\em  2017, IET Image Processing}, 2017.
-	
+			\harvarditem{T. Ojala; T. Maenpaa; M. Pietikainen; J. Viertola; J. Kyllonen; S. Huovinen}{2002}{outex}
+	T. Ojala; T. Maenpaa; M. Pietikainen; J. Viertola; J. Kyllonen; S. Huovinen, ''Outex - new framework for empirical evaluation of texture analysis algorithms'', {\em  2002 International Conference on Pattern Recognition}, 2002
 	
 \end{thebibliography}
 

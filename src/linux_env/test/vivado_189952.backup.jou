@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Fri Apr 25 15:33:25 2025
+# Process ID: 189952
+# Current directory: /home/hieu/Thesis/src/test
+# Command line: vivado -mode tcl -source build.tcl
+# Log file: /home/hieu/Thesis/src/test/vivado.log
+# Journal file: /home/hieu/Thesis/src/test/vivado.jou
+# Running On        :DESKTOP-4VU606L
+# Platform          :Ubuntu
+# Operating System  :Ubuntu 22.04.5 LTS
+# Processor Detail  :Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz
+# CPU Frequency     :2496.008 MHz
+# CPU Physical cores:4
+# CPU Logical cores :8
+# Host memory       :8241 MB
+# Swap memory       :2147 MB
+# Total Virtual     :10389 MB
+# Available Virtual :3810 MB
+#-----------------------------------------------------------
+source build.tcl

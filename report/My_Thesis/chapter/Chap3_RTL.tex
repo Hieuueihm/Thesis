@@ -3,7 +3,7 @@
 
 \setcounter{chapter}{2}
 \chapter[{Thiết kế RTL}]{thiết kế RTL}
-Nội dung chương này mô tả về các thiết kế của các mô đun ở mức Register-Transfer Level (RTL). Mỗi phần mô tả một mô đun sẽ bao gồm nội dung về kiến trúc RTL và mô tả sơ đồ chuyển trạng thái. Bên cạnh đó, sẽ giải thích nguyên nhân sử dụng kiến trúc đó, ước tính số chu kỳ thực hiện của từng mô đun. Bố cục của chương sẽ bắt đầu từ các thành phần mô đun nhỏ đến các mô đun lớn hơn.
+Nội dung chương này mô tả về các thiết kế của các mô-đun ở mức Register-Transfer Level (RTL). Mỗi phần mô tả một mô-đun sẽ bao gồm nội dung về kiến trúc RTL và mô tả sơ đồ chuyển trạng thái. Bên cạnh đó, sẽ giải thích nguyên nhân sử dụng kiến trúc đó, ước tính số chu kỳ thực hiện của từng mô-đun. Bố cục của chương sẽ bắt đầu từ các thành phần mô-đun nhỏ đến các mô-đun lớn hơn.
 
 \begin{figure}[!ht]
     \centering
@@ -14,24 +14,24 @@ Nội dung chương này mô tả về các thiết kế của các mô đun ở
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.7\linewidth]{figures/boxSym.png}
-	\caption{Định nghĩa các tín hiệu ra vào một mô đun}
+	\caption{Định nghĩa các tín hiệu ra vào một mô-đun}
 	\label{fig:boxSym}
 \end{figure}
-\section{Mô đun MedianProcessing}
-\subsection{Mô đun LineBuffer}
-Nguyên lý hoạt động của mô đun LineBuffer là khi có dữ liệu đầu vào, dữ liệu sẽ được ghi vào một vùng nhớ cụ thể, sau khi đạt đến một thời gian hoặc điều kiện đặt ra, dữ liệu từ vùng nhớ đã được ghi sẽ được đọc ra và thứ tự đầu ra sẽ theo nguyên lý FIFO (First In First Out, dữ liệu ghi đầu trước sẽ được đọc ra trước). Hình \ref{fig:lineBuffArchitecture} mô tả kiến trúc RTL của mô đun LineBuffer và hình \ref{fig:lineBufferTrans} mô tả sơ đồ chuyển trạng thái của bộ \textit{controller} cho mô đun này. Có thể mô tả ngắn gọn cách thức hoạt động của mô đun theo mô tả sau: Dữ liệu sẽ được đệm vào bộ nhớ, sau khi dữ liệu ở hàng đầu tiên được đệm (tức là lần đầu tiên bộ nhớ đầy) thì lúc này sẽ có tín hiệu cho phép dữ liệu ra, và quá trình này sẽ kết thúc khi toàn bộ dữ liệu đầu vào được đệm đến đầu ra. 
+\section{mô-đun MedianProcessing}
+\subsection{mô-đun LineBuffer}
+Nguyên lý hoạt động của mô-đun LineBuffer là khi có dữ liệu đầu vào, dữ liệu sẽ được ghi vào một vùng nhớ cụ thể, sau khi đạt đến một thời gian hoặc điều kiện đặt ra, dữ liệu từ vùng nhớ đã được ghi sẽ được đọc ra và thứ tự đầu ra sẽ theo nguyên lý FIFO (First In First Out, dữ liệu ghi trước sẽ được đọc ra trước). Hình \ref{fig:lineBuffArchitecture} mô tả kiến trúc RTL của mô-đun LineBuffer và hình \ref{fig:lineBufferTrans} mô tả sơ đồ chuyển trạng thái của bộ \textit{controller} cho mô-đun này. Có thể mô tả ngắn gọn cách thức hoạt động của mô-đun theo mô tả sau: Dữ liệu sẽ được đệm vào bộ nhớ, sau khi dữ liệu ở hàng đầu tiên được đệm (tức là lần đầu tiên bộ nhớ đầy) thì lúc này sẽ có tín hiệu cho phép dữ liệu ra, và quá trình này sẽ kết thúc khi toàn bộ dữ liệu đầu vào được đệm đến đầu ra. 
 
 
 \textit{Số lượng chu kỳ từ lúc có dữ liệu vào đến khi có dữ liệu đầu ra: } \textbf{DEPTH}
 
 
-\textit{Số lượng chu kỳ từ lúc có dữ liệu vào đến khi có dữ liệu đầu ra của mô đun Buffer6Rows: } \textbf{3 * DEPTH}
+\textit{Số lượng chu kỳ từ lúc có dữ liệu vào đến khi có dữ liệu đầu ra của mô-đun Buffer6Rows: } \textbf{3 * DEPTH}
 
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=\linewidth]{figures/lineBuffArchitecture.png}
-    \caption{Mô tả RTL của mô đun LineBuffer}
+    \caption{Mô tả RTL của mô-đun LineBuffer}
     \label{fig:lineBuffArchitecture}
 \end{figure}
 
@@ -39,12 +39,12 @@ Nguyên lý hoạt động của mô đun LineBuffer là khi có dữ liệu đ�
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.8\linewidth]{figures/lineBufferTrans.png}
-    \caption{Sơ đồ chuyển trạng thái của mô đun LineBuffer}
+    \caption{Sơ đồ chuyển trạng thái của mô-đun LineBuffer}
     \label{fig:lineBufferTrans}
 \end{figure}
 
 
-\subsection{Mô đun ZeroPadding}
+\subsection{mô-đun ZeroPadding}
 Mô-đun \textbf{ZeroPadding} sẽ được thiết kế riêng biệt cho ba loại cửa sổ là 3$\times$3, 5$\times$5 và 7$\times$7. Tuy nhiên, chúng đều sử dụng chung một bộ điều khiển, hoạt động theo mô tả ở hình~\ref{fig:zeroPaddingTrans}. Bộ điều khiển này bao gồm bốn trạng thái: \textbf{IDLE}, \textbf{START}, \textbf{DATA} và \textbf{DONE}.
 
 Trạng thái \textbf{START} có chức năng chờ cho đến khi dữ liệu được đệm trong mô-đun ZeroPadding đủ để đáp ứng yêu cầu đầu ra của cửa sổ. Ví dụ, với cửa sổ 3$\times$3, khi xử lý ở rìa ảnh sẽ cần đệm thêm các giá trị 0. Khi đó, trong mô-đun cần có sẵn ít nhất hai điểm ảnh, để sau khi đệm thêm một điểm ảnh 0 sẽ đủ ba điểm ảnh cho một hàng hoặc một cột của cửa sổ.
@@ -54,7 +54,7 @@ Trạng thái \textbf{DATA} có chức năng cho phép xuất dữ liệu đầu
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.6\linewidth]{figures/zeroPaddingTrans.png}
-    \caption{Sơ đồ chuyển trạng thái của mô đun ZeroPadding}
+    \caption{Sơ đồ chuyển trạng thái của mô-đun ZeroPadding}
     \label{fig:zeroPaddingTrans}
 \end{figure}
 
@@ -64,14 +64,14 @@ Hình \ref{fig:zero3x3Architecture1} mô tả kiến trúc RTL đối với bộ
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=\linewidth]{figures/zero3x3Architecture1.png}
-    \caption{Mô tả RTL (1) của mô đun ZeroPadding ứng với cửa sổ 3x3}
+    \caption{Mô tả RTL (1) của mô-đun ZeroPadding ứng với cửa sổ 3x3}
     \label{fig:zero3x3Architecture1}
 \end{figure}
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=\linewidth]{figures/zero3x3Architecture2.png}
-    \caption{Mô tả RTL (2) của mô đun ZeroPadding ứng với cửa sổ 3x3}
+    \caption{Mô tả RTL (2) của mô-đun ZeroPadding ứng với cửa sổ 3x3}
     \label{fig:zero3x3Architecture2}
 \end{figure}
 
@@ -80,11 +80,11 @@ Hình \ref{fig:zero3x3Architecture1} mô tả kiến trúc RTL đối với bộ
 Bởi vì đối với các cửa sổ 5x5 và 7x7, số lượng các đầu vào và điều kiện cho đầu ra là rất nhiều, khó có thể mô tả bằng hình vẽ, do đó sinh viên sẽ đưa ra bảng giá trị tham chiếu và điều kiện cho từng giá trị đầu ra. }
 
 \subsubsection{Cửa sổ 5x5}
-Hình \ref{fig:zero5x5Architecture1} mô tả kiến trúc ở mức RTL cho mô đun ZeroPadding ứng với cửa sổ đầu vào 5x5. Về cơ bản, nguyên lý hoạt động của mô đun này tương tự như đối với cửa sổ 3x3, nhưng có thêm một vài điều kiện thêm cho đầu ra như i\_row\_gt\_row\_3, ... Những điều kiện cho đầu ra đã được mô tả chi tiết trong bảng \ref{tab:conditionForOutputZero5x5}. Cột điều kiện tương ứng với tín hiệu chọn cho bộ mạch ghép kênh, khi điều kiện đúng thì đầu ra sẽ là 0, khi điều kiện sai, dữ liệu đầu ra sẽ ứng với giá trị của giá trị tham chiếu đến.
+Hình \ref{fig:zero5x5Architecture1} mô tả kiến trúc ở mức RTL cho mô-đun ZeroPadding ứng với cửa sổ đầu vào 5x5. Về cơ bản, nguyên lý hoạt động của mô-đun này tương tự như đối với cửa sổ 3x3, nhưng có thêm một vài điều kiện thêm cho đầu ra như i\_row\_gt\_row\_3, ... Những điều kiện cho đầu ra đã được mô tả chi tiết trong bảng \ref{tab:conditionForOutputZero5x5}. Cột điều kiện tương ứng với tín hiệu chọn cho bộ mạch ghép kênh, khi điều kiện đúng thì đầu ra sẽ là 0, khi điều kiện sai, dữ liệu đầu ra sẽ ứng với giá trị của giá trị tham chiếu đến.
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.9\linewidth]{figures/zero5x5Architecture1.png}
-    \caption{Mô tả RTL của mô đun ZeroPadding ứng với cửa sổ 5x5}
+    \caption{Mô tả RTL của mô-đun ZeroPadding ứng với cửa sổ 5x5}
     \label{fig:zero5x5Architecture1}
 \end{figure}
 
@@ -92,6 +92,7 @@ Hình \ref{fig:zero5x5Architecture1} mô tả kiến trúc ở mức RTL cho mô
 \begin{table}[!ht]
     \centering
     \renewcommand{\arraystretch}{1.4}
+        \caption{Bảng điều kiện cho dữ liệu đầu ra ứng với cửa sổ 5x5}
     \begin{tabular}{|p{2.2cm} p{7cm} p{4cm}|}
         \hline
         \rowcolor{gray!30}
@@ -123,20 +124,21 @@ Hình \ref{fig:zero5x5Architecture1} mô tả kiến trúc ở mức RTL cho mô
       d23\_o & i\_row\_gt\_row\_3 $\vert$ i\_col\_gt\_col\_2 & data23 \\ \hline
       d24\_o & i\_row\_gt\_row\_3 $\vert$ i\_col\_gt\_col\_3 & data24 \\ \hline
     \end{tabular}
-    \caption{Bảng điều kiện cho dữ liệu đầu ra ứng với cửa sổ 5x5}
+
     \label{tab:conditionForOutputZero5x5}
 \end{table}
 
 \newpage
 \subsubsection{Cửa sổ 7x7}
-Bảng \ref{tab:numberOfCycleZeroPadding} mô tả số chu kỳ cần thiết từ lúc có dữ liệu vào đến khi có dữ liệu ra của từng mô đun ZeroPadding ứng với từng loại cửa sổ. Thời gian tính toán tính từ thời điểm mà tín hiệu i\_start chuyển trạng thái đến khi mà tín hiệu đầu ra o\_valid chuyển trạng thái.
+Bảng \ref{tab:numberOfCycleZeroPadding} mô tả số chu kỳ cần thiết từ lúc có dữ liệu vào đến khi có dữ liệu ra của từng mô-đun ZeroPadding ứng với từng loại cửa sổ. Thời gian tính toán tính từ thời điểm mà tín hiệu i\_start chuyển trạng thái đến khi mà tín hiệu đầu ra o\_valid chuyển trạng thái.
 \begin{table}[H]
 	\centering
 	\renewcommand{\arraystretch}{1.3}
+		\caption{Số chu kỳ thực hiện của các mô-đun ZeroPadding}
 	\begin{tabular}{|p{5cm} p{5cm} |}
 		\hline
 		\rowcolor{gray!30}
-		\textbf{Tên mô đun} & \textbf{Số chu kỳ}  \\
+		\textbf{Tên mô-đun} & \textbf{Số chu kỳ}  \\
 		\hline
 		ZeroPadding3x3  & 3 chu kỳ
 		\\ \hline
@@ -145,7 +147,7 @@ Bảng \ref{tab:numberOfCycleZeroPadding} mô tả số chu kỳ cần thiết t
 		ZeroPadding7x7 & 5 chu kỳ
 		\\ \hline
 	\end{tabular}
-	\caption{Số chu kỳ thực hiện của các mô đun ZeroPadding}
+
 	\label{tab:numberOfCycleZeroPadding}
 \end{table}
 
@@ -153,12 +155,14 @@ Bảng \ref{tab:numberOfCycleZeroPadding} mô tả số chu kỳ cần thiết t
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=\linewidth]{figures/zero7x7Architecture1.png}
-    \caption{Mô tả RTL của mô đun ZeroPadding ứng với cử sổ 7x7}
+    \caption{Mô tả RTL của mô-đun ZeroPadding ứng với cử sổ 7x7}
     \label{fig:zero7x7Architecture1}
 \end{figure}
 
 \renewcommand{\arraystretch}{1}
+
 \begin{longtable}{|p{3cm}|p{8cm}|p{4cm}|}
+			\caption{Bảng điều kiện cho dữ liệu đầu ra ứng với cửa sổ 7x7} 
 	\hline
 	\rowcolor{gray!30}
 	\textbf{Tên đầu ra} & \textbf{Điều kiện} & \textbf{Giá trị tham chiếu} \\
@@ -220,12 +224,12 @@ Bảng \ref{tab:numberOfCycleZeroPadding} mô tả số chu kỳ cần thiết t
 	d47\_o & i\_row\_gt\_row\_4 $\vert$ i\_col\_gt\_col\_3 & data47 \\
 	d48\_o & i\_row\_gt\_row\_4 $\vert$ i\_col\_gt\_col\_4 & data48 \\
 	\hline
-		\caption{Bảng điều kiện cho dữ liệu đầu ra ứng với cửa sổ 7x7} 
+
 		\label{tab:conditionForOutputZero7x7}
 \end{longtable}
 
-\subsection{Mô đun MedianCalculation}
-Mô đun MedianCalculation sẽ tính toán giá trị trung vị đầu ra dựa trên các điểm ảnh đầu vào. Vì sẽ tính toán cho riêng biệt 3 cửa sổ là 3x3, 5x5 và 7x7, nên để tối ưu, sinh viên sẽ thiết kế riêng 3 bộ tính trung vị ứng với từng cửa sổ.
+\subsection{mô-đun MedianCalculation}
+mô-đun MedianCalculation sẽ tính toán giá trị trung vị đầu ra dựa trên các điểm ảnh đầu vào. Vì sẽ tính toán cho riêng biệt 3 cửa sổ là 3x3, 5x5 và 7x7, nên để tối ưu, sinh viên sẽ thiết kế riêng 3 bộ tính trung vị ứng với từng cửa sổ.
 
 
 \subsubsection{Thuật toán tính toán trung vị}
@@ -275,7 +279,7 @@ Hình \ref{fig:sortingEx3} mô tả một mạng sắp xếp cho 3 phần tử v
 \end{figure}
 \subsubsection{Cửa sổ 3x3}
 
-Hình \ref{fig:median3x3Exampel} mô tả nguyên lý và ví dụ về cách tìm giá trị trung vị của một ma trận kích thước 3x3. Với chuỗi đầu vào là 10, 9, 2, 5, 4, 3, 2, 2, 1. Giá trị trung vị ta mong đợi đạt được là 3. Các bước thực hiện bao gồm việc sắp xếp các hàng và các cột tăng dần. Sau khi đã xong hai bước trên, lúc này đường chéo gồm các phần tử 2, 4, 3. Lúc này, sẽ thực hiện sắp xếp theo thứ tự tăng dần, kết quả đạt được là 2, 3, 4. Vậy giá trị trung vị đạt được là 3, đã giống với giá trị mong đợi đạt được.  Hình \ref{fig:median3x3RTL} mô tả kiến trúc RTL của mô đun MedianCalculation với cửa sổ 3x3. Sinh viên đã thay thế các mạng sắp xếp khi đến bước sắp xếp cột để giảm độ tài nguyên phần cứng sử dụng (thay bộ Sorting\_network bằng chỉ 2 Node, vì không cần đủ 3 giá trị cho bước tiếp theo), hai là đã chèn thêm các thanh ghi giữa các bước để giảm trễ lan truyền, giúp tăng tần số hoạt động của mạch.
+Hình \ref{fig:median3x3Exampel} mô tả nguyên lý và ví dụ về cách tìm giá trị trung vị của một ma trận kích thước 3x3. Với chuỗi đầu vào là 10, 9, 2, 5, 4, 3, 2, 2, 1. Giá trị trung vị ta mong đợi đạt được là 3. Các bước thực hiện bao gồm việc sắp xếp các hàng và các cột tăng dần. Sau khi đã xong hai bước trên, lúc này đường chéo gồm các phần tử 2, 4, 3. Lúc này, sẽ thực hiện sắp xếp theo thứ tự tăng dần, kết quả đạt được là 2, 3, 4. Vậy giá trị trung vị đạt được là 3, đã giống với giá trị mong đợi đạt được.  Hình \ref{fig:median3x3RTL} mô tả kiến trúc RTL của mô-đun MedianCalculation với cửa sổ 3x3. Sinh viên đã thay thế các mạng sắp xếp khi đến bước sắp xếp cột để giảm tài nguyên phần cứng sử dụng (thay bộ Sorting\_network bằng chỉ 2 Node, vì không cần đủ 3 giá trị cho bước tiếp theo), hai là đã chèn thêm các thanh ghi giữa các bước để giảm trễ lan truyền, giúp tăng tần số hoạt động của mạch.
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.6\linewidth]{figures/median3x3Exampel.png}
@@ -324,10 +328,11 @@ Hình \ref{fig:median7x7Example} mô tả cách tìm ra giá trị trung vị đ
 \begin{table}[H]
 	\centering
 	\renewcommand{\arraystretch}{1.3}
+		\caption{Số chu kỳ thực hiện của các mô-đun mô-đun sắp xếp và mô-đun MedianCalculation}
 	\begin{tabular}{|p{5cm} p{5cm} |}
 		\hline
 		\rowcolor{gray!30}
-		\textbf{Tên mô đun} & \textbf{Số chu kỳ}
+		\textbf{Tên mô-đun} & \textbf{Số chu kỳ}
 		\\ \hline
 		Bộ sắp xếp 3 phần tử & 1 chu kỳ
 		  \\
@@ -343,7 +348,7 @@ Hình \ref{fig:median7x7Example} mô tả cách tìm ra giá trị trung vị đ
 		MedianCalculation7x7 & \textbf{35 chu kỳ}
 		\\ \hline
 	\end{tabular}
-	\caption{Số chu kỳ thực hiện của các mô đun mô đun sắp xếp và mô đun MedianCalculation}
+
 	\label{tab:numberOfCycleMedianCalculation}
 \end{table}
 
@@ -360,9 +365,9 @@ Hình \ref{fig:median7x7Example} mô tả cách tìm ra giá trị trung vị đ
 	\label{fig:sortAscending7x7Ex}
 \end{figure}
 
-\section{Mô đun CI}
-Mô đun CI thực chất là tập hợp của các 3 mô đun MRELBP\_CI, trong mỗi mô đun đó là khối PatchSum nối với một mạch logic tổ hợp để nhằm mục đích so sánh và đưa ra giá trị so sánh đối với các phần tử trung tâm của một cửa sổ. Về cơ bản 3 mô đun PatchSum đều xây dựng trên nguyên tắc chung sẽ được trình bày tại phần ngay sau.
-\subsection{Cơ sở xây dựng mô đun PatchSum}
+\section{mô-đun CI}
+mô-đun CI thực chất là tập hợp của các 3 mô-đun MRELBP\_CI, trong mỗi mô-đun đó là khối PatchSum nối với một mạch logic tổ hợp để nhằm mục đích so sánh và đưa ra giá trị so sánh đối với các phần tử trung tâm của một cửa sổ. Về cơ bản 3 mô-đun PatchSum đều xây dựng trên nguyên tắc chung sẽ được trình bày tại phần ngay sau.
+\subsection{Cơ sở xây dựng mô-đun PatchSum}
 Một cách đơn giản nhất để tính tổng của các cửa sổ là cộng tất cả các giá trị trong cửa sổ lại với nhau, nếu với cửa sổ kích thước 5x5, ta sẽ cần cộng khoảng 25 giá trị trong 1 chu kỳ (nếu không sử dụng phương pháp đường ống), hoặc thực hiện một bộ cộng tuần tự, tuy nhiên nó sẽ giảm khả năng xử lý thời gian thực. Để giải quyết vấn đề này, sinh viên sẽ thực hiện một kỹ thuật triển khai giống với cửa sổ trượt. Hình \ref{fig:slidingWindowPrincipla} mô tả một ví dụ về kỹ thuật cửa sổ trượt. Cửa sổ mà có viền màu đỏ là cửa sổ ban đầu. Cửa sổ mà có viền màu xanh là cửa sổ ngay sau cửa sổ màu đỏ. Ta thấy, tổng của 2 cửa sổ này đều có một đặc điểm là có các giá trị ở các ô màu vàng. Giá trị tổng của cửa sổ sau sẽ bằng giá trị của cửa sổ trước đó trừ đi giá trị ở các ô màu đỏ và cộng với các giá trị ở các ô màu xanh. Bằng nguyên lý đó, ta có thể giảm bớt số lượng phép cộng cần thực hiện trong 1 chu kỳ.
 
 
@@ -378,27 +383,28 @@ Một cách đơn giản nhất để tính tổng của các cửa sổ là c�
 	\begin{minipage}[t]{0.48\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{figures/sumCumRTL.png}
-		\caption{Kiến trúc của mô đun sum\_cum}
+		\caption{Kiến trúc của mô-đun sum\_cum}
 		\label{fig:sumCumRTL}
 	\end{minipage}
 \end{figure}
 
 
 
-\subsection{Xây dựng mô đun PatchSum}
+\subsection{Xây dựng mô-đun PatchSum}
 \subsubsection{Sơ đồ chuyển trạng thái}
-Vì sẽ xây dựng 3 mô đun PatchSum ứng với 3 giá trị bán kính r khác nhau, tuy nhiên cả 3 mô đun này đều có cùng 1 nguyên lý hoạt động, do đó sinh viên sẽ xây dựng chung 1 bộ sơ đồ chuyển trạng thái, được mô tả tại hình \ref{fig:patchSumTrans}. 
+Vì sẽ xây dựng 3 mô-đun PatchSum ứng với 3 giá trị bán kính r khác nhau, tuy nhiên cả 3 mô-đun này đều có cùng 1 nguyên lý hoạt động, do đó sinh viên sẽ xây dựng chung 1 bộ sơ đồ chuyển trạng thái, được mô tả tại hình \ref{fig:patchSumTrans}. 
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.8\linewidth]{figures/patchSumTrans.png}
-	\caption{Sơ đồ chuyển trạng thái của mô đun PatchSum}
+	\caption{Sơ đồ chuyển trạng thái của mô-đun PatchSum}
 	\label{fig:patchSumTrans}
 \end{figure}
 \subsubsection{Kiến trúc RTL}
-Hình \ref{fig:patchSumRTL} mô tả kiến trúc RTL chung của cả 3 bộ PatchSum ứng với các bán kính r = 2, 4, 6. Đây là các bộ giúp kiểm tra các điều kiện để máy trạng thái chuyển trạng thái, cả 3 mô đun ứng với 3 loại r khác nhau đều sử dụng các bộ này, tuy nhiên thì mỗi bán kính sẽ ứng với các điều kiện khác nhau và các điều kiện Condition sẽ được mô tả tại bảng \ref{tab:conditionRTLPatchSum}. Một môn PatchSum ứng với một giá trị r cụ thể sẽ có mô tả RTL ở cả 2 hình \ref{fig:patchSumRTL} và \ref{fig:patchSumRTL_2}. Tuy nhiên hình \ref{fig:patchSumRTL_2} là mô tả RTL đầu ra cho mô đun PatchSum với r = 2, với r = 4 và r = 6, kiến trúc sẽ có sự khác biệt về số lượng thanh ghi, số chu kỳ thực hiện, nhưng về nguyên lý hoạt động là tương tự nhau. Hình \ref{fig:sumCumRTL} mô tả cấu trúc của mô đun sum\_cum được sử dụng ở cuối kiến trúc RTL (2) của mô đun PatchSum.
+Hình \ref{fig:patchSumRTL} mô tả kiến trúc RTL chung của cả 3 bộ PatchSum ứng với các bán kính r = 2, 4, 6. Đây là các bộ giúp kiểm tra các điều kiện để máy trạng thái chuyển trạng thái, cả 3 mô-đun ứng với 3 loại r khác nhau đều sử dụng các bộ này, tuy nhiên thì mỗi bán kính sẽ ứng với các điều kiện khác nhau và các điều kiện Condition sẽ được mô tả tại bảng \ref{tab:conditionRTLPatchSum}. Một mô PatchSum ứng với một giá trị r cụ thể sẽ có mô tả RTL ở cả 2 hình \ref{fig:patchSumRTL} và \ref{fig:patchSumRTL_2}. Tuy nhiên hình \ref{fig:patchSumRTL_2} là mô tả RTL đầu ra cho mô-đun PatchSum với r = 2, với r = 4 và r = 6, kiến trúc sẽ có sự khác biệt về số lượng thanh ghi, số chu kỳ thực hiện, nhưng về nguyên lý hoạt động là tương tự nhau. Hình \ref{fig:sumCumRTL} mô tả cấu trúc của mô-đun sum\_cum được sử dụng ở cuối kiến trúc RTL (2) của mô-đun PatchSum.
 \begin{table}[H]
 	\centering
+		\caption{Bảng điều kiện cho mô tả hình \ref{fig:patchSumRTL}}
 	\begin{tabular}{|>{\centering\arraybackslash}m{5cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{3cm}|}
 		\hline
 		\rowcolor{gray!30}
@@ -413,90 +419,108 @@ Hình \ref{fig:patchSumRTL} mô tả kiến trúc RTL chung của cả 3 bộ Pa
 		Condition4 & ROWS - 4 & ROWS - 8 & ROWS - 12 \\
 		\hline
 	\end{tabular}
-	\caption{Bảng điều kiện cho mô tả hình \ref{fig:patchSumRTL}}
+
 	\label{tab:conditionRTLPatchSum}
 \end{table}
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=\linewidth]{figures/patchSumRTL.png}
-	\caption{Kiến trúc RTL (1) của mô đun PatchSum}
+	\caption{Kiến trúc RTL (1) của mô-đun PatchSum}
 	\label{fig:patchSumRTL}
 \end{figure}
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=1\linewidth]{figures/patchSumRTL_2.png}
-	\caption{Kiến trúc RTL (2) của mô đun PatchSum với r = 2}
+	\caption{Kiến trúc RTL (2) của mô-đun PatchSum với r = 2}
 	\label{fig:patchSumRTL_2}
 \end{figure}
 
-\section{Mô đun NIRD}
-Mô đun NIRD có sơ đồ khối được mô tả theo hình \ref{fig:nirdArch} bao gồm khá nhiều mô đun con, tuy nhiên các thành phần đó đã được mô tả một phần ở các nội dung trước, do đó trong phần này, sinh viên sẽ trình bày về kiến trúc RTL của các mô đun con bao gồm mô đun \textbf{Interpolation}, mô đun \textbf{RIU2}.
-\subsection{Mô đun Interpolation}
-Mô đun Interpolation sẽ có đầu vào là 4 điểm ảnh và đầu ra là giá trị nội suy từ 4 điểm ảnh đó. Ở đây, sinh viên sử dụng một \textbf{Lookup Table} với các giá trị được tính toán trước đó từ mã python, với mỗi bán kính và góc khác nhau, sẽ có thể lấy ra được tương ứng 4 giá trị r1, r2, r3, r4 ứng với 4 giá trị nhân với 4 đầu vào. Sinh viên sử dụng số thập phân với dấu phẩy tĩnh 24 bit với 8 bit cao nhất là giá trị phần nguyên, còn lại là giá trị thập phân, như vậy giá trị nội suy lối  ra tương ứng cũng sẽ là 24 bit. 
+\section{mô-đun NIRD}
+mô-đun NIRD có sơ đồ khối được mô tả theo hình \ref{fig:nirdArch} bao gồm khá nhiều mô-đun con, tuy nhiên các thành phần đó đã được mô tả một phần ở các nội dung trước, do đó trong phần này, sinh viên sẽ trình bày về kiến trúc RTL của các mô-đun con bao gồm mô-đun \textbf{Interpolation}, mô-đun \textbf{RIU2}.
+\subsection{mô-đun Interpolation}
+Để nội suy ra các giá trị cần thiết trong ảnh, thiết kế sẽ sử dụng phương pháp nội suy tuyến tính. Phương pháp này sẽ tính toán giá trị một điểm dựa trên 4 điểm bên ngoài. 
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=1\linewidth]{figures/BilinearInterpolation_fig001.png.jpg}
+	\caption{Nội suy tuyến tính}
+	\label{fig:BilinearInterpolationV2}
+\end{figure}
+
+
+Giá trị của điểm cần tính sẽ theo công thức:
+\begin{equation}
+	\begin{aligned}
+		f(x, y) =\ &P(1,1) \cdot \frac{(x_2 - x)(y_2 - y)}{(x_2 - x_1)(y_2 - y_1)} + P(2,1) \cdot \frac{(x - x_1)(y_2 - y)}{(x_2 - x_1)(y_2 - y_1)} \\
+		&+ P(1,2) \cdot \frac{(x_2 - x)(y - y_1)}{(x_2 - x_1)(y_2 - y_1)} + P(2,2) \cdot \frac{(x - x_1)(y - y_1)}{(x_2 - x_1)(y_2 - y_1)}
+	\end{aligned}
+\end{equation}
+
+mô-đun Interpolation sẽ có đầu vào là 4 điểm ảnh và đầu ra là giá trị nội suy từ 4 điểm ảnh đó. Ở đây, sinh viên sử dụng một \textbf{Lookup Table} với các giá trị được tính toán trước đó từ mã python, với mỗi bán kính và góc khác nhau, sẽ có thể lấy ra được tương ứng 4 giá trị r1, r2, r3, r4 ứng với 4 giá trị nhân với 4 đầu vào. Sinh viên sử dụng số thập phân với dấu phẩy tĩnh 24 bit với 8 bit cao nhất là giá trị phần nguyên, còn lại là giá trị thập phân, như vậy giá trị nội suy lối  ra tương ứng cũng sẽ là 24 bit. 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=1\linewidth]{figures/interpolationRTL.png}
-	\caption{Kiến trúc RTL của môn đun Interpolation}
+	\caption{Kiến trúc RTL của mô-đun Interpolation}
 	\label{fig:interpolationRTL}
 \end{figure}
-\subsection{Mô đun RIU2}
-Mô tả với tên là RIU2 bao gồm 2 phần là RI và U2. RI là tìm giá trị nhỏ nhất khi xoay theo vòng tròn của dữ liệu trong khi đó U2 là ngưỡng của sự chuyển bit trong dữ liệu tối đa là 2. Tuy nhiên thì ta thực tế không cần quan tâm đến RI và giá trị lớn nhất hay nhỏ nhất cũng sẽ không ảnh hưởng tới số lượng chuyển bit trong dữ liệu, hay số lần chuyển bit trong dữ liệu là không đổi dù có thực hiện xoay vòng tròn. Do đó, mô đun này sẽ tìm ra số lượng chuyển bit trong dữ liệu và quyết định đầu ra là gì. Ta biết, hai bit nếu khác nhau thì khi thực hiện phép \textbf{XOR}, giá trị đầu ra sẽ ra 1. Từ đó, ta sẽ xây dựng được kiến trúc mô tả trong hình \ref{fig:riu2RTL}.
+\subsection{mô-đun RIU2}
+Mô tả với tên là RIU2 bao gồm 2 phần là RI và U2. RI là tìm giá trị nhỏ nhất khi xoay theo vòng tròn của dữ liệu trong khi đó U2 là ngưỡng của sự chuyển bit trong dữ liệu tối đa là 2. Tuy nhiên thì ta thực tế không cần quan tâm đến RI và giá trị lớn nhất hay nhỏ nhất cũng sẽ không ảnh hưởng tới số lượng chuyển bit trong dữ liệu, hay số lần chuyển bit trong dữ liệu là không đổi dù có thực hiện xoay vòng tròn. Do đó, mô-đun này sẽ tìm ra số lượng chuyển bit trong dữ liệu và quyết định đầu ra là gì. Ta biết, hai bit nếu khác nhau thì khi thực hiện phép \textbf{XOR}, giá trị đầu ra sẽ ra 1. Từ đó, ta sẽ xây dựng được kiến trúc mô tả trong hình \ref{fig:riu2RTL}.
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=\linewidth]{figures/riu2RTL.png}
-	\caption{Kiến trúc RTL của mô đun RIU2}
+	\includegraphics[width=1\linewidth]{figures/riu2RTL.png}
+	\caption{Kiến trúc RTL của mô-đun RIU2}
 	\label{fig:riu2RTL}
 \end{figure}
 
-\section{Mô đun JointHistogram}
-Mô đun JointHistogram được triển khai theo kiến trúc và bộ điều khiển được mô tả lần lượt lại hình \ref{fig:jointHistogramRTL}, \ref{fig:jointHistogramTrans}.
+\section{mô-đun JointHistogram}
+mô-đun JointHistogram được triển khai theo kiến trúc và bộ điều khiển được mô tả lần lượt lại hình \ref{fig:jointHistogramRTL}, \ref{fig:jointHistogramTrans}.
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=1\linewidth]{figures/jointHistogramRTL.png}
-	\caption{Kiến trúc RTL của mô đun JointHistogram}
+	\caption{Kiến trúc RTL của mô-đun JointHistogram}
 	\label{fig:jointHistogramRTL}
 \end{figure}
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.5\linewidth]{figures/jointHistogramTrans.png}
-	\caption{Sơ đồ chuyển trạng thái của mô đun JointHistogram}
+	\caption{Sơ đồ chuyển trạng thái của mô-đun JointHistogram}
 	\label{fig:jointHistogramTrans}
 \end{figure}
-\section{Mô đun MRELBP}
-Mô đun MRELBP hay còn gọi là top mô đun, là mô đun chứa các thành phần đã nêu ở các phần trên, đồng thời còn có thêm các tín hiệu điều khiển quá trình đọc ghi. Vì mô đun JointHistogram sẽ lưu giá trị đầu ra trong một bộ nhớ, và sẽ được đọc ra theo một yêu cầu nhất định, vì vậy, mô đun MRELBP ngoài là một lớp chứa các thành phần trên ra còn có thêm các tín hiệu điều khiển cho mô đun JointHistogram đọc các giá trị từ trong bộ nhớ của nó ra ngoài. Nguyên nhân là vì thực tế chỉ có 1 đầu ra mà sẽ có 3 đặc trưng ứng với 3 bán kinh khác nhau, nên cần có một bộ điều phối đầu ra của cả 3 sao cho chúng là tuần tự. Hình 
+\section{mô-đun MRELBP}
+mô-đun MRELBP hay còn gọi là top mô-đun, là mô-đun chứa các thành phần đã nêu ở các phần trên, đồng thời còn có thêm các tín hiệu điều khiển quá trình đọc ghi. Vì mô-đun JointHistogram sẽ lưu giá trị đầu ra trong một bộ nhớ, và sẽ được đọc ra theo một yêu cầu nhất định, vì vậy, mô-đun MRELBP ngoài là một lớp chứa các thành phần trên ra còn có thêm các tín hiệu điều khiển cho mô-đun JointHistogram đọc các giá trị từ trong bộ nhớ của nó ra ngoài. Nguyên nhân là vì thực tế chỉ có 1 đầu ra mà sẽ có 3 đặc trưng ứng với 3 bán kính khác nhau, nên cần có một bộ điều phối đầu ra của cả 3 sao cho chúng là tuần tự. 
 
 \begin{figure}[!ht]
 	\centering
 	\begin{minipage}[t]{0.48\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{figures/topTrans.png}
-		\caption{Sơ đồ chuyển trạng thái của mô đun MRELBP}
+		\caption{Sơ đồ chuyển trạng thái của mô-đun MRELBP}
 		\label{fig:topTrans}
 	\end{minipage}
 	\hfill
 	\begin{minipage}[t]{0.48\linewidth}
 		\centering
-		\includegraphics[width=\linewidth]{figures/topRTL2.png} % Thay bằng tên hình ảnh của bạn
-		\caption{Mô tả các tín hiệu yêu cầu đọc dữ liệu (1) của mô đun MRELBP} 
+		\includegraphics[width=0.8\linewidth]{figures/topRTL2.png} % Thay bằng tên hình ảnh của bạn
+		\caption{Mô tả các tín hiệu yêu cầu đọc dữ liệu (1) của mô-đun MRELBP} 
 		\label{fig:topRTL2}
 	\end{minipage}
 \end{figure}
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=\linewidth]{figures/topRTL1.png}
-	\caption{Mô tả các tín hiệu yêu cầu đọc dữ liệu (2) của mô đun MRELBP}
+	\includegraphics[width=0.9\linewidth]{figures/topRTL1.png}
+	\caption{Mô tả các tín hiệu yêu cầu đọc dữ liệu (2) của mô-đun MRELBP}
 	\label{fig:topRTL1}
 \end{figure}
-\section{Tính toán thời gian hoạt động của toàn bộ mô đun}
+\section{Tính toán thời gian hoạt động của toàn bộ mô-đun}
 
 \begin{table}[H]
 	\centering
 	\renewcommand{\arraystretch}{1.3}
+		\caption{Số chu kỳ thực hiện của các mô-đun ZeroPadding}
 	\begin{tabular}{|p{6cm} p{5cm} |}
 		\hline
 		\rowcolor{gray!30}
-		\textbf{Tên mô đun} & \textbf{Số chu kỳ thực hiện}  \\
+		\textbf{Tên mô-đun} & \textbf{Số chu kỳ thực hiện}  \\
 		\hline
 		Buffer6Rows  & 3 * COLS chu kỳ
 		\\ \hline
@@ -518,15 +542,19 @@ Mô đun MRELBP hay còn gọi là top mô đun, là mô đun chứa các thành
 		\textbf{Tổng với kích thước ảnh H * W} & \textbf{(H + 3)* W + 635 chu kỳ}
 		\\ \hline
 	\end{tabular}
-	\caption{Số chu kỳ thực hiện của các mô đun ZeroPadding}
+
 	\label{tab:numberOfCycleZeroPadding}
 \end{table}
 Minh chứng mô phỏng với các kích thước ảnh như sau:
 \begin{itemize}
 	\item Ảnh đầu vào kích thước 128 * 128: 17403 chu kỳ
 	\item Ảnh đầu vào kích thước 256 * 256: 66939 chu kỳ
-	\item Ảnh đầu vào kích thước 128 * 108: 14783 chu kỳ
-	\item Ảnh đầu vào kích thước 108 * 156: 17951 chu kỳ
-
 \end{itemize}
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=1\linewidth]{figures/simu_time.png}
+	\caption{Kết quả mô phỏng với kích thước ảnh 128x128}
+	\label{fig:simu_time}
+\end{figure}
 

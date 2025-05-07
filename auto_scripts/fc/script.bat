@@ -6,5 +6,5 @@ C:\Users\gbmhi\AppData\Local\Programs\Python\Python38\python.exe -m pip install 
 C:\Users\gbmhi\AppData\Local\Programs\Python\Python38\python.exe -m pip install scipy
 C:\Users\gbmhi\AppData\Local\Programs\Python\Python38\python.exe -m pip install opencv-python
 
-C:\Users\gbmhi\AppData\Local\Programs\Python\Python38\python.exe D:\Thesis\auto_scripts\generation\auto.py
+C:\Users\gbmhi\AppData\Local\Programs\Python\Python38\python.exe D:\Thesis\auto_scripts\fc\auto.py
 endlocal

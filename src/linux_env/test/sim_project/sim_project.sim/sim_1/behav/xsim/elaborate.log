@@ -1,0 +1,264 @@
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/hieu/Xilinx/Vivado/2024.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -d SIMULATION= -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot top_module_tb_behav xil_defaultlib.top_module_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-9543] actual bit length 10 differs from formal bit length 7 for port 'r_addr' [/home/hieu/Thesis/src/modules/buffers/line_buffer/line_buffer_datapath.v:85]
+WARNING: [VRFC 10-9543] actual bit length 10 differs from formal bit length 7 for port 'w_addr' [/home/hieu/Thesis/src/modules/buffers/line_buffer/line_buffer_datapath.v:86]
+WARNING: [VRFC 10-9543] actual bit length 32 differs from formal bit length 16 for port 'w_data' [/home/hieu/Thesis/src/modules/output_module/joint_histogram_datapath.v:90]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/top_module/top_module.v" Line 1. Module top_module doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/top_module/top_module_controller.v" Line 1. Module top_module__controller doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/top_module/top_module_datapath.v" Line 1. Module top_module__datapath doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/median_processing.v" Line 1. Module median_processing(COLS=128,ROWS=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/buffers/preparation_6.v" Line 1. Module preparation_6(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/buffers/line_buffer.v" Line 1. Module line_buffer(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/buffers/line_buffer/line_buffer_controller.v" Line 1. Module line_buffer_controller doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/buffers/line_buffer/line_buffer_datapath.v" Line 2. Module line_buffer_datapath(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/common/memory.v" Line 1. Module memory(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/buffers/line_buffer.v" Line 1. Module line_buffer(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/buffers/line_buffer/line_buffer_controller.v" Line 1. Module line_buffer_controller doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/buffers/line_buffer/line_buffer_datapath.v" Line 2. Module line_buffer_datapath(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/common/memory.v" Line 1. Module memory(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/buffers/line_buffer.v" Line 1. Module line_buffer(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/buffers/line_buffer/line_buffer_controller.v" Line 1. Module line_buffer_controller doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/buffers/line_buffer/line_buffer_datapath.v" Line 2. Module line_buffer_datapath(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/common/memory.v" Line 1. Module memory(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/buffers/line_buffer.v" Line 1. Module line_buffer(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/buffers/line_buffer/line_buffer_controller.v" Line 1. Module line_buffer_controller doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/buffers/line_buffer/line_buffer_datapath.v" Line 2. Module line_buffer_datapath(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/common/memory.v" Line 1. Module memory(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/buffers/line_buffer.v" Line 1. Module line_buffer(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/buffers/line_buffer/line_buffer_controller.v" Line 1. Module line_buffer_controller doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/buffers/line_buffer/line_buffer_datapath.v" Line 2. Module line_buffer_datapath(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/common/memory.v" Line 1. Module memory(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/buffers/line_buffer.v" Line 1. Module line_buffer(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/buffers/line_buffer/line_buffer_controller.v" Line 1. Module line_buffer_controller doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/buffers/line_buffer/line_buffer_datapath.v" Line 2. Module line_buffer_datapath(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/common/memory.v" Line 1. Module memory(DEPTH=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/3x3/median_filter_3x3.v" Line 1. Module median_filter_3x3(ROWS=128,COLS=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/data_modulate_module/3x3/data_modulate_3x3.v" Line 2. Module data_modulate_3x3(ROWS=128,COLS=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/data_modulate_module/3x3/data_modulate_3x3_controller.v" Line 2. Module data_modulate_3x3_controller doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/common/register.v" Line 1. Module register(WIDTH=1) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/data_modulate_module/3x3/data_modulate_3x3_datapath.v" Line 3. Module data_modulate_3x3_datapath(ROWS=128,COLS=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/3x3/median_filter_3x3_calc.v" Line 1. Module median_filter_3x3_calc doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/sorting_network.v" Line 1. Module sorting_network doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/sorting_network.v" Line 1. Module sorting_network doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/sorting_network.v" Line 1. Module sorting_network doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/sorting_network.v" Line 1. Module sorting_network doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/sorting_network.v" Line 1. Module sorting_network doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/5x5/median_filter_5x5.v" Line 1. Module median_filter_5x5(ROWS=128,COLS=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/data_modulate_module/5x5/data_modulate_5x5.v" Line 1. Module data_modulate_5x5(ROWS=128,COLS=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/data_modulate_module/5x5/data_modulate_5x5_controller.v" Line 2. Module data_modulate_5x5_controller doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/common/register.v" Line 1. Module register(WIDTH=1) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/data_modulate_module/5x5/data_modulate_5x5_datapath.v" Line 1. Module data_modulate_5x5_datapath(ROWS=128,COLS=128) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/5x5/median_filter_5x5_calc.v" Line 1. Module median_filter_5x5_calc doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/5x5/sort_ascending_5.v" Line 1. Module sort_ascending_5 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/sorting_network.v" Line 1. Module sorting_network doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/sorting_network.v" Line 1. Module sorting_network doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/sorting_network.v" Line 1. Module sorting_network doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/sorting_network.v" Line 1. Module sorting_network doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/5x5/sort_ascending_5.v" Line 1. Module sort_ascending_5 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/sorting_network.v" Line 1. Module sorting_network doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/sorting_network.v" Line 1. Module sorting_network doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/sorting_network.v" Line 1. Module sorting_network doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/sorting_network.v" Line 1. Module sorting_network doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/node.v" Line 2. Module node doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/hieu/Thesis/src/modules/median_filter_module/5x5/sort_ascending_5.v" Line 1. Module sort_ascending_5 doesn't have a timescale but at least one module in design has a timescale.
+INFO: [Common 17-14] Message 'XSIM 43-4099' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_functional_cv_sv
+WARNING: [XSIM 43-3373] "/home/hieu/Thesis/src/test_benches/functional_cv/functional_cv.sv" Line 199. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+Compiling package std.std
+Compiling module xil_defaultlib.top_if_default
+Compiling module xil_defaultlib.line_buffer_if_default
+Compiling module xil_defaultlib.zero_padding_3x3_if_default
+Compiling module xil_defaultlib.zero_padding_5x5_if_default
+Compiling module xil_defaultlib.zero_padding_7x7_if_default
+Compiling module xil_defaultlib.median_calc_3x3_if_default
+Compiling module xil_defaultlib.median_calc_5x5_if_default
+Compiling module xil_defaultlib.median_calc_7x7_if_default
+Compiling module xil_defaultlib.mrelbp_ci_r2_if_default
+Compiling module xil_defaultlib.mrelbp_ci_r4_if_default
+Compiling module xil_defaultlib.mrelbp_ci_r6_if_default
+Compiling module xil_defaultlib.nird_r2_if_default
+Compiling module xil_defaultlib.nird_r4_if_default
+Compiling module xil_defaultlib.joint_r2_if_default
+Compiling module xil_defaultlib.joint_r4_if_default
+Compiling module xil_defaultlib.joint_r6_if_default
+Compiling module xil_defaultlib.top_module__controller
+Compiling module xil_defaultlib.line_buffer_controller
+Compiling module xil_defaultlib.memory(DEPTH=128)
+Compiling module xil_defaultlib.line_buffer_datapath(DEPTH=128)
+Compiling module xil_defaultlib.line_buffer(DEPTH=128)
+Compiling module xil_defaultlib.preparation_6(DEPTH=128)
+Compiling module xil_defaultlib.register(WIDTH=1)
+Compiling module xil_defaultlib.data_modulate_3x3_controller
+Compiling module xil_defaultlib.data_modulate_3x3_datapath(ROWS=...
+Compiling module xil_defaultlib.data_modulate_3x3(ROWS=128,COLS=...
+Compiling module xil_defaultlib.node
+Compiling module xil_defaultlib.sorting_network
+Compiling module xil_defaultlib.median_filter_3x3_calc
+Compiling module xil_defaultlib.median_filter_3x3(ROWS=128,COLS=...
+Compiling module xil_defaultlib.data_modulate_5x5_controller
+Compiling module xil_defaultlib.data_modulate_5x5_datapath(ROWS=...
+Compiling module xil_defaultlib.data_modulate_5x5(ROWS=128,COLS=...
+Compiling module xil_defaultlib.sort_ascending_5
+Compiling module xil_defaultlib.median_filter_5x5_calc
+Compiling module xil_defaultlib.median_filter_5x5(ROWS=128,COLS=...
+Compiling module xil_defaultlib.data_modulate_7x7_controller
+Compiling module xil_defaultlib.data_modulate_7x7_datapath(ROWS=...
+Compiling module xil_defaultlib.data_modulate_7x7(ROWS=128,COLS=...
+Compiling module xil_defaultlib.sort_ascending_7
+Compiling module xil_defaultlib.median_filter_7x7_calc
+Compiling module xil_defaultlib.median_filter_7x7(ROWS=128,COLS=...
+Compiling module xil_defaultlib.median_processing(COLS=128,ROWS=...
+Compiling module xil_defaultlib.buffer_12_rows_ci(DEPTH=128)
+Compiling module xil_defaultlib.r2_controller
+Compiling module xil_defaultlib.register_en(WIDTH=9)
+Compiling module xil_defaultlib.sum
+Compiling module xil_defaultlib.register_en(WIDTH=10)
+Compiling module xil_defaultlib.sum(WIDTH=9)
+Compiling module xil_defaultlib.register_en(WIDTH=11)
+Compiling module xil_defaultlib.sum(WIDTH=10)
+Compiling module xil_defaultlib.sum_cumulative
+Compiling module xil_defaultlib.r2_sum_default
+Compiling module xil_defaultlib.mrelbp_ci_r2(COLS=128,ROWS=128)
+Compiling module xil_defaultlib.r4_controller
+Compiling module xil_defaultlib.register_en(WIDTH=12)
+Compiling module xil_defaultlib.sum(WIDTH=11)
+Compiling module xil_defaultlib.sum_cumulative(WIDTH1=15,WIDTH2=...
+Compiling module xil_defaultlib.r4_sum_default
+Compiling module xil_defaultlib.mrelbp_ci_r4(COLS=128,ROWS=128)
+Compiling module xil_defaultlib.r6_controller
+Compiling module xil_defaultlib.sum_cumulative(WIDTH1=16,WIDTH2=...
+Compiling module xil_defaultlib.r6_sum_default
+Compiling module xil_defaultlib.mrelbp_ci_r6(COLS=128,ROWS=128)
+Compiling module xil_defaultlib.ci_top(ROWS=128,COLS=128)
+Compiling module xil_defaultlib.buffer_4_rows(DEPTH=128)
+Compiling module xil_defaultlib.shift_registers(WIDTH=1,CYCLE=7)
+Compiling module xil_defaultlib.shift_registers(CYCLE=7)
+Compiling module xil_defaultlib.window_buffer_5x5_controller
+Compiling module xil_defaultlib.window_buffer_5x5_datapath(COLS=...
+Compiling module xil_defaultlib.window_buffer_5x5(COLS=128,ROWS=...
+Compiling module xil_defaultlib.window_buffer_3x3_controller
+Compiling module xil_defaultlib.window_buffer_3x3_datapath
+Compiling module xil_defaultlib.window_buffer_3x3
+Compiling module xil_defaultlib.register
+Compiling module xil_defaultlib.interpolation_R_x(R=1)
+Compiling module xil_defaultlib.interpolation_calc
+Compiling module xil_defaultlib.interpolation_R_x_default
+Compiling module xil_defaultlib.r2_sum(USE_CENTRAL_VALUE=0)
+Compiling module xil_defaultlib.r2_patch_sum(COLS=128,ROWS=128)
+Compiling module xil_defaultlib.register(WIDTH=13)
+Compiling module xil_defaultlib.shift_registers(WIDTH=1,CYCLE=4)
+Compiling module xil_defaultlib.shift_registers(WIDTH=13,CYCLE=3...
+Compiling module xil_defaultlib.ni_calc(WIDTH=13)
+Compiling module xil_defaultlib.ni(WIDTH=13)
+Compiling module xil_defaultlib.rd_calc
+Compiling module xil_defaultlib.rd
+Compiling module xil_defaultlib.register_en(WIDTH=2)
+Compiling module xil_defaultlib.sum(WIDTH=1)
+Compiling module xil_defaultlib.register_en(WIDTH=3)
+Compiling module xil_defaultlib.sum(WIDTH=2)
+Compiling module xil_defaultlib.register_en(WIDTH=4)
+Compiling module xil_defaultlib.sum(WIDTH=3)
+Compiling module xil_defaultlib.shift_registers(WIDTH=1,CYCLE=3)
+Compiling module xil_defaultlib.riu2_mapping
+Compiling module xil_defaultlib.shift_registers(WIDTH=4,CYCLE=3)
+Compiling module xil_defaultlib.r2_nird(COLS=128,ROWS=128)
+Compiling module xil_defaultlib.joint_histogram_controller
+Compiling module xil_defaultlib.memory_1(DEPTH=200,DATA_SIZE=16)
+Compiling module xil_defaultlib.joint_histogram_datapath
+Compiling module xil_defaultlib.joint_histogram
+Compiling module xil_defaultlib.buffer_8_rows(DEPTH=128)
+Compiling module xil_defaultlib.shift_registers(WIDTH=1,CYCLE=12...
+Compiling module xil_defaultlib.shift_registers(CYCLE=12)
+Compiling module xil_defaultlib.window_buffer_7x7_controller
+Compiling module xil_defaultlib.window_buffer_7x7_datapath(COLS=...
+Compiling module xil_defaultlib.window_buffer_7x7(COLS=128,ROWS=...
+Compiling module xil_defaultlib.window_buffer_9x9_controller
+Compiling module xil_defaultlib.window_buffer_9x9_datapath(COLS=...
+Compiling module xil_defaultlib.window_buffer_9x9(COLS=128,ROWS=...
+Compiling module xil_defaultlib.interpolation_calc(R=3)
+Compiling module xil_defaultlib.interpolation_R_x(R=3)
+Compiling module xil_defaultlib.interpolation_calc(R=4)
+Compiling module xil_defaultlib.interpolation_R_x(R=4)
+Compiling module xil_defaultlib.r4_sum(USE_CENTRAL_VALUE=0)
+Compiling module xil_defaultlib.r4_patch_sum(COLS=128,ROWS=128)
+Compiling module xil_defaultlib.shift_registers(WIDTH=15,CYCLE=3...
+Compiling module xil_defaultlib.ni_calc(WIDTH=15,GAIN=81)
+Compiling module xil_defaultlib.ni(WIDTH=15,GAIN=81)
+Compiling module xil_defaultlib.r4_nird(COLS=128,ROWS=128)
+Compiling module xil_defaultlib.shift_registers(WIDTH=1,CYCLE=17...
+Compiling module xil_defaultlib.buffer_12_rows(DEPTH=128)
+Compiling module xil_defaultlib.shift_registers(WIDTH=1,CYCLE=23...
+Compiling module xil_defaultlib.shift_registers(CYCLE=23)
+Compiling module xil_defaultlib.window_buffer_11x11_controller
+Compiling module xil_defaultlib.window_buffer_11x11_datapath(COL...
+Compiling module xil_defaultlib.window_buffer_11x11(COLS=128,ROW...
+Compiling module xil_defaultlib.window_buffer_13x13_datapath(COL...
+Compiling module xil_defaultlib.window_buffer_13x13_controller
+Compiling module xil_defaultlib.window_buffer_13x13(COLS=128,ROW...
+Compiling module xil_defaultlib.interpolation_calc(R=5)
+Compiling module xil_defaultlib.interpolation_R_x(R=5)
+Compiling module xil_defaultlib.interpolation_calc(R=6)
+Compiling module xil_defaultlib.interpolation_R_x(R=6)
+Compiling module xil_defaultlib.r6_sum(USE_CENTRAL_VALUE=0)
+Compiling module xil_defaultlib.r6_patch_sum(COLS=128,ROWS=128)
+Compiling module xil_defaultlib.shift_registers(WIDTH=16,CYCLE=3...
+Compiling module xil_defaultlib.ni_calc(WIDTH=16,GAIN=169)
+Compiling module xil_defaultlib.ni(WIDTH=16,GAIN=169)
+Compiling module xil_defaultlib.r6_nird(COLS=128,ROWS=128)
+Compiling module xil_defaultlib.shift_registers(WIDTH=1,CYCLE=39...
+Compiling module xil_defaultlib.top_module__datapath
+Compiling module xil_defaultlib.top_module
+Compiling module xil_defaultlib.top_module_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot top_module_tb_behav
