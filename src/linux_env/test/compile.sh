@@ -1,4 +1,4 @@
-SRC_DIR="..//modules"
+SRC_DIR="../modules"
 
 vlib work
 verilog_files=$(find "$SRC_DIR" -type f -name "*.v")
