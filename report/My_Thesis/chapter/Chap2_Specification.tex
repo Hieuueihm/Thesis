@@ -5,7 +5,7 @@
 \chapter[{ĐẶC TẢ KỸ THUẬT}]{Đặc tả kỹ thuật}
 
 %\section{Đặc tả kỹ thuật}
-Chương này sẽ cung cấp các thông tin về các yêu cầu chức năng và phi chức năng của IP cần thiết kế, từ mô-đun lớn nhất đến các mô-đun nhỏ hơn. Các thông tin về đặc tả kỹ thuật của IP sẽ bao gồm thông tin về chức năng, danh sách tham số và tín hiệu của mô-đun, kiến trúc ở mức hành vi và mô tả dạng sóng của mô-đun.
+Chương này sẽ cung cấp các thông tin về các yêu cầu chức năng và phi chức năng của IP cần thiết kế, từ mô-đun lớn nhất đến các mô-đun nhỏ hơn. Các thông tin về đặc tả kỹ thuật sẽ bao gồm thông tin về chức năng, danh sách tham số và tín hiệu của mô-đun, kiến trúc ở mức hành vi và mô tả dạng sóng của mô-đun.
 
 \section{Yêu cầu hệ thống }
 Bảng \ref{tab:non_functional} đây mô tả các yêu cầu hệ thống cho IP (bao gồm yêu cầu chức năng và yêu cầu phi chức năng):
@@ -97,7 +97,7 @@ Quá trình tạo ra biểu đồ histogram được mô tả theo hình \ref{fi
 \end{figure} 
 
 
-Với những mô tả trên, sơ đồ thuật toán được đưa ra như hình \ref{fig:fullArch}. Một cách cụ thể hơn, vì MRELBP là phiển bản của RELBP với $\phi()$ là bộ tính trung vị, nên khi thiết kế phần cứng, ta sẽ đưa ra toàn bộ các phiên bản tính trung vị của ảnh đầu vào. Sau đó, sẽ có 2 bộ là CI và NIRD để tính các giá trị đặc trưng theo mô tả công thức \ref{eq:relbp_ci_op}, \ref{eq:relbp_ni}, \ref{eq:relbp_rd}. Vì NIRD có cách tính và yêu cầu đầu vào tương đối giống nhau, do đó, 2 mô tả này có thể xây dựng trong cùng 1 mô-đun để tiết kiệm tài nguyên. Sau đó 3 mô tả này sẽ thực hiện qua bước "JointHistogram" để đạt được đặc trưng đầu ra.
+Với những mô tả trên, sơ đồ thuật toán được đưa ra như hình \ref{fig:fullArch}. Một cách cụ thể hơn, vì MRELBP là phiên bản của RELBP với $\phi()$ là bộ tính trung vị, nên khi thiết kế phần cứng, ta sẽ đưa ra toàn bộ các phiên bản tính trung vị của ảnh đầu vào. Sau đó, sẽ có 2 bộ là CI và NIRD để tính các giá trị đặc trưng theo mô tả công thức \ref{eq:relbp_ci_op}, \ref{eq:relbp_ni}, \ref{eq:relbp_rd}. Vì NIRD có cách tính và yêu cầu đầu vào tương đối giống nhau, do đó, 2 mô tả này có thể xây dựng trong cùng 1 mô-đun để tiết kiệm tài nguyên. Sau đó 3 mô tả này sẽ thực hiện qua bước "JointHistogram" để đạt được đặc trưng đầu ra.
 
 
 \section{ Đặc tả kỹ thuật}
@@ -182,7 +182,7 @@ Hình \ref{fig:mrelbpArchitecture} mô tả sơ đồ khối của mô-đun MREL
 
 \newpage
 \subsection{Đặc tả mô-đun MedianProcessing}
-Theo mô tả từ hình \ref{fig:mrelbpArchitecture} thì môn đun MedianProcessing gồm 3 thành phần chính hay 3 mô-đun bao gồm \textbf{Buffer6Rows, ZeroPadding, MedianCalculation}. \textit{\textbf{Lưu ý}: Do mô-đun MedianProcessing sẽ tính giá trị trung vị ứng với 3 cửa sổ theo bán kính r, nên tại phần này sẽ mô tả một cách tổng quát từng mô-đun mà không chi tiết cụ thể theo từng giá trị r}.
+Theo mô tả từ hình \ref{fig:mrelbpArchitecture} thì mô-đun MedianProcessing gồm 3 thành phần chính hay 3 mô-đun bao gồm \textbf{Buffer6Rows, ZeroPadding, MedianCalculation}. \textit{\textbf{Lưu ý}: Do mô-đun MedianProcessing sẽ tính giá trị trung vị ứng với 3 cửa sổ theo bán kính r, nên tại phần này sẽ mô tả một cách tổng quát từng mô-đun mà không chi tiết cụ thể theo từng giá trị r}.
 \begin{table}[!ht]
     \centering
     \renewcommand{\arraystretch}{1.3} % Tăng khoảng cách dòng
@@ -310,7 +310,7 @@ mô-đun Buffer6Rows là tập hợp của \textbf{6} mô-đun LineBuffer tạo 
     \caption{Dạng sóng của mô-đun LineBuffer}
     \label{fig:lineBuffer}
 \end{figure}
-\begin{figure}[!ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth]{figures/Buffer6Rows.png}
     \caption{Dạng sóng của mô-đun Buffer6Rows}
@@ -571,7 +571,7 @@ Bảng \ref{tab:paramListCICAL}, \ref{tab:signalListCICAL} mô tả về giao di
         \\ \hline
         ci\_o & 1 & Ra & Mô tả CI đầu ra
         \\ \hline
-        o\_valid & 1 & Ra & Tín hiêu thông báo dữ liệu đầu ra là hợp lệ
+        o\_valid & 1 & Ra & Tín hiệu thông báo dữ liệu đầu ra là hợp lệ
         \\ \hline
         o\_finish & 1 & Ra & Tín hiệu thông báo kết thúc quá trình tính CI
         \\ \hline
@@ -658,7 +658,7 @@ Hình \ref{fig:nirdArch} mô tả sơ đồ khối của mô-đun NIRD. Tại m�
 \end{figure}
 
 \subsubsection{Đặc tả mô-đun Interpolation}
-mô-đun này sẽ thực hiện chức năng tính toán giá trị chưa biết ở một vài vị trí bán kính bằng phương pháp nội suy. Vì phương pháp này sẽ xuất hiện các giá trị thập phân, để tiện cho việc biểu diễn, sinh viên sử dụng dấu phẩy tĩnh với 8-bit phần nguyên và 16-bit phần thập phân, tổng cộng là 24-bit cho dữ liệu đầu ra. Các dữ liệu ở các góc đặc biệt như 0, 90, 180, 270 độ sẽ không cần thực hiện nội suy, do đó, trong mô-đun cũng sẽ thực thi chức năng đệm dữ liệu để đảm bảo đầu ra có đủ 8 giá trị trên đường tròn bán kính r ở tại một thời điểm. Vì phương pháp nội sử dụng là tuyến tính, do đó cần 4 điểm xung quanh vị trí cần tính, nên ứng với các góc 45, 135, 225 và 315 thì sễ cần đầy đủ 4 giá trị đầu vào để tính toán.
+mô-đun này sẽ thực hiện chức năng tính toán giá trị chưa biết ở một vài vị trí bán kính bằng phương pháp nội suy. Vì phương pháp này sẽ xuất hiện các giá trị thập phân, để tiện cho việc biểu diễn, sinh viên sử dụng dấu phẩy tĩnh với 8-bit phần nguyên và 16-bit phần thập phân, tổng cộng là 24-bit cho dữ liệu đầu ra. Các dữ liệu ở các góc đặc biệt như 0, 90, 180, 270 độ sẽ không cần thực hiện nội suy, do đó, trong mô-đun cũng sẽ thực thi chức năng đệm dữ liệu để đảm bảo đầu ra có đủ 8 giá trị trên đường tròn bán kính r ở tại một thời điểm. Vì phương pháp nội sử dụng là tuyến tính, do đó cần 4 điểm xung quanh vị trí cần tính, nên ứng với các góc 45, 135, 225 và 315 thì sẽ cần đầy đủ 4 giá trị đầu vào để tính toán.
 
 \begin{table}[!ht]
     \centering

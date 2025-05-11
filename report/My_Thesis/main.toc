@@ -28,9 +28,9 @@
 \contentsline {subsection}{\numberline {2.3.1}Đặc tả mô-đun MRELBP}{20}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Đặc tả mô-đun MedianProcessing}{21}{subsection.2.3.2}%
 \contentsline {subsubsection}{\numberline {2.3.2.1}Đặc tả mô-đun Buffer6Rows}{23}{subsubsection.2.3.2.1}%
-\contentsline {subsubsection}{\numberline {2.3.2.2}Đặc tả mô-đun ZeroPadding}{24}{subsubsection.2.3.2.2}%
-\contentsline {subsubsection}{\numberline {2.3.2.3}Đặc tả mô-đun MedianCalculation}{24}{subsubsection.2.3.2.3}%
-\contentsline {subsection}{\numberline {2.3.3}Đặc tả mô-đun CI}{25}{subsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.2.2}Đặc tả mô-đun ZeroPadding}{25}{subsubsection.2.3.2.2}%
+\contentsline {subsubsection}{\numberline {2.3.2.3}Đặc tả mô-đun MedianCalculation}{26}{subsubsection.2.3.2.3}%
+\contentsline {subsection}{\numberline {2.3.3}Đặc tả mô-đun CI}{26}{subsection.2.3.3}%
 \contentsline {subsubsection}{\numberline {2.3.3.1}Đặc tả mô-đun MRELBP\_CI}{28}{subsubsection.2.3.3.1}%
 \contentsline {subsection}{\numberline {2.3.4}Đặc tả mô-đun NIRD}{29}{subsection.2.3.4}%
 \contentsline {subsubsection}{\numberline {2.3.4.1}Đặc tả mô-đun Interpolation}{30}{subsubsection.2.3.4.1}%
@@ -69,7 +69,7 @@
 \contentsline {chapter}{\numberline {5}THỰC THI VÀ ĐÁNH GIÁ}{66}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Thông tin về bo mạch Zynq UltraScale+MPSoC ZCU106 Evaluation Kit}{66}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Xây dựng hệ thống SoC}{66}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Kết quả và đánh giá}{68}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Kết luận}{73}{section.5.4}%
-\contentsline {chapter}{{TÀI LIỆU THAM KHẢO}}{74}{section*.128}%
+\contentsline {section}{\numberline {5.3}Kết quả và đánh giá}{69}{section.5.3}%
+\contentsline {chapter}{KẾT LUẬN}{75}{figure.caption.128}%
+\contentsline {chapter}{{TÀI LIỆU THAM KHẢO}}{76}{section*.130}%
 \contentsfinish 

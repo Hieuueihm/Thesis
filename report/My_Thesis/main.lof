@@ -18,10 +18,10 @@
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Dạng sóng của mô-đun MedianProcessing}}{22}{figure.caption.38}%
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Sơ đồ khối của mô-đun Buffer6Rows}}{23}{figure.caption.39}%
 \contentsline {figure}{\numberline {2.8}{\ignorespaces Dạng sóng của mô-đun LineBuffer}}{24}{figure.caption.42}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Dạng sóng của mô-đun Buffer6Rows}}{25}{figure.caption.43}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Dạng sóng của mô-đun Buffer6Rows}}{24}{figure.caption.43}%
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Dạng sóng của mô-đun ZeroPadding}}{25}{figure.caption.46}%
 \contentsline {figure}{\numberline {2.11}{\ignorespaces Dạng sóng của mô-đun MedianCalculation}}{26}{figure.caption.49}%
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Dạng sóng của mô-đun CI}}{28}{figure.caption.52}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Dạng sóng của mô-đun CI}}{27}{figure.caption.52}%
 \contentsline {figure}{\numberline {2.13}{\ignorespaces Sơ đồ khối của mô-đun CI}}{28}{figure.caption.53}%
 \contentsline {figure}{\numberline {2.14}{\ignorespaces Dạng sóng của mô-đun MRELBP\_CI}}{29}{figure.caption.56}%
 \contentsline {figure}{\numberline {2.15}{\ignorespaces Sơ đồ khối của mô-đun NIRD}}{31}{figure.caption.59}%
@@ -39,7 +39,7 @@
 \contentsline {figure}{\numberline {3.6}{\ignorespaces Mô tả RTL (1) của mô-đun ZeroPadding ứng với cửa sổ 3x3}}{40}{figure.caption.78}%
 \contentsline {figure}{\numberline {3.7}{\ignorespaces Mô tả RTL (2) của mô-đun ZeroPadding ứng với cửa sổ 3x3}}{41}{figure.caption.79}%
 \contentsline {figure}{\numberline {3.8}{\ignorespaces Mô tả RTL của mô-đun ZeroPadding ứng với cửa sổ 5x5}}{41}{figure.caption.80}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Mô tả RTL của mô-đun ZeroPadding ứng với cử sổ 7x7}}{43}{figure.caption.83}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Mô tả RTL của mô-đun ZeroPadding ứng với cửa sổ 7x7}}{43}{figure.caption.83}%
 \contentsline {figure}{\numberline {3.10}{\ignorespaces Mô tả về mạng sắp xếp với 3 phần tử \cite {altivec}}}{46}{figure.caption.84}%
 \contentsline {figure}{\numberline {3.11}{\ignorespaces Mô tả cấu trúc bộ so sánh và hoán đổi}}{46}{figure.caption.84}%
 \contentsline {figure}{\numberline {3.12}{\ignorespaces Thực hiện và ví dụ của tìm trung vị của cửa sổ 3x3}}{47}{figure.caption.85}%
@@ -73,9 +73,10 @@
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Giao diện của IP MRELBP}}{67}{figure.caption.115}%
 \contentsline {figure}{\numberline {5.3}{\ignorespaces Sơ đồ khối hệ thống SoC}}{67}{figure.caption.116}%
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Thiết kế khối hệ thống SoC}}{68}{figure.caption.117}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Báo cáo kết quả tổng hợp của phần mềm Vivado}}{68}{figure.caption.118}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Thông số định thời của thiết kế}}{69}{figure.caption.120}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Công suất tiêu thụ năng lượng của thiết kế}}{70}{figure.caption.121}%
-\contentsline {figure}{\numberline {5.8}{\ignorespaces ILA với điểm kích hoạt là \textit {o\_intr}}}{72}{figure.caption.126}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces ILA với dữ liệu điểm ảnh đầu vào}}{73}{figure.caption.127}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Lưu đồ hoạt động của chương trình phần mềm}}{68}{figure.caption.118}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Báo cáo kết quả tổng hợp của phần mềm Vivado}}{69}{figure.caption.119}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Thông số định thời của thiết kế}}{70}{figure.caption.121}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Công suất tiêu thụ năng lượng của thiết kế}}{71}{figure.caption.122}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces ILA với điểm kích hoạt là \textit {o\_intr}}}{73}{figure.caption.127}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces ILA với dữ liệu điểm ảnh đầu vào}}{73}{figure.caption.128}%
 \contentsfinish 

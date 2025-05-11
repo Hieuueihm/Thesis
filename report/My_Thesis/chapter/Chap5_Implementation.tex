@@ -34,6 +34,13 @@ Hình \ref{fig:soc1} mô tả về sơ đồ khối của hệ thống SoC sẽ 
 	\caption{Thiết kế khối hệ thống SoC}
 	\label{fig:socreal}
 \end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{figures/socflow.png}
+	\caption{Lưu đồ hoạt động của chương trình phần mềm}
+	\label{fig:socflow}
+\end{figure}
+Hình \ref{fig:socflow} mô tả lưu đồ hoạt động của chương trình phần mềm cho hệ thống SoC đã thiết kế. Khi chương trình bắt đầu thì sẽ cần khởi tạo các khối cần sử dụng bao gồm DMA, UART và GPIO. Nếu định nghĩa một cờ là INTR\_EN thì sẽ cần thiết lập về mức ưu tiên ngắt và thời điểm kích hoạt ngắt. Nếu định nghĩa cờ IMG\_UA thì sẽ kích hoạt UART nhận dữ liệu từ bên ngoài, nếu không sẽ lấy được ảnh đã lưu trữ cục bộ, sau đó thông qua bộ DMA đưa dữ liệu vào IP đã thiết kế. Nếu định nghĩa cờ ngắt, quá trình đợi tính toán hoàn tất sẽ kết thúc khi mà ngắt được kích hoạt, nếu không sẽ cần kiểm tra các thanh ghi của DMA để xem DMA đã hoàn tất quá trình hoạt động hay chưa. Sau khi kết thúc có thể tiến hành gửi các giá trị đặc trưng qua kết nối UART để quan sát hoặc sử dụng cho mục đích khác.
 \section{Kết quả và đánh giá}
 Kết quả về tổng hợp và thực thi sẽ được thực hiện trên phần mềm Vivado. Kết quả tổng hợp bao gồm về tài nguyên sử dụng, tần số tối đa, năng lượng tiêu thụ. Để đánh giá về độ chính xác của mô hình sẽ thực hiện với tập dữ liệu Outex, so sánh thời gian thực tế với thời gian chạy của các mô hình phần mềm.
 
@@ -67,7 +74,7 @@ Tài nguyên sử dụng được mô tả trong bảng \ref{tab:resource}
 Thông số định thời của hệ thống được thể hiện trên hình \ref{fig:ipTiming}. Với các thông số định thời ta sẽ có một số tiêu chí đánh giá như sau:
 \begin{itemize}
 	\item WNS: Đỗ trễ trong trường hợp xấu nhất của một xung nhịp, WNS = $min(T-T_n)$ với T là một chu kỳ của xung nhịp, $T_n$ là thời gian truyền. Để mạch hoạt động chính xác thì phải đảm bảo giá trị WNS lớn hơn 0.
-	\item Tần số $F_{max}$: Tần số có thể chạy trên phẩn cứng trong một triển khai nhất định.
+	\item Tần số $F_{max}$: Tần số có thể chạy trên phần cứng trong một triển khai nhất định.
 \end{itemize}
 Hệ thống được xây dựng với ràng buộc đầu là 100MHz tương đương với chu kỳ xung nhịp là 10ns, từ đó ta có thể tính tần số tối đa như sau:
 \begin{equation*}
@@ -97,7 +104,7 @@ Công suất tiêu thụ của hệ thống được thể hiện trong hình \r
 
 \begin{table}[!ht]
 	\centering
-	\renewcommand{\arraystretch}{1.3}
+	\renewcommand{\arraystretch}{1.2}
 		\caption{Độ chính xác trên các tập dữ liệu với SVM}
 	\begin{tabular}{|p{2.5cm} p{2.5cm} p{2.5cm} p{2.5cm} p{2.5cm} p{2.5cm}|}
 		\hline
@@ -234,17 +241,12 @@ Bảng \ref{tab:svm}, \ref{tab:lr}, \ref{tab:nb}, \ref{tab:knn} là kết quả 
 
 Thời gian đo lường được với hệ thống SoC với kích thước ảnh 128x128 và tần số hoạt động 100MHz là 250$~\mu\text{s}$. Thời gian đo lường với phần mềm xây dựng với ngôn ngữ c++ với các tập dữ liệu như trên lần lượt là 0.4282s, 0.4326s, 0.4173s, 0.4402s, 0.4386s, 0.4389s, 0.4313s, 0.4313s, 0.4158s, 0.4177s. Do đó, tỉ lệ tăng tốc của bộ tăng tốc phần cứng là $\frac{0.429}{250\cdot10^{-6}}=\textbf{1716}$ lần.
 
-Để giám sát hoạt động của hệ thống sau khi triển khai, một IP được sử dụng trong thiết kế là Integrated Logic Analyzer (ILA). Kết quả thu được tương ứng với các hình \ref{fig:ila1}, \ref{fig:ila3}. Hình \ref{fig:ila1} cho thấy sau ngay sau khi nhận xong toàn bộ dữ liệu, tín hiệu interrupt được kích hoạt lên mức cao trong 1 chu kỳ, đảm bảo vi xử lý có thể xử lý được dữ liệu ngay khi hoàn tất quá trình tính toán.
-
-\begin{figure}[!ht]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{figures/ila1.png}
 	\caption{ILA với điểm kích hoạt là \textit{o\_intr}}
 	\label{fig:ila1}
 \end{figure}
-
-
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{figures/ila3.png}
@@ -252,16 +254,5 @@ Thời gian đo lường được với hệ thống SoC với kích thước �
 	\label{fig:ila3}
 \end{figure}
 
-\section{Kết luận}
-Căn cứ vào những kết quả đã đạt được, khóa luận đã đạt được những mục tiêu đề ra. Khóa luận đã cung cấp đầy đủ thông tin về kỹ thuật trích xuất đặc trưng với MRELBP, thiết kế phần cứng tăng tốc ở mức RTL và thiết kế hệ thống SoC kiểm chứng.  
 
-Khóa luận đã hoàn thành các nhiệm vụ:
-\begin{itemize}
-	\item Phân tích, triển khai thuật toán MRELBP từ lý thuyết đã có
-	\item Phân tích các yêu cầu, đưa ra thiết kế hệ thống ở mức RTL
-	\item Xây dựng hệ thống SoC giúp kiểm chứng khả năng tương thích của IP
-	\item Thực nghiệm, đánh giá kết quả thu được 
-\end{itemize}
-
-
-Bên cạnh những điểm đã hoàn thành, đồ án vẫn tồn tại những nhược điểm lớn như công suất tiêu thụ năng lượng vẫn tương đối lớn và còn nhiều thiết kế chưa được pipeline một cách kỹ lương hơn. Đây là những thiết sót và cũng là những định hướng để cải tiến thiết kế trong tương lai.
+Để giám sát hoạt động của hệ thống sau khi triển khai, một IP được sử dụng trong thiết kế là Integrated Logic Analyzer (ILA). Kết quả thu được tương ứng với các hình \ref{fig:ila1}, \ref{fig:ila3}. Hình \ref{fig:ila1} cho thấy sau ngay sau khi nhận xong toàn bộ dữ liệu, tín hiệu ngắt được kích hoạt lên mức cao trong 1 chu kỳ, đảm bảo vi xử lý có thể xử lý được dữ liệu ngay khi hoàn tất quá trình tính toán.

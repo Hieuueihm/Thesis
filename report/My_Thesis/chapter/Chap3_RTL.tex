@@ -155,14 +155,14 @@ Bảng \ref{tab:numberOfCycleZeroPadding} mô tả số chu kỳ cần thiết t
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=\linewidth]{figures/zero7x7Architecture1.png}
-    \caption{Mô tả RTL của mô-đun ZeroPadding ứng với cử sổ 7x7}
+    \caption{Mô tả RTL của mô-đun ZeroPadding ứng với cửa sổ 7x7}
     \label{fig:zero7x7Architecture1}
 \end{figure}
 
 \renewcommand{\arraystretch}{1}
 
 \begin{longtable}{|p{3cm}|p{8cm}|p{4cm}|}
-			\caption{Bảng điều kiện cho dữ liệu đầu ra ứng với cửa sổ 7x7} 
+			\caption{Bảng điều kiện cho dữ liệu đầu ra ứng với cửa sổ 7x7} \\
 	\hline
 	\rowcolor{gray!30}
 	\textbf{Tên đầu ra} & \textbf{Điều kiện} & \textbf{Giá trị tham chiếu} \\
@@ -320,7 +320,7 @@ Hình \ref{fig:median5x5Example} mô tả nguyên lý và ví dụ về cách t�
 
 \subsubsection{Cửa sổ 7x7}
 
-Hình \ref{fig:median7x7Example} mô tả cách tìm ra giá trị trung vị đối với một ma trận kích thước 7x7. Điểm khác biệt đối với cửa sổ này là sau khi đã sắp xếp hàng và sắp xếp cột xong, ta sẽ tìm ra 25 phần tử thỏa mãn điều kiện, sau đó dựa vào bộ tìm trung vị đối với ma trận 5x5 để tìm trung vị chứ không thực hiện trực tiếp việc sắp xếp đường chéo theo mô tả tại thuật toán \ref{alg:medianFilterAlgo}. Sau khi sắp xếp theo hàng và cột xong, giá trị tại các ô xanh trong hình \ref{fig:median7x7Example} đã thỏa mãn điều kiện, tuy nhiên ở mỗi góc sẽ tồn tại 3 giá trị như mô tả tại ô màu vàng. Đối với phía trên, ta cần tìm giá trí lớn nhất của nó và đối với phía dưới, ta cần tìm giá trị nhỏ nhất. Từ đó, ta sẽ có đủ 25 phần tử và sử dụng nó có thể tìm kiếm được giá trị trung vị.
+Hình \ref{fig:median7x7Example} mô tả cách tìm ra giá trị trung vị đối với một ma trận kích thước 7x7. Điểm khác biệt đối với cửa sổ này là sau khi đã sắp xếp hàng và sắp xếp cột xong, ta sẽ tìm ra 25 phần tử thỏa mãn điều kiện, sau đó dựa vào bộ tìm trung vị đối với ma trận 5x5 để tìm trung vị chứ không thực hiện trực tiếp việc sắp xếp đường chéo theo mô tả tại thuật toán \ref{alg:medianFilterAlgo}. Sau khi sắp xếp theo hàng và cột xong, giá trị tại các ô xanh trong hình \ref{fig:median7x7Example} đã thỏa mãn điều kiện, tuy nhiên ở mỗi góc sẽ tồn tại 3 giá trị như mô tả tại ô màu vàng. Đối với phía trên, ta cần tìm giá trị lớn nhất của nó và đối với phía dưới, ta cần tìm giá trị nhỏ nhất. Từ đó, ta sẽ có đủ 25 phần tử và sử dụng nó có thể tìm kiếm được giá trị trung vị.
 
 Để thực hiện sắp xếp tăng dần cho một cửa sổ 7x7, ta cần bộ sắp xếp tăng dần cho 7 phần tử, nó có thể được xây dựng trên các bộ sắp xếp 5 và bộ sắp xếp 3.
 

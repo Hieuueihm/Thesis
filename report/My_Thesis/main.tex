@@ -69,12 +69,14 @@
 \pgfplotsset{compat=1.16}
 \usepackage[numbers]{natbib}
 \usepackage{titlesec}
+
 \usepackage[labelsep=period]{caption}
 \usepackage{subfigure}
 \DeclareCaptionFormat{myformat}{\fontsize{13}{15}\selectfont#1#2#3}
 \captionsetup{format=myformat}
 \usepackage{titletoc}
 \titlelabel{\thetitle.\,\,}
+\renewcommand{\chaptertitlename}{Chương}
 \titleformat{\chapter}[display] 
   {\fontsize{14}{16}\selectfont\bfseries\centering}
   {\MakeUppercase{\chaptertitlename}\ \thechapter}{0pt}{\fontsize{14}{16}\selectfont\MakeUppercase}
@@ -125,8 +127,8 @@
 \begin{document}
 \fontsize{13}{15.5}\selectfont
 
-\input{chapter/ChapNeg_Summary.tex}
-\newpage
+%\input{chapter/ChapNeg_Summary.tex}
+%\newpage
 \pagestyle{empty}
 \input{cover/Biangoai}
 \newpage
@@ -171,7 +173,7 @@
 		\textbf{STT} & \textbf{Ký hiệu viết tắt} & \textbf{Tên chữ đầy đủ} \\
 		\hline
 		1 & RTL & Register Transfer Level \\
-		2 & IP & Intellectual Propterty \\
+		2 & IP & Intellectual Property \\
 		3 & FGPA & Field Programmable Gate Array \\
 		4 & SoC & System on Chip \\
 		5 & LUT & Look Up Table \\
@@ -185,7 +187,8 @@
 		13 & ELBP & Extended Local Binary Pattern \\ 
 		14 & CNN & Convolutional Neural Network \\ 
 		15 & ILA & Integrated Logic Analyzer
-	\\	16 & MRF & Markov Random Field
+	\\	16 & MRF & Markov Random Field \\ 
+		17 & ILA & Integrated Logic Analyzer
 	\\
 		\hline
 	\end{tabular}
@@ -193,7 +196,6 @@
 \vspace{20pt}
 \fontsize{13}{16}\selectfont
 % ------------------------------------------------------
--
 
 \clearpage
 \phantomsection
@@ -224,8 +226,24 @@
 \input{chapter/Chap4_SimulationAVerification}
 \newpage
 \input{chapter/Chap5_Implementation}
+\newpage
+\addcontentsline{toc}{chapter}{KẾT LUẬN}
+\chapter*{KẾT LUẬN}
+Dựa trên những kết quả đã đạt được, khóa luận đã hoàn thành các mục tiêu đã đề ra. Cụ thể, khóa luận đã cung cấp đầy đủ thông tin về kỹ thuật trích xuất đặc trưng sử dụng MRELBP, thiết kế phần cứng tăng tốc ở mức RTL và triển khai hệ thống SoC nhằm kiểm chứng hoạt động của IP. Các nhiệm vụ chính đã được thực hiện bao gồm:
+\begin{itemize}
+	\item Phân tích và triển khai thuật toán MRELBP dựa trên cơ sở lý thuyết.
+	\item Phân tích yêu cầu và đưa ra thiết kế phần cứng ở mức RTL phù hợp.
+	\item Xây dựng được hệ thống kiểm thử thiết kế một cách tự động, đánh giá được độ bao phủ về mặt chức năng.
+	\item Xây dựng hệ thống SoC nhằm kiểm chứng khả năng tương thích và hoạt động ổn định của IP.
+	\item Thực nghiệm và đánh giá hiệu quả của hệ thống thông qua các kết quả thu được.
+\end{itemize}
+\noindent\ Tuy nhiên, khóa luận vẫn còn tồn tại một số hạn chế nhất định, cụ thể:
+\begin{itemize}
+	\item Công suất tiêu thụ của hệ thống vẫn còn tương đối cao, chưa phù hợp cho các ứng dụng yêu cầu tiết kiệm năng lượng.
+	\item Một số khối trong thiết kế chưa được áp dụng kỹ thuật pipelining một cách tối ưu, ảnh hưởng đến hiệu suất xử lý tổng thể.
+\end{itemize}
 
-
+Những điểm hạn chế nêu trên là cơ sở để định hướng cho việc cải tiến, tối ưu thiết kế trong các nghiên cứu và phát triển tiếp theo trong tương lai.
 
 
 
