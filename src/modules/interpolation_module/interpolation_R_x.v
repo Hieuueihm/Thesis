@@ -67,7 +67,7 @@ module interpolation_R_x #(
       // S8 = S_315_i_1
 
       // Shift logic for S2
-      always @(posedge clk) begin
+      always @(posedge clk or negedge rst_n) begin
         if (~rst_n) begin
           S2_shift_1 <= 0;
           S2_shift_2 <= 0;
@@ -82,7 +82,7 @@ module interpolation_R_x #(
       assign S2_o = {S2_shift_4, 16'b0};
 
       // Shift logic for S4
-      always @(posedge clk) begin
+      always @(posedge clk or negedge rst_n) begin
         if (~rst_n) begin
           S4_shift_1 <= 0;
           S4_shift_2 <= 0;
@@ -97,7 +97,7 @@ module interpolation_R_x #(
       assign S4_o = {S4_shift_4, 16'b0};
 
       // Shift logic for S6
-      always @(posedge clk) begin
+      always @(posedge clk or negedge rst_n) begin
         if (~rst_n) begin
           S6_shift_1 <= 0;
           S6_shift_2 <= 0;
@@ -114,7 +114,7 @@ module interpolation_R_x #(
 
 
       // Shift logic for S8
-      always @(posedge clk) begin
+      always @(posedge clk or negedge rst_n) begin
         if (~rst_n) begin
           S8_shift_1 <= 0;
           S8_shift_2 <= 0;
@@ -192,7 +192,7 @@ module interpolation_R_x #(
   endgenerate
 
   reg [3:0] done_shift;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       done_shift <= 0;
     end else begin
@@ -204,7 +204,7 @@ module interpolation_R_x #(
   assign done_o = done_shift[3];
 
   reg [3:0] progress_shift;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       progress_shift <= 0;
     end else begin
@@ -219,7 +219,7 @@ module interpolation_R_x #(
   reg [7:0] S3_shift_1, S3_shift_2, S3_shift_3, S3_shift_4;
   reg [7:0] S5_shift_1, S5_shift_2, S5_shift_3, S5_shift_4;
   reg [7:0] S7_shift_1, S7_shift_2, S7_shift_3, S7_shift_4;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       S1_shift_1 <= 0;
       S1_shift_2 <= 0;
@@ -232,7 +232,7 @@ module interpolation_R_x #(
     end
   end
   assign S1_o = {S1_shift_4, 16'b0};
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       S3_shift_1 <= 0;
       S3_shift_2 <= 0;
@@ -246,7 +246,7 @@ module interpolation_R_x #(
   end
   assign S3_o = {S3_shift_4, 16'b0};
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       S5_shift_1 <= 0;
       S5_shift_2 <= 0;
@@ -260,7 +260,7 @@ module interpolation_R_x #(
   end
   assign S5_o = {S5_shift_4, 16'b0};
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       S7_shift_1 <= 0;
       S7_shift_2 <= 0;

@@ -15,7 +15,7 @@ module interpolation_calc #(
   // r2 = dx * (1-dy)
   // r3 = (1-dx) * dy
   // r4 = dx * dy
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       case ({
         ANGLE, R
@@ -278,7 +278,7 @@ module interpolation_calc #(
   reg [23:0] add_result;
 
   reg [23:0] A_q, B_q, C_q, D_q;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       A_q <= 24'h0;
       B_q <= 24'h0;
@@ -291,7 +291,7 @@ module interpolation_calc #(
       D_q <= D;
     end
   end
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       r1_mul_a <= 24'h0;
       r2_mul_b <= 24'h0;
@@ -306,7 +306,7 @@ module interpolation_calc #(
   end
 
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       add_12 <= 24'h0;
       add_34 <= 24'h0;
@@ -317,7 +317,7 @@ module interpolation_calc #(
   end
 
   // Final addition pipeline stage
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       add_result <= 24'h0;
     end else begin

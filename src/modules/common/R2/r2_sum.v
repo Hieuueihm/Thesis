@@ -26,7 +26,7 @@ module r2_sum #(
 
   reg [1:0] i_start;
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       i_start <= 0;
     end else if (reset_en) begin
@@ -43,7 +43,7 @@ module r2_sum #(
   wire i_counter_eq_max;
   assign i_counter_eq_max = (i_counter == COLS - 1);
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       i_counter <= 0;
     end else if (reset_en) begin
@@ -56,7 +56,7 @@ module r2_sum #(
   end
 
   reg [9:0] i_row;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       i_row <= 0;
     end else if (reset_en) begin
@@ -72,7 +72,7 @@ module r2_sum #(
 
 
   reg [7:0] st1_S1, st1_S2, st1_S3, st1_S4, st1_S5;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       st1_S1 <= 0;
       st1_S2 <= 0;
@@ -90,7 +90,7 @@ module r2_sum #(
 
   wire [8:0] sum12, sum34;
   reg [7:0] st2_S5;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       st2_S5 <= 0;
     end else begin
@@ -133,7 +133,7 @@ module r2_sum #(
       .result(sum1234)
   );
   reg [7:0] st3_S5;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       st3_S5 <= 0;
     end else begin
@@ -156,7 +156,7 @@ module r2_sum #(
 
   reg [10:0] sum2, st1_sum2, st2_sum2, st3_sum2, st4_sum2;
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       sum2     <= 0;
       st1_sum2 <= 0;
@@ -197,7 +197,7 @@ module r2_sum #(
   generate
     if (USE_CENTRAL_VALUE) begin
       reg [7:0] central_1, central_2, central_3, central_4, central_5, central_6;
-      always @(posedge clk) begin
+      always @(posedge clk or negedge rst_n) begin
         if (reset_en) begin
           central_1 <= 0;
           central_2 <= 0;

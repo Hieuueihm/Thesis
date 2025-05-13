@@ -180,7 +180,7 @@ module test_top_tb_with_image ();
   end
   always #(`half_clk_period) clk = ~clk;
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (o_valid) begin
       $fwrite(file_out, "%d\n", histogram_o);
       $fflush(file_out);

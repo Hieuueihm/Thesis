@@ -19,13 +19,13 @@ module top_module #(
 
 
 
-//`ifdef SYNTHESIS
+  //`ifdef SYNTHESIS
   wire axis_prog_full;
 
   assign o_data_ready = ~axis_prog_full;
-//`elsif SIMULATION
-//  assign o_data_ready = 1'b1;
-//`endif
+  //`elsif SIMULATION
+  //  assign o_data_ready = 1'b1;
+  //`endif
 
   wire finish;
   wire read_finish;
@@ -61,12 +61,12 @@ module top_module #(
   );
 
 
-//`ifdef SIMULATION
-//  assign o_intr = o_intr_o;
-//  assign histogram_o = histogram;
-//  assign o_valid = o_histogram_valid;
-//`endif
-//`ifdef SYNTHESIS
+  //`ifdef SIMULATION
+  //  assign o_intr = o_intr_o;
+  //  assign histogram_o = histogram;
+  //  assign o_valid = o_histogram_valid;
+  //`endif
+  //`ifdef SYNTHESIS
   output_buffer_ip OB (
       .s_aclk       (clk),
       .s_aresetn    (rst_n),
@@ -115,9 +115,9 @@ module top_module #(
       .D(o_intr_q2),
       .Q(o_intr)
   );
-//`endif
+  //`endif
   //   integer file;
-  //   always @(posedge clk) begin
+  //   always @(posedge clk or negedge rst_n) begin
   //     if (~rst_n) begin
   //       file = $fopen("D:\\Thesis\\codetest\\python\\histogram_verilog_prev.txt", "w");
   //     end else if (o_histogram_valid) begin

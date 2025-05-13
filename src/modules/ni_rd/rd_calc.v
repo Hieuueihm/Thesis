@@ -6,7 +6,7 @@ module rd_calc(input clk,
                output reg done_o,
                output bit_o);
     
-    always @(posedge clk) begin
+    always @(posedge clk or negedge rst_n) begin
         if (~rst_n) begin
             done_o <= 1'b0;
             end else begin

@@ -128,7 +128,7 @@ module ci_top #(
 
   //   integer file1, file2, file3;
   //   integer count;
-  //   always @(posedge clk) begin
+  //   always @(posedge clk or negedge rst_n) begin
   //     if (~rst_n) begin
   //       count = 0;
   //       file1 = $fopen("D:\\Thesis\\codetest\\python\\ci_r2_verilog.txt", "w");

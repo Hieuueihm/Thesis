@@ -10,7 +10,7 @@ module register_en #(
 );
   reg [WIDTH - 1:0] data_out;
   assign Q = data_out;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       data_out <= 0;
     end else if (en) begin

@@ -16,7 +16,7 @@ lbp = MRELBP()
 # print(random_matrix)
 # print(random_matrix.shape)
 # print("run run\n")
-image_file = "D://Thesis//data//inputs//test_input.bmp"
+image_file = "D://Thesis//data//inputs//000000.bmp"
 
 img = cv2.imread(image_file.rstrip(), cv2.IMREAD_GRAYSCALE)
 

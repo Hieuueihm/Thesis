@@ -32,7 +32,7 @@ module r4_sum #(
 
   reg [2:0] i_start;
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       i_start <= 0;
     end else if (reset_en) begin
@@ -49,7 +49,7 @@ module r4_sum #(
   wire i_counter_eq_max;
   assign i_counter_eq_max = (i_counter == COLS - 1);
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       i_counter <= 0;
     end else if (reset_en) begin
@@ -62,7 +62,7 @@ module r4_sum #(
   end
 
   reg [9:0] i_row;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       i_row <= 0;
     end else if (reset_en) begin
@@ -79,7 +79,7 @@ module r4_sum #(
 
 
   reg [7:0] st1_S1, st1_S2, st1_S3, st1_S4, st1_S5, st1_S6, st1_S7, st1_S8, st1_S9;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       st1_S1 <= 0;
       st1_S2 <= 0;
@@ -177,7 +177,7 @@ module r4_sum #(
   );
   reg [7:0] st2_S9;
   reg [7:0] st3_S9, st4_S9;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       st2_S9 <= 0;
       st3_S9 <= 0;
@@ -218,7 +218,7 @@ module r4_sum #(
   reg [11:0] st_sum2[0:7];
   integer i;
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       sum2 <= 0;
       for (i = 0; i < 8; i = i + 1) begin
@@ -258,7 +258,7 @@ module r4_sum #(
   generate
     if (USE_CENTRAL_VALUE) begin
       reg [7:0] central[0:8];
-      always @(posedge clk) begin
+      always @(posedge clk or negedge rst_n) begin
         if (~rst_n) begin
           for (i = 0; i < 9; i = i + 1) begin
             central[i] <= 0;

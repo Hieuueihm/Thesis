@@ -11,7 +11,7 @@ module shift_registers #(
   reg [WIDTH-1:0] shift_reg[CYCLE - 2:0];
 
   integer i;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       for (i = 0; i < CYCLE - 1; i = i + 1) begin
         shift_reg[i] <= 0;

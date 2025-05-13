@@ -46,7 +46,7 @@ module joint_histogram (
 
 
   // integer file1;
-  // always @(posedge clk) begin
+  // always @(posedge clk or negedge rst_n) begin
   //     if (~rst_n) begin
   //         file1 = $fopen("D:\\Thesis\\codetest\\python\\joint_r4.txt", "w");
   //         end else if (done_i) begin

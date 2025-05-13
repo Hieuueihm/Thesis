@@ -357,7 +357,7 @@ module r2_nird #(
       .progress_done_o(finish_inter)
   );
   //   integer file;
-  //   always @(posedge clk) begin
+  //   always @(posedge clk or negedge rst_n) begin
   //     if (~rst_n) begin
   //       file = $fopen("D:\\Thesis\\codetest\\python\\interpolation_r2_a.txt", "w");
 
@@ -370,7 +370,7 @@ module r2_nird #(
   //   end
 
   //   integer file1;
-  //   always @(posedge clk) begin
+  //   always @(posedge clk or negedge rst_n) begin
   //     if (~rst_n) begin
   //       file1 = $fopen("D:\\Thesis\\codetest\\python\\interpolation_r1_a.txt", "w");
 
@@ -444,7 +444,7 @@ module r2_nird #(
   );
 
   // integer file3;
-  // always @(posedge clk) begin
+  // always @(posedge clk or negedge rst_n) begin
   //     if (~rst_n) begin
   //         file3 = $fopen("D:\\Thesis\\codetest\\python\\rd_data_hex.txt", "w");
   //         end else if (done_o_r2) begin
@@ -492,7 +492,7 @@ module r2_nird #(
   );
 
   // integer file3, file4;
-  // always @(posedge clk) begin
+  // always @(posedge clk or negedge rst_n) begin
   //   if (~rst_n) begin
   //     file3 = $fopen("D:\\Thesis\\codetest\\python\\rd_r2_bit_verilog.txt", "w");
   //     file4 = $fopen("D:\\Thesis\\codetest\\python\\ni_r2_bit_verilog.txt", "w");
@@ -562,7 +562,7 @@ module r2_nird #(
 
   //   integer file, file1;
   //   integer count;
-  //   always @(posedge clk) begin
+  //   always @(posedge clk or negedge rst_n) begin
   //     if (~rst_n) begin
   //       file  = $fopen("D:\\Thesis\\codetest\\python\\rd_r2_verilog.txt", "w");
   //       file1 = $fopen("D:\\Thesis\\codetest\\python\\ni_r2_verilog.txt", "w");

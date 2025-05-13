@@ -12,7 +12,7 @@ module top_module__controller (
 
 
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) current_state <= IDLE;
     else current_state <= next_state;
   end

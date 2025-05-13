@@ -53,7 +53,7 @@ module median_processing #(
   //   reg done_prev;
 
   //   integer count1;
-  //   always @(posedge clk) begin
+  //   always @(posedge clk or negedge rst_n) begin
   //     if (~rst_n) begin
   //       done_prev <= 0;
   //       count1 = 0;
@@ -62,7 +62,7 @@ module median_processing #(
   //     end
   //   end
   //   assign negedege = (done_prev == 1 && prepare_done_o == 0) ? 1'b1 : 1'b0;
-  //   always @(posedge clk) begin
+  //   always @(posedge clk or negedge rst_n) begin
   //     if (prepare_done_o) begin
   //       $fwrite(fileint, "%d %d %d %d %d %d %d\n", d0_o, d1_o, d2_o, d3_o, d4_o, d5_o, d6_o);
   //       $fflush(fileint);
@@ -157,7 +157,7 @@ module median_processing #(
   // reg done_5x5_prev;
   // reg done_7x7_prev;
   // integer count;
-  // always @(posedge clk) begin
+  // always @(posedge clk or negedge rst_n) begin
   //   if (~rst_n) begin
   //     done_3x3_prev <= 0;
   //     done_5x5_prev <= 0;
@@ -170,7 +170,7 @@ module median_processing #(
   //   end
   // end
 
-  // always @(posedge clk) begin
+  // always @(posedge clk or negedge rst_n) begin
   //   if (done_3x3_o) begin
   //     $fwrite(file_3x3, "%d\n", m_3x3_o);
   //     $fflush(file_3x3);

@@ -56,7 +56,7 @@ module median_tb ();
 
   // ---------- COPY to result 
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       j <= 8'd0;
     end else begin
@@ -205,7 +205,7 @@ module median_tb ();
       $finish;
     end
   end
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     $fdisplay(file, "output_o: %d", blue_o);
   end
 

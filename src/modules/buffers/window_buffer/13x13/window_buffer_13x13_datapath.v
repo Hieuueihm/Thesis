@@ -197,7 +197,7 @@ module window_buffer_13x13_datapath #(
   reg [9:0] i_counter;
   reg [9:0] i_row;
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       i_counter <= 0;
     end else if (reset_en) begin
@@ -213,7 +213,7 @@ module window_buffer_13x13_datapath #(
   assign i_col_ge_threshold = (i_counter > 10);
 
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       i_row <= 0;
     end else if (reset_en) begin
@@ -241,7 +241,7 @@ module window_buffer_13x13_datapath #(
   reg [7:0] S12_delay;
   reg [7:0] S13_delay;
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       S1_delay  <= 0;
       S2_delay  <= 0;
@@ -287,7 +287,7 @@ module window_buffer_13x13_datapath #(
   reg [7:0] S12_window[12:0];
   reg [7:0] S13_window[12:0];
   integer i;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       for (i = 0; i < 13; i = i + 1) begin
         S1_window[i]  <= 0;

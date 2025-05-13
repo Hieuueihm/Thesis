@@ -138,7 +138,7 @@ module test_top_tb ();
     $stop;
   end
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (o_valid) begin
       $fwrite(file_out, "%d\n", histogram_o);
       $fflush(file_out);

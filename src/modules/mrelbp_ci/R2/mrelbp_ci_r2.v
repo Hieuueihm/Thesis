@@ -76,7 +76,7 @@ module mrelbp_ci_r2 #(
   reg [25:0] scale_value;
   reg done_scale;
   reg [12:0] sum_o_delay;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       done_scale <= 0;
       scale_value <= 0;

@@ -21,7 +21,7 @@ module data_modulate_7x7_controller (
   parameter START = 2'b01;
   parameter DATA = 2'b10;
   parameter DONE = 2'b11;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       current_state <= IDLE;
     end else begin

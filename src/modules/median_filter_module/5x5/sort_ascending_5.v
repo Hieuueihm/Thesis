@@ -25,7 +25,7 @@ module sort_ascending_5 (
   );
   reg [7:0] p1_S4, p1_S5, p1_max, p1_med, p1_min;
   reg p1_done_o;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       p1_S4 <= 0;
       p1_S5 <= 0;
@@ -54,7 +54,7 @@ module sort_ascending_5 (
   reg [7:0] p2_max, p2_med, p2_min;
   reg [7:0] p2_med1, p2_min1;
   reg p2_done_o;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       p2_max <= 0;
       p2_min <= 0;
@@ -83,7 +83,7 @@ module sort_ascending_5 (
   reg [7:0] p3_max, p3_min, p3_med;
   reg [7:0] p3_min1, p3_max_o;
   reg p3_done_o;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       p3_max <= 0;
       p3_min <= 0;

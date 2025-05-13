@@ -16,7 +16,7 @@ module top_module__datapath #(
 );
   wire start_i_negedge;
   reg  start_i_prev;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       start_i_prev <= 0;
     end else begin
@@ -115,6 +115,7 @@ module top_module__datapath #(
   `define CYCLE_SHIFT_CI_r2 7
 
 
+
   shift_registers #(
       .WIDTH(1),
       .CYCLE(`CYCLE_SHIFT_CI_r2)
@@ -174,6 +175,7 @@ module top_module__datapath #(
   wire done_ci_r4_delay;
 
   `define CYCLE_SHIFT_CI_r4 17
+
 
 
   shift_registers #(
@@ -236,6 +238,7 @@ module top_module__datapath #(
   `define CYCLE_SHIFT_CI_r6 39
 
 
+
   shift_registers #(
       .WIDTH(1),
       .CYCLE(`CYCLE_SHIFT_CI_r6)
@@ -275,6 +278,7 @@ module top_module__datapath #(
 
   reg [15:0] data_out;
   // reg [ 2:0] read_stage;
+
 
 
   reg [ 1:0] read_stage;
@@ -347,7 +351,8 @@ module top_module__datapath #(
   end
 
   // optimize after
-  always @(posedge clk) begin
+
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       data_out <= 0;
       o_valid  <= 0;

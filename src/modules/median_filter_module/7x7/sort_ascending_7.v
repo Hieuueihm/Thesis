@@ -55,7 +55,7 @@ module sort_ascending_7 (
 
   reg p1_done_o;
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       p1_S6 <= 0;
       p1_S7 <= 0;
@@ -76,7 +76,7 @@ module sort_ascending_7 (
       p1_done_o <= SN1_done_o;
     end
   end
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       p2_S6 <= 0;
       p2_S7 <= 0;
@@ -85,7 +85,7 @@ module sort_ascending_7 (
       p2_S7 <= p1_S7;
     end
   end
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       p3_S6 <= 0;
       p3_S7 <= 0;
@@ -94,7 +94,7 @@ module sort_ascending_7 (
       p3_S7 <= p2_S7;
     end
   end
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       p4_S6 <= 0;
       p4_S7 <= 0;
@@ -104,7 +104,7 @@ module sort_ascending_7 (
     end
   end
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       p1_sa1_min_1  <= 0;
       p1_sa1_out2_1 <= 0;
@@ -154,7 +154,7 @@ module sort_ascending_7 (
   reg p2_done_o;
   reg [7:0] p2_sa1_min, p2_sa1_out2;
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       p2_sa1_min  <= 0;
       p2_sa1_out2 <= 0;
@@ -191,7 +191,7 @@ module sort_ascending_7 (
   reg p3_done_o;
   reg [7:0] p3_sa2_out2, p3_sa2_mid, p3_sa2_out4, p3_sa2_max;
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       p3_sn1_max  <= 0;
       p3_sn1_med  <= 0;
@@ -231,7 +231,7 @@ module sort_ascending_7 (
   // reg [7:0] p4_sa2_mid, p4_sa2_out4, p4_sa2_max;
   // reg [7:0] p4_sn1_min;
 
-  // always @(posedge clk) begin
+  // always @(posedge clk or negedge rst_n) begin
   //   if (~rst_n) begin
   //     p4_sn2_max  <= 0;
   //     p4_sn2_med  <= 0;

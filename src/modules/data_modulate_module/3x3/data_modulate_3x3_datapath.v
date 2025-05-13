@@ -37,7 +37,7 @@ module data_modulate_3x3_datapath #(
 
 
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       i_col <= 0;
     end else if (reset_en) begin
@@ -50,7 +50,7 @@ module data_modulate_3x3_datapath #(
 
   end
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       i_row <= 0;
     end else if (reset_en) begin
@@ -63,7 +63,7 @@ module data_modulate_3x3_datapath #(
 
   end
   reg [2:0] i_counter;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       i_counter <= 0;
     end else if (count_en) begin
@@ -80,7 +80,7 @@ module data_modulate_3x3_datapath #(
 
 
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       d0_o <= 0;
       d1_o <= 0;
@@ -113,7 +113,7 @@ module data_modulate_3x3_datapath #(
 
 
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       data0 <= 0;
       data1 <= 0;

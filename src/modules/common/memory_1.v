@@ -14,7 +14,7 @@ module memory_1 #(
 
   (* ram_style = "block" *) reg [DATA_SIZE - 1:0] mem[0:DEPTH - 1];
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (wren) begin
       mem[w_addr] <= w_data;
     end

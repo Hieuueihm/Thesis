@@ -17,7 +17,7 @@ module sum_cumulative #(
   assign mux_a_out = en ? (sum_out + data_in1 + data_in2) : sum_out;
 
   assign sum_next  = ld ? data_in1 : mux_a_out;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) sum_out <= 0;
     else sum_out <= sum_next;
   end

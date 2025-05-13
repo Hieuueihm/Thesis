@@ -107,7 +107,7 @@ module median_filter_7x7_calc (
       p1_S49;
   reg p1_done_i;
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       p1_S1     <= 0;
       p1_S2     <= 0;
@@ -374,7 +374,7 @@ module median_filter_7x7_calc (
   reg [7:0] p2_sa12_S1, p2_sa12_S2, p2_sa12_S3, p2_sa12_S4, p2_sa12_S5, p2_sa12_S6, p2_sa12_S7;
   reg [7:0] p2_sa13_S1, p2_sa13_S2, p2_sa13_S3, p2_sa13_S4, p2_sa13_S5, p2_sa13_S6, p2_sa13_S7;
   reg [7:0] p2_sa14_S1, p2_sa14_S2, p2_sa14_S3, p2_sa14_S4, p2_sa14_S5, p2_sa14_S6, p2_sa14_S7;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       p2_done_i_delay <= 1'b0;
 
@@ -663,7 +663,7 @@ module median_filter_7x7_calc (
   reg [7:0] p3_sa12_S1, p3_sa12_S2, p3_sa12_S3, p3_sa12_S4, p3_sa12_S5, p3_sa12_S6, p3_sa12_S7;
   reg [7:0] p3_sa13_S1, p3_sa13_S2, p3_sa13_S3, p3_sa13_S4, p3_sa13_S5, p3_sa13_S6, p3_sa13_S7;
   reg [7:0] p3_sa14_S1, p3_sa14_S2, p3_sa14_S3, p3_sa14_S4, p3_sa14_S5, p3_sa14_S6, p3_sa14_S7;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       p3_done_i_delay <= 1'b0;
 
@@ -836,7 +836,7 @@ module median_filter_7x7_calc (
   //     p3_S25;
 
   // reg p4_done_o;
-  // always @(posedge clk) begin
+  // always @(posedge clk or negedge rst_n) begin
   //   if (~rst_n) begin
   //     p3_S1 <= 0;
   //     p3_S2 <= 0;

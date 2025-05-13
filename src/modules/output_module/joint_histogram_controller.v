@@ -22,7 +22,7 @@ module joint_histogram_controller (
   parameter RESET = 3'b000, IDLE = 3'b001, COUNTING = 3'b010, READING = 3'b011, FINISH = 3'b100;
   reg [2:0] next_state;
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) current_state <= RESET;
     else current_state <= next_state;
   end
@@ -72,7 +72,7 @@ module joint_histogram_controller (
     endcase
 
   end
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       done_o <= 0;
       finish <= 0;

@@ -1,11 +1,17 @@
 `timescale 1ns / 1ps
 
 `define SIZE 128
+
 `define WRITE_FILENAME "D:\\Thesis\\data\\outputs\\test_output.bmp"
+
 `define READ_FILENAME "D:\\Thesis\\data\\inputs\\test_input.bmp"
+
 `define OUTPUT_TEXTFILE "D:\\Thesis\\codetest\\python\\input_image_read.txt"
+
 `define clk_period 10
+
 `define half_clk_period 5
+
 
 module test_top_tb_with_image ();
 
@@ -26,6 +32,7 @@ module test_top_tb_with_image ();
   localparam BMP_ARRAY_LEN = 20000;
   reg [7 : 0] bmp_data[0 : BMP_ARRAY_LEN - 1];
   reg [7 : 0] img_out[0:`SIZE*`SIZE-1];  // Dữ liệu ảnh đầu ra
+
 
   integer bmp_size, bmp_start_pos, bmp_width, bmp_height, biBitCount;
   integer row_size, pixel_index;
@@ -54,11 +61,13 @@ module test_top_tb_with_image ();
 
 
       // Căn chỉnh row_size theo bội số của 4
+
       row_size      = (bmp_width + 3) & ~3;
       $display("BMP Read Done! Width: %d, Height: %d, Start Pos: %d, Row Size: %d", bmp_width,
                bmp_height, bmp_start_pos, row_size);
 
       // �?�?c dữ liệu ảnh từ BMP theo bottom-up
+
       for (i = 0; i < 128 * 128 + bmp_start_pos; i = i + 1) begin
         $fwrite(fileId1, "%d\n", bmp_data[i]);
       end
@@ -67,8 +76,10 @@ module test_top_tb_with_image ();
       for (i = 0; i < bmp_height; i = i + 1) begin
         start = bmp_start_pos + (bmp_height - 1 - i) * row_size;  // Lật ảnh
 
+
         for (j = 0; j < bmp_width; j = j + 1) begin
           img_out[pixel_index] = bmp_data[start+j];  // B�? padding
+
           pixel_index          = pixel_index + 1;
         end
       end
@@ -81,18 +92,22 @@ module test_top_tb_with_image ();
       file_txt = $fopen("D:\\Thesis\\codetest\\python\\inputbmp.txt",
                         "w");  // Mở file ở chế độ ghi
 
+
       if (file_txt == 0) begin
         $display("Error opening output.txt for writing!");
         $finish;
       end
 
       // Ghi toàn bộ dữ liệu BMP vào file (bao gồm header và pixel)
+
       for (k = 0; k < bmp_start_pos; k = k + 1) begin
         $fwrite(file_txt, "%02x\n", bmp_data[k]);  // Ghi từng byte dưới dạng hex
+
       end
       for (k = bmp_start_pos; k < bmp_size; k = k + 1) begin
         $fwrite(file_txt, "%02x\n",
                 img_out[k-bmp_start_pos]);  // Ghi từng byte dưới dạng hex
+
       end
 
       $fclose(file_txt);
@@ -128,6 +143,7 @@ module test_top_tb_with_image ();
     #(`clk_period * 5);
     i_valid <= 1'b1;
     // Gửi dữ liệu ảnh vào thiết bị xử lý
+
     for (i = 0; i < bmp_width * bmp_height; i = i + 1) begin
       grayscale_i <= img_out[i];
       #(`clk_period);
@@ -146,6 +162,7 @@ module test_top_tb_with_image ();
     i_valid <= 1'b1;
 
     // Gửi dữ liệu ảnh vào thiết bị xử lý
+
     for (i = 0; i < bmp_width * bmp_height; i = i + 1) begin
       grayscale_i <= img_out[i];
       #(`clk_period);
@@ -180,7 +197,7 @@ module test_top_tb_with_image ();
   end
   always #(`half_clk_period) clk = ~clk;
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (o_valid) begin
       $fwrite(file_out, "%d\n", histogram_o);
       $fflush(file_out);

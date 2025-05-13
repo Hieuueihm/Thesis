@@ -19,7 +19,7 @@ module joint_histogram_datapath (
   wire [7:0] ni_scale;
   assign ni_scale = (ni_i << 3) + (ni_i << 1);
   reg [7:0] ci_delay, ni_delay, rd_delay;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       ci_delay <= 0;
       ni_delay <= 0;
@@ -53,14 +53,14 @@ module joint_histogram_datapath (
   wire [15:0] r_data;
   assign done_read = read_index == 199;
   reg read_en_d;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       read_en_d <= 0;
     end else begin
       read_en_d <= read_en;
     end
   end
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       reset_index <= 0;
       read_index  <= 0;
@@ -91,7 +91,7 @@ module joint_histogram_datapath (
       .r_data(r_data)
   );
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       cinird_o <= 0;
     end else if (read_en) begin
@@ -101,7 +101,7 @@ module joint_histogram_datapath (
   end
 
   // integer file;
-  // always @(posedge clk) begin
+  // always @(posedge clk or negedge rst_n) begin
   //     if (~rst_n) begin
   //         file = $fopen("D:\\Thesis\\codetest\\python\\ci_ni_rd_data.txt", "w");
   //         end else if (done_i) begin

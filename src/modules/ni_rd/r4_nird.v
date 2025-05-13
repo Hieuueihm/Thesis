@@ -603,7 +603,7 @@ module r4_nird #(
 
   //   integer file, file1;
   //   integer count;
-  //   always @(posedge clk) begin
+  //   always @(posedge clk or negedge rst_n) begin
   //     if (~rst_n) begin
   //       file  = $fopen("D:\\Thesis\\codetest\\python\\rd_r4_verilog.txt", "w");
   //       file1 = $fopen("D:\\Thesis\\codetest\\python\\ni_r4_verilog.txt", "w");

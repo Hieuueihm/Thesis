@@ -83,7 +83,7 @@ module median_filter_5x5_data_modulate #(
 
   // handle with i rows and i cols
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       i_row <= 0;
       i_col <= 0;
@@ -802,7 +802,7 @@ module median_filter_5x5_data_modulate #(
 
 
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
 
       i_counter <= 0;
@@ -817,7 +817,7 @@ module median_filter_5x5_data_modulate #(
   end
 
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       d0_o  <= 0;
       d1_o  <= 0;

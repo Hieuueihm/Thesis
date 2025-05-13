@@ -18,7 +18,7 @@ module line_buffer_datapath #(
   (* use_carry_chain = "yes" *)reg [31:0] count_num_inp;
   (* use_carry_chain = "yes" *)reg [31:0] count_num_oup;
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       count_num_inp <= 0;
     end else if (reset_en) begin
@@ -29,7 +29,7 @@ module line_buffer_datapath #(
 
   end
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       count_num_oup <= 0;
     end else if (reset_en) begin
@@ -42,7 +42,7 @@ module line_buffer_datapath #(
   assign first_done = (count_num_inp == DEPTH - 2);
   assign last_done  = (count_num_oup == count_num_inp);
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       wr_pointer <= 0;
     end else if (reset_en) begin
@@ -56,7 +56,7 @@ module line_buffer_datapath #(
   end
 
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       rd_pointer <= 0;
     end else if (reset_en) begin

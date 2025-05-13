@@ -25,7 +25,7 @@ module window_buffer_3x3_datapath #(
 
 
   reg [9:0] i_counter;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       i_counter <= 0;
     end else if (reset_en) begin
@@ -40,7 +40,7 @@ module window_buffer_3x3_datapath #(
 
 
   reg [9:0] i_row;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       i_row <= 0;
     end else if (reset_en) begin
@@ -57,7 +57,7 @@ module window_buffer_3x3_datapath #(
   reg [7:0] S2_delay;
   reg [7:0] S3_delay;
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       S1_delay <= 0;
       S2_delay <= 0;
@@ -73,7 +73,7 @@ module window_buffer_3x3_datapath #(
   reg [7:0] S2_window[2:0];
   reg [7:0] S3_window[2:0];
   integer i;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       for (i = 0; i < 3; i = i + 1) begin
         S1_window[i] <= 0;

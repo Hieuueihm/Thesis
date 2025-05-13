@@ -1,9 +1,14 @@
 `timescale 1ns / 1ps
 `define clk_period 10
+
 `define half_clk_period 5
+
 `define SIZE 128
+
 `define COLS `SIZE
+
 `define ROWS `SIZE
+
 
 
 module test_top_tb ();
@@ -22,6 +27,7 @@ module test_top_tb ();
   `include "nird_r2_cv.sv"
   `include "nird_r4_cv.sv"
   // `include "nird_r6_cv.sv "
+
 
   `include "joint_r2_cv.sv"
   `include "joint_r4_cv.sv"
@@ -74,18 +80,31 @@ module test_top_tb ();
       .o_intr(o_intr)
   );
   // genvar k;
+
   // generate
+
   //   for (k = 0; k < 6; k++) begin : gen_monitors
+
   //     line_buffer_monitor monitor_inst (
+
   //         .clk(clk),
+
   //         .rst_n(rst_n),
+
   //         .i_valid(DUT.inst_top_module__datapath.median_PROCESSING.median_PREPARATION.gen_line_buffers[k].LINE_BUFFER.done_i),
+
   //         .i_data(DUT.inst_top_module__datapath.median_PROCESSING.median_PREPARATION.gen_line_buffers[k].LINE_BUFFER.data_i),
+
   //         .o_valid(DUT.inst_top_module__datapath.median_PROCESSING.median_PREPARATION.gen_line_buffers[k].LINE_BUFFER.o_valid),
+
   //         .o_data(DUT.inst_top_module__datapath.median_PROCESSING.median_PREPARATION.gen_line_buffers[k].LINE_BUFFER.data_o)
+
   //     );
+
   //   end
+
   // endgenerate
+
 
   line_buffer_if vif (
       clk,
@@ -458,21 +477,34 @@ module test_top_tb ();
 
 
   // nird_r6_if r6_nird_if (
+
   //     clk,
+
   //     rst_n
+
   // );
+
   // assign r6_nird_if.done_o = DUT.inst_top_module__datapath.r6_ni_rd.done_o;
+
   // assign r6_nird_if.progress_done_o = DUT.inst_top_module__datapath.r6_ni_rd.progress_done_o;
+
   // assign r6_nird_if.data_r1 = DUT.inst_top_module__datapath.r6_ni_rd.m_7x7_i;
+
   // assign r6_nird_if.r1_valid = DUT.inst_top_module__datapath.r6_ni_rd.done_m_7x7_i;
+
   // assign r6_nird_if.data_r2 = DUT.inst_top_module__datapath.r6_ni_rd.m_5x5_i;
+
   // assign r6_nird_if.r2_valid = DUT.inst_top_module__datapath.r6_ni_rd.done_m_5x5_i;
 
+
   // assign r6_nird_if.ni_o = DUT.inst_top_module__datapath.r6_ni_rd.ni_o;
+
   // assign r6_nird_if.rd_o = DUT.inst_top_module__datapath.r6_ni_rd.rd_o;
 
 
+
   // nird_r6_cv nird_r6_ins = new(r6_nird_if);
+
 
 
   joint_r2_if j_r2_if (
@@ -566,6 +598,7 @@ module test_top_tb ();
       nird_r2_ins.monitor();
       nird_r4_ins.monitor();
       // nird_r6_ins.monitor();
+
       j_r2_cv.monitor();
       j_r4_cv.monitor();
       j_r6_cv.monitor();
@@ -595,6 +628,7 @@ module test_top_tb ();
 
     file_out = $fopen("D:\\Thesis\\codetest\\python\\histogram_verilog.txt", "w");
     // file_out1 = $fopen("D:\\Thesis\\codetest\\python\\histogram_verilog_1.txt", "w");
+
     if (file_out == 0) begin
       $display("Error: Could not open output files.");
       $finish;
@@ -628,9 +662,11 @@ module test_top_tb ();
     @(posedge o_intr);
 
     // $fclose(file_out1);
+
     $fclose(file_out);
 
     lb_cv.report();  // In coverage ra console
+
     zero_3x3_cv.report();
     zero_5x5_cv.report();
     zero_7x7_cv.report();
@@ -643,6 +679,7 @@ module test_top_tb ();
     nird_r2_ins.report("r2");
     nird_r4_ins.report("r4");
     // nird_r6_ins.report("r6");
+
     j_r2_cv.report("r2");
     j_r4_cv.report("r4");
     j_r6_cv.report("r6");
@@ -650,12 +687,13 @@ module test_top_tb ();
     $stop;
   end
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (o_valid) begin
       $fwrite(file_out, "%d\n", histogram_o);
       $fflush(file_out);
 
     end
     // if (o_valid) $fwrite(file_out1, "%d\n", histogram_o);
+
   end
 endmodule

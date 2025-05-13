@@ -28,7 +28,7 @@ module ni_calc #(
 
 
   // Pipeline Stage 1: Register Input
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       S_reg <= 0;
     end else if (done_i) begin
@@ -37,7 +37,7 @@ module ni_calc #(
   end
 
   // Pipeline Stage 2: Perform Multiplication
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       scaled_S_r2 <= 0;
     end else begin
@@ -47,7 +47,7 @@ module ni_calc #(
   end
 
   // Pipeline Stage 3: Register Output
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       scaled_S_r2_reg <= 0;
     end else begin
@@ -72,7 +72,7 @@ module ni_calc #(
   wire compare_result;
   assign compare_result = (scaled_S_r2_reg[16+WIDTH-1 : 16] < sum_delay) ? 1'b0 : 1'b1;
   reg registered_bit_o;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       registered_bit_o <= 0;
     end else begin

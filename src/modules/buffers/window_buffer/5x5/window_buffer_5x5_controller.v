@@ -18,7 +18,7 @@ module window_buffer_5x5_controller (
   parameter COL_OUT = 3'b011;
   parameter END_COL = 3'b100;
   parameter FINISH_ALL = 3'b110;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       current_state <= IDLE;
     end else begin

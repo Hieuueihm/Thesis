@@ -30,7 +30,7 @@ module line_buffer_controller #(
   parameter READ2 = 3'b100;
   parameter DONE = 3'b101;
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       current_state <= IDLE;
     end else begin

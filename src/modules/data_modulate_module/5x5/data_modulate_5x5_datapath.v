@@ -46,7 +46,7 @@ module data_modulate_5x5_datapath #(
   wire i_row_eq_max = (i_row == ROWS - 1) ? 1 : 0;
 
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       i_col <= 0;
     end else if (reset_en) begin
@@ -59,7 +59,7 @@ module data_modulate_5x5_datapath #(
 
   end
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       i_row <= 0;
     end else if (reset_en) begin
@@ -72,7 +72,7 @@ module data_modulate_5x5_datapath #(
 
   end
   reg [2:0] i_counter;
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       i_counter <= 0;
     end else if (count_en) begin
@@ -124,7 +124,7 @@ module data_modulate_5x5_datapath #(
   wire i_row_gt_row_2 = (i_row > ROWS - 2) ? 1 : 0;
   wire i_row_gt_row_3 = (i_row > ROWS - 3) ? 1 : 0;
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       d0_o  <= 0;
       d1_o  <= 0;
@@ -196,7 +196,7 @@ module data_modulate_5x5_datapath #(
 
 
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
       data0  <= 0;
       data1  <= 0;
