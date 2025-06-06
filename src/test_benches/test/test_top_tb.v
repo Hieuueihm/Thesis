@@ -1,9 +1,19 @@
 `timescale 1ns / 1ps
 `define clk_period 10
+
+
 `define half_clk_period 5
+
+
 `define SIZE 128
+
+
 `define COLS `SIZE
+
+
 `define ROWS `SIZE
+
+
 module test_top_tb ();
   reg [7:0] matrix[0:`ROWS-1][0:`COLS-1];
 
@@ -82,6 +92,8 @@ module test_top_tb ();
 
     file_out = $fopen("D:\\Thesis\\codetest\\python\\histogram_verilog.txt", "w");
     // file_out1 = $fopen("D:\\Thesis\\codetest\\python\\histogram_verilog_1.txt", "w");
+
+
     if (file_out == 0) begin
       $display("Error: Could not open output files.");
       $finish;
@@ -131,6 +143,8 @@ module test_top_tb ();
     i_valid <= 1'b0;
     @(posedge o_intr);
     // $fclose(file_out1);
+
+
     $fclose(file_out);
 
 
@@ -138,12 +152,14 @@ module test_top_tb ();
     $stop;
   end
 
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (o_valid) begin
       $fwrite(file_out, "%d\n", histogram_o);
       $fflush(file_out);
 
     end
     // if (o_valid) $fwrite(file_out1, "%d\n", histogram_o);
+
+
   end
 endmodule

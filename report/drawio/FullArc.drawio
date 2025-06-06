@@ -1313,7 +1313,7 @@
             <mxPoint x="1150" y="2160" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3v0ZSbZrxfGv24aDez-H-4" value="grayscalel_i" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="3v0ZSbZrxfGv24aDez-H-4" value="grayscale_i" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="1040" y="2125" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="3v0ZSbZrxfGv24aDez-H-5" value="" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;" parent="1" vertex="1">

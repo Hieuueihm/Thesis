@@ -54,7 +54,7 @@
 \contentsline {figure}{\numberline {3.21}{\ignorespaces Sơ đồ chuyển trạng thái của mô-đun PatchSum}}{52}{figure.caption.94}%
 \contentsline {figure}{\numberline {3.22}{\ignorespaces Kiến trúc RTL (1) của mô-đun PatchSum}}{53}{figure.caption.96}%
 \contentsline {figure}{\numberline {3.23}{\ignorespaces Kiến trúc RTL (2) của mô-đun PatchSum với r = 2}}{53}{figure.caption.97}%
-\contentsline {figure}{\numberline {3.24}{\ignorespaces Nội suy tuyến tính}}{54}{figure.caption.98}%
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Nội suy song tuyến tính}}{54}{figure.caption.98}%
 \contentsline {figure}{\numberline {3.25}{\ignorespaces Kiến trúc RTL của mô-đun Interpolation}}{55}{figure.caption.99}%
 \contentsline {figure}{\numberline {3.26}{\ignorespaces Kiến trúc RTL của mô-đun RIU2}}{56}{figure.caption.100}%
 \contentsline {figure}{\numberline {3.27}{\ignorespaces Kiến trúc RTL của mô-đun JointHistogram}}{57}{figure.caption.101}%
@@ -69,14 +69,14 @@
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Luồng hoạt động của bộ kiểm thử}}{63}{figure.caption.110}%
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Bộ kiểm tra phân tầng}}{64}{figure.caption.111}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Bo mạch ZCU106 UltraScale+MPSoC}}{66}{figure.caption.114}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Giao diện của IP MRELBP}}{67}{figure.caption.115}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Sơ đồ khối hệ thống SoC}}{67}{figure.caption.116}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Thiết kế khối hệ thống SoC}}{68}{figure.caption.117}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Lưu đồ hoạt động của chương trình phần mềm}}{68}{figure.caption.118}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Báo cáo kết quả tổng hợp của phần mềm Vivado}}{69}{figure.caption.119}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Thông số định thời của thiết kế}}{70}{figure.caption.121}%
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Công suất tiêu thụ năng lượng của thiết kế}}{71}{figure.caption.122}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces ILA với điểm kích hoạt là \textit {o\_intr}}}{73}{figure.caption.127}%
-\contentsline {figure}{\numberline {5.10}{\ignorespaces ILA với dữ liệu điểm ảnh đầu vào}}{73}{figure.caption.128}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Bo mạch ZCU106 UltraScale+MPSoC}}{65}{figure.caption.113}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Giao diện của IP MRELBP}}{66}{figure.caption.114}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Sơ đồ khối hệ thống SoC}}{66}{figure.caption.115}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Thiết kế khối hệ thống SoC}}{67}{figure.caption.116}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Lưu đồ hoạt động của chương trình phần mềm}}{67}{figure.caption.117}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Báo cáo kết quả tổng hợp của phần mềm Vivado}}{68}{figure.caption.118}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Thông số định thời của thiết kế}}{69}{figure.caption.120}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Công suất tiêu thụ năng lượng của thiết kế}}{70}{figure.caption.121}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces ILA với điểm kích hoạt là \textit {o\_intr}}}{72}{figure.caption.126}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces ILA với dữ liệu điểm ảnh đầu vào}}{72}{figure.caption.127}%
 \contentsfinish 

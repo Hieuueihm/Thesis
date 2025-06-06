@@ -66,10 +66,10 @@
 \contentsline {subsection}{\numberline {4.1.1}Lý thuyết về độ bao phủ}{60}{subsection.4.1.1}%
 \contentsline {subsection}{\numberline {4.1.2}Các phương pháp kiểm thử}{60}{subsection.4.1.2}%
 \contentsline {section}{\numberline {4.2}Phương pháp xây dựng kiểm thử và kết quả}{61}{section.4.2}%
-\contentsline {chapter}{\numberline {5}THỰC THI VÀ ĐÁNH GIÁ}{66}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Thông tin về bo mạch Zynq UltraScale+MPSoC ZCU106 Evaluation Kit}{66}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Xây dựng hệ thống SoC}{66}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Kết quả và đánh giá}{69}{section.5.3}%
-\contentsline {chapter}{KẾT LUẬN}{75}{figure.caption.128}%
-\contentsline {chapter}{{TÀI LIỆU THAM KHẢO}}{76}{section*.130}%
+\contentsline {chapter}{\numberline {5}THỰC THI VÀ ĐÁNH GIÁ}{65}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Thông tin về bo mạch Zynq UltraScale+MPSoC ZCU106 Evaluation Kit}{65}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Xây dựng hệ thống SoC}{65}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Kết quả và đánh giá}{68}{section.5.3}%
+\contentsline {chapter}{KẾT LUẬN}{74}{figure.caption.127}%
+\contentsline {chapter}{{TÀI LIỆU THAM KHẢO}}{75}{section*.129}%
 \contentsfinish 
