@@ -1,16 +1,171 @@
 # vsim -c -do "run -all; quit" top_module_tb 
-# Start time: 08:20:03 on May 04,2025
-# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Start time: 11:00:54 on Jun 17,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: /home/hieu/Thesis/src/modules/output_module/joint_histogram_datapath.v(83): (vopt-2241) Connection width does not match width of port 'w_data'. The port definition is at: /home/hieu/Thesis/src/modules/common/memory_1.v(11).
+# ** Warning: /home/hieu/Thesis/src/modules/buffers/line_buffer/line_buffer_datapath.v(82): (vopt-2241) Connection width does not match width of port 'r_addr'. The port definition is at: /home/hieu/Thesis/src/modules/common/memory.v(9).
+# ** Warning: /home/hieu/Thesis/src/modules/buffers/line_buffer/line_buffer_datapath.v(82): (vopt-2241) Connection width does not match width of port 'w_addr'. The port definition is at: /home/hieu/Thesis/src/modules/common/memory.v(10).
+# ** Warning: ../test_benches/functional_cv/line_buffer_cv.sv(111): (vopt-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+# ** Warning: ../test_benches/functional_cv/median_calc_3x3_cv.sv(142): (vopt-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+# ** Warning: ../test_benches/functional_cv/median_calc_5x5_cv.sv(255): (vopt-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+# ** Warning: ../test_benches/functional_cv/median_calc_7x7_cv.sv(420): (vopt-2240) Treating stand-alone use of function 'pop_front' as an implicit VOID cast.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=7.
+# //  Questa Sim-64
+# //  Version 2021.2_1 linux_x86_64 May 15 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.functional_cv_sv_unit(fast)
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ns  Iteration: 0  Region: /functional_cv_sv_unit::scoreboard::run/#anonblk#243910884#206#4# File: ../test_benches/functional_cv/functional_cv.sv Line: 208
+# Loading work.top_module_tb(fast)
+# Loading work.top_module(fast)
+# Loading work.line_buffer(fast)
+# Loading work.top_if(fast)
+# run -all
+# test case #          1
+# (vsim-50) A call to system(LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:/lib64 python3 /home/hieu/Workspace/Thesis/src/linux_env/test/test.py >'/tmp/questatmp.rZKLLi' 2>&1) returned error code '1'.
+#    The logfile contains the following messages:
+# Traceback (most recent call last):
+#   File "/home/hieu/Workspace/Thesis/src/linux_env/test/test.py", line 1, in <module>
+#     import mrelbp
+# ImportError: libopencv_core.so.412: cannot open shared object file: No such file or directory
+# Error: Histogram mismatch at index 14: expected 1, got 0
+# all test case           1 0.00
 # 
-# ** License Issue: License server does not support this feature (qhsimvl)
-# ** License Issue: Invalid host. (/home/hieu/questasim/questasim/license.dat)
-# ** License Issue: Invalid host. (/home/hieu/questasim/questasim/license.dat)
-# ** License Issue: Invalid host. (/home/hieu/questasim/questasim/license.dat)
-# ** License Issue: Invalid host. (/home/hieu/questasim/questasim/license.dat)
-# ** License Issue: Invalid host. (/home/hieu/questasim/questasim/license.dat)
-# ** License Issue: Invalid host. (/home/hieu/questasim/questasim/license.dat)
-# ** License Issue: Invalid host. (/home/hieu/questasim/questasim/license.dat)
-# ** Error: Failure to obtain a Verilog simulation license. Unable to checkout any of these license features: 'qhsimvl' or 'msimhdlsim'.
-# Error loading design
-# End time: 08:20:23 on May 04,2025, Elapsed time: 0:00:20
-# Errors: 0, Warnings: 0
+# ======================================================
+# Coverage Input:   100.00%
+# Coverage Output:  100.00%
+# Coverage Match:   100.00%
+# Coverage Start:   100.00%
+# Coverage FSM:     100.00%
+# ======================================================
+# Average Module Coverage: 100.00%
+# ======================================================
+# ======================================================
+# ZeroPadding 3x3 Coverage Input:   100.00%
+# ZeroPadding 3x3 Coverage Output:  100.00%
+# ZeroPadding 3x3 Coverage Match:   100.00%
+# ZeroPadding 3x3 Coverage Trans:   100.00%
+# ZeroPadding 3x3 Coverage Match Value:   100.00%
+# ZeroPadding 3x3 Coverage FSM:   100.00%
+# ======================================================
+# ZeroPadding 3x3 Average Module Coverage: 100.00%
+# ======================================================
+# ======================================================
+# ZeroPadding 5x5 Coverage Input:   100.00%
+# ZeroPadding 5x5 Coverage Output:  100.00%
+# ZeroPadding 5x5 Coverage Match:   100.00%
+# ZeroPadding 5x5 Coverage Trans:   100.00%
+# ZeroPadding 5x5 Coverage Match Value:   100.00%
+# ZeroPadding 5x5 Coverage FSM:   100.00%
+# ======================================================
+# ZeroPadding 5x5 Average Module Coverage: 100.00%
+# ======================================================
+# ======================================================
+# ZeroPadding 7x7 Coverage Input:   100.00%
+# ZeroPadding 7x7 Coverage Output:  100.00%
+# ZeroPadding 7x7 Coverage Match:   100.00%
+# ZeroPadding 7x7 Coverage Trans:   100.00%
+# ZeroPadding 7x7 Coverage Match Value:   100.00%
+# ZeroPadding 7x7 Coverage FSM:   100.00%
+# ======================================================
+# ZeroPadding 7x7 Average Module Coverage: 100.00%
+# ======================================================
+# ======================================================
+# MedianCalc 3x3 Coverage Input:   100.00%
+# MedianCalc 3x3 Coverage Output:  93.75%
+# MedianCalc 3x3 Coverage Match:   99.99%
+# ======================================================
+# MedianCalc 3x3 Average Module Coverage: 97.91%
+# ======================================================
+# ======================================================
+# MedianCalc 5x5 Coverage Input:   100.00%
+# MedianCalc 5x5 Coverage Output:  83.85%
+# MedianCalc 5x5 Coverage Match:   99.99%
+# ======================================================
+# MedianCalc 5x5 Average Module Coverage: 94.62%
+# ======================================================
+# ======================================================
+# MedianCalc 7x7 Coverage Input:   100.00%
+# MedianCalc 7x7 Coverage Output:  79.43%
+# MedianCalc 7x7 Coverage Match:   99.99%
+# ======================================================
+# MedianCalc 7x7 Average Module Coverage: 93.14%
+# ======================================================
+# ======================================================
+# CI r2 Coverage Input:   90.31%
+# CI r2 Coverage FSM:   100.00%
+# CI r2 Coverage Signal:   100.00%
+# ======================================================
+# CI r2 Average Module Coverage: 96.77%
+# ======================================================
+# ======================================================
+# CI r4 Coverage Input:   89.31%
+# CI r4 Coverage FSM:   100.00%
+# CI r4 Coverage Signal:   100.00%
+# ======================================================
+# CI r4 Average Module Coverage: 96.44%
+# ======================================================
+# ======================================================
+# CI r6 Coverage Input:   88.89%
+# CI r6 Coverage FSM:   100.00%
+# CI r6 Coverage Signal:   100.00%
+# ======================================================
+# CI r6 Average Module Coverage: 96.30%
+# ======================================================
+# ======================================================
+# NIRD r2 Coverage Input:   96.25%
+# NIRD r2 Coverage Signal:   100.00%
+# NIRD r2 Coverage Output:   96.00%
+# ======================================================
+# NIRD r2 Average Module Coverage: 97.42%
+# ======================================================
+# ======================================================
+# NIRD r4 Coverage Input:   86.56%
+# NIRD r4 Coverage Signal:   100.00%
+# NIRD r4 Coverage Output:   100.00%
+# ======================================================
+# NIRD r4 Average Module Coverage: 95.52%
+# ======================================================
+# ======================================================
+# Joint Histogram r2 Coverage Input:   88.30%
+# Joint Histogram r2 Coverage Signal:   100.00%
+# Joint Histogram r2 Coverage Output:   66.67%
+# Joint Histogram r2 Coverage Condition:   100.00%
+# Joint Histogram r2 Coverage FSM:   100.00%
+# ======================================================
+# Joint Histogram r2 Average Module Coverage: 90.99%
+# ======================================================
+# ======================================================
+# Joint Histogram r4 Coverage Input:   93.00%
+# Joint Histogram r4 Coverage Signal:   100.00%
+# Joint Histogram r4 Coverage Output:   66.67%
+# Joint Histogram r4 Coverage Condition:   100.00%
+# Joint Histogram r4 Coverage FSM:   100.00%
+# ======================================================
+# Joint Histogram r4 Average Module Coverage: 91.93%
+# ======================================================
+# ======================================================
+# Joint Histogram r6 Coverage Input:   95.40%
+# Joint Histogram r6 Coverage Signal:   100.00%
+# Joint Histogram r6 Coverage Output:   66.67%
+# Joint Histogram r6 Coverage Condition:   100.00%
+# Joint Histogram r6 Coverage FSM:   100.00%
+# ======================================================
+# Joint Histogram r6 Average Module Coverage: 92.41%
+# ======================================================
+# Average coverage: 96.23%
+# ** Note: $finish    : ../test_benches/functional_cv/functional_cv.sv(836)
+#    Time: 174175 ns  Iteration: 0  Instance: /top_module_tb
+# End time: 11:01:08 on Jun 17,2025, Elapsed time: 0:00:14
+# Errors: 0, Warnings: 8

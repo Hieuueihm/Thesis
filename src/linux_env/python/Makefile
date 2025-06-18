@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/hieu/workspace/mrelbp_cpp
+CMAKE_SOURCE_DIR = /home/hieu/Workspace/Thesis/src/linux_env/mrelbp_cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/hieu/workspace/python
+CMAKE_BINARY_DIR = /home/hieu/Workspace/Thesis/src/linux_env/python
 
 #=============================================================================
 # Targets provided globally by CMake.

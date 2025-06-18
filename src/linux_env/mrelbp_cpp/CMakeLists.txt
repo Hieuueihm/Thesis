@@ -4,7 +4,7 @@ project(mrelbp)
 set(CMAKE_CXX_STANDARD 14)
 
 
-add_definitions ()
+add_definitions (-DCI_HARDWARE -DFIX_INTER -DNI_OP)
 
 add_subdirectory(pybind11)
 find_package(OpenCV REQUIRED)

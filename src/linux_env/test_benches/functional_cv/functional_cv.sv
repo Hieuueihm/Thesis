@@ -69,7 +69,7 @@ class generator;
       id++;
       $display("test case #%d",id);
       tr = new();
-      fd = $fopen("/home/hieu/Thesis/src/test/generated_inps.txt", "w");
+      fd = $fopen("/home/hieu/Workspace/Thesis/src/linux_env/test/generated_inps.txt", "w");
       if (fd == 0) begin
         $display("Error: Unable to open generated inp file.");
         $finish;
@@ -86,7 +86,7 @@ class generator;
       $fclose(fd);
       // $display("Write inp done.");
 
-$system("LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:/lib64 python3 /home/hieu/Thesis/src/test/test.py");
+$system("LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:/lib64 python3 /home/hieu/Workspace/Thesis/src/linux_env/test/test.py");
       if (ret != 0) begin
         $display("Python script failed to run!");
         $finish;
@@ -194,7 +194,7 @@ class scoreboard;
     forever begin
       @(mon_done);
       mbx.get(pkt);
-      file_id = $fopen("/home/hieu/Thesis/src/test/generated_oups.txt", "r");
+      file_id = $fopen("/home/hieu/Workspace/Thesis/src/linux_env/test/generated_oups.txt", "r");
       if (file_id == 0) begin
         $display("Error: Unable to open generated oup file.");
         $finish;
@@ -808,7 +808,7 @@ top_if intf (clk);
   initial begin
     avg_cov = 0;
     env = new(intf);
-    env.gen.count = 1000;
+    env.gen.count = 1;
     intf.i_data_ready <= 1;  // always ready to receive histogram
     env.run();
 

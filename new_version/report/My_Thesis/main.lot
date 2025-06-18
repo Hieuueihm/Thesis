@@ -1,0 +1,43 @@
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {1.1}{\ignorespaces Các phương pháp trích xuất đặc trưng}}{7}{table.caption.16}%
+\contentsline {table}{\numberline {1.2}{\ignorespaces Một vài biến thể của LBP}}{12}{table.caption.21}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Các yêu cầu phi chức năng cho thiết kế}}{18}{table.caption.28}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Danh sách các tham số của mô-đun MRELBP }}{20}{table.caption.32}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces Danh sách các tín hiệu của giao diện mô-đun MRELBP}}{20}{table.caption.33}%
+\contentsline {table}{\numberline {2.4}{\ignorespaces Tham số của mô-đun MedianProcessing}}{22}{table.caption.36}%
+\contentsline {table}{\numberline {2.5}{\ignorespaces Danh sách các tín hiệu của mô-đun MedianProcessing}}{22}{table.caption.37}%
+\contentsline {table}{\numberline {2.6}{\ignorespaces Danh sách các tham số của mô-đun LineBuffer }}{24}{table.caption.40}%
+\contentsline {table}{\numberline {2.7}{\ignorespaces Danh sách các tín hiệu của giao diện mô-đun LineBuffer}}{24}{table.caption.41}%
+\contentsline {table}{\numberline {2.8}{\ignorespaces Danh sách các tham số của mô-đun ZeroPadding }}{25}{table.caption.44}%
+\contentsline {table}{\numberline {2.9}{\ignorespaces Danh sách các tín hiệu của giao diện mô-đun ZeroPadding}}{25}{table.caption.45}%
+\contentsline {table}{\numberline {2.10}{\ignorespaces Danh sách các tham số của mô-đun MedianCalculation}}{26}{table.caption.47}%
+\contentsline {table}{\numberline {2.11}{\ignorespaces Danh sách các tín hiệu của giao diện mô-đun MedianCalculation}}{26}{table.caption.48}%
+\contentsline {table}{\numberline {2.12}{\ignorespaces Tham số của mô-đun CI}}{27}{table.caption.50}%
+\contentsline {table}{\numberline {2.13}{\ignorespaces Danh sách các tín hiệu của mô-đun CI}}{27}{table.caption.51}%
+\contentsline {table}{\numberline {2.14}{\ignorespaces Tham số của mô-đun MRELBP\_CI}}{29}{table.caption.54}%
+\contentsline {table}{\numberline {2.15}{\ignorespaces Danh sách các tín hiệu của mô-đun MRELBP\_CI}}{29}{table.caption.55}%
+\contentsline {table}{\numberline {2.16}{\ignorespaces Tham số của mô-đun NIRD}}{30}{table.caption.57}%
+\contentsline {table}{\numberline {2.17}{\ignorespaces Danh sách các tín hiệu của mô-đun NIRD}}{30}{table.caption.58}%
+\contentsline {table}{\numberline {2.18}{\ignorespaces Tham số của mô-đun Interpolation}}{31}{table.caption.61}%
+\contentsline {table}{\numberline {2.19}{\ignorespaces Danh sách các tín hiệu của mô-đun Interpolation}}{32}{table.caption.62}%
+\contentsline {table}{\numberline {2.20}{\ignorespaces Tham số của mô-đun NI}}{33}{table.caption.63}%
+\contentsline {table}{\numberline {2.21}{\ignorespaces Danh sách các tín hiệu của mô-đun NI}}{33}{table.caption.64}%
+\contentsline {table}{\numberline {2.22}{\ignorespaces Danh sách các tín hiệu của mô-đun RD}}{34}{table.caption.66}%
+\contentsline {table}{\numberline {2.23}{\ignorespaces Danh sách các tín hiệu của mô-đun RIU2}}{35}{table.caption.68}%
+\contentsline {table}{\numberline {2.24}{\ignorespaces Danh sách các tín hiệu của mô-đun JointHistogram}}{36}{table.caption.71}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Bảng điều kiện cho dữ liệu đầu ra ứng với cửa sổ 5x5}}{42}{table.caption.81}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Số chu kỳ thực hiện của các mô-đun ZeroPadding}}{43}{table.caption.82}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Bảng điều kiện cho dữ liệu đầu ra ứng với cửa sổ 7x7}}{43}{table.3.3}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces Số chu kỳ thực hiện của các mô-đun mô-đun sắp xếp và mô-đun MedianCalculation}}{49}{table.caption.90}%
+\contentsline {table}{\numberline {3.5}{\ignorespaces Bảng điều kiện cho mô tả hình \ref {fig:patchSumRTL}}}{52}{table.caption.95}%
+\contentsline {table}{\numberline {3.6}{\ignorespaces Số chu kỳ thực hiện của các mô-đun ZeroPadding}}{58}{table.caption.105}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces Tài nguyên sử dụng}}{69}{table.caption.119}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Độ chính xác trên các tập dữ liệu với SVM}}{70}{table.caption.122}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Độ chính xác trên các tập dữ liệu với Logistic Regression}}{71}{table.caption.123}%
+\contentsline {table}{\numberline {5.4}{\ignorespaces Độ chính xác trên các tập dữ liệu với Naive Bayes}}{71}{table.caption.124}%
+\contentsline {table}{\numberline {5.5}{\ignorespaces Độ chính xác trên các tập dữ liệu với KNN}}{72}{table.caption.125}%
+\contentsfinish 

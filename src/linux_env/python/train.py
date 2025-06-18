@@ -175,5 +175,5 @@ for folder_name in os.listdir(dataset_dir):
 for i in range(0, len(folder_names)):
     print(folder_names[i])
     outex_11r = os.path.join(dataset_dir, folder_names[i])
-    make_train(outex_11r, f"{folder_names[i]}_r6", f"report/r6/{folder_names[i]}_r6.txt", f"report/r6/{folder_names[i]}_r6_log.txt")
+    make_train(outex_11r, f"{folder_names[i]}_r6_ciop_fix", f"report2/r6_ciop_fix/{folder_names[i]}_r6_ciop_fix.txt", f"report2/r6_ciop_fix/{folder_names[i]}_r6_ciop_fix_log.txt")
 

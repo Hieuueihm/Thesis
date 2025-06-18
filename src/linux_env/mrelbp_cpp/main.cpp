@@ -290,6 +290,45 @@ namespace LBP
 
 
         }
+
+
+        cv::Mat niCalcOg(cv::Mat medianImage, int r){
+            cv::Mat newMat = cv::Mat::zeros(medianImage.rows - 2 * r, medianImage.cols - 2 * r, CV_8U);
+            int size = (2 * r + 1) * (2 * r + 1);
+             for (int i = r; i < medianImage.rows - r; i++)
+            {
+                for (int j = r; j < medianImage.cols - r; j++)
+
+                {
+                    
+                    std::vector<double> r2Neighbors = getInterNeighbors(medianImage, r, i, j);
+                    double sum_of_phi_neighbors = 0.0;
+                    for (int k = 1; k <= 8; ++k) {
+                        sum_of_phi_neighbors += r2Neighbors[k];
+                    }
+                    uint8_t res = 0;
+                    for(int i = 1; i < 9; i++){
+                        double scale = r2Neighbors[i] * size;
+                        if(scale >= sum_of_phi_neighbors){
+                             res += static_cast<uint8_t>(1 << (i - 1));
+                        }
+
+                    }
+                    int x = 9;
+                    if(checkU2(res) <= 2){
+                        x =  getSumPixel(res);
+                    }
+                    newMat.at<uchar>(i - r, j - r) = static_cast<uchar>(x);
+ 
+
+
+                }
+            }
+            return newMat;
+
+
+
+        }
         std::vector<uint16_t> jointHistogram(const cv::Mat& ci, const cv::Mat& ni, const cv::Mat& rd) {
             CV_Assert(ci.size() == ni.size() && ni.size() == rd.size());
             int width = ci.rows;
@@ -453,13 +492,25 @@ namespace LBP
             // write2File("../ci_r2_cpp.txt", ci_r2);
             // write2File("../ci_r4_cpp.txt", ci_r4);
             // write2File("../ci_r6_cpp.txt", ci_r6);
-
+#ifdef NI_OP
             cv::Mat ni_r2 = niCalc(m_3x3, 2);
             cv::Mat ni_r4 = niCalc(m_5x5, 4);
             cv::Mat ni_r6 = niCalc(m_7x7, 6);
             #ifdef USE_R8
             cv::Mat ni_r8 = niCalc(m_9x9, 8);
             #endif
+
+#else 
+            cv::Mat ni_r2 = niCalcOg(m_3x3, 2);
+            cv::Mat ni_r4 = niCalcOg(m_5x5, 4);
+            cv::Mat ni_r6 = niCalcOg(m_7x7, 6);
+            #ifdef USE_R8
+            cv::Mat ni_r8 = niCalcOg(m_9x9, 8);
+            #endif
+
+
+
+#endif
 
             // write2File("../ni_r2_cpp.txt", ni_r2);
             // write2File("../ni_r4_cpp.txt", ni_r4);

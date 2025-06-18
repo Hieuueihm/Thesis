@@ -1,0 +1,71 @@
+\clearpage
+\phantomsection
+
+\addcontentsline{toc}{chapter}{{Mở đầu}}
+\chapter*{Mở đầu}
+\noindent{\Large \textbf{Lý do chọn đề tài}}
+\vspace{0.3cm}
+\\ Với sự phát triển nhanh chóng của dữ liệu, phần cứng, các nhu cầu về ứng dụng của trí tuệ nhân tạo trong đời sống đang trở nên cấp thiết. Các phương pháp xử lý ảnh và thị giác máy hiện đại đã đóng một vai trò quan trọng trong các bài toán về phân loại hình ảnh, nhận diện mẫu, ... Kết cấu là khía cạnh cơ bản nhất của một bức tranh hay hình ảnh, góp phần tạo nên sự nhận dạng của bức tranh đó. Trong các bài toán về thị giác máy, thông tin kết cấu đóng vai trò quan trọng trong việc phân biệt các đối tượng có hình dạng tương tự nhưng thuộc các lớp khác nhau. Số lượng lớn các hình ảnh của vệ tinh, lâm nghiệp,... có thể được xác định  dựa vào kết cấu của chúng. Chẳng hạn, trong phân loại hình ảnh vệ tinh, kết cấu giúp phân biệt giữa rừng, đất nông nghiệp. 
+
+
+Mặc dù các phương pháp học sâu đã ngày càng trở nên phổ biến hơn trong nhiều ứng dụng trong suốt thập kỷ qua, việc sử dụng các mô tả (descriptors) vẫn quan trọng trong nhiều lĩnh vực, những nơi mà không có đủ dữ liệu và tài nguyên tính toán để huấn luyện các mô hình phức tạp như CNN. MRELBP là một biến thể nâng cao của LBP (Local Binary Pattern), được thiết kế để khắc phục nhược điểm của LBP gốc như nhạy cảm với nhiễu và giới hạn trong việc phát hiện các cấu trúc có quy mô lớn. MRELBP sử dụng giá trị trung vị thay vì giá trị trung tâm để mã hóa thông tin kết cấu, giúp tăng tính ổn định khi gặp nhiễu và giữ lại thông tin tốt hơn ở các vùng có biến thiên nhỏ. Điểm mạnh của MRELBP nằm ở khả năng tính toán đơn giản. MRELBP có thể kết hợp với các mô hình huấn luyện cổ điển như SVM, KNN với tập dữ liệu không nhiều nhưng cho những kết quả tốt. Với CNN, đặc trưng được trích xuất thông qua các tầng tích chập và phi tuyến. Sau đó, đặc trưng được cung cấp vào những lớp huấn luyện phức tạp. Nhờ vào khả năng học biểu diễn mạnh mẽ, CNN vượt trội trong các bài toán phân loại hình ảnh phức tạp như nhận dạng khuôn mặt, nhận dạng đối tượng. Tuy nhiên, CNN cần một lượng lớn dữ liệu để huấn luyện, tài nguyên tính toán mạnh mẽ và tiêu tốn nhiều tài nguyên phần cứng vì cần rất nhiều các lớp tích chập để đưa ra được các đặc trưng nhiều ý nghĩa. Đã có những chứng minh cho thấy rằng việc sử dụng các phương pháp mô tả truyền thống như LBP đạt được những kết quả cao hơn CNNs trong nhiều tình huống \cite{Liu2017}. Do đó, LBP vẫn chứng minh được tính hiệu quả của mình. Tuy nhiên, LBP là một phương pháp nhạy cảm với các yếu tố về nhiễu và không có khả năng nắm bắt các cấu trúc vĩ mô. Có rất nhiều biến thể của LBP đã được đề xuất như Local Tenary Pattern (LTP), Extended Local Binary Pattern (ELBP),... Trong số đó, MRELBP là một trong những biến thể có được kết quả cao nhất với kết quả đạt lần lượt 99.82\%, 99.38\% và 99.77\% trong 3 tập dữ liệu của bộ dữ liệu Outex-TC \cite{Liu2016}.   
+
+
+Việc ứng dụng các giải pháp trí tuệ nhân tạo vào đời sống là điều cần thiết, tuy nhiên, các thách thức về thời gian thực vẫn luôn là thách thức lớn. Các hệ thống nhúng nhỏ gọn dùng để thực hiện một chức năng chuyên biệt đang ngày càng chiếm vị trí quan trọng vì chúng có thể đạt được hiệu năng cao hơn rất nhiều. Do đó, mục tiêu của đồ án này là nghiên cứu và thực hiện phần cứng tăng tốc xử lý cho bộ trích xuất đặc trưng sử dụng MRELBP nhằm giảm thời gian tính toán. Để triển khai và kiểm thử trong thực tế, sinh viên sẽ xây dựng một hệ thống System on Chip (SoC) trên bo mạch ZCU106 với IP đã được thiết kế để đảm bảo tính chính xác, khả năng mở rộng và các yếu tố về tăng tốc thời gian.
+\vspace{0.3cm}
+
+
+\noindent{\Large \textbf{Phương pháp nghiên cứu}}
+\vspace{0.3cm}
+
+Trong đồ án, để đạt được mục đích nghiên cứu, sinh viên đã tìm
+hiểu các tài liệu, bài báo, tạp chí quốc tế,... có uy tín, thực hiện việc tính toán mô hình dữ liệu, phân tích số học để đưa ra các hướng giải quyết hợp lý, và sau đó kiểm nghiệm lại kết quả bằng hình thức mô phỏng bằng simulation trên phần mềm Vivado, triển khai tích hợp IP với hệ thống SoC và kiểm nghiệm lại với Integrated Logic Analyzer (ILA), so sánh kết quả đạt được với phần mềm đã có.  Cụ thể các phương pháp nghiên cứu sau đã được sử dụng trong đồ án:
+\renewcommand{\labelitemi}{$-$}
+\begin{itemize}
+	\item Sử dụng kỹ thuật Line Buffer để giảm truy cập bộ nhớ, đồng thời xây dựng nên các cửa sổ phù hợp cho việc tính toán.
+	\item Sử dụng kiến trúc Systolic cho bộ tính toán trung vị.
+	\item Nghiên cứu phương pháp cửa sổ dịch cho các bộ tính toán tổng ma trận.
+	\item Tính toán, thiết kế bộ nội suy song tuyến tính cho 24-bit dấu phẩy tĩnh.
+	\item Mô phỏng và kiểm thử hệ thống trên phần mềm Vivado để đánh giá tính đúng đắn của thiết kế.
+	\item Sử dụng công cụ ILA (Integrated Logic Analyzer) để phân tích tín hiệu nội bộ và xác thực hoạt động của hệ thống trên nền tảng FPGA.
+	 
+\end{itemize} 
+\noindent{\Large \textbf{Nội dung nghiên cứu}}
+\renewcommand{\labelitemi}{$-$}
+\begin{itemize}
+	\item Tìm hiểu về thuật toán MRELBP, đánh giá, so sánh với các biến thể khác của LBP và các thuật toán khác cho bài toán trích xuất đặc trưng.
+	\item Xây dựng kiến trúc tổng thể và chi tiết cho toàn bộ hệ thống.
+	\item Triển khai HDL, mô phỏng và kiểm thử.
+	\item Tìm hiểu bo mạch ZCU106 và triển khai hệ thống SoC.
+	\item Kiểm nghiệm lại toàn bộ hệ thống, so sánh và đánh giá kết quả đạt được.
+\end{itemize} 
+\noindent{\Large \textbf{Đóng góp của đề tài}}
+\vspace{0.3cm}
+
+Với sự hiểu biết của sinh viên, những kết quả nghiên cứu trong đồ án đã đạt được mục đích nghiên cứu đề ra. Những kết quả này bao gồm:
+
+\renewcommand{\labelitemi}{$-$}
+\begin{itemize}
+	\item Xây dựng được kiến trúc cho bộ tăng tốc phần cứng.
+	\item Triển khai HDL, mô phỏng và kiểm tra.
+	\item Kiểm nghiệm kết quả phần cứng và phần mềm với tập dữ liệu Outex-TC.
+	\item Xây dựng hệ thống SoC sử dụng IP đã thiết kế.
+	\item Đánh giá, phân tích kết quả thu được với kết quả mô phỏng và thực tế.
+\end{itemize} 
+
+\noindent{\Large \textbf{Bố cục của đồ án}}
+\vspace{0.5cm}
+
+Nội dung chính của đồ án được trình bày như sau:
+
+\renewcommand{\labelitemi}{$-$}
+\begin{itemize}
+	\item \textbf{Mở đầu:} Trình bày mục đích, phương pháp nghiên cứu, nội dung, đóng góp và bố cục của đồ án.
+	\item \textbf{Chương 1: Cơ sở lý thuyết} - Các khái niệm cơ bản về các phương pháp trích xuất đặc trưng truyền thống, LBP, MRELBP, kỹ thuật xử lý, chuẩn giao tiếp và phần mềm sử dụng.
+    \item  \textbf{Chương 2: Đặc tả kỹ thuật} - Đưa ra các mô tả và yêu cầu kỹ thuật cho từng mô-đun trong thiết kế IP.
+	\item  \textbf{Chương 3: Thiết kế RTL} - Trình bày chi tiết ở mức RTL cho các mô-đun của thiết kế, thuật toán sử dụng.
+    
+	\item\textbf{Chương 4: Kiểm thử} - Trình bày phương pháp kiểm thử, mô phỏng và kiểm tra quá trình, kết quả hoạt động.
+	\item  \textbf{Chương 5: Thực thi và đánh giá} - Thực hiện thực thi, đánh giá về bộ tăng tốc trên bo mạch ZCU106, các hạn chế và đề xuất phương hướng. 
+    \item \textbf{Kết luận: }Tổng kết về công việc đã thực hiện và kết quả đạt được.
+\end{itemize} 

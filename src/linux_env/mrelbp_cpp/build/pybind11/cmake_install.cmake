@@ -1,4 +1,4 @@
-# Install script for directory: /home/hieu/workspace/mrelbp_cpp/pybind11
+# Install script for directory: /home/hieu/Workspace/Thesis/src/linux_env/mrelbp_cpp/pybind11
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
