@@ -1,0 +1,7 @@
+dataset/Outex-TC-00011n/images/000020.bmp - Execution Time: 0.3921 seconds
+dataset/Outex-TC-00011n/images/000021.bmp - Execution Time: 0.3965 seconds
+dataset/Outex-TC-00011n/images/000022.bmp - Execution Time: 0.4059 seconds
+dataset/Outex-TC-00011n/images/000023.bmp - Execution Time: 0.4083 seconds
+dataset/Outex-TC-00011n/images/000024.bmp - Execution Time: 0.3977 seconds
+dataset/Outex-TC-00011n/images/000025.bmp - Execution Time: 0.3778 seconds
+dataset/Outex-TC-00011n/images/000026.bmp - Execution Time: 0.4117 seconds

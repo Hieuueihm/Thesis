@@ -1,8 +1,0 @@
-[
-{
-  "directory": "D:/Thesis/build",
-  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -Dmrelbp_EXPORTS @CMakeFiles/mrelbp.dir/includes_CXX.rsp -g -std=gnu++14 -fvisibility=hidden -o CMakeFiles\\mrelbp.dir\\main.cpp.obj -c D:\\Thesis\\src\\mrelbp_cpp\\main.cpp",
-  "file": "D:/Thesis/src/mrelbp_cpp/main.cpp",
-  "output": "CMakeFiles/mrelbp.dir/main.cpp.obj"
-}
-]

@@ -1,3 +1,0 @@
-"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\mrelbp.dir/objects.a
-C:\msys64\mingw64\bin\ar.exe qc CMakeFiles\mrelbp.dir/objects.a @CMakeFiles\mrelbp.dir\objects1.rsp
-C:\msys64\mingw64\bin\g++.exe -g -shared -o mrelbp.cp312-win_amd64.pyd -Wl,--major-image-version,0,--minor-image-version,0 -Wl,--whole-archive CMakeFiles\mrelbp.dir/objects.a -Wl,--no-whole-archive @CMakeFiles\mrelbp.dir\linkLibs.rsp

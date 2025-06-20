@@ -1,0 +1,6 @@
+accuracy svm = 62.083333333333336
+accuracy nb = 64.79166666666667
+accuracy lr = 58.75
+accuracy knn = 75.625
+Total time: 1705.5149 seconds
+Average time per image: 0.9269 seconds
