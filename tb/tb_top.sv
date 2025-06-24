@@ -122,9 +122,9 @@ module tb_top;
             $display("[WRITE] Addr = 0x%08X, Data = 0x%08X", addr, data);
         end
     endtask
-initial begin
-    $readmemh("/home/hieu/Workspace/IP/MRELBP/src/matrix_input_hex.txt", matrix);  
-  end
+// initial begin
+//     $readmemh("../src/python/matrix_input_hex.txt", matrix);  
+//   end
   // Output file handles
   integer fout_3x3, fout_5x5, fout_7x7;
   integer fout_ci_r2, fout_ci_r4, fout_ci_r6;
@@ -132,22 +132,22 @@ initial begin
   integer fout_r4_ni, fout_r4_rd;
   integer fout_r6_ni, fout_r6_rd;
   integer fout_jh;
-  initial begin
-      fout_3x3 = $fopen("/home/hieu/Workspace/IP/MRELBP/src/check_median/median_3x3.txt", "w");
-      fout_5x5 = $fopen("/home/hieu/Workspace/IP/MRELBP/src/check_median/median_5x5.txt", "w");
-      fout_7x7 = $fopen("/home/hieu/Workspace/IP/MRELBP/src/check_median/median_7x7.txt", "w");
-      fout_ci_r2 = $fopen("/home/hieu/Workspace/IP/MRELBP/src/check_ci/ci_r2.txt", "w");
-      fout_ci_r4 = $fopen("/home/hieu/Workspace/IP/MRELBP/src/check_ci/ci_r4.txt", "w");
-      fout_ci_r6 = $fopen("/home/hieu/Workspace/IP/MRELBP/src/check_ci/ci_r6.txt", "w");
-      fout_r2_ni = $fopen("/home/hieu/Workspace/IP/MRELBP/src/check_nird/ni_r2.txt", "w");
-      fout_r2_rd = $fopen("/home/hieu/Workspace/IP/MRELBP/src/check_nird/rd_r2.txt", "w");
-      fout_r4_ni = $fopen("/home/hieu/Workspace/IP/MRELBP/src/check_nird/ni_r4.txt", "w");
-      fout_r4_rd = $fopen("/home/hieu/Workspace/IP/MRELBP/src/check_nird/rd_r4.txt", "w");
-      fout_r6_ni = $fopen("/home/hieu/Workspace/IP/MRELBP/src/check_nird/ni_r6.txt", "w");
-      fout_r6_rd = $fopen("/home/hieu/Workspace/IP/MRELBP/src/check_nird/rd_r6.txt", "w");
-      fout_jh = $fopen("/home/hieu/Workspace/IP/MRELBP/src/histogram_verilog.txt", "w");
+  // initial begin
+  //     fout_3x3 = $fopen("../src/python/check_median/median_3x3.txt", "w");
+  //     fout_5x5 = $fopen("../src/python/check_median/median_5x5.txt", "w");
+  //     fout_7x7 = $fopen("../src/python/check_median/median_7x7.txt", "w");
+  //     fout_ci_r2 = $fopen("../src/python/check_ci/ci_r2.txt", "w");
+  //     fout_ci_r4 = $fopen("../src/python/check_ci/ci_r4.txt", "w");
+  //     fout_ci_r6 = $fopen("../src/python/check_ci/ci_r6.txt", "w");
+  //     fout_r2_ni = $fopen("../src/python/check_nird/ni_r2.txt", "w");
+  //     fout_r2_rd = $fopen("../src/python/check_nird/rd_r2.txt", "w");
+  //     fout_r4_ni = $fopen("../src/python/check_nird/ni_r4.txt", "w");
+  //     fout_r4_rd = $fopen("../src/python/check_nird/rd_r4.txt", "w");
+  //     fout_r6_ni = $fopen("../src/python/check_nird/ni_r6.txt", "w");
+  //     fout_r6_rd = $fopen("../src/python/check_nird/rd_r6.txt", "w");
+  //     fout_jh = $fopen("../src/python/histogram_verilog.txt", "w");
 
-    end
+  //   end
 
   // Monitor and log median results
   always @(posedge clk) begin
@@ -194,6 +194,20 @@ initial begin
     axi_write(4'h0, 32'h00000001);  // start bit = 1 (bit 0), config=2
 
     // Feed image matrix
+    for (i = 0; i < img_size * 10; i = i) begin
+      @(posedge clk);
+      if (s_axis_tready) begin
+        s_axis_tdata  <= matrix[i];
+        s_axis_tvalid <= 1;
+        i = i + 1;
+      end
+    end
+    @(posedge clk);
+    s_axis_tvalid <= 0;
+    axi_write(4'h0, 32'h00000002);  // reset
+    axi_write(4'h0, 32'h00000001);  // start bit = 1 (bit 0), config=2
+
+    // Feed image matrix
     for (i = 0; i < img_size * img_size; i = i) begin
       @(posedge clk);
       if (s_axis_tready) begin
@@ -202,7 +216,6 @@ initial begin
         i = i + 1;
       end
     end
-
     @(posedge clk);
     s_axis_tvalid <= 0;
 
