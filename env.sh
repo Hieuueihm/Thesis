@@ -1,4 +1,3 @@
 #!/bin/bash
-# === Project Root Path ===
-export PROJECT_ROOT=$(pwd)
-echo "[✓] Environment set up. PROJECT_ROOT=$PROJECT_ROOT"
+export PROJECT_ROOT="/home/hieu/Workspace/Thesis"
+echo "[✓] PROJECT_ROOT set to: $PROJECT_ROOT"

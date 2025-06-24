@@ -1,4 +1,5 @@
 #!/bin/bash
+source ../../../env.sh
 echo "DEBUG: PROJECT_ROOT=$PROJECT_ROOT"
 
 rm -f $PROJECT_ROOT/src/train/python/mrelbp*
