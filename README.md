@@ -1,1 +1,63 @@
-# Thesis ProjectThis is a hardware/software co-design project for FPGA/embedded system.  It includes HDL sources, testbenches, reports, and setup scripts for building and simulating the design.---## 📂 Project Structure```Thesis/├── docs/           # Project documentation, diagrams, references│   ├── plantuml/   # Diagrams created using PlantUML│   ├── references/ # Papers, datasheets, reference materials│   └── wavedrom/   # Waveform diagrams (Wavedrom JSON/SVG files)├── env.sh          # Environment variable setup script├── hdl/            # HDL source code (Verilog, VHDL, SystemVerilog)│   ├── new_v/      # New HDL version│   └── old_v/      # Older HDL code versions├── old_version/    # Archived or legacy project components│   ├── hls/        # Old high-level synthesis code│   ├── linux_env/  # Old Linux environment or kernel code│   ├── modules/    # Old kernel or software modules│   ├── sw/         # Old software code│   └── test_benches/ # Old testbenches├── README.md       # This project description file├── report/         # Reports and result documents│   ├── drawio/     # Diagrams created using draw.io│   ├── images_rp/  # Images for reports and documentation│   └── My_Thesis/  # Main thesis report files├── setup.sh        # Generates env.sh with current PROJECT_ROOT├── src/            # Software source code (C/C++, Python, HLS, SoC)│   ├── cpp/        # C++ source files│   ├── hls/        # High-level synthesis code│   ├── python/     # Python scripts│   ├── soc/        # SoC-related code or configurations│   └── train/      # Training scripts or models (e.g., for ML)├── tb/             # Testbenches for simulation│   └── uvm/        # UVM testbenches (SystemVerilog verification)```---## 🚀 How to setupAfter cloning the repository:```bashgit clone https://github.com/yourname/Thesis.gitcd Thesissource setup.shsource env.sh```✅ `setup.sh` will create `env.sh` with `PROJECT_ROOT` pointing to the current project directory.  ✅ `env.sh` will export `PROJECT_ROOT` when sourced.---## ⚙ UsageTo use the Python training script:```bashcd $PROJECT_ROOT/src/train/pythonsource auto.sh```
+# Thesis Project
+
+This is a hardware/software co-design project for FPGA/embedded system.  
+It includes HDL sources, testbenches, reports, and setup scripts for building and simulating the design.
+
+---
+
+## 📂 Project Structure
+```
+Thesis/
+├── docs/           # Project documentation, diagrams, references
+│   ├── plantuml/   # Diagrams created using PlantUML
+│   ├── references/ # Papers, datasheets, reference materials
+│   └── wavedrom/   # Waveform diagrams (Wavedrom JSON/SVG files)
+├── env.sh          # Environment variable setup script
+├── hdl/            # HDL source code (Verilog, VHDL, SystemVerilog)
+│   ├── new_v/      # New HDL version
+│   └── old_v/      # Older HDL code versions
+├── old_version/    # Archived or legacy project components
+│   ├── hls/        # Old high-level synthesis code
+│   ├── linux_env/  # Old Linux environment or kernel code
+│   ├── modules/    # Old kernel or software modules
+│   ├── sw/         # Old software code
+│   └── test_benches/ # Old testbenches
+├── README.md       # This project description file
+├── report/         # Reports and result documents
+│   ├── drawio/     # Diagrams created using draw.io
+│   ├── images_rp/  # Images for reports and documentation
+│   └── My_Thesis/  # Main thesis report files
+├── setup.sh        # Generates env.sh with current PROJECT_ROOT
+├── src/            # Software source code (C/C++, Python, HLS, SoC)
+│   ├── cpp/        # C++ source files
+│   ├── hls/        # High-level synthesis code
+│   ├── python/     # Python scripts
+│   ├── soc/        # SoC-related code or configurations
+│   └── train/      # Training scripts or models (e.g., for ML)
+├── tb/             # Testbenches for simulation
+│   └── uvm/        # UVM testbenches (SystemVerilog verification)
+```
+
+---
+
+## 🚀 How to setup
+After cloning the repository:
+```bash
+git clone https://github.com/Hieuueihm/Thesis.git
+cd Thesis
+source setup.sh
+source env.sh
+```
+
+
+## ⚙ Usage
+
+To use the Python training script:
+```bash
+cd $PROJECT_ROOT/src/train/python
+source auto.sh
+
+```
+
+
+
