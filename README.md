@@ -41,7 +41,7 @@ Thesis/
 ---
 
 ## 🚀 How to setup
-After cloning the repository:
+Clone the repository:
 ```bash
 git clone https://github.com/Hieuueihm/Thesis.git
 cd Thesis
